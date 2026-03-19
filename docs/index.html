@@ -334,7 +334,7 @@ function renderMetrics(){
         <div class="metric v-yellow"><div class="metric-label">Changes</div><div class="metric-val">${c}</div></div>
         <div class="metric v-green"><div class="metric-label">Stable</div><div class="metric-val">${t-c-e}</div></div>
         <div class="metric v-red"><div class="metric-label">Security Findings</div><div class="metric-val">${f}</div></div>
-        <div class="metric v-accent"><div class="metric-label">Report Date</div><div class="metric-val" style="font-size:17px">${latest.date}</div></div>`;
+        <div class="metric v-accent"><div class="metric-label">Last Scan</div><div class="metric-val" style="font-size:15px">${latest.scan_time||latest.date}</div></div>`;
 }
 
 /* ─── MODULE FINDINGS ─── */

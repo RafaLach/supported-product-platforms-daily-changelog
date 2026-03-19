@@ -109,8 +109,14 @@ for report_file in report_files:
             if line.startswith('- '):
                 highlights.append(line[2:])
 
+    # Get file modification time as scan timestamp
+    mtime = os.path.getmtime(report_file)
+    from datetime import datetime
+    scan_time = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')
+
     index.append({
         'date': date,
+        'scan_time': scan_time,
         'file': filename,
         'platforms': platforms,
         'aidr': aidr_items,
