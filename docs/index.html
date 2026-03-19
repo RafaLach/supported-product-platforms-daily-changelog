@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenity Platform Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --surface-hover: #1c2129;
+            --border: #30363d;
+            --text: #e6edf3;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --green: #3fb950;
+            --yellow: #d29922;
+            --red: #f85149;
+            --purple: #bc8cff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .header .badge {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 32px;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .stat-card .label {
+            color: var(--text-muted);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card .value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .stat-card .value.green { color: var(--green); }
+        .stat-card .value.yellow { color: var(--yellow); }
+        .stat-card .value.red { color: var(--red); }
+        .stat-card .value.accent { color: var(--accent); }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 24px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .report-list {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .report-list h2 {
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .report-item {
+            padding: 10px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .report-item:last-child { border-bottom: none; }
+        .report-item:hover { background: var(--surface-hover); }
+        .report-item.active { background: var(--surface-hover); border-left: 3px solid var(--accent); }
+
+        .report-item .date {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .report-item .changes-badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .changes-badge.has-changes { background: rgba(210, 153, 34, 0.15); color: var(--yellow); }
+        .changes-badge.no-changes { background: rgba(63, 185, 80, 0.15); color: var(--green); }
+        .changes-badge.initial { background: rgba(88, 166, 255, 0.15); color: var(--accent); }
+
+        .platform-grid {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .platform-grid h2 {
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .platform-grid-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            padding: 1px;
+        }
+
+        .platform-cell {
+            background: var(--surface);
+            padding: 12px;
+            text-align: center;
+        }
+
+        .platform-cell .name {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .platform-cell .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-dot.changed { background: var(--yellow); box-shadow: 0 0 6px rgba(210,153,34,0.4); }
+        .status-dot.stable { background: var(--green); box-shadow: 0 0 6px rgba(63,185,80,0.4); }
+        .status-dot.error { background: var(--red); box-shadow: 0 0 6px rgba(248,81,73,0.4); }
+        .status-dot.initial { background: var(--accent); box-shadow: 0 0 6px rgba(88,166,255,0.4); }
+        .status-dot.unknown { background: var(--text-muted); }
+
+        .platform-cell .status-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .report-content {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+            min-height: 400px;
+        }
+
+        .report-content h1 { font-size: 24px; margin-bottom: 16px; color: var(--accent); }
+        .report-content h2 { font-size: 18px; margin: 24px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+        .report-content h3 { font-size: 15px; margin: 16px 0 8px; color: var(--purple); }
+        .report-content p { margin: 8px 0; color: var(--text); }
+        .report-content ul, .report-content ol { margin: 8px 0 8px 24px; }
+        .report-content li { margin: 4px 0; }
+        .report-content strong { color: var(--text); }
+        .report-content code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+        .report-content pre { background: var(--bg); padding: 16px; border-radius: 6px; overflow-x: auto; margin: 12px 0; }
+        .report-content a { color: var(--accent); text-decoration: none; }
+        .report-content a:hover { text-decoration: underline; }
+        .report-content hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+        .report-content em { color: var(--text-muted); }
+        .report-content table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+        .report-content th, .report-content td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+        .report-content th { background: var(--bg); font-weight: 600; }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            color: var(--text-muted);
+        }
+
+        .empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+        .empty-state p { font-size: 14px; }
+
+        .loading { color: var(--text-muted); padding: 24px; text-align: center; }
+
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .container { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Zenity Platform Monitor</h1>
+        <span class="badge">Dashboard</span>
+    </div>
+
+    <div class="container">
+        <div class="stats-bar" id="stats-bar"></div>
+
+        <div class="main-grid">
+            <div class="sidebar">
+                <div class="report-list">
+                    <h2>Reports</h2>
+                    <div id="report-list-items">
+                        <div class="loading">Loading reports...</div>
+                    </div>
+                </div>
+                <div class="platform-grid">
+                    <h2>Platform Status</h2>
+                    <div class="platform-grid-inner" id="platform-grid"></div>
+                </div>
+            </div>
+
+            <div class="report-content" id="report-content">
+                <div class="empty-state">
+                    <div class="icon">📊</div>
+                    <p>Select a report from the sidebar to view details</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const REPORT_INDEX_URL = 'report-index.json';
+        let reports = [];
+        let currentReport = null;
+
+        async function init() {
+            try {
+                const res = await fetch(REPORT_INDEX_URL);
+                reports = await res.json();
+                reports.sort((a, b) => b.date.localeCompare(a.date));
+                renderReportList();
+                renderStats();
+                if (reports.length > 0) {
+                    loadReport(reports[0]);
+                }
+            } catch (e) {
+                document.getElementById('report-list-items').innerHTML =
+                    '<div class="loading">No reports found yet. Run the monitor to generate your first report.</div>';
+                renderEmptyStats();
+            }
+        }
+
+        function renderStats() {
+            const latest = reports[0];
+            const totalPlatforms = latest ? latest.platforms.length : 0;
+            const changed = latest ? latest.platforms.filter(p => p.status === 'changed').length : 0;
+            const errors = latest ? latest.platforms.filter(p => p.status === 'error').length : 0;
+            const stable = totalPlatforms - changed - errors;
+
+            document.getElementById('stats-bar').innerHTML = `
+                <div class="stat-card">
+                    <div class="label">Platforms Monitored</div>
+                    <div class="value accent">${totalPlatforms}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Changes Detected</div>
+                    <div class="value yellow">${changed}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Stable</div>
+                    <div class="value green">${stable}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Fetch Errors</div>
+                    <div class="value red">${errors}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Total Reports</div>
+                    <div class="value accent">${reports.length}</div>
+                </div>
+            `;
+        }
+
+        function renderEmptyStats() {
+            document.getElementById('stats-bar').innerHTML = `
+                <div class="stat-card">
+                    <div class="label">Platforms Monitored</div>
+                    <div class="value accent">19</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Status</div>
+                    <div class="value" style="font-size:16px;color:var(--text-muted)">Awaiting first run</div>
+                </div>
+            `;
+        }
+
+        function renderReportList() {
+            const container = document.getElementById('report-list-items');
+            container.innerHTML = reports.map((r, i) => {
+                const changedCount = r.platforms.filter(p => p.status === 'changed').length;
+                const isInitial = r.platforms.some(p => p.status === 'initial');
+                let badgeClass, badgeText;
+                if (isInitial) {
+                    badgeClass = 'initial';
+                    badgeText = 'Initial';
+                } else if (changedCount > 0) {
+                    badgeClass = 'has-changes';
+                    badgeText = `${changedCount} changed`;
+                } else {
+                    badgeClass = 'no-changes';
+                    badgeText = 'No changes';
+                }
+                return `
+                    <div class="report-item" data-index="${i}" onclick="loadReport(reports[${i}])">
+                        <span class="date">${r.date}</span>
+                        <span class="changes-badge ${badgeClass}">${badgeText}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderPlatformGrid(platforms) {
+            const container = document.getElementById('platform-grid');
+            container.innerHTML = platforms.map(p => {
+                let dotClass, label;
+                switch (p.status) {
+                    case 'changed': dotClass = 'changed'; label = 'Changed'; break;
+                    case 'stable': dotClass = 'stable'; label = 'Stable'; break;
+                    case 'error': dotClass = 'error'; label = 'Error'; break;
+                    case 'initial': dotClass = 'initial'; label = 'Initial'; break;
+                    default: dotClass = 'unknown'; label = 'Unknown';
+                }
+                return `
+                    <div class="platform-cell">
+                        <div class="name" title="${p.name}">${p.name}</div>
+                        <span class="status-dot ${dotClass}"></span>
+                        <div class="status-label">${label}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function loadReport(report) {
+            currentReport = report;
+
+            // Highlight active
+            document.querySelectorAll('.report-item').forEach(el => el.classList.remove('active'));
+            const idx = reports.indexOf(report);
+            const items = document.querySelectorAll('.report-item');
+            if (items[idx]) items[idx].classList.add('active');
+
+            // Render platform grid
+            renderPlatformGrid(report.platforms);
+
+            // Load and render markdown
+            const container = document.getElementById('report-content');
+            container.innerHTML = '<div class="loading">Loading report...</div>';
+
+            try {
+                const res = await fetch(report.file);
+                const md = await res.text();
+                container.innerHTML = marked.parse(md);
+            } catch (e) {
+                container.innerHTML = `<div class="empty-state"><div class="icon">⚠️</div><p>Failed to load report: ${report.file}</p></div>`;
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>

@@ -27,10 +27,11 @@ Your job is to check for recent changes in the documentation, API references, an
 
 6. **Save the report** to `~/zenity-platform-monitor/reports/report-YYYY-MM-DD.md`
 
-7. **Git commit and push**: After saving the report, commit the updated report and cache files to git and push to origin so the changes are visible on GitHub:
+7. **Build dashboard index and push to git**:
    ```
    cd ~/zenity-platform-monitor
-   git add reports/ cache/
+   bash build-index.sh
+   git add reports/ cache/ docs/
    git commit -m "Platform monitor report — YYYY-MM-DD"
    git push origin main
    ```

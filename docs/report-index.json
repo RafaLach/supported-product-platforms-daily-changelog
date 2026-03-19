@@ -1,0 +1,5 @@
+[
+  {"date": "2026-03-19", "file": "report-2026-03-19.md", "platforms": [{"name": "Microsoft Copilot (M365)", "status": "stable"}, {"name": "Microsoft Copilot Studio", "status": "changed"}, {"name": "Azure AI Foundry", "status": "stable"}, {"name": "Salesforce AgentForce", "status": "changed"}, {"name": "ChatGPT Enterprise (OpenAI)", "status": "stable"}, {"name": "Claude Enterprise (Anthropic)", "status": "changed"}]}
+,
+  {"date": "2026-03-18", "file": "report-2026-03-18.md", "platforms": [{"name": "Microsoft Copilot (M365)", "status": "initial"}, {"name": "Microsoft Copilot Studio", "status": "initial"}, {"name": "Azure AI Foundry", "status": "initial"}, {"name": "Salesforce AgentForce", "status": "initial"}, {"name": "ChatGPT Enterprise (OpenAI)", "status": "initial"}, {"name": "Claude Enterprise (Anthropic)", "status": "initial"}]}
+]
