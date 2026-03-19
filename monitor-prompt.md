@@ -19,7 +19,7 @@ Your job is to check for recent changes in the documentation, API references, an
 5. **Generate a daily report** in Markdown format:
    - Title: "Platform Monitor Report — YYYY-MM-DD"
    - **Key Highlights** section at the top with the most important changes
-   - **Platform Details** section with each platform listing changes or "No changes detected"
+   - **Platform Details** section with each platform listing changes or "No changes detected". For each change bullet point, include the exact source URL where it was found at the end (e.g., "New feature X released. Source: https://example.com/changelog")
    - **Zenity Security Relevance Assessment** section — this is the most important section. Categorize every actionable change into two groups:
 
      ### AIDR (AI Detection & Response)
@@ -40,7 +40,7 @@ Your job is to check for recent changes in the documentation, API references, an
      - Any AI tool running on the developer's local machine
      - MCP servers, plugins, extensions that run at the endpoint level
 
-     IMPORTANT: Every finding in ALL three sections MUST end with "Source: <URL>" pointing to the specific source page where the change was found. This is required for the dashboard to link to the original announcement.
+     CRITICAL FORMAT REQUIREMENT: Every finding line in ALL three sections MUST end with "Source: <FULL_URL>" — this is the exact URL from sources.json where you detected the change. Use the actual URL you fetched (e.g., https://cursor.com/changelog, https://github.com/openai/openai-python/releases, https://cloud.google.com/vertex-ai/docs/release-notes). This is mandatory — the dashboard parses these URLs to create clickable links to the original source. If a finding was detected from multiple sources, use the most specific one. Never omit the Source field.
 
    - **Errors** section listing any failed fetches
 
