@@ -1,5 +1,205 @@
 [
-  {"date": "2026-03-19", "file": "report-2026-03-19.md", "platforms": [{"name": "Microsoft Copilot (M365)", "status": "stable"}, {"name": "Microsoft Copilot Studio", "status": "changed"}, {"name": "Azure AI Foundry", "status": "stable"}, {"name": "Salesforce AgentForce", "status": "changed"}, {"name": "ChatGPT Enterprise (OpenAI)", "status": "stable"}, {"name": "Claude Enterprise (Anthropic)", "status": "changed"}]}
-,
-  {"date": "2026-03-18", "file": "report-2026-03-18.md", "platforms": [{"name": "Microsoft Copilot (M365)", "status": "initial"}, {"name": "Microsoft Copilot Studio", "status": "initial"}, {"name": "Azure AI Foundry", "status": "initial"}, {"name": "Salesforce AgentForce", "status": "initial"}, {"name": "ChatGPT Enterprise (OpenAI)", "status": "initial"}, {"name": "Claude Enterprise (Anthropic)", "status": "initial"}]}
+  {
+    "date": "2026-03-19",
+    "file": "report-2026-03-19.md",
+    "platforms": [
+      {
+        "name": "Microsoft Copilot (M365)",
+        "status": "stable"
+      },
+      {
+        "name": "Microsoft Copilot Studio",
+        "status": "stable"
+      },
+      {
+        "name": "Azure AI Foundry",
+        "status": "stable"
+      },
+      {
+        "name": "Power Apps",
+        "status": "stable"
+      },
+      {
+        "name": "Power Automate",
+        "status": "stable"
+      },
+      {
+        "name": "Power Pages",
+        "status": "stable"
+      },
+      {
+        "name": "Salesforce AgentForce",
+        "status": "stable"
+      },
+      {
+        "name": "Salesforce Einstein",
+        "status": "stable"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed"
+      },
+      {
+        "name": "Claude Enterprise (Anthropic)",
+        "status": "stable"
+      },
+      {
+        "name": "Amazon Q",
+        "status": "stable"
+      },
+      {
+        "name": "Amazon Bedrock",
+        "status": "stable"
+      },
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "stable"
+      },
+      {
+        "name": "Google Vertex AI",
+        "status": "changed"
+      },
+      {
+        "name": "ServiceNow",
+        "status": "error"
+      },
+      {
+        "name": "Cursor",
+        "status": "changed"
+      },
+      {
+        "name": "Windsurf",
+        "status": "changed"
+      },
+      {
+        "name": "Perplexity",
+        "status": "stable"
+      },
+      {
+        "name": "Dia Browser",
+        "status": "stable"
+      }
+    ],
+    "aidr": [
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Codex data loss vulnerability",
+        "description": "Codex agents reportedly deleting files outside project directories \u2014 directly impacts Data Lens monitoring of agent file activity and AIDR Findings for threat detection",
+        "module": "AIDR"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI ComputerTool GA",
+        "description": "computer_use_preview graduating to production \u2014 requires Activity monitoring expansion for screen-interaction agents",
+        "module": "AIDR"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor Automations",
+        "description": "Always-on agents triggered by external events (Slack, GitHub, PagerDuty) \u2014 new agent Activity patterns to monitor",
+        "module": "AIDR"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Windsurf SKILL.md",
+        "description": "System-level skill injection via MDM \u2014 potential vector for enterprise-wide agent behavior modification, needs Data Lens coverage",
+        "module": "AIDR"
+      },
+      {
+        "severity": "LOW",
+        "title": "OpenAI status incidents",
+        "description": "Multiple service disruptions Mar 17-18 \u2014 Activity monitoring should track availability patterns",
+        "module": "AIDR"
+      }
+    ],
+    "aispm": [
+      {
+        "severity": "HIGH",
+        "title": "Cursor Team Marketplaces",
+        "description": "Enterprise governance controls for private plugins \u2014 new Inventory items (marketplace plugins, MCP apps) to discover and catalog",
+        "module": "AISPM"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI Explainable AI deprecation",
+        "description": "Affects model governance posture \u2014 AISPM Violations may need updated policies for explainability requirements",
+        "module": "AISPM"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor MCP Apps",
+        "description": "30+ new marketplace plugins with cloud agent support \u2014 Inventory needs to discover and map these new tool integrations",
+        "module": "AISPM"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Vertex AI Vector Search 2.0",
+        "description": "VPC/PSC network controls \u2014 Inventory should capture network isolation posture for search deployments",
+        "module": "AISPM"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Copilot Studio Work IQ",
+        "description": "Preview access to real-time M365 data (files, emails, meetings, chats) \u2014 Inventory must map data access scope; AISPM Violations should flag excessive data permissions",
+        "module": "AISPM"
+      },
+      {
+        "severity": "LOW",
+        "title": "Bedrock AgentCore Policy governance",
+        "description": "Cedar-based policy language \u2014 reference architecture for AISPM policy enforcement",
+        "module": "AISPM"
+      }
+    ],
+    "highlights": [
+      "**OpenAI SDK updates**: Python v2.29.0 and Node v6.32.0 add GPT-5.4 nano/mini model support and /v1/videos batch endpoint",
+      "**OpenAI stability concerns**: Multiple incidents on Mar 17-18 (ChatGPT 5.4 Pro errors, Sora failures, auth issues) -- all resolved; community reports Codex data loss vulnerability (agent file deletion outside project directories)",
+      "**Google Vertex AI**: Vertex Explainable AI deprecated (Mar 16); Vector Search 2.0 GA (Mar 5); partner model evaluations expanded",
+      "**Cursor rapid iteration**: 30+ marketplace plugins, Automations (always-on agents), JetBrains IDE support, Team Marketplaces with governance controls",
+      "**Windsurf**: GPT-5.4 Mini now available; Apple M5 hardware support",
+      "**Microsoft Copilot Studio**: Work IQ Preview for real-time M365 insights; Claude Sonnet 4.5 for Computer Use agents",
+      "**Anthropic**: $100M Claude Partner Network; Anthropic Institute launch; Mozilla Firefox security partnership",
+      "**Dia Browser**: v1.22.0 with AI-driven Proactive Suggestions"
+    ]
+  },
+  {
+    "date": "2026-03-18",
+    "file": "report-2026-03-18.md",
+    "platforms": [
+      {
+        "name": "Microsoft Copilot (M365)",
+        "status": "initial"
+      },
+      {
+        "name": "Microsoft Copilot Studio",
+        "status": "initial"
+      },
+      {
+        "name": "Azure AI Foundry",
+        "status": "initial"
+      },
+      {
+        "name": "Salesforce AgentForce",
+        "status": "initial"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "initial"
+      },
+      {
+        "name": "Claude Enterprise (Anthropic)",
+        "status": "initial"
+      }
+    ],
+    "aidr": [],
+    "aispm": [],
+    "highlights": [
+      "First run \u2014 baselines established for all monitored platforms",
+      "**All 3 OpenAI URLs returned HTTP 403** \u2014 these sources block automated fetching and need alternative access methods (browser scraping, RSS feeds, or API-based approaches)",
+      "**Anthropic docs URLs have migrated** from `docs.anthropic.com` to `platform.claude.com` \u2014 config should be updated",
+      "Microsoft ecosystem is very active: GPT-Realtime-1.5/GPT-Audio-1.5 just released in Feb 2026, Copilot Studio added Work IQ tools in Mar 2026",
+      "Salesforce Spring '26 release is now live with \"Agentic Enterprise\" as the primary theme",
+      "Anthropic released Claude Opus 4.6 (Feb 5) and Claude Sonnet 4.6 (Feb 17), raised $30B Series G at $380B valuation",
+      "Copilot Studio now supports Claude models (Opus 4.6, Sonnet 4.5) for prompt building and Computer Use agents"
+    ]
+  }
 ]

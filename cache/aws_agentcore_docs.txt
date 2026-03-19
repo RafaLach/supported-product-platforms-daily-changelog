@@ -1,0 +1,31 @@
+Source: AgentCore Developer Guide
+URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
+Fetched: 2026-03-19
+
+# Amazon Bedrock AgentCore Overview
+
+## Core Definition
+Agentic platform for building, deploying, and operating agents securely at scale using any framework and foundation model.
+
+## Key Services
+1. Runtime — Serverless environment with session isolation, multi-agent support
+2. Memory — Short-term and long-term memory across sessions, shared memory stores
+3. Gateway — MCP-compatible tool conversion, single endpoint access
+4. Identity — Secure agent identity (Cognito, Okta, Azure Entra ID, Auth0)
+5. Code Interpreter — Sandboxed Python, JavaScript, TypeScript execution
+6. Browser Tool — Cloud-based browser runtime (Playwright, BrowserUse)
+7. Observability — OpenTelemetry tracing, CloudWatch integration
+8. Evaluations — Automated agent assessment and monitoring
+9. Policy Engine — Cedar-based deterministic control over agent behavior
+
+## Framework Support
+CrewAI, LangGraph, LlamaIndex, Google ADK, OpenAI Agents SDK, Strands Agents
+
+## Model Support
+Any foundation model: Anthropic Claude, Amazon Nova, Meta Llama, Mistral, OpenAI, Google Gemini
+
+## Protocol Support
+MCP (Model Context Protocol), A2A protocol
+
+## Architecture
+Serverless, security-first, framework-agnostic, consumption-based pricing

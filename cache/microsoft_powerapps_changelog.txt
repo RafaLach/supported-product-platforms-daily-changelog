@@ -1,0 +1,22 @@
+Source: Power Apps What's New
+URL: https://learn.microsoft.com/en-us/power-apps/whats-new
+Fetched: 2026-03-19
+
+# Power Apps What's New
+
+## Overview
+Power Apps releases weekly updates with new features, fixes, and improvements.
+
+## Release Cadence
+- Semi-annual channel: Twice per year (April and October)
+- Monthly channel: Once per month
+- Weekly releases rolled out incrementally across regions
+
+## Key Features
+- AI copilot capabilities for app building
+- Plan designer for AI-assisted development
+- Canvas apps, model-driven apps, and code apps
+- Dataverse integration
+- Solutions and ALM support
+
+Last updated: 2025-05-07

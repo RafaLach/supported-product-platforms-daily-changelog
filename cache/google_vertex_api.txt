@@ -1,0 +1,24 @@
+Source: Vertex AI API Reference
+URL: https://cloud.google.com/vertex-ai/docs/reference
+Fetched: 2026-03-19
+
+# Vertex AI API Reference
+
+## SDKs
+- Python SDK (google.cloud.aiplatform, vertexai.language_models)
+- Client libraries: C#, Go, Java, Node.js
+
+## REST API
+- v1 (stable) and v1beta1 (preview)
+
+## CLI
+- gcloud ai and gcloud beta ai commands
+
+## Key API Categories
+- Model operations: endpoints, predictions, batch jobs, deployment monitoring
+- Data management: datasets, feature stores, feature groups
+- Training: pipelines, hyperparameter tuning, custom jobs, NAS
+- Vector Search: indexes and index endpoints
+- RAG Systems: RAG corpora, files, contexts, retrieval
+- Notebooks: execution, runtime templates
+- Advanced (v1beta1): model monitors, example stores, extensions, reasoning engines

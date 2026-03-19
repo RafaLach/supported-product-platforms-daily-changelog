@@ -1,0 +1,22 @@
+Source: Vertex AI Release Notes
+URL: https://cloud.google.com/vertex-ai/docs/release-notes
+Fetched: 2026-03-19
+
+# Vertex AI Release Notes (2026)
+
+## March 2026
+- Mar 16: Vertex Explainable AI deprecated
+- Mar 12: Gen AI evaluation service now supports partner models (Anthropic, Llama)
+- Mar 5: Vector Search 2.0 GA — collections unifying data/vectors, auto-embeddings, hybrid search, Private Service Connect and VPC Service Controls
+- Mar 3: Gemini 3.1 Flash-Lite public preview (cost-efficient, low-latency)
+- Mar 3: Video generation preview endpoints deprecated (migration deadline Apr 2)
+
+## February 2026
+- Feb 23: Claude 3 Haiku deprecated (shutdown Aug 23, 2026)
+- Image generation endpoint transitions with migration deadlines
+
+## Key Highlights
+- Gemini 3.1 Flash-Lite for cost-efficient applications
+- Vector Search 2.0 with hybrid search capabilities
+- Partner model evaluation support
+- Ongoing model deprecation management

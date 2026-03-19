@@ -1,0 +1,21 @@
+Source: Bedrock User Guide
+URL: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html
+Fetched: 2026-03-19
+
+# Amazon Bedrock Overview
+
+## Key Features
+- Fully managed service for enterprise-grade access to 100+ foundation models
+- Multiple API options: Responses API, Chat Completions API, Invoke API, Converse API, Projects API
+- Model customization through fine-tuning and reinforcement learning
+- Server-side tools and AgentCore Gateway integration
+
+## Supported Models
+- Nova 2 (Amazon), Claude Opus 4.6 (Anthropic), DeepSeek V3.2, Kimi K2.5 (Moonshot AI)
+- MiniMax M2.1, GPT-OSS-20B (OpenAI), GLM 4.7, Qwen3 Coder Next
+
+## Security & Governance
+- Enterprise-grade security with built-in protections
+- Compliance-ready for enterprise deployments
+- IAM-based access control
+- Guardrails for content filtering and safety

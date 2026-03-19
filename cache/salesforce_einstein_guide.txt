@@ -1,0 +1,19 @@
+Source: Einstein GenAI Developer Guide
+URL: https://developer.salesforce.com/docs/einstein/genai/guide
+Fetched: 2026-03-19
+
+# Einstein GenAI Developer Guide
+
+## Overview
+Part of Agentforce platform. Enables deployment of AI agents working alongside employees.
+
+## Core Capabilities
+- Conversational AI integrated with Salesforce
+- Trust Layer for secure LLM data connectivity
+- Customizable AI assistants
+
+## Development Resources
+- APIs & SDKs for building solutions
+- Agent Script for Agentforce Builder
+- Agentforce DX for pro-code development
+- Models & Prompts management via Prompt Builder

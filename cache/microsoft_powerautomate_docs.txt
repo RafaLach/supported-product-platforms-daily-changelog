@@ -1,0 +1,26 @@
+Source: Power Automate Documentation
+URL: https://learn.microsoft.com/en-us/power-automate/
+Fetched: 2026-03-19
+
+# Power Automate Documentation
+
+## Key Capabilities
+- Automated, scheduled, and desktop flows
+- AI copilot in cloud flows, Process Mining, desktop flows
+- Process mining and task mining
+- Business process flows
+- Solutions and ALM
+- Integration with Teams, SharePoint, email, Forms, Approvals
+
+## Administration
+- Power Platform admin center
+- Environment management
+- Data loss prevention policies
+
+## Developer
+- Enterprise developer and ISV guide
+- Cloud flows via code
+- Desktop flows via code
+- Custom connectors
+
+Last updated: 2025-07-11

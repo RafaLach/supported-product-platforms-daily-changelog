@@ -38,3 +38,11 @@ Fetched: 2026-03-19
 ## v2.22.0 (February 23, 2026)
 - Implemented WebSockets support for responses API
 - Enhanced documentation for file batches, audio, chat, realtime, and video methods
+
+## v2.21.0 (February 13, 2026)
+- Container network policy and skills support
+- Memory leak resolution in structured outputs
+- Webhook compatibility improvements
+
+## v2.20.0 (February 10, 2026)
+- Support for images in batch API

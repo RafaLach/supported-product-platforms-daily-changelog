@@ -1,0 +1,24 @@
+Source: Dia Release Notes
+URL: https://diabrowser.com/release-notes
+Fetched: 2026-03-19
+
+# Dia Browser Release Notes
+
+## Issue #16 — March 11, 2026 (v1.22.0)
+"Don't think about the next step. Take it."
+- Proactive Suggestions: AI-curated suggestions based on user activity
+- Performance improvements: addressed sluggishness and memory leaks
+- Profile switching via keyboard shortcuts (Ctrl+1, 2, 3)
+- Command Bar: direct routing to Chat and Google Search
+
+## Issue #15 — March 5, 2026 (v1.21.0)
+"Before you reach for it..."
+
+## Issue #14 — February 26, 2026 (v1.20.0)
+"Little moments. Big feeling."
+
+## Issue #13 — February 19, 2026 (v1.19.0)
+"Multiplying tabs? Dia keeps them in check"
+- Tab grouping and proactive suggestions
+
+All releases emphasize AI-driven browsing, tab management, and performance optimization.

@@ -18,12 +18,22 @@ Your job is to check for recent changes in the documentation, API references, an
 
 5. **Generate a daily report** in Markdown format:
    - Title: "Platform Monitor Report — YYYY-MM-DD"
-   - For each platform, list:
-     - Changes detected (or "No changes detected")
-     - Summary of what changed and why it matters for Zenity's security coverage
-     - Links to the source pages
-   - Include a "Key Highlights" section at the top with the most important changes across all platforms
-   - Focus on changes that are relevant to AI agent security, governance, new agent capabilities, API changes, new integrations, authentication changes, and compliance features
+   - **Key Highlights** section at the top with the most important changes
+   - **Platform Details** section with each platform listing changes or "No changes detected"
+   - **Zenity Security Relevance Assessment** section — this is the most important section. Categorize every actionable change into two groups:
+
+     ### AIDR (AI Detection & Response)
+     Tag items with severity [HIGH], [MEDIUM], or [LOW]. AIDR covers:
+     - **Data Lens**: Changes affecting visibility into files and websites used by agents
+     - **Activity**: Changes affecting monitoring of agent activities across platforms
+     - **AIDR Findings**: Changes that create new threat vectors or detection opportunities
+
+     ### AISPM (AI Security Posture Management)
+     Tag items with severity [HIGH], [MEDIUM], or [LOW]. AISPM covers:
+     - **Inventory**: Changes affecting resource mapping (agents, tools, knowledge bases, MCPs, permissions, sharing)
+     - **AISPM Violations**: Changes affecting policy violations (exposed agents, missing auth, sensitive data access)
+
+   - **Errors** section listing any failed fetches
 
 6. **Save the report** to `~/zenity-platform-monitor/reports/report-YYYY-MM-DD.md`
 
@@ -38,4 +48,4 @@ Your job is to check for recent changes in the documentation, API references, an
 
 8. **Handle errors gracefully**: If a URL fails to fetch, note it in the report and continue with the other sources. Do not stop the entire run for one failed fetch.
 
-IMPORTANT: Be thorough but concise. Focus on actionable changes, not cosmetic updates. Highlight anything that could affect Zenity's security monitoring capabilities.
+IMPORTANT: Be thorough but concise. Focus on actionable changes, not cosmetic updates. Highlight anything that could affect Zenity's security monitoring capabilities. The AIDR/AISPM categorization is critical — each team uses this to know what they need to update in the product.

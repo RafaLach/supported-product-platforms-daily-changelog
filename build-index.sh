@@ -14,68 +14,94 @@ mkdir -p "$DOCS_DIR"
 cp "$REPORTS_DIR"/*.md "$DOCS_DIR/" 2>/dev/null || true
 
 # Generate index JSON by parsing each report
-echo "[" > "$DOCS_DIR/report-index.json"
+python3 -c "
+import re, json, os, glob
 
-first=true
-for report_file in $(ls -r "$REPORTS_DIR"/report-*.md 2>/dev/null); do
-    filename=$(basename "$report_file")
-    # Extract date from filename: report-YYYY-MM-DD.md
-    date=$(echo "$filename" | sed 's/report-\(.*\)\.md/\1/')
+reports_dir = '$REPORTS_DIR'
+report_files = sorted(glob.glob(os.path.join(reports_dir, 'report-*.md')), reverse=True)
 
-    # Parse platform statuses from the report
-    platforms="[]"
-    if [ -f "$report_file" ]; then
-        platforms=$(python3 -c "
-import re, json, sys
+index = []
+for report_file in report_files:
+    filename = os.path.basename(report_file)
+    date = filename.replace('report-', '').replace('.md', '')
 
-with open('$report_file', 'r') as f:
-    content = f.read()
+    with open(report_file, 'r') as f:
+        content = f.read()
 
-platforms = []
-# Match ### Platform Name followed by **Changes detected:** or **Status:**
-sections = re.split(r'###\s+', content)
-for section in sections[1:]:
-    lines = section.strip().split('\n')
-    name = lines[0].strip()
+    # Extract platforms from ### sections under ## Platform Details
+    platforms = []
+    platform_section = re.search(r'## Platform Details\s*\n(.*?)(?=\n## [^#])', content, re.DOTALL)
+    if platform_section:
+        sections = re.split(r'###\s+', platform_section.group(1))
+        for section in sections[1:]:
+            lines = section.strip().split('\n')
+            name = lines[0].strip()
+            body = '\n'.join(lines[1:]).lower()
 
-    # Skip non-platform sections like 'Errors', 'Configuration', 'Zenity Security'
-    skip_keywords = ['Error', 'Configuration', 'Zenity Security', 'Key Highlight']
-    if any(k.lower() in name.lower() for k in skip_keywords):
-        continue
+            if 'initial scan' in body or 'baseline' in body:
+                status = 'initial'
+            elif 'unable to determine' in body:
+                status = 'error'
+            elif 'changes detected:** none' in body or 'changes detected:** no' in body:
+                status = 'stable'
+            elif 'changes detected:** yes' in body:
+                status = 'changed'
+            elif 'no change' in body or 'no major' in body:
+                status = 'stable'
+            else:
+                status = 'stable'
 
-    body = '\n'.join(lines[1:]).lower()
-    if 'initial scan' in body or 'initial —' in body or 'baseline' in body:
-        status = 'initial'
-    elif 'unable to determine' in body or 'failed' in body or 'http 403' in body or 'http 404' in body:
-        if 'changes detected' in body or 'change' in body:
-            status = 'error'
-        else:
-            status = 'error'
-    elif 'no change' in body or 'changes detected:** none' in body or 'no major' in body:
-        status = 'stable'
-    elif 'change' in body:
-        status = 'changed'
-    else:
-        status = 'stable'
+            platforms.append({'name': name, 'status': status})
 
-    platforms.append({'name': name, 'status': status})
+    # Extract AIDR items
+    aidr_items = []
+    aidr_match = re.search(r'### AIDR.*?\n(.*?)(?=\n### AISPM|\n## )', content, re.DOTALL)
+    if aidr_match:
+        for line in aidr_match.group(1).strip().split('\n'):
+            m = re.match(r'- \*\*\[(\w+)\]\s*(.*?)\*\*:\s*(.*)', line)
+            if m:
+                aidr_items.append({
+                    'severity': m.group(1),
+                    'title': m.group(2).strip(),
+                    'description': m.group(3).strip(),
+                    'module': 'AIDR'
+                })
 
-print(json.dumps(platforms))
-" 2>/dev/null || echo "[]")
-    fi
+    # Extract AISPM items
+    aispm_items = []
+    aispm_match = re.search(r'### AISPM.*?\n(.*?)(?=\n## |\Z)', content, re.DOTALL)
+    if aispm_match:
+        for line in aispm_match.group(1).strip().split('\n'):
+            m = re.match(r'- \*\*\[(\w+)\]\s*(.*?)\*\*:\s*(.*)', line)
+            if m:
+                aispm_items.append({
+                    'severity': m.group(1),
+                    'title': m.group(2).strip(),
+                    'description': m.group(3).strip(),
+                    'module': 'AISPM'
+                })
 
-    if [ "$first" = true ]; then
-        first=false
-    else
-        echo "," >> "$DOCS_DIR/report-index.json"
-    fi
+    # Extract key highlights
+    highlights = []
+    hl_match = re.search(r'## Key Highlights\s*\n(.*?)(?=\n## )', content, re.DOTALL)
+    if hl_match:
+        for line in hl_match.group(1).strip().split('\n'):
+            line = line.strip()
+            if line.startswith('- '):
+                highlights.append(line[2:])
 
-    cat >> "$DOCS_DIR/report-index.json" <<ENTRY
-  {"date": "$date", "file": "$filename", "platforms": $platforms}
-ENTRY
+    index.append({
+        'date': date,
+        'file': filename,
+        'platforms': platforms,
+        'aidr': aidr_items,
+        'aispm': aispm_items,
+        'highlights': highlights
+    })
 
-done
+with open('$DOCS_DIR/report-index.json', 'w') as f:
+    json.dump(index, f, indent=2)
 
-echo "]" >> "$DOCS_DIR/report-index.json"
+print(f'Index built: {len(index)} reports, {sum(len(r[\"aidr\"]) + len(r[\"aispm\"]) for r in index)} security items')
+"
 
-echo "Index built: $(cat "$DOCS_DIR/report-index.json" | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))' 2>/dev/null || echo '?') reports"

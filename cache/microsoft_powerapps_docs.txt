@@ -1,0 +1,26 @@
+Source: Power Apps Documentation
+URL: https://learn.microsoft.com/en-us/power-apps/
+Fetched: 2026-03-19
+
+# Power Apps Documentation
+
+## Key Capabilities
+- Canvas apps, model-driven apps, code apps
+- Plan designer (AI-assisted)
+- AI copilot: build apps through conversation, add Copilot control
+- Dataverse for data management
+- Solutions for ALM
+- Power BI integration, Azure Synapse Link, Teams integration
+
+## Security & Governance
+- Power Platform admin center
+- Licensing management
+- Security and governance controls
+
+## Developer
+- Dataverse developer guide
+- Model-driven apps developer guide
+- Canvas apps developer guide
+- Custom connectors
+
+Last updated: 2026-03-03

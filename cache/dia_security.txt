@@ -1,0 +1,35 @@
+Source: Dia Security
+URL: https://diabrowser.com/security
+Fetched: 2026-03-19
+
+# Dia Browser Security
+
+## Bug Bounty
+Vulnerability disclosure via HackerOne (hackerone.com/bcny)
+
+## Security Architecture
+- Annual full-scope security assessments and code reviews
+- Built on Chromium with aggressive upstream security patch schedule
+- Weekly updates (Thursdays); critical vulnerabilities patched within 48 hours
+- Disabled Chromium features: GAIA, UMA, profile sync, Reporting API, network logging
+
+## Infrastructure
+- Role-restricted production access with regular access reviews
+- Data encrypted at rest and in transit
+
+## Data Handling & Privacy
+- Conversations, history, bookmarks stored locally encrypted on device
+- Minimum necessary data sent to AI partners; contractual restrictions prevent retention/training
+- Opt-in improvement data retained max 30 days (de-identified)
+- Incognito mode stores nothing
+
+## AI Safety Controls
+- Blocks LLM-generated URLs
+- Requires user approval for tool access
+- Content previews before third-party insertion
+- Reversible actions kept in draft status
+- Agent navigation restricted between websites
+- URL filtering for language models
+
+## Content Retention
+AI data retained only for security/compliance (content moderation, suspected misuse). Access-controlled, deleted when purpose expires, never used for training.

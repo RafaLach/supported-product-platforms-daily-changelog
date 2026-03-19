@@ -1,0 +1,23 @@
+Source: Windsurf Documentation
+URL: https://docs.windsurf.com
+Fetched: 2026-03-19
+
+# Windsurf Documentation
+
+## Key Features
+- Cascade AI agentic chatbot for collaborative coding
+- Project generation from prompts
+- Context-aware codebase understanding
+- Enhanced terminal
+
+## AI Capabilities
+- Agentic architecture with autonomous collaboration
+- MCP Server integration for extended capabilities
+- Memory & Rules system for customization
+- Workflow automation
+
+## Platform
+- One-click app deployment
+- Import VS Code or Cursor settings
+- Cross-platform: Mac, Windows, Linux
+- Windsurf Next (prerelease access)

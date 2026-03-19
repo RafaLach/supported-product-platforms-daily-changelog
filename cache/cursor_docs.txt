@@ -1,0 +1,30 @@
+Source: Cursor Documentation
+URL: https://docs.cursor.com (redirects to cursor.com/docs)
+Fetched: 2026-03-19
+
+# Cursor Documentation
+
+## Key Features
+- AI editor and coding agent
+- Code understanding, feature development, bug fixing, code review
+- Rapid prototyping
+
+## Supported Models
+- Anthropic Claude (Opus, Sonnet, Haiku)
+- Google Gemini (3-Pro, Flash)
+- OpenAI GPT (GPT-5 variants, codex models)
+- Cursor Composer (proprietary)
+- Kimi K2.5 and other providers
+
+## Security & Enterprise
+- SSO and SCIM provisioning
+- Admin APIs for organizational management
+- Compliance monitoring and audit trails
+- Network configuration for enterprise
+- Service accounts for automated workflows
+
+## Extensions & Integrations
+- GitHub, GitLab, Linear, Slack
+- JetBrains IDE support
+- VS Code migrations
+- Cloud Agent with automations, security monitoring, private workers

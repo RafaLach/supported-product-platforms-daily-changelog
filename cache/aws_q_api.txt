@@ -1,0 +1,24 @@
+Source: Amazon Q Business API Reference
+URL: https://docs.aws.amazon.com/amazonq/latest/api-reference/Welcome.html
+Fetched: 2026-03-19
+
+# Amazon Q Business API Reference
+
+## Services
+- QBusiness APIs: Main API for Amazon Q Business operations
+- QApps APIs: Lightweight, purpose-built AI apps within Q Business
+
+## Authentication
+- IAM Roles required for both services
+- Web experience IAM role for Amazon Q Apps
+
+## Features
+- Question-answering and knowledge discovery
+- Writing email messages and summarizing text
+- Document outline drafting
+- QApps for task-specific AI applications (marketing content, customer emails)
+
+## Resources
+- AWS CLI Reference available
+- Setup guide for Amazon Q Business
+- Amazon Q in AWS General Reference

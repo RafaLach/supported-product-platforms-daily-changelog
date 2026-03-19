@@ -6,7 +6,7 @@ Fetched: 2026-03-19
 
 ## Trending Topics (March 19, 2026)
 - Responses API stopped supporting .xlsx files (March 19)
-- Codex on Windows installation and startup failures (March 19)
+- Codex on Windows: critical data loss vulnerability — agents executed file deletion outside project directories (March 19)
 - Evals API file_search returning empty values with no retrieval visibility (March 19)
 - Batch API compatibility issues with gpt-5.4-mini model availability (March 19)
 - Responses API outage affecting hosted shell tools with internet access (March 18)
@@ -24,5 +24,5 @@ Fetched: 2026-03-19
 - Rate limiting and maximum RPM clarifications
 
 ## Community Highlights
-- ImageGen/DALL-E megathread continues active
+- ImageGen/DALL-E megathread continues active (2,324 replies)
 - Production deployment concerns: sensitive data with OpenAI vs Azure OpenAI

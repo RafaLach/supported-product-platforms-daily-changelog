@@ -1,0 +1,35 @@
+Source: Perplexity API Changelog
+URL: https://docs.perplexity.ai/changelog
+Fetched: 2026-03-19
+
+# Perplexity API Changelog
+
+## February 2026
+- Agent API launched with production-ready guidance and OpenAI compatibility
+- Embeddings API released with standard and contextualized embeddings
+
+## December 2025
+- sonar-reasoning model deprecated (use sonar-reasoning-pro)
+- Media Classifier for automatic visual content detection
+- Search API: max_tokens parameter, last_updated_filter, Vercel AI SDK compatibility
+
+## November 2025
+- Pro Search GA with automated tool usage and multi-step reasoning
+- MCP Server one-click installation for Cursor, VS Code, Claude Desktop
+
+## October 2025
+- Official Python and TypeScript SDKs released
+- Interactive Search API Playground (no API key needed)
+- New search parameters: language_preference, search_domain_filter
+
+## September 2025
+- File attachment support (PDF, DOC, DOCX, TXT, RTF)
+- Standalone Search API for raw results without LLM processing
+- API key rotation mechanism with audit trails
+
+## August 2025
+- R1-1776 model removed (migrate to Sonar Pro Reasoning)
+
+## July 2025
+- Per-request cost breakdown in API responses
+- SEC filings filter for financial research

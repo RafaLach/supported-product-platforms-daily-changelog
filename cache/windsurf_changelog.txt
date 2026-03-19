@@ -1,0 +1,31 @@
+Source: Windsurf Changelog
+URL: https://windsurf.com/changelog
+Fetched: 2026-03-19
+
+# Windsurf Changelog
+
+## March 2026
+- Mar 17 (v1.9577.27): GPT-5.4 Mini at 1x credits (promotional pricing)
+- Mar 12: Bug fixes for Apple M5 compatibility
+- Mar 9 (v1.9577.24): Cascade Jupyter Notebook fixes, SKILL.md file loading, MCP system-level Skills via MDM for Enterprise, improved SSH/Remote performance
+- Mar 5: GPT-5.4 released with tiered reasoning pricing
+
+## February 2026
+- Feb 26 (v1.9566.11): Extension installation fixes
+- Feb 25 (v1.9566.9): New model picker with family grouping and reasoning toggles, Cascade hooks enhancements, MCP refresh/OAuth auto-trigger, Linux ARM64 support
+- Feb 21: GitHub PR extension compatibility fix
+- Feb 19: Gemini 3.1 Pro available
+- Feb 17: Claude Sonnet 4.6 released; GLM-5 and Minimax M2.5 added
+- Feb 12 (v1.9552.21): Plan Mode auto-switching, Skills directory, Linux ARM64 full support, Cascade Hooks cloud config for enterprise
+- Feb 4 (v1.9544.35): GPT-5.3-Codex-Spark in Arena Mode, Claude Opus 4.6 research preview
+
+## January 2026
+- Jan 30 (v1.9544.24): Wave 14 — Arena Mode, Plan Mode, Battle Groups, leaderboards
+- Jan 27-16: GPT-5.2-Codex, Agent Skills, Windows Group Policy management
+
+## December 2025
+- Dec 27: Gemini 3 Flash
+- Dec 24 (Wave 13): SWE-1.5 Free model, Git worktree support, Multi-Cascade panes, Cascade Dedicated Terminal, Cascade Hooks, System-level Rules/Workflows via MDM
+
+## Key Models Available
+GPT-5 series, Claude Sonnet 4.5/Opus 4.6, Gemini 2.5/3/3.1, DeepSeek, GLM-5, Minimax M2.5

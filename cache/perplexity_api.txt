@@ -1,0 +1,29 @@
+Source: Perplexity API Reference
+URL: https://docs.perplexity.ai/api-reference
+Fetched: 2026-03-19
+
+# Perplexity Agent API Reference
+
+## Endpoint
+POST /v1/agent — Generate responses with optional web search and reasoning
+
+## Authentication
+Bearer token (HTTPBeaker security scheme)
+
+## Supported Models
+- Provider/model format (e.g., "xai/grok-4-1", "openai/gpt-4o")
+- Model fallback chains (up to 5 models)
+- Presets: "fast-search", "pro-search", "deep-research"
+
+## Key Features
+- String or array input (messages, function calls, outputs)
+- Streaming (SSE) and non-streaming modes
+- Reasoning effort levels (low/medium/high)
+- Web search with domain/date filtering
+- URL fetching (max 10 per call)
+- Custom functions with JSON schema
+- Structured output (JSON schema validation)
+- Geographic search personalization
+
+## Response
+- Response ID, status, output items, token usage, cost breakdown

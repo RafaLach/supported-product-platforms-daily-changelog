@@ -13,6 +13,8 @@ Fetched: 2026-03-19
 - Mar 5: "Where things stand with the Department of War" — Dario Amodei statement on national security
 
 ## February 2026
+- Feb 27: Response to Secretary of War Pete Hegseth's comments
+- Feb 26: CEO statement on Department of War negotiations
 - Feb 25: Anthropic acquires Vercept for computer use capabilities
 - Feb 24: Responsible Scaling Policy Version 3.0
 - Feb 23: Distillation attack prevention capabilities
@@ -24,6 +26,9 @@ Fetched: 2026-03-19
 
 ## January 2026
 - Jan 30: Claude assists NASA's Perseverance rover on Mars
+- Jan 21: Mariano-Florentino Cuellar appointed to Long-Term Benefit Trust
+- Jan 15: Scientists using Claude for research acceleration
+- Jan 13: Labs platform introduction for experimental features
 - Jan 11: HIPAA-ready infrastructure for healthcare; expanded clinical trial connectors
 
 ## December 2025

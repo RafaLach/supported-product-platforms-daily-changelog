@@ -1,0 +1,35 @@
+Source: Vertex AI Documentation
+URL: https://cloud.google.com/vertex-ai/docs
+Fetched: 2026-03-19
+
+# Vertex AI Documentation
+
+## Key Features
+- ML platform for training and deploying ML models and AI applications
+- Gemini multimodal models (images, videos, text)
+- Model Garden for discovering and customizing LLMs
+
+## Training & Development
+- AutoML for automated model training
+- Custom training with serverless/cluster options
+- Neural Architecture Search, Ray on Vertex AI
+- TensorFlow and PyTorch support
+
+## MLOps
+- Vertex AI Pipelines for orchestration
+- Model Registry for version management
+- Feature Store for ML feature serving
+- Model Monitoring and Explainable AI
+- TensorBoard integration
+
+## Security & Governance
+- IAM-based access control
+- Customer-managed encryption keys (CMEK)
+- VPC Service Controls and Private Service Connect
+- Audit logging and compliance features
+- Network isolation (VPC peering, hybrid connectivity)
+
+## Developer Tools
+- Colab Enterprise
+- Vertex AI Workbench
+- Comprehensive Python SDK

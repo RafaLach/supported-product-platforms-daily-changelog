@@ -1,0 +1,21 @@
+Source: Perplexity API Documentation
+URL: https://docs.perplexity.ai
+Fetched: 2026-03-19
+
+# Perplexity API Documentation
+
+## Available APIs
+- Agent API: Third-party models with web search tools and presets
+- Search API: Raw, ranked web search results with filtering
+- Embeddings API: High-quality embeddings for semantic search and RAG
+
+## Core Capabilities
+- Web search filtering by domain and recency
+- Structured JSON responses via schema validation
+- Multi-language SDK support (Python, JavaScript/TypeScript, cURL)
+- Query batching for Search API
+- Real-time data access across web sources
+
+## Recent Model References
+- OpenAI GPT-5.4 and GPT-5.2 variants
+- Sonar Pro, Sonar Pro Reasoning

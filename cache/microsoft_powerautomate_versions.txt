@@ -1,0 +1,13 @@
+Source: Power Automate Released Versions
+URL: https://learn.microsoft.com/en-us/power-platform/released-versions/power-automate
+Fetched: 2026-03-19
+
+# Power Automate Released Versions
+
+Latest Update: Power Automate 2508.2 - August 25, 2025
+Releases rolled out incrementally across regions.
+
+Multiple versions deployed with worldwide availability schedule.
+Version history spans from 2021 to 2025 with weekly releases.
+
+Last updated: 2025-09-02

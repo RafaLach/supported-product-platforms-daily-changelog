@@ -1,0 +1,33 @@
+Source: AgentCore API Reference
+URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Operations.html
+Fetched: 2026-03-19
+
+# Amazon Bedrock AgentCore Data Plane API
+
+## API Operations (37 total)
+
+### Memory Management
+- BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords
+- DeleteMemoryRecord, GetMemoryRecord, ListMemoryRecords, RetrieveMemoryRecords
+- StartMemoryExtractionJob, ListMemoryExtractionJobs
+
+### Agent & Runtime
+- InvokeAgentRuntime, GetAgentCard
+- GetWorkloadAccessToken (multiple variants)
+
+### Browser Session Management
+- StartBrowserSession, StopBrowserSession, GetBrowserSession
+- ListBrowserSessions, SaveBrowserSessionProfile, UpdateBrowserStream
+
+### Code Interpreter
+- StartCodeInterpreterSession, StopCodeInterpreterSession
+- GetCodeInterpreterSession, ListCodeInterpreterSessions, InvokeCodeInterpreter
+
+### Event Management
+- CreateEvent, DeleteEvent, GetEvent, ListEvents
+
+### Authentication & Access
+- CompleteResourceTokenAuth, GetResourceApiKey, GetResourceOauth2Token
+
+### Actor & Session Management
+- ListActors, ListSessions, StopRuntimeSession

@@ -1,10 +1,10 @@
 Source: Claude Docs - Build with Claude
-URL: https://docs.anthropic.com/en/docs/build-with-claude/overview (redirects to platform.claude.com)
+URL: https://platform.claude.com/docs/build-with-claude/overview
 Fetched: 2026-03-19
 
 # Claude Features Overview
 
-Claude's API surface organized into five areas:
+Claude's API surface organized into key areas:
 
 ## 1. Model Capabilities
 - Context windows: Up to 1M tokens
@@ -19,7 +19,7 @@ Claude's API surface organized into five areas:
 - Structured outputs: JSON Schema enforcement
 
 ## 2. Tools (Server-side)
-- Code execution: Sandboxed environment (free with web search/fetch)
+- Code execution: Sandboxed environment
 - Web fetch: Full page content retrieval
 - Web search: Real-world data augmentation
 

@@ -1,0 +1,9 @@
+Source: ServiceNow Documentation
+URL: https://www.servicenow.com/docs/
+Fetched: 2026-03-19
+
+# ServiceNow Documentation
+
+Page requires JavaScript rendering; content not fully accessible via static fetch.
+ServiceNow documentation portal detected but content could not be extracted.
+Manual review recommended at: https://www.servicenow.com/docs/

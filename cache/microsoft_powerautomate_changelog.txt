@@ -1,0 +1,17 @@
+Source: Power Automate What's New
+URL: https://learn.microsoft.com/en-us/power-automate/whats-new
+Fetched: 2026-03-19
+
+# Power Automate What's New
+
+## Overview
+Power Automate releases weekly service updates with new features, fixes, and improvements.
+
+## Key Features
+- Cloud flows, desktop flows, scheduled flows
+- AI copilot in cloud flows, Process Mining, and desktop flows
+- Process mining and task mining
+- Solutions for ALM
+- Teams, SharePoint, email integration
+
+Last updated: 2025-07-10

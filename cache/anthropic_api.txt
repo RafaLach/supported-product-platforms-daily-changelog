@@ -1,5 +1,5 @@
 Source: Anthropic API Docs
-URL: https://docs.anthropic.com/en/api/getting-started (redirects to platform.claude.com)
+URL: https://platform.claude.com/docs/api/getting-started
 Fetched: 2026-03-19
 
 # Anthropic API Overview
@@ -26,8 +26,10 @@ RESTful API at https://api.anthropic.com
 Official SDKs for Python, TypeScript, Java, Go, C#, Ruby, PHP
 - Automatic header management, type-safe handling, retry logic, streaming
 
-## Current Model
-Latest model referenced: claude-opus-4-6
+## Current Models
+- claude-opus-4-6 (most capable)
+- claude-sonnet-4-6 (balanced)
+- claude-haiku-4-5 (fastest)
 
 ## Request Size Limits
 - Standard endpoints: 32 MB
@@ -42,3 +44,8 @@ Latest model referenced: claude-opus-4-6
 
 ## Data Residency
 inference_geo parameter for geographic control ("global" or "us")
+
+## Beta Products
+- Claude in Chrome (browsing agent)
+- Claude in Excel (spreadsheet agent)
+- Cowork (desktop automation tool)

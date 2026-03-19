@@ -1,0 +1,21 @@
+Source: Bedrock API Reference
+URL: https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html
+Fetched: 2026-03-19
+
+# Amazon Bedrock API Reference
+
+## Service Endpoints
+1. bedrock — Control plane APIs for model management, training, deployment
+2. bedrock-runtime — Data plane APIs for inference requests
+3. bedrock-agent — Control plane APIs for agents, knowledge bases, prompt management, flows
+4. bedrock-agent-runtime — Data plane APIs for invoking agents, flows, querying knowledge bases
+
+## Authentication
+- AWS SDK cryptographic signing
+- IAM-based access control
+
+## SDK Support
+C++, Go, Java, JavaScript, Kotlin, .NET, PHP, Python (Boto3), Ruby, Rust, SAP ABAP, Swift
+
+## CLI References
+- bedrock, bedrock-runtime, bedrock-agent, bedrock-agent-runtime CLI commands

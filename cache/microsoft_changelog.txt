@@ -10,29 +10,16 @@ Fetched: 2026-03-19
 
 ## Identity & Access Governance Additions
 
-**Lifecycle Workflows Enhancements:**
-- Added `userInactivityTrigger` resource for workflow execution
-- New scoped activation capabilities via `activateWithScope` method
-- Support for up to 100 workflows (increased from 50)
-- `administrationScopeTargets` relationship added to workflow base resources
+**Lifecycle Workflows Enhancements (Feb 19, 2026):**
+- Added `administrationScopeTargets` relationship to workflowBase resource
+- Administration scope targeting capabilities for workflow management
 
-**New Insights Resources:**
-- Aggregate analytics for workflow health and processing
-- Methods: `topTasksProcessedSummary`, `topWorkflowsProcessedSummary`, `workflowsProcessedByCategory`
+**Nov 25, 2025:**
+- Added `userInactivityTrigger` resource for lifecycle workflows based on user inactivity detection
 
-## Infrastructure as Code
-Microsoft Graph Bicep resources now support deploying: user, application, group, servicePrincipal, federatedIdentityCredential, and oAuth2PermissionGrant resource types.
+**Nov 10, 2025:**
+- Scope-based workflow activation: `activationScope`, `activateGroupScope`, `activateUserScope`
 
-## Regional Expansion
-Microsoft Graph activity logs are now available in China operated by 21Vianet.
-
-## Deprecation Notice
-Event Hub authentication via shared access signatures (SAS) will be deprecated; migration to Microsoft Entra ID RBAC recommended for change notification subscriptions.
-
-## Reports & Monitoring
-- Added `migrationStatus` enumeration and `relyingPartyDetailedSummary` resource
-- New protocol types: nativeAuth, authenticationTransfer, and PKCE variants
-- Enhanced sign-in reporting with sessionId, appOwnerTenantId properties
-
-## External Identity
-Self-service sign-up analytics now available through `selfServiceSignUp` resource for Microsoft Entra External ID.
+## Deprecation Notices
+- Dec 11, 2025: Removed `conditionalAccessAudience` resource type (Beta)
+- Dec 3, 2025: Added `microsoftRevokedSessions` member to riskDetail enumeration

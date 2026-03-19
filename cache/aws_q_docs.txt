@@ -1,0 +1,25 @@
+Source: Amazon Q Developer Docs
+URL: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html
+Fetched: 2026-03-19
+
+# Amazon Q Developer Overview
+
+## Key Features
+- Generative AI-powered assistant for AWS applications
+- Code chat, inline completions, net new code generation
+- Security vulnerability scanning
+- Code upgrades and improvements
+
+## IDE Integrations
+- Visual Studio Code, JetBrains, Visual Studio, Eclipse (preview)
+
+## Enterprise & Governance
+- Built on Amazon Bedrock
+- Automated abuse detection
+- IAM-based permission management
+- Multi-channel deployment (Console, Mobile, Teams, Slack)
+- Channel guardrails support
+
+## Pricing
+- Free tier available
+- Amazon Q Developer Pro subscription

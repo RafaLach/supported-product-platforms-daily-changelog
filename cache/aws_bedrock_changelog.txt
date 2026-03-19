@@ -1,0 +1,42 @@
+Source: Bedrock Doc History
+URL: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
+Fetched: 2026-03-19
+
+# Amazon Bedrock - Document History
+
+## February 2026
+- Feb 27: Converse API support for batch inference (consistent request format across models)
+- Feb 17: Fine-tuning open-weight models with OpenAI APIs (reinforcement fine-tuning via OpenAI SDK)
+
+## December 2025
+- Dec 31: Updated model support for priority and flex service tiers
+- Dec 18: Blueprint instruction optimization for Data Automation
+- Dec 3: New managed IAM policies (AmazonBedrockMantleFullAccess, MantleReadOnly, MantleInferenceAccess)
+- Dec 3: OpenAI-compatible API endpoints (Bedrock Mantle) — Responses API and Chat Completions API
+- Dec 3: Reinforcement fine-tuning capability
+
+## November 2025
+- Nov 26: Reserved service tier for Bedrock inference
+- Nov 24: Claude Opus 4.5 model support
+- Nov 21: Guardrails cross-account sharing within AWS organizations
+- Nov 20: Data Automation synchronous invocation
+- Nov 19: OpenAI GPT-OSS models for custom model import
+- Nov 19: Enhanced coding support for Guardrails Standard tier
+- Nov 18: Priority and flex service tiers
+- Nov 18: Region expansion (Africa, Asia Pacific, Canada West, Mexico, Middle East)
+
+## October 2025
+- Oct 31: Aurora Knowledge Base PostgreSQL guidance update
+- Oct 30: Claude 3.7 Sonnet legacy status (migrate to Claude Sonnet 4.5 by April 28, 2026)
+- Oct 28: Stability AI Image Services (4 new services)
+- Oct 16: Model stacking for customization
+- Oct 15: Claude Haiku 4.5 model support
+- Oct 15: Default access to all foundation models with correct IAM permissions
+- Oct 7: Updated AmazonBedrockFullAccess managed policy
+
+## Key Highlights
+- 100+ supported foundation models
+- OpenAI-compatible API endpoints (Bedrock Mantle)
+- Guardrails with cross-account sharing
+- Multiple service tiers (on-demand, priority, flex, reserved)
+- Significant regional expansion

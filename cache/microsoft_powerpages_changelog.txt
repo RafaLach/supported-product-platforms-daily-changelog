@@ -1,0 +1,11 @@
+Source: Power Pages Release Updates
+URL: https://learn.microsoft.com/en-us/power-pages/release-updates
+Fetched: 2026-03-19
+
+# Power Pages Release Updates
+
+Release plans available for 2023 wave 1 and wave 2.
+Uses Azure Web Apps, Traffic Manager, Service Bus, Key Vault, Storage, Microsoft Entra ID.
+Privacy and data handling documentation included.
+
+Last updated: 2025-05-12

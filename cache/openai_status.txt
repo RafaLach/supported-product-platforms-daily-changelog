@@ -13,4 +13,4 @@ Fetched: 2026-03-19
 
 ## Pattern Summary
 Common affected areas: Conversations/ChatGPT messaging, Login/Auth, File uploads, Image/Video generation, Codex, API endpoints
-All documented incidents show Resolved status. Notable large-scale event on March 5 affected ~30 service components.
+All documented incidents show Resolved status.

@@ -1,0 +1,32 @@
+Source: Amazon Q Developer Doc History
+URL: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/doc-history.html
+Fetched: 2026-03-19
+
+# Amazon Q Developer - Document History
+
+## February 2026
+- Feb 18: Maximum subscription limit increased from 10 to 20 accounts per AWS Region per organization
+
+## January 2026
+- Jan 16: Deprecated code transformation for GitLab (Java modernization)
+- Jan 13: Removed deprecated GitLab quick actions (/q dev, /q test)
+
+## December 2025
+- Dec 29: GitHub feature development now uses conversation-based feedback with /q command
+- Dec 18: Updated GitHub app installation for Kiro and Amazon Q Developer shared console
+- Dec 15: Deprecated code transformation for GitHub (Java modernization)
+
+## November 2025
+- Nov 17: Q CLI officially rebranded as Kiro CLI
+
+## October 2025
+- Oct 29: Updated managed policies (AmazonQFullAccess, AmazonQDeveloperAccess)
+- Oct 21: Removed IDE agent documentation; agentic chat replaces /dev, /doc, /test, /review agents
+- Oct 21: Added IDE memory bank documentation
+- Oct 3: Added Q CLI feature documentation for agents, prompt management
+
+## Security & Policy Updates
+- KMS permissions expanded (kms:Decrypt, kms:DescribeKey, kms:Encrypt, kms:GenerateDataKey)
+- Managed policies regularly updated
+- Data encryption for customer-managed keys
+- Enhanced proxy configuration across IDEs

@@ -1,0 +1,32 @@
+Source: Amazon Q Business Doc History
+URL: https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-history.html
+Fetched: 2026-03-19
+
+# Amazon Q Business - Document History
+
+## August 2025
+- Agentic RAG Feature — Enhanced RAG with agentic workflows
+
+## July 2025
+- Clickable S3 link feature for source document access
+- Relevancy tuning for search results
+- Response customization for chat responses
+
+## April 2025
+- Anonymous access support for application environments
+
+## March-April 2025
+- Hallucination mitigation for chat interactions
+- S3 bucket integration for web customization
+
+## February 2025
+- Microsoft Word Add-in integration
+- Microsoft Outlook Add-in integration
+- Chat orchestration controls and admin guardrails
+
+## Key Features
+- Agentic RAG, hallucination mitigation, semantic image extraction
+- Microsoft Office integration (Word, Outlook)
+- Slack, Teams, Smartsheet connectors
+- IAM Federation, cross-region inference
+- CloudWatch monitoring integration

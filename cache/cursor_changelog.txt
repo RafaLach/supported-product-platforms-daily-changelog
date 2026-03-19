@@ -1,0 +1,30 @@
+Source: Cursor Changelog
+URL: https://cursor.com/changelog
+Fetched: 2026-03-19
+
+# Cursor Changelog
+
+## March 11, 2026: New Plugins on the Cursor Marketplace
+- Over 30 new plugins from Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, PlanetScale
+- Read/write access and actions across expanded toolstack
+- MCP-based plugins for cloud agent use in manual or automated workflows
+
+## March 5, 2026: Automations
+- Always-on agents based on custom triggers and instructions
+- Trigger support: Slack, Linear, GitHub, PagerDuty, webhooks, and schedules
+- Memory tool for learning from past executions
+
+## March 4, 2026: Cursor in JetBrains IDEs
+- Available in IntelliJ IDEA, PyCharm, WebStorm via Agent Client Protocol
+- Supports frontier models from OpenAI, Anthropic, Google, and Cursor
+- Authentication via existing Cursor accounts
+
+## March 3, 2026 (v2.6): MCP Apps & Team Marketplaces
+- Interactive UIs in agent chats with charts, diagrams, whiteboards
+- Team marketplace for private plugin distribution with governance controls
+- Debug mode enhancements
+
+## February 26, 2026: Bugbot Autofix
+- Cloud agents automatically fix detected pull request issues
+- 35% of proposed changes merge into base branches
+- Configuration for automatic branch pushes

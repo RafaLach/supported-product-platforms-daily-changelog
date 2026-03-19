@@ -1,0 +1,11 @@
+Source: Power Apps Released Versions
+URL: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps
+Fetched: 2026-03-19
+
+# Power Apps Released Versions
+
+Latest releases updated as of 2026-03-18. Weekly version releases across multiple regions worldwide.
+
+Multiple recent versions deployed across regions with incremental rollout.
+
+Last updated: 2026-03-18
