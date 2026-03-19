@@ -1,0 +1,16 @@
+Source: OpenAI Status & Incidents
+URL: https://status.openai.com/history.rss
+Fetched: 2026-03-19
+
+# OpenAI Status - Recent Incidents
+
+## March 2026 (All Resolved)
+- Mar 18: Sora Video Generation Failing - video generation error rates returned to normal
+- Mar 17: Excel Plugin Inaccessibility - all impacted services recovered (Connectors/Apps)
+- Mar 17: ChatGPT 5.4 Pro High Error Rates - all impacted services recovered (Conversations)
+- Mar 17: Sign-In and Account Creation Issues - all impacted services recovered (Login/Auth)
+- Mar 17: ChatGPT Free/Guest Plan Errors - all impacted services recovered (Conversations)
+
+## Pattern Summary
+Common affected areas: Conversations/ChatGPT messaging, Login/Auth, File uploads, Image/Video generation, Codex, API endpoints
+All documented incidents show Resolved status. Notable large-scale event on March 5 affected ~30 service components.

@@ -1,0 +1,75 @@
+Source: Azure OpenAI What's New
+URL: https://learn.microsoft.com/en-us/azure/ai-services/openai/whats-new
+Fetched: 2026-03-19
+
+# Azure OpenAI What's New (Azure AI Foundry)
+
+Note: URL now redirects to /azure/foundry-classic/openai/whats-new — page rebranded to "Microsoft Foundry (classic)"
+
+## February 2026
+- GPT-Realtime-1.5 and GPT-Audio-1.5 models released
+- Improved instruction following, multi-lingual support, and tool calling
+
+## December 2025
+- GPT-image-1.5 model available (limited access)
+- gpt-4o-mini-transcribe-2025-12-15: 50% lower WER than previous
+- gpt-realtime-mini-2025-12-15: feature parity with full gpt-realtime
+- gpt-4o-mini-tts-2025-12-15: improved multilingual speech synthesis
+
+## October 2025
+- Realtime API SIP support for telephony
+- gpt-4o-transcribe-diarize ASR model released
+- GPT-image-1-mini for global deployments
+- PII detection content filter
+
+## September 2025
+- GPT-5-codex available (limited access)
+- Sora video-to-video support
+
+## August 2025
+- Sora image-to-video support (Sweden Central, East US 2)
+- Realtime API audio model GA
+- Provisioned spillover GA
+- GPT-5, GPT-5-mini, GPT-5-nano, GPT-5-chat models available
+- Model router with GPT-5 support
+
+## July 2025
+- GPT-image-1 update with input fidelity and partial streaming
+
+## June 2025
+- codex-mini and o3-pro released
+
+## May 2025
+- Sora video generation (preview)
+- Spotlighting for prompt shields (preview)
+- Model router (preview)
+
+## April 2025
+- Realtime API WebRTC support
+- GPT-image-1 released (preview, limited access)
+- o4-mini and o3 models released
+- GPT-4.1 and GPT-4.1-nano released (1M token context)
+- gpt-4o audio models released
+
+## March 2025
+- Responses API & computer-use-preview model
+- Provisioned spillover (preview)
+- Content filtering per-request configuration
+
+## February 2025
+- GPT-4.5 Preview
+- Stored completions API
+- o3-mini data zone standard deployments
+- gpt-4o mini audio released
+
+## January 2025
+- o3-mini released
+- GPT-4o audio completions
+- GPT Realtime API 2024-12-17
+
+## December 2024
+- o1 reasoning model (limited access)
+- Preference fine-tuning (DPO) preview
+- Stored completions & distillation
+- GPT-4o 2024-11-20
+- Data zone provisioned deployment type

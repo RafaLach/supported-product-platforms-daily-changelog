@@ -1,0 +1,44 @@
+Source: Anthropic API Docs
+URL: https://docs.anthropic.com/en/api/getting-started (redirects to platform.claude.com)
+Fetched: 2026-03-19
+
+# Anthropic API Overview
+
+## Base URL
+RESTful API at https://api.anthropic.com
+
+## Available APIs (GA)
+- Messages API: POST /v1/messages — Conversational interactions
+- Message Batches API: POST /v1/messages/batches — Async bulk processing, 50% cost reduction
+- Token Counting API: POST /v1/messages/count_tokens — Pre-send token estimation
+- Models API: GET /v1/models — List available models
+
+## Beta APIs
+- Files API: POST /v1/files — Upload/manage files across API calls
+- Skills API: POST /v1/skills — Create/manage custom agent skills
+
+## Authentication
+- x-api-key header (required)
+- anthropic-version header (required, e.g., 2023-06-01)
+- content-type: application/json (required)
+
+## SDKs
+Official SDKs for Python, TypeScript, Java, Go, C#, Ruby, PHP
+- Automatic header management, type-safe handling, retry logic, streaming
+
+## Current Model
+Latest model referenced: claude-opus-4-6
+
+## Request Size Limits
+- Standard endpoints: 32 MB
+- Batch API: 256 MB
+- Files API: 500 MB
+
+## Platform Availability
+- Direct API (Anthropic)
+- Amazon Bedrock (AWS)
+- Vertex AI (Google Cloud)
+- Azure AI (Microsoft Azure)
+
+## Data Residency
+inference_geo parameter for geographic control ("global" or "us")

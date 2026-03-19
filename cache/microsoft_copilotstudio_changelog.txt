@@ -1,0 +1,71 @@
+Source: Copilot Studio What's New
+URL: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new
+Fetched: 2026-03-19
+
+# Copilot Studio What's New
+
+## March 2026
+- (Preview) Work IQ tools connecting Microsoft 365 Copilot and agents to Work IQ service for real-time work insights
+
+## February 2026
+- Improved agent responses for ticket-based Microsoft 365 Graph connectors (ServiceNow, Azure DevOps)
+- Claude Sonnet 4.5 (beta) available for Computer Use agents
+- Prompt builder enhancements: content moderation sensitivity per prompt, Claude Opus 4.6/Sonnet 4.5 model selection, inline editing of prompt instructions
+
+## January 2026
+- Agent evaluations: thumbs-up/down feedback, activity maps, CSV template for test sets
+- Computer use expansions: new model support, built-in credentials, enhanced audit logging with session replay, Cloud PC pooling
+- VS Code extension GA for building/editing agents
+
+## December 2025
+- Compare multiple agent versions side by side for evaluation
+
+## November 2025
+- GPT-5 Chat GA for European and US regions
+- Microsoft Entra agent identities (Preview)
+- Improved SharePoint knowledge retrieval with tenant graph grounding
+- SharePoint metadata filters for knowledge retrieval
+- Multi-agent orchestration including Microsoft Fabric data agents
+- Tool groups for faster agent setup
+- Copy agents from M365 Copilot to Copilot Studio
+- Request for information action (Preview)
+- Component collections enhancements
+
+## October 2025
+- GPT-4o retired, GPT-4.1 new default model
+- Multiple AI model selection
+- GPT-5 models (Preview)
+- Copilot Studio Kit for testing custom agents
+- Themes analytics (Preview)
+- Time and cost savings tracking
+- Unified activity and transcript view
+- MCP server support
+- Agent evaluation with test sets (Preview)
+
+## September 2025
+- Computer-Using Agents (CUA) Preview
+- Client SDK for Android, iOS, Windows
+- Code interpreter for file analysis (Preview)
+
+## August 2025
+- Code interpreter GA
+- File groups GA
+- File and image upload support
+- Generated answer rate and quality analytics
+- MCP server guided onboarding
+
+## July 2025
+- Advanced NLU customization
+- In-app search
+- ROI analytics
+- MIP sensitivity labels (Preview)
+- WhatsApp channel support
+- SSO Consent Card (Preview)
+
+## June 2025
+- Improved tools experience with grouping/filtering
+- M365 Copilot Tuning support (Preview)
+- Power Fx in prompt builder
+- Generative orchestration for all supported languages (Preview)
+
+Last updated: 2026-03-09

@@ -1,0 +1,33 @@
+Source: Anthropic News
+URL: https://www.anthropic.com/news
+Fetched: 2026-03-19
+
+# Anthropic News
+
+## March 2026
+- Mar 18: "What 81,000 people want from AI" — Largest multilingual qualitative study of AI user expectations
+- Mar 12: $100 million investment into Claude Partner Network — supporting enterprise adoption at scale
+- Mar 11: The Anthropic Institute launches — addressing challenges of powerful AI for societies
+- Mar 10: Sydney becomes fourth Asia-Pacific office
+- Mar 6: "Partnering with Mozilla to improve Firefox's security" — browser security collaboration
+- Mar 5: "Where things stand with the Department of War" — Dario Amodei statement on national security
+
+## February 2026
+- Feb 25: Anthropic acquires Vercept for computer use capabilities
+- Feb 24: Responsible Scaling Policy Version 3.0
+- Feb 23: Distillation attack prevention capabilities
+- Feb 17: Claude Sonnet 4.6 — frontier performance for coding, agents, professional work
+- Feb 13: CodePath partnership for collegiate CS program
+- Feb 12: $30 billion Series G funding at $380 billion valuation ($14B run-rate revenue)
+- Feb 5: Claude Opus 4.6 upgrade — industry-leading model
+- Feb 4: Commitment to keep Claude ad-free
+
+## January 2026
+- Jan 30: Claude assists NASA's Perseverance rover on Mars
+- Jan 11: HIPAA-ready infrastructure for healthcare; expanded clinical trial connectors
+
+## December 2025
+- Dec 18: Compliance framework for California AI transparency law
+
+## Key Themes
+Product development, policy engagement, international expansion, enterprise partnerships (ServiceNow, Infosys, Accenture)

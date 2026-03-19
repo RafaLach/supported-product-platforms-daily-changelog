@@ -1,0 +1,31 @@
+Source: M365 Copilot What's New
+URL: https://learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview?view=o365-worldwide
+Fetched: 2026-03-19
+
+# M365 Admin Center What's New
+
+## November 2025
+- Engineering direct portal renamed to Enhanced Engagements
+- Four new options: Engineering escalations, Business Process Awareness (BPAs), Customer Advisory Board (CAB), Incident Analysis
+- History tab renamed to Design change requests (DCR)
+
+## June 2025
+- Copilot Search Admin experience added to M365 Admin center
+- Acronyms management for organization-specific terms
+- Bookmarks for quick access links to frequently used resources
+
+## April 2025
+- Microsoft 365 Copilot network connectivity test tool
+- Diagnostics for latency, throughput, and service reachability
+
+## March 2025
+- Exchange Web Services (EWS) usage report added
+- Insights into third-party EWS applications ahead of EWS deprecation
+
+## February 2025
+- Admin-initiated feedback for Microsoft 365 Copilot
+- AI Admin role expansion, chat log prompt-response pairs selection, date range selection
+
+## January 2025
+- AI Administrator role in Microsoft 365 admin center
+- Manages Copilot settings, AI-related services, app installations, insights and support

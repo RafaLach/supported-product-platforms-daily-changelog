@@ -1,0 +1,49 @@
+Source: Claude Docs - Build with Claude
+URL: https://docs.anthropic.com/en/docs/build-with-claude/overview (redirects to platform.claude.com)
+Fetched: 2026-03-19
+
+# Claude Features Overview
+
+Claude's API surface organized into five areas:
+
+## 1. Model Capabilities
+- Context windows: Up to 1M tokens
+- Adaptive thinking: Dynamic reasoning depth (recommended for Opus 4.6)
+- Batch processing: 50% cost savings for async bulk requests
+- Citations: Source document grounding with exact references
+- Data residency: Geographic inference controls (global/us)
+- Effort parameter: Token usage control (Opus 4.6, Opus 4.5)
+- Extended thinking: Step-by-step reasoning transparency
+- PDF support: Text and visual content analysis
+- Search results: Natural citations for RAG applications
+- Structured outputs: JSON Schema enforcement
+
+## 2. Tools (Server-side)
+- Code execution: Sandboxed environment (free with web search/fetch)
+- Web fetch: Full page content retrieval
+- Web search: Real-world data augmentation
+
+## 3. Tools (Client-side)
+- Bash: System shell commands
+- Computer use: Screen interaction (screenshots, mouse, keyboard)
+- Memory: Cross-conversation information persistence
+- Text editor: File creation and editing
+
+## 4. Tool Infrastructure
+- Agent Skills: Pre-built (PowerPoint, Excel, Word, PDF) and custom
+- Fine-grained tool streaming
+- MCP connector: Remote MCP server integration
+- Programmatic tool calling: Tools from within code execution containers
+- Tool search: Scale to thousands of tools with regex-based discovery
+
+## 5. Context Management
+- Compaction: Server-side context summarization (Opus 4.6, Sonnet 4.6)
+- Context editing: Automatic context management with configurable strategies
+- Automatic prompt caching: Single parameter, automatic cache point management
+- Prompt caching: 5-minute and 1-hour durations
+- Token counting
+
+## 6. Files and Assets
+- Files API: Upload/manage PDFs, images, text files (beta)
+
+Platform availability across Claude API, Bedrock, Vertex AI, Azure AI

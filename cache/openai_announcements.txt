@@ -1,0 +1,28 @@
+Source: OpenAI Community Forum
+URL: https://community.openai.com
+Fetched: 2026-03-19
+
+# OpenAI Community Forum
+
+## Trending Topics (March 19, 2026)
+- Responses API stopped supporting .xlsx files (March 19)
+- Codex on Windows installation and startup failures (March 19)
+- Evals API file_search returning empty values with no retrieval visibility (March 19)
+- Batch API compatibility issues with gpt-5.4-mini model availability (March 19)
+- Responses API outage affecting hosted shell tools with internet access (March 18)
+
+## Feature Requests
+- TypeScript template development for ChatGPT Apps
+- Multi-cursor editing capability for Prism
+- Confirmation dialog for logout in Mac app
+- Enhanced voice options (softer female voices)
+
+## API & Integration Topics
+- Data retention request processes for EU companies
+- Egress IP range stability for ChatGPT Apps
+- Realtime API language support inquiries
+- Rate limiting and maximum RPM clarifications
+
+## Community Highlights
+- ImageGen/DALL-E megathread continues active
+- Production deployment concerns: sensitive data with OpenAI vs Azure OpenAI

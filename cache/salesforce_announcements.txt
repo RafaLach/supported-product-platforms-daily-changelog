@@ -1,0 +1,30 @@
+Source: Salesforce Releases
+URL: https://www.salesforce.com/releases/
+Fetched: 2026-03-19
+
+# Salesforce Spring '26 Release
+
+## Status
+Spring '26 Release is now live.
+
+## Primary Theme
+"The Spring '26 release enables companies to accelerate their journey toward becoming an Agentic Enterprise by combining human expertise with AI productivity."
+
+## Featured Products & Updates
+- Agentforce — Enhanced agent efficiency and support experiences; Agentforce Voice innovations
+- Sales Cloud — Account prioritization and partner alignment tools
+- Service Cloud — Early issue resolution and escalation reduction
+- Field Service & Operations — Faster information capture; voice command support
+- Marketing Cloud — AI-powered engagement with real-time responses
+- Commerce — Personalized shopping experiences and operational optimization
+- Analytics — Data-driven decision making
+- Flow — Automation scaling enhancements
+- Platform — DevOps and security feature improvements
+- Industry clouds — Health, Education, Nonprofit, Automotive, Communications
+
+## Release Cadence
+Three major updates annually: Winter, Spring, Summer
+Some products now ship monthly updates beyond seasonal releases.
+
+## Governance & Compliance
+Platform roadmap includes strengthened ALM and security features, with emphasis on DevOps improvements and data protection enhancements.

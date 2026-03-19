@@ -1,0 +1,40 @@
+Source: OpenAI Python SDK Releases
+URL: https://github.com/openai/openai-python/releases
+Fetched: 2026-03-19
+
+# OpenAI Python SDK Releases
+
+## v2.29.0 (March 17, 2026)
+- Added support for 5.4 nano and mini model slugs
+- Integrated /v1/videos endpoint into batches create method
+- Introduced defer_loading field to ToolFunction
+- Added in and nin operators to ComparisonFilter type
+- Fixed typing-extensions minimum version dependency
+- Adjusted pydantic's by_alias parameter handling
+
+## v2.28.0 (March 13, 2026)
+- Implemented custom voices functionality
+
+## v2.27.0 (March 13, 2026)
+- Sora API enhancements: character API, video extensions/edits, higher resolution exports
+- Repaired merged videos resource
+- Updated WebSockets protocol naming conventions
+
+## v2.26.0 (March 5, 2026)
+- ComputerTool moved to general availability; computer_use_preview transitioned to ComputerUsePreview class
+
+## v2.25.0 (March 5, 2026)
+- Launched gpt-5.4 model with tool search capability and new computer tool
+- Removed prompt_cache_key parameter from responses
+- Internal schema corrections and phase field adjustments
+
+## v2.24.0 (February 24, 2026)
+- Added phase field support
+- Improved SSE event parsing refactoring
+
+## v2.23.0 (February 24, 2026)
+- Added gpt-realtime-1.5 and gpt-audio-1.5 model options
+
+## v2.22.0 (February 23, 2026)
+- Implemented WebSockets support for responses API
+- Enhanced documentation for file batches, audio, chat, realtime, and video methods

@@ -1,0 +1,38 @@
+Source: Microsoft Graph API Changelog
+URL: https://developer.microsoft.com/graph/changelog/
+Fetched: 2026-03-19
+
+# Microsoft Graph Changelog Summary
+
+## Recent Permission Changes (Feb 23, 2026)
+- `FileStorageContainerType.Manage.All` and `FileStorageContainerTypeReg.Manage.All` delegated permissions no longer require admin consent
+- `ThreatSubmission.Read` and `ThreatSubmission.ReadWrite` now require admin consent
+
+## Identity & Access Governance Additions
+
+**Lifecycle Workflows Enhancements:**
+- Added `userInactivityTrigger` resource for workflow execution
+- New scoped activation capabilities via `activateWithScope` method
+- Support for up to 100 workflows (increased from 50)
+- `administrationScopeTargets` relationship added to workflow base resources
+
+**New Insights Resources:**
+- Aggregate analytics for workflow health and processing
+- Methods: `topTasksProcessedSummary`, `topWorkflowsProcessedSummary`, `workflowsProcessedByCategory`
+
+## Infrastructure as Code
+Microsoft Graph Bicep resources now support deploying: user, application, group, servicePrincipal, federatedIdentityCredential, and oAuth2PermissionGrant resource types.
+
+## Regional Expansion
+Microsoft Graph activity logs are now available in China operated by 21Vianet.
+
+## Deprecation Notice
+Event Hub authentication via shared access signatures (SAS) will be deprecated; migration to Microsoft Entra ID RBAC recommended for change notification subscriptions.
+
+## Reports & Monitoring
+- Added `migrationStatus` enumeration and `relyingPartyDetailedSummary` resource
+- New protocol types: nativeAuth, authenticationTransfer, and PKCE variants
+- Enhanced sign-in reporting with sessionId, appOwnerTenantId properties
+
+## External Identity
+Self-service sign-up analytics now available through `selfServiceSignUp` resource for Microsoft Entra External ID.

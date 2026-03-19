@@ -1,0 +1,51 @@
+Source: Azure AI Foundry Documentation
+URL: https://learn.microsoft.com/en-us/azure/ai-studio/
+Fetched: 2026-03-19
+
+# Microsoft Foundry Documentation
+
+## Overview
+Microsoft Foundry (formerly Azure AI Studio) — "The AI app and agent factory - build, optimize, and govern AI apps and agents at scale."
+
+## Key Components
+
+### Foundry Models
+- Models sold directly by Azure
+- Multiple deployment types
+- DeepSeek-R1 support
+- Fine-tuning capabilities
+
+### Foundry Agent Service
+- Orchestrate and host AI agents for business processes
+- Multi-agent templates
+- AI Red Teaming Agent (preview)
+
+### Foundry Control Plane
+- Trustworthy AI and Content Safety
+- Application tracing and observability
+- Agentic workflow evaluation
+- Generative AI monitoring dashboards
+
+### Foundry IQ
+- Knowledge base connections for agents
+- What is Foundry IQ section now present
+- FAQ section added
+
+### Foundry Tools
+- Speech, Translator, Language, Document Intelligence
+- Content Understanding, Face/Vision
+
+### Azure Machine Learning
+- Model training
+- ML pipelines orchestration
+- AutoML
+
+### Foundry Local
+- Run LLMs on local devices
+- HuggingFace model compilation
+- SDK documentation
+
+### SDKs
+- Python, C#, JavaScript, Java
+
+Last updated: 2026-03-11

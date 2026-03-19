@@ -1,0 +1,40 @@
+Source: OpenAI Node SDK Releases
+URL: https://github.com/openai/openai-node/releases
+Fetched: 2026-03-19
+
+# OpenAI Node SDK Releases
+
+## v6.32.0 (March 17, 2026)
+- Added 5.4 nano and mini model slugs
+
+## v6.31.0 (March 16, 2026)
+- Introduced in/nin filter types to ComparisonFilter
+
+## v6.30.1 (March 16, 2026)
+- Internal CI branch adjustments
+
+## v6.30.0 (March 16, 2026)
+- Added /v1/videos endpoint support for batches
+- Introduced defer_loading field to NamespaceTool
+- Fixed OIDC publishing for npm
+
+## v6.29.0 (March 13, 2026)
+- Added custom voices functionality
+
+## v6.28.0 (March 13, 2026)
+- Sora API improvements: character API, video editing, higher resolution exports
+- Removed detail field from ResponseInputFile types
+- Updated dependencies for security vulnerabilities
+
+## v6.27.0 (March 5, 2026)
+- Moved ComputerTool to general availability
+
+## v6.26.0 (March 5, 2026)
+- Released GPT-5.4 model support
+- Added tool search functionality and new computer tool capabilities
+
+## v6.25.0 (February 24, 2026)
+- Added phase field with documentation refinements
+
+## v6.24.0 (February 24, 2026)
+- Introduced gpt-realtime-1.5 and gpt-audio-1.5 models

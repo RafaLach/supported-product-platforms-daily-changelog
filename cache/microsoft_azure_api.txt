@@ -1,0 +1,42 @@
+Source: Azure OpenAI API Reference
+URL: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
+Fetched: 2026-03-19
+
+# Azure OpenAI REST API Reference
+
+## API Versions
+- Data Plane Inference: v1 (GA: 2024-10-21), v1 preview
+- Control Plane: 2025-06-01 (GA), 2025-07-01-preview
+
+## Key Endpoints
+- Completions: POST /openai/deployments/{id}/completions
+- Chat Completions: POST /openai/deployments/{id}/chat/completions
+- Embeddings: POST /openai/deployments/{id}/embeddings
+- Audio Transcriptions/Translations: POST /audio/transcriptions, /audio/translations
+- Image Generation: POST /openai/deployments/{id}/images/generations
+
+## Authentication
+- API Key (Header: api-key)
+- Microsoft Entra ID (Bearer token)
+
+## Key Features
+- Content Filtering (hate, sexual, violence, self-harm, profanity, protected material)
+- Streaming (server-sent events)
+- Tool/Function Calling (max 128 functions)
+- Vision capabilities
+- RAG Extensions (Azure Search, Cosmos DB)
+- Structured Outputs (JSON Schema)
+- Parallel Tool Calls
+- Log Probabilities
+- Deterministic Sampling (seed-based, beta)
+
+## Deprecated Features
+- function_call parameter (use tool_choice instead)
+- functions parameter (use tools instead)
+- max_tokens in newer models (use max_completion_tokens)
+
+## Status
+- Production Ready: GA version 2024-10-21
+- Active Development: Monthly preview releases
+- Migration Notice: New preview inference API available
+- Document Updated: 2026-03-14

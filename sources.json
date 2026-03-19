@@ -1,0 +1,383 @@
+{
+  "platforms": [
+    {
+      "name": "Microsoft Copilot (M365)",
+      "category": "microsoft",
+      "sources": [
+        {
+          "label": "Microsoft Graph API Changelog",
+          "url": "https://developer.microsoft.com/graph/changelog/",
+          "type": "changelog"
+        },
+        {
+          "label": "M365 Copilot What's New",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview?view=o365-worldwide",
+          "type": "announcements"
+        },
+        {
+          "label": "Copilot Extensibility Docs",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft Copilot Studio",
+      "category": "microsoft",
+      "sources": [
+        {
+          "label": "Copilot Studio What's New",
+          "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new",
+          "type": "changelog"
+        },
+        {
+          "label": "Power Platform Released Versions",
+          "url": "https://learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio",
+          "type": "changelog"
+        }
+      ]
+    },
+    {
+      "name": "Azure AI Foundry",
+      "category": "microsoft",
+      "sources": [
+        {
+          "label": "Azure OpenAI What's New",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/whats-new",
+          "type": "changelog"
+        },
+        {
+          "label": "Azure AI Foundry Documentation",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-studio/",
+          "type": "docs"
+        },
+        {
+          "label": "Azure OpenAI API Reference",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/reference",
+          "type": "api"
+        }
+      ]
+    },
+    {
+      "name": "Power Apps",
+      "category": "microsoft",
+      "sources": [
+        {
+          "label": "Power Apps What's New",
+          "url": "https://learn.microsoft.com/en-us/power-apps/whats-new",
+          "type": "changelog"
+        },
+        {
+          "label": "Power Apps Released Versions",
+          "url": "https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps",
+          "type": "changelog"
+        },
+        {
+          "label": "Power Apps Documentation",
+          "url": "https://learn.microsoft.com/en-us/power-apps/",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Power Automate",
+      "category": "microsoft",
+      "sources": [
+        {
+          "label": "Power Automate What's New",
+          "url": "https://learn.microsoft.com/en-us/power-automate/whats-new",
+          "type": "changelog"
+        },
+        {
+          "label": "Power Automate Released Versions",
+          "url": "https://learn.microsoft.com/en-us/power-platform/released-versions/power-automate",
+          "type": "changelog"
+        },
+        {
+          "label": "Power Automate Documentation",
+          "url": "https://learn.microsoft.com/en-us/power-automate/",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Power Pages",
+      "category": "microsoft",
+      "sources": [
+        {
+          "label": "Power Pages Release Updates",
+          "url": "https://learn.microsoft.com/en-us/power-pages/release-updates",
+          "type": "changelog"
+        },
+        {
+          "label": "Power Pages Documentation",
+          "url": "https://learn.microsoft.com/en-us/power-pages/",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Salesforce AgentForce",
+      "category": "salesforce",
+      "sources": [
+        {
+          "label": "AgentForce Developer Guide",
+          "url": "https://developer.salesforce.com/docs/ai/agentforce/guide",
+          "type": "docs"
+        },
+        {
+          "label": "AgentForce API References",
+          "url": "https://developer.salesforce.com/docs/ai/agentforce/references",
+          "type": "api"
+        },
+        {
+          "label": "Salesforce Releases",
+          "url": "https://www.salesforce.com/releases/",
+          "type": "announcements"
+        }
+      ]
+    },
+    {
+      "name": "Salesforce Einstein",
+      "category": "salesforce",
+      "sources": [
+        {
+          "label": "Einstein GenAI Overview",
+          "url": "https://developer.salesforce.com/docs/einstein/genai/overview",
+          "type": "docs"
+        },
+        {
+          "label": "Einstein GenAI Developer Guide",
+          "url": "https://developer.salesforce.com/docs/einstein/genai/guide",
+          "type": "docs"
+        },
+        {
+          "label": "Einstein GenAI API References",
+          "url": "https://developer.salesforce.com/docs/einstein/genai/references",
+          "type": "api"
+        }
+      ]
+    },
+    {
+      "name": "ChatGPT Enterprise (OpenAI)",
+      "category": "openai",
+      "sources": [
+        {
+          "label": "OpenAI Python SDK Releases",
+          "url": "https://github.com/openai/openai-python/releases",
+          "type": "changelog"
+        },
+        {
+          "label": "OpenAI Node SDK Releases",
+          "url": "https://github.com/openai/openai-node/releases",
+          "type": "changelog"
+        },
+        {
+          "label": "OpenAI Community Forum",
+          "url": "https://community.openai.com",
+          "type": "announcements"
+        },
+        {
+          "label": "OpenAI Status & Incidents (RSS)",
+          "url": "https://status.openai.com/history.rss",
+          "type": "status"
+        }
+      ]
+    },
+    {
+      "name": "Claude Enterprise (Anthropic)",
+      "category": "anthropic",
+      "sources": [
+        {
+          "label": "Anthropic API Docs",
+          "url": "https://platform.claude.com/docs/api/getting-started",
+          "type": "api"
+        },
+        {
+          "label": "Anthropic News",
+          "url": "https://www.anthropic.com/news",
+          "type": "announcements"
+        },
+        {
+          "label": "Claude Docs - Build with Claude",
+          "url": "https://platform.claude.com/docs/build-with-claude/overview",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Amazon Q",
+      "category": "aws",
+      "sources": [
+        {
+          "label": "Amazon Q Developer Doc History",
+          "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/doc-history.html",
+          "type": "changelog"
+        },
+        {
+          "label": "Amazon Q Business Doc History",
+          "url": "https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-history.html",
+          "type": "changelog"
+        },
+        {
+          "label": "Amazon Q Business API Reference",
+          "url": "https://docs.aws.amazon.com/amazonq/latest/api-reference/Welcome.html",
+          "type": "api"
+        },
+        {
+          "label": "Amazon Q Developer Docs",
+          "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Amazon Bedrock",
+      "category": "aws",
+      "sources": [
+        {
+          "label": "Bedrock Doc History",
+          "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html",
+          "type": "changelog"
+        },
+        {
+          "label": "Bedrock API Reference",
+          "url": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+          "type": "api"
+        },
+        {
+          "label": "Bedrock User Guide",
+          "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Amazon Bedrock AgentCore",
+      "category": "aws",
+      "sources": [
+        {
+          "label": "AgentCore Doc History",
+          "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/doc-history.html",
+          "type": "changelog"
+        },
+        {
+          "label": "AgentCore API Reference",
+          "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Operations.html",
+          "type": "api"
+        },
+        {
+          "label": "AgentCore Developer Guide",
+          "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Google Vertex AI",
+      "category": "google",
+      "sources": [
+        {
+          "label": "Vertex AI Release Notes",
+          "url": "https://cloud.google.com/vertex-ai/docs/release-notes",
+          "type": "changelog"
+        },
+        {
+          "label": "Vertex AI API Reference",
+          "url": "https://cloud.google.com/vertex-ai/docs/reference",
+          "type": "api"
+        },
+        {
+          "label": "Vertex AI Documentation",
+          "url": "https://cloud.google.com/vertex-ai/docs",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "ServiceNow",
+      "category": "servicenow",
+      "sources": [
+        {
+          "label": "ServiceNow Release Notes",
+          "url": "https://www.servicenow.com/docs/r/release-notes/family-release-notes.html",
+          "type": "changelog"
+        },
+        {
+          "label": "ServiceNow Documentation",
+          "url": "https://www.servicenow.com/docs/",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Cursor",
+      "category": "cursor",
+      "sources": [
+        {
+          "label": "Cursor Changelog",
+          "url": "https://cursor.com/changelog",
+          "type": "changelog"
+        },
+        {
+          "label": "Cursor Documentation",
+          "url": "https://docs.cursor.com",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Windsurf",
+      "category": "windsurf",
+      "sources": [
+        {
+          "label": "Windsurf Changelog",
+          "url": "https://windsurf.com/changelog",
+          "type": "changelog"
+        },
+        {
+          "label": "Windsurf Documentation",
+          "url": "https://docs.windsurf.com",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Perplexity",
+      "category": "perplexity",
+      "sources": [
+        {
+          "label": "Perplexity API Changelog",
+          "url": "https://docs.perplexity.ai/changelog",
+          "type": "changelog"
+        },
+        {
+          "label": "Perplexity API Reference",
+          "url": "https://docs.perplexity.ai/api-reference",
+          "type": "api"
+        },
+        {
+          "label": "Perplexity API Documentation",
+          "url": "https://docs.perplexity.ai",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "name": "Dia Browser",
+      "category": "dia",
+      "sources": [
+        {
+          "label": "Dia Release Notes",
+          "url": "https://diabrowser.com/release-notes",
+          "type": "changelog"
+        },
+        {
+          "label": "Dia Security",
+          "url": "https://diabrowser.com/security",
+          "type": "docs"
+        }
+      ]
+    }
+  ]
+}

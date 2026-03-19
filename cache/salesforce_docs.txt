@@ -1,0 +1,23 @@
+Source: AgentForce Developer Guide
+URL: https://developer.salesforce.com/docs/ai/agentforce/guide
+Fetched: 2026-03-19
+
+# Agentforce Developer Guide
+
+## Overview
+Agentforce is "the agent-driven layer of the Salesforce Platform" enabling deployment of AI agents for workforce augmentation and 24/7 customer service.
+
+## Core Capabilities
+- Conversational AI agents built on secure Trust Layer architecture
+- Integration of LLMs with enterprise data
+- Customizable AI assistants within Salesforce
+
+## Development Resources
+1. APIs & SDKs — Tools for building Agentforce solutions
+2. Agentforce Actions — Building and enhancing agent functionality
+3. Agent Script — Specialized language for Agentforce Builder configuration
+4. Agentforce DX — Professional-code tools for CLI and VS Code integration
+5. Models & Prompts — LLM configuration and prompt template management
+
+## Key Architecture
+Trust Layer serves as secure connector between enterprise data and LLM capabilities. Platform supports both configuration-friendly and pro-code development approaches.

@@ -1,0 +1,19 @@
+Source: AgentForce API References
+URL: https://developer.salesforce.com/docs/ai/agentforce/references
+Fetched: 2026-03-19
+
+# Agentforce API References
+
+## Available APIs & SDKs
+- Agent API — Communication with AI agents via connected apps and token-based auth
+- Agentforce Python SDK — Programmatic agent creation/management via Metadata API
+- Models API — Apex classes and REST endpoints connecting to LLMs
+- Testing API — Metadata API and Connect API for building/running agent tests
+- Agentforce Mobile SDK — Native iOS and Android integration for agent interactions
+
+## Key Features & Tools
+- Agent Script — Hybrid language combining natural language with programmatic expressions
+- Agentforce DX — Pro-code tools for agent creation/testing outside Builder UI
+- Lightning Types — Custom types for complex agent action inputs/outputs
+- Citations Reference — Apex classes for programmatic citation support
+- Metadata & Tooling APIs — Additional access through existing Salesforce APIs
