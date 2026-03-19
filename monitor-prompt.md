@@ -40,6 +40,8 @@ Your job is to check for recent changes in the documentation, API references, an
      - Any AI tool running on the developer's local machine
      - MCP servers, plugins, extensions that run at the endpoint level
 
+     IMPORTANT: Every finding in ALL three sections MUST end with "Source: <URL>" pointing to the specific source page where the change was found. This is required for the dashboard to link to the original announcement.
+
    - **Errors** section listing any failed fetches
 
 6. **Save the report** to `~/zenity-platform-monitor/reports/report-YYYY-MM-DD.md`

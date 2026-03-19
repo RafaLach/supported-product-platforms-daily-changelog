@@ -209,31 +209,31 @@
         "severity": "HIGH",
         "title": "OpenAI Codex data loss vulnerability",
         "description": "Codex agents reportedly deleting files outside project directories \u2014 directly impacts Data Lens monitoring of agent file activity and AIDR Findings for threat detection",
-        "source": ""
+        "source": "https://community.openai.com"
       },
       {
         "severity": "HIGH",
         "title": "OpenAI ComputerTool GA",
         "description": "computer_use_preview graduating to production \u2014 requires Activity monitoring expansion for screen-interaction agents",
-        "source": ""
+        "source": "https://github.com/openai/openai-python/releases"
       },
       {
         "severity": "MEDIUM",
         "title": "Cursor Automations",
         "description": "Always-on agents triggered by external events (Slack, GitHub, PagerDuty) \u2014 new agent Activity patterns to monitor",
-        "source": ""
+        "source": "https://cursor.com/changelog"
       },
       {
         "severity": "MEDIUM",
         "title": "Windsurf SKILL.md",
         "description": "System-level skill injection via MDM \u2014 potential vector for enterprise-wide agent behavior modification, needs Data Lens coverage",
-        "source": ""
+        "source": "https://windsurf.com/changelog"
       },
       {
         "severity": "LOW",
         "title": "OpenAI status incidents",
         "description": "Multiple service disruptions Mar 17-18 \u2014 Activity monitoring should track availability patterns",
-        "source": ""
+        "source": "https://status.openai.com/history.rss"
       }
     ],
     "aispm": [
@@ -241,37 +241,37 @@
         "severity": "HIGH",
         "title": "Cursor Team Marketplaces",
         "description": "Enterprise governance controls for private plugins \u2014 new Inventory items (marketplace plugins, MCP apps) to discover and catalog",
-        "source": ""
+        "source": "https://cursor.com/changelog"
       },
       {
         "severity": "HIGH",
         "title": "Vertex AI Explainable AI deprecation",
         "description": "Affects model governance posture \u2014 AISPM Violations may need updated policies for explainability requirements",
-        "source": ""
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes"
       },
       {
         "severity": "MEDIUM",
         "title": "Cursor MCP Apps",
         "description": "30+ new marketplace plugins with cloud agent support \u2014 Inventory needs to discover and map these new tool integrations",
-        "source": ""
+        "source": "https://cursor.com/changelog"
       },
       {
         "severity": "MEDIUM",
         "title": "Vertex AI Vector Search 2.0",
         "description": "VPC/PSC network controls \u2014 Inventory should capture network isolation posture for search deployments",
-        "source": ""
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes"
       },
       {
         "severity": "MEDIUM",
         "title": "Copilot Studio Work IQ",
         "description": "Preview access to real-time M365 data (files, emails, meetings, chats) \u2014 Inventory must map data access scope; AISPM Violations should flag excessive data permissions",
-        "source": ""
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new"
       },
       {
         "severity": "LOW",
         "title": "Bedrock AgentCore Policy governance",
         "description": "Cedar-based policy language \u2014 reference architecture for AISPM policy enforcement",
-        "source": ""
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/doc-history.html"
       }
     ],
     "endpoint": [
