@@ -5,79 +5,203 @@
     "platforms": [
       {
         "name": "Microsoft Copilot (M365)",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Graph API changelog: Latest entry Feb 23, 2026 (permission changes for FileStorageContainer and ThreatSubmission)",
+          "M365 Admin: Last update Nov 2025 (Enhanced Engagements rename)",
+          "Copilot extensibility docs: Last updated Nov 18, 2025"
+        ],
+        "sources": []
       },
       {
         "name": "Microsoft Copilot Studio",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Latest entry: March 2026 \u2014 Work IQ tools (Preview) connecting M365 Copilot to real-time work insights",
+          "February 2026: Claude Sonnet 4.5 for Computer Use agents; content moderation sensitivity per prompt",
+          "Security relevance: Entra agent identities, enhanced audit logging, Computer Use governance"
+        ],
+        "sources": []
       },
       {
         "name": "Azure AI Foundry",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Rebranded to \"Microsoft Foundry (classic)\"",
+          "Latest: Feb 2026 \u2014 GPT-Realtime-1.5 and GPT-Audio-1.5 models",
+          "API reference: Control plane GA 2025-06-01, Data plane v1",
+          "Security: PII detection content filter, content filtering per-request, Entra ID auth"
+        ],
+        "sources": []
       },
       {
         "name": "Power Apps",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Weekly version releases continuing (latest update 2026-03-18)",
+          "AI copilot capabilities: Plan designer, conversation-based app building"
+        ],
+        "sources": []
       },
       {
         "name": "Power Automate",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Latest version: 2508.2 (August 2025)",
+          "Copilot available in cloud flows, Process Mining, desktop flows"
+        ],
+        "sources": []
       },
       {
         "name": "Power Pages",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Release plans available for 2023 waves",
+          "AI features: Copilot form/text generation, agent integration"
+        ],
+        "sources": []
       },
       {
         "name": "Salesforce AgentForce",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Spring '26 release live \u2014 \"Agentic Enterprise\" theme",
+          "APIs: Agent API, Models API, Testing API, Agentforce Mobile SDK, Python SDK",
+          "Trust Layer architecture for secure LLM integration"
+        ],
+        "sources": []
       },
       {
         "name": "Salesforce Einstein",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Einstein GenAI overview page JS-rendered (limited content extraction)",
+          "Shared API surface with Agentforce (Agent API, Models API, Citations API)"
+        ],
+        "sources": []
       },
       {
         "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "changed"
+        "status": "changed",
+        "details": [
+          "**Python SDK v2.29.0** (Mar 17): GPT-5.4 nano/mini model slugs, /v1/videos batch endpoint, defer_loading field, in/nin filter operators",
+          "**Node SDK v6.32.0** (Mar 17): 5.4 nano/mini model slugs",
+          "**v6.28.0** (Mar 13): Sora API improvements (character API, video extensions/edits, higher resolution)",
+          "**ComputerTool GA** (Mar 5): computer_use_preview moved to ComputerUsePreview class",
+          "**Status incidents** (Mar 17-18): Sora failures, ChatGPT 5.4 Pro errors, auth issues, Excel plugin \u2014 all resolved",
+          "**Community concerns**: Codex agent data loss (file deletion outside project dirs), gpt-5.4-mini Batch API incompatibility"
+        ],
+        "sources": []
       },
       {
         "name": "Claude Enterprise (Anthropic)",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "API docs: Page rendered as Next.js payload (limited extraction)",
+          "News: Mar 18 user study, Mar 12 $100M Partner Network, Mar 11 Anthropic Institute, Mar 6 Mozilla partnership",
+          "Build docs: 404 redirect on /build-with-claude/overview",
+          "Security relevance: Responsible Scaling Policy v3.0 (Feb 24), Vercept acquisition for computer use (Feb 25)"
+        ],
+        "sources": []
       },
       {
         "name": "Amazon Q",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Q Developer: Latest Feb 18, 2026 \u2014 account subscription limit increased to 20 per region",
+          "Q Business: Latest Aug 14, 2025 \u2014 Agentic RAG feature",
+          "API: QBusiness and QApps APIs with IAM authentication"
+        ],
+        "sources": []
       },
       {
         "name": "Amazon Bedrock",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Latest: Feb 27, 2026 \u2014 Converse API batch inference support",
+          "Feb 17: OpenAI-compatible fine-tuning APIs",
+          "100+ foundation models including Claude Opus 4.6, DeepSeek V3.2, GPT-OSS-20B",
+          "Security: Guardrails cross-account sharing, managed IAM policies (Mantle)"
+        ],
+        "sources": []
       },
       {
         "name": "Amazon Bedrock AgentCore",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Dec 2, 2025 major update: Policy governance, Episodic Memory, Custom Claims, Bidirectional Streaming, OAuth tokens, Evaluations",
+          "37 API operations across Memory, Browser, Code Interpreter, Runtime, Identity",
+          "Security: Policy-based governance with Cedar language, agent identity management"
+        ],
+        "sources": []
       },
       {
         "name": "Google Vertex AI",
-        "status": "changed"
+        "status": "changed",
+        "details": [
+          "**Mar 16**: Vertex Explainable AI deprecated",
+          "**Mar 12**: Evaluation service now supports partner models (Anthropic, Llama)",
+          "**Mar 5**: Vector Search 2.0 GA \u2014 collections, auto-embeddings, hybrid search, PSC/VPC controls",
+          "**Mar 3**: Gemini 3.1 Flash-Lite public preview; video generation endpoints deprecated",
+          "**Feb 20**: Workbench security vulnerability patched",
+          "Security relevance: Explainable AI deprecation affects model governance; Vector Search 2.0 VPC controls; security patch"
+        ],
+        "sources": []
       },
       {
         "name": "ServiceNow",
-        "status": "error"
+        "status": "error",
+        "details": [
+          "Both release notes and documentation pages require JavaScript rendering",
+          "Static fetch returns only loader scripts and analytics code",
+          "Manual review recommended"
+        ],
+        "sources": []
       },
       {
         "name": "Cursor",
-        "status": "changed"
+        "status": "changed",
+        "details": [
+          "**Mar 11**: 30+ marketplace plugins (Atlassian, Datadog, GitLab, Hugging Face) with MCP cloud agent support",
+          "**Mar 5**: Automations \u2014 always-on agents triggered by Slack, Linear, GitHub, PagerDuty, webhooks",
+          "**Mar 4**: JetBrains IDE support via Agent Client Protocol (ACP)",
+          "**Mar 3 (v2.6)**: MCP Apps and Team Marketplaces with private plugin governance for Teams/Enterprise",
+          "**Feb 26**: Bugbot Autofix \u2014 cloud agents auto-fix PRs (35% merge rate)",
+          "Security relevance: Team Marketplace governance controls; enterprise identity/compliance features; MCP protocol expansion"
+        ],
+        "sources": []
       },
       {
         "name": "Windsurf",
-        "status": "changed"
+        "status": "changed",
+        "details": [
+          "**Mar 17**: GPT-5.4 Mini at promotional 1x credits",
+          "**Mar 12**: Apple M5 hardware support",
+          "**Mar 9 (v1.9577.24)**: SKILL.md file loading, MCP context improvements, Jupyter Notebook fixes",
+          "**Mar 5**: GPT-5.4 with tiered reasoning pricing",
+          "Security relevance: Enterprise MCP system-level Skills via MDM; SSH/Remote performance improvements"
+        ],
+        "sources": []
       },
       {
         "name": "Perplexity",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Latest: Feb 2026 \u2014 Agent API GA and Embeddings API launch",
+          "Single endpoint: POST /v1/agent with Bearer token auth",
+          "Supports model fallback chains, presets (fast-search, pro-search, deep-research)"
+        ],
+        "sources": []
       },
       {
         "name": "Dia Browser",
-        "status": "stable"
+        "status": "stable",
+        "details": [
+          "Latest: v1.22.0 (Mar 11) \u2014 Proactive Suggestions, performance improvements, profile switching",
+          "Security: Prompt injection defense layers, Chromium-based with aggressive patching",
+          "Bug bounty via HackerOne; disabled GAIA, UMA, profile sync"
+        ],
+        "sources": []
       }
     ],
     "aidr": [
@@ -85,31 +209,31 @@
         "severity": "HIGH",
         "title": "OpenAI Codex data loss vulnerability",
         "description": "Codex agents reportedly deleting files outside project directories \u2014 directly impacts Data Lens monitoring of agent file activity and AIDR Findings for threat detection",
-        "module": "AIDR"
+        "source": ""
       },
       {
         "severity": "HIGH",
         "title": "OpenAI ComputerTool GA",
         "description": "computer_use_preview graduating to production \u2014 requires Activity monitoring expansion for screen-interaction agents",
-        "module": "AIDR"
+        "source": ""
       },
       {
         "severity": "MEDIUM",
         "title": "Cursor Automations",
         "description": "Always-on agents triggered by external events (Slack, GitHub, PagerDuty) \u2014 new agent Activity patterns to monitor",
-        "module": "AIDR"
+        "source": ""
       },
       {
         "severity": "MEDIUM",
         "title": "Windsurf SKILL.md",
         "description": "System-level skill injection via MDM \u2014 potential vector for enterprise-wide agent behavior modification, needs Data Lens coverage",
-        "module": "AIDR"
+        "source": ""
       },
       {
         "severity": "LOW",
         "title": "OpenAI status incidents",
         "description": "Multiple service disruptions Mar 17-18 \u2014 Activity monitoring should track availability patterns",
-        "module": "AIDR"
+        "source": ""
       }
     ],
     "aispm": [
@@ -117,37 +241,81 @@
         "severity": "HIGH",
         "title": "Cursor Team Marketplaces",
         "description": "Enterprise governance controls for private plugins \u2014 new Inventory items (marketplace plugins, MCP apps) to discover and catalog",
-        "module": "AISPM"
+        "source": ""
       },
       {
         "severity": "HIGH",
         "title": "Vertex AI Explainable AI deprecation",
         "description": "Affects model governance posture \u2014 AISPM Violations may need updated policies for explainability requirements",
-        "module": "AISPM"
+        "source": ""
       },
       {
         "severity": "MEDIUM",
         "title": "Cursor MCP Apps",
         "description": "30+ new marketplace plugins with cloud agent support \u2014 Inventory needs to discover and map these new tool integrations",
-        "module": "AISPM"
+        "source": ""
       },
       {
         "severity": "MEDIUM",
         "title": "Vertex AI Vector Search 2.0",
         "description": "VPC/PSC network controls \u2014 Inventory should capture network isolation posture for search deployments",
-        "module": "AISPM"
+        "source": ""
       },
       {
         "severity": "MEDIUM",
         "title": "Copilot Studio Work IQ",
         "description": "Preview access to real-time M365 data (files, emails, meetings, chats) \u2014 Inventory must map data access scope; AISPM Violations should flag excessive data permissions",
-        "module": "AISPM"
+        "source": ""
       },
       {
         "severity": "LOW",
         "title": "Bedrock AgentCore Policy governance",
         "description": "Cedar-based policy language \u2014 reference architecture for AISPM policy enforcement",
-        "module": "AISPM"
+        "source": ""
+      }
+    ],
+    "endpoint": [
+      {
+        "severity": "HIGH",
+        "title": "Cursor Automations + MCP Apps",
+        "description": "Always-on agents with 30+ marketplace plugins (Atlassian, Datadog, GitLab) running locally via MCP \u2014 expands endpoint attack surface for IDE-based agents",
+        "source": "https://cursor.com/changelog"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Windsurf SKILL.md via MDM",
+        "description": "System-level skill injection deployable via enterprise MDM \u2014 enables silent behavior modification of developer coding assistants",
+        "source": "https://windsurf.com/changelog"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Codex agent file deletion",
+        "description": "Codex agents deleting files outside project directories \u2014 critical endpoint data loss vector for coding assistants",
+        "source": "https://community.openai.com"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor JetBrains support via ACP",
+        "description": "Agent Client Protocol extends Cursor agents to JetBrains IDEs \u2014 new endpoint surface to monitor",
+        "source": "https://cursor.com/changelog"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor Bugbot Autofix",
+        "description": "Cloud agents auto-fixing PRs with 35% merge rate \u2014 endpoint agents pushing code changes autonomously",
+        "source": "https://cursor.com/changelog"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Windsurf GPT-5.4 Mini",
+        "description": "New model available at promotional pricing \u2014 shifts endpoint model usage patterns",
+        "source": "https://windsurf.com/changelog"
+      },
+      {
+        "severity": "LOW",
+        "title": "Dia Browser v1.22.0 Proactive Suggestions",
+        "description": "AI-driven suggestions now proactively offered to users \u2014 new browser endpoint behavior to monitor",
+        "source": "https://diabrowser.com/release-notes"
       }
     ],
     "highlights": [
@@ -167,31 +335,86 @@
     "platforms": [
       {
         "name": "Microsoft Copilot (M365)",
-        "status": "initial"
+        "status": "initial",
+        "details": [
+          "M365 Admin Center latest updates through November 2025, with Copilot Search Admin experience (June 2025) and AI Administrator role (January 2025) as notable recent additions",
+          "Graph API Changelog shows active development in identity governance, lifecycle workflows, and audit capabilities as of February 2026",
+          "Copilot extensibility documentation covers declarative agents, custom engine agents, plugins, connectors, and the new Microsoft Agent 365 (early access preview)",
+          "https://developer.microsoft.com/graph/changelog/",
+          "https://learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview?view=o365-worldwide",
+          "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/"
+        ],
+        "sources": []
       },
       {
         "name": "Microsoft Copilot Studio",
-        "status": "initial"
+        "status": "initial",
+        "details": [
+          "Extremely active development cadence with monthly feature releases",
+          "March 2026: Work IQ tools (Preview) for real-time work insights from M365",
+          "February 2026: Claude model integration (Sonnet 4.5 for Computer Use, Opus 4.6 for prompts), content moderation sensitivity controls",
+          "January 2026: Agent evaluations enhancements, Computer Use expansions with Cloud PC pooling, VS Code extension GA",
+          "November 2025: GPT-5 Chat GA, multi-agent orchestration, MCP server support, SharePoint metadata filters",
+          "Released versions page only shows August-September 2024 entries (may be incomplete)"
+        ],
+        "sources": []
       },
       {
         "name": "Azure AI Foundry",
-        "status": "initial"
+        "status": "initial",
+        "details": [
+          "Platform rebranded from \"Azure AI Studio\" to \"Microsoft Foundry\"",
+          "February 2026: GPT-Realtime-1.5 and GPT-Audio-1.5 models released",
+          "December 2025: GPT-image-1.5, improved transcription/TTS/realtime-mini models",
+          "October 2025: GPT-4o-transcribe-diarize, PII detection filter, Realtime API SIP support",
+          "August-September 2025: GPT-5 family (GPT-5, GPT-5-mini, GPT-5-nano, GPT-5-chat, GPT-5-codex), Sora video generation (text-to-video, image-to-video, video-to-video)",
+          "API Reference: GA version 2024-10-21, Control Plane 2025-06-01, with monthly previews"
+        ],
+        "sources": []
       },
       {
         "name": "Salesforce AgentForce",
-        "status": "initial"
+        "status": "initial",
+        "details": [
+          "Spring '26 release is live, themed around \"Agentic Enterprise\" \u2014 combining human expertise with AI productivity",
+          "AgentForce positioned as \"the agent-driven layer of the Salesforce Platform\" with Trust Layer architecture",
+          "Developer tools include: Agent API, Python SDK, Models API, Testing API, Mobile SDK (iOS/Android)",
+          "Agent Script provides hybrid natural language + programmatic expression authoring",
+          "Agentforce DX supports pro-code workflows via CLI and VS Code",
+          "Spring '26 spans Agentforce, Sales Cloud, Service Cloud, Field Service, Marketing Cloud, Commerce, and Analytics"
+        ],
+        "sources": []
       },
       {
         "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "initial"
+        "status": "initial",
+        "details": [
+          "All three OpenAI URLs blocked automated access:",
+          "platform.openai.com/docs/changelog \u2014 403",
+          "openai.com/index/ \u2014 403",
+          "help.openai.com/en/articles/6825453-chatgpt-release-notes \u2014 403",
+          "**Action needed:** Consider alternative data sources such as RSS feeds, OpenAI's API status page, or manual browser-based checks",
+          "https://platform.openai.com/docs/changelog"
+        ],
+        "sources": []
       },
       {
         "name": "Claude Enterprise (Anthropic)",
-        "status": "initial"
+        "status": "initial",
+        "details": [
+          "Documentation has migrated from docs.anthropic.com to platform.claude.com (301 redirects)",
+          "Latest models: Claude Opus 4.6 (Feb 5, 2026) and Claude Sonnet 4.6 (Feb 17, 2026)",
+          "API surface organized into: Model capabilities, Tools (server-side & client-side), Tool infrastructure, Context management, Files/assets",
+          "Key capabilities: 1M token context, adaptive thinking, batch processing (50% savings), citations, computer use, MCP connector, agent skills",
+          "Beta features: Files API, Skills API",
+          "Available on direct API, Amazon Bedrock, Google Vertex AI, Azure AI"
+        ],
+        "sources": []
       }
     ],
     "aidr": [],
     "aispm": [],
+    "endpoint": [],
     "highlights": [
       "First run \u2014 baselines established for all monitored platforms",
       "**All 3 OpenAI URLs returned HTTP 403** \u2014 these sources block automated fetching and need alternative access methods (browser scraping, RSS feeds, or API-based approaches)",

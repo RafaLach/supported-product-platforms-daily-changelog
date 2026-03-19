@@ -33,6 +33,13 @@ Your job is to check for recent changes in the documentation, API references, an
      - **Inventory**: Changes affecting resource mapping (agents, tools, knowledge bases, MCPs, permissions, sharing)
      - **AISPM Violations**: Changes affecting policy violations (exposed agents, missing auth, sensitive data access)
 
+     ### AI Endpoint
+     Tag items with severity [HIGH], [MEDIUM], or [LOW]. AI Endpoint covers security for locally-running AI tools:
+     - IDE extensions and AI coding assistants (Cursor, Windsurf, Claude Code)
+     - AI browsers (Dia)
+     - Any AI tool running on the developer's local machine
+     - MCP servers, plugins, extensions that run at the endpoint level
+
    - **Errors** section listing any failed fetches
 
 6. **Save the report** to `~/zenity-platform-monitor/reports/report-YYYY-MM-DD.md`
@@ -48,4 +55,4 @@ Your job is to check for recent changes in the documentation, API references, an
 
 8. **Handle errors gracefully**: If a URL fails to fetch, note it in the report and continue with the other sources. Do not stop the entire run for one failed fetch.
 
-IMPORTANT: Be thorough but concise. Focus on actionable changes, not cosmetic updates. Highlight anything that could affect Zenity's security monitoring capabilities. The AIDR/AISPM categorization is critical — each team uses this to know what they need to update in the product.
+IMPORTANT: Be thorough but concise. Focus on actionable changes, not cosmetic updates. Highlight anything that could affect Zenity's security monitoring capabilities. The AIDR/AISPM/AI Endpoint categorization is critical — each team uses this to know what they need to update in the product. A single change can appear in multiple modules if relevant.

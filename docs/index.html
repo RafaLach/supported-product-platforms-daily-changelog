@@ -1,910 +1,544 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zenity Platform Monitor</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #80EEDB;
+            --primary-dark: #4DD9C0;
             --secondary: #7832E0;
+            --violet-50: #F5F0FF;
             --violet-100: #E0D1FC;
-            --violet-200: #D6C5E2;
-            --violet-300: #977F97;
             --violet-400: #9B6EF0;
             --violet-500: #7832E0;
-            --violet-600: #9A6CF0;
             --violet-700: #2E1C59;
             --violet-800: #1A0E30;
-            --violet-900: #2F2D43;
             --green: #34D399;
-            --yellow: #FBBF24;
-            --red: #F87171;
-            --orange: #FB923C;
+            --green-soft: #ECFDF5;
+            --yellow: #F59E0B;
+            --yellow-soft: #FFFBEB;
+            --red: #EF4444;
+            --red-soft: #FEF2F2;
+            --blue: #3B82F6;
             --radius: 16px;
             --radius-sm: 10px;
-            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-xs: 6px;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        [data-theme="dark"] {
-            --bg-page: #020221;
-            --bg-surface: rgba(46, 28, 89, 0.35);
-            --bg-surface-hover: rgba(46, 28, 89, 0.55);
-            --bg-card: rgba(26, 14, 48, 0.6);
-            --bg-card-hover: rgba(26, 14, 48, 0.8);
-            --bg-input: rgba(47, 45, 67, 0.5);
-            --border: rgba(155, 110, 240, 0.15);
-            --border-hover: rgba(155, 110, 240, 0.3);
-            --text-primary: #FDFBFF;
-            --text-secondary: #CBC4D0;
-            --text-muted: #977F97;
-            --glow-primary: rgba(128, 238, 219, 0.12);
-            --glow-secondary: rgba(120, 50, 224, 0.15);
-            --gradient-hero: linear-gradient(135deg, rgba(46,28,89,0.5) 0%, rgba(2,2,33,0.95) 100%);
-            --shadow-card: 0 4px 24px rgba(0,0,0,0.3), 0 0 0 1px var(--border);
-            --shadow-card-hover: 0 8px 40px rgba(120,50,224,0.15), 0 0 0 1px var(--border-hover);
-        }
-
         [data-theme="light"] {
-            --bg-page: #F8F6FC;
-            --bg-surface: rgba(255, 255, 255, 0.85);
-            --bg-surface-hover: rgba(255, 255, 255, 0.95);
-            --bg-card: #FFFFFF;
-            --bg-card-hover: #FFFFFF;
-            --bg-input: #F0EDF5;
-            --border: rgba(155, 110, 240, 0.12);
-            --border-hover: rgba(155, 110, 240, 0.25);
-            --text-primary: #1A0E30;
-            --text-secondary: #4A3D5C;
-            --text-muted: #8B7EA0;
-            --glow-primary: rgba(128, 238, 219, 0.08);
-            --glow-secondary: rgba(120, 50, 224, 0.06);
-            --gradient-hero: linear-gradient(135deg, rgba(224,209,252,0.3) 0%, rgba(248,246,252,0.95) 100%);
-            --shadow-card: 0 2px 12px rgba(26,14,48,0.06), 0 0 0 1px var(--border);
-            --shadow-card-hover: 0 4px 20px rgba(120,50,224,0.08), 0 0 0 1px var(--border-hover);
+            --bg: #F7F5FA;
+            --bg-elevated: #FFFFFF;
+            --bg-hover: #F0EDF5;
+            --bg-inset: #EEEAF4;
+            --border: rgba(120,50,224,0.08);
+            --border-strong: rgba(120,50,224,0.15);
+            --text-1: #1A0E30;
+            --text-2: #4A3D5C;
+            --text-3: #8B7EA0;
+            --shadow-sm: 0 1px 3px rgba(26,14,48,0.04);
+            --shadow-md: 0 4px 16px rgba(26,14,48,0.06);
+            --shadow-lg: 0 8px 32px rgba(26,14,48,0.08);
+            --shadow-glow: 0 0 0 1px var(--border);
+            --overlay: rgba(26,14,48,0.4);
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-page);
-            color: var(--text-primary);
-            line-height: 1.6;
-            transition: background var(--transition), color var(--transition);
-            min-height: 100vh;
+        [data-theme="dark"] {
+            --bg: #060418;
+            --bg-elevated: rgba(30,20,60,0.7);
+            --bg-hover: rgba(46,28,89,0.5);
+            --bg-inset: rgba(15,10,35,0.6);
+            --border: rgba(155,110,240,0.1);
+            --border-strong: rgba(155,110,240,0.2);
+            --text-1: #F0ECF6;
+            --text-2: #B8B0C8;
+            --text-3: #7A6F90;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+            --shadow-glow: 0 0 0 1px var(--border);
+            --overlay: rgba(0,0,0,0.6);
+            --green-soft: rgba(52,211,153,0.1);
+            --yellow-soft: rgba(245,158,11,0.1);
+            --red-soft: rgba(239,68,68,0.1);
+            --violet-50: rgba(155,110,240,0.08);
         }
-
-        [data-theme="dark"] body {
-            background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120,50,224,0.08) 0%, transparent 60%);
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text-1); line-height:1.5; transition:background .3s var(--ease),color .3s var(--ease); }
+        [data-theme="dark"] body { background-image:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(120,50,224,0.06) 0%,transparent 70%); }
 
         /* ─── NAV ─── */
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(20px) saturate(1.5);
-            -webkit-backdrop-filter: blur(20px) saturate(1.5);
-            background: var(--bg-surface);
-            border-bottom: 1px solid var(--border);
-        }
+        .nav { position:sticky; top:0; z-index:100; backdrop-filter:blur(24px) saturate(1.8); -webkit-backdrop-filter:blur(24px) saturate(1.8); border-bottom:1px solid var(--border); background:color-mix(in srgb, var(--bg-elevated) 80%, transparent); }
+        .nav-inner { max-width:1360px; margin:0 auto; padding:0 28px; height:52px; display:flex; align-items:center; justify-content:space-between; }
+        .nav-left { display:flex; align-items:center; gap:10px; }
+        .nav-logo { width:26px; height:26px; border-radius:7px; background:linear-gradient(135deg,var(--secondary),var(--primary)); display:flex; align-items:center; justify-content:center; }
+        .nav-logo svg { width:14px; height:14px; }
+        .nav-title { font-size:14px; font-weight:700; letter-spacing:-0.4px; }
+        .nav-divider { width:1px; height:20px; background:var(--border-strong); margin:0 4px; }
+        .nav-subtitle { font-size:12px; font-weight:600; color:var(--text-3); }
+        .nav-right { display:flex; align-items:center; gap:6px; }
+        .pill-tabs { display:flex; background:var(--bg-inset); border-radius:8px; padding:2px; gap:1px; }
+        .pill-tab { padding:5px 14px; border-radius:6px; border:none; background:none; color:var(--text-3); font:600 12px/1 'Inter',sans-serif; cursor:pointer; transition:all .2s var(--ease); }
+        .pill-tab:hover { color:var(--text-2); }
+        .pill-tab.active { background:var(--bg-elevated); color:var(--text-1); box-shadow:var(--shadow-sm); }
+        .icon-btn { width:32px; height:32px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text-3); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s var(--ease); }
+        .icon-btn:hover { color:var(--text-1); border-color:var(--border-strong); }
 
-        .nav-inner {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 32px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        /* ─── LAYOUT ─── */
+        .container { max-width:1360px; margin:0 auto; padding:20px 28px 60px; }
+        .view { display:none; }
+        .view.active { display:block; }
 
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        /* ─── METRIC ROW ─── */
+        .metrics { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:20px; }
+        .metric { background:var(--bg-elevated); border-radius:var(--radius-sm); padding:14px 16px; box-shadow:var(--shadow-glow); position:relative; overflow:hidden; }
+        .metric::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+        .metric.v-accent::after { background:linear-gradient(90deg,var(--secondary),var(--primary)); }
+        .metric.v-green::after { background:var(--green); }
+        .metric.v-yellow::after { background:var(--yellow); }
+        .metric.v-red::after { background:var(--red); }
+        .metric-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--text-3); margin-bottom:4px; }
+        .metric-val { font-size:26px; font-weight:800; letter-spacing:-1px; }
+        .metric.v-accent .metric-val { color:var(--secondary); }
+        .metric.v-green .metric-val { color:var(--green); }
+        .metric.v-yellow .metric-val { color:var(--yellow); }
+        .metric.v-red .metric-val { color:var(--red); }
 
-        .nav-logo {
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        /* ─── MODULE TABS ─── */
+        .module-tabs { display:flex; gap:8px; margin-bottom:16px; }
+        .module-tab { display:flex; align-items:center; gap:7px; padding:8px 16px; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-elevated); cursor:pointer; transition:all .2s var(--ease); font:600 12px/1 'Inter',sans-serif; color:var(--text-2); }
+        .module-tab .count { background:var(--bg-inset); padding:2px 7px; border-radius:20px; font-size:11px; font-weight:700; color:var(--text-3); }
+        .module-tab:hover { border-color:var(--border-strong); }
+        .module-tab.active { border-color:var(--secondary); background:var(--violet-50); color:var(--secondary); }
+        .module-tab.active .count { background:rgba(120,50,224,0.12); color:var(--secondary); }
+        .module-tab.t-endpoint.active { border-color:var(--blue); color:var(--blue); background:rgba(59,130,246,0.06); }
+        .module-tab.t-endpoint.active .count { background:rgba(59,130,246,0.12); color:var(--blue); }
+        .module-tab.t-aidr.active { border-color:var(--primary-dark); color:var(--primary-dark); background:rgba(128,238,219,0.06); }
+        .module-tab.t-aidr.active .count { background:rgba(128,238,219,0.15); color:var(--primary-dark); }
 
-        .nav-logo svg { width: 16px; height: 16px; }
+        /* ─── FINDING ROWS ─── */
+        .findings-panel { display:none; }
+        .findings-panel.active { display:block; }
+        .finding-row { display:grid; grid-template-columns:60px 1fr auto; gap:14px; align-items:center; padding:14px 18px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); margin-bottom:6px; cursor:pointer; transition:all .2s var(--ease); }
+        .finding-row:hover { box-shadow:var(--shadow-md); transform:translateY(-1px); }
+        .sev { font-size:10px; font-weight:800; letter-spacing:.5px; padding:4px 0; border-radius:var(--radius-xs); text-align:center; }
+        .sev.HIGH { background:var(--red-soft); color:var(--red); }
+        .sev.MEDIUM { background:var(--yellow-soft); color:var(--yellow); }
+        .sev.LOW { background:var(--green-soft); color:var(--green); }
+        .finding-main { min-width:0; }
+        .finding-title { font-size:13px; font-weight:700; letter-spacing:-0.2px; margin-bottom:2px; }
+        .finding-desc { font-size:12px; color:var(--text-2); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+        .finding-arrow { color:var(--text-3); font-size:16px; }
 
-        .nav-title {
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: -0.3px;
-            background: linear-gradient(90deg, var(--text-primary), var(--text-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-tag {
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary);
-            background: rgba(128,238,219,0.1);
-            padding: 3px 8px;
-            border-radius: 6px;
-        }
-
-        .nav-actions { display: flex; align-items: center; gap: 8px; }
-
-        .theme-toggle {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            background: var(--bg-input);
-            color: var(--text-secondary);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition);
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--border-hover);
-            color: var(--text-primary);
-            background: var(--bg-surface-hover);
-        }
-
-        /* ─── TABS ─── */
-        .tab-bar {
-            display: flex;
-            gap: 2px;
-            background: var(--bg-input);
-            border-radius: var(--radius-sm);
-            padding: 3px;
-        }
-
-        .tab {
-            padding: 6px 16px;
-            border-radius: 8px;
-            border: none;
-            background: transparent;
-            color: var(--text-muted);
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition);
-            font-family: inherit;
-        }
-
-        .tab:hover { color: var(--text-secondary); }
-        .tab.active {
-            background: var(--bg-card);
-            color: var(--text-primary);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        }
-
-        /* ─── CONTAINER ─── */
-        .container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 24px 32px 64px;
-        }
-
-        /* ─── HERO STATS ─── */
-        .hero {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .stat {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: var(--shadow-card);
-            transition: all var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-        }
-
-        .stat.accent::before { background: linear-gradient(90deg, var(--secondary), var(--primary)); }
-        .stat.green::before { background: var(--green); }
-        .stat.yellow::before { background: var(--yellow); }
-        .stat.red::before { background: var(--red); }
-
-        .stat-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .stat-value {
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .stat.accent .stat-value { color: var(--primary); }
-        .stat.green .stat-value { color: var(--green); }
-        .stat.yellow .stat-value { color: var(--yellow); }
-        .stat.red .stat-value { color: var(--red); }
-
-        /* ─── SECTION HEADERS ─── */
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 32px 0 16px;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: -0.3px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title .icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .section-title .icon.aidr { background: rgba(128,238,219,0.1); }
-        .section-title .icon.aispm { background: rgba(155,110,240,0.1); }
-
-        .module-label {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-
-        .module-label.aidr {
-            color: var(--primary);
-            background: rgba(128,238,219,0.1);
-            border: 1px solid rgba(128,238,219,0.2);
-        }
-
-        .module-label.aispm {
-            color: var(--violet-400);
-            background: rgba(155,110,240,0.1);
-            border: 1px solid rgba(155,110,240,0.2);
-        }
-
-        /* ─── SECURITY FINDINGS ─── */
-        .findings-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 8px;
-        }
-
-        .finding-card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 18px 20px;
-            box-shadow: var(--shadow-card);
-            transition: all var(--transition);
-            cursor: default;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-        }
-
-        .finding-card:hover {
-            box-shadow: var(--shadow-card-hover);
-            transform: translateY(-1px);
-        }
-
-        .severity-badge {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 8px;
-            border-radius: 6px;
-            white-space: nowrap;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .severity-badge.HIGH { background: rgba(248,113,113,0.15); color: var(--red); }
-        .severity-badge.MEDIUM { background: rgba(251,191,36,0.15); color: var(--yellow); }
-        .severity-badge.LOW { background: rgba(52,211,153,0.15); color: var(--green); }
-
-        .finding-content { flex: 1; min-width: 0; }
-
-        .finding-title {
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            letter-spacing: -0.2px;
-        }
-
-        .finding-desc {
-            font-size: 12px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .finding-sub {
-            font-size: 10px;
-            color: var(--text-muted);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 6px;
-        }
-
-        /* ─── PLATFORM GRID ─── */
-        .platform-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 12px;
-        }
-
-        .platform-card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 16px 18px;
-            box-shadow: var(--shadow-card);
-            transition: all var(--transition);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .platform-card:hover {
-            box-shadow: var(--shadow-card-hover);
-            transform: translateY(-1px);
-        }
-
-        .platform-card.active {
-            border: 1px solid var(--primary);
-            box-shadow: var(--shadow-card-hover), 0 0 0 1px var(--primary);
-        }
-
-        .status-indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .status-indicator.changed { background: var(--yellow); box-shadow: 0 0 8px rgba(251,191,36,0.4); }
-        .status-indicator.stable { background: var(--green); box-shadow: 0 0 8px rgba(52,211,153,0.3); }
-        .status-indicator.error { background: var(--red); box-shadow: 0 0 8px rgba(248,113,113,0.4); }
-        .status-indicator.initial { background: var(--primary); box-shadow: 0 0 8px rgba(128,238,219,0.4); }
-
-        .platform-info { flex: 1; min-width: 0; }
-
-        .platform-name {
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: -0.2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .platform-status-text {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .category-tag {
-            font-size: 9px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            padding: 2px 6px;
-            border-radius: 4px;
-            background: var(--bg-input);
-            color: var(--text-muted);
-        }
-
-        /* ─── REPORT PANEL ─── */
-        .report-section {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 16px;
-        }
-
-        .report-list-panel {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-card);
-            overflow: hidden;
-        }
-
-        .report-list-header {
-            padding: 14px 18px;
-            border-bottom: 1px solid var(--border);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--text-muted);
-        }
-
-        .report-list-items { max-height: 500px; overflow-y: auto; }
-
-        .report-item {
-            padding: 12px 18px;
-            cursor: pointer;
-            border-bottom: 1px solid var(--border);
-            transition: all var(--transition);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .report-item:last-child { border-bottom: none; }
-        .report-item:hover { background: var(--bg-surface-hover); }
-
-        .report-item.active {
-            background: var(--bg-surface-hover);
-            border-left: 3px solid var(--primary);
-        }
-
-        .report-date { font-size: 13px; font-weight: 600; }
-
-        .report-badge {
-            font-size: 10px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
-        }
-
-        .report-badge.has-changes { background: rgba(251,191,36,0.12); color: var(--yellow); }
-        .report-badge.no-changes { background: rgba(52,211,153,0.12); color: var(--green); }
-        .report-badge.initial { background: rgba(128,238,219,0.12); color: var(--primary); }
-
-        .report-viewer {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-card);
-            padding: 32px;
-            min-height: 400px;
-            overflow-x: hidden;
-        }
-
-        /* ─── MARKDOWN STYLES ─── */
-        .report-viewer h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 16px; background: linear-gradient(90deg, var(--secondary), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .report-viewer h2 { font-size: 16px; font-weight: 700; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -0.3px; }
-        .report-viewer h3 { font-size: 14px; font-weight: 700; margin: 18px 0 8px; color: var(--violet-400); }
-        .report-viewer p { margin: 8px 0; color: var(--text-secondary); font-size: 13px; }
-        .report-viewer ul, .report-viewer ol { margin: 8px 0 8px 20px; font-size: 13px; color: var(--text-secondary); }
-        .report-viewer li { margin: 4px 0; }
-        .report-viewer strong { color: var(--text-primary); font-weight: 600; }
-        .report-viewer code { background: var(--bg-input); padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: 'SF Mono', 'Fira Code', monospace; }
-        .report-viewer pre { background: var(--bg-input); padding: 16px; border-radius: var(--radius-sm); overflow-x: auto; margin: 12px 0; }
-        .report-viewer a { color: var(--primary); text-decoration: none; font-weight: 500; }
-        .report-viewer a:hover { text-decoration: underline; }
-        .report-viewer hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
-        .report-viewer em { color: var(--text-muted); }
-        .report-viewer table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
-        .report-viewer th, .report-viewer td { padding: 10px 14px; border: 1px solid var(--border); text-align: left; }
-        .report-viewer th { background: var(--bg-input); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-
-        /* ─── EMPTY / LOADING ─── */
-        .empty-state {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 300px;
-            color: var(--text-muted);
-        }
-
-        .empty-state .icon { font-size: 40px; margin-bottom: 12px; opacity: 0.5; }
-        .empty-state p { font-size: 13px; }
-        .loading { color: var(--text-muted); padding: 24px; text-align: center; font-size: 13px; }
-
-        /* ─── VIEW TOGGLE ─── */
-        .view-content { display: none; }
-        .view-content.active { display: block; }
+        /* ─── SIDE PANEL ─── */
+        .panel-overlay { position:fixed; inset:0; background:var(--overlay); z-index:200; opacity:0; pointer-events:none; transition:opacity .25s var(--ease); }
+        .panel-overlay.open { opacity:1; pointer-events:all; }
+        .side-panel { position:fixed; top:0; right:-480px; width:480px; max-width:90vw; height:100vh; background:var(--bg-elevated); z-index:201; box-shadow:-8px 0 40px rgba(0,0,0,0.15); transition:right .3s var(--ease); overflow-y:auto; display:flex; flex-direction:column; }
+        .side-panel.open { right:0; }
+        .panel-header { padding:20px 24px; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; justify-content:space-between; flex-shrink:0; }
+        .panel-close { width:28px; height:28px; border-radius:6px; border:none; background:var(--bg-inset); color:var(--text-3); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; }
+        .panel-close:hover { color:var(--text-1); }
+        .panel-body { padding:24px; flex:1; }
+        .panel-module-badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; padding:3px 8px; border-radius:var(--radius-xs); margin-bottom:10px; }
+        .panel-module-badge.AIDR { background:rgba(128,238,219,0.1); color:var(--primary-dark); }
+        .panel-module-badge.AISPM { background:var(--violet-50); color:var(--secondary); }
+        .panel-module-badge.Endpoint { background:rgba(59,130,246,0.08); color:var(--blue); }
+        .panel-title { font-size:18px; font-weight:800; letter-spacing:-0.5px; margin-bottom:4px; }
+        .panel-sev { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; }
+        .panel-sev .dot { width:8px; height:8px; border-radius:50%; }
+        .panel-sev .dot.HIGH { background:var(--red); }
+        .panel-sev .dot.MEDIUM { background:var(--yellow); }
+        .panel-sev .dot.LOW { background:var(--green); }
+        .panel-section { margin-top:20px; }
+        .panel-section-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--text-3); margin-bottom:8px; }
+        .panel-text { font-size:13px; color:var(--text-2); line-height:1.7; }
+        .panel-link { display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-size:13px; font-weight:600; color:var(--secondary); text-decoration:none; padding:8px 14px; border-radius:var(--radius-xs); background:var(--violet-50); transition:all .15s; }
+        .panel-link:hover { background:var(--violet-100); }
+        [data-theme="dark"] .panel-link { color:var(--violet-400); }
 
         /* ─── HIGHLIGHTS ─── */
-        .highlights-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
+        .hl-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:20px; }
+        .hl-card { padding:14px 16px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); border-left:3px solid var(--secondary); font-size:12px; color:var(--text-2); line-height:1.6; }
+        .hl-card strong { color:var(--text-1); font-weight:700; }
 
-        .highlight-item {
-            background: var(--bg-card);
-            border-radius: var(--radius-sm);
-            padding: 14px 18px;
-            box-shadow: var(--shadow-card);
-            font-size: 13px;
-            color: var(--text-secondary);
-            border-left: 3px solid var(--secondary);
-        }
+        /* ─── PLATFORMS ─── */
+        .cat-group { margin-bottom:20px; }
+        .cat-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-3); margin-bottom:8px; padding-left:2px; }
+        .cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; }
+        .plat-card { display:flex; align-items:center; gap:10px; padding:12px 14px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); cursor:pointer; transition:all .2s var(--ease); }
+        .plat-card:hover { box-shadow:var(--shadow-md); transform:translateY(-1px); }
+        .plat-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+        .plat-dot.changed { background:var(--yellow); box-shadow:0 0 6px rgba(245,158,11,0.35); }
+        .plat-dot.stable { background:var(--green); box-shadow:0 0 6px rgba(52,211,153,0.3); }
+        .plat-dot.error { background:var(--red); box-shadow:0 0 6px rgba(239,68,68,0.35); }
+        .plat-dot.initial { background:var(--blue); box-shadow:0 0 6px rgba(59,130,246,0.35); }
+        .plat-info { flex:1; min-width:0; }
+        .plat-name { font-size:13px; font-weight:600; letter-spacing:-0.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .plat-status { font-size:11px; color:var(--text-3); }
 
-        .highlight-item strong { color: var(--text-primary); }
+        /* ─── REPORTS ─── */
+        .reports-grid { display:grid; grid-template-columns:240px 1fr; gap:12px; }
+        .rpt-list { background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); overflow:hidden; }
+        .rpt-list-head { padding:12px 16px; border-bottom:1px solid var(--border); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--text-3); }
+        .rpt-items { max-height:600px; overflow-y:auto; }
+        .rpt-item { padding:10px 16px; cursor:pointer; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; transition:background .15s; font-size:13px; font-weight:600; }
+        .rpt-item:hover { background:var(--bg-hover); }
+        .rpt-item.active { background:var(--bg-hover); border-left:3px solid var(--secondary); }
+        .rpt-badge { font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; }
+        .rpt-badge.has-changes { background:var(--yellow-soft); color:var(--yellow); }
+        .rpt-badge.no-changes { background:var(--green-soft); color:var(--green); }
+        .rpt-badge.initial { background:rgba(59,130,246,0.08); color:var(--blue); }
+        .rpt-viewer { background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); padding:28px; min-height:400px; overflow-x:hidden; }
+        .rpt-viewer h1 { font-size:20px; font-weight:800; letter-spacing:-.5px; margin-bottom:14px; background:linear-gradient(90deg,var(--secondary),var(--primary-dark)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .rpt-viewer h2 { font-size:15px; font-weight:700; margin:24px 0 10px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+        .rpt-viewer h3 { font-size:13px; font-weight:700; margin:16px 0 6px; color:var(--violet-500); }
+        .rpt-viewer p { margin:6px 0; color:var(--text-2); font-size:13px; }
+        .rpt-viewer ul,.rpt-viewer ol { margin:6px 0 6px 18px; font-size:13px; color:var(--text-2); }
+        .rpt-viewer li { margin:3px 0; }
+        .rpt-viewer strong { color:var(--text-1); }
+        .rpt-viewer code { background:var(--bg-inset); padding:1px 5px; border-radius:4px; font-size:12px; }
+        .rpt-viewer a { color:var(--secondary); text-decoration:none; font-weight:500; }
+        .rpt-viewer a:hover { text-decoration:underline; }
+        .rpt-viewer hr { border:none; border-top:1px solid var(--border); margin:20px 0; }
+        .rpt-viewer em { color:var(--text-3); }
+        .rpt-viewer table { border-collapse:collapse; width:100%; margin:10px 0; font-size:12px; }
+        .rpt-viewer th,.rpt-viewer td { padding:8px 12px; border:1px solid var(--border); text-align:left; }
+        .rpt-viewer th { background:var(--bg-inset); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.3px; }
 
-        /* ─── RESPONSIVE ─── */
-        @media (max-width: 1100px) {
-            .hero { grid-template-columns: repeat(3, 1fr); }
-            .findings-grid { grid-template-columns: 1fr; }
-        }
+        .empty { display:flex; flex-direction:column; align-items:center; justify-content:center; height:250px; color:var(--text-3); font-size:13px; }
+        .loading { color:var(--text-3); padding:20px; text-align:center; font-size:13px; }
+        .section-head { font-size:13px; font-weight:700; letter-spacing:-0.2px; color:var(--text-1); margin:24px 0 10px; display:flex; align-items:center; gap:8px; }
+        .section-head:first-child { margin-top:0; }
 
-        @media (max-width: 900px) {
-            .hero { grid-template-columns: repeat(2, 1fr); }
-            .report-section { grid-template-columns: 1fr; }
-            .container { padding: 16px; }
-            .nav-inner { padding: 0 16px; }
-            .nav-tag { display: none; }
-        }
-
-        @media (max-width: 600px) {
-            .hero { grid-template-columns: 1fr; }
-            .platform-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        /* ─── SCROLLBAR ─── */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+        @media(max-width:1100px) { .metrics{grid-template-columns:repeat(3,1fr)} .hl-grid{grid-template-columns:1fr} }
+        @media(max-width:900px) { .metrics{grid-template-columns:repeat(2,1fr)} .reports-grid{grid-template-columns:1fr} .container{padding:14px} .nav-inner{padding:0 14px} .nav-subtitle,.nav-divider{display:none} }
+        @media(max-width:600px) { .metrics{grid-template-columns:1fr} .cat-grid{grid-template-columns:1fr} }
+        ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
     </style>
 </head>
 <body>
 
 <nav class="nav">
     <div class="nav-inner">
-        <div class="nav-brand">
-            <div class="nav-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#020221" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <span class="nav-title">Zenity Platform Monitor</span>
-            <span class="nav-tag">Security Intelligence</span>
+        <div class="nav-left">
+            <div class="nav-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#020221" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <span class="nav-title">Zenity</span>
+            <span class="nav-divider"></span>
+            <span class="nav-subtitle">Platform Monitor</span>
         </div>
-        <div class="nav-actions">
-            <div class="tab-bar" id="tab-bar">
-                <button class="tab active" data-view="overview">Overview</button>
-                <button class="tab" data-view="platforms">Platforms</button>
-                <button class="tab" data-view="reports">Reports</button>
+        <div class="nav-right">
+            <div class="pill-tabs">
+                <button class="pill-tab active" data-view="overview">Overview</button>
+                <button class="pill-tab" data-view="platforms">Platforms</button>
+                <button class="pill-tab" data-view="reports">Reports</button>
             </div>
-            <button class="theme-toggle" id="theme-toggle" title="Toggle theme">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <button class="icon-btn" id="theme-toggle" title="Toggle theme">
+                <svg id="theme-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </button>
         </div>
     </div>
 </nav>
 
+<!-- SIDE PANEL -->
+<div class="panel-overlay" id="panel-overlay"></div>
+<div class="side-panel" id="side-panel">
+    <div class="panel-header">
+        <div>
+            <div class="panel-module-badge" id="panel-badge"></div>
+            <div class="panel-title" id="panel-title"></div>
+            <div class="panel-sev" id="panel-sev"></div>
+        </div>
+        <button class="panel-close" id="panel-close">&times;</button>
+    </div>
+    <div class="panel-body" id="panel-body"></div>
+</div>
+
 <div class="container">
-    <!-- OVERVIEW VIEW -->
-    <div class="view-content active" id="view-overview">
-        <div class="hero" id="hero-stats"></div>
 
-        <div class="section-header">
-            <div class="section-title">
-                <span class="icon aidr">🛡</span>
-                AIDR — AI Detection & Response
-            </div>
-            <span class="module-label aidr">Data Lens &middot; Activity &middot; Findings</span>
-        </div>
-        <div class="findings-grid" id="aidr-findings"></div>
+    <!-- ─── OVERVIEW ─── -->
+    <div class="view active" id="view-overview">
+        <div class="metrics" id="metrics"></div>
 
-        <div class="section-header">
-            <div class="section-title">
-                <span class="icon aispm">📋</span>
-                AISPM — AI Security Posture Management
-            </div>
-            <span class="module-label aispm">Inventory &middot; Violations</span>
+        <div class="module-tabs" id="module-tabs">
+            <button class="module-tab t-aidr active" data-module="aidr">
+                <span>AIDR</span><span class="count" id="count-aidr">0</span>
+            </button>
+            <button class="module-tab" data-module="aispm">
+                <span>AISPM</span><span class="count" id="count-aispm">0</span>
+            </button>
+            <button class="module-tab t-endpoint" data-module="endpoint">
+                <span>AI Endpoint</span><span class="count" id="count-endpoint">0</span>
+            </button>
         </div>
-        <div class="findings-grid" id="aispm-findings"></div>
 
-        <div class="section-header">
-            <div class="section-title">Key Highlights</div>
-        </div>
-        <div class="highlights-list" id="highlights-list"></div>
+        <div class="findings-panel active" id="panel-aidr"></div>
+        <div class="findings-panel" id="panel-aispm"></div>
+        <div class="findings-panel" id="panel-endpoint"></div>
+
+        <div class="section-head" style="margin-top:28px">Key Highlights</div>
+        <div class="hl-grid" id="highlights"></div>
     </div>
 
-    <!-- PLATFORMS VIEW -->
-    <div class="view-content" id="view-platforms">
-        <div class="section-header">
-            <div class="section-title">All Monitored Platforms</div>
+    <!-- ─── PLATFORMS ─── -->
+    <div class="view" id="view-platforms">
+        <div id="platform-groups"></div>
+        <div id="plat-detail-wrap" style="display:none;margin-top:16px">
+            <div class="section-head" id="plat-detail-name"></div>
+            <div class="rpt-viewer" id="plat-detail"></div>
         </div>
-        <div class="platform-grid" id="platform-grid"></div>
-
-        <div class="section-header" id="platform-detail-header" style="display:none">
-            <div class="section-title" id="platform-detail-title"></div>
-        </div>
-        <div class="report-viewer" id="platform-detail" style="display:none"></div>
     </div>
 
-    <!-- REPORTS VIEW -->
-    <div class="view-content" id="view-reports">
-        <div class="section-header">
-            <div class="section-title">Report Archive</div>
-        </div>
-        <div class="report-section">
-            <div class="report-list-panel">
-                <div class="report-list-header">History</div>
-                <div class="report-list-items" id="report-list"></div>
+    <!-- ─── REPORTS ─── -->
+    <div class="view" id="view-reports">
+        <div class="reports-grid">
+            <div class="rpt-list">
+                <div class="rpt-list-head">History</div>
+                <div class="rpt-items" id="rpt-list"></div>
             </div>
-            <div class="report-viewer" id="report-viewer">
-                <div class="empty-state">
-                    <div class="icon">📊</div>
-                    <p>Select a report to view</p>
-                </div>
+            <div class="rpt-viewer" id="rpt-viewer">
+                <div class="empty">Select a report to view</div>
             </div>
         </div>
     </div>
+
 </div>
 
 <script>
-let reports = [];
-let currentView = 'overview';
+let reports=[], latest=null;
 
-async function init() {
-    try {
-        const res = await fetch('report-index.json');
-        reports = await res.json();
-        reports.sort((a, b) => b.date.localeCompare(a.date));
-        renderOverview();
+async function init(){
+    try{
+        const r=await fetch('report-index.json');
+        reports=await r.json();
+        reports.sort((a,b)=>b.date.localeCompare(a.date));
+        latest=reports[0];
+        renderMetrics();
+        renderModules();
+        renderHighlights();
         renderPlatforms();
         renderReportList();
-    } catch (e) {
-        document.getElementById('hero-stats').innerHTML = '<div class="loading">No reports yet. Run the monitor to generate your first report.</div>';
+    }catch(e){
+        document.getElementById('metrics').innerHTML='<div class="loading">No reports yet.</div>';
     }
 }
 
-/* ─── OVERVIEW ─── */
-function renderOverview() {
-    const latest = reports[0];
-    if (!latest) return;
-
-    const total = latest.platforms.length;
-    const changed = latest.platforms.filter(p => p.status === 'changed').length;
-    const errors = latest.platforms.filter(p => p.status === 'error').length;
-    const aidrCount = (latest.aidr || []).length;
-    const aispmCount = (latest.aispm || []).length;
-
-    document.getElementById('hero-stats').innerHTML = `
-        <div class="stat accent">
-            <div class="stat-label">Platforms Monitored</div>
-            <div class="stat-value">${total}</div>
-        </div>
-        <div class="stat yellow">
-            <div class="stat-label">Changes Detected</div>
-            <div class="stat-value">${changed}</div>
-        </div>
-        <div class="stat green">
-            <div class="stat-label">Stable</div>
-            <div class="stat-value">${total - changed - errors}</div>
-        </div>
-        <div class="stat red">
-            <div class="stat-label">Security Findings</div>
-            <div class="stat-value">${aidrCount + aispmCount}</div>
-        </div>
-        <div class="stat accent">
-            <div class="stat-label">Latest Report</div>
-            <div class="stat-value" style="font-size:20px">${latest.date}</div>
-        </div>
-    `;
-
-    renderFindings('aidr-findings', latest.aidr || [], 'AIDR');
-    renderFindings('aispm-findings', latest.aispm || [], 'AISPM');
-    renderHighlights(latest.highlights || []);
+function renderMetrics(){
+    if(!latest)return;
+    const t=latest.platforms.length, c=latest.platforms.filter(p=>p.status==='changed').length,
+          e=latest.platforms.filter(p=>p.status==='error').length,
+          f=(latest.aidr||[]).length+(latest.aispm||[]).length+(latest.endpoint||[]).length;
+    document.getElementById('metrics').innerHTML=`
+        <div class="metric v-accent"><div class="metric-label">Platforms</div><div class="metric-val">${t}</div></div>
+        <div class="metric v-yellow"><div class="metric-label">Changes</div><div class="metric-val">${c}</div></div>
+        <div class="metric v-green"><div class="metric-label">Stable</div><div class="metric-val">${t-c-e}</div></div>
+        <div class="metric v-red"><div class="metric-label">Security Findings</div><div class="metric-val">${f}</div></div>
+        <div class="metric v-accent"><div class="metric-label">Report Date</div><div class="metric-val" style="font-size:17px">${latest.date}</div></div>`;
 }
 
-function renderFindings(containerId, items, module) {
-    const container = document.getElementById(containerId);
-    if (!items.length) {
-        container.innerHTML = '<div class="finding-card"><div class="finding-content"><div class="finding-desc">No findings in latest report</div></div></div>';
-        return;
+/* ─── MODULE FINDINGS ─── */
+function renderModules(){
+    if(!latest)return;
+    const modules={aidr:latest.aidr||[],aispm:latest.aispm||[],endpoint:latest.endpoint||[]};
+    const labels={aidr:'AIDR',aispm:'AISPM',endpoint:'Endpoint'};
+    const subLabels={aidr:'Data Lens · Activity · Findings',aispm:'Inventory · Violations',endpoint:'IDE · Browser · Coding Assistants'};
+
+    for(const[mod,items]of Object.entries(modules)){
+        document.getElementById('count-'+mod).textContent=items.length;
+        const panel=document.getElementById('panel-'+mod);
+        if(!items.length){panel.innerHTML='<div class="empty" style="height:120px">No findings</div>';continue;}
+        const sOrder={HIGH:0,MEDIUM:1,LOW:2};
+        items.sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
+        panel.innerHTML=items.map((item,i)=>`
+            <div class="finding-row" onclick="openPanel('${mod}',${i})">
+                <div class="sev ${item.severity}">${item.severity}</div>
+                <div class="finding-main">
+                    <div class="finding-title">${item.title}</div>
+                    <div class="finding-desc">${item.description}</div>
+                </div>
+                <div class="finding-arrow">&#8250;</div>
+            </div>`).join('');
     }
-    const severityOrder = { HIGH: 0, MEDIUM: 1, LOW: 2 };
-    items.sort((a, b) => (severityOrder[a.severity] || 3) - (severityOrder[b.severity] || 3));
+}
 
-    container.innerHTML = items.map(item => {
-        // Extract sub-module from description
-        let subModule = '';
-        if (module === 'AIDR') {
-            if (/data lens/i.test(item.description)) subModule = 'Data Lens';
-            else if (/activity/i.test(item.description)) subModule = 'Activity';
-            else if (/finding/i.test(item.description)) subModule = 'Findings';
-        } else {
-            if (/inventory/i.test(item.description)) subModule = 'Inventory';
-            else if (/violation/i.test(item.description)) subModule = 'Violations';
-        }
+/* ─── SIDE PANEL ─── */
+function openPanel(mod,idx){
+    const modules={aidr:latest.aidr||[],aispm:latest.aispm||[],endpoint:latest.endpoint||[]};
+    const labels={aidr:'AIDR',aispm:'AISPM',endpoint:'AI Endpoint'};
+    const sOrder={HIGH:0,MEDIUM:1,LOW:2};
+    const items=[...modules[mod]].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
+    const item=items[idx];
+    if(!item)return;
 
-        return `
-        <div class="finding-card">
-            <span class="severity-badge ${item.severity}">${item.severity}</span>
-            <div class="finding-content">
-                <div class="finding-title">${item.title}</div>
-                <div class="finding-desc">${item.description}</div>
-                ${subModule ? `<div class="finding-sub">${subModule}</div>` : ''}
-            </div>
+    const badge=document.getElementById('panel-badge');
+    badge.textContent=labels[mod];
+    badge.className='panel-module-badge '+labels[mod].replace('AI ','');
+
+    document.getElementById('panel-title').textContent=item.title;
+    document.getElementById('panel-sev').innerHTML=`<span class="dot ${item.severity}"></span>${item.severity} severity`;
+
+    let body=`
+        <div class="panel-section">
+            <div class="panel-section-title">Description</div>
+            <div class="panel-text">${item.description}</div>
         </div>`;
-    }).join('');
-}
 
-function renderHighlights(items) {
-    const container = document.getElementById('highlights-list');
-    if (!items.length) { container.innerHTML = ''; return; }
-    container.innerHTML = items.map(h => `<div class="highlight-item">${formatHighlight(h)}</div>`).join('');
-}
+    if(item.source){
+        body+=`
+        <div class="panel-section">
+            <div class="panel-section-title">Source</div>
+            <a class="panel-link" href="${item.source}" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                ${new URL(item.source).hostname}
+            </a>
+        </div>`;
+    }
 
-function formatHighlight(text) {
-    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-}
-
-/* ─── PLATFORMS ─── */
-function renderPlatforms() {
-    const latest = reports[0];
-    if (!latest) return;
-
-    const categories = {};
-    const categoryMap = {
-        'Microsoft Copilot (M365)': 'Microsoft', 'Microsoft Copilot Studio': 'Microsoft',
-        'Azure AI Foundry': 'Microsoft', 'Power Apps': 'Microsoft', 'Power Automate': 'Microsoft',
-        'Power Pages': 'Microsoft', 'Salesforce AgentForce': 'Salesforce', 'Salesforce Einstein': 'Salesforce',
-        'ChatGPT Enterprise (OpenAI)': 'OpenAI', 'Claude Enterprise (Anthropic)': 'Anthropic',
-        'Amazon Q': 'AWS', 'Amazon Bedrock': 'AWS', 'Amazon Bedrock AgentCore': 'AWS',
-        'Google Vertex AI': 'Google', 'ServiceNow': 'ServiceNow', 'Cursor': 'Dev Tools',
-        'Windsurf': 'Dev Tools', 'Perplexity': 'AI Search', 'Dia Browser': 'Browsers'
-    };
-
-    latest.platforms.forEach(p => {
-        const cat = categoryMap[p.name] || 'Other';
-        if (!categories[cat]) categories[cat] = [];
-        categories[cat].push(p);
+    // Find related platform detail from report
+    const relatedPlatforms = latest.platforms.filter(p=>{
+        const titleLower=item.title.toLowerCase();
+        const nameLower=p.name.toLowerCase();
+        return titleLower.includes(nameLower.split(' ')[0].toLowerCase()) ||
+               (titleLower.includes('cursor') && nameLower.includes('cursor')) ||
+               (titleLower.includes('windsurf') && nameLower.includes('windsurf')) ||
+               (titleLower.includes('openai') && nameLower.includes('openai')) ||
+               (titleLower.includes('codex') && nameLower.includes('openai')) ||
+               (titleLower.includes('vertex') && nameLower.includes('vertex')) ||
+               (titleLower.includes('copilot') && nameLower.includes('copilot')) ||
+               (titleLower.includes('bedrock') && nameLower.includes('bedrock')) ||
+               (titleLower.includes('dia') && nameLower.includes('dia'));
     });
 
-    const grid = document.getElementById('platform-grid');
-    grid.innerHTML = Object.entries(categories).map(([cat, platforms]) =>
-        platforms.map(p => {
-            const statusText = { changed: 'Changes detected', stable: 'Stable', error: 'Fetch error', initial: 'Initial scan' };
-            return `
-            <div class="platform-card" data-platform="${p.name}" onclick="showPlatformDetail('${p.name.replace(/'/g, "\\'")}')">
-                <span class="status-indicator ${p.status}"></span>
-                <div class="platform-info">
-                    <div class="platform-name">${p.name}</div>
-                    <div class="platform-status-text">${statusText[p.status] || 'Unknown'}</div>
-                </div>
-                <span class="category-tag">${cat}</span>
+    if(relatedPlatforms.length>0){
+        const rp=relatedPlatforms[0];
+        if(rp.details && rp.details.length>0){
+            body+=`
+            <div class="panel-section">
+                <div class="panel-section-title">Related Changes — ${rp.name}</div>
+                <ul style="margin:0;padding-left:16px">${rp.details.map(d=>`<li class="panel-text">${formatMd(d)}</li>`).join('')}</ul>
             </div>`;
-        }).join('')
+        }
+    }
+
+    document.getElementById('panel-body').innerHTML=body;
+    document.getElementById('side-panel').classList.add('open');
+    document.getElementById('panel-overlay').classList.add('open');
+}
+
+function closePanel(){
+    document.getElementById('side-panel').classList.remove('open');
+    document.getElementById('panel-overlay').classList.remove('open');
+}
+document.getElementById('panel-close').onclick=closePanel;
+document.getElementById('panel-overlay').onclick=closePanel;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePanel()});
+
+function formatMd(t){return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
+
+/* ─── HIGHLIGHTS ─── */
+function renderHighlights(){
+    if(!latest||!latest.highlights)return;
+    document.getElementById('highlights').innerHTML=latest.highlights.map(h=>
+        `<div class="hl-card">${formatMd(h)}</div>`
     ).join('');
 }
 
-async function showPlatformDetail(name) {
-    document.querySelectorAll('.platform-card').forEach(c => c.classList.remove('active'));
-    const card = document.querySelector(`[data-platform="${name}"]`);
-    if (card) card.classList.add('active');
+/* ─── PLATFORMS ─── */
+const catMap={'Microsoft Copilot (M365)':'Microsoft','Microsoft Copilot Studio':'Microsoft','Azure AI Foundry':'Microsoft','Power Apps':'Microsoft','Power Automate':'Microsoft','Power Pages':'Microsoft','Salesforce AgentForce':'Salesforce','Salesforce Einstein':'Salesforce','ChatGPT Enterprise (OpenAI)':'OpenAI','Claude Enterprise (Anthropic)':'Anthropic','Amazon Q':'AWS','Amazon Bedrock':'AWS','Amazon Bedrock AgentCore':'AWS','Google Vertex AI':'Google','ServiceNow':'ServiceNow','Cursor':'Dev Tools','Windsurf':'Dev Tools','Perplexity':'AI Search','Dia Browser':'Browsers'};
+const catOrder=['Microsoft','AWS','Salesforce','OpenAI','Anthropic','Google','Dev Tools','AI Search','Browsers','ServiceNow'];
 
-    const header = document.getElementById('platform-detail-header');
-    const detail = document.getElementById('platform-detail');
-    header.style.display = 'flex';
-    detail.style.display = 'block';
-    document.getElementById('platform-detail-title').textContent = name;
-    detail.innerHTML = '<div class="loading">Loading...</div>';
+function renderPlatforms(){
+    if(!latest)return;
+    const groups={};
+    latest.platforms.forEach(p=>{
+        const c=catMap[p.name]||'Other';
+        (groups[c]=groups[c]||[]).push(p);
+    });
+    const statusText={changed:'Changed',stable:'Stable',error:'Error',initial:'Initial'};
+    document.getElementById('platform-groups').innerHTML=catOrder.filter(c=>groups[c]).map(cat=>`
+        <div class="cat-group">
+            <div class="cat-label">${cat}</div>
+            <div class="cat-grid">${groups[cat].map(p=>`
+                <div class="plat-card" onclick="showPlat('${p.name.replace(/'/g,"\\'")}')">
+                    <span class="plat-dot ${p.status}"></span>
+                    <div class="plat-info">
+                        <div class="plat-name">${p.name}</div>
+                        <div class="plat-status">${statusText[p.status]||'Unknown'}</div>
+                    </div>
+                </div>`).join('')}</div>
+        </div>`).join('');
+}
 
-    try {
-        const latest = reports[0];
-        const res = await fetch(latest.file);
-        const md = await res.text();
-
-        // Extract platform section
-        const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(`### ${escapedName}\\n([\\s\\S]*?)(?=\\n### |\\n## |$)`);
-        const match = md.match(regex);
-
-        if (match) {
-            detail.innerHTML = marked.parse(`### ${name}\n${match[1]}`);
-        } else {
-            detail.innerHTML = '<div class="empty-state"><p>No details found for this platform</p></div>';
-        }
-    } catch (e) {
-        detail.innerHTML = '<div class="empty-state"><p>Failed to load report</p></div>';
-    }
+async function showPlat(name){
+    const wrap=document.getElementById('plat-detail-wrap');
+    wrap.style.display='block';
+    document.getElementById('plat-detail-name').textContent=name;
+    const detail=document.getElementById('plat-detail');
+    detail.innerHTML='<div class="loading">Loading...</div>';
+    try{
+        const res=await fetch(latest.file);
+        const md=await res.text();
+        const esc=name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+        const m=md.match(new RegExp('### '+esc+'\\n([\\s\\S]*?)(?=\\n### |\\n## |$)'));
+        detail.innerHTML=m?marked.parse('### '+name+'\n'+m[1]):'<div class="empty">No details</div>';
+        wrap.scrollIntoView({behavior:'smooth',block:'start'});
+    }catch(e){detail.innerHTML='<div class="empty">Failed to load</div>';}
 }
 
 /* ─── REPORTS ─── */
-function renderReportList() {
-    const container = document.getElementById('report-list');
-    container.innerHTML = reports.map((r, i) => {
-        const changedCount = r.platforms.filter(p => p.status === 'changed').length;
-        const isInitial = r.platforms.some(p => p.status === 'initial');
-        let badgeClass, badgeText;
-        if (isInitial) { badgeClass = 'initial'; badgeText = 'Initial'; }
-        else if (changedCount > 0) { badgeClass = 'has-changes'; badgeText = `${changedCount} changed`; }
-        else { badgeClass = 'no-changes'; badgeText = 'Stable'; }
-
-        return `
-        <div class="report-item" data-index="${i}" onclick="loadReport(${i})">
-            <span class="report-date">${r.date}</span>
-            <span class="report-badge ${badgeClass}">${badgeText}</span>
-        </div>`;
+function renderReportList(){
+    document.getElementById('rpt-list').innerHTML=reports.map((r,i)=>{
+        const c=r.platforms.filter(p=>p.status==='changed').length;
+        const init=r.platforms.some(p=>p.status==='initial');
+        let bc,bt;
+        if(init){bc='initial';bt='Initial';}
+        else if(c>0){bc='has-changes';bt=c+' changed';}
+        else{bc='no-changes';bt='Stable';}
+        return`<div class="rpt-item" data-idx="${i}" onclick="loadRpt(${i})"><span>${r.date}</span><span class="rpt-badge ${bc}">${bt}</span></div>`;
     }).join('');
 }
 
-async function loadReport(index) {
-    const report = reports[index];
-    document.querySelectorAll('.report-item').forEach(el => el.classList.remove('active'));
-    const items = document.querySelectorAll('.report-item');
-    if (items[index]) items[index].classList.add('active');
-
-    const viewer = document.getElementById('report-viewer');
-    viewer.innerHTML = '<div class="loading">Loading report...</div>';
-
-    try {
-        const res = await fetch(report.file);
-        const md = await res.text();
-        viewer.innerHTML = marked.parse(md);
-    } catch (e) {
-        viewer.innerHTML = '<div class="empty-state"><p>Failed to load report</p></div>';
-    }
+async function loadRpt(i){
+    const r=reports[i];
+    document.querySelectorAll('.rpt-item').forEach(e=>e.classList.remove('active'));
+    document.querySelectorAll('.rpt-item')[i]?.classList.add('active');
+    const v=document.getElementById('rpt-viewer');
+    v.innerHTML='<div class="loading">Loading...</div>';
+    try{const res=await fetch(r.file);v.innerHTML=marked.parse(await res.text());}
+    catch(e){v.innerHTML='<div class="empty">Failed to load</div>';}
 }
 
 /* ─── TABS ─── */
-document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        currentView = tab.dataset.view;
-        document.querySelectorAll('.view-content').forEach(v => v.classList.remove('active'));
-        document.getElementById(`view-${currentView}`).classList.add('active');
-    });
-});
+document.querySelectorAll('.pill-tab').forEach(t=>t.addEventListener('click',()=>{
+    document.querySelectorAll('.pill-tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById('view-'+t.dataset.view).classList.add('active');
+}));
+
+document.querySelectorAll('.module-tab').forEach(t=>t.addEventListener('click',()=>{
+    document.querySelectorAll('.module-tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.querySelectorAll('.findings-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('panel-'+t.dataset.module).classList.add('active');
+}));
 
 /* ─── THEME ─── */
-const themeToggle = document.getElementById('theme-toggle');
-const savedTheme = localStorage.getItem('zenity-theme') || 'dark';
-document.documentElement.setAttribute('data-theme', savedTheme);
-updateThemeIcon(savedTheme);
-
-themeToggle.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('zenity-theme', next);
-    updateThemeIcon(next);
-});
-
-function updateThemeIcon(theme) {
-    themeToggle.innerHTML = theme === 'dark'
-        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+const saved=localStorage.getItem('zenity-theme')||'light';
+document.documentElement.setAttribute('data-theme',saved);
+updateIcon(saved);
+document.getElementById('theme-toggle').onclick=()=>{
+    const cur=document.documentElement.getAttribute('data-theme');
+    const next=cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    localStorage.setItem('zenity-theme',next);
+    updateIcon(next);
+};
+function updateIcon(t){
+    document.getElementById('theme-icon').innerHTML=t==='dark'
+        ?'<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>'
+        :'<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
 }
 
 init();
