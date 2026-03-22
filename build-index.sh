@@ -1,5 +1,5 @@
 #!/bin/bash
-# Generates docs/report-index.json from all reports in reports/
+# Generates docs/report-index.json from last 7 days of reports
 # Also copies reports into docs/ so they're accessible from GitHub Pages
 
 set -euo pipefail
@@ -13,34 +13,110 @@ mkdir -p "$DOCS_DIR"
 # Copy all reports into docs/
 cp "$REPORTS_DIR"/*.md "$DOCS_DIR/" 2>/dev/null || true
 
-# Generate index JSON by parsing each report
+# Generate index JSON by parsing each report (last 7 days only)
 python3 -c "
 import re, json, os, glob
+from datetime import datetime, timedelta
 
 reports_dir = '$REPORTS_DIR'
 report_files = sorted(glob.glob(os.path.join(reports_dir, 'report-*.md')), reverse=True)
 
-def extract_findings(content, header_pattern, stop_pattern):
+# Only index reports from the last 7 days
+cutoff = (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')
+report_files = [f for f in report_files if os.path.basename(f).replace('report-','').replace('.md','') >= cutoff]
+
+def extract_findings(content, section_name):
+    \"\"\"Extract findings from action-category sections within a module section.\"\"\"
     items = []
-    match = re.search(header_pattern + r'.*?\n(.*?)(?=' + stop_pattern + r')', content, re.DOTALL)
-    if match:
-        for line in match.group(1).strip().split('\n'):
-            m = re.match(r'- \*\*\[(\w+)\]\s*(.*?)\*\*:\s*(.*)', line)
-            if m:
-                desc = m.group(3).strip()
-                # Extract source URL if present
-                source = ''
-                src_match = re.search(r'Source:\s*(https?://\S+)', desc)
-                if src_match:
-                    source = src_match.group(1)
-                    desc = desc[:src_match.start()].strip().rstrip('.')
-                items.append({
-                    'severity': m.group(1),
-                    'title': m.group(2).strip(),
-                    'description': desc,
-                    'source': source
-                })
+    # Try new format: action categories with module tags
+    for action_header in ['Action Required', 'New Capabilities', 'Monitoring Updates']:
+        pattern = r'####\s*' + action_header + r'\s*\n(.*?)(?=\n####|\n###|\n##|\Z)'
+        match = re.search(pattern, content, re.DOTALL)
+        if match:
+            for line in match.group(1).strip().split('\n'):
+                # Parse: - **[MODULE] [SEVERITY] Title**: Description. Source: URL
+                # Also handle: - **[MODULE] [SEVERITY]** Title — Description. Source: URL
+                m = re.match(r'- \*\*\[(\w+)\]\s*\[(\w+)\]\s+(.+?)\*\*:\s*(.*)', line)
+                if not m:
+                    # Alternate: - **[MODULE] [HIGH]** Title — desc. Source: URL
+                    m2 = re.match(r'- \*\*\[(\w+)\]\s*\[(\w+)\]\*\*\s+(.*?)(?:\s*[\u2014\u2013\-]+\s*)(.*)', line)
+                    if m2:
+                        m = m2
+                    else:
+                        # Last resort: - **[MODULE] [HIGH]** Full sentence. Source: URL
+                        m3 = re.match(r'- \*\*\[(\w+)\]\s*\[(\w+)\]\*\*\s+(.*)', line)
+                        if m3:
+                            full = m3.group(3)
+                            source = ''
+                            src_m = re.search(r'Source:\s*(https?://\S+)', full)
+                            if src_m:
+                                source = src_m.group(1)
+                                full = full[:src_m.start()].strip().rstrip('.')
+                            # Split on first period or dash for title/desc
+                            parts = re.split(r'\s*[\u2014\u2013]\s*|\.\s+', full, 1)
+                            title = parts[0].strip()
+                            desc = parts[1].strip() if len(parts) > 1 else ''
+                            items.append({
+                                'severity': m3.group(2),
+                                'title': title,
+                                'description': desc,
+                                'source': source,
+                                'module': m3.group(1).upper(),
+                                'action': action_header
+                            })
+                            continue
+                if m:
+                    module = m.group(1).upper()
+                    severity = m.group(2).upper()
+                    title = m.group(3).strip()
+                    desc = m.group(4).strip()
+                    source = ''
+                    src_match = re.search(r'Source:\s*(https?://\S+)', desc)
+                    if src_match:
+                        source = src_match.group(1)
+                        desc = desc[:src_match.start()].strip().rstrip('.')
+                    items.append({
+                        'severity': severity,
+                        'title': title,
+                        'description': desc,
+                        'source': source,
+                        'module': module,
+                        'action': action_header
+                    })
+
+    # Fallback: try old format with ### AIDR / ### AISPM / ### AI Endpoint headers
+    if not items:
+        for mod_name, mod_key in [('AIDR', 'AIDR'), ('AISPM', 'AISPM'), ('AI Endpoint', 'ENDPOINT')]:
+            pattern = r'### ' + mod_name + r'[^\n]*\n(.*?)(?=\n### |\n## |\Z)'
+            match = re.search(pattern, content, re.DOTALL)
+            if match:
+                for line in match.group(1).strip().split('\n'):
+                    m = re.match(r'- \*\*\[(\w+)\]\s*(.*?)\*\*:\s*(.*)', line)
+                    if m:
+                        desc = m.group(3).strip()
+                        source = ''
+                        src_match = re.search(r'Source:\s*(https?://\S+)', desc)
+                        if src_match:
+                            source = src_match.group(1)
+                            desc = desc[:src_match.start()].strip().rstrip('.')
+                        items.append({
+                            'severity': m.group(1),
+                            'title': m.group(2).strip(),
+                            'description': desc,
+                            'source': source,
+                            'module': mod_key,
+                            'action': 'Uncategorized'
+                        })
     return items
+
+# Load sources.json for tier info
+sources_path = os.path.join('$SCRIPT_DIR', 'sources.json')
+tiers = {}
+if os.path.exists(sources_path):
+    with open(sources_path) as sf:
+        src_data = json.load(sf)
+        for p in src_data.get('platforms', []):
+            tiers[p['name']] = p.get('tier', 'primary')
 
 index = []
 for report_file in report_files:
@@ -59,59 +135,49 @@ for report_file in report_files:
             lines = section.strip().split('\n')
             name = lines[0].strip()
             body = '\n'.join(lines[1:])
+
+            # Improved status detection
+            has_bullets = any(l.strip().startswith('- ') and 'no change' not in l.lower() for l in lines[1:])
             body_lower = body.lower()
 
             if 'initial scan' in body_lower or 'baseline' in body_lower:
                 status = 'initial'
-            elif 'unable to determine' in body_lower:
+            elif 'unable to determine' in body_lower or 'error' in body_lower or '404' in body_lower:
                 status = 'error'
-            elif 'changes detected:** none' in body_lower or 'changes detected:** no' in body_lower:
-                status = 'stable'
-            elif 'changes detected:** yes' in body_lower:
+            elif has_bullets:
                 status = 'changed'
-            elif 'no change' in body_lower or 'no major' in body_lower:
-                status = 'stable'
             else:
                 status = 'stable'
 
-            # Extract detail lines (skip first status line, get bullet points)
             details = []
             for l in lines[1:]:
                 l = l.strip()
-                if l.startswith('- ') and 'sources checked' not in l.lower():
+                if l.startswith('- ') and 'no change' not in l.lower():
                     details.append(l[2:])
-
-            # Extract source URLs
-            sources_checked = []
-            for l in lines[1:]:
-                if 'sources checked' in l.lower():
-                    urls = re.findall(r'https?://\S+', l)
-                    sources_checked = urls
 
             platforms.append({
                 'name': name,
                 'status': status,
                 'details': details[:6],
-                'sources': sources_checked
+                'tier': tiers.get(name, 'primary')
             })
 
-    # Extract findings per module
-    aidr_items = extract_findings(content, r'### AIDR', r'\n### AISPM|\n### AI Endpoint|\n## ')
-    aispm_items = extract_findings(content, r'### AISPM', r'\n### AI Endpoint|\n## ')
-    endpoint_items = extract_findings(content, r'### AI Endpoint', r'\n## ')
+    # Extract all findings
+    all_findings = extract_findings(content, '')
 
-    # Extract key highlights
-    highlights = []
-    hl_match = re.search(r'## Key Highlights\s*\n(.*?)(?=\n## )', content, re.DOTALL)
-    if hl_match:
-        for line in hl_match.group(1).strip().split('\n'):
-            line = line.strip()
-            if line.startswith('- '):
-                highlights.append(line[2:])
+    # Split by module
+    aidr_items = [f for f in all_findings if f.get('module') in ('AIDR', 'ENDPOINT') or 'AIDR' in f.get('module','')]
+    aispm_items = [f for f in all_findings if f.get('module') == 'AISPM']
+    endpoint_items = [f for f in all_findings if f.get('module') == 'ENDPOINT']
+
+    # For old format, if module-based split worked, use it; otherwise fallback
+    if not aidr_items and not aispm_items and not endpoint_items:
+        aidr_items = [f for f in all_findings if 'AIDR' in str(f)]
+        aispm_items = [f for f in all_findings if 'AISPM' in str(f)]
+        endpoint_items = [f for f in all_findings if 'ENDPOINT' in str(f) or 'Endpoint' in str(f)]
 
     # Get file modification time as scan timestamp
     mtime = os.path.getmtime(report_file)
-    from datetime import datetime
     scan_time = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M')
 
     index.append({
@@ -122,12 +188,12 @@ for report_file in report_files:
         'aidr': aidr_items,
         'aispm': aispm_items,
         'endpoint': endpoint_items,
-        'highlights': highlights
+        'findings': all_findings
     })
 
 with open('$DOCS_DIR/report-index.json', 'w') as f:
     json.dump(index, f, indent=2)
 
-total = sum(len(r['aidr']) + len(r['aispm']) + len(r['endpoint']) for r in index)
-print(f'Index built: {len(index)} reports, {total} security items')
+total = sum(len(r.get('findings', [])) for r in index)
+print(f'Index built: {len(index)} reports (last 7 days), {total} security findings')
 "

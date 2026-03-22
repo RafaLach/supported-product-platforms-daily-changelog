@@ -3,6 +3,7 @@
     {
       "name": "Microsoft Copilot (M365)",
       "category": "microsoft",
+      "tier": "primary",
       "sources": [
         {
           "label": "Microsoft Graph API Changelog",
@@ -24,6 +25,7 @@
     {
       "name": "Microsoft Copilot Studio",
       "category": "microsoft",
+      "tier": "primary",
       "sources": [
         {
           "label": "Copilot Studio What's New",
@@ -40,6 +42,7 @@
     {
       "name": "Azure AI Foundry",
       "category": "microsoft",
+      "tier": "primary",
       "sources": [
         {
           "label": "Azure OpenAI What's New",
@@ -61,6 +64,7 @@
     {
       "name": "Power Apps",
       "category": "microsoft",
+      "tier": "primary",
       "sources": [
         {
           "label": "Power Apps What's New",
@@ -82,6 +86,7 @@
     {
       "name": "Power Automate",
       "category": "microsoft",
+      "tier": "primary",
       "sources": [
         {
           "label": "Power Automate What's New",
@@ -103,6 +108,7 @@
     {
       "name": "Power Pages",
       "category": "microsoft",
+      "tier": "primary",
       "sources": [
         {
           "label": "Power Pages Release Updates",
@@ -119,6 +125,7 @@
     {
       "name": "Salesforce AgentForce",
       "category": "salesforce",
+      "tier": "secondary",
       "sources": [
         {
           "label": "AgentForce Developer Guide",
@@ -140,6 +147,7 @@
     {
       "name": "Salesforce Einstein",
       "category": "salesforce",
+      "tier": "secondary",
       "sources": [
         {
           "label": "Einstein GenAI Overview",
@@ -161,6 +169,7 @@
     {
       "name": "ChatGPT Enterprise (OpenAI)",
       "category": "openai",
+      "tier": "primary",
       "sources": [
         {
           "label": "OpenAI Python SDK Releases",
@@ -187,6 +196,7 @@
     {
       "name": "Claude Enterprise (Anthropic)",
       "category": "anthropic",
+      "tier": "primary",
       "sources": [
         {
           "label": "Anthropic API Docs",
@@ -208,6 +218,7 @@
     {
       "name": "Amazon Q",
       "category": "aws",
+      "tier": "primary",
       "sources": [
         {
           "label": "Amazon Q Developer Doc History",
@@ -234,6 +245,7 @@
     {
       "name": "Amazon Bedrock",
       "category": "aws",
+      "tier": "primary",
       "sources": [
         {
           "label": "Bedrock Doc History",
@@ -255,6 +267,7 @@
     {
       "name": "Amazon Bedrock AgentCore",
       "category": "aws",
+      "tier": "primary",
       "sources": [
         {
           "label": "AgentCore Doc History",
@@ -276,6 +289,7 @@
     {
       "name": "Google Vertex AI",
       "category": "google",
+      "tier": "secondary",
       "sources": [
         {
           "label": "Vertex AI Release Notes",
@@ -297,6 +311,7 @@
     {
       "name": "ServiceNow",
       "category": "servicenow",
+      "tier": "secondary",
       "sources": [
         {
           "label": "ServiceNow Release Notes",
@@ -313,6 +328,7 @@
     {
       "name": "Cursor",
       "category": "cursor",
+      "tier": "watching",
       "sources": [
         {
           "label": "Cursor Changelog",
@@ -329,6 +345,7 @@
     {
       "name": "Windsurf",
       "category": "windsurf",
+      "tier": "watching",
       "sources": [
         {
           "label": "Windsurf Changelog",
@@ -345,6 +362,7 @@
     {
       "name": "Perplexity",
       "category": "perplexity",
+      "tier": "watching",
       "sources": [
         {
           "label": "Perplexity API Changelog",
@@ -366,6 +384,7 @@
     {
       "name": "Dia Browser",
       "category": "dia",
+      "tier": "watching",
       "sources": [
         {
           "label": "Dia Release Notes",

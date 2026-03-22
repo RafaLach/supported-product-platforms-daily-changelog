@@ -5,9 +5,75 @@
     "file": "report-2026-03-22.md",
     "platforms": [],
     "aidr": [],
-    "aispm": [],
+    "aispm": [
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI Claude 3 Haiku shutdown scheduled **August 23, 2026**",
+        "description": "identify all deployments and plan migration",
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "module": "AISPM",
+        "action": "Action Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI Claude 3.5 Haiku shutdown scheduled **July 5, 2026**",
+        "description": "earlier deadline than Claude 3 Haiku",
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "module": "AISPM",
+        "action": "Action Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI Explainable AI deprecated (March 16, 2026)",
+        "description": "flag workflows still using this service",
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "module": "AISPM",
+        "action": "Action Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI Veo video generation preview endpoints deprecated",
+        "description": "must migrate by **April 2, 2026**",
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "module": "AISPM",
+        "action": "Action Required"
+      }
+    ],
     "endpoint": [],
-    "findings": []
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI Claude 3 Haiku shutdown scheduled **August 23, 2026**",
+        "description": "identify all deployments and plan migration",
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "module": "AISPM",
+        "action": "Action Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI Claude 3.5 Haiku shutdown scheduled **July 5, 2026**",
+        "description": "earlier deadline than Claude 3 Haiku",
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "module": "AISPM",
+        "action": "Action Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI Explainable AI deprecated (March 16, 2026)",
+        "description": "flag workflows still using this service",
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "module": "AISPM",
+        "action": "Action Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI Veo video generation preview endpoints deprecated",
+        "description": "must migrate by **April 2, 2026**",
+        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "module": "AISPM",
+        "action": "Action Required"
+      }
+    ]
   },
   {
     "date": "2026-03-21",
