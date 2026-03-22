@@ -15,8 +15,6 @@
             --violet-100: #E0D1FC;
             --violet-400: #9B6EF0;
             --violet-500: #7832E0;
-            --violet-700: #2E1C59;
-            --violet-800: #1A0E30;
             --green: #34D399;
             --green-soft: #ECFDF5;
             --yellow: #F59E0B;
@@ -24,49 +22,26 @@
             --red: #EF4444;
             --red-soft: #FEF2F2;
             --blue: #3B82F6;
-            --orange: #F97316;
-            --orange-soft: #FFF7ED;
             --radius: 16px;
             --radius-sm: 10px;
             --radius-xs: 6px;
             --ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
         [data-theme="light"] {
-            --bg: #F7F5FA;
-            --bg-elevated: #FFFFFF;
-            --bg-hover: #F0EDF5;
-            --bg-inset: #EEEAF4;
-            --border: rgba(120,50,224,0.08);
-            --border-strong: rgba(120,50,224,0.15);
-            --text-1: #1A0E30;
-            --text-2: #4A3D5C;
-            --text-3: #8B7EA0;
-            --shadow-sm: 0 1px 3px rgba(26,14,48,0.04);
-            --shadow-md: 0 4px 16px rgba(26,14,48,0.06);
-            --shadow-lg: 0 8px 32px rgba(26,14,48,0.08);
-            --shadow-glow: 0 0 0 1px var(--border);
-            --overlay: rgba(26,14,48,0.4);
+            --bg: #F7F5FA; --bg-elevated: #FFFFFF; --bg-hover: #F0EDF5; --bg-inset: #EEEAF4;
+            --border: rgba(120,50,224,0.08); --border-strong: rgba(120,50,224,0.15);
+            --text-1: #1A0E30; --text-2: #4A3D5C; --text-3: #8B7EA0;
+            --shadow-sm: 0 1px 3px rgba(26,14,48,0.04); --shadow-md: 0 4px 16px rgba(26,14,48,0.06);
+            --shadow-glow: 0 0 0 1px var(--border); --overlay: rgba(26,14,48,0.4);
         }
         [data-theme="dark"] {
-            --bg: #060418;
-            --bg-elevated: rgba(30,20,60,0.7);
-            --bg-hover: rgba(46,28,89,0.5);
-            --bg-inset: rgba(15,10,35,0.6);
-            --border: rgba(155,110,240,0.1);
-            --border-strong: rgba(155,110,240,0.2);
-            --text-1: #F0ECF6;
-            --text-2: #B8B0C8;
-            --text-3: #7A6F90;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
-            --shadow-glow: 0 0 0 1px var(--border);
-            --overlay: rgba(0,0,0,0.6);
-            --green-soft: rgba(52,211,153,0.1);
-            --yellow-soft: rgba(245,158,11,0.1);
-            --red-soft: rgba(239,68,68,0.1);
-            --orange-soft: rgba(249,115,22,0.1);
-            --violet-50: rgba(155,110,240,0.08);
+            --bg: #060418; --bg-elevated: rgba(30,20,60,0.7); --bg-hover: rgba(46,28,89,0.5); --bg-inset: rgba(15,10,35,0.6);
+            --border: rgba(155,110,240,0.1); --border-strong: rgba(155,110,240,0.2);
+            --text-1: #F0ECF6; --text-2: #B8B0C8; --text-3: #7A6F90;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.2); --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+            --shadow-glow: 0 0 0 1px var(--border); --overlay: rgba(0,0,0,0.6);
+            --green-soft: rgba(52,211,153,0.1); --yellow-soft: rgba(245,158,11,0.1);
+            --red-soft: rgba(239,68,68,0.1); --violet-50: rgba(155,110,240,0.08);
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text-1); line-height:1.5; transition:background .3s var(--ease),color .3s var(--ease); }
@@ -82,17 +57,11 @@
         .nav-divider { width:1px; height:20px; background:var(--border-strong); margin:0 4px; }
         .nav-subtitle { font-size:12px; font-weight:600; color:var(--text-3); }
         .nav-right { display:flex; align-items:center; gap:6px; }
-        .pill-tabs { display:flex; background:var(--bg-inset); border-radius:8px; padding:2px; gap:1px; }
-        .pill-tab { padding:5px 14px; border-radius:6px; border:none; background:none; color:var(--text-3); font:600 12px/1 'Inter',sans-serif; cursor:pointer; transition:all .2s var(--ease); }
-        .pill-tab:hover { color:var(--text-2); }
-        .pill-tab.active { background:var(--bg-elevated); color:var(--text-1); box-shadow:var(--shadow-sm); }
         .icon-btn { width:32px; height:32px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text-3); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s var(--ease); }
         .icon-btn:hover { color:var(--text-1); border-color:var(--border-strong); }
 
         /* --- LAYOUT --- */
         .container { max-width:1360px; margin:0 auto; padding:20px 28px 60px; }
-        .view { display:none; }
-        .view.active { display:block; }
 
         /* --- METRIC ROW --- */
         .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:20px; }
@@ -110,15 +79,25 @@
         .metric.v-yellow .metric-val { color:var(--yellow); }
         .metric.v-red .metric-val { color:var(--red); }
 
-        /* --- ACTION GROUPS --- */
-        .action-group { margin-bottom:20px; }
-        .action-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; padding:0 2px; }
-        .action-icon { width:28px; height:28px; border-radius:var(--radius-xs); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
-        .action-icon.action-required { background:var(--red-soft); color:var(--red); }
-        .action-icon.new-capabilities { background:var(--violet-50); color:var(--secondary); }
-        .action-icon.monitoring-updates { background:var(--yellow-soft); color:var(--yellow); }
-        .action-label { font-size:12px; font-weight:700; letter-spacing:-0.2px; }
-        .action-count { font-size:10px; font-weight:700; color:var(--text-3); background:var(--bg-inset); padding:2px 7px; border-radius:20px; }
+        /* --- VIEW TOGGLE --- */
+        .view-toggle { display:flex; align-items:center; gap:6px; margin-bottom:16px; }
+        .view-btn { padding:7px 16px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); cursor:pointer; font:600 12px/1 'Inter',sans-serif; color:var(--text-3); transition:all .2s var(--ease); display:flex; align-items:center; gap:6px; }
+        .view-btn:hover { border-color:var(--border-strong); color:var(--text-2); }
+        .view-btn.active { border-color:var(--secondary); background:var(--violet-50); color:var(--secondary); }
+        .view-btn svg { width:14px; height:14px; }
+        .view-panel { display:none; }
+        .view-panel.active { display:block; }
+
+        /* --- MODULE GROUPS (By Change view) --- */
+        .module-group { margin-bottom:20px; }
+        .module-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; padding:0 2px; }
+        .module-icon { width:28px; height:28px; border-radius:var(--radius-xs); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; }
+        .module-icon.AISPM { background:var(--violet-50); color:var(--secondary); }
+        .module-icon.AIDR { background:rgba(128,238,219,0.12); color:var(--primary-dark); }
+        .module-icon.ENDPOINT { background:rgba(59,130,246,0.08); color:var(--blue); }
+        .module-label { font-size:12px; font-weight:700; letter-spacing:-0.2px; }
+        .module-sublabel { font-size:11px; color:var(--text-3); font-weight:500; }
+        .module-count { font-size:10px; font-weight:700; color:var(--text-3); background:var(--bg-inset); padding:2px 7px; border-radius:20px; }
 
         /* --- FINDING ROWS --- */
         .finding-row { display:grid; grid-template-columns:60px auto 1fr auto; gap:12px; align-items:center; padding:12px 16px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); margin-bottom:5px; cursor:pointer; transition:all .2s var(--ease); }
@@ -127,14 +106,53 @@
         .sev.HIGH { background:var(--red-soft); color:var(--red); }
         .sev.MEDIUM { background:var(--yellow-soft); color:var(--yellow); }
         .sev.LOW { background:var(--green-soft); color:var(--green); }
-        .module-badge { font-size:9px; font-weight:800; letter-spacing:.5px; padding:3px 6px; border-radius:4px; text-align:center; white-space:nowrap; }
-        .module-badge.AIDR { background:rgba(128,238,219,0.12); color:var(--primary-dark); }
-        .module-badge.AISPM { background:var(--violet-50); color:var(--secondary); }
-        .module-badge.ENDPOINT { background:rgba(59,130,246,0.08); color:var(--blue); }
+        .badge-sm { font-size:9px; font-weight:800; letter-spacing:.5px; padding:3px 6px; border-radius:4px; text-align:center; white-space:nowrap; }
+        .badge-sm.AIDR { background:rgba(128,238,219,0.12); color:var(--primary-dark); }
+        .badge-sm.AISPM { background:var(--violet-50); color:var(--secondary); }
+        .badge-sm.ENDPOINT { background:rgba(59,130,246,0.08); color:var(--blue); }
         .finding-main { min-width:0; }
         .finding-title { font-size:13px; font-weight:700; letter-spacing:-0.2px; margin-bottom:2px; }
         .finding-desc { font-size:12px; color:var(--text-2); display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
         .finding-arrow { color:var(--text-3); font-size:16px; }
+
+        /* --- PLATFORM FEED (By Platform view) --- */
+        .feed-card { background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); margin-bottom:12px; overflow:hidden; transition:box-shadow .2s var(--ease); }
+        .feed-card:hover { box-shadow:var(--shadow-md); }
+        .feed-header { padding:16px 20px 12px; display:flex; align-items:center; gap:12px; border-bottom:1px solid var(--border); }
+        .feed-logo { width:36px; height:36px; border-radius:var(--radius-xs); background:var(--bg-inset); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:var(--text-3); flex-shrink:0; }
+        .feed-logo.microsoft { background:linear-gradient(135deg,#00a4ef,#7fba00); color:#fff; }
+        .feed-logo.aws { background:linear-gradient(135deg,#FF9900,#FFB84D); color:#fff; }
+        .feed-logo.openai { background:#1a1a2e; color:#10a37f; }
+        .feed-logo.anthropic { background:linear-gradient(135deg,#d4a574,#c4956a); color:#fff; }
+        .feed-logo.google { background:linear-gradient(135deg,#4285f4,#34a853); color:#fff; }
+        .feed-logo.salesforce { background:linear-gradient(135deg,#00A1E0,#1DB954); color:#fff; }
+        .feed-logo.cursor { background:#1a1a2e; color:#fff; }
+        .feed-logo.windsurf { background:linear-gradient(135deg,#0ea5e9,#22d3ee); color:#fff; }
+        .feed-logo.perplexity { background:#1a1a2e; color:#22d3ee; }
+        .feed-logo.dia { background:linear-gradient(135deg,#8b5cf6,#a78bfa); color:#fff; }
+        .feed-logo.servicenow { background:#81b5a1; color:#fff; }
+        .feed-info { flex:1; min-width:0; }
+        .feed-name { font-size:15px; font-weight:700; letter-spacing:-0.3px; }
+        .feed-meta { display:flex; align-items:center; gap:8px; margin-top:2px; }
+        .feed-count { font-size:11px; font-weight:600; color:var(--secondary); }
+        .feed-tier { font-size:9px; font-weight:700; padding:1px 6px; border-radius:3px; text-transform:uppercase; letter-spacing:.5px; }
+        .feed-tier.primary { background:var(--violet-50); color:var(--secondary); }
+        .feed-tier.secondary { background:var(--yellow-soft); color:var(--yellow); }
+        .feed-tier.watching { background:var(--bg-inset); color:var(--text-3); }
+        .feed-items { padding:8px 12px 12px; }
+        .feed-item { display:flex; gap:12px; padding:10px 8px; border-radius:var(--radius-xs); cursor:pointer; transition:background .15s; }
+        .feed-item:hover { background:var(--bg-hover); }
+        .feed-item + .feed-item { border-top:1px solid var(--border); }
+        .feed-sev { flex-shrink:0; margin-top:2px; }
+        .feed-sev .dot { width:8px; height:8px; border-radius:50%; }
+        .feed-sev .dot.HIGH { background:var(--red); box-shadow:0 0 6px rgba(239,68,68,0.3); }
+        .feed-sev .dot.MEDIUM { background:var(--yellow); box-shadow:0 0 6px rgba(245,158,11,0.3); }
+        .feed-item-content { flex:1; min-width:0; }
+        .feed-item-title { font-size:13px; font-weight:600; letter-spacing:-0.2px; margin-bottom:3px; }
+        .feed-item-desc { font-size:12px; color:var(--text-2); line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+        .feed-item-link { display:inline-flex; align-items:center; gap:4px; margin-top:6px; font-size:11px; font-weight:600; color:var(--secondary); text-decoration:none; }
+        .feed-item-link:hover { text-decoration:underline; }
+        .feed-item-badges { display:flex; gap:4px; margin-top:6px; }
 
         /* --- SIDE PANEL --- */
         .panel-overlay { position:fixed; inset:0; background:var(--overlay); z-index:200; opacity:0; pointer-events:none; transition:opacity .25s var(--ease); }
@@ -154,11 +172,6 @@
         .panel-sev .dot { width:8px; height:8px; border-radius:50%; }
         .panel-sev .dot.HIGH { background:var(--red); }
         .panel-sev .dot.MEDIUM { background:var(--yellow); }
-        .panel-sev .dot.LOW { background:var(--green); }
-        .panel-action-badge { display:inline-block; font-size:10px; font-weight:600; padding:2px 8px; border-radius:4px; margin-left:8px; }
-        .panel-action-badge.action-required { background:var(--red-soft); color:var(--red); }
-        .panel-action-badge.new-capabilities { background:var(--violet-50); color:var(--secondary); }
-        .panel-action-badge.monitoring-updates { background:var(--yellow-soft); color:var(--yellow); }
         .panel-section { margin-top:20px; }
         .panel-section-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--text-3); margin-bottom:8px; }
         .panel-text { font-size:13px; color:var(--text-2); line-height:1.7; }
@@ -166,77 +179,36 @@
         .panel-link:hover { background:var(--violet-100); }
         [data-theme="dark"] .panel-link { color:var(--violet-400); }
 
-        /* --- PLATFORMS --- */
-        .cat-group { margin-bottom:20px; }
-        .cat-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-3); margin-bottom:8px; padding-left:2px; display:flex; align-items:center; gap:8px; }
-        .tier-badge { font-size:9px; font-weight:700; padding:1px 6px; border-radius:3px; text-transform:uppercase; letter-spacing:.5px; }
-        .tier-badge.primary { background:var(--violet-50); color:var(--secondary); }
-        .tier-badge.secondary { background:var(--yellow-soft); color:var(--yellow); }
-        .tier-badge.watching { background:var(--bg-inset); color:var(--text-3); }
-        .cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:8px; }
-        .plat-card { display:flex; align-items:center; gap:10px; padding:12px 14px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); cursor:pointer; transition:all .2s var(--ease); }
-        .plat-card:hover { box-shadow:var(--shadow-md); transform:translateY(-1px); }
-        .plat-card.tier-watching { opacity:0.7; }
-        .plat-card.tier-watching:hover { opacity:1; }
-        .plat-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-        .plat-dot.changed { background:var(--yellow); box-shadow:0 0 6px rgba(245,158,11,0.35); }
-        .plat-dot.stable { background:var(--green); box-shadow:0 0 6px rgba(52,211,153,0.3); }
-        .plat-dot.error { background:var(--red); box-shadow:0 0 6px rgba(239,68,68,0.35); }
-        .plat-dot.initial { background:var(--blue); box-shadow:0 0 6px rgba(59,130,246,0.35); }
-        .plat-info { flex:1; min-width:0; }
-        .plat-name { font-size:13px; font-weight:600; letter-spacing:-0.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-        .plat-meta { display:flex; align-items:center; gap:6px; }
-        .plat-status { font-size:11px; color:var(--text-3); }
-        .plat-tier { font-size:9px; font-weight:700; padding:1px 5px; border-radius:3px; }
-        .plat-tier.primary { background:var(--violet-50); color:var(--secondary); }
-        .plat-tier.secondary { background:var(--yellow-soft); color:var(--yellow); }
-        .plat-tier.watching { background:var(--bg-inset); color:var(--text-3); }
-
-        /* --- WATCHING COLLAPSE --- */
-        .watching-toggle { display:flex; align-items:center; gap:6px; padding:8px 12px; background:var(--bg-inset); border-radius:var(--radius-xs); border:none; cursor:pointer; font:600 11px/1 'Inter',sans-serif; color:var(--text-3); margin-bottom:10px; transition:all .15s; }
-        .watching-toggle:hover { color:var(--text-2); }
-        .watching-toggle .arrow { transition:transform .2s; }
-        .watching-toggle.open .arrow { transform:rotate(90deg); }
-        .watching-section { display:none; }
-        .watching-section.open { display:block; }
-
-        /* --- REPORTS --- */
-        .reports-grid { display:grid; grid-template-columns:240px 1fr; gap:12px; }
-        .rpt-list { background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); overflow:hidden; }
-        .rpt-list-head { padding:12px 16px; border-bottom:1px solid var(--border); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--text-3); }
-        .rpt-items { max-height:600px; overflow-y:auto; }
-        .rpt-item { padding:10px 16px; cursor:pointer; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; transition:background .15s; font-size:13px; font-weight:600; }
-        .rpt-item:hover { background:var(--bg-hover); }
-        .rpt-item.active { background:var(--bg-hover); border-left:3px solid var(--secondary); }
-        .rpt-badge { font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; }
+        /* --- REPORT DRAWER --- */
+        .report-drawer { position:fixed; bottom:0; left:0; right:0; z-index:150; background:var(--bg-elevated); border-top:1px solid var(--border); box-shadow:0 -4px 24px rgba(0,0,0,0.1); transform:translateY(100%); transition:transform .3s var(--ease); max-height:70vh; display:flex; flex-direction:column; }
+        .report-drawer.open { transform:translateY(0); }
+        .drawer-header { padding:14px 24px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+        .drawer-title { font-size:13px; font-weight:700; }
+        .drawer-body { display:grid; grid-template-columns:200px 1fr; flex:1; overflow:hidden; }
+        .drawer-list { border-right:1px solid var(--border); overflow-y:auto; }
+        .drawer-item { padding:10px 16px; cursor:pointer; border-bottom:1px solid var(--border); font-size:12px; font-weight:600; transition:background .15s; display:flex; justify-content:space-between; align-items:center; }
+        .drawer-item:hover { background:var(--bg-hover); }
+        .drawer-item.active { background:var(--bg-hover); border-left:3px solid var(--secondary); }
+        .drawer-viewer { padding:24px; overflow-y:auto; }
+        .drawer-viewer h1 { font-size:18px; font-weight:800; margin-bottom:12px; }
+        .drawer-viewer h2 { font-size:14px; font-weight:700; margin:20px 0 8px; padding-bottom:4px; border-bottom:1px solid var(--border); }
+        .drawer-viewer h3 { font-size:12px; font-weight:700; margin:14px 0 6px; color:var(--violet-500); }
+        .drawer-viewer p,.drawer-viewer li { font-size:12px; color:var(--text-2); }
+        .drawer-viewer ul { margin:4px 0 4px 16px; }
+        .drawer-viewer strong { color:var(--text-1); }
+        .drawer-viewer a { color:var(--secondary); text-decoration:none; }
+        .drawer-viewer table { border-collapse:collapse; width:100%; margin:8px 0; font-size:11px; }
+        .drawer-viewer th,.drawer-viewer td { padding:6px 10px; border:1px solid var(--border); text-align:left; }
+        .drawer-viewer th { background:var(--bg-inset); font-weight:700; }
+        .rpt-badge { font-size:9px; font-weight:700; padding:1px 6px; border-radius:10px; }
         .rpt-badge.has-changes { background:var(--yellow-soft); color:var(--yellow); }
         .rpt-badge.no-changes { background:var(--green-soft); color:var(--green); }
-        .rpt-viewer { background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); padding:28px; min-height:400px; overflow-x:hidden; }
-        .rpt-viewer h1 { font-size:20px; font-weight:800; letter-spacing:-.5px; margin-bottom:14px; background:linear-gradient(90deg,var(--secondary),var(--primary-dark)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-        .rpt-viewer h2 { font-size:15px; font-weight:700; margin:24px 0 10px; padding-bottom:6px; border-bottom:1px solid var(--border); }
-        .rpt-viewer h3 { font-size:13px; font-weight:700; margin:16px 0 6px; color:var(--violet-500); }
-        .rpt-viewer h4 { font-size:12px; font-weight:700; margin:14px 0 6px; color:var(--text-2); }
-        .rpt-viewer p { margin:6px 0; color:var(--text-2); font-size:13px; }
-        .rpt-viewer ul,.rpt-viewer ol { margin:6px 0 6px 18px; font-size:13px; color:var(--text-2); }
-        .rpt-viewer li { margin:3px 0; }
-        .rpt-viewer strong { color:var(--text-1); }
-        .rpt-viewer code { background:var(--bg-inset); padding:1px 5px; border-radius:4px; font-size:12px; }
-        .rpt-viewer a { color:var(--secondary); text-decoration:none; font-weight:500; }
-        .rpt-viewer a:hover { text-decoration:underline; }
-        .rpt-viewer hr { border:none; border-top:1px solid var(--border); margin:20px 0; }
-        .rpt-viewer em { color:var(--text-3); }
-        .rpt-viewer table { border-collapse:collapse; width:100%; margin:10px 0; font-size:12px; }
-        .rpt-viewer th,.rpt-viewer td { padding:8px 12px; border:1px solid var(--border); text-align:left; }
-        .rpt-viewer th { background:var(--bg-inset); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.3px; }
 
-        .empty { display:flex; flex-direction:column; align-items:center; justify-content:center; height:250px; color:var(--text-3); font-size:13px; }
+        .empty { display:flex; flex-direction:column; align-items:center; justify-content:center; height:200px; color:var(--text-3); font-size:13px; }
         .loading { color:var(--text-3); padding:20px; text-align:center; font-size:13px; }
-        .section-head { font-size:13px; font-weight:700; letter-spacing:-0.2px; color:var(--text-1); margin:24px 0 10px; display:flex; align-items:center; gap:8px; }
-        .section-head:first-child { margin-top:0; }
 
-        @media(max-width:1100px) { .metrics{grid-template-columns:repeat(2,1fr)} }
-        @media(max-width:900px) { .metrics{grid-template-columns:repeat(2,1fr)} .reports-grid{grid-template-columns:1fr} .container{padding:14px} .nav-inner{padding:0 14px} .nav-subtitle,.nav-divider{display:none} }
-        @media(max-width:600px) { .metrics{grid-template-columns:1fr} .cat-grid{grid-template-columns:1fr} .finding-row{grid-template-columns:50px 1fr auto;} .module-badge{display:none} }
+        @media(max-width:900px) { .metrics{grid-template-columns:repeat(2,1fr)} .container{padding:14px} .nav-inner{padding:0 14px} .nav-subtitle,.nav-divider{display:none} .drawer-body{grid-template-columns:1fr} .drawer-list{display:none} }
+        @media(max-width:600px) { .metrics{grid-template-columns:1fr} .finding-row{grid-template-columns:50px 1fr auto} .badge-sm{display:none} }
         ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
     </style>
 </head>
@@ -251,11 +223,9 @@
             <span class="nav-subtitle">Platform Monitor</span>
         </div>
         <div class="nav-right">
-            <div class="pill-tabs">
-                <button class="pill-tab active" data-view="overview">Overview</button>
-                <button class="pill-tab" data-view="platforms">Platforms</button>
-                <button class="pill-tab" data-view="reports">Reports</button>
-            </div>
+            <button class="icon-btn" id="reports-btn" title="Report archive">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </button>
             <button class="icon-btn" id="theme-toggle" title="Toggle theme">
                 <svg id="theme-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </button>
@@ -263,57 +233,80 @@
     </div>
 </nav>
 
-<!-- SIDE PANEL -->
+<!-- SIDE PANEL (finding detail) -->
 <div class="panel-overlay" id="panel-overlay"></div>
 <div class="side-panel" id="side-panel">
     <div class="panel-header">
         <div>
             <div class="panel-module-badge" id="panel-badge"></div>
             <div class="panel-title" id="panel-title"></div>
-            <div style="display:flex;align-items:center;gap:8px;margin-top:4px">
-                <div class="panel-sev" id="panel-sev"></div>
-                <div class="panel-action-badge" id="panel-action"></div>
-            </div>
+            <div class="panel-sev" id="panel-sev" style="margin-top:6px"></div>
         </div>
         <button class="panel-close" id="panel-close">&times;</button>
     </div>
     <div class="panel-body" id="panel-body"></div>
 </div>
 
+<!-- REPORT DRAWER (bottom sheet) -->
+<div class="report-drawer" id="report-drawer">
+    <div class="drawer-header">
+        <span class="drawer-title">Report Archive (last 7 days)</span>
+        <button class="panel-close" onclick="document.getElementById('report-drawer').classList.remove('open')">&times;</button>
+    </div>
+    <div class="drawer-body">
+        <div class="drawer-list" id="drawer-list"></div>
+        <div class="drawer-viewer" id="drawer-viewer">
+            <div class="empty" style="height:100%">Select a report</div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
+    <div class="metrics" id="metrics"></div>
 
-    <!-- OVERVIEW -->
-    <div class="view active" id="view-overview">
-        <div class="metrics" id="metrics"></div>
-        <div id="findings-container"></div>
+    <!-- VIEW TOGGLE -->
+    <div class="view-toggle">
+        <button class="view-btn active" data-panel="by-change">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            By Change
+        </button>
+        <button class="view-btn" data-panel="by-platform">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            By Platform
+        </button>
     </div>
 
-    <!-- PLATFORMS -->
-    <div class="view" id="view-platforms">
-        <div id="platform-groups"></div>
-        <div id="plat-detail-wrap" style="display:none;margin-top:16px">
-            <div class="section-head" id="plat-detail-name"></div>
-            <div class="rpt-viewer" id="plat-detail"></div>
-        </div>
-    </div>
+    <!-- BY CHANGE VIEW -->
+    <div class="view-panel active" id="by-change"></div>
 
-    <!-- REPORTS -->
-    <div class="view" id="view-reports">
-        <div class="reports-grid">
-            <div class="rpt-list">
-                <div class="rpt-list-head">Last 7 Days</div>
-                <div class="rpt-items" id="rpt-list"></div>
-            </div>
-            <div class="rpt-viewer" id="rpt-viewer">
-                <div class="empty">Select a report to view</div>
-            </div>
-        </div>
-    </div>
-
+    <!-- BY PLATFORM VIEW -->
+    <div class="view-panel" id="by-platform"></div>
 </div>
 
 <script>
 let reports=[], latest=null, allFindings=[];
+
+const platformLogos = {
+    'Microsoft Copilot (M365)':['microsoft','M365'],
+    'Microsoft Copilot Studio':['microsoft','CS'],
+    'Azure AI Foundry':['microsoft','AF'],
+    'Power Apps':['microsoft','PA'],
+    'Power Automate':['microsoft','PM'],
+    'Power Pages':['microsoft','PP'],
+    'Salesforce AgentForce':['salesforce','SF'],
+    'Salesforce Einstein':['salesforce','SE'],
+    'ChatGPT Enterprise (OpenAI)':['openai','OA'],
+    'Claude Enterprise (Anthropic)':['anthropic','An'],
+    'Amazon Q':['aws','Q'],
+    'Amazon Bedrock':['aws','BR'],
+    'Amazon Bedrock AgentCore':['aws','AC'],
+    'Google Vertex AI':['google','GV'],
+    'ServiceNow':['servicenow','SN'],
+    'Cursor':['cursor','Cu'],
+    'Windsurf':['windsurf','Ws'],
+    'Perplexity':['perplexity','Px'],
+    'Dia Browser':['dia','Di']
+};
 
 async function init(){
     try{
@@ -321,14 +314,13 @@ async function init(){
         reports=await r.json();
         reports.sort((a,b)=>b.date.localeCompare(a.date));
         latest=reports[0];
-        // Build unified findings list
-        allFindings = (latest.findings || []).length > 0
+        allFindings = (latest.findings||[]).length > 0
             ? latest.findings
             : [...(latest.aidr||[]), ...(latest.aispm||[]), ...(latest.endpoint||[])];
         renderMetrics();
-        renderFindings();
-        renderPlatforms();
-        renderReportList();
+        renderByChange();
+        renderByPlatform();
+        renderDrawerList();
     }catch(e){
         document.getElementById('metrics').innerHTML='<div class="loading">No reports yet.</div>';
     }
@@ -344,17 +336,17 @@ function renderMetrics(){
         <div class="metric v-red">
             <div class="metric-label">New Coverage Gaps</div>
             <div class="metric-val">${high}</div>
-            <div class="metric-sub">new services / APIs to monitor</div>
+            <div class="metric-sub">new services / APIs</div>
         </div>
         <div class="metric v-yellow">
             <div class="metric-label">Extended Coverage</div>
             <div class="metric-val">${med}</div>
-            <div class="metric-sub">new capabilities on existing</div>
+            <div class="metric-sub">new capabilities</div>
         </div>
         <div class="metric v-accent">
             <div class="metric-label">Platforms</div>
             <div class="metric-val">${changed}<span style="font-size:14px;color:var(--text-3);font-weight:500">/${total}</span></div>
-            <div class="metric-sub">with new additions today</div>
+            <div class="metric-sub">with new additions</div>
         </div>
         <div class="metric v-green">
             <div class="metric-label">Last Scan</div>
@@ -363,79 +355,148 @@ function renderMetrics(){
         </div>`;
 }
 
-/* --- FINDINGS GROUPED BY ACTION --- */
-function renderFindings(){
-    if(!latest)return;
-    const container=document.getElementById('findings-container');
+/* ========== BY CHANGE VIEW ========== */
+function renderByChange(){
+    const container=document.getElementById('by-change');
+    if(!allFindings.length){container.innerHTML='<div class="empty">No new coverage gaps detected today</div>';return;}
 
-    // Sort: HIGH first, then MEDIUM
     const sOrder={HIGH:0,MEDIUM:1,LOW:2};
     const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
 
-    // Group by module
-    const moduleGroups={};
-    const moduleOrder=['AISPM','AIDR','ENDPOINT'];
-    const moduleLabels={'AISPM':'AISPM — New Inventory Entities','AIDR':'AIDR — New Detection Surfaces','ENDPOINT':'Endpoint — New Local AI Tools'};
-    const moduleClasses={'AISPM':'new-capabilities','AIDR':'action-required','ENDPOINT':'monitoring-updates'};
+    const groups={};
+    const order=['AISPM','AIDR','ENDPOINT'];
+    const labels={AISPM:'AISPM',AIDR:'AIDR',ENDPOINT:'Endpoint'};
+    const subs={AISPM:'New inventory entities to discover',AIDR:'New detection surfaces to monitor',ENDPOINT:'New local AI tools to track'};
 
     sorted.forEach(f=>{
-        const mod=(f.module||'').toUpperCase()||'AISPM';
-        if(!moduleGroups[mod])moduleGroups[mod]=[];
-        moduleGroups[mod].push(f);
+        const mod=(f.module||'AISPM').toUpperCase();
+        (groups[mod]=groups[mod]||[]).push(f);
     });
 
-    const hasModules=Object.keys(moduleGroups).length>0 && sorted.length>0;
-
-    if(hasModules){
-        container.innerHTML=moduleOrder.filter(m=>moduleGroups[m]&&moduleGroups[m].length).map(mod=>{
-            const items=moduleGroups[mod];
-            return `
-            <div class="action-group">
-                <div class="action-header">
-                    <div class="action-icon ${moduleClasses[mod]}">${mod==='AISPM'?'+':mod==='AIDR'?'!':'~'}</div>
-                    <span class="action-label">${moduleLabels[mod]||mod}</span>
-                    <span class="action-count">${items.length}</span>
+    container.innerHTML=order.filter(m=>groups[m]&&groups[m].length).map(mod=>`
+        <div class="module-group">
+            <div class="module-header">
+                <div class="module-icon ${mod}">${mod.slice(0,2)}</div>
+                <div>
+                    <span class="module-label">${labels[mod]}</span>
+                    <span class="module-sublabel"> &mdash; ${subs[mod]}</span>
                 </div>
-                ${items.map((item,i)=>renderFindingRow(item,sorted.indexOf(item))).join('')}
-            </div>`;
-        }).join('');
-    } else {
-        // Fallback: just list by severity
-        const highMed=sorted.filter(f=>f.severity==='HIGH'||f.severity==='MEDIUM');
-        const low=sorted.filter(f=>f.severity==='LOW');
+                <span class="module-count">${groups[mod].length}</span>
+            </div>
+            ${groups[mod].map(item=>{
+                const gi=sorted.indexOf(item);
+                return `<div class="finding-row" onclick="openPanel(${gi})">
+                    <div class="sev ${item.severity}">${item.severity}</div>
+                    <div class="badge-sm ${(item.module||'').toUpperCase()}">${(item.module||'').toUpperCase()}</div>
+                    <div class="finding-main">
+                        <div class="finding-title">${item.title}</div>
+                        <div class="finding-desc">${item.description}</div>
+                    </div>
+                    <div class="finding-arrow">&#8250;</div>
+                </div>`;
+            }).join('')}
+        </div>`).join('');
+}
 
-        let html=highMed.map((item,i)=>renderFindingRow(item,sorted.indexOf(item))).join('');
+/* ========== BY PLATFORM VIEW (feed) ========== */
+function renderByPlatform(){
+    const container=document.getElementById('by-platform');
+    if(!allFindings.length){container.innerHTML='<div class="empty">No new coverage gaps detected today</div>';return;}
 
-        if(low.length){
-            html+=`
-            <div style="margin-top:16px">
-                <button class="watching-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-                    <span class="arrow">&#9654;</span> ${low.length} lower priority items
-                </button>
-                <div class="watching-section">
-                    ${low.map((item,i)=>renderFindingRow(item,sorted.indexOf(item))).join('')}
-                </div>
-            </div>`;
+    // Group findings by platform name (match from title)
+    const platFindings={};
+    const sOrder={HIGH:0,MEDIUM:1,LOW:2};
+    const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
+
+    // Build platform -> findings map
+    const platNames = latest.platforms.map(p=>p.name);
+
+    sorted.forEach(f=>{
+        const title = f.title.toLowerCase();
+        const desc = f.description.toLowerCase();
+        const combined = title + ' ' + desc;
+        let matched = null;
+
+        // Try to match platform
+        for(const name of platNames){
+            const words = name.toLowerCase().split(/[\s()]+/).filter(w=>w.length>3);
+            if(words.some(w=>combined.includes(w))){
+                matched = name;
+                break;
+            }
         }
-        container.innerHTML=html;
-    }
+        // Fallback: try common keywords
+        if(!matched){
+            if(combined.includes('copilot studio')) matched='Microsoft Copilot Studio';
+            else if(combined.includes('copilot')) matched='Microsoft Copilot (M365)';
+            else if(combined.includes('azure')||combined.includes('foundry')) matched='Azure AI Foundry';
+            else if(combined.includes('bedrock agentcore')||combined.includes('agentcore')) matched='Amazon Bedrock AgentCore';
+            else if(combined.includes('bedrock')) matched='Amazon Bedrock';
+            else if(combined.includes('vertex')) matched='Google Vertex AI';
+            else if(combined.includes('openai')||combined.includes('chatgpt')||combined.includes('codex')||combined.includes('gpt')) matched='ChatGPT Enterprise (OpenAI)';
+            else if(combined.includes('anthropic')||combined.includes('claude')) matched='Claude Enterprise (Anthropic)';
+            else if(combined.includes('cursor')) matched='Cursor';
+            else if(combined.includes('windsurf')) matched='Windsurf';
+            else if(combined.includes('perplexity')) matched='Perplexity';
+            else if(combined.includes('salesforce')||combined.includes('agentforce')) matched='Salesforce AgentForce';
+            else if(combined.includes('power app')) matched='Power Apps';
+            else if(combined.includes('power auto')) matched='Power Automate';
+            else matched='Other';
+        }
+        (platFindings[matched]=platFindings[matched]||[]).push(f);
+    });
+
+    // Sort platforms: most findings first, then alphabetical
+    const platOrder = Object.keys(platFindings).sort((a,b)=>{
+        const diff = platFindings[b].length - platFindings[a].length;
+        return diff!==0 ? diff : a.localeCompare(b);
+    });
+
+    container.innerHTML=platOrder.map(platName=>{
+        const items=platFindings[platName];
+        const logo=platformLogos[platName]||['','??'];
+        const plat=latest.platforms.find(p=>p.name===platName);
+        const tier=plat?.tier||'primary';
+
+        return `
+        <div class="feed-card">
+            <div class="feed-header">
+                <div class="feed-logo ${logo[0]}">${logo[1]}</div>
+                <div class="feed-info">
+                    <div class="feed-name">${platName}</div>
+                    <div class="feed-meta">
+                        <span class="feed-count">${items.length} new ${items.length===1?'addition':'additions'}</span>
+                        <span class="feed-tier ${tier}">${tier}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feed-items">
+                ${items.map(item=>{
+                    const gi=sorted.indexOf(item);
+                    let hostname='';
+                    try{hostname=new URL(item.source).hostname;}catch(e){}
+                    return `
+                    <div class="feed-item" onclick="openPanel(${gi})">
+                        <div class="feed-sev"><div class="dot ${item.severity}"></div></div>
+                        <div class="feed-item-content">
+                            <div class="feed-item-title">${item.title}</div>
+                            <div class="feed-item-desc">${item.description}</div>
+                            <div class="feed-item-badges">
+                                <span class="badge-sm ${(item.module||'').toUpperCase()}">${(item.module||'').toUpperCase()}</span>
+                            </div>
+                            ${item.source?`<a class="feed-item-link" href="${item.source}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                ${hostname}
+                            </a>`:''}
+                        </div>
+                    </div>`;
+                }).join('')}
+            </div>
+        </div>`;
+    }).join('');
 }
 
-function renderFindingRow(item,globalIdx){
-    const mod=(item.module||'').toUpperCase();
-    return `
-    <div class="finding-row" onclick="openPanel(${globalIdx})">
-        <div class="sev ${item.severity}">${item.severity}</div>
-        <div class="module-badge ${mod}">${mod||'--'}</div>
-        <div class="finding-main">
-            <div class="finding-title">${item.title}</div>
-            <div class="finding-desc">${item.description}</div>
-        </div>
-        <div class="finding-arrow">&#8250;</div>
-    </div>`;
-}
-
-/* --- SIDE PANEL --- */
+/* ========== SIDE PANEL ========== */
 function openPanel(idx){
     const sOrder={HIGH:0,MEDIUM:1,LOW:2};
     const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
@@ -446,57 +507,25 @@ function openPanel(idx){
     const badge=document.getElementById('panel-badge');
     badge.textContent=mod||'Finding';
     badge.className='panel-module-badge '+mod;
-
     document.getElementById('panel-title').textContent=item.title;
     document.getElementById('panel-sev').innerHTML=`<span class="dot ${item.severity}"></span>${item.severity} severity`;
 
-    const actionEl=document.getElementById('panel-action');
-    if(item.action && item.action!=='Uncategorized'){
-        const cls={'Action Required':'action-required','New Capabilities':'new-capabilities','Monitoring Updates':'monitoring-updates'};
-        actionEl.textContent=item.action;
-        actionEl.className='panel-action-badge '+(cls[item.action]||'');
-        actionEl.style.display='inline-block';
-    }else{
-        actionEl.style.display='none';
-    }
-
-    let body=`
-        <div class="panel-section">
-            <div class="panel-section-title">Description</div>
-            <div class="panel-text">${item.description}</div>
-        </div>`;
+    let body=`<div class="panel-section">
+        <div class="panel-section-title">What was added</div>
+        <div class="panel-text">${item.description}</div>
+    </div>`;
 
     if(item.source){
         let hostname='';
         try{hostname=new URL(item.source).hostname;}catch(e){hostname=item.source;}
-        body+=`
-        <div class="panel-section">
-            <div class="panel-section-title">Source</div>
+        body+=`<div class="panel-section">
+            <div class="panel-section-title">Documentation</div>
             <a class="panel-link" href="${item.source}" target="_blank" rel="noopener">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                ${hostname}
+                Read the documentation
             </a>
-            <div style="margin-top:6px;font-size:11px;color:var(--text-3);word-break:break-all">
-                <a href="${item.source}" target="_blank" rel="noopener" style="color:var(--text-3);text-decoration:none">${item.source}</a>
-            </div>
+            <div style="margin-top:6px;font-size:11px;color:var(--text-3);word-break:break-all">${item.source}</div>
         </div>`;
-    }
-
-    // Related platform changes
-    const related=latest.platforms.filter(p=>{
-        const t=item.title.toLowerCase(), n=p.name.toLowerCase();
-        const words=n.split(/[\s()]+/).filter(w=>w.length>3);
-        return words.some(w=>t.includes(w.toLowerCase()));
-    });
-    if(related.length>0){
-        const rp=related[0];
-        if(rp.details&&rp.details.length>0){
-            body+=`
-            <div class="panel-section">
-                <div class="panel-section-title">Related Changes &#8212; ${rp.name}</div>
-                <ul style="margin:0;padding-left:16px">${rp.details.slice(0,4).map(d=>`<li class="panel-text">${formatMd(d)}</li>`).join('')}</ul>
-            </div>`;
-        }
     }
 
     document.getElementById('panel-body').innerHTML=body;
@@ -510,119 +539,41 @@ function closePanel(){
 }
 document.getElementById('panel-close').onclick=closePanel;
 document.getElementById('panel-overlay').onclick=closePanel;
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closePanel()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePanel();document.getElementById('report-drawer').classList.remove('open');}});
 
-function formatMd(t){return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
+/* ========== VIEW TOGGLE ========== */
+document.querySelectorAll('.view-btn').forEach(btn=>btn.addEventListener('click',()=>{
+    document.querySelectorAll('.view-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.view-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById(btn.dataset.panel).classList.add('active');
+}));
 
-/* --- PLATFORMS --- */
-const catMap={'Microsoft Copilot (M365)':'Microsoft','Microsoft Copilot Studio':'Microsoft','Azure AI Foundry':'Microsoft','Power Apps':'Microsoft','Power Automate':'Microsoft','Power Pages':'Microsoft','Salesforce AgentForce':'Salesforce','Salesforce Einstein':'Salesforce','ChatGPT Enterprise (OpenAI)':'OpenAI','Claude Enterprise (Anthropic)':'Anthropic','Amazon Q':'AWS','Amazon Bedrock':'AWS','Amazon Bedrock AgentCore':'AWS','Google Vertex AI':'Google','ServiceNow':'ServiceNow','Cursor':'Dev Tools','Windsurf':'Dev Tools','Perplexity':'AI Search','Dia Browser':'Browsers'};
-const catOrder=['Microsoft','AWS','OpenAI','Anthropic','Salesforce','Google','ServiceNow','Dev Tools','AI Search','Browsers'];
+/* ========== REPORT DRAWER ========== */
+document.getElementById('reports-btn').onclick=()=>{
+    document.getElementById('report-drawer').classList.toggle('open');
+};
 
-function renderPlatforms(){
-    if(!latest)return;
-    const groups={};
-    latest.platforms.forEach(p=>{
-        const c=catMap[p.name]||'Other';
-        (groups[c]=groups[c]||[]).push(p);
-    });
-
-    // Determine tier for each category
-    const catTiers={};
-    for(const[cat,plats] of Object.entries(groups)){
-        const tiers=plats.map(p=>p.tier||'primary');
-        if(tiers.includes('primary'))catTiers[cat]='primary';
-        else if(tiers.includes('secondary'))catTiers[cat]='secondary';
-        else catTiers[cat]='watching';
-    }
-
-    const statusText={changed:'Changed',stable:'Stable',error:'Error',initial:'Initial'};
-
-    // Split into main and watching
-    const mainCats=catOrder.filter(c=>groups[c]&&catTiers[c]!=='watching');
-    const watchCats=catOrder.filter(c=>groups[c]&&catTiers[c]==='watching');
-
-    let html=mainCats.map(cat=>renderCatGroup(cat,groups[cat],catTiers[cat],statusText)).join('');
-
-    if(watchCats.length){
-        html+=`
-        <button class="watching-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            <span class="arrow">&#9654;</span> Watching (${watchCats.reduce((n,c)=>n+groups[c].length,0)} platforms)
-        </button>
-        <div class="watching-section">
-            ${watchCats.map(cat=>renderCatGroup(cat,groups[cat],catTiers[cat],statusText)).join('')}
-        </div>`;
-    }
-
-    document.getElementById('platform-groups').innerHTML=html;
-}
-
-function renderCatGroup(cat,plats,tier,statusText){
-    return `
-    <div class="cat-group">
-        <div class="cat-label">
-            ${cat}
-            <span class="tier-badge ${tier}">${tier}</span>
-        </div>
-        <div class="cat-grid">${plats.map(p=>`
-            <div class="plat-card tier-${p.tier||'primary'}" onclick="showPlat('${p.name.replace(/'/g,"\\'")}')">
-                <span class="plat-dot ${p.status}"></span>
-                <div class="plat-info">
-                    <div class="plat-name">${p.name}</div>
-                    <div class="plat-meta">
-                        <span class="plat-status">${statusText[p.status]||'Unknown'}</span>
-                    </div>
-                </div>
-            </div>`).join('')}</div>
-    </div>`;
-}
-
-async function showPlat(name){
-    const wrap=document.getElementById('plat-detail-wrap');
-    wrap.style.display='block';
-    document.getElementById('plat-detail-name').textContent=name;
-    const detail=document.getElementById('plat-detail');
-    detail.innerHTML='<div class="loading">Loading...</div>';
-    try{
-        const res=await fetch(latest.file);
-        const md=await res.text();
-        const esc=name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-        const m=md.match(new RegExp('### '+esc+'\\n([\\s\\S]*?)(?=\\n### |\\n## |$)'));
-        detail.innerHTML=m?marked.parse('### '+name+'\n'+m[1]):'<div class="empty">No details in today\'s report (no changes detected)</div>';
-        wrap.scrollIntoView({behavior:'smooth',block:'start'});
-    }catch(e){detail.innerHTML='<div class="empty">Failed to load</div>';}
-}
-
-/* --- REPORTS --- */
-function renderReportList(){
-    document.getElementById('rpt-list').innerHTML=reports.map((r,i)=>{
-        const c=r.platforms.filter(p=>p.status==='changed').length;
+function renderDrawerList(){
+    document.getElementById('drawer-list').innerHTML=reports.map((r,i)=>{
         const f=(r.findings||[]).length||(r.aidr||[]).length+(r.aispm||[]).length+(r.endpoint||[]).length;
-        let bc,bt;
-        if(c>0){bc='has-changes';bt=f+' findings';}
-        else{bc='no-changes';bt='Stable';}
-        return`<div class="rpt-item" data-idx="${i}" onclick="loadRpt(${i})"><span>${r.date}</span><span class="rpt-badge ${bc}">${bt}</span></div>`;
+        const bc=f>0?'has-changes':'no-changes';
+        const bt=f>0?f+' findings':'Stable';
+        return `<div class="drawer-item" onclick="loadDrawerReport(${i})">${r.date}<span class="rpt-badge ${bc}">${bt}</span></div>`;
     }).join('');
 }
 
-async function loadRpt(i){
+async function loadDrawerReport(i){
     const r=reports[i];
-    document.querySelectorAll('.rpt-item').forEach(e=>e.classList.remove('active'));
-    document.querySelectorAll('.rpt-item')[i]?.classList.add('active');
-    const v=document.getElementById('rpt-viewer');
+    document.querySelectorAll('.drawer-item').forEach(e=>e.classList.remove('active'));
+    document.querySelectorAll('.drawer-item')[i]?.classList.add('active');
+    const v=document.getElementById('drawer-viewer');
     v.innerHTML='<div class="loading">Loading...</div>';
     try{const res=await fetch(r.file);v.innerHTML=marked.parse(await res.text());}
     catch(e){v.innerHTML='<div class="empty">Failed to load</div>';}
 }
 
-/* --- TABS --- */
-document.querySelectorAll('.pill-tab').forEach(t=>t.addEventListener('click',()=>{
-    document.querySelectorAll('.pill-tab').forEach(x=>x.classList.remove('active'));
-    t.classList.add('active');
-    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-    document.getElementById('view-'+t.dataset.view).classList.add('active');
-}));
-
-/* --- THEME --- */
+/* ========== THEME ========== */
 const saved=localStorage.getItem('zenity-theme')||'light';
 document.documentElement.setAttribute('data-theme',saved);
 updateIcon(saved);
