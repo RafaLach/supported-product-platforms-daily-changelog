@@ -8,23 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #80EEDB;
-            --primary-dark: #4DD9C0;
-            --secondary: #7832E0;
-            --violet-50: #F5F0FF;
-            --violet-100: #E0D1FC;
-            --violet-400: #9B6EF0;
-            --violet-500: #7832E0;
-            --green: #34D399;
-            --green-soft: #ECFDF5;
-            --yellow: #F59E0B;
-            --yellow-soft: #FFFBEB;
-            --red: #EF4444;
-            --red-soft: #FEF2F2;
+            --primary: #80EEDB; --primary-dark: #4DD9C0;
+            --secondary: #7832E0; --violet-50: #F5F0FF; --violet-100: #E0D1FC; --violet-400: #9B6EF0; --violet-500: #7832E0;
+            --green: #34D399; --green-soft: #ECFDF5;
+            --yellow: #F59E0B; --yellow-soft: #FFFBEB;
+            --red: #EF4444; --red-soft: #FEF2F2;
             --blue: #3B82F6;
-            --radius: 16px;
-            --radius-sm: 10px;
-            --radius-xs: 6px;
+            --radius: 16px; --radius-sm: 10px; --radius-xs: 6px;
             --ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
         [data-theme="light"] {
@@ -47,7 +37,6 @@
         body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text-1); line-height:1.5; transition:background .3s var(--ease),color .3s var(--ease); }
         [data-theme="dark"] body { background-image:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(120,50,224,0.06) 0%,transparent 70%); }
 
-        /* --- NAV --- */
         .nav { position:sticky; top:0; z-index:100; backdrop-filter:blur(24px) saturate(1.8); -webkit-backdrop-filter:blur(24px) saturate(1.8); border-bottom:1px solid var(--border); background:color-mix(in srgb, var(--bg-elevated) 80%, transparent); }
         .nav-inner { max-width:1360px; margin:0 auto; padding:0 28px; height:52px; display:flex; align-items:center; justify-content:space-between; }
         .nav-left { display:flex; align-items:center; gap:10px; }
@@ -59,12 +48,14 @@
         .nav-right { display:flex; align-items:center; gap:6px; }
         .icon-btn { width:32px; height:32px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text-3); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s var(--ease); }
         .icon-btn:hover { color:var(--text-1); border-color:var(--border-strong); }
+        .archive-btn { display:flex; align-items:center; gap:5px; padding:5px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text-3); cursor:pointer; font:600 11px/1 'Inter',sans-serif; transition:all .2s var(--ease); }
+        .archive-btn:hover { color:var(--text-1); border-color:var(--border-strong); }
+        .archive-btn svg { width:14px; height:14px; }
 
-        /* --- LAYOUT --- */
         .container { max-width:1360px; margin:0 auto; padding:20px 28px 60px; }
+        .purpose { font-size:12px; color:var(--text-3); margin-bottom:16px; line-height:1.4; }
 
-        /* --- METRIC ROW --- */
-        .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:20px; }
+        .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:8px; }
         .metric { background:var(--bg-elevated); border-radius:var(--radius-sm); padding:14px 16px; box-shadow:var(--shadow-glow); position:relative; overflow:hidden; }
         .metric::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
         .metric.v-accent::after { background:linear-gradient(90deg,var(--secondary),var(--primary)); }
@@ -79,7 +70,6 @@
         .metric.v-yellow .metric-val { color:var(--yellow); }
         .metric.v-red .metric-val { color:var(--red); }
 
-        /* --- VIEW TOGGLE --- */
         .view-toggle { display:flex; align-items:center; gap:6px; margin-bottom:16px; }
         .view-btn { padding:7px 16px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); cursor:pointer; font:600 12px/1 'Inter',sans-serif; color:var(--text-3); transition:all .2s var(--ease); display:flex; align-items:center; gap:6px; }
         .view-btn:hover { border-color:var(--border-strong); color:var(--text-2); }
@@ -88,7 +78,6 @@
         .view-panel { display:none; }
         .view-panel.active { display:block; }
 
-        /* --- MODULE GROUPS (By Change view) --- */
         .module-group { margin-bottom:20px; }
         .module-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; padding:0 2px; }
         .module-icon { width:28px; height:28px; border-radius:var(--radius-xs); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; }
@@ -99,8 +88,7 @@
         .module-sublabel { font-size:11px; color:var(--text-3); font-weight:500; }
         .module-count { font-size:10px; font-weight:700; color:var(--text-3); background:var(--bg-inset); padding:2px 7px; border-radius:20px; }
 
-        /* --- FINDING ROWS --- */
-        .finding-row { display:grid; grid-template-columns:60px auto 1fr auto; gap:12px; align-items:center; padding:12px 16px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); margin-bottom:5px; cursor:pointer; transition:all .2s var(--ease); }
+        .finding-row { display:grid; grid-template-columns:60px 1fr auto; gap:12px; align-items:center; padding:12px 16px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); margin-bottom:5px; cursor:pointer; transition:all .2s var(--ease); }
         .finding-row:hover { box-shadow:var(--shadow-md); transform:translateY(-1px); }
         .sev { font-size:10px; font-weight:800; letter-spacing:.5px; padding:4px 0; border-radius:var(--radius-xs); text-align:center; }
         .sev.HIGH { background:var(--red-soft); color:var(--red); }
@@ -111,11 +99,11 @@
         .badge-sm.AISPM { background:var(--violet-50); color:var(--secondary); }
         .badge-sm.ENDPOINT { background:rgba(59,130,246,0.08); color:var(--blue); }
         .finding-main { min-width:0; }
-        .finding-title { font-size:13px; font-weight:700; letter-spacing:-0.2px; margin-bottom:2px; }
-        .finding-desc { font-size:12px; color:var(--text-2); display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+        .finding-title { font-size:13px; font-weight:700; letter-spacing:-0.2px; margin-bottom:1px; }
+        .finding-plat { font-size:11px; color:var(--text-3); margin-bottom:3px; }
+        .finding-desc { font-size:12px; color:var(--text-2); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
         .finding-arrow { color:var(--text-3); font-size:16px; }
 
-        /* --- PLATFORM FEED (By Platform view) --- */
         .feed-card { background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); margin-bottom:12px; overflow:hidden; transition:box-shadow .2s var(--ease); }
         .feed-card:hover { box-shadow:var(--shadow-md); }
         .feed-header { padding:16px 20px 12px; display:flex; align-items:center; gap:12px; border-bottom:1px solid var(--border); }
@@ -154,7 +142,6 @@
         .feed-item-link:hover { text-decoration:underline; }
         .feed-item-badges { display:flex; gap:4px; margin-top:6px; }
 
-        /* --- SIDE PANEL --- */
         .panel-overlay { position:fixed; inset:0; background:var(--overlay); z-index:200; opacity:0; pointer-events:none; transition:opacity .25s var(--ease); }
         .panel-overlay.open { opacity:1; pointer-events:all; }
         .side-panel { position:fixed; top:0; right:-480px; width:480px; max-width:90vw; height:100vh; background:var(--bg-elevated); z-index:201; box-shadow:-8px 0 40px rgba(0,0,0,0.15); transition:right .3s var(--ease); overflow-y:auto; display:flex; flex-direction:column; }
@@ -163,10 +150,11 @@
         .panel-close { width:28px; height:28px; border-radius:6px; border:none; background:var(--bg-inset); color:var(--text-3); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; }
         .panel-close:hover { color:var(--text-1); }
         .panel-body { padding:24px; flex:1; }
-        .panel-module-badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; padding:3px 8px; border-radius:var(--radius-xs); margin-bottom:10px; }
+        .panel-module-badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; padding:3px 8px; border-radius:var(--radius-xs); margin-bottom:6px; }
         .panel-module-badge.AIDR { background:rgba(128,238,219,0.1); color:var(--primary-dark); }
         .panel-module-badge.AISPM { background:var(--violet-50); color:var(--secondary); }
         .panel-module-badge.ENDPOINT { background:rgba(59,130,246,0.08); color:var(--blue); }
+        .panel-plat { font-size:12px; color:var(--text-3); font-weight:600; margin-bottom:8px; }
         .panel-title { font-size:18px; font-weight:800; letter-spacing:-0.5px; margin-bottom:4px; }
         .panel-sev { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; }
         .panel-sev .dot { width:8px; height:8px; border-radius:50%; }
@@ -175,11 +163,14 @@
         .panel-section { margin-top:20px; }
         .panel-section-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--text-3); margin-bottom:8px; }
         .panel-text { font-size:13px; color:var(--text-2); line-height:1.7; }
-        .panel-link { display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-size:13px; font-weight:600; color:var(--secondary); text-decoration:none; padding:8px 14px; border-radius:var(--radius-xs); background:var(--violet-50); transition:all .15s; }
-        .panel-link:hover { background:var(--violet-100); }
-        [data-theme="dark"] .panel-link { color:var(--violet-400); }
+        .panel-cta { display:flex; align-items:center; gap:8px; margin-top:16px; padding:12px 18px; border-radius:var(--radius-sm); background:var(--violet-50); color:var(--secondary); font:700 14px/1 'Inter',sans-serif; text-decoration:none; transition:all .15s; }
+        .panel-cta:hover { background:var(--violet-100); }
+        .panel-cta svg { flex-shrink:0; }
+        [data-theme="dark"] .panel-cta { color:var(--violet-400); }
+        .panel-action { margin-top:16px; padding:12px 16px; border-radius:var(--radius-xs); background:var(--bg-inset); }
+        .panel-action-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--text-3); margin-bottom:6px; }
+        .panel-action-text { font-size:12px; color:var(--text-2); line-height:1.5; }
 
-        /* --- REPORT DRAWER --- */
         .report-drawer { position:fixed; bottom:0; left:0; right:0; z-index:150; background:var(--bg-elevated); border-top:1px solid var(--border); box-shadow:0 -4px 24px rgba(0,0,0,0.1); transform:translateY(100%); transition:transform .3s var(--ease); max-height:70vh; display:flex; flex-direction:column; }
         .report-drawer.open { transform:translateY(0); }
         .drawer-header { padding:14px 24px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
@@ -204,11 +195,15 @@
         .rpt-badge.has-changes { background:var(--yellow-soft); color:var(--yellow); }
         .rpt-badge.no-changes { background:var(--green-soft); color:var(--green); }
 
-        .empty { display:flex; flex-direction:column; align-items:center; justify-content:center; height:200px; color:var(--text-3); font-size:13px; }
+        .empty { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:40px 20px; color:var(--text-3); font-size:13px; text-align:center; }
+        .empty-icon { width:48px; height:48px; border-radius:50%; background:var(--bg-inset); display:flex; align-items:center; justify-content:center; margin-bottom:4px; }
+        .empty-icon svg { width:24px; height:24px; color:var(--text-3); }
+        .empty-sub { font-size:11px; }
+        .empty-sub a { color:var(--secondary); text-decoration:none; font-weight:600; cursor:pointer; }
         .loading { color:var(--text-3); padding:20px; text-align:center; font-size:13px; }
 
-        @media(max-width:900px) { .metrics{grid-template-columns:repeat(2,1fr)} .container{padding:14px} .nav-inner{padding:0 14px} .nav-subtitle,.nav-divider{display:none} .drawer-body{grid-template-columns:1fr} .drawer-list{display:none} }
-        @media(max-width:600px) { .metrics{grid-template-columns:1fr} .finding-row{grid-template-columns:50px 1fr auto} .badge-sm{display:none} }
+        @media(max-width:900px) { .metrics{grid-template-columns:repeat(2,1fr)} .container{padding:14px} .nav-inner{padding:0 14px} .nav-subtitle,.nav-divider{display:none} .drawer-body{grid-template-columns:1fr} .drawer-list{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border)} .drawer-item{white-space:nowrap;border-bottom:none;border-right:1px solid var(--border)} }
+        @media(max-width:600px) { .metrics{grid-template-columns:1fr} .side-panel{width:100vw;max-width:100vw;right:-100vw} .archive-btn span{display:none} }
         ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
     </style>
 </head>
@@ -223,8 +218,9 @@
             <span class="nav-subtitle">Platform Monitor</span>
         </div>
         <div class="nav-right">
-            <button class="icon-btn" id="reports-btn" title="Report archive">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <button class="archive-btn" id="reports-btn" title="Report archive">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                <span>Archive</span>
             </button>
             <button class="icon-btn" id="theme-toggle" title="Toggle theme">
                 <svg id="theme-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -233,12 +229,12 @@
     </div>
 </nav>
 
-<!-- SIDE PANEL (finding detail) -->
 <div class="panel-overlay" id="panel-overlay"></div>
 <div class="side-panel" id="side-panel">
     <div class="panel-header">
         <div>
             <div class="panel-module-badge" id="panel-badge"></div>
+            <div class="panel-plat" id="panel-plat"></div>
             <div class="panel-title" id="panel-title"></div>
             <div class="panel-sev" id="panel-sev" style="margin-top:6px"></div>
         </div>
@@ -247,7 +243,6 @@
     <div class="panel-body" id="panel-body"></div>
 </div>
 
-<!-- REPORT DRAWER (bottom sheet) -->
 <div class="report-drawer" id="report-drawer">
     <div class="drawer-header">
         <span class="drawer-title">Report Archive (last 7 days)</span>
@@ -256,15 +251,15 @@
     <div class="drawer-body">
         <div class="drawer-list" id="drawer-list"></div>
         <div class="drawer-viewer" id="drawer-viewer">
-            <div class="empty" style="height:100%">Select a report</div>
+            <div class="empty" style="padding:60px 20px">Select a report to view</div>
         </div>
     </div>
 </div>
 
 <div class="container">
     <div class="metrics" id="metrics"></div>
+    <div class="purpose" id="purpose"></div>
 
-    <!-- VIEW TOGGLE -->
     <div class="view-toggle">
         <button class="view-btn active" data-panel="by-change">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -276,10 +271,7 @@
         </button>
     </div>
 
-    <!-- BY CHANGE VIEW -->
     <div class="view-panel active" id="by-change"></div>
-
-    <!-- BY PLATFORM VIEW -->
     <div class="view-panel" id="by-platform"></div>
 </div>
 
@@ -287,25 +279,55 @@
 let reports=[], latest=null, allFindings=[];
 
 const platformLogos = {
-    'Microsoft Copilot (M365)':['microsoft','M365'],
-    'Microsoft Copilot Studio':['microsoft','CS'],
-    'Azure AI Foundry':['microsoft','AF'],
-    'Power Apps':['microsoft','PA'],
-    'Power Automate':['microsoft','PM'],
-    'Power Pages':['microsoft','PP'],
-    'Salesforce AgentForce':['salesforce','SF'],
-    'Salesforce Einstein':['salesforce','SE'],
-    'ChatGPT Enterprise (OpenAI)':['openai','OA'],
-    'Claude Enterprise (Anthropic)':['anthropic','An'],
-    'Amazon Q':['aws','Q'],
-    'Amazon Bedrock':['aws','BR'],
-    'Amazon Bedrock AgentCore':['aws','AC'],
-    'Google Vertex AI':['google','GV'],
-    'ServiceNow':['servicenow','SN'],
-    'Cursor':['cursor','Cu'],
-    'Windsurf':['windsurf','Ws'],
-    'Perplexity':['perplexity','Px'],
-    'Dia Browser':['dia','Di']
+    'Microsoft Copilot (M365)':['microsoft','M365'],'Microsoft Copilot Studio':['microsoft','CS'],
+    'Azure AI Foundry':['microsoft','AF'],'Power Apps':['microsoft','PA'],
+    'Power Automate':['microsoft','PM'],'Power Pages':['microsoft','PP'],
+    'Salesforce AgentForce':['salesforce','SF'],'Salesforce Einstein':['salesforce','SE'],
+    'ChatGPT Enterprise (OpenAI)':['openai','OA'],'Claude Enterprise (Anthropic)':['anthropic','An'],
+    'Amazon Q':['aws','Q'],'Amazon Bedrock':['aws','BR'],'Amazon Bedrock AgentCore':['aws','AC'],
+    'Google Vertex AI':['google','GV'],'ServiceNow':['servicenow','SN'],
+    'Cursor':['cursor','Cu'],'Windsurf':['windsurf','Ws'],'Perplexity':['perplexity','Px'],'Dia Browser':['dia','Di']
+};
+
+const platformTiers = {
+    'Microsoft Copilot (M365)':'primary','Microsoft Copilot Studio':'primary','Azure AI Foundry':'primary',
+    'Power Apps':'primary','Power Automate':'primary','Power Pages':'primary',
+    'ChatGPT Enterprise (OpenAI)':'primary','Claude Enterprise (Anthropic)':'primary',
+    'Amazon Q':'primary','Amazon Bedrock':'primary','Amazon Bedrock AgentCore':'primary',
+    'Google Vertex AI':'secondary','Salesforce AgentForce':'secondary','Salesforce Einstein':'secondary','ServiceNow':'secondary',
+    'Cursor':'watching','Windsurf':'watching','Perplexity':'watching','Dia Browser':'watching'
+};
+
+/* Shared platform matcher — works from keywords alone, no dependency on platforms array */
+function matchPlatform(text){
+    const t=text.toLowerCase();
+    if(t.includes('copilot studio')||t.includes('work iq')) return 'Microsoft Copilot Studio';
+    if(t.includes('copilot')&&t.includes('m365')) return 'Microsoft Copilot (M365)';
+    if(t.includes('azure')||t.includes('foundry iq')||t.includes('ai foundry')) return 'Azure AI Foundry';
+    if(t.includes('power app')) return 'Power Apps';
+    if(t.includes('power auto')) return 'Power Automate';
+    if(t.includes('power page')) return 'Power Pages';
+    if(t.includes('agentcore')) return 'Amazon Bedrock AgentCore';
+    if(t.includes('bedrock')) return 'Amazon Bedrock';
+    if(t.includes('amazon q')) return 'Amazon Q';
+    if(t.includes('vertex')) return 'Google Vertex AI';
+    if(t.includes('openai')||t.includes('chatgpt')||t.includes('codex')||t.includes('gpt-')) return 'ChatGPT Enterprise (OpenAI)';
+    if(t.includes('anthropic')||t.includes('claude')) return 'Claude Enterprise (Anthropic)';
+    if(t.includes('cursor')||t.includes('composer')) return 'Cursor';
+    if(t.includes('windsurf')) return 'Windsurf';
+    if(t.includes('perplexity')) return 'Perplexity';
+    if(t.includes('salesforce')||t.includes('agentforce')) return 'Salesforce AgentForce';
+    if(t.includes('einstein')) return 'Salesforce Einstein';
+    if(t.includes('servicenow')) return 'ServiceNow';
+    if(t.includes('dia browser')||t.includes('diabrowser')) return 'Dia Browser';
+    if(t.includes('copilot')) return 'Microsoft Copilot (M365)';
+    return null;
+}
+
+const moduleActions = {
+    AISPM: 'Add new entities to AISPM inventory. Map resources, permissions, and sharing configurations for this new service.',
+    AIDR: 'Set up detection rules in AIDR. Monitor activity patterns and data flows for this new capability.',
+    ENDPOINT: 'Update endpoint policy. Track this new tool in AI Endpoint inventory and enforce security controls.'
 };
 
 async function init(){
@@ -318,6 +340,7 @@ async function init(){
             ? latest.findings
             : [...(latest.aidr||[]), ...(latest.aispm||[]), ...(latest.endpoint||[])];
         renderMetrics();
+        renderPurpose();
         renderByChange();
         renderByPlatform();
         renderDrawerList();
@@ -328,24 +351,25 @@ async function init(){
 
 function renderMetrics(){
     if(!latest)return;
-    const changed=latest.platforms.filter(p=>p.status==='changed').length;
-    const total=latest.platforms.length;
+    const total=Object.keys(platformLogos).length;
     const high=allFindings.filter(f=>f.severity==='HIGH').length;
     const med=allFindings.filter(f=>f.severity==='MEDIUM').length;
+    const platSet=new Set();
+    allFindings.forEach(f=>{const p=matchPlatform(f.title+' '+f.description);if(p)platSet.add(p);});
     document.getElementById('metrics').innerHTML=`
         <div class="metric v-red">
             <div class="metric-label">New Coverage Gaps</div>
             <div class="metric-val">${high}</div>
-            <div class="metric-sub">new services / APIs</div>
+            <div class="metric-sub">new services / APIs to monitor</div>
         </div>
         <div class="metric v-yellow">
             <div class="metric-label">Extended Coverage</div>
             <div class="metric-val">${med}</div>
-            <div class="metric-sub">new capabilities</div>
+            <div class="metric-sub">new capabilities on existing</div>
         </div>
         <div class="metric v-accent">
             <div class="metric-label">Platforms</div>
-            <div class="metric-val">${changed}<span style="font-size:14px;color:var(--text-3);font-weight:500">/${total}</span></div>
+            <div class="metric-val">${platSet.size}<span style="font-size:14px;color:var(--text-3);font-weight:500">/${total}</span></div>
             <div class="metric-sub">with new additions</div>
         </div>
         <div class="metric v-green">
@@ -355,10 +379,27 @@ function renderMetrics(){
         </div>`;
 }
 
+function renderPurpose(){
+    if(localStorage.getItem('zenity-purpose-seen')) return;
+    const el=document.getElementById('purpose');
+    el.innerHTML='New features and APIs detected across 18 AI platforms that Zenity may need to add to its security monitoring coverage.';
+    el.onclick=()=>{localStorage.setItem('zenity-purpose-seen','1');el.style.display='none';};
+}
+
+function renderEmpty(container){
+    const lastWithFindings=reports.find(r=>(r.findings||[]).length>0||(r.aidr||[]).length>0);
+    const lastDate=lastWithFindings?lastWithFindings.date:'N/A';
+    container.innerHTML=`<div class="empty">
+        <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        No new coverage gaps detected today
+        <div class="empty-sub">Last findings: <a onclick="document.querySelector('[data-panel=by-change]').click();loadDrawerReport(${reports.indexOf(lastWithFindings)})">${lastDate}</a></div>
+    </div>`;
+}
+
 /* ========== BY CHANGE VIEW ========== */
 function renderByChange(){
     const container=document.getElementById('by-change');
-    if(!allFindings.length){container.innerHTML='<div class="empty">No new coverage gaps detected today</div>';return;}
+    if(!allFindings.length){renderEmpty(container);return;}
 
     const sOrder={HIGH:0,MEDIUM:1,LOW:2};
     const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
@@ -385,10 +426,11 @@ function renderByChange(){
             </div>
             ${groups[mod].map(item=>{
                 const gi=sorted.indexOf(item);
+                const plat=matchPlatform(item.title+' '+item.description);
                 return `<div class="finding-row" onclick="openPanel(${gi})">
                     <div class="sev ${item.severity}">${item.severity}</div>
-                    <div class="badge-sm ${(item.module||'').toUpperCase()}">${(item.module||'').toUpperCase()}</div>
                     <div class="finding-main">
+                        ${plat?`<div class="finding-plat">${plat}</div>`:''}
                         <div class="finding-title">${item.title}</div>
                         <div class="finding-desc">${item.description}</div>
                     </div>
@@ -398,68 +440,28 @@ function renderByChange(){
         </div>`).join('');
 }
 
-/* ========== BY PLATFORM VIEW (feed) ========== */
+/* ========== BY PLATFORM VIEW ========== */
 function renderByPlatform(){
     const container=document.getElementById('by-platform');
-    if(!allFindings.length){container.innerHTML='<div class="empty">No new coverage gaps detected today</div>';return;}
+    if(!allFindings.length){renderEmpty(container);return;}
 
-    // Group findings by platform name (match from title)
     const platFindings={};
     const sOrder={HIGH:0,MEDIUM:1,LOW:2};
     const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
 
-    // Build platform -> findings map
-    const platNames = latest.platforms.map(p=>p.name);
-
     sorted.forEach(f=>{
-        const title = f.title.toLowerCase();
-        const desc = f.description.toLowerCase();
-        const combined = title + ' ' + desc;
-        let matched = null;
-
-        // Try to match platform
-        for(const name of platNames){
-            const words = name.toLowerCase().split(/[\s()]+/).filter(w=>w.length>3);
-            if(words.some(w=>combined.includes(w))){
-                matched = name;
-                break;
-            }
-        }
-        // Fallback: try common keywords
-        if(!matched){
-            if(combined.includes('copilot studio')) matched='Microsoft Copilot Studio';
-            else if(combined.includes('copilot')) matched='Microsoft Copilot (M365)';
-            else if(combined.includes('azure')||combined.includes('foundry')) matched='Azure AI Foundry';
-            else if(combined.includes('bedrock agentcore')||combined.includes('agentcore')) matched='Amazon Bedrock AgentCore';
-            else if(combined.includes('bedrock')) matched='Amazon Bedrock';
-            else if(combined.includes('vertex')) matched='Google Vertex AI';
-            else if(combined.includes('openai')||combined.includes('chatgpt')||combined.includes('codex')||combined.includes('gpt')) matched='ChatGPT Enterprise (OpenAI)';
-            else if(combined.includes('anthropic')||combined.includes('claude')) matched='Claude Enterprise (Anthropic)';
-            else if(combined.includes('cursor')) matched='Cursor';
-            else if(combined.includes('windsurf')) matched='Windsurf';
-            else if(combined.includes('perplexity')) matched='Perplexity';
-            else if(combined.includes('salesforce')||combined.includes('agentforce')) matched='Salesforce AgentForce';
-            else if(combined.includes('power app')) matched='Power Apps';
-            else if(combined.includes('power auto')) matched='Power Automate';
-            else matched='Other';
-        }
-        (platFindings[matched]=platFindings[matched]||[]).push(f);
+        const plat=matchPlatform(f.title+' '+f.description)||'Other';
+        (platFindings[plat]=platFindings[plat]||[]).push(f);
     });
 
-    // Sort platforms: most findings first, then alphabetical
-    const platOrder = Object.keys(platFindings).sort((a,b)=>{
-        const diff = platFindings[b].length - platFindings[a].length;
-        return diff!==0 ? diff : a.localeCompare(b);
-    });
+    const platOrder=Object.keys(platFindings).sort((a,b)=>platFindings[b].length-platFindings[a].length||a.localeCompare(b));
 
     container.innerHTML=platOrder.map(platName=>{
         const items=platFindings[platName];
         const logo=platformLogos[platName]||['','??'];
-        const plat=latest.platforms.find(p=>p.name===platName);
-        const tier=plat?.tier||'primary';
+        const tier=platformTiers[platName]||'primary';
 
-        return `
-        <div class="feed-card">
+        return `<div class="feed-card">
             <div class="feed-header">
                 <div class="feed-logo ${logo[0]}">${logo[1]}</div>
                 <div class="feed-info">
@@ -475,8 +477,7 @@ function renderByPlatform(){
                     const gi=sorted.indexOf(item);
                     let hostname='';
                     try{hostname=new URL(item.source).hostname;}catch(e){}
-                    return `
-                    <div class="feed-item" onclick="openPanel(${gi})">
+                    return `<div class="feed-item" onclick="openPanel(${gi})">
                         <div class="feed-sev"><div class="dot ${item.severity}"></div></div>
                         <div class="feed-item-content">
                             <div class="feed-item-title">${item.title}</div>
@@ -504,9 +505,11 @@ function openPanel(idx){
     if(!item)return;
 
     const mod=(item.module||'').toUpperCase();
+    const plat=matchPlatform(item.title+' '+item.description);
     const badge=document.getElementById('panel-badge');
     badge.textContent=mod||'Finding';
     badge.className='panel-module-badge '+mod;
+    document.getElementById('panel-plat').textContent=plat||'';
     document.getElementById('panel-title').textContent=item.title;
     document.getElementById('panel-sev').innerHTML=`<span class="dot ${item.severity}"></span>${item.severity} severity`;
 
@@ -516,15 +519,17 @@ function openPanel(idx){
     </div>`;
 
     if(item.source){
-        let hostname='';
-        try{hostname=new URL(item.source).hostname;}catch(e){hostname=item.source;}
-        body+=`<div class="panel-section">
-            <div class="panel-section-title">Documentation</div>
-            <a class="panel-link" href="${item.source}" target="_blank" rel="noopener">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Read the documentation
-            </a>
-            <div style="margin-top:6px;font-size:11px;color:var(--text-3);word-break:break-all">${item.source}</div>
+        body+=`<a class="panel-cta" href="${item.source}" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Read the documentation
+        </a>`;
+    }
+
+    const action=moduleActions[mod];
+    if(action){
+        body+=`<div class="panel-action">
+            <div class="panel-action-title">What to do</div>
+            <div class="panel-action-text">${action}</div>
         </div>`;
     }
 
@@ -556,7 +561,7 @@ document.getElementById('reports-btn').onclick=()=>{
 
 function renderDrawerList(){
     document.getElementById('drawer-list').innerHTML=reports.map((r,i)=>{
-        const f=(r.findings||[]).length||(r.aidr||[]).length+(r.aispm||[]).length+(r.endpoint||[]).length;
+        const f=(r.findings||[]).length||((r.aidr||[]).length+(r.aispm||[]).length+(r.endpoint||[]).length);
         const bc=f>0?'has-changes':'no-changes';
         const bt=f>0?f+' findings':'Stable';
         return `<div class="drawer-item" onclick="loadDrawerReport(${i})">${r.date}<span class="rpt-badge ${bc}">${bt}</span></div>`;

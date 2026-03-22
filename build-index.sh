@@ -216,16 +216,14 @@ for report_file in report_files:
     # Extract all findings
     all_findings = extract_findings(content, '')
 
-    # Split by module
-    aidr_items = [f for f in all_findings if f.get('module') in ('AIDR', 'ENDPOINT') or 'AIDR' in f.get('module','')]
-    aispm_items = [f for f in all_findings if f.get('module') == 'AISPM']
-    endpoint_items = [f for f in all_findings if f.get('module') == 'ENDPOINT']
-
-    # For old format, if module-based split worked, use it; otherwise fallback
-    if not aidr_items and not aispm_items and not endpoint_items:
-        aidr_items = [f for f in all_findings if 'AIDR' in str(f)]
-        aispm_items = [f for f in all_findings if 'AISPM' in str(f)]
-        endpoint_items = [f for f in all_findings if 'ENDPOINT' in str(f) or 'Endpoint' in str(f)]
+    # Deduplicate findings by title
+    seen_titles = set()
+    unique_findings = []
+    for f in all_findings:
+        key = f.get('title', '').strip().lower()
+        if key and key not in seen_titles:
+            seen_titles.add(key)
+            unique_findings.append(f)
 
     # Get file modification time as scan timestamp
     mtime = os.path.getmtime(report_file)
@@ -236,10 +234,7 @@ for report_file in report_files:
         'scan_time': scan_time,
         'file': filename,
         'platforms': platforms,
-        'aidr': aidr_items,
-        'aispm': aispm_items,
-        'endpoint': endpoint_items,
-        'findings': all_findings
+        'findings': unique_findings
     })
 
 with open('$DOCS_DIR/report-index.json', 'w') as f:
