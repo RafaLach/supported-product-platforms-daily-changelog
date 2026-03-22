@@ -342,19 +342,19 @@ function renderMetrics(){
     const med=allFindings.filter(f=>f.severity==='MEDIUM').length;
     document.getElementById('metrics').innerHTML=`
         <div class="metric v-red">
-            <div class="metric-label">Action Items</div>
+            <div class="metric-label">New Coverage Gaps</div>
             <div class="metric-val">${high}</div>
-            <div class="metric-sub">HIGH severity findings</div>
+            <div class="metric-sub">new services / APIs to monitor</div>
         </div>
         <div class="metric v-yellow">
-            <div class="metric-label">Monitor</div>
+            <div class="metric-label">Extended Coverage</div>
             <div class="metric-val">${med}</div>
-            <div class="metric-sub">MEDIUM severity</div>
+            <div class="metric-sub">new capabilities on existing</div>
         </div>
         <div class="metric v-accent">
             <div class="metric-label">Platforms</div>
             <div class="metric-val">${changed}<span style="font-size:14px;color:var(--text-3);font-weight:500">/${total}</span></div>
-            <div class="metric-sub">with changes today</div>
+            <div class="metric-sub">with new additions today</div>
         </div>
         <div class="metric v-green">
             <div class="metric-label">Last Scan</div>
@@ -372,29 +372,28 @@ function renderFindings(){
     const sOrder={HIGH:0,MEDIUM:1,LOW:2};
     const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
 
-    // Group by action category
-    const actionGroups={};
-    const actionOrder=['Action Required','New Capabilities','Monitoring Updates','Uncategorized'];
-    const actionIcons={'Action Required':'!','New Capabilities':'+','Monitoring Updates':'~','Uncategorized':'?'};
-    const actionClasses={'Action Required':'action-required','New Capabilities':'new-capabilities','Monitoring Updates':'monitoring-updates','Uncategorized':'monitoring-updates'};
+    // Group by module
+    const moduleGroups={};
+    const moduleOrder=['AISPM','AIDR','ENDPOINT'];
+    const moduleLabels={'AISPM':'AISPM — New Inventory Entities','AIDR':'AIDR — New Detection Surfaces','ENDPOINT':'Endpoint — New Local AI Tools'};
+    const moduleClasses={'AISPM':'new-capabilities','AIDR':'action-required','ENDPOINT':'monitoring-updates'};
 
     sorted.forEach(f=>{
-        const action=f.action||'Uncategorized';
-        if(!actionGroups[action])actionGroups[action]=[];
-        actionGroups[action].push(f);
+        const mod=(f.module||'').toUpperCase()||'AISPM';
+        if(!moduleGroups[mod])moduleGroups[mod]=[];
+        moduleGroups[mod].push(f);
     });
 
-    // If no action categories (old format), group by severity
-    const hasActions=Object.keys(actionGroups).some(k=>k!=='Uncategorized');
+    const hasModules=Object.keys(moduleGroups).length>0 && sorted.length>0;
 
-    if(hasActions){
-        container.innerHTML=actionOrder.filter(a=>actionGroups[a]&&actionGroups[a].length).map(action=>{
-            const items=actionGroups[action];
+    if(hasModules){
+        container.innerHTML=moduleOrder.filter(m=>moduleGroups[m]&&moduleGroups[m].length).map(mod=>{
+            const items=moduleGroups[mod];
             return `
             <div class="action-group">
                 <div class="action-header">
-                    <div class="action-icon ${actionClasses[action]}">${actionIcons[action]}</div>
-                    <span class="action-label">${action}</span>
+                    <div class="action-icon ${moduleClasses[mod]}">${mod==='AISPM'?'+':mod==='AIDR'?'!':'~'}</div>
+                    <span class="action-label">${moduleLabels[mod]||mod}</span>
                     <span class="action-count">${items.length}</span>
                 </div>
                 ${items.map((item,i)=>renderFindingRow(item,sorted.indexOf(item))).join('')}

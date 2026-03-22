@@ -28,7 +28,58 @@ report_files = [f for f in report_files if os.path.basename(f).replace('report-'
 def extract_findings(content, section_name):
     \"\"\"Extract findings from action-category sections within a module section.\"\"\"
     items = []
-    # Try new format: action categories with module tags
+    # Try new format: findings under ## New Coverage Required or #### action categories
+    # First try flat list under ## New Coverage Required
+    ncr_match = re.search(r'## New Coverage Required\s*\n(.*?)(?=\n## |\Z)', content, re.DOTALL)
+    if ncr_match:
+        for line in ncr_match.group(1).strip().split('\n'):
+            m = re.match(r'- \*\*\[(\w+)\]\s*\[(\w+)\]\s+(.+?)\*\*:\s*(.*)', line)
+            if not m:
+                m2 = re.match(r'- \*\*\[(\w+)\]\s*\[(\w+)\]\*\*\s+(.*?)(?:\s*[\u2014\u2013\-]+\s*)(.*)', line)
+                if m2:
+                    m = m2
+                else:
+                    m3 = re.match(r'- \*\*\[(\w+)\]\s*\[(\w+)\]\*\*\s+(.*)', line)
+                    if m3:
+                        full = m3.group(3)
+                        source = ''
+                        src_m = re.search(r'Source:\s*(https?://\S+)', full)
+                        if src_m:
+                            source = src_m.group(1)
+                            full = full[:src_m.start()].strip().rstrip('.')
+                        parts = re.split(r'\s*[\u2014\u2013]\s*|\.\s+', full, 1)
+                        title = parts[0].strip()
+                        desc = parts[1].strip() if len(parts) > 1 else ''
+                        items.append({
+                            'severity': m3.group(2),
+                            'title': title,
+                            'description': desc,
+                            'source': source,
+                            'module': m3.group(1).upper(),
+                            'action': 'New Coverage Required'
+                        })
+                        continue
+            if m:
+                module = m.group(1).upper()
+                severity = m.group(2).upper()
+                title = m.group(3).strip()
+                desc = m.group(4).strip() if m.lastindex >= 4 else ''
+                source = ''
+                src_match = re.search(r'Source:\s*(https?://\S+)', desc)
+                if src_match:
+                    source = src_match.group(1)
+                    desc = desc[:src_match.start()].strip().rstrip('.')
+                items.append({
+                    'severity': severity,
+                    'title': title,
+                    'description': desc,
+                    'source': source,
+                    'module': module,
+                    'action': 'New Coverage Required'
+                })
+        return items
+
+    # Fallback: try action categories
     for action_header in ['Action Required', 'New Capabilities', 'Monitoring Updates']:
         pattern = r'####\s*' + action_header + r'\s*\n(.*?)(?=\n####|\n###|\n##|\Z)'
         match = re.search(pattern, content, re.DOTALL)
