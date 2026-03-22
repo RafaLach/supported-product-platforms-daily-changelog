@@ -1,11 +1,11 @@
 Source: Salesforce Releases
 URL: https://www.salesforce.com/releases/
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Salesforce Spring '26 Release
 
 ## Status
-Spring '26 Release is now live.
+Spring '26 Release is now live, delivering "AI-driven innovation across every cloud and industry."
 
 ## Primary Theme
 "The Spring '26 release enables companies to accelerate their journey toward becoming an Agentic Enterprise by combining human expertise with AI productivity."
@@ -21,10 +21,41 @@ Spring '26 Release is now live.
 - Flow — Automation scaling enhancements
 - Platform — DevOps and security feature improvements
 - Industry clouds — Health, Education, Nonprofit, Automotive, Communications
+- Slack — Included in product demo collections
+- Revenue Management — Included in product demo collections
+
+## Webinar Schedule (2026)
+
+### Upcoming Live Event
+- 3/3/26: "Build, Scale, Monetize: The ISV Strategy for Salesforce Spring '26" — Partner-focused deep dive on platform innovations
+
+### On-Demand Webinars Available
+- Agentforce Voice innovations
+- Marketing Cloud Spring '26 features
+- Field Service Innovation Review (includes Winter '26 previews)
+- Salesforce Platform Roadmap (DevOps and security focus)
+- Sales Cloud Winter '26 features
+- Communications and Commerce releases
+
+## Release Resources
+- Trailhead Module: Spring '26 Release Highlights learning trail
+- Release in a Box: PDF deck highlighting major features
+- Release Readiness Series: Video demonstrations hosted by Carolyn Bathauer on Salesforce+
+- Release Readiness Trailblazer Community group for peer discussions and Q&A
+- Latest seasonal release blogs on Salesforce blog platform
+
+## Product Demo Collections
+- Core Products: Slack, Sales, Service, Field Service, Agentforce, Commerce, Marketing, Revenue Management, Flow, Analytics
+- Industry-Specific: Automotive, Communications, Consumer Goods, Education, Health, Nonprofit
 
 ## Release Cadence
 Three major updates annually: Winter, Spring, Summer
 Some products now ship monthly updates beyond seasonal releases.
+
+## Support Resources
+- Spring '26 Release Notes (official documentation)
+- Winter '26 and Summer '25 Release Notes (historical reference)
+- FAQ section covering preparation, adoption, and troubleshooting strategies
 
 ## Governance & Compliance
 Platform roadmap includes strengthened ALM and security features, with emphasis on DevOps improvements and data protection enhancements.

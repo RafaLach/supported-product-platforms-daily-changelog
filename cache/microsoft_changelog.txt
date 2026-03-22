@@ -1,25 +1,67 @@
 Source: Microsoft Graph API Changelog
 URL: https://developer.microsoft.com/graph/changelog/
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
-# Microsoft Graph Changelog Summary
+# Microsoft Graph Changelog
 
-## Recent Permission Changes (Feb 23, 2026)
+## February 2026 - Permission Changes
 - `FileStorageContainerType.Manage.All` and `FileStorageContainerTypeReg.Manage.All` delegated permissions no longer require admin consent
 - `ThreatSubmission.Read` and `ThreatSubmission.ReadWrite` now require admin consent
 
-## Identity & Access Governance Additions
+## Bicep Infrastructure-as-Code Support
+- User resource deployment via Bicep templates (January 30, 2025)
+- Application, federatedIdentityCredential, servicePrincipal resources
+- OAuth2PermissionGrant and appRoleAssignment resources
+- Group resource management through Bicep
 
-**Lifecycle Workflows Enhancements (Feb 19, 2026):**
-- Added `administrationScopeTargets` relationship to workflowBase resource
-- Administration scope targeting capabilities for workflow management
+## Microsoft Graph Activity Logs
+- Activity logs now available in China operated by 21Vianet (December 16, 2024)
 
-**Nov 25, 2025:**
-- Added `userInactivityTrigger` resource for lifecycle workflows based on user inactivity detection
+## Event Hubs Authentication Migration (Deprecation)
+- Change notifications via Azure Event Hubs will deprecate shared access signature (SAS) authentication
+- Organizations should migrate to Microsoft Entra ID role-based access control (RBAC)
 
-**Nov 10, 2025:**
-- Scope-based workflow activation: `activationScope`, `activateGroupScope`, `activateUserScope`
+## Lifecycle Workflows Enhancements
+- Create operation now supports up to 100 workflows (increased from 50)
+- New resources: userInactivityTrigger, attributeChangeTrigger, groupBasedSubjectSet, membershipChangeTrigger
+- New insights resource with aggregate workflow health data
+- topTasksInsightsSummary, topWorkflowsInsightsSummary resources
+- New methods: topTasksProcessedSummary, topWorkflowsProcessedSummary, workflowsProcessedByCategory, workflowsProcessedSummary
+- activateWithScope method for scoped workflow activation
+- administrationScopeTargets relationship for workflowBase
+- activationScope resource types (activateGroupScope, activateRunScope, activateProcessingResultScope)
+- isEnabled and isSchedulingEnabled properties for workflow control
 
-## Deprecation Notices
-- Dec 11, 2025: Removed `conditionalAccessAudience` resource type (Beta)
-- Dec 3, 2025: Added `microsoftRevokedSessions` member to riskDetail enumeration
+## Reports and Audit Logging
+- New alert types: samlSignInFailure and conditionalAccessBlockedSignIn members
+- microsoftRevokedSessions risk detail member
+- selfServiceSignUp resource for analyzing external ID requests
+- signUpIdentity, signUpStatus resources; signUpIdentifierType and signUpStage enumerations
+- Enhanced sign-in reporting: sessionId, appOwnerTenantId, resourceOwnerTenantId properties
+- agentSignIn resource with agentType enumeration supporting identity blueprint principals
+- 17 new protocol members (implicit flows, authorization code, client credentials, Kerberos, SSO, OBO grant types)
+
+## Authentication and Custom Extensions
+- customCalloutExtension resource
+- customExtensionAuthenticationConfiguration, customExtensionCallbackConfiguration
+- customExtensionOperationStatus enumeration
+- maximumRetries property for client configuration
+- emailSettings resource; azureAdPopTokenAuthentication support
+
+## Compliance and eDiscovery (Beta)
+- ediscoveryCase, reviewSet, reviewSetQuery resources and operations
+
+## Schema Extensions
+- Now generally available in Microsoft Cloud for US Government
+
+## Reporting Enhancements
+- relyingPartyDetailedSummary resource; getRelyingPartyDetailedSummary method; migrationStatus enumeration
+- emailOtpSend, attributeCollectionStart, attributeCollectionSubmit authentication event types
+- refreshToken incoming token type member
+- linkableIdentifiers property on auditActivityInitiator
+- tokenDetails resource for enhanced traceability
+
+## Legacy/Existing (from prior cache)
+- Dec 11, 2025: Removed conditionalAccessAudience resource type (Beta)
+- Nov 25, 2025: Added userInactivityTrigger resource (beta and v1.0)
+- Nov 10, 2025: Scope-based workflow activation: activationScope, activateGroupScope, activateUserScope

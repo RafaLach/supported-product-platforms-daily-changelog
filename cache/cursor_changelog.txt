@@ -1,8 +1,12 @@
 Source: Cursor Changelog
 URL: https://cursor.com/changelog
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Cursor Changelog
+
+## March 19, 2026: Composer 2
+- Frontier-level coding performance with strong results on challenging coding tasks
+- Pricing: Standard $0.50/M input, $2.50/M output tokens; Fast (default) $1.50/M input, $7.50/M output tokens
 
 ## March 11, 2026: New Plugins on the Cursor Marketplace
 - Over 30 new plugins from Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, PlanetScale
@@ -20,11 +24,30 @@ Fetched: 2026-03-19
 - Authentication via existing Cursor accounts
 
 ## March 3, 2026 (v2.6): MCP Apps & Team Marketplaces
-- Interactive UIs in agent chats with charts, diagrams, whiteboards
+- Interactive UIs in agent chats with charts (Amplitude), diagrams (Figma), whiteboards (tldraw)
 - Team marketplace for private plugin distribution with governance controls
-- Debug mode enhancements
+- Debug mode enhancements: multiple parallel Debug mode sessions support
+- Automatic stale code cleanup after each turn
+- Dynamic instrumentation logging based on complexity
+- Plan file content now included in autocomplete suggestions
+- Image attachments display as galleries
+- Multiline Plan mode questions
+- Faster modal loading
+- Enhanced agent workflows for multi-file edits
+- Improved PR/review context with accurate anchoring
+- Smoother tool-use flows
+- More reliable MCP setup
+- Clearer team/enterprise access controls
+- Enhanced Slack integration
+- Improved long-running session reliability
+- 10 bug fixes (plan editor, branch/PR status, diff display, MCP config stability, model picker, team permissions)
+- 2 web improvements (dashboard/account clarity, layout fixes)
 
-## February 26, 2026: Bugbot Autofix
-- Cloud agents automatically fix detected pull request issues
-- 35% of proposed changes merge into base branches
-- Configuration for automatic branch pushes
+## Desktop Improvements (15 total)
+Parallel Debug sessions, stale code cleanup, adaptive instrumentation, browser tool enhancements, plan file content in autocomplete, image gallery display, multiline Plan mode, faster modals, improved workflows, enhanced PR context, smoother tool flows, reliable MCP setup, clearer policies, improved Slack integration, enhanced session reliability.
+
+## Desktop Bug Fixes (10 total)
+Plan editor links, branch/PR status refresh, diverged branch blockers, review comment references, diff display accuracy, MCP configuration dialogs, model picker duplicates, team permissions, long-running workflow reliability, Debug port allocation.
+
+## Web Improvements & Fixes (2 total)
+Dashboard and account management clarity improvements; layout issue resolution.

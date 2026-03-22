@@ -1,11 +1,15 @@
 Source: Power Automate What's New
 URL: https://learn.microsoft.com/en-us/power-automate/whats-new
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Power Automate What's New
 
 ## Overview
 Power Automate releases weekly service updates with new features, fixes, and improvements.
+
+## Key Resources
+- Service Updates: /en-us/power-platform/released-versions/power-automate
+- Release Planner: https://releaseplans.microsoft.com/en-US/?app=Power+Automate
 
 ## Key Features
 - Cloud flows, desktop flows, scheduled flows
@@ -14,4 +18,7 @@ Power Automate releases weekly service updates with new features, fixes, and imp
 - Solutions for ALM
 - Teams, SharePoint, email integration
 
-Last updated: 2025-07-10
+Note: Releases are rolled out over several days. New or updated functionality might not appear immediately.
+
+Page last updated (ms.date): 2025-07-10
+Document last updated: 2025-07-11

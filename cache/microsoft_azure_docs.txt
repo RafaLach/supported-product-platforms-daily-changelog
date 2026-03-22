@@ -1,13 +1,21 @@
 Source: Azure AI Foundry Documentation
 URL: https://learn.microsoft.com/en-us/azure/ai-studio/
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Microsoft Foundry Documentation
+Canonical URL: https://learn.microsoft.com/en-us/azure/foundry/
+
+Page last updated: 2026-03-19
 
 ## Overview
 Microsoft Foundry (formerly Azure AI Studio) — "The AI app and agent factory - build, optimize, and govern AI apps and agents at scale."
 
 ## Key Components
+
+### Create apps with code
+- Quickstart: Create Foundry resources
+- Quickstart: Chat with an agent
+- Start with an AI template
 
 ### Foundry Models
 - Models sold directly by Azure
@@ -22,18 +30,18 @@ Microsoft Foundry (formerly Azure AI Studio) — "The AI app and agent factory -
 
 ### Foundry Control Plane
 - Trustworthy AI and Content Safety
-- Application tracing and observability
+- Application tracing with Foundry project library
 - Agentic workflow evaluation
 - Generative AI monitoring dashboards
 
 ### Foundry IQ
-- Knowledge base connections for agents
-- What is Foundry IQ section now present
-- FAQ section added
+- What is Foundry IQ?
+- FAQ section
+- Connect knowledge base to agents
 
 ### Foundry Tools
 - Speech, Translator, Language, Document Intelligence
-- Content Understanding, Face/Vision
+- Content Understanding, Face
 
 ### Azure Machine Learning
 - Model training
@@ -41,11 +49,18 @@ Microsoft Foundry (formerly Azure AI Studio) — "The AI app and agent factory -
 - AutoML
 
 ### Foundry Local
-- Run LLMs on local devices
+- Run LLMs on local devices for free
+- Integrate with inference SDKs
 - HuggingFace model compilation
 - SDK documentation
 
 ### SDKs
 - Python, C#, JavaScript, Java
 
-Last updated: 2026-03-11
+## Further Resources
+- Microsoft Foundry portal (ai.azure.com)
+- Microsoft Foundry SDKs
+- Microsoft Foundry labs
+- GitHub Models
+- Visual Studio Code extension
+- Microsoft Agent Framework

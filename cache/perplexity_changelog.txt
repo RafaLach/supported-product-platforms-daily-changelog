@@ -1,35 +1,81 @@
 Source: Perplexity API Changelog
 URL: https://docs.perplexity.ai/changelog
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Perplexity API Changelog
 
 ## February 2026
-- Agent API launched with production-ready guidance and OpenAI compatibility
-- Embeddings API released with standard and contextualized embeddings
+- Agent API launched with production-ready guidance, model behavior controls, and OpenAI compatibility
+- Embeddings API released with standard and contextualized embeddings; semantic search and retrieval workflow guides
 
 ## December 2025
-- sonar-reasoning model deprecated (use sonar-reasoning-pro)
-- Media Classifier for automatic visual content detection
-- Search API: max_tokens parameter, last_updated_filter, Vercel AI SDK compatibility
+- sonar-reasoning model deprecated as of December 15, 2025 (migrate to sonar-reasoning-pro)
+- Media Classifier: automatic visual content detection (images or videos), exclusive to sonar-pro
+- Search API: new max_tokens parameter for token extraction per search result page
+- Search API: last_updated_filter for content modification date filtering
+- Search API: Vercel AI SDK compatibility added
+- Ecosystem: Perplexity Client (Electron desktop app) community showcase
 
 ## November 2025
-- Pro Search GA with automated tool usage and multi-step reasoning
-- MCP Server one-click installation for Cursor, VS Code, Claude Desktop
+- Pro Search GA: multi-step reasoning with automated tool usage, real-time thought streaming, automatic query classification via "search_type: auto"
+- Built-in tools: web_search and fetch_url_content
+- MCP Server one-click installation for Cursor, VS Code, Claude Desktop, Claude Code
+- MCP Server tools: perplexity_search, perplexity_ask, perplexity_research, perplexity_reason
 
 ## October 2025
-- Official Python and TypeScript SDKs released
-- Interactive Search API Playground (no API key needed)
+- Official Python SDK released (pip install perplexityai)
+- Official TypeScript SDK released (npm install @perplexity-ai/perplexity_ai)
+- Full type definitions, streaming support with async iterators, automatic env var handling
+- Interactive Search API Playground at https://console.perplexity.ai (no API key required)
 - New search parameters: language_preference, search_domain_filter
+- Enhanced date/time filtering controls
+- Ecosystem: StarPlex (AI-powered startup intelligence) community showcase
 
 ## September 2025
-- File attachment support (PDF, DOC, DOCX, TXT, RTF)
+- File attachment support (PDF, DOC, DOCX, TXT, RTF) for Sonar models via file_url content type
 - Standalone Search API for raw results without LLM processing
-- API key rotation mechanism with audit trails
+- API key rotation mechanism with audit trails and zero-downtime transitions; recommended rotation every 30-90 days
 
 ## August 2025
-- R1-1776 model removed (migrate to Sonar Pro Reasoning)
+- R1-1776 model removed effective August 1, 2025 (migrate to Sonar Pro Reasoning)
 
 ## July 2025
-- Per-request cost breakdown in API responses
-- SEC filings filter for financial research
+- Per-request cost breakdown in API responses (input tokens, output tokens, request cost, total cost)
+- SEC filings filter: search_domain: "sec" for SEC regulatory documents, 10-K/10-Q/8-K reports
+
+## June 2025
+- Enhanced date filtering: new latest_updated field for webpage modification dates
+- Academic filter: search_mode: "academic" for peer-reviewed papers and research publications
+
+## May 2025
+- sonar-deep-research reasoning effort parameter: low, medium, or high settings
+- Asynchronous API for research-intensive tasks with 7-day TTL
+- New search_results response field (titles, URLs, publication dates); citations field fully deprecated and removed
+
+## April 2025
+- Organization Portal at https://console.perplexity.ai for API key management, usage insights, team collaboration
+- Location filtering parameter for geographic result narrowing
+- Image upload: multimodal image support for all users
+- Date range filtering parameter
+- Pricing update: citation tokens no longer charged
+- Feature democratization: all feature gates based on spending tier removed
+
+## March 2025
+- Structured Outputs: Tier 3 requirement removed; JSON structured outputs now accessible to all users
+- Sonar model search modes: High (maximum depth), Medium (balanced), Low (cost-efficient)
+- Transparent input/output token pricing; citation tokens excluded (except Deep Research)
+
+## January 2025
+- Models deprecated effective February 22, 2025: llama-3.1-sonar-small-128k-online, llama-3.1-sonar-large-128k-online, llama-3.1-sonar-huge-128k-online
+- New models: Sonar (straightforward answers) and Sonar Pro (complex research) with built-in citations
+
+## November 2024
+- Citations returned by default across all requests; return_citations parameter deprecated
+- Default rate limit increased to 50 requests/minute for sonar online models
+
+## July 2024
+- Llama 3.1 models released (online and chat variants)
+- Multiple model deprecations effective August 12, 2024
+
+## April 2024
+- Older models sunset: CodeLlama variants and legacy Perplexity models

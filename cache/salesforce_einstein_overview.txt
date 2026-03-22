@@ -1,10 +1,12 @@
 Source: Einstein GenAI Overview
 URL: https://developer.salesforce.com/docs/einstein/genai/overview
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Einstein GenAI Overview
 
-Page rendered as JavaScript-heavy application. Content extracted from available structure:
+Page rendered as JavaScript-heavy application (LWR framework). Content is dynamically loaded and not present in raw HTML source. Available structural indicators:
 - Part of Agentforce and Generative AI documentation section
 - Links to developer guide, API references, and SDKs
 - Integrates with Salesforce Trust Layer for secure LLM access
+- Technical infrastructure: LWR (Lightning Web Runtime) bootstrap with Google Tag Manager (GTM-MWZCN8), Sprig analytics (5% sampling), and Coveo search integration
+- Environment: production deployment

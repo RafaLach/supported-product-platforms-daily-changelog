@@ -1,21 +1,23 @@
 Source: Windsurf Changelog
 URL: https://windsurf.com/changelog
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Windsurf Changelog
 
 ## March 2026
-- Mar 17 (v1.9577.27): GPT-5.4 Mini at 1x credits (promotional pricing)
-- Mar 12: Bug fixes for Apple M5 compatibility
-- Mar 9 (v1.9577.24): Cascade Jupyter Notebook fixes, SKILL.md file loading, MCP system-level Skills via MDM for Enterprise, improved SSH/Remote performance
-- Mar 5: GPT-5.4 released with tiered reasoning pricing
+- Mar 19 (v1.9577.43): Fixed Mac x64 build issues
+- Mar 19 (v1.9577.42): Various stability and performance enhancements
+- Mar 17: GPT-5.4 Mini now available at 1x credits (promotional pricing)
+- Mar 12 (v1.9577.27): Fixed compatibility with Apple M5 processors
+- Mar 9 (v1.9577.24): Cascade Jupyter Notebook performance enhancements, Diff Zone fixes, SKILL.md loading from .windsurf/skills/ directory, AGENTS.md fix, MCP system-level Skills via MDM for Enterprise, improved SSH/Remote performance, improved autocomplete error handling, agent panel crash fixes, improved Cascade UI rendering performance, improved notifications for model price changes, improved context management for MCP servers
+- Mar 5: GPT-5.4 released with tiered reasoning pricing (No Reasoning 1x, Low 1x, Medium 2x, High 3x, Extra High 8x)
 
 ## February 2026
 - Feb 26 (v1.9566.11): Extension installation fixes
-- Feb 25 (v1.9566.9): New model picker with family grouping and reasoning toggles, Cascade hooks enhancements, MCP refresh/OAuth auto-trigger, Linux ARM64 support
-- Feb 21: GitHub PR extension compatibility fix
-- Feb 19: Gemini 3.1 Pro available
-- Feb 17: Claude Sonnet 4.6 released; GLM-5 and Minimax M2.5 added
+- Feb 25 (v1.9566.9): New model picker with family grouping and reasoning toggles, Cascade hooks enhancements (POST_CASCADE_RESPONSE_WITH_TRANSCRIPT hook), MCP refresh/OAuth auto-trigger, Linux ARM64 support, VS Code 1.108 merge, windsurf.cascade.readClaudeCodeConfig flag
+- Feb 21 (v1.9552.25): GitHub PR extension compatibility fix
+- Feb 19: Gemini 3.1 Pro available (Low Thinking 0.5x, High Thinking 1x)
+- Feb 17: Claude Sonnet 4.6 released (No thinking 2x, With thinking 3x); GLM-5 (0.75x) and Minimax M2.5 (0.25x) added; Windows self-update fix; macOS UI flickering fix (v1.9552.24)
 - Feb 12 (v1.9552.21): Plan Mode auto-switching, Skills directory, Linux ARM64 full support, Cascade Hooks cloud config for enterprise
 - Feb 4 (v1.9544.35): GPT-5.3-Codex-Spark in Arena Mode, Claude Opus 4.6 research preview
 
@@ -25,7 +27,25 @@ Fetched: 2026-03-19
 
 ## December 2025
 - Dec 27: Gemini 3 Flash
-- Dec 24 (Wave 13): SWE-1.5 Free model, Git worktree support, Multi-Cascade panes, Cascade Dedicated Terminal, Cascade Hooks, System-level Rules/Workflows via MDM
+- Dec 24 (Wave 13): SWE-1.5 Free model, Git worktree support, Multi-Cascade panes, Cascade Dedicated Terminal (Beta), Cascade Hooks, System-level Rules/Workflows via MDM
 
 ## Key Models Available
-GPT-5 series, Claude Sonnet 4.5/Opus 4.6, Gemini 2.5/3/3.1, DeepSeek, GLM-5, Minimax M2.5
+GPT-5 series (including GPT-5.4 Mini, GPT-5.4, GPT-5.2-Codex, GPT-5.3-Codex-Spark), Claude Sonnet 4.5/4.6, Claude Opus 4.5/4.6, Gemini 2.5/3/3.1, SWE-1.5, DeepSeek, GLM-5, Minimax M2.5
+
+## Deprecated/Removed Features
+- Windsurf Browser: deprecated September 11, 2025
+- Knowledge Base feature: removed
+- Legacy Mode: removed (Write and Chat modes remain)
+- Autocomplete setting: removed as legacy option
+- Flow Action Credits pricing model: eliminated April 2025
+
+## Enterprise Features
+- Cloud configuration for Cascade Hooks
+- Devin service key authentication
+- Organization-wide allow/deny command lists for auto-execution
+- System-level Skill definitions via MDM-managed configs
+- Team conversation sharing (Teams/Enterprise SaaS)
+- Windsurf Reviews GitHub app integration
+- Knowledge base curation via Google Docs
+- Netlify deployment integration
+- Windows Group Policy management

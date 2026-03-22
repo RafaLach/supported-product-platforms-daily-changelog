@@ -1,6 +1,6 @@
 Source: M365 Copilot What's New
 URL: https://learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview?view=o365-worldwide
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # M365 Admin Center What's New
 
@@ -11,8 +11,8 @@ Fetched: 2026-03-19
 
 ## June 2025
 - Copilot Search Admin experience added to M365 Admin center
-- Acronyms management for organization-specific terms
-- Bookmarks for quick access links to frequently used resources
+- Acronyms management for organization-specific terms (bulk CSV upload or individual)
+- Bookmarks for quick access links to frequently used resources (title, URL, description, audience targeting)
 
 ## April 2025
 - Microsoft 365 Copilot network connectivity test tool
@@ -24,8 +24,16 @@ Fetched: 2026-03-19
 
 ## February 2025
 - Admin-initiated feedback for Microsoft 365 Copilot
-- AI Admin role expansion, chat log prompt-response pairs selection, date range selection
+- AI Admin role expansion, chat log prompt-response pairs selection, date range selection, product selection, predefined issue list
 
 ## January 2025
 - AI Administrator role in Microsoft 365 admin center
 - Manages Copilot settings, AI-related services, app installations, insights and support
+
+## Historical entries (May 2023 - November 2022)
+- Windows release health email notification sign-up (May 2023)
+- Suggested training in Experience Insights dashboard (April 2023)
+- Advanced deployment guides updated (December 2022)
+- Sentiment per Topic in NPS survey insights (November 2022)
+
+Page last updated (ms.date): 2025-11-16

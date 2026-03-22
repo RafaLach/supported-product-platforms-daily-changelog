@@ -1,6 +1,6 @@
 Source: Power Automate Documentation
 URL: https://learn.microsoft.com/en-us/power-automate/
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Power Automate Documentation
 
@@ -11,6 +11,19 @@ Fetched: 2026-03-19
 - Business process flows
 - Solutions and ALM
 - Integration with Teams, SharePoint, email, Forms, Approvals
+
+## Create and Design
+- Try/Buy Power Automate
+- Create automated, scheduled, and desktop flows
+- AI copilot capabilities in cloud flows, Process Mining, desktop flows
+- Process mining and task mining
+- Solutions for ALM
+- Integration with Teams, SharePoint, email
+
+## Best Practices
+- Plan a Power Automate project
+- Automation Kit for managing, governing, and scaling adoption
+- Best practices for automation adoption
 
 ## Administration
 - Power Platform admin center
@@ -23,4 +36,5 @@ Fetched: 2026-03-19
 - Desktop flows via code
 - Custom connectors
 
-Last updated: 2025-07-11
+Page last updated (ms.date): 2025-07-11
+Document last updated: 2025-07-11

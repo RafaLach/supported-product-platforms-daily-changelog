@@ -1,24 +1,46 @@
 Source: Amazon Q Business API Reference
 URL: https://docs.aws.amazon.com/amazonq/latest/api-reference/Welcome.html
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
-# Amazon Q Business API Reference
+# Amazon Q Business - Welcome Page Content
 
-## Services
-- QBusiness APIs: Main API for Amazon Q Business operations
-- QApps APIs: Lightweight, purpose-built AI apps within Q Business
+## Main Sections
 
-## Authentication
-- IAM Roles required for both services
-- Web experience IAM role for Amazon Q Apps
+### QBusiness
+This is the **Amazon Q Business API Reference**. Amazon Q Business is a fully managed, generative-AI powered enterprise chat assistant that you can deploy within your organization.
 
-## Features
-- Question-answering and knowledge discovery
-- Writing email messages and summarizing text
-- Document outline drafting
-- QApps for task-specific AI applications (marketing content, customer emails)
+**Key Capabilities:**
+- Question-answering
+- Knowledge discovery
+- Writing email messages
+- Summarizing text
+- Drafting document outlines
+- Brainstorming ideas
 
-## Resources
-- AWS CLI Reference available
-- Setup guide for Amazon Q Business
-- Amazon Q in AWS General Reference
+Users ask questions of Amazon Q Business and receive answers presented in a conversational manner.
+
+**Related Resources:**
+- Amazon Q Business User Guide
+- Overview of Amazon Q Business API operations
+- IAM roles for Amazon Q Business
+- Setting up for Amazon Q Business
+- Amazon Q Business CLI Reference
+- AWS General Reference
+
+### QApps
+The **Amazon Q Apps** feature capability within Amazon Q Business allows web experience users to create lightweight, purpose-built AI apps to fulfill specific tasks.
+
+**Example Use Cases:**
+- Marketing-related content generation apps to improve marketing team productivity
+- Customer email writing and promotional content creation apps with specific voice, tone, and branding
+
+**Resources:**
+- Amazon Q Apps capabilities documentation
+- Overview of Amazon Q Apps API operations
+- IAM role for the Amazon Q Business web experience including Amazon Q Apps
+
+## Navigation Structure
+- AWS Documentation
+- Amazon Q Business
+- API Reference
+- Welcome (current page)

@@ -1,14 +1,20 @@
 Source: Windsurf Documentation
 URL: https://docs.windsurf.com
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Windsurf Documentation
 
+## Core Description
+Windsurf is a next-generation AI IDE built to keep you in the flow. "Tomorrow's editor, today." Emphasizes AI-powered coding assistance while maintaining user productivity and workflow continuity.
+
 ## Key Features
-- Cascade AI agentic chatbot for collaborative coding
-- Project generation from prompts
-- Context-aware codebase understanding
-- Enhanced terminal
+- Cascade: AI agentic chatbot for collaborative coding
+- Terminal: Enhanced terminal experience
+- MCP: Servers that extend agent functionality
+- Memories: Customizable behaviors and rules
+- Context Awareness: Automatic codebase comprehension
+- Workflows: Automation for repetitive development tasks
+- App Deploys: Single-click application deployment
 
 ## AI Capabilities
 - Agentic architecture with autonomous collaboration
@@ -21,3 +27,21 @@ Fetched: 2026-03-19
 - Import VS Code or Cursor settings
 - Cross-platform: Mac, Windows, Linux
 - Windsurf Next (prerelease access)
+- Custom App Icons (beta, Mac only, paid plans)
+- Remote server and SSH connection support
+
+## System Requirements
+- Mac: OS X Yosemite minimum
+- Windows: Windows 10 minimum
+- Ubuntu: 20.04+ (glibc >= 2.31, glibcxx >= 3.4.26)
+- Other Linux: glibc >= 2.28, glibcxx >= 3.4.25
+
+## Onboarding Process
+Four main steps: configuration setup (import from VS Code or Cursor), theme selection, account authentication, and feature introduction.
+
+## Notable Details
+- Incompatible with other AI code completion extensions and proprietary extensions
+- Keybinding customization (VS Code or Vim options)
+- Manual authentication fallback via codes
+- Command palette access (Cmd/Ctrl+Shift+P)
+- Uninstallation instructions available for all platforms

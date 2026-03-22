@@ -1,13 +1,16 @@
 Source: Perplexity API Documentation
 URL: https://docs.perplexity.ai
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Perplexity API Documentation
 
+## Core Offering
+The Perplexity API Platform enables developers to "power your products with unparalleled real-time, web-wide research and Q&A capabilities."
+
 ## Available APIs
-- Agent API: Third-party models with web search tools and presets
-- Search API: Raw, ranked web search results with filtering
-- Embeddings API: High-quality embeddings for semantic search and RAG
+- Agent API: Third-party models with web search tools and presets for flexible AI interactions
+- Search API: Raw, ranked web search results with advanced filtering and real-time data retrieval
+- Embeddings API: High-quality embeddings for semantic search and RAG pipelines
 
 ## Core Capabilities
 - Web search filtering by domain and recency
@@ -15,7 +18,16 @@ Fetched: 2026-03-19
 - Multi-language SDK support (Python, JavaScript/TypeScript, cURL)
 - Query batching for Search API
 - Real-time data access across web sources
+- Source domain filtering and recency filters
+- Multi-query web search functionality
+- Leveraging frontier AI models like GPT-5.4
+
+## Getting Started
+API key available through Perplexity console. Full documentation index at https://docs.perplexity.ai/llms.txt. "Getting started is simple and fast—make your first API call within minutes."
 
 ## Recent Model References
 - OpenAI GPT-5.4 and GPT-5.2 variants
 - Sonar Pro, Sonar Pro Reasoning
+
+## Code Examples
+Available in Python, TypeScript/JavaScript, and cURL formats.

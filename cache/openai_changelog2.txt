@@ -1,11 +1,11 @@
 Source: OpenAI Node SDK Releases
 URL: https://github.com/openai/openai-node/releases
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # OpenAI Node SDK Releases
 
 ## v6.32.0 (March 17, 2026)
-- Added 5.4 nano and mini model slugs
+- Added support for 5.4 nano and mini model slugs
 
 ## v6.31.0 (March 16, 2026)
 - Introduced in/nin filter types to ComparisonFilter
@@ -14,27 +14,28 @@ Fetched: 2026-03-19
 - Internal CI branch adjustments
 
 ## v6.30.0 (March 16, 2026)
-- Added /v1/videos endpoint support for batches
+- Added /v1/videos endpoint option to batches
 - Introduced defer_loading field to NamespaceTool
 - Fixed OIDC publishing for npm
 
 ## v6.29.0 (March 13, 2026)
-- Added custom voices functionality
+- Shipped custom voices functionality
 
 ## v6.28.0 (March 13, 2026)
-- Sora API improvements: character API, video editing, higher resolution exports
-- Removed detail field from ResponseInputFile types
+- Delivered Sora API enhancements including character API, video extensions/edits, higher resolution exports
+- Removed detail field from ResponseInputFile and ResponseInputFileContent types
 - Updated dependencies for security vulnerabilities
 
 ## v6.27.0 (March 5, 2026)
-- Moved ComputerTool to general availability
+- General availability for ComputerTool; moved preview version to ComputerUsePreview class
 
 ## v6.26.0 (March 5, 2026)
-- Released GPT-5.4 model support
-- Added tool search functionality and new computer tool capabilities
+- Released GPT-5.4, tool search tool, and new computer tool
+- Multiple bug fixes and internal schema corrections
 
 ## v6.25.0 (February 24, 2026)
-- Added phase field with documentation refinements
+- Added phase field with documentation updates
+- SSE event parsing refactored
 
 ## v6.24.0 (February 24, 2026)
-- Introduced gpt-realtime-1.5 and gpt-audio-1.5 models
+- Added gpt-realtime-1.5 and gpt-audio-1.5 models to realtime API

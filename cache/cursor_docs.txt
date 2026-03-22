@@ -1,20 +1,44 @@
 Source: Cursor Documentation
 URL: https://docs.cursor.com (redirects to cursor.com/docs)
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Cursor Documentation
+
+## Core Description
+Cursor is an AI editor and coding agent designed to help developers understand codebases, plan and build features, fix bugs, review changes, and integrate with existing tools.
 
 ## Key Features
 - AI editor and coding agent
 - Code understanding, feature development, bug fixing, code review
 - Rapid prototyping
+- Test generation, documentation writing, legacy code modernization
 
-## Supported Models
-- Anthropic Claude (Opus, Sonnet, Haiku)
-- Google Gemini (3-Pro, Flash)
-- OpenAI GPT (GPT-5 variants, codex models)
-- Cursor Composer (proprietary)
-- Kimi K2.5 and other providers
+## Start Here
+- Get started: Go from install to your first useful change in Cursor
+- Models & Pricing: Compare models, usage pools, and plan pricing
+- Changelog: Links to recent updates and feature releases
+
+## Core Capabilities
+- Understanding codebases
+- Planning and building features
+- Bug fixing and debugging
+- Code review capabilities
+- Integration with development tools
+- Support for multiple programming languages (Python, JavaScript/TypeScript, Java, C#, iOS/macOS/Swift, data science workflows, web development)
+- Cloud agent capabilities
+- API access and automation
+- Team collaboration features
+
+## Documentation Structure
+The site includes comprehensive guides for:
+- Configuration and setup
+- CLI tools and commands
+- Cloud agent deployment
+- Enterprise features
+- Team management and billing
+- Model selection and pricing
+- Security and compliance
+- Integration with external services (GitHub, GitLab, Linear, Slack, etc.)
 
 ## Security & Enterprise
 - SSO and SCIM provisioning

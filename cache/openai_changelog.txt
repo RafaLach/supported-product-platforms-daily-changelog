@@ -1,48 +1,48 @@
 Source: OpenAI Python SDK Releases
 URL: https://github.com/openai/openai-python/releases
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # OpenAI Python SDK Releases
 
 ## v2.29.0 (March 17, 2026)
 - Added support for 5.4 nano and mini model slugs
-- Integrated /v1/videos endpoint into batches create method
+- Extended batches create method to include /v1/videos endpoint
 - Introduced defer_loading field to ToolFunction
 - Added in and nin operators to ComparisonFilter type
-- Fixed typing-extensions minimum version dependency
-- Adjusted pydantic's by_alias parameter handling
+- Fixed dependency issues and Pydantic by_alias serialization
 
 ## v2.28.0 (March 13, 2026)
-- Implemented custom voices functionality
+- Implemented custom voices feature for audio generation
 
 ## v2.27.0 (March 13, 2026)
-- Sora API enhancements: character API, video extensions/edits, higher resolution exports
+- Released Sora API improvements including character API
+- Added video extensions, edits, and higher resolution exports
 - Repaired merged videos resource
-- Updated WebSockets protocol naming conventions
+- Multiple codegen updates and protocol improvements
 
 ## v2.26.0 (March 5, 2026)
-- ComputerTool moved to general availability; computer_use_preview transitioned to ComputerUsePreview class
+- Migrated ComputerTool to GA status (general availability)
+- Deprecated computer_use_preview tool in favor of ComputerUsePreview class
 
 ## v2.25.0 (March 5, 2026)
-- Launched gpt-5.4 model with tool search capability and new computer tool
+- Launched GPT-5.4 and tool search functionality
+- Introduced new computer tool capability
 - Removed prompt_cache_key parameter from responses
-- Internal schema corrections and phase field adjustments
 
 ## v2.24.0 (February 24, 2026)
-- Added phase field support
-- Improved SSE event parsing refactoring
+- Added phase field to message types
+- Fixed phase enum handling
 
 ## v2.23.0 (February 24, 2026)
 - Added gpt-realtime-1.5 and gpt-audio-1.5 model options
 
 ## v2.22.0 (February 23, 2026)
-- Implemented WebSockets support for responses API
-- Enhanced documentation for file batches, audio, chat, realtime, and video methods
+- Implemented WebSocket support for responses API
+- Enhanced documentation for audio, chat, realtime, and video APIs
 
 ## v2.21.0 (February 13, 2026)
-- Container network policy and skills support
-- Memory leak resolution in structured outputs
-- Webhook compatibility improvements
+- Added container network policy and skills support
+- Resolved memory leak in structured outputs parse methods
 
 ## v2.20.0 (February 10, 2026)
-- Support for images in batch API
+- Introduced image support in batch API

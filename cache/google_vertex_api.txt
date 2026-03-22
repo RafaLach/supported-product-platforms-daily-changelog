@@ -1,24 +1,40 @@
 Source: Vertex AI API Reference
 URL: https://cloud.google.com/vertex-ai/docs/reference
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
-# Vertex AI API Reference
+# Vertex AI API Usage Overview - Content Extraction
 
-## SDKs
-- Python SDK (google.cloud.aiplatform, vertexai.language_models)
-- Client libraries: C#, Go, Java, Node.js
+## Page Structure
+This is a Google Cloud documentation page for Vertex AI's API reference, serving as a comprehensive navigation hub for developers.
 
-## REST API
-- v1 (stable) and v1beta1 (preview)
+## SDK & Client Library References
 
-## CLI
-- gcloud ai and gcloud beta ai commands
+- Python SDK for Vertex AI (with language model specific references)
+- gcloud CLI reference tools (standard and beta versions)
+- Client libraries for multiple languages: C#, Go, Java, Node.js
+- REST API reference (v1 and v1beta1 versions)
 
-## Key API Categories
-- Model operations: endpoints, predictions, batch jobs, deployment monitoring
-- Data management: datasets, feature stores, feature groups
-- Training: pipelines, hyperparameter tuning, custom jobs, NAS
-- Vector Search: indexes and index endpoints
-- RAG Systems: RAG corpora, files, contexts, retrieval
-- Notebooks: execution, runtime templates
-- Advanced (v1beta1): model monitors, example stores, extensions, reasoning engines
+## Major API Resource Categories
+
+The page catalogs extensive REST endpoints across v1 and v1beta1 APIs, including:
+- Batch prediction and custom jobs
+- Dataset management and annotations
+- Endpoint deployment and model prediction
+- Feature stores and online feature serving
+- Model training and evaluation
+- Pipeline orchestration
+- Hyperparameter tuning
+- Indexes and vector search
+- Metadata management
+- Monitoring and anomaly detection
+- Notebook execution environments
+- RAG (Retrieval-Augmented Generation) operations
+- Reasoning engines
+
+## Notable Features
+
+Cached content management, long-running operations, IAM policy controls, and streaming prediction capabilities are documented across the reference materials.
+
+## Cross-Product Navigation
+
+Technology areas including AI/ML, application development, compute, data analytics, databases, networking, and security. Cross-product tools for access management, costs/usage management, and infrastructure as code.

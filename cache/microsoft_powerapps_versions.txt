@@ -1,11 +1,45 @@
 Source: Power Apps Released Versions
 URL: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Power Apps Released Versions
 
-Latest releases updated as of 2026-03-18. Weekly version releases across multiple regions worldwide.
+Page last updated: 2026-03-20
 
-Multiple recent versions deployed across regions with incremental rollout.
+## Latest Version Availability by Region
 
-Last updated: 2026-03-18
+| Region | Unified Interface | Power Apps Studio/Mobile | Make.PowerApps.com |
+|---|---|---|---|
+| Preview (United States) | 9.2 25084 | 3.26034 | 26032 |
+| Canada | 9.2 25083 | 3.26033 | 26031 |
+| India | 9.2 25083 | 3.26033 | 26031 |
+| South America | 9.2 25083 | 3.26033 | 26031 |
+| Japan | 9.2 25082 | 3.26033 | 26031 |
+| Asia Pacific | 9.2 25082 | 3.26033 | 26031 |
+| Australia | 9.2 25082 | 3.26033 | 26031 |
+| United Kingdom | 9.2 25082 | 3.26033 | 26031 |
+| Europe | 9.2 25081 | 3.26033 | 26031 |
+| United States | 9.2 25074 | 3.26032 | 26031 |
+| US Government (GCC) | 9.2 25073 | 3.26032 | 26031 |
+
+## Recent Power Apps Studio/Mobile Versions (2026)
+- 3.26034: First available Mar 23, 2026 — Worldwide Apr 14, 2026
+- 3.26031: First available Mar 02, 2026 — Worldwide Mar 23, 2026
+- 3.26024: First available Feb 23, 2026 — Worldwide Mar 16, 2026
+- 3.26023: Train cancelled (Winter Olympics/Super Bowl/Lunar New Year)
+- 3.26022: First available Feb 05, 2026 — Worldwide Mar 03, 2026
+- 3.26021: Train cancelled after S1
+- 3.26014: First available Jan 26, 2026 — Worldwide Feb 16, 2026
+- 3.26013: First available Jan 20, 2026 — Worldwide Feb 09, 2026
+- 3.26012: First available Jan 12, 2026 — Worldwide Feb 02, 2026
+- 3.26011: First available Jan 05, 2026 — Worldwide Jan 26, 2026
+
+## Recent Make.PowerApps.com Versions (2026)
+- 26032: First available Mar 18, 2026 — Worldwide Apr 01, 2026
+- 26023: First available Feb 25, 2026 — Worldwide Mar 11, 2026
+- 26022/26021: Trains cancelled (Winter Olympics/Super Bowl/Lunar New Year)
+- 26015: First available Feb 05, 2026 — Worldwide Mar 02, 2026
+- 26014: First available Jan 28, 2026 — Worldwide Feb 11, 2026
+- 26013: First available Jan 21, 2026 — Worldwide Feb 04, 2026
+- 26012: First available Jan 14, 2026 — Worldwide Jan 28, 2026
+- 26011: First available Jan 07, 2026 — Worldwide Jan 21, 2026

@@ -1,35 +1,54 @@
 Source: Vertex AI Documentation
 URL: https://cloud.google.com/vertex-ai/docs
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
-# Vertex AI Documentation
+# Vertex AI Documentation Overview
 
-## Key Features
-- ML platform for training and deploying ML models and AI applications
-- Gemini multimodal models (images, videos, text)
-- Model Garden for discovering and customizing LLMs
+## Core Description
+"Vertex AI is a machine learning (ML) platform that lets you train and deploy ML models and AI applications."
 
-## Training & Development
-- AutoML for automated model training
-- Custom training with serverless/cluster options
-- Neural Architecture Search, Ray on Vertex AI
-- TensorFlow and PyTorch support
+## Key Products & Features
 
-## MLOps
-- Vertex AI Pipelines for orchestration
+**Generative AI Components:**
+- Gemini: "Google's multimodal generative AI model, to process images, videos, and text"
+- Model Garden for discovering and deploying generative AI models
+- Text and multimodal embeddings services
+- Imagen for image generation
+- Extensions and Studio interfaces
+
+**Training Solutions:**
+- AutoML for tabular, image, and forecasting tasks
+- Vertex AI serverless training
+- Vertex AI training clusters
+- Ray on Vertex AI for distributed training
+- Neural Architecture Search
+- Vertex AI Vizier for optimization
+- Deep Learning Containers and VM Images
+
+**MLOps & Management:**
+- Vertex AI Pipelines for workflow orchestration
 - Model Registry for version management
 - Feature Store for ML feature serving
-- Model Monitoring and Explainable AI
-- TensorBoard integration
+- Experiments and TensorBoard for tracking
+- Model Monitoring and Evaluation services
+- Explainable AI for model interpretation
 
-## Security & Governance
-- IAM-based access control
-- Customer-managed encryption keys (CMEK)
-- VPC Service Controls and Private Service Connect
-- Audit logging and compliance features
-- Network isolation (VPC peering, hybrid connectivity)
+**Inference:**
+- Online and batch prediction endpoints
+- Vector Search capabilities
+- Support for custom and prebuilt containers
+- TPU and GPU acceleration options
 
-## Developer Tools
+## Development Tools
 - Colab Enterprise
-- Vertex AI Workbench
-- Comprehensive Python SDK
+- Vertex AI Workbench (managed, user-managed, and instances)
+- Jupyter notebook support
+- Python SDK and APIs
+
+## Notable Deprecations
+AutoML Text has been superseded: "Migrate from AutoML text to Gemini"
+
+## Additional Capabilities
+Vector Search 2.0 for intelligent retrieval, model evaluation for fairness, hyperparameter tuning, and comprehensive monitoring dashboards.
+
+**Last Updated:** February 5, 2026

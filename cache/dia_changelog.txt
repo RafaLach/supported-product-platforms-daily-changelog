@@ -1,8 +1,15 @@
 Source: Dia Release Notes
 URL: https://diabrowser.com/release-notes
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Dia Browser Release Notes
+
+## Issue #17 — March 19, 2026 (v1.23.0)
+"From review to merge to what's next."
+- GitHub Live Tab Groups: PR Status Celebrations — subtle animations signal transitions from in-progress to completed
+- GitHub Live Tab Groups: Automatic Cleanup — visible feedback when Dia cleans up related items on PR merge
+- GitHub Live Tab Groups: Recently Completed PR Preview — hover to preview and restore recently merged PRs
+- Enhanced Interactions: expressive animations for back, forward, and reload controls
 
 ## Issue #16 — March 11, 2026 (v1.22.0)
 "Don't think about the next step. Take it."
@@ -22,3 +29,4 @@ Fetched: 2026-03-19
 - Tab grouping and proactive suggestions
 
 All releases emphasize AI-driven browsing, tab management, and performance optimization.
+Status: General Availability

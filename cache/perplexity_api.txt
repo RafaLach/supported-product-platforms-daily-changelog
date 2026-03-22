@@ -1,29 +1,49 @@
 Source: Perplexity API Reference
 URL: https://docs.perplexity.ai/api-reference
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Perplexity Agent API Reference
 
-## Endpoint
+## Core Endpoint
 POST /v1/agent — Generate responses with optional web search and reasoning
 
 ## Authentication
-Bearer token (HTTPBeaker security scheme)
+Bearer token (HTTPBearer security scheme)
 
 ## Supported Models
 - Provider/model format (e.g., "xai/grok-4-1", "openai/gpt-4o")
-- Model fallback chains (up to 5 models)
+- Model fallback chains: up to 5 models attempted sequentially
 - Presets: "fast-search", "pro-search", "deep-research"
 
-## Key Features
-- String or array input (messages, function calls, outputs)
-- Streaming (SSE) and non-streaming modes
-- Reasoning effort levels (low/medium/high)
-- Web search with domain/date filtering
-- URL fetching (max 10 per call)
-- Custom functions with JSON schema
-- Structured output (JSON schema validation)
-- Geographic search personalization
+## Key Parameters
+- input: Message content (string or array format)
+- model: Single model or fallback chain (up to 5)
+- models: Fallback chain (max 5 models)
+- preset: Pre-configured settings ("fast-search", "pro-search", "deep-research")
+- instructions: Custom system prompts for the model
+- language_preference: ISO 639-1 language codes
+- max_output_tokens: Configurable maximum output tokens (minimum 1)
+- max_steps: Research loops (1-10 maximum)
+- stream: Boolean for SSE streaming vs. standard JSON response
+- reasoning: Effort levels (low/medium/high)
+- response_format: JSON schema validation
 
-## Response
-- Response ID, status, output items, token usage, cost breakdown
+## Tools Available
+1. WebSearchTool — domain/date filtering, token limits, and location personalization
+2. FetchUrlTool — up to 10 URLs per tool call, extract content from URLs
+3. FunctionTool — custom function integration with JSON schema parameters
+
+## Output Formatting
+- Structured JSON schema validation for constrained outputs
+- Non-streaming (stream: false): application/json, returns complete ResponsesResponse object
+- Streaming (stream: true): text/event-stream, emits Server-Sent Events with discriminated types
+- 14+ distinct SSE event types: response creation, progress updates, text deltas, reasoning phases, search queries/results, URL fetching operations
+
+## Response Object
+- Response ID, status, output items, token usage, cost breakdown in USD
+- Status indicators: completed, failed, in_progress, requires_action
+- Detailed cost breakdown: input tokens, output tokens, cache operations, tool invocations
+
+## Research Features
+- Maximum research loop steps configurable (1-10)
+- Pro-search and deep-research presets with bundled system prompts and search parameters

@@ -1,25 +1,52 @@
 Source: Amazon Q Developer Docs
 URL: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
-# Amazon Q Developer Overview
+# Amazon Q Developer - Page Content
 
-## Key Features
-- Generative AI-powered assistant for AWS applications
-- Code chat, inline completions, net new code generation
-- Security vulnerability scanning
-- Code upgrades and improvements
+## Main Heading
+What is Amazon Q Developer?
 
-## IDE Integrations
-- Visual Studio Code, JetBrains, Visual Studio, Eclipse (preview)
+## Key Information
 
-## Enterprise & Governance
-- Built on Amazon Bedrock
-- Automated abuse detection
-- IAM-based permission management
-- Multi-channel deployment (Console, Mobile, Teams, Slack)
-- Channel guardrails support
+**Core Description:**
+Amazon Q Developer is a generative artificial intelligence (AI) powered conversational assistant that can help you understand, build, extend, and operate AWS applications. You can ask questions about AWS architecture, AWS resources, best practices, documentation, support, and more.
+
+**Technology Foundation:**
+- Built on Amazon Bedrock, a fully managed service that makes foundation models available through an API
+- Includes automated abuse detection implemented in Amazon Bedrock to enforce safety, security, and responsible use of AI
+- The model has been augmented with high quality AWS content for more complete, actionable, and referenced answers
+
+**IDE Capabilities:**
+When used in an integrated development environment (IDE), Amazon Q provides:
+- Chat about code
+- Inline code completions
+- Generate net new code
+- Scan code for security vulnerabilities
+- Code upgrades and improvements (language updates, debugging, optimizations)
+
+## Getting Started Options
+
+**1. AWS Apps and Websites**
+- Add necessary IAM permissions
+- Access via AWS Management Console, AWS Documentation website, AWS website, or AWS Console Mobile Application
+
+**2. IDEs Available**
+- Visual Studio Code
+- JetBrains IDEs
+- AWS Toolkit for Visual Studio
+- Eclipse IDEs (Preview)
+- Sign in with AWS Builder ID (no AWS account required for free tier)
+
+**3. Chat Applications**
+- Microsoft Teams
+- Slack
+- Requires AmazonQDeveloperAccess managed policy
 
 ## Pricing
 - Free tier available
-- Amazon Q Developer Pro subscription
+- Amazon Q Developer Pro subscription option
+- Detailed pricing at: aws.amazon.com/q/developer/pricing
+
+## Related Documentation
+Separate documentation exists for Amazon Q Business (distinct from Amazon Q Developer)

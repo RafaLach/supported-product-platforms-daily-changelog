@@ -1,6 +1,6 @@
 Source: Copilot Extensibility Docs
 URL: https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Microsoft 365 Copilot Extensibility Documentation
 

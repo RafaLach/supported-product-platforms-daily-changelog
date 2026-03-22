@@ -1,22 +1,49 @@
 Source: Vertex AI Release Notes
 URL: https://cloud.google.com/vertex-ai/docs/release-notes
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
-# Vertex AI Release Notes (2026)
+# Vertex AI Release Notes - Content Summary
 
-## March 2026
-- Mar 16: Vertex Explainable AI deprecated
-- Mar 12: Gen AI evaluation service now supports partner models (Anthropic, Llama)
-- Mar 5: Vector Search 2.0 GA — collections unifying data/vectors, auto-embeddings, hybrid search, Private Service Connect and VPC Service Controls
-- Mar 3: Gemini 3.1 Flash-Lite public preview (cost-efficient, low-latency)
-- Mar 3: Video generation preview endpoints deprecated (migration deadline Apr 2)
+## Latest Major Announcements (March 2026)
 
-## February 2026
-- Feb 23: Claude 3 Haiku deprecated (shutdown Aug 23, 2026)
-- Image generation endpoint transitions with migration deadlines
+**Vector Search 2.0 GA**: A retrieval engine now generally available featuring collections, auto-embeddings, hybrid search capabilities, and Private Service Connect support.
 
-## Key Highlights
-- Gemini 3.1 Flash-Lite for cost-efficient applications
-- Vector Search 2.0 with hybrid search capabilities
-- Partner model evaluation support
-- Ongoing model deprecation management
+**Gemini 3.1 Flash-Lite Preview**: Described as "the most cost-efficient Gemini model" optimized for low-latency, high-volume use cases.
+
+**Video Generation Endpoint Deprecations**: Multiple preview endpoints for Veo video generation models are deprecated; users must migrate by April 2, 2026.
+
+## Recent Model Releases (February-March 2026)
+
+- **Gemini 3.1 Flash Image** (preview): High-quality image generation with improved pricing
+- **Gemini 3.1 Pro** (preview): Advanced reasoning model with 1M token context window
+- **Claude Sonnet 4.6 & Claude Opus 4.6**: Available in Model Garden
+- **Virtual Try-On**: Now generally available with endpoint `virtual-try-on-001`
+
+## Key Deprecations & Retirements
+
+- Vertex Explainable AI deprecated (March 16, 2026)
+- Claude 3 Haiku shutting down August 23, 2026
+- Claude 3.5 Haiku shutting down July 5, 2026
+- Feature Store Optimized online serving deprecated (February 17, 2026)
+- Multiple image generation preview endpoints retiring March 19, 2026
+
+## Agent Engine & Workbench Updates
+
+**Vertex AI Agent Engine**: Code Execution now generally available; Sessions and Memory Bank became GA December 17, 2025; supports bidirectional streaming and A2A protocol.
+
+**Workbench M139**: Most recent release removing startup script dependencies on `gs://dl-platform-public-configs`.
+
+## Evaluation & Development Tools
+
+Gen AI evaluation service now supports partner model evaluations (Anthropic, Llama models). Prompt management capabilities available through Vertex AI SDK for storing and versioning prompts.
+
+## Infrastructure & Security
+
+- Private Service Connect interface support expanded
+- Confidential Computing (VM) support for Workbench now GA
+- Customer-managed encryption keys (CMEK) supported for Agent Engine
+- HIPAA compliance support added for Agent Engine
+
+## Pricing Changes
+
+Vertex AI Agent Engine Runtime pricing reduced effective various dates; Sessions, Memory Bank, and Code Execution charging begins February 11, 2026 (delayed from January 28).

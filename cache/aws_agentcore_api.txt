@@ -1,33 +1,66 @@
 Source: AgentCore API Reference
 URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Operations.html
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
-# Amazon Bedrock AgentCore Data Plane API
+# Amazon Bedrock AgentCore Data Plane - Actions
 
-## API Operations (37 total)
+## Page Overview
+This is the API Reference documentation for Actions supported by Amazon Bedrock AgentCore Data Plane.
+
+## Supported Actions
 
 ### Memory Management
-- BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords
-- DeleteMemoryRecord, GetMemoryRecord, ListMemoryRecords, RetrieveMemoryRecords
-- StartMemoryExtractionJob, ListMemoryExtractionJobs
+- BatchCreateMemoryRecords
+- BatchDeleteMemoryRecords
+- BatchUpdateMemoryRecords
+- DeleteMemoryRecord
+- GetMemoryRecord
+- ListMemoryRecords
+- RetrieveMemoryRecords
+- StartMemoryExtractionJob
+- ListMemoryExtractionJobs
 
-### Agent & Runtime
-- InvokeAgentRuntime, GetAgentCard
-- GetWorkloadAccessToken (multiple variants)
+### Authentication & Authorization
+- CompleteResourceTokenAuth
+- GetResourceApiKey
+- GetResourceOauth2Token
+- GetWorkloadAccessToken
+- GetWorkloadAccessTokenForJWT
+- GetWorkloadAccessTokenForUserId
 
-### Browser Session Management
-- StartBrowserSession, StopBrowserSession, GetBrowserSession
-- ListBrowserSessions, SaveBrowserSessionProfile, UpdateBrowserStream
+### Events
+- CreateEvent
+- DeleteEvent
+- GetEvent
+- ListEvents
+
+### Agent Runtime
+- InvokeAgentRuntime
+- GetAgentCard
+- ListActors
+- ListSessions
+- StopRuntimeSession
+
+### Browser Sessions
+- StartBrowserSession
+- GetBrowserSession
+- ListBrowserSessions
+- StopBrowserSession
+- SaveBrowserSessionProfile
+- UpdateBrowserStream
 
 ### Code Interpreter
-- StartCodeInterpreterSession, StopCodeInterpreterSession
-- GetCodeInterpreterSession, ListCodeInterpreterSessions, InvokeCodeInterpreter
+- StartCodeInterpreterSession
+- GetCodeInterpreterSession
+- ListCodeInterpreterSessions
+- InvokeCodeInterpreter
+- StopCodeInterpreterSession
 
-### Event Management
-- CreateEvent, DeleteEvent, GetEvent, ListEvents
+### Evaluation
+- Evaluate
 
-### Authentication & Access
-- CompleteResourceTokenAuth, GetResourceApiKey, GetResourceOauth2Token
-
-### Actor & Session Management
-- ListActors, ListSessions, StopRuntimeSession
+## Navigation
+- **Documentation Root**: /index.html
+- **Service Home**: /bedrock-agentcore/index.html
+- **API Reference**: Welcome.html
+- **PDF Version**: bedrock-agentcore.pdf#API_Operations

@@ -1,6 +1,6 @@
 Source: ServiceNow Release Notes
 URL: https://www.servicenow.com/docs/r/release-notes/family-release-notes.html
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # ServiceNow Release Notes
 

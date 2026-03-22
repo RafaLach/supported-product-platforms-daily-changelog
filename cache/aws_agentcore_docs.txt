@@ -1,31 +1,47 @@
 Source: AgentCore Developer Guide
 URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
-# Amazon Bedrock AgentCore Overview
+# Amazon Bedrock AgentCore - Overview
 
-## Core Definition
-Agentic platform for building, deploying, and operating agents securely at scale using any framework and foundation model.
+## What is Amazon Bedrock AgentCore?
 
-## Key Services
-1. Runtime — Serverless environment with session isolation, multi-agent support
-2. Memory — Short-term and long-term memory across sessions, shared memory stores
-3. Gateway — MCP-compatible tool conversion, single endpoint access
-4. Identity — Secure agent identity (Cognito, Okta, Azure Entra ID, Auth0)
-5. Code Interpreter — Sandboxed Python, JavaScript, TypeScript execution
-6. Browser Tool — Cloud-based browser runtime (Playwright, BrowserUse)
-7. Observability — OpenTelemetry tracing, CloudWatch integration
-8. Evaluations — Automated agent assessment and monitoring
-9. Policy Engine — Cedar-based deterministic control over agent behavior
+Amazon Bedrock AgentCore is an agentic platform for building, deploying, and operating highly effective agents securely at scale using any framework and foundation model. With AgentCore, you can:
 
-## Framework Support
-CrewAI, LangGraph, LlamaIndex, Google ADK, OpenAI Agents SDK, Strands Agents
+- Enable agents to take actions across tools and data with the right permissions and governance
+- Run agents securely at scale
+- Monitor agent performance and quality in production
+- All without any infrastructure management
 
-## Model Support
-Any foundation model: Anthropic Claude, Amazon Nova, Meta Llama, Mistral, OpenAI, Google Gemini
+AgentCore services work together or independently with any open-source framework (CrewAI, LangGraph, LlamaIndex, Strands Agents) and with any foundation model, providing open-source flexibility with enterprise-grade security and reliability.
 
-## Protocol Support
-MCP (Model Context Protocol), A2A protocol
+## Core Services in Amazon Bedrock AgentCore
 
-## Architecture
-Serverless, security-first, framework-agnostic, consumption-based pricing
+| Service | Description | Integrations |
+|---------|-------------|--------------|
+| **Runtime** | Secure, serverless runtime environment for deploying and scaling dynamic AI agents and tools. Provides fast cold starts, extended runtime support for asynchronous agents, session isolation, built-in identity, and multi-modal/multi-agent support. | CrewAI, LangGraph, LlamaIndex, Google ADK, OpenAI Agents SDK, Strands Agents; OpenAI, Google Gemini, Anthropic Claude, Amazon Nova, Meta Llama, Mistral models; MCP and A2A protocols |
+| **Memory** | Build context-aware agents with control over what they remember and learn. Supports short-term memory for multi-turn conversations and long-term memory persisting across sessions. | LangGraph, LangChain, Strands, LlamaIndex |
+| **Gateway** | Convert APIs, Lambda functions, and existing services into Model Context Protocol (MCP)-compatible tools. | APIs, MCP tools, Lambda, Salesforce, Zoom, JIRA, Slack, etc. |
+| **Identity** | Secure, scalable agent identity, access and authentication management compatible with existing identity providers. | Amazon Cognito, Okta, Microsoft Azure Entra ID, Auth0 |
+| **Code Interpreter** | Isolated sandbox environment for agents to execute code. | Python, JavaScript, TypeScript |
+| **Browser** | Fast, secure cloud-based browser runtime for agents to interact with web applications. | Playwright, BrowserUse frameworks |
+| **Observability** | Unified view to trace, debug, and monitor agent performance in production with detailed visualizations. | OpenTelemetry (OTEL)-compatible formats |
+| **Evaluations** | Automated, consistent, data-driven agent assessment service measuring task execution quality and reliability. | Strands Agent, LangGraph frameworks; OpenTelemetry or OpenInference instrumentation; CloudWatch integration |
+| **Policy** | Deterministic control ensuring agents operate within defined boundaries and business rules using natural language or Cedar policy language. | Integrates with AgentCore Gateway |
+
+## What Can You Build with Amazon Bedrock AgentCore?
+
+- **Agents**: Autonomous AI apps that reason, use tools, and maintain context for customer support, workflow automation, data analysis, or coding assistance
+- **Tools and MCP Servers**: Transform existing APIs, databases, or services into tools accessible to any MCP-compatible agent
+- **Agent Platforms**: Provide internal developers or customers with a paved path to build and deploy agents with approved tools, shared memory, and governed access
+
+## Pricing
+
+AgentCore offers flexible, consumption-based pricing with no upfront commitments or minimum fees. For details, visit [AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/).
+
+Note: AgentCore may use and store your content to improve service experience or performance for your use only, not for other customers.
+
+## Next Steps
+
+- Get started with Amazon Bedrock AgentCore
+- Understand the available interfaces for using Amazon Bedrock AgentCore

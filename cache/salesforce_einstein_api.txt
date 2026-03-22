@@ -1,17 +1,26 @@
 Source: Einstein GenAI API References
 URL: https://developer.salesforce.com/docs/einstein/genai/references
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Einstein GenAI / Agentforce API References
 
 ## Available APIs
-- Agent API — Connected app + token-based communication with AI agents
-- Models API — Apex classes and REST endpoints for LLM connections
-- Testing API — Metadata API and Connect API for agent tests
-- Citations API — Apex classes for programmatic citation support
+- Agent API — Connected app + token-based communication with AI agents; send messages via topics and actions
+- Models API — Apex classes and REST endpoints for LLM connections (both Apex and REST reference docs available)
+- Testing API — Combines Metadata API and Connect API for building and running agent tests
+- Citations API — Apex classes for programmatic citation support in agent responses
 
 ## SDKs
-- Agentforce Python SDK — Programmatic agent management via Metadata API
-- Agentforce Mobile SDK — Native iOS and Android integration
-- Agent Script — Domain-specific language for Agentforce Builder
-- Agentforce DX — Pro-code tools for external development
+- Agentforce Python SDK — Programmatic agent creation, management, and deployment via Metadata API
+- Agentforce Mobile SDK — Native iOS and Android integration for embedding agent interactions in mobile apps
+- Agent Script — Domain-specific language combining natural language instructions with programmatic expressions for agent workflows and business rules
+- Agentforce DX — Pro-code tools for creating and testing agents outside Builder UI
+
+## Additional Features
+- Lightning Types — Custom types that improve UI for agent actions, effective for complex inputs and outputs
+- Metadata and Tooling APIs — Agentforce functionality accessible through standard Salesforce APIs
+
+## Developer Guides Referenced
+- Agentforce Developer Guide
+- Agent API Developer Guide
+- Models API Developer Guide

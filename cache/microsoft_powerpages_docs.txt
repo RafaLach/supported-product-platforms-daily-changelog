@@ -1,8 +1,11 @@
 Source: Power Pages Documentation
 URL: https://learn.microsoft.com/en-us/power-pages/
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Power Pages Documentation
+
+Page last updated (ms.date): 2025-06-27
+Document last updated: 2025-06-28
 
 ## Key Capabilities
 - External-facing websites with Dataverse
@@ -10,15 +13,58 @@ Fetched: 2026-03-19
 - Design studio, templates, Visual Studio Code CLI
 - Liquid templates, Web API, code components
 
+## Getting Started
+- What is Power Pages
+- Power Pages capabilities
+- Create and manage sites
+- Security overview and architecture white papers
+
+## Tutorials
+- Design home page
+- Set up brand kit
+- Create page with list
+- Create page with simple form
+- Configure site authentication
+
+## AI and Copilot
+- AI-powered and Copilot features overview
+- Create AI-generated form using Copilot
+- Add AI-generated text using Copilot
+- Enable agent in your site
+- Force Bing webmaster to index your site
+
+## Design and Build
+- Use the new design studio
+- Pages workspace
+- Styling workspace
+- Templates
+- Portal Management app
+- Visual Studio Code and Power Platform CLI
+- Plan your project
+
+## Connect to Dataverse
+- Use data workspace
+- Add lists, basic forms, multistep forms
+- Table permissions
+
+## Customize and Extend
+- Liquid, Web templates, Web API, Code components
+- Power Automate cloud flows integration
+- Advanced configuration
+
 ## Security
 - Authentication configuration
 - Web roles
 - Table permissions
 - Architecture and security white papers
 
+## Go Live
+- Go live checklist
+- Assign licensing
+- ALM overview
+
 ## Administration
 - Portals admin center
 - Consumption reports
 - Diagnostics and troubleshooting
-
-Last updated: 2025-06-28
+- Maintain and update

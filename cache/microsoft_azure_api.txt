@@ -1,42 +1,67 @@
 Source: Azure OpenAI API Reference
 URL: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Azure OpenAI REST API Reference
 
-## API Versions
-- Data Plane Inference: v1 (GA: 2024-10-21), v1 preview
-- Control Plane: 2025-06-01 (GA), 2025-07-01-preview
+Page last updated: 2026-03-21
 
-## Key Endpoints
-- Completions: POST /openai/deployments/{id}/completions
-- Chat Completions: POST /openai/deployments/{id}/chat/completions
-- Embeddings: POST /openai/deployments/{id}/embeddings
-- Audio Transcriptions/Translations: POST /audio/transcriptions, /audio/translations
-- Image Generation: POST /openai/deployments/{id}/images/generations
+## API Versions
+- Control Plane GA: 2025-06-01
+- Control Plane Preview: 2025-07-01-preview
+- Data Plane Inference GA: v1
+- Data Plane Inference Preview: v1 preview
+- Data Plane Authoring Preview: v1 preview
+- Legacy Data Plane Inference GA: 2024-10-21
+
+Note: New preview inference API with monthly cadence updates.
+
+## Key Endpoints (GA: 2024-10-21)
+- Completions: POST /openai/deployments/{deployment-id}/completions
+- Chat Completions: POST /openai/deployments/{deployment-id}/chat/completions
+- Embeddings: POST /openai/deployments/{deployment-id}/embeddings
+- Audio Transcriptions: POST /openai/deployments/{deployment-id}/audio/transcriptions
+- Audio Translations: POST /openai/deployments/{deployment-id}/audio/translations
+- Image Generation: POST /openai/deployments/{deployment-id}/images/generations
 
 ## Authentication
 - API Key (Header: api-key)
 - Microsoft Entra ID (Bearer token)
 
-## Key Features
-- Content Filtering (hate, sexual, violence, self-harm, profanity, protected material)
-- Streaming (server-sent events)
-- Tool/Function Calling (max 128 functions)
-- Vision capabilities
-- RAG Extensions (Azure Search, Cosmos DB)
-- Structured Outputs (JSON Schema)
-- Parallel Tool Calls
-- Log Probabilities
-- Deterministic Sampling (seed-based, beta)
+## Key Chat Completions Parameters
+- messages (required), temperature, top_p, stream, stop
+- max_tokens, max_completion_tokens (upper bound including reasoning tokens)
+- presence_penalty, frequency_penalty, logit_bias, user
+- data_sources (Azure OpenAI chat extensions)
+- logprobs, top_logprobs (range 0-20)
+- n, parallel_tool_calls (default: true)
+- response_format: text, json_object, json_schema
+- seed (deterministic sampling)
+- tools, tool_choice
+- function_call (deprecated — use tool_choice)
+- functions (deprecated — use tools)
+
+## Chat Extensions Data Sources
+- Azure Search: simple, semantic, vector, vector_simple_hybrid, vector_semantic_hybrid
+- Azure Cosmos DB: MongoDB vCore with vector support
+- Authentication types: api_key, connection_string, system_assigned_managed_identity, user_assigned_managed_identity
+
+## Content Filtering
+- Severity levels: very_low, low, medium, high
+- Categories: sexual, violence, hate, self_harm, profanity, jailbreak, protected_material_text, protected_material_code
+
+## Embeddings Parameters
+- input_type, encoding_format (float or base64), dimensions (text-embedding-3+ only)
 
 ## Deprecated Features
 - function_call parameter (use tool_choice instead)
 - functions parameter (use tools instead)
-- max_tokens in newer models (use max_completion_tokens)
 
-## Status
-- Production Ready: GA version 2024-10-21
-- Active Development: Monthly preview releases
-- Migration Notice: New preview inference API available
-- Document Updated: 2026-03-14
+## Image Generation Parameters
+- prompt (required), n, size (256x256 to 1792x1024), response_format, user, quality (standard/hd), style (vivid/natural)
+
+## Audio Transcription Parameters
+- file (required), prompt, response_format, temperature (0-1), language (ISO-639-1)
+
+## Finish Reasons
+- stop, length, content_filter, tool_calls, function_call

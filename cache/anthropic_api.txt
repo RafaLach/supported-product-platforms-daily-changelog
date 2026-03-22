@@ -1,6 +1,6 @@
 Source: Anthropic API Docs
 URL: https://platform.claude.com/docs/api/getting-started
-Fetched: 2026-03-19
+Fetched: 2026-03-22
 
 # Anthropic API Overview
 
@@ -11,11 +11,11 @@ RESTful API at https://api.anthropic.com
 - Messages API: POST /v1/messages — Conversational interactions
 - Message Batches API: POST /v1/messages/batches — Async bulk processing, 50% cost reduction
 - Token Counting API: POST /v1/messages/count_tokens — Pre-send token estimation
-- Models API: GET /v1/models — List available models
+- Models API: GET /v1/models — List available models and their details
 
 ## Beta APIs
-- Files API: POST /v1/files — Upload/manage files across API calls
-- Skills API: POST /v1/skills — Create/manage custom agent skills
+- Files API: POST /v1/files, GET /v1/files — Upload/manage files across API calls
+- Skills API: POST /v1/skills, GET /v1/skills — Create/manage custom agent skills
 
 ## Authentication
 - x-api-key header (required)
@@ -35,6 +35,15 @@ Official SDKs for Python, TypeScript, Java, Go, C#, Ruby, PHP
 - Standard endpoints: 32 MB
 - Batch API: 256 MB
 - Files API: 500 MB
+- Note: Vertex AI limits to 30 MB; Amazon Bedrock limits to 20 MB
+
+## Response Headers
+- request-id: globally unique identifier
+- anthropic-organization-id: org ID for the API key used
+
+## Rate Limits
+- Organized into usage tiers with spend limits and RPM/TPM limits
+- Priority Tier available (enhanced service levels with committed spend) via sales
 
 ## Platform Availability
 - Direct API (Anthropic)
@@ -45,7 +54,11 @@ Official SDKs for Python, TypeScript, Java, Go, C#, Ruby, PHP
 ## Data Residency
 inference_geo parameter for geographic control ("global" or "us")
 
-## Beta Products
-- Claude in Chrome (browsing agent)
-- Claude in Excel (spreadsheet agent)
-- Cowork (desktop automation tool)
+## Key Notes
+- Models API now returns capabilities object (max_input_tokens, max_tokens, capabilities)
+- Third-party platforms may have feature delays vs. direct API
+- API versioning guarantees apply to GA features
+
+## Additional Service Endpoints (from page config)
+- MCP Apps Sandbox Proxy: https://sandbox.claudemcpcontent.com/mcp_apps
+- User Content Renderer: https://www.claudeusercontent.com
