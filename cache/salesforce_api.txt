@@ -1,24 +1,43 @@
-Source: AgentForce API References
-URL: https://developer.salesforce.com/docs/ai/agentforce/references
-Fetched: 2026-03-22
+# Agentforce and Generative AI Reference Documentation
 
-# Agentforce API References
+## Main Heading
+"Agentforce and Generative AI Reference" - Review documentation for Agentforce and Einstein Generative AI developers.
 
-## Available APIs & SDKs
-- Agent API — Communication with AI agents via connected apps and token-based auth; developers create connected apps, generate tokens, and send messages leveraging topics and actions
-- Agentforce Python SDK — Programmatic agent creation/management/deployment via Metadata API
-- Models API — Apex classes and REST endpoints connecting to LLMs (both Apex and REST reference docs available)
-- Testing API — Combines Metadata API and Connect API for building/running agent tests
-- Agentforce Mobile SDK — Native iOS and Android integration for agent interactions
-- Citations API — Apex classes for programmatically adding citations to agent responses
+## Key APIs and Tools
 
-## Key Features & Tools
-- Agent Script — Hybrid language combining natural language instructions with programmatic expressions for agent workflows, business rules, and conversational logic
-- Agentforce DX — Pro-code tools for agent creation/testing outside Builder UI
-- Lightning Types — Custom types for improving UI of custom agent actions, particularly effective for complex inputs and outputs
-- Metadata & Tooling APIs — Additional access through existing Salesforce APIs
+**Agent API**
+- Enables communication with AI agents in organizational environments
+- Requires creating a connected app, generating a token, and sending messages to agents
 
-## Developer Guides Referenced
-- Agentforce Developer Guide
-- Agent API Developer Guide
-- Models API Developer Guide
+**Agentforce Python SDK**
+- Allows programmatic agent creation, management, and deployment
+- Based on Salesforce Metadata API implementation
+
+**Agent Script**
+- Language for building agents within Agentforce Builder
+- Combines natural language with programmatic expressions for workflows and conversational logic
+
+**Agentforce DX**
+- Pro-code tools for agent creation and testing outside the Builder interface
+
+**Agentforce Mobile SDK**
+- Provides iOS and Android integration for embedding conversational AI in mobile applications
+
+**Lightning Types**
+- Custom types improving user interface for agent actions in Lightning Experience
+
+**Models API**
+- Apex classes and REST endpoints connecting applications to large language models
+- Available in both Apex and REST formats
+
+**Testing API**
+- Combines Metadata API and Connect API endpoints for agent testing
+
+**Citations Reference**
+- Apex classes for programmatically adding citations to agent responses
+
+**Metadata and Tooling APIs**
+- Support for Agentforce functionality through existing Salesforce infrastructure
+
+## Related Developer Guides
+Comprehensive guides available for Agentforce, Agent API, and Models API implementations.

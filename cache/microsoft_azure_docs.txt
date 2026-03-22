@@ -1,66 +1,64 @@
-Source: Azure AI Foundry Documentation
-URL: https://learn.microsoft.com/en-us/azure/ai-studio/
-Fetched: 2026-03-22
+Microsoft Foundry documentation
+The AI app and agent factory - build, optimize, and govern AI apps and agents at scale.
 
-# Microsoft Foundry Documentation
-Canonical URL: https://learn.microsoft.com/en-us/azure/foundry/
+Overview: What is Microsoft Foundry?
+Looking for Foundry (classic) portal documentation?
 
-Page last updated: 2026-03-19
+Sections:
+- Create apps with code
+  - Quickstart - Create Foundry resources
+  - Quickstart - Chat with an agent
+  - Start with an AI template
 
-## Overview
-Microsoft Foundry (formerly Azure AI Studio) — "The AI app and agent factory - build, optimize, and govern AI apps and agents at scale."
+- Foundry Models
+  - Foundry Models sold directly by Azure
+  - Deployment types
+  - Get started with DeepSeek-R1
+  - Learn how to fine-tune models
 
-## Key Components
+- Foundry Agent Service
+  - Orchestrate and host AI agents to automate and execute business processes
+  - Azure AI app template for agents
+  - AI Red Teaming Agent (preview)
 
-### Create apps with code
-- Quickstart: Create Foundry resources
-- Quickstart: Chat with an agent
-- Start with an AI template
+- Foundry Control Plane
+  - Trustworthy AI
+  - What is Content Safety?
+  - Trace your application with Microsoft Foundry project library
+  - Evaluate agentic workflows
+  - Monitor your generative AI applications
 
-### Foundry Models
-- Models sold directly by Azure
-- Multiple deployment types
-- DeepSeek-R1 support
-- Fine-tuning capabilities
+- Foundry IQ
+  - What is Foundry IQ?
+  - Frequently asked questions
+  - Connect knowledge base to agents
 
-### Foundry Agent Service
-- Orchestrate and host AI agents for business processes
-- Multi-agent templates
-- AI Red Teaming Agent (preview)
+- Foundry Tools
+  - Speech
+  - Translator
+  - Language
+  - Document Intelligence
+  - Content Understanding
+  - Face
 
-### Foundry Control Plane
-- Trustworthy AI and Content Safety
-- Application tracing with Foundry project library
-- Agentic workflow evaluation
-- Generative AI monitoring dashboards
+- Azure Machine Learning
+  - Learn how to train models
+  - Orchestrate workflows with pipelines
+  - What is automated machine learning (AutoML)?
 
-### Foundry IQ
-- What is Foundry IQ?
-- FAQ section
-- Connect knowledge base to agents
+- Foundry Local
+  - Run LLMs on your device for free
+  - Integrate your apps
+  - Run HuggingFace models
+  - SDK Documentation
 
-### Foundry Tools
-- Speech, Translator, Language, Document Intelligence
-- Content Understanding, Face
+SDKs: Python, C#, JavaScript, Java
 
-### Azure Machine Learning
-- Model training
-- ML pipelines orchestration
-- AutoML
-
-### Foundry Local
-- Run LLMs on local devices for free
-- Integrate with inference SDKs
-- HuggingFace model compilation
-- SDK documentation
-
-### SDKs
-- Python, C#, JavaScript, Java
-
-## Further Resources
+Further resources:
 - Microsoft Foundry portal (ai.azure.com)
 - Microsoft Foundry SDKs
 - Microsoft Foundry labs
 - GitHub Models
 - Visual Studio Code extension
-- Microsoft Agent Framework
+
+Updated: 2026-03-19

@@ -1,53 +1,29 @@
-Source: Cursor Changelog
-URL: https://cursor.com/changelog
-Fetched: 2026-03-22
+# Cursor Changelog - Extracted Content
 
-# Cursor Changelog
+## Recent Updates (March 2026)
 
-## March 19, 2026: Composer 2
-- Frontier-level coding performance with strong results on challenging coding tasks
-- Pricing: Standard $0.50/M input, $2.50/M output tokens; Fast (default) $1.50/M input, $7.50/M output tokens
+**Mar 19, 2026: Composer 2**
+- New frontier-level coding model now available with strong performance on challenging tasks
+- Pricing: Standard at $0.50/M input, $2.50/M output tokens; Fast (default) at $1.50/M input, $7.50/M output
 
-## March 11, 2026: New Plugins on the Cursor Marketplace
-- Over 30 new plugins from Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, PlanetScale
-- Read/write access and actions across expanded toolstack
-- MCP-based plugins for cloud agent use in manual or automated workflows
+**Mar 11, 2026: New Marketplace Plugins**
+- Over 30 new plugins added from partners including Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, and PlanetScale
+- Plugins contain MCPs usable by cloud agents, triggerable via automations
 
-## March 5, 2026: Automations
-- Always-on agents based on custom triggers and instructions
-- Trigger support: Slack, Linear, GitHub, PagerDuty, webhooks, and schedules
-- Memory tool for learning from past executions
+**Mar 5, 2026: Automations**
+- Always-on agents running on schedules or event triggers from Slack, Linear, GitHub, PagerDuty, webhooks
+- Agents access memory tools for learning across repeated runs
 
-## March 4, 2026: Cursor in JetBrains IDEs
-- Available in IntelliJ IDEA, PyCharm, WebStorm via Agent Client Protocol
-- Supports frontier models from OpenAI, Anthropic, Google, and Cursor
-- Authentication via existing Cursor accounts
+**Mar 4, 2026: JetBrains IDE Support**
+- Available in IntelliJ IDEA, PyCharm, WebStorm through Agent Client Protocol (ACP)
+- Supports frontier models from OpenAI, Anthropic, Google, Cursor
 
-## March 3, 2026 (v2.6): MCP Apps & Team Marketplaces
-- Interactive UIs in agent chats with charts (Amplitude), diagrams (Figma), whiteboards (tldraw)
-- Team marketplace for private plugin distribution with governance controls
-- Debug mode enhancements: multiple parallel Debug mode sessions support
-- Automatic stale code cleanup after each turn
-- Dynamic instrumentation logging based on complexity
-- Plan file content now included in autocomplete suggestions
-- Image attachments display as galleries
-- Multiline Plan mode questions
-- Faster modal loading
-- Enhanced agent workflows for multi-file edits
-- Improved PR/review context with accurate anchoring
-- Smoother tool-use flows
-- More reliable MCP setup
-- Clearer team/enterprise access controls
-- Enhanced Slack integration
-- Improved long-running session reliability
-- 10 bug fixes (plan editor, branch/PR status, diff display, MCP config stability, model picker, team permissions)
-- 2 web improvements (dashboard/account clarity, layout fixes)
+**Mar 3, 2026: Version 2.6**
+- MCP Apps: Interactive UIs (Amplitude charts, Figma diagrams, tldraw whiteboards)
+- Team Marketplaces: Private plugin sharing with governance controls
+- Debug mode improvements and 15 desktop enhancements
+- 10 desktop bug fixes, 2 web improvements
 
-## Desktop Improvements (15 total)
-Parallel Debug sessions, stale code cleanup, adaptive instrumentation, browser tool enhancements, plan file content in autocomplete, image gallery display, multiline Plan mode, faster modals, improved workflows, enhanced PR context, smoother tool flows, reliable MCP setup, clearer policies, improved Slack integration, enhanced session reliability.
-
-## Desktop Bug Fixes (10 total)
-Plan editor links, branch/PR status refresh, diverged branch blockers, review comment references, diff display accuracy, MCP configuration dialogs, model picker duplicates, team permissions, long-running workflow reliability, Debug port allocation.
-
-## Web Improvements & Fixes (2 total)
-Dashboard and account management clarity improvements; layout issue resolution.
+## Navigation & Resources
+Product areas: Agents, Code Review, Cloud, Tab, CLI, Marketplace
+Company links: Enterprise, Pricing, Careers, Blog, Community, Students

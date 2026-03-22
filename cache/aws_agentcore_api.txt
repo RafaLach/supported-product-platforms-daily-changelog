@@ -1,15 +1,8 @@
-Source: AgentCore API Reference
-URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Operations.html
-Fetched: 2026-03-22
+# Amazon Bedrock AgentCore Data Plane - API Actions
 
-# Amazon Bedrock AgentCore Data Plane - Actions
+## Complete List of Supported Actions (43 total)
 
-## Page Overview
-This is the API Reference documentation for Actions supported by Amazon Bedrock AgentCore Data Plane.
-
-## Supported Actions
-
-### Memory Management
+### Memory Management Actions
 - BatchCreateMemoryRecords
 - BatchDeleteMemoryRecords
 - BatchUpdateMemoryRecords
@@ -20,7 +13,7 @@ This is the API Reference documentation for Actions supported by Amazon Bedrock 
 - StartMemoryExtractionJob
 - ListMemoryExtractionJobs
 
-### Authentication & Authorization
+### Authentication & Authorization Actions
 - CompleteResourceTokenAuth
 - GetResourceApiKey
 - GetResourceOauth2Token
@@ -28,39 +21,31 @@ This is the API Reference documentation for Actions supported by Amazon Bedrock 
 - GetWorkloadAccessTokenForJWT
 - GetWorkloadAccessTokenForUserId
 
-### Events
+### Event Management Actions
 - CreateEvent
 - DeleteEvent
 - GetEvent
 - ListEvents
 
-### Agent Runtime
-- InvokeAgentRuntime
-- GetAgentCard
-- ListActors
-- ListSessions
-- StopRuntimeSession
-
-### Browser Sessions
-- StartBrowserSession
+### Session Management Actions
 - GetBrowserSession
+- GetCodeInterpreterSession
 - ListBrowserSessions
+- ListCodeInterpreterSessions
+- ListSessions
+- StartBrowserSession
+- StartCodeInterpreterSession
 - StopBrowserSession
+- StopCodeInterpreterSession
+- StopRuntimeSession
 - SaveBrowserSessionProfile
 - UpdateBrowserStream
 
-### Code Interpreter
-- StartCodeInterpreterSession
-- GetCodeInterpreterSession
-- ListCodeInterpreterSessions
+### Agent & Runtime Actions
+- InvokeAgentRuntime
 - InvokeCodeInterpreter
-- StopCodeInterpreterSession
-
-### Evaluation
 - Evaluate
+- GetAgentCard
 
-## Navigation
-- **Documentation Root**: /index.html
-- **Service Home**: /bedrock-agentcore/index.html
-- **API Reference**: Welcome.html
-- **PDF Version**: bedrock-agentcore.pdf#API_Operations
+### Utility Actions
+- ListActors

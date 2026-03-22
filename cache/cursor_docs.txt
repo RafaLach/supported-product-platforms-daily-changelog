@@ -1,54 +1,73 @@
-Source: Cursor Documentation
-URL: https://docs.cursor.com (redirects to cursor.com/docs)
-Fetched: 2026-03-22
+# Cursor Documentation - Content Extraction
 
-# Cursor Documentation
+## Core Product Information
+**Cursor** is described as "an AI editor and coding agent" built to make users "extraordinarily productive." The platform enables users to understand codebases, plan and build features, fix bugs, review changes, and integrate with existing tools.
 
-## Core Description
-Cursor is an AI editor and coding agent designed to help developers understand codebases, plan and build features, fix bugs, review changes, and integrate with existing tools.
-
-## Key Features
-- AI editor and coding agent
-- Code understanding, feature development, bug fixing, code review
+## Key Features & Capabilities
+- Understanding unfamiliar code
+- Creating and building features
+- Finding and fixing bugs
+- Code review functionality
+- Debugging assistance
+- Test generation
+- Documentation generation
+- Code modernization and refactoring
 - Rapid prototyping
-- Test generation, documentation writing, legacy code modernization
 
-## Start Here
-- Get started: Go from install to your first useful change in Cursor
-- Models & Pricing: Compare models, usage pools, and plan pricing
-- Changelog: Links to recent updates and feature releases
+## Supported Languages & Frameworks
+The documentation references support for:
+- JavaScript & TypeScript
+- Python
+- Java
+- C#
+- iOS & macOS (Swift)
+- Data Science workflows (Python, R, SQL)
+- Web development
 
-## Core Capabilities
-- Understanding codebases
-- Planning and building features
-- Bug fixing and debugging
-- Code review capabilities
-- Integration with development tools
-- Support for multiple programming languages (Python, JavaScript/TypeScript, Java, C#, iOS/macOS/Swift, data science workflows, web development)
-- Cloud agent capabilities
-- API access and automation
-- Team collaboration features
+## AI Models Available
+Multiple Claude models are documented:
+- Claude 4.5 Haiku
+- Claude 4.5 Sonnet
+- Claude 4.6 Sonnet
+- Claude Opus variants (4.5, 4.6, 4.6 Fast)
+
+Additional models from other providers:
+- Google Gemini series (2.5 Flash, 3.x variants)
+- OpenAI GPT-5 series (multiple versions)
+- Grok-4-20, Kimi-k2-5
+
+## Cursor-Specific Models
+- Cursor Composer 1, 1.5, and 2
+
+## Enterprise & Team Features
+- Admin API and analytics
+- Team dashboards and member management
+- SSO capabilities
+- SCIM integration
+- Service accounts
+- Billing groups
+- Cloud Agent deployment (self-hosted and Kubernetes options)
+- Private workers
+- Compliance monitoring
+
+## Developer Tools
+- CLI with authentication, configuration, and shell mode
+- MCP (Model Context Protocol) integration
+- Browser tools
+- Terminal access
+- GitHub and GitLab integrations
+- Linear integration
+- Slack integration
+- JetBrains integration
+
+## Additional Services
+- Bugbot for automated code review
+- Cloud Agent with automations
+- Skills and subagents
+- Rules engine
+- Plugins system
+- Hooks for third-party integration
+- Webhooks for Cloud Agent API
 
 ## Documentation Structure
-The site includes comprehensive guides for:
-- Configuration and setup
-- CLI tools and commands
-- Cloud agent deployment
-- Enterprise features
-- Team management and billing
-- Model selection and pricing
-- Security and compliance
-- Integration with external services (GitHub, GitLab, Linear, Slack, etc.)
-
-## Security & Enterprise
-- SSO and SCIM provisioning
-- Admin APIs for organizational management
-- Compliance monitoring and audit trails
-- Network configuration for enterprise
-- Service accounts for automated workflows
-
-## Extensions & Integrations
-- GitHub, GitLab, Linear, Slack
-- JetBrains IDE support
-- VS Code migrations
-- Cloud Agent with automations, security monitoring, private workers
+The site includes sections for Get Started, Models & Pricing, Changelog, and comprehensive guides for various user roles (designers, product managers, sales engineers, support teams).

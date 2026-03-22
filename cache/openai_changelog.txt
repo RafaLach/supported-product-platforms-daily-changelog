@@ -1,48 +1,38 @@
-Source: OpenAI Python SDK Releases
-URL: https://github.com/openai/openai-python/releases
-Fetched: 2026-03-22
-
 # OpenAI Python SDK Releases
 
-## v2.29.0 (March 17, 2026)
-- Added support for 5.4 nano and mini model slugs
-- Extended batches create method to include /v1/videos endpoint
-- Introduced defer_loading field to ToolFunction
-- Added in and nin operators to ComparisonFilter type
-- Fixed dependency issues and Pydantic by_alias serialization
+## Latest Releases
 
-## v2.28.0 (March 13, 2026)
-- Implemented custom voices feature for audio generation
+**v2.29.0** (March 17, 2026)
+- Features include "5.4 nano and mini model slugs," addition of "/v1/videos endpoint to batches create method," "defer_loading field to ToolFunction," and "in and nin operators to ComparisonFilter type"
+- Bug fixes addressed typing-extensions versioning and pydantic by_alias parameter handling
 
-## v2.27.0 (March 13, 2026)
-- Released Sora API improvements including character API
-- Added video extensions, edits, and higher resolution exports
-- Repaired merged videos resource
-- Multiple codegen updates and protocol improvements
+**v2.28.0** (March 13, 2026)
+- Introduced custom voices functionality
 
-## v2.26.0 (March 5, 2026)
-- Migrated ComputerTool to GA status (general availability)
-- Deprecated computer_use_preview tool in favor of ComputerUsePreview class
+**v2.27.0** (March 13, 2026)
+- Featured "sora api improvements: character api, video extensions/edits, higher resolution exports"
+- Repaired merged videos resource and included multiple codegen updates
 
-## v2.25.0 (March 5, 2026)
-- Launched GPT-5.4 and tool search functionality
-- Introduced new computer tool capability
-- Removed prompt_cache_key parameter from responses
+**v2.26.0** (March 5, 2026)
+- ComputerTool class moved to GA; computer_use_preview transitioned to ComputerUsePreview
 
-## v2.24.0 (February 24, 2026)
-- Added phase field to message types
-- Fixed phase enum handling
+**v2.25.0** (March 5, 2026)
+- Added "gpt-5.4, tool search tool, and new computer tool"
+- Removed prompt_cache_key param from responses; adjusted message type phases
 
-## v2.23.0 (February 24, 2026)
-- Added gpt-realtime-1.5 and gpt-audio-1.5 model options
+**v2.24.0** (February 24, 2026)
+- Introduced phase field functionality with associated bug fixes and documentation
 
-## v2.22.0 (February 23, 2026)
-- Implemented WebSocket support for responses API
-- Enhanced documentation for audio, chat, realtime, and video APIs
+**v2.23.0** (February 24, 2026)
+- Added "gpt-realtime-1.5 and gpt-audio-1.5 model options to realtime calls"
 
-## v2.21.0 (February 13, 2026)
-- Added container network policy and skills support
+**v2.22.0** (February 23, 2026)
+- Implemented "websockets for responses api"
+- Enhanced documentation across audio, chat, realtime, skills, uploads, and videos methods
+
+**v2.21.0** (February 13, 2026)
+- Added "container network_policy and skills"
 - Resolved memory leak in structured outputs parse methods
 
-## v2.20.0 (February 10, 2026)
-- Introduced image support in batch API
+**v2.20.0** (February 10, 2026)
+- Introduced "support for images in batch api"

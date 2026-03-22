@@ -1,21 +1,18 @@
-Source: Power Pages Release Updates
-URL: https://learn.microsoft.com/en-us/power-pages/release-updates
-Fetched: 2026-03-22
+Power Pages release updates and new features
 
-# Power Pages Release Updates
-
-## Release Plans
+Release plans:
 - 2023 release wave 2 plan
 - 2023 release wave 1 plan
 - 2022 release wave 2 plan
 
-## Infrastructure
-Uses Azure Web Apps, Traffic Manager, Service Bus, Key Vault, Storage, Microsoft Entra ID.
+Privacy notice: Dynamics 365 data can be exposed through external-facing website.
 
-## Privacy Notice
-By enabling website capabilities for Dynamics 365, data such as customer name, product name, case number, or custom entity data can be exposed through an external-facing Dynamics 365 website.
-Data stored in Azure Web Apps for caching and local hard drive for search functionality.
-Tenant administrator enables via Power Platform admin center.
+Azure components involved:
+- Azure Web Apps (hosting)
+- Azure Traffic Manager (high availability)
+- Azure Service Bus (cache invalidation)
+- Azure Key Vault (configuration)
+- Azure Storage (data storage)
+- Microsoft Entra ID (authentication)
 
-Page last updated (ms.date): 2023-03-21
-Document last updated: 2025-05-12
+Updated: 2025-05-12

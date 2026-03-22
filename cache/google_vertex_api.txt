@@ -1,40 +1,38 @@
-Source: Vertex AI API Reference
-URL: https://cloud.google.com/vertex-ai/docs/reference
-Fetched: 2026-03-22
+# Vertex AI API Reference Documentation
 
-# Vertex AI API Usage Overview - Content Extraction
+## SDK & Language References
+- Vertex AI SDK for Python (with introduction, installation, and reference guides)
+- Vertex AI language model SDK reference
+- gcloud CLI reference (standard and beta versions)
+- Client libraries: C#, Go, Java, Node.js, and long-running operations documentation
 
-## Page Structure
-This is a Google Cloud documentation page for Vertex AI's API reference, serving as a comprehensive navigation hub for developers.
+## REST API v1 Resource Categories
 
-## SDK & Client Library References
+**Core Resources:**
+- Media uploads, Operations management, Projects/Locations
 
-- Python SDK for Vertex AI (with language model specific references)
-- gcloud CLI reference tools (standard and beta versions)
-- Client libraries for multiple languages: C#, Go, Java, Node.js
-- REST API reference (v1 and v1beta1 versions)
+**Job Management:**
+- Batch Prediction Jobs, Custom Jobs, Hyperparameter Tuning Jobs, NAS Jobs, Pipeline Jobs, Training Pipelines, Tuning Jobs
 
-## Major API Resource Categories
+**Model & Deployment:**
+- Models, Endpoints, Deployment Resource Pools, Index Endpoints, Indexes, Publishers Models
 
-The page catalogs extensive REST endpoints across v1 and v1beta1 APIs, including:
-- Batch prediction and custom jobs
-- Dataset management and annotations
-- Endpoint deployment and model prediction
-- Feature stores and online feature serving
-- Model training and evaluation
-- Pipeline orchestration
-- Hyperparameter tuning
-- Indexes and vector search
-- Metadata management
-- Monitoring and anomaly detection
-- Notebook execution environments
-- RAG (Retrieval-Augmented Generation) operations
-- Reasoning engines
+**Feature Management:**
+- Feature Groups, Feature Online Stores, Feature Stores, Feature Views, Features with monitoring capabilities
 
-## Notable Features
+**Data & Metadata:**
+- Datasets, Data Items, Annotations, Metadata Stores (artifacts, contexts, executions)
 
-Cached content management, long-running operations, IAM policy controls, and streaming prediction capabilities are documented across the reference materials.
+**Advanced Features:**
+- Cached Contents, RAG Corpora/Files, Reasoning Engines with Sandbox Environments, Schedules, Specialist Pools
 
-## Cross-Product Navigation
+**ML Optimization:**
+- Studies, Trials, Tensorboards, Experiments, Runs, Time Series data
 
-Technology areas including AI/ML, application development, compute, data analytics, databases, networking, and security. Cross-product tools for access management, costs/usage management, and infrastructure as code.
+## REST API v1beta1 Additional Resources
+
+Includes all v1 features plus:
+- Example Stores, Extensions, Feature Monitors, Evaluation datasets, Model Monitors, Model Monitoring Jobs, Chat completions endpoint
+
+## Data Type References
+The documentation lists 50+ type definitions including Content, Explanation, Features, Predictions, Tensors, and specialized data structures for model training and evaluation.

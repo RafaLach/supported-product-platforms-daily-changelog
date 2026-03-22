@@ -1,24 +1,21 @@
-Source: Einstein GenAI Developer Guide
-URL: https://developer.salesforce.com/docs/einstein/genai/guide
-Fetched: 2026-03-22
+# Agentforce Developer Guide (Einstein GenAI Guide)
 
-# Einstein GenAI Developer Guide
+## Main Title & Overview
+"Get Started with Agentforce and AI Agents"
 
-## Overview
-Part of Agentforce platform. "The agent-driven layer of the Salesforce Platform" enabling deployment of AI agents working alongside employees to extend workforce capabilities and provide 24/7 customer service. Features a Trust Layer connecting data securely with large language models.
+The page introduces Agentforce as an agent-driven layer of the Salesforce Platform. It emphasizes deployment of AI agents working alongside employees to extend workforce capacity and provide 24/7 customer service. The Trust Layer securely integrates data with large language models.
 
-## Core Capabilities
-- Conversational AI integrated with Salesforce
-- Trust Layer for secure LLM data connectivity
-- Customizable AI assistants
+## Key Sections
 
-## Development Resources
-- APIs & SDKs — Overview documentation for building solutions
-- Agentforce Actions — Guide for building and enhancing actions
-- Agent Script — Language for building agents in Agentforce Builder
-- Agentforce DX — Pro-code tools for Salesforce CLI and VS Code integration
-- Models & Prompts management via Prompt Builder features
+### Overview Guides
+1. **Agentforce APIs and SDKs** - Resources for building powerful Agentforce solutions using various APIs and SDKs
+2. **Agentforce Actions** - Documentation for building and enhancing Agentforce actions
+
+### Development Tools
+1. **Agent Script** - Language for building agents within Agentforce Builder
+2. **Agentforce DX** - Pro-code tools for Salesforce CLI and VS Code
+3. **Models and Prompts** - Features for creating, managing, and deploying prompt templates
 
 ## Additional Resources
-- Salesforce Help articles on Agentforce and Generative AI
-- Agentforce Agents documentation
+- Salesforce Help: Agentforce and Generative AI
+- Salesforce Help: Agentforce Agents

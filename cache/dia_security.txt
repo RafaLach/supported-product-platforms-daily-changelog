@@ -1,46 +1,49 @@
-Source: Dia Security
-URL: https://diabrowser.com/security
-Fetched: 2026-03-22
+# Dia Browser Security Page - Content Extraction
 
-# Dia Browser Security
+## Main Sections
 
-## Bug Bounty
-Vulnerability disclosure via HackerOne (hackerone.com/bcny)
+**The Browser Company Bounty Program**
+- Bug bounty program managed through HackerOne
+- Link: https://hackerone.com/bcny
+- Focus: Security and privacy vulnerabilities in BCNY products
+- Contact: help@diabrowser.com for security questions
 
-## Security Architecture
-- Annual full-scope security assessments: code reviews, architecture analysis, exploit testing
-- Point-in-time assessments for high-risk features
-- Built on Chromium (same engine as Chrome and Edge) with aggressive upstream security patch schedule
-- Weekly updates (Thursdays); critical vulnerabilities patched within 48 hours of Google releases
+**Keeping Dia Secure**
 
-## Disabled Chromium Features
-- Google Accounts Integration (GAIA) disabled
-- Google metrics (UMA) reporting disabled
-- Settings upload after profile reset disabled
-- Reporting Observers and Reporting API disabled
-- Network logging to file disabled
+Core security approaches include:
 
-## Infrastructure
-- Role-restricted production access with regular logging reviews
-- Data encrypted at rest and in transit
-- Minimal personal data collection with routine audits
+1. **Outside Security Assessments**
+   - Annual full-scope assessments with independent firms
+   - Point-in-time reviews for new/high-risk features
+   - Code reviews, architecture analysis, exploit testing
+   - Notable findings published in Security Bulletins
 
-## Data Handling & Privacy
-- Conversations, history, bookmarks stored locally encrypted on device
-- Minimum necessary data briefly sent to AI partners
-- Contractual restrictions: model providers restricted from training on or retaining user data
-- Opt-in improvement data: de-identified, retained max 30 days
-- Incognito mode stores nothing
-- AI data retained only for security/compliance (content moderation, suspected misuse); access-controlled, deleted when purpose expires, never used for training
+2. **Browser Engine**
+   - Built on Chromium (same as Chrome/Edge)
+   - Weekly updates every Thursday with latest stable Chromium
+   - Critical security fixes within 48 hours of Google release
 
-## AI Safety Controls / Prompt Injection Safeguards
-- Blocks AI-generated URLs
-- Requires user approval for tool access
-- Prevents data insertion into third-party sites without confirmation
-- Keeps irreversible actions in draft status
-- Restricts agent navigation between websites
-- URL filtering for language models
-- Eight specific layered controls to limit injection risks
-- Note: some attacks can still cause unexpected style or tone shifts without compromising system security
+3. **Disabled Chromium Features**
+   - Google Accounts Integration (GAIA)
+   - Google metrics (UMA) reporting
+   - Profile settings upload after reset
+   - Reporting Observers and API
+   - Network logging to file
 
-Contact: help@diabrowser.com
+4. **Infrastructure**
+   - Role-based production access restrictions
+   - Data encryption at rest and in transit
+   - Minimal data retention policies
+   - Regular access audits
+
+## FAQ Highlights
+
+**Prompt Injection Defense:** "Dia won't open or follow LLM-generated URLs" and implements layered controls limiting blast radius
+
+**Data Storage:** Conversations stored locally encrypted; minimum data sent to trusted AI partners
+
+**Data Training:** De-identified content retained 30 days maximum; model providers contractually prohibited from retaining data
+
+**AI Content Flagging:** Security/compliance data retained only as long as needed for abuse detection and legal obligations
+
+**Ad-Blocker:** Built-in, controllable via Settings > Privacy

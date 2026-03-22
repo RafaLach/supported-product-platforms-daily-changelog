@@ -1,585 +1,157 @@
-Source: Bedrock Doc History
-URL: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
-Fetched: 2026-03-22
-
-# Document History for the Amazon Bedrock User Guide
-
-**Latest documentation update:** November 26th, 2025
-
-## Recent Changes (Latest First)
-
-### February 27, 2026
-- **Converse API support for batch inference** - You can now use the Converse API format for batch inference input data. When creating a batch inference job, set the model invocation type to Converse to use a consistent request format across models.
-
-### February 17, 2026
-- **New feature** - Added support for fine-tuning open-weight models using OpenAI-compatible APIs. You can now create, monitor, and manage reinforcement fine-tuning jobs for open-weight models through familiar OpenAI SDK endpoints, including Files API, fine-tuning jobs APIs, and inference APIs.
-
-### December 31, 2025
-- **Updated list of models supported for service tiers** - Updated list of models supported for priority and flex service tiers.
-
-### December 18, 2025
-- **New feature** - Amazon Bedrock Data Automation now supports blueprint instruction optimization for documents. Improve Data Automation custom output accuracy by providing example content assets with ground truth labels.
-
-### December 3, 2025
-- **New managed policies** - Added AmazonBedrockMantleFullAccess, AmazonBedrockMantleReadOnly, AmazonBedrockMantleInferenceAccess for Amazon Bedrock Mantle.
-- **New feature** - Amazon Bedrock now supports OpenAI compatible API endpoints, including Responses API and Chat Completions API for asynchronous inference and stateful conversation management.
-- **New feature** - Added reinforcement fine-tuning to improve foundation model performance through feedback signals.
-- **New feature** - Added new "Reserved" service tier for Bedrock inference.
-
-### November 26, 2025
-- **New feature** - Added "Reserved" service tier for Bedrock inference.
-
-### November 24, 2025
-- **New model** - Amazon Bedrock now supports Anthropic Claude Opus 4.5.
-
-### November 21, 2025
-- **New feature** - You can now share guardrails across accounts within an AWS organization.
-
-### November 20, 2025
-- **New feature** - Amazon Bedrock Data Automation now supports synchronous invocation.
-
-### November 19, 2025
-- **Updated model support** - Custom model import now supports OpenAI GPT-OSS models.
-- **Enhanced coding use case support** - Amazon Bedrock Guardrails Standard tier now provides enhanced support for coding use cases with content filters and prompt attack detection.
-
-### November 18, 2025
-- **Updated feature** - Added new service tiers priority and flex for on demand inference.
-- **Region expansion** - Amazon Bedrock is now supported in Africa (Cape Town), Asia Pacific (New Zealand), Canada West (Calgary), Mexico (Central), and Middle East (Bahrain).
-
-### October 31, 2025
-- **Updated feature** - PostgreSQL text search using 'english' dictionary instead of 'simple' for Aurora Knowledge Base.
-
-### October 30, 2025
-- **Model in legacy status** - Anthropic Claude 3.7 Sonnet is now in legacy status. Migrate to Claude Sonnet 4.5 before April 28, 2026.
-
-### October 28, 2025
-- **New feature** - Stability AI outpaint and upscale services.
-
-### October 16, 2025
-- **Updated feature** - Use previously customized models as base for further customization.
-
-### October 15, 2025
-- **New model** - You can now use Anthropic Claude Haiku 4.5 with Amazon Bedrock.
-- **New feature** - Access to all Amazon Bedrock foundation models is now enabled by default with the correct IAM permissions.
-
-### October 9, 2025
-- **Region expansion** - Guardrails in Asia Pacific (Bangkok, Kuala Lumpur, Taipei), Israel (Tel Aviv), Middle East (Dubai).
-
-### October 7, 2025
-- **Updated policy** - AmazonBedrockFullAccess updated for default serverless model access.
-
-### October 3, 2025
-- **Model support** - Batch inference: DeepSeek V3.1, Qwen3 variants.
-
-### October 2, 2025
-- **New model** - Cohere Embed v4.
-
-### October 1, 2025
-- **Region expansion** - US East (Ohio) and Asia Pacific (Seoul).
-- **Model status** - Claude Opus 4 in legacy status (migrate before May 31, 2026).
-
-### September 30, 2025
-- **Model support** - Qwen3 models for custom model import.
-- **Region expansion** - Cohere Rerank 3.5 in US East (N. Virginia).
-
-### September 29, 2025
-- **Region expansion** - Guardrails in Asia Pacific (Melbourne) with cross-region inference.
-- **New model** - Anthropic Claude Sonnet 4.5.
-
-### September 26, 2025
-- **Region expansion** - BDA in Asia Pacific (Thailand, Taipei, Malaysia), Middle East (UAE), Israel (Tel Aviv).
-- **New feature** - Bedrock Flows: trace enhancements and DoWhile loop node.
-
-### September 18, 2025
-- **New model** - Stability AI Image Services.
-
-### September 15, 2025
-- **New model** - Meta Llama 3.3 70B Instruct for fine-tuning and continued pretraining.
-
-### September 11, 2025
-- **Region expansion** - Guardrails in Asia Pacific (Jakarta).
-
-### September 9, 2025
-- **New feature** - TwelveLabs Marengo Embed 2.7 InvokeModel API support.
-
-### September 4, 2025
-- **New feature** - Bearer token type condition key with CallWithBearerToken action.
-
-### September 2, 2025
-- **New tutorial** - Mortgage flow tutorial with CloudFormation templates.
-
-### August 27, 2025
-- **New feature** - OpenAI batch API support.
-
-### August 25, 2025
-- **Region expansion** - BDA in AWS GovCloud (US-West).
-- **New languages** - BDA supports Portuguese, French, Italian, Spanish, German.
-
-### August 21, 2025
-- **New feature** - Token count estimation for some models.
-
-### August 14, 2025
-- **Region expansion** - TwelveLabs Pegasus 1.2 in US East (N. Virginia) and Asia Pacific (Seoul).
-
-### August 11, 2025
-- **Region expansion** - Guardrails in US West (N. California).
-
-### August 5, 2025
-- **New models** - OpenAI gpt-oss-20b and gpt-oss-120b.
-- **New feature** - Automated Reasoning checks for Guardrails.
-
-### July 31, 2025
-- **Region expansion** - Asia Pacific (Melbourne).
-- **New model** - Anthropic Claude Opus 4.1.
-
-### July 29, 2025
-- **Model support** - Batch inference: US Amazon Nova Premier inference profile.
-
-### July 28, 2025
-- **Region expansion** - US West (N. California).
-- **New feature** - BDA supports DOC/DOCX and H.265 file types.
-
-### July 16, 2025
-- **Region expansion** - BDA in Europe (Frankfurt, London, Ireland), Asia Pacific (Mumbai, Sydney).
-- **New feature** - Import SageMaker AI-trained Amazon Nova models into Amazon Bedrock as custom models.
-- **New feature** - Deploy custom models for on-demand inference.
-
-### July 15, 2025
-- **New models** - TwelveLabs Pegasus 1.2 and Marengo Embed 2.7.
-
-### July 7, 2025
-- **Region expansion** - Claude 3.7 Sonnet in AWS GovCloud (US-West).
-- **New managed policies** - Added AmazonBedrockLimitedAccess and AmazonBedrockMarketplaceAccess.
-- **New feature** - Amazon Bedrock now supports the creation of API keys for easy authentication.
-
-### July 3, 2025
-- **Region expansion** - Intelligent prompt routing in GovCloud regions.
-- **Model support** - Meta Llama 4 Scout 17B and Llama 4 Maverick 17B for batch inference.
-
-### July 1, 2025
-- **Region expansion** - Prompt management in Europe (Milan, Spain), Asia Pacific (Hyderabad, Osaka).
-- **Region expansion** - Flows in Europe (Milan, Spain), Asia Pacific (Hyderabad, Osaka).
-
-### June 26, 2025
-- **Region expansion** - Knowledge Bases in Asia Pacific (Hyderabad, Osaka), Europe (Milan, Spain).
-
-### June 23, 2025
-- **New feature** - Amazon Bedrock Guardrails supports safeguard tiers for content filters, prompt attacks, and denied topic policies.
-
-### June 19, 2025
-- **New feature (Preview)** - Inline code nodes for Bedrock Flows.
-- **New feature (Preview)** - Flow executions for longer-running flows.
-
-### May 28, 2025
-- **New tutorial** - Agent creation tutorial.
-
-### May 22, 2025
-- **New models available** - You can now use Claude Sonnet 4 and Claude Opus 4 with Amazon Bedrock.
-
-### May 19, 2025
-- **New feature** - BDA custom output for videos.
-
-### May 16, 2025
-- **New feature** - BDA blueprints for videos.
-
-### May 13, 2025
-- **New feature** - Guardrails cross-region inference.
-
-### May 12, 2025
-- **Model support** - Custom model import: Qwen2, Qwen2.5, Qwen2-VL, Qwen2.5-VL.
-
-### May 5, 2025
-- **New feature** - BDA custom blueprints for audio files.
-
-### April 28, 2025
-- **New models** - Meta Llama 4 Scout 17B, Llama 4 Maverick 17B.
-- **New models** - Writer Palmyra X4 and X5.
-
-### April 25, 2025
-- **New feature** - S3 image and document references with InvokeModel and Converse APIs.
-- **New feature** - BDA modality routing and hyperlink support.
-- **General release** - Intelligent prompt routing is now generally available with Amazon Bedrock.
-
-### April 22, 2025
-- **General release** - Intelligent prompt routing.
-
-### April 10, 2025
-- **New feature** - Knowledge Bases: user-provided metadata and hybrid search for MongoDB.
-
-### April 9, 2025
-- **Region expansion** - Custom model import in Europe (Frankfurt).
-
-### April 8, 2025
-- **New model** - Pixtral Large (25.02).
-
-### April 7, 2025
-- **New feature** - Harmful content handling options in Guardrails.
-
-### April 4, 2025
-- **Region expansion** - Batch inference: Amazon Nova models in GovCloud (US-West).
-
-### April 2, 2025
-- **Region expansion** - Batch inference: Claude 3.5 Sonnet V2, Titan Embeddings V2 regional expansion.
-- **Model support** - Provisioned Throughput: Amazon Nova Canvas, 24k context windows.
-
-### March 27, 2025
-- **New feature** - OpenSearch Managed Clusters as vector store for Knowledge Bases.
-- **New feature** - Flow templates for Bedrock Flows.
-
-### March 25, 2025
-- **Feature moved** - Amazon Bedrock Studio renamed to Bedrock in SageMaker Unified Studio.
-
-### March 18, 2025
-- **New feature** - IAM condition key for enforcing specific guardrails on model inference.
-
-### March 14, 2025
-- **Region expansion** - Europe (Milan) and Europe (Spain).
-
-### March 13, 2025
-- **Feature support** - Knowledge Bases cross-region inference with structured data retrieval.
-- **New feature** - Configured prompt routers with intelligent prompt routing (Preview).
-- **Region expansion** - Provisioned Throughput: Llama 3.2 models in US West (Oregon).
-
-### March 12, 2025
-- **Model support** - Knowledge Bases: DeepSeek-R1 and Claude 3.7 Sonnet reasoning models.
-
-### March 10, 2025
-- **New model** - DeepSeek-R1.
-- **New feature** - Agent computer use tools.
-
-### March 7, 2025
-- **General release** - GraphRAG for Knowledge Bases.
-
-### March 3, 2025
-- **General release** - Amazon Bedrock Data Automation with increased accuracy.
-
-### February 27, 2025
-- **Region expansion** - Europe (Stockholm).
-- **New feature** - Session management APIs for generative AI applications.
-
-### February 24, 2025
-- **New model** - Claude 3.7 Sonnet.
-
-### February 21, 2025
-- **Region expansion** - Asia Pacific (Hyderabad) and Asia Pacific (Osaka).
-
-### January 24, 2025
-- **New models** - Cohere Embed English and Multilingual.
-
-### January 23, 2025
-- **New model** - Luma Ray v2.
-
-### January 22, 2025
-- **New feature** - Multi-turn agent conversation in flows.
-
-### December 23, 2024
-- **Model support** - Llama 3.3 70B Instruct for batch inference.
-
-### December 19, 2024
-- **New models** - Llama 3.3 70B Instruct and Stable Diffusion 3.5.
-
-### December 9, 2024
-- **New feature** - Guardrails for French and Spanish inputs.
-
-### December 6, 2024
-- **New feature** - Batch inference with inference profiles.
-
-### December 4, 2024
-- **Policy update** - Marketplace permissions in AmazonBedrockFullAccess and AmazonBedrockReadOnly.
-- **New feature** - Bedrock Marketplace model deployment.
-- **New feature** - Knowledge Bases: structured data stores and SQL query generation.
-- **New feature** - Multimodal data parsing with images in Knowledge Bases.
-- **New feature** - Image content filters in Guardrails.
-
-### December 3, 2024
-- **New feature** - Multi-agent collaboration for Agents.
-- **New feature** - Model distillation (teacher to student model).
-
-### December 2, 2024
-- **New feature** - Latency optimized models from Meta and Anthropic.
-
-### December 1, 2024
-- **New feature** - Guardrails on Knowledge Base retrieval results.
-- **New feature** - RetrieveAndGenerateStream (streaming version).
-- **New feature** - Retrieval filters based on user query and metadata schema.
-- **New feature** - Reranker models for source document relevance.
-- **New feature** - Direct knowledge base document ingestion.
-- **New feature** - Custom data source connectors.
-
-### November 22, 2024
-- **Region expansion** - Europe (Zurich) for Agents, Knowledge Bases, Prompt management, Flows.
-- **Region expansion** - Flows in US East (Ohio), Asia Pacific (Seoul), Canada (Central), Europe (London), South America (Sao Paulo).
-- **General release** - Amazon Bedrock Flows.
-
-### November 21, 2024
-- **Feature update** - Binary embeddings support for Knowledge Bases.
-
-### November 20, 2024
-- **Feature update** - Prompt optimization in Prompt management.
-
-### November 11, 2024
-- **Region expansion** - AWS GovCloud (US-East) and Europe (Zurich).
-
-### November 8, 2024
-- **Region expansion** - Knowledge Bases in US East (Ohio).
-
-### November 7, 2024
-- **New feature** - Flow trace viewing.
-- **New feature** - Guardrails in Knowledge Base and prompt nodes.
-- **General release** - Prompt management.
-
-### November 6, 2024
-- **Region expansion** - Application inference profiles in Asia Pacific (Singapore, Seoul).
-- **Feature update** - Cross-region inference profiles for Anthropic Claude and Meta Llama.
-
-### November 4, 2024
-- **New model** - Anthropic Claude 3.5 Haiku.
-
-### November 1, 2024
-- **New feature** - Application inference profiles for cost/metric tracking.
-
-### October 31, 2024
-- **Feature update** - Model-specific inference parameters in Prompt management.
-
-### October 22, 2024
-- **New model** - You can now use Anthropic Claude 3.5 Sonnet v2 with Amazon Bedrock. You can also use computer use tools with Anthropic Claude 3.5 Sonnet v2.
-
-### October 21, 2024
-- **Policy update** - Custom Model Import read-only permissions added.
-- **Feature update** - TopK field no longer supported in inferenceConfiguration.
-- **Feature update** - Chat/text playground merged.
-
-### October 7, 2024
-- **Region expansion** - Batch inference in Asia Pacific (Seoul).
-
-### October 1, 2024
-- **Region expansion** - US East (Ohio) and Asia Pacific (Seoul).
-
-### September 25, 2024
-- **New models** - Meta Llama 3.2 (1B, 3B, 11B, 90B Instruct).
-- **New feature** - Binary embeddings with Titan Text Embeddings V2.
-
-### September 24, 2024
-- **New feature** - CloudWatch Metrics for Guardrails monitoring.
-- **New feature** - Model evaluation for inference profiles.
-
-### September 23, 2024
-- **New models** - AI21 Jamba 1.5 Large and Mini.
-- **Feature update** - Inference profiles with Prompt management and flows.
-- **Model support** - Provisioned Throughput for Claude 3.5 Sonnet in US West (Oregon).
-
-### September 18, 2024
-- **New feature** - EventBridge monitoring for batch inference jobs.
-
-### September 16, 2024
-- **New feature** - Cross-account S3 files for batch inference.
-- **New feature** - VPC support for batch inference.
-
-### September 11, 2024
-- **Feature update** - Inference profiles with Knowledge Base generation and parsing.
-
-### September 4, 2024
-- **Documentation update** - Content reorganization for readability.
-- **New models** - Stable Image Ultra, Stable Diffusion 3 Large, Stable Image Core.
-
-### August 27, 2024
-- **Policy update** - Inference profile read-only permissions added.
-- **New feature** - Cross-region inference profiles.
-
-### August 26, 2024
-- **New feature** - User confirmation before Agent action group invocation.
-
-### August 21, 2024
-- **New feature** - Asynchronous model invocation with multiple prompts with batch inference is now generally available.
-
-### August 16, 2024
-- **New model** - Amazon Titan Image Generator G1 V2.
-
-### August 6, 2024
-- **Region expansion** - Meta Llama 3 in AWS GovCloud (US-West).
-
-### August 1, 2024
-- **New feature** - Copy custom models across regions.
-- **New feature** - Share custom models with other accounts.
-
-### July 24, 2024
-- **New model** - Mistral Large 2 (24.07).
-
-### July 23, 2024
-- **New models** - Meta Llama 3.1 Instruct models.
-
-### July 22, 2024
-- **New feature** - Prompt management and Flows with Bedrock Studio.
-
-### July 10, 2024
-- **New features** - Prompt management, Amazon Bedrock Flows, agent memory, code interpretation, and contextual grounding checks now available.
-- **New feature** - Runtime knowledge base query configuration modification.
-- **New feature** - Semantic, hierarchical chunking, and advanced parsing.
-- **New feature** - Query decomposition in Knowledge Bases.
-- **New feature** - Data source connectors (Confluence, Salesforce, SharePoint, web URLs).
-- **New feature** - Independent Guardrails API.
-
-### June 28, 2024
-- **Region expansion** - Agents in Canada (Central), Europe (London), South America (Sao Paulo).
-
-### June 25, 2024
-- **New model** - AI21 Jamba-Instruct.
-
-### June 21, 2024
-- **Region expansion** - Guardrails expansion.
-- **New feature** - Document inclusion in chat playground.
-
-### June 20, 2024
-- **New model** - You can now use Claude 3.5 Sonnet with Amazon Bedrock.
-- **Feature update** - Cohere Embed V3 int8 and binary support.
-
-### June 18, 2024
-- **New feature** - Guardrails with Converse API.
-- **Region expansion** - Canada (Central), Europe (London), South America (Sao Paulo).
-
-### June 13, 2024
-- **New feature** - Trace information on Lambda handling in Agents.
-- **New model** - Claude 3 Opus.
-
-### June 7, 2024
-- **New feature** - You can now use the Converse API to create conversational applications.
-
-### May 30, 2024
-- **New feature** - You can now use tools with Amazon Bedrock models.
-- **Model support** - Amazon Titan Text Embeddings V2 for Knowledge Bases.
-
-### May 24, 2024
-- **New model** - Mistral Small.
-
-### May 20, 2024
-- **New feature** - Guardrails with Agents.
-
-### May 9, 2024
-- **New feature** - Modifiable inference parameters for Knowledge Base responses.
-
-### May 7, 2024
-- **New model** - Amazon Titan Text Premier.
-- **New feature** - Bedrock Studio (Preview).
-
-### May 2, 2024
-- **New feature** - Provisioned Throughput with Agent alias.
-
-### May 1, 2024
-- **Region expansion** - Europe (Ireland) and Asia Pacific (Mumbai).
-- **Feature update** - MongoDB Atlas vector index support.
-
-### April 30, 2024
-- **New model** - Titan Embeddings Text V2.
-- **Model support** - Provisioned Throughput for AI21 Jurassic-2 Ultra.
-
-### April 29, 2024
-- **New models** - Cohere Command R and Command R+.
-
-### April 23, 2024
-- **New feature** - Custom model import.
-- **New feature** - Agent return control before Lambda invocation.
-- **New feature** - Action group definition by required parameters.
-- **New feature** - Document chat (eRAG).
-- **Feature update** - Multiple data sources in Knowledge Bases.
-- **New feature** - Amazon Bedrock Guardrails to implement safeguards to block harmful content in model inputs and responses.
-
-### April 16, 2024
-- **New model** - Claude 3 Opus.
-
-### April 9, 2024
-- **Region expansion** - Asia Pacific (Sydney).
-
-### April 5, 2024
-- **New feature** - CloudFormation support for Agents and Knowledge Bases.
-
-### April 4, 2024
-- **Region expansion** - Europe (Paris).
-- **Model support** - Claude 3 Haiku for Knowledge Base response generation.
-
-### April 3, 2024
-- **New model** - Mistral Large.
-
-### March 29, 2024
-- **New feature** - Provisioned Throughput with no commitment.
-- **Model support** - Provisioned Throughput expansion (Claude 3 Sonnet, Haiku, Embed models).
-
-### March 28, 2024
-- **New feature** - VPC endpoint for OpenSearch Serverless access.
-
-### March 27, 2024
-- **New feature** - Document metadata and filtering in Knowledge Bases.
-
-### March 26, 2024
-- **Feature update** - Prompt templates for Knowledge Base customization.
-
-### March 25, 2024
-- **Model support** - Claude 3 Sonnet for Knowledge Base response generation.
-
-### March 20, 2024
-- **New feature** - Agent latency optimization.
-
-### March 13, 2024
-- **New model** - Claude 3 Haiku.
-
-### March 4, 2024
-- **New models** - Mistral AI models.
-
-### March 1, 2024
-- **New feature** - Customizable search strategy for Knowledge Bases.
-
-### February 28, 2024
-- **New feature** - Watermark detection in Titan Image Generator.
-
-### February 14, 2024
-- **New feature** - AWS PrivateLink for Agent Build-time service.
-
-### February 9, 2024
-- **Feature update** - IAM role flexibility for Knowledge Bases.
-
-### February 2, 2024
-- **Model status** - Stable Diffusion XL v0.8 in legacy status.
-
-### January 25, 2024
-- **Documentation update** - Code examples chapter added.
-
-### January 24, 2024
-- **Feature update** - Production/non-production options for OpenSearch Serverless.
-
-### January 18, 2024
-- **New feature** - Real-time trace viewing in Agent test window.
-
-### January 17, 2024
-- **Model support** - Cohere Embed models for Knowledge Base embedding.
-
-### December 27, 2023
-- **Model support** - Claude 2.1 for Agents and Knowledge Bases.
-
-### December 21, 2023
-- **Region expansion** - AWS GovCloud (US-West).
-- **New feature** - Amazon Aurora vector store support.
-
-### December 12, 2023
-- **New policies** - AmazonBedrockFullAccess and AmazonBedrockReadOnly.
-
-### November 29, 2023
-- **New feature** - Model version monitoring and customization.
-- **New models** - Titan Image Generator G1 V1, Titan Multimodal Embeddings G1.
-
-### November 28, 2023
-- **New feature** - Continued pre-training for custom models.
-- **New feature** - Retrieve and RetrieveAndGenerate APIs for Knowledge Bases.
-- **General release** - Amazon Bedrock Knowledge Bases.
-- **General release** - Amazon Bedrock Agents.
-- **Feature update** - Cohere and Meta model customization.
-
-### November 13, 2023
-- **Documentation localization** - Japanese and German translations available.
-
-### October 20, 2023
-- **Region expansion** - Europe (Frankfurt).
-
-### October 3, 2023
-- **Region expansion** - Asia Pacific (Tokyo).
-
-### September 28, 2023
-- **Gated general release** - Gated general release of the Amazon Bedrock service.
+# Amazon Bedrock User Guide - Document History
+
+## Latest Update: November 26th, 2025
+
+## Complete Document History (Chronological - Most Recent First)
+
+### February 2026
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Feb 27, 2026 | Converse API support for batch inference | Use Converse API format for batch inference input data with consistent request format across models |
+| Feb 17, 2026 | Fine-tuning open-weight models with OpenAI-compatible APIs | Support for reinforcement fine-tuning via Files API, fine-tuning jobs APIs, and inference APIs |
+
+### December 2025
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Dec 31, 2025 | Service tiers model support | Updated list of models for priority and flex service tiers |
+| Dec 18, 2025 | Blueprint instruction optimization | Data Automation supports optimization for document accuracy with ground truth labels |
+| Dec 3, 2025 | New managed IAM policies | AmazonBedrockMantleFullAccess, AmazonBedrockMantleReadOnly, AmazonBedrockMantleInferenceAccess |
+| Dec 3, 2025 | Amazon Bedrock Mantle | OpenAI-compatible API endpoints (Responses API, Chat Completions API) for asynchronous inference, stateful conversation management, and tool use |
+| Dec 3, 2025 | Reinforcement fine-tuning | New capability to improve foundation model performance through feedback signals |
+| Dec 3, 2025 | Reserved service tier | New service tier for Bedrock inference |
+
+### November 2025
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Nov 26, 2025 | Reserved service tier | New "Reserved" service tier for Bedrock inference |
+| Nov 24, 2025 | Claude Opus 4.5 | New model support - Anthropic Claude Opus 4.5 |
+| Nov 21, 2025 | Cross-account guardrails sharing | Share guardrails across AWS organization accounts |
+| Nov 20, 2025 | Data Automation synchronous invocation | Amazon Bedrock Data Automation supports synchronous API calls |
+| Nov 19, 2025 | Custom model import expansion | OpenAI GPT-OSS models now supported |
+| Nov 19, 2025 | Guardrails Standard tier coding support | Enhanced support for coding use cases with improved content filters and prompt attack detection |
+| Nov 18, 2025 | Priority and flex service tiers | New on-demand inference service tiers |
+| Nov 18, 2025 | Region expansion | Africa (Cape Town), Asia Pacific (New Zealand), Canada West (Calgary), Mexico (Central), Middle East (Bahrain) |
+| Oct 31, 2025 | PostgreSQL text search | Use 'english' instead of 'simple' dictionary for Aurora Knowledge Base integration |
+| Oct 30, 2025 | Claude 3.7 Sonnet legacy status | Migration deadline: April 28, 2026 |
+
+### October 2025
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Oct 28, 2025 | Stability AI Image Services | Outpaint and upscale capabilities |
+| Oct 16, 2025 | Model customization stacking | Use previously customized models as base for further customization |
+| Oct 15, 2025 | Claude Haiku 4.5 | New model support |
+| Oct 15, 2025 | Default model access | All foundation models enabled by default with correct IAM permissions |
+| Oct 9, 2025 | Guardrails region expansion | Cross-region inference in 5 additional regions |
+| Oct 7, 2025 | AmazonBedrockFullAccess policy update | Enables access to all serverless foundation models by default |
+| Oct 3, 2025 | Batch inference model support | DeepSeek V3.1, Qwen3 32B, Qwen3 235B, Qwen3-Coder models |
+| Oct 2, 2025 | Cohere Embed v4 | New embedding model |
+
+### September 2025
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Sep 30, 2025 | Qwen3 model import | Custom model import now supports Qwen3 |
+| Sep 30, 2025 | Cohere Rerank 3.5 | Available in US East (N. Virginia) |
+| Sep 29, 2025 | Guardrails Melbourne GA | Generally available with cross-region inference |
+| Sep 29, 2025 | Claude Sonnet 4.5 | New model release |
+| Sep 26, 2025 | Region expansion | Thailand, Taipei, Malaysia, UAE, Tel Aviv |
+| Sep 26, 2025 | Flows enhancements | Trace enhancements and DoWhile loop node functionality |
+
+### August 2025
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Aug 25, 2025 | Data Automation region expansion | AWS GovCloud (US-West) |
+| Aug 25, 2025 | Data Automation languages | Portuguese, French, Italian, Spanish, German support |
+| Aug 21, 2025 | Token counting | Estimate token count for some models |
+| Aug 14, 2025 | TwelveLabs Pegasus 1.2 | Region expansion to US East (N. Virginia) and Asia Pacific (Seoul) |
+| Aug 11, 2025 | Guardrails US West expansion | Supported in US West (N. California) |
+| Aug 5, 2025 | OpenAI gpt-oss models | gpt-oss-20b and gpt-oss-120b support |
+| Aug 5, 2025 | Guardrails automated reasoning | Validate accuracy of foundation model responses |
+| Jul 31, 2025 | Melbourne region | Asia Pacific (Melbourne) support |
+
+### July 2025
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Jul 31, 2025 | Claude Opus 4.1 | New model support |
+| Jul 29, 2025 | Batch inference model support | US Amazon Nova Premier inference profile |
+| Jul 28, 2025 | US West expansion | US West (N. California) region support |
+| Jul 28, 2025 | Data Automation file types | DOC/DOCX and H.265 support |
+| Jul 16, 2025 | Data Automation regions | Frankfurt, London, Ireland, Mumbai, Sydney |
+| Jul 16, 2025 | Amazon Nova SageMaker import | Import SageMaker AI-trained models as custom models |
+| Jul 16, 2025 | Custom model on-demand deployment | Deploy custom models for pay-per-token inference |
+| Jul 15, 2025 | TwelveLabs models | TwelveLabs Pegasus 1.2 and Marengo Embed 2.7 |
+| Jul 7, 2025 | Claude 3.7 Sonnet GovCloud | AWS GovCloud (US-West) support |
+| Jul 7, 2025 | New managed policies | AmazonBedrockLimitedAccess, AmazonBedrockMarketplaceAccess |
+| Jul 7, 2025 | API keys | Create API keys for easy authentication |
+| Jul 3, 2025 | Intelligent prompt routing GovCloud | AWS GovCloud (US-West) and (US-East) support |
+| Jul 3, 2025 | Meta Llama 4 models | Scout 17B and Maverick 17B Instruct for batch inference |
+| Jul 1, 2025 | Prompt management regions | Milan, Spain, Hyderabad, Osaka |
+| Jul 1, 2025 | Flows region expansion | Milan, Spain, Hyderabad, Osaka |
+| Jun 26, 2025 | Knowledge Bases regions | Hyderabad, Osaka, Milan, Spain |
+
+### June 2025
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Jun 23, 2025 | Guardrails safeguard tiers | Performance and language options for content filters, prompt attacks, denied topics |
+| Jun 19, 2025 | Inline code nodes (Preview) | Run code directly in flows |
+| Jun 19, 2025 | Flow executions (Preview) | Run flows for longer durations |
+
+### May 2025
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| May 28, 2025 | Claude Sonnet 4 & Opus 4 | New model availability |
+| May 22, 2025 | Data Automation custom output | Videos support |
+| May 16, 2025 | Video blueprints | Data Automation blueprint support for videos |
+| May 13, 2025 | Guardrails cross-region inference | Cross-region inference capability |
+| May 12, 2025 | Qwen model import | Qwen2, Qwen2.5, Qwen2-VL, Qwen2.5-VL support |
+| May 5, 2025 | Audio custom blueprints | Data Automation supports custom blueprints for audio |
+
+### April 2025
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Apr 28, 2025 | Meta Llama 4 models | Scout 17B and Maverick 17B Instruct |
+| Apr 28, 2025 | Writer Palmyra models | X4 and X5 versions |
+| Apr 25, 2025 | S3 document/image references | InvokeModel and Converse APIs support Amazon Nova with S3-stored assets |
+| Apr 25, 2025 | Data Automation modality routing | Hyperlink support added |
+| Apr 22, 2025 | Intelligent prompt routing GA | General availability |
+| Apr 10, 2025 | Knowledge Bases metadata | Aurora user-provided metadata and MongoDB hybrid search |
+| Apr 9, 2025 | Custom model import | Europe (Frankfurt) region support |
+| Apr 8, 2025 | Pixtral Large | Model (25.02) support |
+| Apr 7, 2025 | Guardrails harmful content handling | New options for harmful content detection |
+| Apr 4, 2025 | Batch inference GovCloud | Amazon Nova Lite/Pro/Micro in AWS GovCloud (US-West) |
+| Apr 2, 2025 | Batch inference regions | Claude 3.5 Sonnet V2 in multiple Asia Pacific and European regions |
+
+### March 2025 and Earlier
+
+| Date | Feature | Description |
+|------|---------|-------------|
+| Mar 27, 2025 | Provisioned Throughput | Amazon Nova Canvas, 24k context windows |
+| Mar 27, 2025 | OpenSearch Managed Clusters | Vector store support |
+| Mar 27, 2025 | Flow templates | Template-based flow creation |
+| Mar 25, 2025 | Amazon Bedrock Studio | Moved to Amazon SageMaker Unified Studio |
+| Mar 18, 2025 | Guardrails IAM condition key | Enforce specific guardrails via IAM |
+| Mar 14, 2025 | Regions | Europe (Milan) and Europe (Spain) |
+| Mar 13, 2025 | Knowledge Bases structured data | Cross-region inference with structured data retrieval |
+| Mar 13, 2025 | Intelligent prompt routing | Preview with configured prompt routers |
+| Mar 10, 2025 | DeepSeek-R1 | New model |
+| Mar 10, 2025 | Agent computer use | Configure agents for computer use tools |
+| Mar 7, 2025 | GraphRAG GA | Generally available with additional capabilities |
+| Mar 3, 2025 | Data Automation GA | Generally available with increased accuracy and CRIS |
+| Mar 3, 2025 | Stockholm region | Europe (Stockholm) support |
+| Feb 27, 2025 | Session management | Manage state for open-source framework applications |
+| Feb 24, 2025 | Claude 3.7 Sonnet | New model |
+| Feb 21, 2025 | Hyderabad & Osaka regions | Asia Pacific expansion |
+| Jan 23, 2025 | Luma Ray v2 | New model |
+| Jan 22, 2025 | Multi-turn agent invocation | Converse with agent nodes in flows |
+| Dec 3, 2024 | Multi-agent collaboration | Multiple agents collaboratively planning |
+| Dec 3, 2024 | Model distillation | Knowledge transfer from teacher to student models |
+| Sep 28, 2023 | Gated GA | Amazon Bedrock service launch |

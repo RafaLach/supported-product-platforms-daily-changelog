@@ -1,9 +1,7 @@
-Source: ServiceNow Documentation
-URL: https://www.servicenow.com/docs/
-Fetched: 2026-03-22
+# ServiceNow Documentation Portal
 
-# ServiceNow Documentation
+## Note
+The ServiceNow documentation portal (servicenow.com/docs/) requires JavaScript rendering and does not return substantive content via static fetch. The page loads dynamically and could not be scraped.
 
-Page requires JavaScript rendering; content not fully accessible via static fetch.
-ServiceNow documentation portal detected but content could not be extracted.
-Manual review recommended at: https://www.servicenow.com/docs/
+## Last Fetch Attempt
+2026-03-22 - Page returned loading screen only.

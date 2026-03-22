@@ -1,77 +1,119 @@
 [
   {
     "date": "2026-03-22",
-    "scan_time": "2026-03-22 11:54",
+    "scan_time": "2026-03-22 12:24",
     "file": "report-2026-03-22.md",
     "platforms": [],
-    "aidr": [],
+    "aidr": [
+      {
+        "severity": "HIGH",
+        "title": "Amazon Bedrock Server-Side Tools",
+        "description": "AgentCore Gateway tools execute server-side without client orchestration \u2014 activity monitoring loses client-side visibility",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Anthropic Memory tool multi-platform expansion",
+        "description": "Agents persist/recall info across sessions on Bedrock, Vertex AI, Azure AI \u2014 persistent data exposure vectors",
+        "source": "https://platform.claude.com/docs/build-with-claude/overview",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Cursor Composer 2",
+        "description": "Proprietary frontier-level coding model with token-based pricing \u2014 new model type in AI coding endpoint",
+        "source": "https://cursor.com/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ],
     "aispm": [
       {
         "severity": "HIGH",
-        "title": "Vertex AI Claude 3 Haiku shutdown scheduled **August 23, 2026**",
-        "description": "identify all deployments and plan migration",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "title": "Copilot Studio Work IQ tools (Preview)",
+        "description": "Agents access real-time M365 files, emails, meetings, chats via Work IQ service \u2014 new inventory entities and data flow vectors",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-work-iq",
         "module": "AISPM",
-        "action": "Action Required"
+        "action": "New Coverage Required"
       },
       {
         "severity": "HIGH",
-        "title": "Vertex AI Claude 3.5 Haiku shutdown scheduled **July 5, 2026**",
-        "description": "earlier deadline than Claude 3 Haiku",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "title": "Amazon Bedrock six new open-weight models",
+        "description": "DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next \u2014 inventory must map these model deployments",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
         "module": "AISPM",
-        "action": "Action Required"
+        "action": "New Coverage Required"
       },
       {
         "severity": "HIGH",
-        "title": "Vertex AI Explainable AI deprecated (March 16, 2026)",
-        "description": "flag workflows still using this service",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "title": "Bedrock AgentCore new framework support",
+        "description": "Google ADK and OpenAI Agents SDK now supported alongside CrewAI, LangGraph, LlamaIndex, Strands",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
         "module": "AISPM",
-        "action": "Action Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Vertex AI Veo video generation preview endpoints deprecated",
-        "description": "must migrate by **April 2, 2026**",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
-        "module": "AISPM",
-        "action": "Action Required"
+        "action": "New Coverage Required"
       }
     ],
-    "endpoint": [],
+    "endpoint": [
+      {
+        "severity": "HIGH",
+        "title": "Cursor Composer 2",
+        "description": "Proprietary frontier-level coding model with token-based pricing \u2014 new model type in AI coding endpoint",
+        "source": "https://cursor.com/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ],
     "findings": [
       {
         "severity": "HIGH",
-        "title": "Vertex AI Claude 3 Haiku shutdown scheduled **August 23, 2026**",
-        "description": "identify all deployments and plan migration",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "title": "Copilot Studio Work IQ tools (Preview)",
+        "description": "Agents access real-time M365 files, emails, meetings, chats via Work IQ service \u2014 new inventory entities and data flow vectors",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-work-iq",
         "module": "AISPM",
-        "action": "Action Required"
+        "action": "New Coverage Required"
       },
       {
         "severity": "HIGH",
-        "title": "Vertex AI Claude 3.5 Haiku shutdown scheduled **July 5, 2026**",
-        "description": "earlier deadline than Claude 3 Haiku",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "title": "Amazon Bedrock six new open-weight models",
+        "description": "DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next \u2014 inventory must map these model deployments",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
         "module": "AISPM",
-        "action": "Action Required"
+        "action": "New Coverage Required"
       },
       {
         "severity": "HIGH",
-        "title": "Vertex AI Explainable AI deprecated (March 16, 2026)",
-        "description": "flag workflows still using this service",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
-        "module": "AISPM",
-        "action": "Action Required"
+        "title": "Amazon Bedrock Server-Side Tools",
+        "description": "AgentCore Gateway tools execute server-side without client orchestration \u2014 activity monitoring loses client-side visibility",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
       },
       {
         "severity": "HIGH",
-        "title": "Vertex AI Veo video generation preview endpoints deprecated",
-        "description": "must migrate by **April 2, 2026**",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
+        "title": "Anthropic Memory tool multi-platform expansion",
+        "description": "Agents persist/recall info across sessions on Bedrock, Vertex AI, Azure AI \u2014 persistent data exposure vectors",
+        "source": "https://platform.claude.com/docs/build-with-claude/overview",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Bedrock AgentCore new framework support",
+        "description": "Google ADK and OpenAI Agents SDK now supported alongside CrewAI, LangGraph, LlamaIndex, Strands",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
         "module": "AISPM",
-        "action": "Action Required"
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Cursor Composer 2",
+        "description": "Proprietary frontier-level coding model with token-based pricing \u2014 new model type in AI coding endpoint",
+        "source": "https://cursor.com/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
       }
     ]
   },

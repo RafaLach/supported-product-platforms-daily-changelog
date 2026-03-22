@@ -1,20 +1,41 @@
-Source: OpenAI Status & Incidents
-URL: https://status.openai.com/history.rss
-Fetched: 2026-03-22
+# OpenAI Status Page
+Last Updated: Sunday, March 22, 2026, 10:12:28 GMT
 
-# OpenAI Status - Recent Incidents
+## Recent Incidents (All Resolved)
 
-## March 2026 (All Resolved)
-- Mar 21: Pinned chats not loading on web browsers for ChatGPT - Conversations component affected
-- Mar 18: Sora Video Generation Failing - video generation error rates returned to normal
-- Mar 17: Excel Plugin Inaccessibility - all impacted services recovered (Connectors/Apps)
-- Mar 17: ChatGPT 5.4 Pro High Error Rates - all impacted services recovered (Conversations)
-- Mar 17: Sign-In and Account Creation Issues - all impacted services recovered (Login/Auth)
-- Mar 17: Elevated Errors for ChatGPT Free and Guest Plan Users - resolved
-- Mar 13: Responses API errors during background mode usage - resolved
-- Mar 13: Conversation errors affecting logged-out users - resolved
+1. **Pinned chats loading failure** (March 21, 2026)
+   - Affected: Conversations component
+   - Status: "All impacted services have now fully recovered"
 
-## Affected Components (Historical)
-Common affected areas: Conversations, Video generation, Login, File uploads, Image Generation, Deep Research, Codex, Search, Audio, Realtime API, Batch processing, Fine-tuning, Embeddings, GPTs, Voice mode, Sora, Compliance API, Responses, Moderations, Connectors/Apps, ChatGPT Atlas, Agent systems.
-All documented incidents show Resolved status.
-Feed generated: March 22, 2026
+2. **Sora video generation errors** (March 18, 2026)
+   - Affected: Video generation component
+   - Status: "Video generation error rates have returned to normal levels"
+
+3. **Excel Plugin accessibility** (March 17, 2026)
+   - Affected: Connectors/Apps component
+
+## Service Components Mentioned
+
+- Conversations
+- Login/Authentication
+- File uploads/downloads
+- Image Generation (DALL-E, Images)
+- Video generation (Sora)
+- Codex
+- Chat Completions
+- Embeddings
+- Fine-tuning
+- Moderations
+- Batch processing
+- Audio
+- Realtime API
+- GPTs
+- Connectors/Apps
+- Deep Research
+- Search functionality
+- Voice mode
+- Agent
+- Responses API
+- ChatGPT Atlas
+- Compliance API
+- Feed

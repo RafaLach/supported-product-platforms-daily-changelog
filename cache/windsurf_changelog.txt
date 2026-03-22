@@ -1,51 +1,94 @@
-Source: Windsurf Changelog
-URL: https://windsurf.com/changelog
-Fetched: 2026-03-22
+# Windsurf Editor Changelog - Comprehensive Summary
 
-# Windsurf Changelog
+## Latest Versions & Features
 
-## March 2026
-- Mar 19 (v1.9577.43): Fixed Mac x64 build issues
-- Mar 19 (v1.9577.42): Various stability and performance enhancements
-- Mar 17: GPT-5.4 Mini now available at 1x credits (promotional pricing)
-- Mar 12 (v1.9577.27): Fixed compatibility with Apple M5 processors
-- Mar 9 (v1.9577.24): Cascade Jupyter Notebook performance enhancements, Diff Zone fixes, SKILL.md loading from .windsurf/skills/ directory, AGENTS.md fix, MCP system-level Skills via MDM for Enterprise, improved SSH/Remote performance, improved autocomplete error handling, agent panel crash fixes, improved Cascade UI rendering performance, improved notifications for model price changes, improved context management for MCP servers
-- Mar 5: GPT-5.4 released with tiered reasoning pricing (No Reasoning 1x, Low 1x, Medium 2x, High 3x, Extra High 8x)
+**Current Release (March 19, 2026): Version 1.9577.43**
+- Mac x64 build fixes
 
-## February 2026
-- Feb 26 (v1.9566.11): Extension installation fixes
-- Feb 25 (v1.9566.9): New model picker with family grouping and reasoning toggles, Cascade hooks enhancements (POST_CASCADE_RESPONSE_WITH_TRANSCRIPT hook), MCP refresh/OAuth auto-trigger, Linux ARM64 support, VS Code 1.108 merge, windsurf.cascade.readClaudeCodeConfig flag
-- Feb 21 (v1.9552.25): GitHub PR extension compatibility fix
-- Feb 19: Gemini 3.1 Pro available (Low Thinking 0.5x, High Thinking 1x)
-- Feb 17: Claude Sonnet 4.6 released (No thinking 2x, With thinking 3x); GLM-5 (0.75x) and Minimax M2.5 (0.25x) added; Windows self-update fix; macOS UI flickering fix (v1.9552.24)
-- Feb 12 (v1.9552.21): Plan Mode auto-switching, Skills directory, Linux ARM64 full support, Cascade Hooks cloud config for enterprise
-- Feb 4 (v1.9544.35): GPT-5.3-Codex-Spark in Arena Mode, Claude Opus 4.6 research preview
+**Major Recent Releases:**
+- **1.9577.42** (March 19): Performance improvements
+- **1.9577.27** (March 12): Apple M5 support fix
+- **1.9577.24** (March 9): Cascade improvements, MCP enhancements, Jupyter Notebook optimizations
 
-## January 2026
-- Jan 30 (v1.9544.24): Wave 14 — Arena Mode, Plan Mode, Battle Groups, leaderboards
-- Jan 27-16: GPT-5.2-Codex, Agent Skills, Windows Group Policy management
+## Model Availability
 
-## December 2025
-- Dec 27: Gemini 3 Flash
-- Dec 24 (Wave 13): SWE-1.5 Free model, Git worktree support, Multi-Cascade panes, Cascade Dedicated Terminal (Beta), Cascade Hooks, System-level Rules/Workflows via MDM
+**Recently Added Models:**
+- GPT-5.4 Mini (promotional pricing starting at 1x credits)
+- GPT-5.4 (limited-time promotional pricing)
+- Gemini 3.1 Pro (0.5x-1x credits)
+- Claude Sonnet 4.6 (2-3x credits)
+- GLM-5 & Minimax M2.5 (0.75x and 0.25x credits respectively)
+- Claude Opus 4.6 & fast mode variants
+- GPT-5.2-Codex with reasoning effort options
+- SWE-1.5 Free (available for 3 months)
+- Gemini 3 Flash
 
-## Key Models Available
-GPT-5 series (including GPT-5.4 Mini, GPT-5.4, GPT-5.2-Codex, GPT-5.3-Codex-Spark), Claude Sonnet 4.5/4.6, Claude Opus 4.5/4.6, Gemini 2.5/3/3.1, SWE-1.5, DeepSeek, GLM-5, Minimax M2.5
+## Core Features
 
-## Deprecated/Removed Features
-- Windsurf Browser: deprecated September 11, 2025
-- Knowledge Base feature: removed
-- Legacy Mode: removed (Write and Chat modes remain)
-- Autocomplete setting: removed as legacy option
-- Flow Action Credits pricing model: eliminated April 2025
+**Cascade Agent:**
+- Plan Mode for implementation planning
+- Git worktree support for parallel sessions
+- Multi-cascade panes and tabs for side-by-side monitoring
+- Cascade Hooks for custom command execution
+- Context window indicator showing usage levels
+- Auto-continue setting for extended responses
+- Terminal command editing capabilities
 
-## Enterprise Features
-- Cloud configuration for Cascade Hooks
-- Devin service key authentication
-- Organization-wide allow/deny command lists for auto-execution
-- System-level Skill definitions via MDM-managed configs
-- Team conversation sharing (Teams/Enterprise SaaS)
+**Arena Mode:**
+Comparative evaluation through "side-by-side model comparison with hidden identities" and voting systems, featuring Battle Groups and leaderboards.
+
+**Advanced Capabilities:**
+- Voice input support
+- MCP (Model Context Protocol) server integration
+- Web/docs search functionality
+- Memories system for context retention
+- Codemaps for codebase visualization
+- Vibe and Replace for intelligent find-and-replace
+- Fast Context powered by SWE-grep (20x faster, 2,800+ tokens/second)
+
+## Enterprise & Team Features
+
+- MDM-managed system-level Skill definitions
+- Team conversation sharing with secure URLs
 - Windsurf Reviews GitHub app integration
-- Knowledge base curation via Google Docs
-- Netlify deployment integration
-- Windows Group Policy management
+- Knowledge curation via Google Docs
+- Cascade Hooks cloud configuration
+- Team-wide command allow/deny lists
+- Windows Group Policy administration support
+
+## Platform Improvements
+
+- Linux ARM64 support with deb/rpm packaging
+- Dev Container support (Windows beta, Mac/Linux available)
+- Remote SSH improvements
+- WSL compatibility enhancements
+- VS Code 1.108 base merge
+
+## UI/UX Enhancements
+
+- Redesigned model picker with family grouping
+- New announcement notification system
+- Improved Cascade panel rendering
+- Theme-aware code blocks
+- Sticky scroll lag fixes
+- Terminal rendering optimization
+
+## Developer Tools
+
+- Jupyter Notebook support improvements
+- Shell command auto-execution with safety lists
+- Deployment to Netlify via natural language
+- Commit message generation
+- Auto-linting for proposed code changes
+- File-based Rules system (.windsurf/rules)
+- Workflow creation and management
+
+## Known Fixes & Stability
+
+- Memory leak resolutions
+- SSH/remote performance improvements
+- Autocomplete error handling
+- RTL language rendering in todo lists
+- MCP OAuth authentication improvements
+- Vim extension typing lag resolution
+- PowerShell Turbo Mode compatibility

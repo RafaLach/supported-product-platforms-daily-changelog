@@ -1,54 +1,75 @@
-Source: Vertex AI Documentation
-URL: https://cloud.google.com/vertex-ai/docs
-Fetched: 2026-03-22
+# Vertex AI Documentation
 
-# Vertex AI Documentation Overview
+## Main Heading
+**Vertex AI** - A machine learning platform enabling training, deployment of ML models and AI applications, combining data engineering, science, and ML engineering workflows.
 
-## Core Description
-"Vertex AI is a machine learning (ML) platform that lets you train and deploy ML models and AI applications."
+## Primary Features & Services
 
-## Key Products & Features
+### Generative AI Solutions
+- **Gemini**: Google's multimodal generative AI model, to process images, videos, and text
+- **Generative AI**: Access to Google's generative models for testing, tuning, and deployment
+- **Model Garden**: Discovery and deployment platform for proprietary and open-source generative AI models
 
-**Generative AI Components:**
-- Gemini: "Google's multimodal generative AI model, to process images, videos, and text"
-- Model Garden for discovering and deploying generative AI models
-- Text and multimodal embeddings services
-- Imagen for image generation
-- Extensions and Studio interfaces
+### Training Capabilities
+- **AutoML Tabular**: Automated training for tabular data
+- **AutoML Image**: Classification and object detection
+- **Vertex AI Training**: Serverless custom training with persistent resources
+- **Training Clusters**: Slurm-based cluster management
+- **Ray on Vertex AI**: Distributed training framework
+- **Neural Architecture Search**: Automated architecture optimization
 
-**Training Solutions:**
-- AutoML for tabular, image, and forecasting tasks
-- Vertex AI serverless training
-- Vertex AI training clusters
-- Ray on Vertex AI for distributed training
-- Neural Architecture Search
-- Vertex AI Vizier for optimization
-- Deep Learning Containers and VM Images
+### MLOps & Workflow Management
+- **Vertex AI Pipelines**: ML workflow orchestration
+- **Model Registry**: Version control and model management
+- **Feature Store**: ML feature management and serving
+- **Experiments**: Model iteration and comparison
+- **TensorBoard**: Training visualization and profiling
 
-**MLOps & Management:**
-- Vertex AI Pipelines for workflow orchestration
-- Model Registry for version management
-- Feature Store for ML feature serving
-- Experiments and TensorBoard for tracking
-- Model Monitoring and Evaluation services
-- Explainable AI for model interpretation
+### Deployment & Inference
+- **Vertex AI Inference**: Online and batch prediction serving
+- **Vector Search 2.0**: Intelligent retrieval for AI applications
+- **Endpoints**: Public, private, and dedicated deployment options
+- **Model Monitoring**: Performance tracking and drift detection
 
-**Inference:**
-- Online and batch prediction endpoints
-- Vector Search capabilities
-- Support for custom and prebuilt containers
-- TPU and GPU acceleration options
+### Developer Tools
+- **Colab Enterprise**: Cloud-based notebook environment
+- **Vertex AI Workbench**: Managed and user-managed notebook instances
+- **Deep Learning Containers**: Pre-configured training environments
+- **Deep Learning VM Images**: GPU-optimized virtual machines
 
-## Development Tools
-- Colab Enterprise
-- Vertex AI Workbench (managed, user-managed, and instances)
-- Jupyter notebook support
-- Python SDK and APIs
+## Supporting Services
 
-## Notable Deprecations
-AutoML Text has been superseded: "Migrate from AutoML text to Gemini"
+### Data Management
+- Cloud Datasets
+- BigQuery integration
+- Cloud Storage integration
+- Data labeling and annotation
 
-## Additional Capabilities
-Vector Search 2.0 for intelligent retrieval, model evaluation for fairness, hyperparameter tuning, and comprehensive monitoring dashboards.
+### Evaluation & Analysis
+- **Explainable AI**: Feature attribution and model interpretability
+- **Model Evaluation**: Performance metrics and fairness assessment
+- **ML Metadata**: Experiment tracking and lineage
 
-**Last Updated:** February 5, 2026
+### Specialized AI Solutions
+**Vision & Document**: Vision AI, Document AI, OCR services
+**Language**: Translation API, Natural Language API
+**Search**: Enterprise Knowledge Graph, Retail Search, Vector Search
+**Conversation**: Dialogflow, Agent Assist, Speech-to-Text
+**Healthcare**: Healthcare API, NLP services
+**Finance**: Anti-Money Laundering AI
+**Contact Center**: Cloud Contact Center solutions
+
+## Key Technologies & Frameworks Supported
+- PyTorch and TensorFlow/Keras
+- NVIDIA Triton inference
+- Cloud TPUs
+- Spot and Flex-start VMs
+- Private Service Connect (PSC)
+
+## Regional & Governance Features
+- Multi-region deployment
+- VPC Service Controls
+- Customer-managed encryption keys (CMEK)
+- Organization policy constraints
+
+**Last Updated**: February 5, 2026

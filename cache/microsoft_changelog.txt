@@ -1,49 +1,48 @@
-Source: Microsoft Graph API Changelog
-URL: https://developer.microsoft.com/graph/changelog/
-Fetched: 2026-03-22
+# Microsoft Graph Changelog - Comprehensive Content Extract
 
-# Microsoft Graph Changelog
+## Page Structure
+The page is the **Changelog for Microsoft Graph** from the Microsoft Graph Dev Center, featuring a navigation menu with links to documentation, API references, SDKs, and support resources.
 
-## February 2026 - Permission Changes
-- `FileStorageContainerType.Manage.All` and `FileStorageContainerTypeReg.Manage.All` delegated permissions no longer require admin consent
-- `ThreatSubmission.Read` and `ThreatSubmission.ReadWrite` now require admin consent
+## Recent Changes (Chronological Summary)
 
-## Bicep Infrastructure-as-Code Support
-- User resource deployment via Bicep templates (January 30, 2025)
-- Application, federatedIdentityCredential, servicePrincipal resources
-- OAuth2PermissionGrant and appRoleAssignment resources
-- Group resource management through Bicep
+### February 2026
+- **Permissions updated**: `FileStorageContainerType.Manage.All` and `FileStorageContainerTypeReg.Manage.All` no longer require admin consent
+- **Threat Submission permissions**: `ThreatSubmission.Read` and `ThreatSubmission.ReadWrite` now require admin consent
 
-## Microsoft Graph Activity Logs
-- Activity logs now available in China operated by 21Vianet (December 16, 2024)
+### January 2025
+- **Bicep resource added**: Microsoft Graph Bicep resource for deploying the `user` resource type in infrastructure-as-code scenarios
 
-## Event Hubs Authentication Migration (Deprecation)
-- Change notifications via Azure Event Hubs will deprecate shared access signature (SAS) authentication
-- Organizations should migrate to Microsoft Entra ID role-based access control (RBAC)
+### December 2024
+- **Microsoft Graph activity logs**: Now available in China operated by 21Vianet
 
-## Lifecycle Workflows Enhancements
-- Create operation now supports up to 100 workflows (increased from 50)
-- New resources: userInactivityTrigger, attributeChangeTrigger, groupBasedSubjectSet, membershipChangeTrigger
-- New insights resource with aggregate workflow health data
-- topTasksInsightsSummary, topWorkflowsInsightsSummary resources
-- New methods: topTasksProcessedSummary, topWorkflowsProcessedSummary, workflowsProcessedByCategory, workflowsProcessedSummary
-- activateWithScope method for scoped workflow activation
-- administrationScopeTargets relationship for workflowBase
-- activationScope resource types (activateGroupScope, activateRunScope, activateProcessingResultScope)
-- isEnabled and isSchedulingEnabled properties for workflow control
+### Recent Beta/Production Updates
+Multiple lifecycle workflow enhancements including:
+- `userInactivityTrigger` resource added
+- Workflow creation limit increased from 50 to 100
+- New insights resources: `topTasksInsightsSummary`, `workflowsInsightsSummary`
+- `activateWithScope` method added to workflow activation
+- Administration scope targets relationship added to workflows
 
-## Reports and Audit Logging
-- New alert types: samlSignInFailure and conditionalAccessBlockedSignIn members
-- microsoftRevokedSessions risk detail member
-- selfServiceSignUp resource for analyzing external ID requests
-- signUpIdentity, signUpStatus resources; signUpIdentifierType and signUpStage enumerations
-- Enhanced sign-in reporting: sessionId, appOwnerTenantId, resourceOwnerTenantId properties
-- agentSignIn resource with agentType enumeration supporting identity blueprint principals
-- 17 new protocol members (implicit flows, authorization code, client credentials, Kerberos, SSO, OBO grant types)
+### Identity Governance Resources Added
+- Task update operations
+- Workflow execution scope retrieval
+- Custom task extension support with callback configurations
+- Multiple enumeration types for workflow management
 
-## Authentication and Custom Extensions
-- customCalloutExtension resource
-- customExtensionAuthenticationConfiguration, customExtensionCallbackConfiguration
-- customExtensionOperationStatus enumeration
-- maximumRetries property for client configuration
-- emailSettings resource; azureAdPopTokenAuthentication support
+### Reports and Auditing Enhancements
+- Sign-up tracking: `selfServiceSignUp`, `signUpIdentity`, `signUpStatus` resources
+- Alert types expanded: "samlSignInFailure," "conditionalAccessBlockedSignIn"
+- Agent-related properties added to sign-in records
+- New protocol types in authentication enumeration
+
+### Applications & Service Principals
+Bicep resource templates added for: `application`, `federatedIdentityCredential`, `servicePrincipal`, `oAuth2PermissionGrant`, `appRoleAssignment`, `group`
+
+### Compliance Features
+eDiscovery API introduced with `ediscoveryCase`, `reviewSet`, `reviewSetQuery` resources
+
+### Schema Extensions
+Feature now available in Microsoft Cloud for US Government
+
+### Deprecations
+- Event Hubs shared access signature (SAS) authentication deprecated; migration to Microsoft Entra ID RBAC recommended

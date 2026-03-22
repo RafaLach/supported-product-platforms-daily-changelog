@@ -1,32 +1,33 @@
-Source: Dia Release Notes
-URL: https://diabrowser.com/release-notes
-Fetched: 2026-03-22
+# Dia Browser Release Notes - Latest (v1.23.0)
 
-# Dia Browser Release Notes
+## Release Information
+- **Version:** 1.23.0
+- **Release Date:** March 19, 2026, 5:00 PM ET
+- **Location:** Brooklyn, USA
+- **Issue Number:** 17
 
-## Issue #17 — March 19, 2026 (v1.23.0)
-"From review to merge to what's next."
-- GitHub Live Tab Groups: PR Status Celebrations — subtle animations signal transitions from in-progress to completed
-- GitHub Live Tab Groups: Automatic Cleanup — visible feedback when Dia cleans up related items on PR merge
-- GitHub Live Tab Groups: Recently Completed PR Preview — hover to preview and restore recently merged PRs
-- Enhanced Interactions: expressive animations for back, forward, and reload controls
+## Main Title
+"From review to merge to what's next"
 
-## Issue #16 — March 11, 2026 (v1.22.0)
-"Don't think about the next step. Take it."
-- Proactive Suggestions: AI-curated suggestions based on user activity
-- Performance improvements: addressed sluggishness and memory leaks
-- Profile switching via keyboard shortcuts (Ctrl+1, 2, 3)
-- Command Bar: direct routing to Chat and Google Search
+## Key Features Released
 
-## Issue #15 — March 5, 2026 (v1.21.0)
-"Before you reach for it..."
+### GitHub Live Tab Groups Improvements
+The update enhances previously shipped GitHub PR integration features with several refinements:
 
-## Issue #14 — February 26, 2026 (v1.20.0)
-"Little moments. Big feeling."
+1. **Celebration Animations** - "As you complete a review or merge a PR, you'll see subtle animations that signal the transition from in-progress to done"
 
-## Issue #13 — February 19, 2026 (v1.19.0)
-"Multiplying tabs? Dia keeps them in check"
-- Tab grouping and proactive suggestions
+2. **Automatic Cleanup** - When PRs merge, Dia automatically cleans up, providing visual confirmation of completion
 
-All releases emphasize AI-driven browsing, tab management, and performance optimization.
-Status: General Availability
+3. **Finished Work Recovery** - Users can hover to preview recently completed PRs and restore them to view
+
+### Visual Polish
+"A little delight along the way" - expressive animations added to basic browser controls (back, forward, reload buttons)
+
+## Additional Content
+- One Last Thing section featuring a team member's personal winemaking project update
+- Links to three previous releases (v1.22.0, v1.21.0, v1.20.0)
+
+## Navigation Elements
+- Download button/link available
+- "View All Release Notes" option provided
+- Footer with company links and social media references

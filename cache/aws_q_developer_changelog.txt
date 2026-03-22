@@ -1,423 +1,181 @@
-Source: Amazon Q Developer Doc History
-URL: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/doc-history.html
-Fetched: 2026-03-22
-
-# Document History for Amazon Q Developer User Guide
-
-## Most Recent Updates (February 2026 - Present)
-
-**February 18, 2026** - Updated account limit for subscriptions
-- You can now subscribe users in a maximum of 20 accounts per AWS Region, per organization (increased from 10)
-
-**January 16, 2026** - Deprecated code transformation for GitLab
-- Code transformation capabilities for Java modernization deprecated for GitLab Duo with Amazon Q Developer
-- `/q transform` quick action and CI/CD pipeline customization documentation removed
-
-**January 13, 2026** - Removed deprecated GitLab quick actions
-- Removed `/q dev (revise)` and Unit test generation section with `/q test` command from GitLab quick actions documentation
-
-**December 29, 2025** - Updated GitHub feature development workflow
-- Conversation-based feedback with `/q` command replaces traditional GitHub review process
-- Users provide feedback through natural language commands in pull request conversations
-
-**December 18, 2025** - Updated GitHub app installation registration steps
-- Updated steps for navigating Kiro and Amazon Q Developer shared console
-
-**December 15, 2025** - Deprecated code transformation for GitHub
-- Code transformation capabilities for Java modernization deprecated for Amazon Q Developer for GitHub
-
-**November 17, 2025** - Q CLI becomes Kiro CLI
-- The Q CLI has been renamed to Kiro CLI
-
-**October 29, 2025** - Removed IDE agent documentation
-- Agentic chat capabilities replaced `/dev`, `/doc/`, `/test`, and `/review` agents
-- Updated code review procedures in the IDE
-
-**October 21, 2025** - Multiple updates:
-- Added IDE memory bank documentation for generating memory banks for Amazon Q chat
-- Added Q CLI feature documentation including agent creation, prompt management, message responses, and project rules
-- Placeholder content entry
-
-**September 23, 2025** - Enhanced context management documentation
-- Added guidance for choosing the right context approach with comparison table and decision flowchart
-
-**September 18, 2025** - Added Q CLI v1.16.0 feature documentation
-- Agent default behavior with priority-based selection
-- Legacy MCP configuration support
-- New chat commands: `/tangent tail`, `/changelog`
-- Agent-related settings documentation
-
-**September 17, 2025** - Multiple updates:
-- Context hooks deprecated in favor of agent hooks
-- Added remote MCP server support with OAuth authentication
-- Added built-in tools configuration documentation
-
-**September 9, 2025** - Multiple updates:
-- Removed Amazon S3 buckets from allowlist table for software development and unit test generation
-- New command line tool for transformation version with bug fixes
-
-**September 2, 2025** - Updated Amazon Q Developer for GitHub review agent
-- Code reviews include summary with threaded findings
-- Added prerequisites: Write, Maintain, or Admin role required in GitHub
-
-**August 21, 2025** - Disabling MCP
-- Organizations can now disable MCP
-
-**August 19, 2025** - Updated proxy topic
-- Proxy Auto-Configuration (PAC) files are not supported
-
-**August 15, 2025** - Multiple updates:
-- Added comprehensive troubleshooting documentation
-- Added log access and analysis guide
-- Updated deployment options topic (max 10 accounts per region)
-
-**August 7, 2025** - Added command line transformation job history
-- New `qct history` command documentation
-
-**August 6, 2025** - Added IDE transformation job history topic
-- Users can view, manage, and retrieve artifacts from recent Java transformation jobs in VSCode
-
-**August 5, 2025** - GitLab self-managed instance update
-- Requires GitLab 17.11.0 or later
-
-**August 1, 2025** - Added code review procedures
-- Procedures for running code reviews and addressing code issues using agentic chat in VSCode
-
-**July 31, 2025** - Multiple updates:
-- Added model selection for IDE chat with available models list
-- Added keyboard shortcuts topic across different IDEs and platforms
-- Added custom agents feature documentation
-- Added chat history compaction topic for context window management
-
-**July 30, 2025** - Added chat history compaction topic
-
-**July 24, 2025** - Added profile deletion topic
-- Deleting the Amazon Q Developer profile documentation
-
-**July 21, 2025** - Added opt out steps for telemetry
-- Instructions for opting out of telemetry collection while using command line tool for transformation
-
-**July 16, 2025** - Added GitHub workflow for first-party dependencies
-- New documentation page for handling first-party dependencies
-
-**July 15, 2025** - Multiple updates:
-- Updated user activity report metrics with inline chat feature metrics
-- Updated proxy configuration for Eclipse, JetBrains, and Visual Studio
-
-**July 9, 2025** - Image context support added to IDE chat
-- Users can include images when prompting (UI mockups, sequence diagrams, etc.)
-
-**July 7, 2025** - Updated Builder ID upgrade section
-- Cannot link multiple Builder IDs to single AWS account
-
-**July 2, 2025** - Updated profile sharing section
-- Clarified purpose and removed incorrect statement about override behavior
-
-**June 30, 2025** - Added slash commands details to GitHub
-- `/q` slash commands for feature development, code reviews, code transformation, and help
-
-**June 26, 2025** - Multiple updates:
-- Added QCT CLI details in IDEs (security, pausing/canceling, new parameters, LLM summary)
-- QCT CLI now supports `https://q.eu-central-1.amazonaws.com/`
-- New content for creating project rules in GitLab and GitHub
-
-**June 25, 2025** - Multiple updates:
-- Updated KMS policy with `kms:Decrypt`, `kms:DescribeKey`, `kms:Encrypt`, `kms:GenerateDataKey`
-- Added proxy configuration instructions for Visual Studio Code
-
-**June 24, 2025** - Multiple updates:
-- User activity reports generated at midnight UTC in files with 1,000 users each
-- Updated Amazon S3 bucket section (v1.72.0+ doesn't require allowlisting)
-- Rebranded Amazon Q Developer operational investigations to CloudWatch investigations
-
-**June 19, 2025** - Updated GitHub feature development and code transformation
-- Can be invoked using slash commands in comments within issues
-
-**June 18, 2025** - Multiple updates:
-- Rules button added to VS Code IDE chat for creating/managing project rules
-- Pinned context support added to VS Code for maintaining context across interactions
-
-**June 17, 2025** - Multiple updates:
-- Updated code transformation details (source/target versions, library upgrades)
-- Chat about network security capability added
-
-**June 13, 2025** - Added data storage topic
-- Information about where content is stored
-
-**June 12, 2025** - MCP in the IDE
-- MCP servers can be used with Amazon Q Developer in the IDE
-
-**June 11, 2025** - Personal account upgrade
-- Builder IDs can upgrade to Pro tier
-
-**June 9, 2025** - Multiple updates:
-- Updated subscription statuses documentation
-- Support for specifying dependencies for CLI transformations with dependency upgrade file
-- Expanded command line reference with argument details
-- Model selection for command line chat
-
-**June 5, 2025** - Multiple updates:
-- Chat context support expanded to JetBrains, Visual Studio, and Eclipse IDEs
-- Agentic chat available in all supported IDEs
-
-**June 2, 2025** - Multiple updates:
-- Updated GitHub code review details (slash commands in PR comments)
-- Cost optimization capabilities in chat
-
-**May 22, 2025** - Updated firewall page
-- Added/updated URLs for firewall configuration
-
-**May 21, 2025** - MCP configuration commands
-- Commands to configure MCP servers from non-Q command line
-
-**May 16, 2025** - Updated customization policy topic
-- Permission errors may occur when creating customization policy
-
-**May 15, 2025** - Multiple updates:
-- Updated GitHub/GitLab code review behavior (triggered on new/reopened PRs/MRs, not subsequent commits)
-- Updated VPC endpoints
-- Improved MCP server loading (background loading)
-- Added image support in chat using `fs_read` tool
-- Added conversation persistence with `/export` and `/import` commands
-- Updated managed policies (AmazonQFullAccess, AmazonQDeveloperAccess)
-
-**May 14, 2025** - Multiple updates:
-- Support for multiple conversations in console chat
-- Save and switch between conversations feature
-
-**May 13, 2025** - Added subscription details topic
-
-**May 12, 2025** - Transformation website removed
-
-**May 10, 2025** - Updated terminology
-- "identity-aware console sessions" changed to "identity-enhanced console sessions"
-
-**May 8, 2025** - Added example SCP
-- Service control policy denying access outside EU regions
-
-**May 5, 2025** - Amazon Q Developer for GitHub
-- New chapter with concepts, procedures, setup, and configuration
-
-**May 3, 2025** - Added context hooks support
-
-**May 2, 2025** - Managed policy update
-- Permission added to AmazonQFullAccess
-
-**May 1, 2025** - Agentic chat in the IDE
-- Agentic chat functionality available in the IDE
-
-**April 30, 2025** - Multiple updates:
-- Customizations support additional languages
-- Managed policies updated (AmazonQFullAccess, GitLabDuoWithAmazonQPermissionsPolicy)
-- Added MCP support in CLI
-
-**April 28, 2025** - Added upgrade details
-- Information about upgrading from Free to Pro tier
-
-**April 21, 2025** - Multiple updates:
-- Conversation history saved in IDE chat
-- Code as context support (classes, functions, global variables)
-- GitLab Duo with Amazon Q updates (onboarding and permissions policy)
-
-**April 15, 2025** - Updated dashboard permissions
-
-**April 13, 2025** - Improved security documentation for command line
-- Reorganized with comprehensive guidance on security considerations
-
-**April 12, 2025** - Enhanced command-line security
-- New command-line settings section
-- Enhanced tool permissions documentation
-
-**April 10, 2025** - Multiple updates:
-- Inline chat available in Eclipse
-- Amazon Q Developer profiles available in Europe (Frankfurt) Region
-- `/tools` feature added to CLI for tool permissions management
-- Support for natural languages other than English
-
-**April 8, 2025** - Multiple updates:
-- GitLab Duo with Amazon Q updates (inline policy, CMK policy, `/fix` removed)
-- Email notifications for transformations
-
-**April 4, 2025** - New context, prompt, and project rules topics
-- Added documentation for adding context, saving prompts, creating project rules
-
-**April 4, 2025** - Updates to subscriptions topics
-- Corrections to understanding subscriptions, aggregated subscriptions, and profile sharing
-
-**March 25, 2025** - Example policy update
-- Added `sso:CreateInstance` permission
-
-**March 20, 2025** - Support for C++ and C# in customizations
-
-**March 13, 2025** - Updates to chatting about resources
-- Can chat about multiple AWS resources and services
-
-**March 12, 2025** - Additional language support for documentation generation
-- C++ and C# support added
-
-**March 6, 2025** - Multiple updates:
-- New subscription-related limit (max 50 accounts in organization)
-- Context integration to CLI chat
-
-**February 28, 2025** - Policy correction
-- JSON syntax error corrected
-
-**February 28, 2025** - New version of command line tool for transformation
-- Support for authenticating with IAM through AWS CLI
-
-**February 25, 2025** - Multiple updates:
-- Customizations policy update (permission added)
-- New dashboard topic with metrics descriptions
-
-**February 21, 2025** - Multiple updates:
-- New cross-region processing topic
-- Managed policy update (AWSServiceRoleForUserSubscriptions)
-
-**February 20, 2025** - `/doc` enhancement
-- Can generate infrastructure diagrams
-
-**February 19, 2025** - Multiple updates:
-- Amazon Q Developer in chat applications chapter
-- Support for Java 21 transformations
-
-**February 14, 2025** - New firewall topic
-
-**February 12, 2025** - New version of command line tool
-- Support for converting embedded SQL in Java applications
-
-**February 10, 2025** - Update to retention period
-- Transformed code retained for 30 days (up from 24 hours)
-
-**February 7, 2025** - New subscription workflow
-
-**February 3, 2025** - `/dev` enhancement
-- Test code it generates
-
-**January 31, 2025** - Customizations section update
-- Can include any number of repositories
-
-**January 24, 2025** - Prompt logging examples
-
-**January 23, 2025** - CloudZero plugin
-- Available in Amazon Q chat
-
-**January 15, 2025** - User activity report update
-- New metrics added
-
----
-
-## Earlier Updates (2024 and Prior)
-
-**December 16, 2024** - Multiple updates:
-- Dashboard update (old dashboard removed, filters/metrics added)
-- Troubleshooting with Amazon Q section added
-
-**December 13, 2024** - Identity-enhanced sessions update
-
-**December 6, 2024** - New test generation agent
-
-**December 3, 2024** - Multiple major updates:
-- Large-scale transformation (.NET, mainframe, VMware workloads)
-- GitLab Duo with Amazon Q documentation
-- Documentation generation in the IDE
-- Code reviews in the IDE (security scans rebranded)
-- .NET transformation in the IDE (Visual Studio, preview)
-- Transformation on the command line (preview)
-
-**November 27, 2024** - Multiple updates:
-- Multiple diffs for transformation in the IDE
-- Amazon Q in Eclipse (preview)
-- Cost analysis now generally available
-
-**November 22, 2024** - Multiple updates:
-- Dashboard update with new metrics
-- CodeConnections repositories in customizations
-
-**November 21, 2024** - Amazon Q command line supports Linux
-- Ubuntu 22 and 24 support
-- GNOME v42+ or Xorg display with IBus input method framework
-
-**November 20, 2024** - Multiple updates:
-- Customization in chat now generally available
-- New file types supported: `.md`, `.mdx`, `.rst`, `.txt`
-
-**November 18, 2024** - Multiple major updates:
-- Languages added: Dart, Lua, R, Swift, SystemVerilog, PowerShell, expanded JSON/YAML
-- Customer managed key support
-- Cross-region inference topic
-- Pro tier quotas section
-- Updated AmazonQFullAccess policy
-
-**November 13, 2024** - Multiple updates:
-- Updated AmazonQDeveloperAccess policy
-- Amazon Q plugins feature
-- User activity reports enabled
-
-**November 8, 2024** - Customizations section update
-
-**November 5, 2024** - Clarified Pro section
-
-**November 1, 2024** - Inline chat feature
-
-**October 29, 2024** - Updated managed policies
-
-**October 28, 2024** - Multiple updates:
-- Customizations correction (folder in S3, not bucket root)
-- Prompt logging clarification
-
-**October 24, 2024** - Amazon S3 bucket policy fix
-
-**October 22, 2024** - Expanded features chapter
-
-**October 3, 2024** - Multiple major updates:
-- Console-to-Code now generally available
-- New policy for Amazon Q CLI with AWS CloudShell
-
-**October 2, 2024** - Prompt logging feature
-
-**September 16, 2024** - Setup content updated and restructured
-
-**August 15, 2024** - CodeWhisperer endpoint needed for IDE VPC access
-
-**July 18, 2024** - New endpoint
-- Endpoints can use string `q` instead of `codewhisperer`
-
-**July 12, 2024** - Customizations are GA
-
-**July 10, 2024** - Multiple updates:
-- Customizations (preview)
-- Updated AmazonQFullAccess policy
-
-**July 9, 2024** - Multiple updates:
-- New AmazonQDeveloperAccess managed policy
-- Updated Amazon Q Developer admin policy (added `sso:ListProfiles`)
-
-**June 19, 2024** - Multiple updates:
-- Trusted access section
-- Updated setup procedures with account instances support
-
-**June 6, 2024** - Updated code examples
-- Added C and C++, improved C# examples
-- Updated AmazonQFullAccess policy
-
-**April 30, 2024** - Major updates:
-- New service-linked role: AWSServiceRoleForUserSubscriptions
-- New service-linked role: AWSServiceRoleForAmazonQDeveloper
-- New managed policy: AWSServiceRoleForUserSubscriptionPolicy
-- New managed policy: AWSServiceRoleForAmazonQDeveloperPolicy
-- **GA release** - Amazon Q Developer available for general audiences
-- Amazon CodeWhisperer merged into Amazon Q Developer
-- Service and guide renamed to Amazon Q Developer
-
-**March 29, 2024** - Service rename
-
-**March 5, 2024** - New data protection topic
-- Content used for service improvement purposes
-
-**January 25, 2024** - New topic
-- Instructions for adding Amazon Q to Slack and Microsoft Teams
-
-**January 18, 2024** - New topic
-
-**November 28, 2023** - Preview release
-- Initial preview release of Amazon Q Developer User Guide
+# Amazon Q Developer User Guide - Document History
+
+## Complete Document History (All Entries)
+
+### Latest Updates (February 2026 - Present)
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **February 18, 2026** | Updated account limit for subscriptions | Maximum subscription increased from 10 to 20 accounts per AWS Region, per organization |
+| **January 16, 2026** | Deprecated code transformation for GitLab | Java modernization code transformation deprecated for GitLab Duo; `/q transform` quick action and CI/CD pipeline customization documentation removed |
+| **January 13, 2026** | Removed deprecated GitLab quick actions | Removed `/q dev (revise)` and Unit test generation `/q test` command from GitLab quick actions documentation |
+| **December 29, 2025** | Updated GitHub feature development workflow | Now uses conversation-based feedback with `/q` command instead of traditional GitHub review process |
+| **December 18, 2025** | Updated GitHub app installation registration | Updated steps for navigating Kiro and Amazon Q Developer shared console |
+| **December 15, 2025** | Deprecated code transformation for GitHub | Java modernization code transformation deprecated for Amazon Q Developer for GitHub |
+| **November 17, 2025** | Q CLI becomes Kiro CLI | Q CLI has been rebranded as Kiro CLI |
+
+### October 2025 Updates
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **October 29, 2025** | Updated managed policies | Added permissions to: AmazonQFullAccess, AmazonQDeveloperAccess, AWSServiceRoleForUserSubscriptions |
+| **October 21, 2025** | Removed IDE agent documentation | Agentic chat capabilities replaced `/dev`, `/doc/`, `/test`, `/review` agents; updated code review steps |
+| **October 21, 2025** | Added IDE memory bank documentation | New documentation for generating memory banks for Amazon Q chat |
+| **October 3, 2025** | Added Q CLI feature documentation | Documentation added for: agent creation with AI assistance, prompt management, message replies, project rules |
+
+### September 2025 Updates
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **September 23, 2025** | Enhanced context management documentation | Added guidance on choosing right context approach with comparison tables, decision flowcharts, best practices |
+| **September 18, 2025** | Added Q CLI v1.16.0 features | Agent default behavior, legacy MCP configuration support, new chat commands (`/tangent tail`, `/changelog`), agent settings |
+| **September 17, 2025** | Context hooks deprecated | Deprecated in favor of agent hooks; existing configurations auto-migrated |
+| **September 17, 2025** | Added remote MCP server support | Remote MCP servers with OAuth authentication and built-in tools configuration |
+| **September 9, 2025** | Removed S3 bucket allowlist requirement | No longer need to allowlist S3 buckets for software development or unit test generation in IDE |
+| **September 9, 2025** | New command line tool for transformation version | Latest version includes bug fixes |
+| **September 2, 2025** | Updated GitHub review agent content | Code reviews now include summary with threaded findings |
+| **September 2, 2025** | Added GitHub review prerequisites | Code reviews require Write, Maintain, or Admin role in GitHub |
+
+### August 2025 Updates
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **August 21, 2025** | Disabling MCP | Organizations can now disable MCP |
+| **August 19, 2025** | Updated proxy topic | Proxy Auto-Configuration (PAC) files are not supported |
+| **August 15, 2025** | Updated deployment options | Maximum 10 accounts per AWS Region per organization |
+| **August 15, 2025** | Added troubleshooting documentation | Comprehensive troubleshooting and log access/analysis guides |
+| **August 7, 2025** | Added CLI transformation job history | `qct history` command documentation for viewing transformation job history |
+| **August 6, 2025** | Added IDE transformation job history | Feature allows viewing, managing, retrieving artifacts from Java transformation jobs in VSCode |
+| **August 5, 2025** | GitLab self-managed instance update | Requires GitLab 17.11.0 or later |
+| **August 1, 2025** | Added code review steps for VSC | Procedures for running code reviews and addressing issues using agentic chat |
+
+### July 2025 Updates
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **July 31, 2025** | Added model selection for IDE chat | New topic on selecting models for IDE chat |
+| **July 31, 2025** | Added keyboard shortcuts topic | Comprehensive keyboard shortcuts across different IDEs and platforms |
+| **July 31, 2025** | Added custom agents feature | Customize CLI for specific workflows by configuring tools, permissions, and context |
+| **July 30, 2025** | Added chat history compaction topic | Managing context window limits when chatting in IDE |
+| **July 24, 2025** | Added profile deletion topic | New documentation for deleting Amazon Q Developer profile |
+| **July 21, 2025** | Added telemetry opt-out steps | Instructions for opting out of telemetry collection with transformation CLI |
+| **July 16, 2025** | Added GitHub workflow for first-party dependencies | New page for handling first-party dependencies in code transformation |
+| **July 15, 2025** | Updated user activity metrics | Additional metrics for inline chat feature |
+| **July 15, 2025** | Updated proxy configuration | Instructions for Eclipse, JetBrains, and Visual Studio |
+| **July 9, 2025** | Image context support in IDE chat | Users can include images in IDE chat prompts |
+
+### June 2025 Updates
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **June 30, 2025** | Added slash commands for GitHub | `/q` commands for feature development, code reviews, code transformation, help |
+| **June 26, 2025** | New content for project rules | Create project rules in GitLab and GitHub for standards/best practices |
+| **June 25, 2025** | Updated KMS policy | Added `kms:Decrypt`, `kms:DescribeKey`, `kms:Encrypt`, `kms:GenerateDataKey` permissions |
+| **June 25, 2025** | Added proxy configuration instructions | VSCode proxy configuration section |
+| **June 24, 2025** | Updated user activity reports | Generated at midnight UTC; split into 1,000 user files |
+| **June 24, 2025** | Updated S3 bucket section | VSCode plugin v1.72.0+ doesn't require bucket allowlisting |
+| **June 24, 2025** | Rebranded operational investigations | Renamed "Amazon Q Developer operational investigations" to "CloudWatch investigations" |
+| **June 19, 2025** | Updated GitHub feature/transformation details | Invokable via slash commands in issue comments |
+| **June 18, 2025** | Added Rules button to VS Code | Creating/managing project rules through UI |
+| **June 18, 2025** | Added context pinning in VS Code | Maintain selected context items across chat interactions |
+| **June 17, 2025** | Updated code transformation details | Added source/target code version information; additional upgrade requirements |
+| **June 17, 2025** | Chat about network security | New capability to chat about network security in console and chat apps |
+| **June 13, 2025** | Added data storage topic | Information about content storage locations |
+| **June 12, 2025** | MCP in the IDE | MCP servers now usable with Amazon Q in IDE |
+| **June 11, 2025** | Builder ID upgrade | Builder ID users can upgrade to Pro tier |
+| **June 9, 2025** | Updated subscription statuses | Clarified "Unavailable" status description |
+| **June 9, 2025** | Dependency support for CLI transformations | Can provide dependency upgrade file and modify transformation plan |
+| **June 9, 2025** | Expanded command line reference | New command reference section with argument details |
+| **June 5, 2025** | Model selection for CLI chat | Users can select model for command-line chat sessions |
+| **June 5, 2025** | Context support expansion | JetBrains, Visual Studio, Eclipse IDE chat context support |
+| **June 5, 2025** | Agentic chat in all IDEs | Available in all supported IDEs |
+| **June 2, 2025** | Cost optimization in chat | Chat for cost optimization insights beyond cost analysis |
+| **June 2, 2025** | Updated GitHub code reviews | Code reviews within pull requests using `/q review` slash command |
+
+### May 2025 Updates
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **May 22, 2025** | Updated firewall page | Added/updated URLs for firewall, proxy, data perimeter configuration |
+| **May 21, 2025** | MCP configuration commands | Commands to configure MCP servers from command line |
+| **May 15, 2025** | Updated troubleshooting | More information on subscription troubleshooting |
+| **May 15, 2025** | Updated code review behavior | Triggered on new/reopened GitLab MRs and GitHub PRs; not on subsequent commits |
+| **May 15, 2025** | Updated VPC endpoints | VPC endpoint updates |
+| **May 15, 2025** | Improved MCP loading | MCP servers load in background; immediate interaction possible |
+| **May 15, 2025** | Added image support in chat | Analyze/discuss images using `fs_read` tool with Image mode |
+| **May 15, 2025** | Added conversation persistence | Auto-remembers conversations by directory; `/export`/`/import` commands |
+| **May 14, 2025** | Updated managed policies | Added permissions for conversation history to AmazonQFullAccess and AmazonQDeveloperAccess |
+| **May 14, 2025** | Multiple conversations in console | Save and switch between conversations in AWS console |
+| **May 13, 2025** | Added subscription details | Information on IAM Identity Center and profile installation locations |
+| **May 12, 2025** | Transformation website removed | Amazon Q Developer transformation website taken down |
+| **May 10, 2025** | Updated terminology | "identity-aware console sessions" to "identity-enhanced console sessions" |
+| **May 8, 2025** | Example SCP added | Service control policy denying access outside EU regions |
+
+### April 2025 Updates
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **April 30, 2025** | Customizations language support | Support for C++ and C# |
+| **April 30, 2025** | Updated managed policies | Added permissions to AmazonQFullAccess, GitLabDuoWithAmazonQPermissionsPolicy, and plugin configuration policies |
+| **April 29, 2025** | Added MCP support | MCP support in CLI |
+| **April 28, 2025** | Added upgrade details | Free tier to Pro tier upgrade information |
+| **April 21, 2025** | Conversation history support | Chat conversations saved in IDE |
+| **April 21, 2025** | Code as context | Classes, functions, global variables as IDE chat context |
+| **April 16, 2025** | GitLab Duo updates | Updated onboarding and permissions policy |
+| **April 15, 2025** | Updated dashboard permissions | List of permissions required for dashboard viewing |
+| **April 13, 2025** | Improved security documentation | Reorganized command-line security documentation |
+| **April 12, 2025** | Enhanced settings | New command-line settings section and tool permissions documentation |
+| **April 10, 2025** | Updated subscription workflow | Moved from Amazon Q console to Amazon Q Developer console |
+| **April 10, 2025** | Inline chat in Eclipse | Inline chat available in Eclipse |
+| **April 10, 2025** | Europe (Frankfurt) region support | Profiles available in Europe (Frankfurt) |
+| **April 10, 2025** | `/tools` feature | Command to manage tool permissions |
+| **April 9, 2025** | Natural language support | Chat in languages other than English (IDE and CLI) |
+| **April 8, 2025** | GitLab Duo updates | Changes to inline policy, optional CMK policy; removed `/fix` feature |
+| **April 8, 2025** | Email notifications | Email notifications for transformation updates |
+| **April 4, 2025** | New context/prompt/rules topics | Added topics for context, prompt library, project rules |
+
+### March 2025 Updates
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **March 25, 2025** | Example policy update | Added `sso:CreateInstance` permission to admin policies |
+| **March 20, 2025** | Customization language support | C++ and C# in customizations |
+| **March 13, 2025** | Updated chat about resources | Chat with multiple AWS resources/services |
+| **March 12, 2025** | Documentation generation languages | C++ and C# support for `/doc` generation |
+| **March 6, 2025** | Subscription limit | Maximum 50 AWS accounts per organization |
+| **March 6, 2025** | CLI context integration | Enhanced context for more relevant responses |
+
+### February 2025 and Earlier
+
+| Date | Change | Description |
+|------|--------|-------------|
+| **February 28, 2025** | New transformation CLI version | Support for IAM authentication via AWS CLI |
+| **February 25, 2025** | Pro tier upgrade info | Upgrade information in Free tier topic |
+| **February 25, 2025** | Customizations policy update | Permission added to customizations policy |
+| **February 21, 2025** | New dashboard topic | Dashboard usage metrics descriptions |
+| **February 21, 2025** | Cross-region processing topic | New topic on cross-region request processing |
+| **February 21, 2025** | Managed policy update | Permissions added to AWSServiceRoleForUserSubscriptions |
+| **February 20, 2025** | `/doc` enhancement | Infrastructure diagram generation |
+| **February 19, 2025** | New subscription topics | Subscription statuses and aggregated subscriptions |
+| **February 19, 2025** | Chat applications chapter | Rebranded and new supported features chapter |
+| **February 14, 2025** | Java 21 support | Upgrade Java to Java 21 (IDE and CLI) |
+| **January 31, 2025** | Customizations update | Unlimited repositories in customizations |
+| **January 24, 2025** | Prompt logging examples | Example logs for prompt logging |
+| **January 23, 2025** | CloudZero plugin | Available in Amazon Q chat |
+| **January 15, 2025** | User activity metrics | New metrics added |
+| **December 16, 2024** | Dashboard update | Removed old dashboard info; added filters/metrics |
+| **December 13, 2024** | Troubleshooting capability | New troubleshooting resources section |
+| **December 6, 2024** | Identity-enhanced sessions | Clarified enablement instructions |
+| **December 3, 2024** | Test generation agent | Unit test generation feature |
+| **December 3, 2024** | Large-scale transformation | .NET, mainframe, VMware bulk transformation |
+| **December 3, 2024** | GitLab Duo with Amazon Q | Complete integration documentation |
+| **December 3, 2024** | Documentation generation | README generation in IDE |
+| **December 3, 2024** | Code reviews in IDE | Issue detection and addressing |
+| **December 3, 2024** | .NET transformation | .NET to Linux-compatible applications (VSCode, preview) |
+| **November 27, 2024** | Transformation on CLI | Command-line Java transformation (preview) |
+| **November 27, 2024** | Multiple diffs | Transformation changes in multiple diffs |
+| **November 27, 2024** | Eclipse support | Amazon Q plugin in Eclipse (preview) |
+| **November 26, 2024** | Cost analysis GA | Generally available (was preview) |
+| **November 22, 2024** | Embedded SQL transformation | Convert embedded SQL in Java |
+| **April 30, 2024** | GA Release | Amazon Q Developer generally available |
+| **November 28, 2023** | Preview release | Initial preview release |

@@ -1,15 +1,8 @@
-Source: Power Apps Released Versions
-URL: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps
-Fetched: 2026-03-22
+Released Versions Power Apps
 
-# Power Apps Released Versions
-
-Page last updated: 2026-03-20
-
-## Latest Version Availability by Region
+Latest version availability (as of 2026-03-20):
 
 | Region | Unified Interface | Power Apps Studio/Mobile | Make.PowerApps.com |
-|---|---|---|---|
 | Preview (United States) | 9.2 25084 | 3.26034 | 26032 |
 | Canada | 9.2 25083 | 3.26033 | 26031 |
 | India | 9.2 25083 | 3.26033 | 26031 |
@@ -22,24 +15,34 @@ Page last updated: 2026-03-20
 | United States | 9.2 25074 | 3.26032 | 26031 |
 | US Government (GCC) | 9.2 25073 | 3.26032 | 26031 |
 
-## Recent Power Apps Studio/Mobile Versions (2026)
-- 3.26034: First available Mar 23, 2026 — Worldwide Apr 14, 2026
-- 3.26031: First available Mar 02, 2026 — Worldwide Mar 23, 2026
-- 3.26024: First available Feb 23, 2026 — Worldwide Mar 16, 2026
-- 3.26023: Train cancelled (Winter Olympics/Super Bowl/Lunar New Year)
-- 3.26022: First available Feb 05, 2026 — Worldwide Mar 03, 2026
-- 3.26021: Train cancelled after S1
-- 3.26014: First available Jan 26, 2026 — Worldwide Feb 16, 2026
-- 3.26013: First available Jan 20, 2026 — Worldwide Feb 09, 2026
-- 3.26012: First available Jan 12, 2026 — Worldwide Feb 02, 2026
-- 3.26011: First available Jan 05, 2026 — Worldwide Jan 26, 2026
+Recent Unified Interface versions:
+- 9.2 25084: Aug 29, 2025
+- 9.2 25083: Aug 22, 2025
+- 9.2 25082: Aug 15, 2025
+- 9.2 25081: Aug 8, 2025
+- 9.2 25074: Aug 1, 2025
+- 9.2 25073: Jul 25, 2025
 
-## Recent Make.PowerApps.com Versions (2026)
-- 26032: First available Mar 18, 2026 — Worldwide Apr 01, 2026
-- 26023: First available Feb 25, 2026 — Worldwide Mar 11, 2026
-- 26022/26021: Trains cancelled (Winter Olympics/Super Bowl/Lunar New Year)
-- 26015: First available Feb 05, 2026 — Worldwide Mar 02, 2026
-- 26014: First available Jan 28, 2026 — Worldwide Feb 11, 2026
-- 26013: First available Jan 21, 2026 — Worldwide Feb 04, 2026
-- 26012: First available Jan 14, 2026 — Worldwide Jan 28, 2026
-- 26011: First available Jan 07, 2026 — Worldwide Jan 21, 2026
+Recent Power Apps Studio/Mobile versions:
+- 3.26034: Mar 23, 2026
+- 3.26031: Mar 02, 2026
+- 3.26024: Feb 23, 2026
+- 3.26022: Feb 05, 2026
+- 3.26014: Jan 26, 2026
+- 3.26013: Jan 20, 2026
+- 3.26012: Jan 12, 2026
+- 3.26011: Jan 05, 2026
+
+Recent Make.PowerApps.com versions:
+- 26032: Mar 16, 2026
+- 26031: Mar 09, 2026
+- 26024: Feb 24, 2026
+- 26023: Feb 17, 2026
+- 26022: Feb 10, 2026
+- 26021: Feb 03, 2026
+- 26014: Jan 27, 2026
+- 26013: Jan 20, 2026
+- 26012: Jan 13, 2026
+- 26011: Jan 06, 2026
+
+Updated: 2026-03-20

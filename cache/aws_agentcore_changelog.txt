@@ -1,44 +1,37 @@
-Source: AgentCore Doc History
-URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/doc-history.html
-Fetched: 2026-03-22
+# Amazon Bedrock AgentCore - Document History
 
-# Document History for the AgentCore User Guide - Amazon Bedrock AgentCore
-
-## Overview
-This page tracks documentation releases for Amazon Bedrock AgentCore, listing changes and their descriptions with dates.
-
-## Documentation Changes
+## Documentation Releases Timeline
 
 ### December 2, 2025
-- **Policy in Amazon Bedrock AgentCore** - Added documentation for policy-based governance and control for agent interactions, including policy evaluation, monitoring, and enforcement capabilities
-- **Episodic memory strategy** - Added documentation for using the episodic memory strategy in AgentCore Memory
-- **Custom claims value support for AgentCore Gateway authentication** - Added documentation for specifying custom claims values in Gateway authentication
-- **Bidirectional streaming** - Added documentation for real-time, full-duplex communication between clients and agents using WebSocket protocol with AgentCore Runtime
-- **Authentication token support for AgentCore Gateway** - Added documentation for setting up OAuth authorization tokens for gateways
-- **Amazon Bedrock AgentCore Evaluations** - Added comprehensive suite of capabilities for measuring and monitoring agent and tool performance, accuracy, and reliability in development and production
-- **API gateways as gateway targets** - Added documentation for Amazon API Gateway REST API stages as targets
+- Policy in Amazon Bedrock AgentCore - Policy-based governance and control for agent interactions
+- Episodic memory strategy - AgentCore Memory feature
+- Custom claims value support for AgentCore Gateway authentication
+- Bidirectional streaming - WebSocket protocol for real-time, full-duplex communication
+- Authentication token support for AgentCore Gateway - OAuth authorization setup
+- Amazon Bedrock AgentCore Evaluations - Performance, accuracy, and reliability measurement tools
+- API gateways as gateway targets - Amazon API Gateway REST API stages as targets
 
 ### November 4, 2025
-- **Direct code deployment** - Added documentation enabling deployment of Python agents to Amazon Bedrock AgentCore Runtime using ZIP file archives
+- Direct code deployment - Python agents deployment via ZIP file archives
 
 ### October 31, 2025
-- **Get started updates** - Updated prerequisites, files, and commands in the Get started with AgentCore topic
+- Get started updates - Changes to prerequisites, files, and commands
 
 ### October 30, 2025
-- **Web Bot Auth (Preview)** - Added documentation for Browser Web Bot Auth feature enabling cryptographic signing of HTTP requests to reduce CAPTCHA challenges
+- Web Bot Auth (Preview) - Browser Web Bot Auth feature, cryptographic HTTP request signing
 
 ### October 13, 2025
-- **Runtime identity service-linked role** - Added documentation for managing workload identity access tokens and OAuth credentials; updated BedrockAgentCoreFullAccess policy
-- **General release** - Amazon Bedrock AgentCore is now generally available
+- Runtime identity service-linked role - Manages workload identity access tokens and OAuth credentials
+- General release - Amazon Bedrock AgentCore now generally available (GA)
 
 ### October 10, 2025
-- **Model Context Protocol (MCP) servers as Gateway targets** - Added documentation including synchronization operations
+- Model Context Protocol (MCP) servers as Gateway targets
 
 ### October 2, 2025
-- **Model Context Protocol (MCP) server support** - Added documentation for MCP server supporting transformation, deployment, and testing of AgentCore-compatible agents with Kiro, Cursor, Claude Code, and Amazon Q CLI
+- Model Context Protocol (MCP) server support - Compatible MCP clients: Kiro, Cursor, Claude Code, Amazon Q CLI
 
 ### September 19, 2025
-- **Managed policy updates** - Updated managed policy documentation; added BedrockAgentCoreNetworkServiceRolePolicy; updated BedrockAgentCoreFullAccess policy
+- Managed policy updates - BedrockAgentCoreNetworkServiceRolePolicy (new), BedrockAgentCoreFullAccess updated
 
 ### July 16, 2025
-- **Initial release (preview)** - Initial release of the Amazon Bedrock AgentCore Developer Guide
+- Initial release (preview) - First release of Amazon Bedrock AgentCore Developer Guide

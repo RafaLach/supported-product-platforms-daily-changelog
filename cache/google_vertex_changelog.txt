@@ -1,49 +1,40 @@
-Source: Vertex AI Release Notes
-URL: https://cloud.google.com/vertex-ai/docs/release-notes
-Fetched: 2026-03-22
+# Vertex AI Release Notes
 
-# Vertex AI Release Notes - Content Summary
+## Latest Updates (March 2026)
 
-## Latest Major Announcements (March 2026)
+**March 16, 2026**: Vertex Explainable AI has been deprecated.
 
-**Vector Search 2.0 GA**: A retrieval engine now generally available featuring collections, auto-embeddings, hybrid search capabilities, and Private Service Connect support.
+**March 12, 2026**: The Gen AI evaluation service now supports "evaluating partner models, such as Anthropic and Llama models."
 
-**Gemini 3.1 Flash-Lite Preview**: Described as "the most cost-efficient Gemini model" optimized for low-latency, high-volume use cases.
+**March 5, 2026**: Vector Search 2.0 reached general availability, introducing collections, auto-embeddings, hybrid search capabilities, and enhanced security features.
 
-**Video Generation Endpoint Deprecations**: Multiple preview endpoints for Veo video generation models are deprecated; users must migrate by April 2, 2026.
+**March 3, 2026**: Gemini 3.1 Flash-Lite became available in public preview as a cost-efficient model optimized for low-latency use cases.
 
-## Recent Model Releases (February-March 2026)
+## Major Features & Services
 
-- **Gemini 3.1 Flash Image** (preview): High-quality image generation with improved pricing
-- **Gemini 3.1 Pro** (preview): Advanced reasoning model with 1M token context window
-- **Claude Sonnet 4.6 & Claude Opus 4.6**: Available in Model Garden
-- **Virtual Try-On**: Now generally available with endpoint `virtual-try-on-001`
+**Generative AI Models**:
+- Gemini 3.1 Flash, Gemini 2.5 Pro, and Gemini 2.5 Flash-Lite
+- Veo 3.1 video generation with extended features
+- Partner models: Claude Opus/Sonnet (Anthropic), Llama variants, Mistral offerings
+- Open models: Qwen, DeepSeek, Llama Guard
 
-## Key Deprecations & Retirements
+**Vertex AI Agent Engine**:
+Sessions, Memory Bank, and Code Execution moved from preview to GA. Features include bidirectional streaming, A2A protocol support, and enterprise security (CMEK, PSC-I, HIPAA compliance).
 
-- Vertex Explainable AI deprecated (March 16, 2026)
-- Claude 3 Haiku shutting down August 23, 2026
-- Claude 3.5 Haiku shutting down July 5, 2026
-- Feature Store Optimized online serving deprecated (February 17, 2026)
-- Multiple image generation preview endpoints retiring March 19, 2026
+**Vertex AI Workbench**:
+M139 release includes JupyterLab 4+ support, managed credentials, Gemini CLI integration, and Confidential Computing support.
 
-## Agent Engine & Workbench Updates
+**Vector Search 2.0**:
+Provides collections unifying data/vectors, auto-embeddings, hybrid search combining vector/full-text/semantic ranking.
 
-**Vertex AI Agent Engine**: Code Execution now generally available; Sessions and Memory Bank became GA December 17, 2025; supports bidirectional streaming and A2A protocol.
+## Deprecations & Removals
 
-**Workbench M139**: Most recent release removing startup script dependencies on `gs://dl-platform-public-configs`.
+- Vertex Explainable AI (March 2026)
+- Feature Store Optimized online serving (February 2026)
+- Multiple video generation preview endpoints (deadline: April 2, 2026)
+- Image generation preview endpoints (deadline: March 19, 2026)
+- Gemini 1.5 models unavailable for new projects (April 2025)
 
-## Evaluation & Development Tools
+## Key Pricing Changes
 
-Gen AI evaluation service now supports partner model evaluations (Anthropic, Llama models). Prompt management capabilities available through Vertex AI SDK for storing and versioning prompts.
-
-## Infrastructure & Security
-
-- Private Service Connect interface support expanded
-- Confidential Computing (VM) support for Workbench now GA
-- Customer-managed encryption keys (CMEK) supported for Agent Engine
-- HIPAA compliance support added for Agent Engine
-
-## Pricing Changes
-
-Vertex AI Agent Engine Runtime pricing reduced effective various dates; Sessions, Memory Bank, and Code Execution charging begins February 11, 2026 (delayed from January 28).
+Vertex AI Agent Engine runtime pricing was lowered; Sessions, Memory Bank, and Code Execution began charging February 11, 2026. Regional pricing expansion across Asia-Pacific, Europe, and Americas regions.

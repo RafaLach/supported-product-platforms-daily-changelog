@@ -1,40 +1,28 @@
-Source: Power Automate Documentation
-URL: https://learn.microsoft.com/en-us/power-automate/
-Fetched: 2026-03-22
+Microsoft Power Automate documentation
 
-# Power Automate Documentation
+Create automated workflows between apps and services to synchronize files, get notifications, collect data, and more.
 
-## Key Capabilities
-- Automated, scheduled, and desktop flows
-- AI copilot in cloud flows, Process Mining, desktop flows
-- Process mining and task mining
-- Business process flows
-- Solutions and ALM
-- Integration with Teams, SharePoint, email, Forms, Approvals
+Sections:
+- Create and design
+  - Try/Buy Power Automate
+  - Create flows: Automated, Scheduled, Desktop flows
+  - AI copilot: Copilot in cloud flows, Process Mining, desktop flows
+  - Process mining: Process Mining overview, Power Automate Process Mining (Minit), Task mining
+  - Solutions: Distribute flows, Create cloud flow in solution, ALM
+  - Integrate: Teams, SharePoint, Email
 
-## Create and Design
-- Try/Buy Power Automate
-- Create automated, scheduled, and desktop flows
-- AI copilot capabilities in cloud flows, Process Mining, desktop flows
-- Process mining and task mining
-- Solutions for ALM
-- Integration with Teams, SharePoint, email
+- Administer and extend
+  - Power Platform admin center
+  - Environments and resources
+  - Data loss prevention policies
+  - Enterprise developer/ISV/partner guide
+  - Cloud flows via code
+  - Desktop flows via code
+  - Custom connectors
 
-## Best Practices
-- Plan a Power Automate project
-- Automation Kit for managing, governing, and scaling adoption
-- Best practices for automation adoption
+- Use
+  - Dataverse: Add/delete rows, upload/download files
+  - Teams, SharePoint, Email, Forms, Approvals
+  - Business process flows
 
-## Administration
-- Power Platform admin center
-- Environment management
-- Data loss prevention policies
-
-## Developer
-- Enterprise developer and ISV guide
-- Cloud flows via code
-- Desktop flows via code
-- Custom connectors
-
-Page last updated (ms.date): 2025-07-11
-Document last updated: 2025-07-11
+Updated: 2025-07-11

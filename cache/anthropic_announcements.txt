@@ -1,38 +1,43 @@
-Source: Anthropic News
-URL: https://www.anthropic.com/news
-Fetched: 2026-03-22
+# Anthropic Newsroom
 
-# Anthropic News
+## Featured Content
 
-## March 2026
-- Mar 18: "What 81,000 people want from AI" — Largest multilingual qualitative study of AI user expectations
-- Mar 12: $100 million investment into Claude Partner Network — supporting enterprise adoption at scale
-- Mar 11: The Anthropic Institute launches — addressing challenges of powerful AI for societies
-- Mar 10: Sydney becomes fourth Asia-Pacific office
-- Mar 6: "Partnering with Mozilla to improve Firefox's security" — browser security collaboration
-- Mar 5: "Where things stand with the Department of War" — Dario Amodei statement on national security
+### Primary Feature Article
+- **Title**: "What 81,000 people want from AI"
+- **Date**: Mar 18, 2026
+- **Description**: Large multilingual qualitative study of Claude.ai user perspectives
 
-## February 2026
-- Feb 27: Response to Secretary of War Pete Hegseth's comments
-- Feb 26: CEO statement on Department of War negotiations
-- Feb 25: Anthropic acquires Vercept for computer use capabilities
-- Feb 24: Responsible Scaling Policy Version 3.0
-- Feb 23: Distillation attack prevention capabilities
-- Feb 17: Claude Sonnet 4.6 — frontier performance for coding, agents, professional work
-- Feb 13: CodePath partnership for collegiate CS program
-- Feb 12: $30 billion Series G funding at $380 billion valuation ($14B run-rate revenue)
-- Feb 5: Claude Opus 4.6 upgrade — industry-leading model
-- Feb 4: Commitment to keep Claude ad-free
+### Recent Product Announcements
 
-## January 2026
-- Jan 30: Claude assists NASA's Perseverance rover on Mars
-- Jan 21: Mariano-Florentino Cuellar appointed to Long-Term Benefit Trust
-- Jan 15: Scientists using Claude for research acceleration
-- Jan 13: Labs platform introduction for experimental features
-- Jan 11: HIPAA-ready infrastructure for healthcare; expanded clinical trial connectors
+1. **Claude Sonnet 4.6** (Feb 17, 2026)
+   - Focus: "frontier performance across coding, agents, and professional work at scale"
 
-## December 2025
-- Dec 18: Compliance framework for California AI transparency law
+2. **Claude Opus 4.6** (Feb 5, 2026)
+   - Capabilities: agentic coding, computer use, tool use, search, finance
 
-## Key Themes
-Product development, policy engagement, international expansion, enterprise partnerships (ServiceNow, Infosys, Accenture)
+3. **Claude is a space to think** (Feb 4, 2026)
+   - Policy: Ad-free model commitment
+
+4. **Claude on Mars** (Jan 30, 2026)
+   - Achievement: First AI-assisted rover drive on Mars (NASA Perseverance, 400 meters)
+
+## Recent News Items (Latest)
+
+- Anthropic invests $100 million into Claude Partner Network (Mar 12)
+- The Anthropic Institute launched (Mar 11)
+- Sydney becomes fourth Asia-Pacific office (Mar 10)
+- Mozilla Firefox security partnership (Mar 6)
+- Department of War discussions (Feb 26-27)
+- Vercept acquisition for computer use capabilities (Feb 25)
+- Responsible Scaling Policy v3.0 (Feb 24)
+- Distillation attack detection capabilities (Feb 23)
+
+## Product Portfolio
+
+**Models**: Opus, Sonnet, Haiku
+
+**Applications**: Claude Code, Code Enterprise, Cowork, Chrome extension, Excel plugin, PowerPoint plugin, Slack integration, Skills marketplace
+
+**Plans**: Max, Team, Enterprise
+
+**Platform**: API access, Developer documentation, Marketplace, Regional compliance options, Cloud partnerships (Amazon Bedrock, Google Vertex AI, Microsoft Foundry)

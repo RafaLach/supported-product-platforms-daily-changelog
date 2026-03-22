@@ -1,47 +1,67 @@
-Source: Windsurf Documentation
-URL: https://docs.windsurf.com
-Fetched: 2026-03-22
+# Windsurf IDE Documentation - Complete Content Extract
 
-# Windsurf Documentation
+## Main Headings & Sections
+- Welcome to Windsurf
+- Set Up
+- Onboarding
+- Update Windsurf
+- Things to Try
+- Forgot to Import VS Code Configurations?
+- Incompatible Extensions
+- Custom App Icons (beta)
+- Windsurf Next
+- Uninstall Windsurf
 
-## Core Description
-Windsurf is a next-generation AI IDE built to keep you in the flow. "Tomorrow's editor, today." Emphasizes AI-powered coding assistance while maintaining user productivity and workflow continuity.
+## Core Features & Components
 
-## Key Features
-- Cascade: AI agentic chatbot for collaborative coding
-- Terminal: Enhanced terminal experience
-- MCP: Servers that extend agent functionality
-- Memories: Customizable behaviors and rules
-- Context Awareness: Automatic codebase comprehension
-- Workflows: Automation for repetitive development tasks
-- App Deploys: Single-click application deployment
+**Cascade**: Described as "Your agentic chatbot that can collaborate with you like never before." It functions as an AI-powered code assistant accessible via a panel on the IDE's right side.
 
-## AI Capabilities
-- Agentic architecture with autonomous collaboration
-- MCP Server integration for extended capabilities
-- Memory & Rules system for customization
-- Workflow automation
+**Key Feature Cards**:
+- Usage (Credits and usage tracking)
+- Terminal (Upgraded terminal experience)
+- MCP (Model Context Protocol servers extending agent capabilities)
+- Memories (Customizable behavior through memories and rules)
+- Context Awareness (Codebase understanding)
+- Advanced (Configuration options)
+- Workflows (Automating repetitive development trajectories)
+- App Deploys (One-click application deployment)
 
-## Platform
-- One-click app deployment
-- Import VS Code or Cursor settings
-- Cross-platform: Mac, Windows, Linux
-- Windsurf Next (prerelease access)
-- Custom App Icons (beta, Mac only, paid plans)
-- Remote server and SSH connection support
+## Installation Requirements
 
-## System Requirements
-- Mac: OS X Yosemite minimum
-- Windows: Windows 10 minimum
-- Ubuntu: 20.04+ (glibc >= 2.31, glibcxx >= 3.4.26)
-- Other Linux: glibc >= 2.28, glibcxx >= 3.4.25
+**Mac**: OS X Yosemite minimum
+**Windows**: Windows 10 minimum
+**Ubuntu**: Ubuntu 20.04+ (glibc >= 2.31, glibcxx >= 3.4.26)
+**Other Linux**: glibc >= 2.28, glibcxx >= 3.4.25
 
-## Onboarding Process
-Four main steps: configuration setup (import from VS Code or Cursor), theme selection, account authentication, and feature introduction.
+## Onboarding Steps
 
-## Notable Details
-- Incompatible with other AI code completion extensions and proprietary extensions
-- Keybinding customization (VS Code or Vim options)
-- Manual authentication fallback via codes
-- Command palette access (Cmd/Ctrl+Shift+P)
-- Uninstallation instructions available for all platforms
+1. **Setup Flow Selection**: Import from VS Code/Cursor or start fresh; optional PATH installation
+2. **Keybindings**: Choose VS Code or Vim bindings
+3. **Theme Selection**: Default color themes available
+4. **Authentication**: Windsurf account signup (free) or login required
+5. **Alternative Auth**: Manual authentication code entry available if needed
+
+## Configuration & Settings
+
+- Import settings/extensions from VS Code or Cursor
+- Settings accessible via "Windsurf - Settings" button (bottom right)
+- Advanced Settings available through profile dropdown
+- Command Palette access: Cmd+Shift+P (Mac) or Ctrl+Shift+P (Windows/Linux)
+
+## Additional Features
+
+**Custom App Icons**: Beta feature for Mac OS users; access via profile/settings icon for icon customization
+
+**Windsurf Next**: Prerelease version enabling early access to unreleased features; available at separate download link
+
+**Incompatible Extensions**: Cannot install other AI code completion tools or proprietary extensions; no marketplace access
+
+## Uninstallation Process
+
+Requires closing application, deleting application folder, removing configuration files (~/.codeium/windsurf), and cleaning up PATH variables.
+
+## Resources
+
+- Documentation Index: https://docs.windsurf.com/llms.txt
+- Changelog available at windsurf.com/changelog
+- Recommended Plugins section references additional extensions

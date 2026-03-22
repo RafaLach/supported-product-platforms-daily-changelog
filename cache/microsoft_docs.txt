@@ -1,35 +1,32 @@
-Source: Copilot Extensibility Docs
-URL: https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/
-Fetched: 2026-03-22
+# Microsoft 365 Copilot extensibility documentation
 
-# Microsoft 365 Copilot Extensibility Documentation
+Learn how to build custom Copilot experiences by using Microsoft 365 extensibility options including agents, connectors, and Copilot APIs.
 
-## Overview
-Build custom Copilot experiences using Microsoft 365 extensibility options including agents, connectors, and Copilot APIs.
+## Get started with Copilot extensibility
 
-## Key Sections
+### Get started
 
-### Get Started
-- Overview of extensibility options
+- Overview
 - Planning guide
 - Licensing and cost considerations
 
-### Create and Manage Agents
-- Agents overview
-- Build declarative agents
-- Build custom engine agents
-- Manage agents in M365 admin center
+## Create and manage agents
 
-### Extend with Plugins and Connectors
+- Agents overview
+- Build a declarative agent
+- Build a custom engine agent
+- Manage agents in the Microsoft 365 admin center
+
+## Extend with plugins and connectors
+
 - Add plugins to declarative agents
 - Use Copilot connectors
-- Build custom Copilot connectors
+- Build a custom Copilot connector
 
-### Developer Tools and APIs
+## Use developer tools and APIs
+
 - Microsoft 365 Agents Toolkit
 - Microsoft 365 Agents SDK
 - Microsoft 365 Copilot APIs
 - Copilot Studio documentation
 - Microsoft Agent 365 (early access preview)
-
-Last updated: 2025-11-18

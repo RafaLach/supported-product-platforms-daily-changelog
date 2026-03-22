@@ -1,75 +1,8 @@
-Source: Claude Docs - Build with Claude
-URL: https://platform.claude.com/docs/en/docs/build-with-claude/overview
-Fetched: 2026-03-21
+# Claude Platform Documentation - Build with Claude Overview
 
-# Claude Features Overview
+Note: Page returned 404 Not Found. The URL /docs/build-with-claude/overview may have been moved or restructured.
 
-Claude's API surface organized into five key areas:
-- Model capabilities, Tools, Tool infrastructure, Context management, Files and assets
-
-## Feature Availability Classifications
-- Beta: Preview features for gathering feedback; may change or be discontinued; beta header required
-- Generally available (GA): Stable, fully supported, recommended for production
-- Deprecated: Functional but no longer recommended; migration path provided
-- Retired: No longer available
-
-## 1. Model Capabilities
-
-| Feature | Description | Availability |
-|---------|-------------|--------------|
-| Context windows | Up to 1M tokens | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| Adaptive thinking | Dynamic reasoning depth; recommended for Opus 4.6; effort parameter | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| Batch processing | 50% cost savings for async bulk requests | Claude API, Bedrock, Vertex AI |
-| Citations | Source document grounding with exact references | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| Data residency | Geographic inference controls (global/us) via inference_geo | Claude API only |
-| Effort | Control tokens/thoroughness tradeoff; Opus 4.6 and Opus 4.5 | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| Extended thinking | Step-by-step reasoning transparency | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| PDF support | Text and visual content analysis | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| Search results | Natural citations for RAG applications | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| Structured outputs | JSON Schema enforcement; JSON outputs + strict tool use | Claude API, Bedrock, Azure AI (beta) |
-
-## 2. Tools (Server-side)
-
-| Feature | Description | Availability |
-|---------|-------------|--------------|
-| Code execution | Sandboxed environment; free when used with web search or web fetch | Claude API, Azure AI (beta) |
-| Web fetch | Retrieve full content from web pages and PDFs | Claude API, Azure AI (beta) |
-| Web search | Augment with real-world data | Claude API, Vertex AI, Azure AI (beta) |
-
-## 3. Tools (Client-side)
-
-| Feature | Description | Availability |
-|---------|-------------|--------------|
-| Bash | Execute bash commands and scripts | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| Computer use | Screenshots, mouse, keyboard control | Claude API (beta), Bedrock (beta), Vertex AI (beta), Azure AI (beta) |
-| Memory | Store and retrieve info across conversations; build knowledge bases | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| Text editor | Create and edit text files | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-
-## 4. Tool Infrastructure
-
-| Feature | Description | Availability |
-|---------|-------------|--------------|
-| Agent Skills | Pre-built (PowerPoint, Excel, Word, PDF) and custom skills; progressive disclosure | Claude API (beta), Azure AI (beta) |
-| Fine-grained tool streaming | Stream tool use parameters without buffering/JSON validation | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| MCP connector | Connect to remote MCP servers from Messages API without separate client | Claude API (beta), Azure AI (beta) |
-| Programmatic tool calling | Tools from within code execution containers; reduced latency/tokens | Claude API, Azure AI (beta) |
-| Tool search | Scale to thousands of tools with regex-based discovery | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-
-## 5. Context Management
-
-| Feature | Description | Availability |
-|---------|-------------|--------------|
-| Compaction | Server-side context summarization; auto-summarizes when approaching window limit; Opus 4.6, Sonnet 4.6 | Claude API (beta), Bedrock (beta), Vertex AI (beta), Azure AI (beta) |
-| Context editing | Automatic context management; clears tool results, manages thinking blocks | Claude API (beta), Bedrock (beta), Vertex AI (beta), Azure AI (beta) |
-| Automatic prompt caching | Single parameter; auto-caches last cacheable block; moves forward as conversations grow | Claude API, Azure AI (beta) |
-| Prompt caching (5m) | Background knowledge and example outputs; 50% cost reduction | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-| Prompt caching (1hr) | Extended 1-hour cache for less frequently accessed context | Claude API, Vertex AI, Azure AI (beta) |
-| Token counting | Determine token count before sending | Claude API, Bedrock, Vertex AI, Azure AI (beta) |
-
-## 6. Files and Assets
-
-| Feature | Description | Availability |
-|---------|-------------|--------------|
-| Files API | Upload/manage files (PDFs, images, text); no re-upload needed per request | Claude API (beta), Azure AI (beta) |
-
-Note: Models API returns capabilities object (max_input_tokens, max_tokens, capabilities) for programmatic feature discovery.
+## Page Metadata
+- Title: "Not Found - Claude API Docs"
+- Status: HTTP 404 (Not Found)
+- Canonical URL: https://platform.claude.com

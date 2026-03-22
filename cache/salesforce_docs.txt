@@ -1,27 +1,22 @@
-Source: AgentForce Developer Guide
-URL: https://developer.salesforce.com/docs/ai/agentforce/guide
-Fetched: 2026-03-22
+# Agentforce Developer Guide - Content Extraction
 
-# Agentforce Developer Guide
+## Main Heading
+"Get Started with Agentforce and AI Agents"
 
-## Overview
-Agentforce is "the agent-driven layer of the Salesforce Platform" enabling deployment of AI agents for workforce augmentation and 24/7 customer service. Features a Trust Layer that "securely connects your data with the power of large language models (LLMs)."
+## Key Description
+The page describes Agentforce as an agent-driven layer of the Salesforce Platform designed for deploying AI agents that work with employees and serve customers continuously. It emphasizes the Trust Layer's secure connection between data and large language models.
 
-## Core Capabilities
-- Conversational AI agents built on secure Trust Layer architecture
-- Integration of LLMs with enterprise data
-- Customizable AI assistants within Salesforce
+## Overview Guides Section
+- **Agentforce APIs and SDKs**: Documentation for building solutions using various APIs and SDKs
+- **Agentforce Actions**: Resources for constructing and improving Agentforce actions
 
-## Development Resources
-1. APIs & SDKs — Tools for building Agentforce solutions
-2. Agentforce Actions — Building and enhancing agent functionality
-3. Agent Script — Specialized language for Agentforce Builder configuration
-4. Agentforce DX — Professional-code tools for CLI and VS Code integration
-5. Models & Prompts — LLM configuration and prompt template management via Prompt Builder
+## Development Tools Section
+- **Agent Script**: Language designed for agent building in Agentforce Builder
+- **Agentforce DX**: Pro-code tools for Salesforce CLI and VS Code integration
 
-## Key Architecture
-Trust Layer serves as secure connector between enterprise data and LLM capabilities. Platform supports both configuration-friendly and pro-code development approaches.
+## Models and Prompts
+The platform provides tools for configuring LLMs and includes Prompt Builder features for "create, manage, and use your prompt templates."
 
-## Additional Resources
-- Salesforce Help articles on Agentforce and Generative AI
-- Agentforce Agents functionality documentation
+## External Resources
+- Salesforce Help links for Agentforce and Generative AI topics
+- References to Agentforce Agents documentation

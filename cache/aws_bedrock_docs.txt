@@ -1,101 +1,30 @@
-Source: Bedrock User Guide
-URL: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html
-Fetched: 2026-03-22
+# Amazon Bedrock - What is Amazon Bedrock?
 
-# Amazon Bedrock Overview - Content Extraction
+## Core Definition
+Fully managed service providing secure, enterprise-grade access to high-performing foundation models from leading AI companies.
 
-## Main Description
-Amazon Bedrock is a fully managed service that provides secure, enterprise-grade access to high-performing foundation models from leading AI companies, enabling you to build and scale generative AI applications.
+## Supported APIs
+1. Responses API (OpenAI Compatible)
+2. Chat Completions API (OpenAI Compatible)
+3. Invoke API (Boto3)
+4. Converse API (Boto3)
 
-## Quickstart
-Read the Quickstart to write your first API call using Amazon Bedrock in under five minutes.
+## Featured Models (100+ foundation models)
+- Nova 2 (Amazon)
+- Claude Opus 4.6 (Anthropic)
+- Deepseek 3.2 (DeepSeek)
+- Kimi K2.5 (Moonshot AI)
+- MiniMax M2.1 (MiniMax)
+- GPT-OSS-20B (OpenAI)
 
-### Code Examples Provided:
-
-**Responses API (OpenAI)**
-```python
-from openai import OpenAI
-client = OpenAI()
-response = client.responses.create(
-    model="openai.gpt-oss-120b",
-    input="Can you explain the features of Amazon Bedrock?"
-)
-print(response)
-```
-
-**Chat Completions API (OpenAI)**
-```python
-from openai import OpenAI
-client = OpenAI()
-response = client.chat.completions.create(
-    model="openai.gpt-oss-120b",
-    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
-)
-print(response)
-```
-
-**Invoke API (Boto3)**
-```python
-import json
-import boto3
-client = boto3.client('bedrock-runtime', region_name='us-east-1')
-response = client.invoke_model(
-    modelId='anthropic.claude-opus-4-6-v1',
-    body=json.dumps({
-        'anthropic_version': 'bedrock-2023-05-31',
-        'messages': [{'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-        'max_tokens': 1024
-    })
-)
-print(json.loads(response['body'].read()))
-```
-
-**Converse API (Boto3)**
-```python
-import boto3
-client = boto3.client('bedrock-runtime', region_name='us-east-1')
-response = client.converse(
-    modelId='anthropic.claude-opus-4-6-v1',
-    messages=[
-        {
-            'role': 'user',
-            'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
-        }
-    ]
-)
-print(response)
-```
-
-## Supported Models
-Bedrock supports 100+ foundation models from industry-leading providers, including:
-- Amazon (Nova 2)
-- Anthropic (Claude Opus 4.6, Claude Sonnet 4.6)
-- DeepSeek (DeepSeek V3.2)
-- Moonshot AI (Kimi K2.5)
-- MiniMax (MiniMax M2.1)
-- OpenAI (GPT-OSS-20B)
-- Alibaba (GLM 4.7, GLM 4.7 Flash, Qwen3 Coder Next)
+## Model Providers
+Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, OpenAI
 
 ## What's New
+- OpenAI-Compatible Projects API (Mantle inference engine)
+- Anthropic Claude 4.6 Models (Sonnet 4.6, Opus 4.6) - February 2026
+- Six New Open Weight Models (February 2026): DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next
+- Server-Side Tools Support (January 2026): Responses API with AgentCore Gateway tools
 
-**Anthropic's Claude 4.6 Now Available**
-- Claude Sonnet 4.6 (available in Amazon Bedrock)
-- Claude Opus 4.6 (available in Amazon Bedrock)
-
-**Six New Open Weight Models**
-- DeepSeek V3.2
-- MiniMax M2.1
-- GLM 4.7
-- GLM 4.7 Flash
-- Kimi K2.5
-- Qwen3 Coder Next
-
-**Additional Features**
-- OpenAI-compatible Projects API support in the Mantle inference engine
-- Server-side tools support in the Responses API using OpenAI API-compatible service endpoints
-- Integration with AgentCore Gateway tools for server-side tool execution without client-side orchestration
-
-## Getting Started Resources
-- Explore supported APIs and Endpoints
-- Build using model inference operations
-- Customize models to improve performance and quality for your use case
+## Build Resources
+- APIs, Endpoints, Model Inference, Custom Models
