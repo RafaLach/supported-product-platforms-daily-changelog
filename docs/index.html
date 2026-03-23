@@ -88,8 +88,9 @@
         .module-sublabel { font-size:11px; color:var(--text-3); font-weight:500; }
         .module-count { font-size:10px; font-weight:700; color:var(--text-3); background:var(--bg-inset); padding:2px 7px; border-radius:20px; }
 
-        .finding-row { display:grid; grid-template-columns:60px 1fr auto; gap:12px; align-items:center; padding:12px 16px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); margin-bottom:5px; cursor:pointer; transition:all .2s var(--ease); }
+        .finding-row { display:grid; grid-template-columns:28px 60px 1fr auto; gap:10px; align-items:center; padding:12px 16px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); margin-bottom:5px; cursor:pointer; transition:all .2s var(--ease); }
         .finding-row:hover { box-shadow:var(--shadow-md); transform:translateY(-1px); }
+        .finding-logo { width:28px; height:28px; border-radius:var(--radius-xs); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; color:var(--text-3); background:var(--bg-inset); flex-shrink:0; }
         .sev { font-size:10px; font-weight:800; letter-spacing:.5px; padding:4px 0; border-radius:var(--radius-xs); text-align:center; }
         .sev.HIGH { background:var(--red-soft); color:var(--red); }
         .sev.MEDIUM { background:var(--yellow-soft); color:var(--yellow); }
@@ -98,10 +99,12 @@
         .badge-sm.AIDR { background:rgba(128,238,219,0.12); color:var(--primary-dark); }
         .badge-sm.AISPM { background:var(--violet-50); color:var(--secondary); }
         .badge-sm.ENDPOINT { background:rgba(59,130,246,0.08); color:var(--blue); }
+        .change-tag { font-size:9px; font-weight:700; padding:2px 6px; border-radius:3px; background:var(--bg-inset); color:var(--text-3); white-space:nowrap; }
         .finding-main { min-width:0; }
         .finding-title { font-size:13px; font-weight:700; letter-spacing:-0.2px; margin-bottom:1px; }
         .finding-plat { font-size:11px; color:var(--text-3); margin-bottom:3px; }
-        .finding-desc { font-size:12px; color:var(--text-2); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+        .finding-desc { font-size:12px; color:var(--text-2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .finding-tags { display:flex; gap:4px; margin-top:4px; flex-wrap:wrap; }
         .finding-arrow { color:var(--text-3); font-size:16px; }
 
         .feed-card { background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); margin-bottom:12px; overflow:hidden; transition:box-shadow .2s var(--ease); }
@@ -203,7 +206,7 @@
         .loading { color:var(--text-3); padding:20px; text-align:center; font-size:13px; }
 
         @media(max-width:900px) { .metrics{grid-template-columns:repeat(2,1fr)} .container{padding:14px} .nav-inner{padding:0 14px} .nav-subtitle,.nav-divider{display:none} .drawer-body{grid-template-columns:1fr} .drawer-list{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border)} .drawer-item{white-space:nowrap;border-bottom:none;border-right:1px solid var(--border)} }
-        @media(max-width:600px) { .metrics{grid-template-columns:1fr} .side-panel{width:100vw;max-width:100vw;right:-100vw} .archive-btn span{display:none} }
+        @media(max-width:600px) { .metrics{grid-template-columns:1fr} .side-panel{width:100vw;max-width:100vw;right:-100vw} .archive-btn span{display:none} .finding-row{grid-template-columns:28px 50px 1fr auto} }
         ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
     </style>
 </head>
@@ -263,7 +266,7 @@
     <div class="view-toggle">
         <button class="view-btn active" data-panel="by-change">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-            By Change
+            By Product Line
         </button>
         <button class="view-btn" data-panel="by-platform">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
@@ -324,6 +327,20 @@ function matchPlatform(text){
     return null;
 }
 
+/* Detect change type from title + description */
+function detectChangeType(title, desc){
+    const t=(title+' '+desc).toLowerCase();
+    if(t.includes('deprecat')||t.includes('breaking')||t.includes('shutdown')||t.includes('end of life')||t.includes('removed')) return 'Deprecation';
+    if(t.includes('new api')||t.includes('api surface')||t.includes('api reference')||t.includes('api chang')) return 'API Change';
+    if(t.includes('compliance')||t.includes('cmek')||t.includes('hipaa')||t.includes('encryption')||t.includes('audit')) return 'Compliance';
+    if(t.includes('new resource')||t.includes('inventory entit')||t.includes('new entit')||t.includes('resource type')) return 'New Resource Type';
+    if(t.includes('new service')||t.includes('new feature')||t.includes('new tool')||t.includes('launched')||t.includes('now available')||t.includes('introduced')||t.includes('added')) return 'New Feature';
+    if(t.includes('improv')||t.includes('enhanc')||t.includes('expand')||t.includes('updat')||t.includes('extend')) return 'Improvement';
+    if(t.includes('model')||t.includes('llm')||t.includes('fine-tun')) return 'Model Update';
+    if(t.includes('agent')||t.includes('framework')||t.includes('sdk')) return 'Agent/SDK';
+    return 'New Feature';
+}
+
 const moduleActions = {
     AISPM: 'Add new entities to AISPM inventory. Map resources, permissions, and sharing configurations for this new service.',
     AIDR: 'Set up detection rules in AIDR. Monitor activity patterns and data flows for this new capability.',
@@ -382,7 +399,7 @@ function renderMetrics(){
 function renderPurpose(){
     if(localStorage.getItem('zenity-purpose-seen')) return;
     const el=document.getElementById('purpose');
-    el.innerHTML='New features and APIs detected across 18 AI platforms that Zenity may need to add to its security monitoring coverage.';
+    el.innerHTML='Daily scan of 18 AI platforms for new features, APIs, and services that Zenity needs to add to its security monitoring coverage.';
     el.onclick=()=>{localStorage.setItem('zenity-purpose-seen','1');el.style.display='none';};
 }
 
@@ -396,7 +413,7 @@ function renderEmpty(container){
     </div>`;
 }
 
-/* ========== BY CHANGE VIEW ========== */
+/* ========== BY PRODUCT LINE VIEW ========== */
 function renderByChange(){
     const container=document.getElementById('by-change');
     if(!allFindings.length){renderEmpty(container);return;}
@@ -404,40 +421,26 @@ function renderByChange(){
     const sOrder={HIGH:0,MEDIUM:1,LOW:2};
     const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
 
-    const groups={};
-    const order=['AISPM','AIDR','ENDPOINT'];
-    const labels={AISPM:'AISPM',AIDR:'AIDR',ENDPOINT:'Endpoint'};
-    const subs={AISPM:'New inventory entities to discover',AIDR:'New detection surfaces to monitor',ENDPOINT:'New local AI tools to track'};
-
-    sorted.forEach(f=>{
-        const mod=(f.module||'AISPM').toUpperCase();
-        (groups[mod]=groups[mod]||[]).push(f);
-    });
-
-    container.innerHTML=order.filter(m=>groups[m]&&groups[m].length).map(mod=>`
-        <div class="module-group">
-            <div class="module-header">
-                <div class="module-icon ${mod}">${mod.slice(0,2)}</div>
-                <div>
-                    <span class="module-label">${labels[mod]}</span>
-                    <span class="module-sublabel"> &mdash; ${subs[mod]}</span>
+    container.innerHTML=sorted.map((item,gi)=>{
+        const plat=matchPlatform(item.title+' '+item.description);
+        const logo=platformLogos[plat]||['','??'];
+        const mod=(item.module||'').toUpperCase();
+        const changeType=detectChangeType(item.title, item.description);
+        return `<div class="finding-row" onclick="openPanel(${gi})">
+            <div class="finding-logo feed-logo ${logo[0]}" style="width:28px;height:28px;font-size:10px">${logo[1]}</div>
+            <div class="sev ${item.severity}">${item.severity}</div>
+            <div class="finding-main">
+                ${plat?`<div class="finding-plat">${plat}</div>`:''}
+                <div class="finding-title">${item.title}</div>
+                <div class="finding-desc">${item.description}</div>
+                <div class="finding-tags">
+                    <span class="badge-sm ${mod}">${mod}</span>
+                    <span class="change-tag">${changeType}</span>
                 </div>
-                <span class="module-count">${groups[mod].length}</span>
             </div>
-            ${groups[mod].map(item=>{
-                const gi=sorted.indexOf(item);
-                const plat=matchPlatform(item.title+' '+item.description);
-                return `<div class="finding-row" onclick="openPanel(${gi})">
-                    <div class="sev ${item.severity}">${item.severity}</div>
-                    <div class="finding-main">
-                        ${plat?`<div class="finding-plat">${plat}</div>`:''}
-                        <div class="finding-title">${item.title}</div>
-                        <div class="finding-desc">${item.description}</div>
-                    </div>
-                    <div class="finding-arrow">&#8250;</div>
-                </div>`;
-            }).join('')}
-        </div>`).join('');
+            <div class="finding-arrow">&#8250;</div>
+        </div>`;
+    }).join('');
 }
 
 /* ========== BY PLATFORM VIEW ========== */
@@ -511,7 +514,8 @@ function openPanel(idx){
     badge.className='panel-module-badge '+mod;
     document.getElementById('panel-plat').textContent=plat||'';
     document.getElementById('panel-title').textContent=item.title;
-    document.getElementById('panel-sev').innerHTML=`<span class="dot ${item.severity}"></span>${item.severity} severity`;
+    const changeType=detectChangeType(item.title, item.description);
+    document.getElementById('panel-sev').innerHTML=`<span class="dot ${item.severity}"></span>${item.severity} severity <span class="change-tag" style="margin-left:6px">${changeType}</span>`;
 
     let body=`<div class="panel-section">
         <div class="panel-section-title">What was added</div>
