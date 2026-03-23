@@ -376,7 +376,7 @@ async function init(){
         // Normalize severities and sort globally: HIGH first, then MEDIUM, then LOW
         raw.forEach(f=>{f.severity=(f.severity||'MEDIUM').toUpperCase();f.module=(f.module||'AISPM').toUpperCase();});
         const sOrder={HIGH:0,MEDIUM:1,LOW:2};
-        allFindings = raw.sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
+        allFindings = raw.sort((a,b)=>(sOrder[a.severity]??3)-(sOrder[b.severity]??3));
         renderMetrics();
         renderPurpose();
         renderByChange();
@@ -451,8 +451,9 @@ function renderByChange(){
     const highCount=items=>items.filter(i=>i.severity==='HIGH').length;
     const medCount=items=>items.filter(i=>i.severity==='MEDIUM').length;
 
+    const sevRank={HIGH:0,MEDIUM:1,LOW:2};
     container.innerHTML=order.filter(m=>groups[m]&&groups[m].length).map(mod=>{
-        const items=groups[mod];
+        const items=groups[mod].sort((a,b)=>(sevRank[a.severity]??3)-(sevRank[b.severity]??3));
         const hc=highCount(items), mc=medCount(items);
         return `
         <div class="module-group" id="mod-${mod}">
