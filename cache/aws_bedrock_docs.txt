@@ -1,30 +1,138 @@
-# Amazon Bedrock - What is Amazon Bedrock?
+# Amazon Bedrock Overview - Complete Content Extraction
 
-## Core Definition
-Fully managed service providing secure, enterprise-grade access to high-performing foundation models from leading AI companies.
+## Service Definition
+**Amazon Bedrock** is a fully managed service providing secure, enterprise-grade access to high-performing foundation models from leading AI companies, enabling users to build and scale generative AI applications.
+
+---
 
 ## Supported APIs
-1. Responses API (OpenAI Compatible)
-2. Chat Completions API (OpenAI Compatible)
-3. Invoke API (Boto3)
-4. Converse API (Boto3)
 
-## Featured Models (100+ foundation models)
-- Nova 2 (Amazon)
-- Claude Opus 4.6 (Anthropic)
-- Deepseek 3.2 (DeepSeek)
-- Kimi K2.5 (Moonshot AI)
-- MiniMax M2.1 (MiniMax)
-- GPT-OSS-20B (OpenAI)
+### 1. Responses API (OpenAI Compatible)
+```python
+from openai import OpenAI
 
-## Model Providers
-Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, OpenAI
+client = OpenAI()
+response = client.responses.create(
+    model="openai.gpt-oss-120b",
+    input="Can you explain the features of Amazon Bedrock?"
+)
+print(response)
+```
 
-## What's New
-- OpenAI-Compatible Projects API (Mantle inference engine)
-- Anthropic Claude 4.6 Models (Sonnet 4.6, Opus 4.6) - February 2026
-- Six New Open Weight Models (February 2026): DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next
-- Server-Side Tools Support (January 2026): Responses API with AgentCore Gateway tools
+### 2. Chat Completions API (OpenAI Compatible)
+```python
+from openai import OpenAI
 
-## Build Resources
-- APIs, Endpoints, Model Inference, Custom Models
+client = OpenAI()
+response = client.chat.completions.create(
+    model="openai.gpt-oss-120b",
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+)
+print(response)
+```
+
+### 3. Invoke API (Boto3)
+```python
+import json
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.invoke_model(
+    modelId='anthropic.claude-opus-4-6-v1',
+    body=json.dumps({
+        'anthropic_version': 'bedrock-2023-05-31',
+        'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
+        'max_tokens': 1024
+    })
+)
+print(json.loads(response['body'].read()))
+```
+
+### 4. Converse API (Boto3)
+```python
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.converse(
+    modelId='anthropic.claude-opus-4-6-v1',
+    messages=[
+        {
+            'role': 'user',
+            'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
+        }
+    ]
+)
+print(response)
+```
+
+---
+
+## Supported Foundation Models (100+)
+
+### Featured Models:
+- **Nova 2** (Amazon)
+- **Claude Opus 4.6** (Anthropic)
+- **Claude Sonnet 4.6** (Anthropic)
+- **DeepSeek V3.2** (DeepSeek)
+- **Kimi K2.5** (Moonshot AI)
+- **MiniMax M2.1** (MiniMax)
+- **GPT-OSS-20B** (OpenAI)
+- **GLM 4.7** (Zhipu)
+- **GLM 4.7 Flash** (Zhipu)
+- **Qwen3 Coder Next** (Alibaba)
+
+**Providers:** Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, OpenAI, Zhipu, and others
+
+---
+
+## What's New / Recent Announcements
+
+### 1. Projects API Support (2026)
+- Amazon Bedrock now supports OpenAI-compatible Projects API in the Mantle inference engine
+
+### 2. Anthropic Claude 4.6 Models (February 2026)
+- Claude Sonnet 4.6 now available
+- Claude Opus 4.6 now available
+
+### 3. Six New Open Weight Models (February 2026)
+- DeepSeek V3.2
+- MiniMax M2.1
+- GLM 4.7
+- GLM 4.7 Flash
+- Kimi K2.5
+- Qwen3 Coder Next
+- Focus: frontier reasoning and agentic coding
+
+### 4. Server-Side Tools Support (January 2026)
+- Responses API now supports server-side tools using OpenAI API-compatible service endpoints
+- AgentCore Gateway tools integration enabled
+- Server-side tool execution without client-side orchestration
+
+---
+
+## Key Capabilities
+
+1. **Model Inference** - Submit prompts and generate responses
+2. **Model Customization** - Customize models to improve performance for specific use cases
+3. **Enterprise Security** - Secure, enterprise-grade access to foundation models
+4. **Flexible APIs** - Multiple API options (OpenAI-compatible, Boto3, custom)
+
+---
+
+## Navigation & Documentation Structure
+
+- **Quickstart Guide** - Get started in under 5 minutes
+- **Models Documentation** - Comprehensive foundation models reference
+- **APIs Documentation** - All supported API details
+- **Endpoints Documentation** - Available endpoint information
+- **Custom Models Guide** - Model customization documentation
+- **Inference Operations Guide** - Model inference operations
+
+---
+
+## Resources
+
+- Main AWS Bedrock Page: https://aws.amazon.com
+- Complete Bedrock Documentation: https://docs.aws.amazon.com/bedrock/index.html
+- User Guide: https://docs.aws.amazon.com/bedrock/latest/userguide
+- PDF Download: https://docs.aws.amazon.com/pdfs/bedrock/latest/userguide/bedrock-ug.pdf
