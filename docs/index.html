@@ -65,6 +65,24 @@
         .summary-dot.scan { background:var(--green); }
         .summary-sep { width:1px; height:16px; background:var(--border-strong); }
 
+        /* --- TOOLBAR: SEARCH + FILTERS --- */
+        .toolbar { display:flex; align-items:center; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
+        .search-box { flex:1; min-width:180px; position:relative; }
+        .search-box input { width:100%; padding:8px 12px 8px 34px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text-1); font:500 12px/1.4 'Inter',sans-serif; outline:none; transition:border-color .2s; }
+        .search-box input::placeholder { color:var(--text-3); }
+        .search-box input:focus { border-color:var(--secondary); }
+        .search-box svg { position:absolute; left:10px; top:50%; transform:translateY(-50%); width:14px; height:14px; color:var(--text-3); pointer-events:none; }
+        .search-clear { position:absolute; right:8px; top:50%; transform:translateY(-50%); width:18px; height:18px; border:none; background:var(--bg-inset); color:var(--text-3); border-radius:50%; cursor:pointer; font-size:11px; display:none; align-items:center; justify-content:center; line-height:1; }
+        .search-clear.visible { display:flex; }
+        .filter-chips { display:flex; gap:4px; flex-wrap:wrap; }
+        .chip { padding:5px 10px; border-radius:6px; border:1px solid var(--border); background:var(--bg-elevated); color:var(--text-3); font:600 11px/1 'Inter',sans-serif; cursor:pointer; transition:all .15s; white-space:nowrap; }
+        .chip:hover { border-color:var(--border-strong); color:var(--text-2); }
+        .chip.active { border-color:var(--secondary); background:var(--violet-50); color:var(--secondary); }
+        .chip.active.sev-high { border-color:var(--red); background:var(--red-soft); color:var(--red); }
+        .chip.active.sev-med { border-color:var(--yellow); background:var(--yellow-soft); color:var(--yellow); }
+        .chip-sep { width:1px; height:20px; background:var(--border-strong); align-self:center; }
+        .no-results { padding:30px 20px; text-align:center; color:var(--text-3); font-size:13px; }
+
         .view-toggle { display:flex; align-items:center; gap:6px; margin-bottom:16px; }
         .view-btn { padding:7px 16px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); cursor:pointer; font:600 12px/1 'Inter',sans-serif; color:var(--text-3); transition:all .2s var(--ease); display:flex; align-items:center; gap:6px; }
         .view-btn:hover { border-color:var(--border-strong); color:var(--text-2); }
@@ -257,6 +275,16 @@
     <div class="purpose" id="purpose"></div>
     <div class="summary-bar" id="summary-bar"></div>
 
+    <!-- TOOLBAR -->
+    <div class="toolbar" id="toolbar">
+        <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="search-input" placeholder="Search findings..." oninput="applyFilters()">
+            <button class="search-clear" id="search-clear" onclick="document.getElementById('search-input').value='';applyFilters()">&times;</button>
+        </div>
+        <div class="filter-chips" id="filter-chips"></div>
+    </div>
+
     <div class="view-toggle">
         <button class="view-btn active" data-panel="by-change">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -373,6 +401,7 @@ async function init(){
         allFindings = raw.sort((a,b)=>(sOrder[a.severity]??3)-(sOrder[b.severity]??3));
         renderSummary();
         renderPurpose();
+        renderFilterChips();
         renderByChange();
         renderByPlatform();
         renderDrawerList();
@@ -400,10 +429,84 @@ function renderSummary(){
 function toggleModule(modId){
     const el=document.getElementById(modId);
     const wasCollapsed=el.classList.contains('collapsed');
-    // Collapse all
     document.querySelectorAll('.module-group').forEach(g=>g.classList.add('collapsed'));
-    // Expand clicked one (if it was collapsed)
     if(wasCollapsed) el.classList.remove('collapsed');
+}
+
+/* ========== FILTERS + SEARCH ========== */
+let activeFilters={severity:null, module:null, platform:null, changeType:null};
+
+function renderFilterChips(){
+    const chips=document.getElementById('filter-chips');
+    // Collect unique values
+    const severities=[...new Set(allFindings.map(f=>f.severity))];
+    const modules=[...new Set(allFindings.map(f=>f.module))];
+    const platforms=[...new Set(allFindings.map(f=>matchPlatform(f.title+' '+f.description)).filter(Boolean))];
+    const changeTypes=[...new Set(allFindings.map(f=>detectChangeType(f.title,f.description)))];
+
+    let html='';
+    severities.forEach(s=>{
+        const cls=s==='HIGH'?'sev-high':s==='MEDIUM'?'sev-med':'';
+        html+=`<button class="chip ${cls}" data-filter="severity" data-value="${s}" onclick="toggleFilter(this)">${s}</button>`;
+    });
+    if(modules.length>1){
+        html+='<div class="chip-sep"></div>';
+        modules.forEach(m=>{
+            html+=`<button class="chip" data-filter="module" data-value="${m}" onclick="toggleFilter(this)">${m}</button>`;
+        });
+    }
+    if(platforms.length>1){
+        html+='<div class="chip-sep"></div>';
+        platforms.sort().forEach(p=>{
+            const short=p.replace('Amazon ','').replace('Microsoft ','').replace(' (M365)','').replace('ChatGPT Enterprise (OpenAI)','OpenAI').replace('Claude Enterprise (Anthropic)','Anthropic').replace('Google ','');
+            html+=`<button class="chip" data-filter="platform" data-value="${p}" onclick="toggleFilter(this)">${short}</button>`;
+        });
+    }
+    chips.innerHTML=html;
+}
+
+function toggleFilter(el){
+    const key=el.dataset.filter;
+    const val=el.dataset.value;
+    if(activeFilters[key]===val){
+        activeFilters[key]=null;
+        el.classList.remove('active');
+    }else{
+        // Deactivate other chips in same group
+        document.querySelectorAll(`.chip[data-filter="${key}"]`).forEach(c=>c.classList.remove('active'));
+        activeFilters[key]=val;
+        el.classList.add('active');
+    }
+    applyFilters();
+}
+
+function applyFilters(){
+    const query=document.getElementById('search-input').value.toLowerCase().trim();
+    const clearBtn=document.getElementById('search-clear');
+    clearBtn.classList.toggle('visible',query.length>0);
+
+    // Filter allFindings
+    const filtered=allFindings.filter(f=>{
+        if(query){
+            const text=(f.title+' '+f.description+' '+(f.module||'')).toLowerCase();
+            const plat=matchPlatform(f.title+' '+f.description)||'';
+            if(!text.includes(query)&&!plat.toLowerCase().includes(query)) return false;
+        }
+        if(activeFilters.severity && f.severity!==activeFilters.severity) return false;
+        if(activeFilters.module && f.module!==activeFilters.module) return false;
+        if(activeFilters.platform){
+            const plat=matchPlatform(f.title+' '+f.description);
+            if(plat!==activeFilters.platform) return false;
+        }
+        if(activeFilters.changeType){
+            if(detectChangeType(f.title,f.description)!==activeFilters.changeType) return false;
+        }
+        return true;
+    });
+
+    // Re-render both views with filtered data
+    renderByChangeFiltered(filtered);
+    renderByPlatformFiltered(filtered);
 }
 
 function renderPurpose(){
@@ -424,16 +527,23 @@ function renderEmpty(container){
 }
 
 /* ========== BY PRODUCT LINE VIEW ========== */
-function renderByChange(){
+function renderByChange(){ renderByChangeFiltered(allFindings); }
+function renderByChangeFiltered(findings){
     const container=document.getElementById('by-change');
-    if(!allFindings.length){renderEmpty(container);return;}
+    if(!findings.length){
+        container.innerHTML=allFindings.length
+            ?'<div class="no-results">No findings match your filters</div>'
+            :'';
+        if(!allFindings.length) renderEmpty(container);
+        return;
+    }
 
     const groups={};
     const order=['AISPM','AIDR','AIRT','ENDPOINT'];
     const labels={AISPM:'AISPM',AIDR:'AIDR',AIRT:'AIRT',ENDPOINT:'Endpoint'};
     const subs={AISPM:'New entities, violation rules, and toxic combinations',AIDR:'New detection surfaces to monitor',AIRT:'New attack surfaces for red/purple teaming',ENDPOINT:'New local AI tools to track'};
 
-    allFindings.forEach(f=>{
+    findings.forEach(f=>{
         (groups[f.module]=groups[f.module]||[]).push(f);
     });
 
@@ -484,13 +594,20 @@ function renderByChange(){
 }
 
 /* ========== BY PLATFORM VIEW ========== */
-function renderByPlatform(){
+function renderByPlatform(){ renderByPlatformFiltered(allFindings); }
+function renderByPlatformFiltered(findings){
     const container=document.getElementById('by-platform');
-    if(!allFindings.length){renderEmpty(container);return;}
+    if(!findings.length){
+        container.innerHTML=allFindings.length
+            ?'<div class="no-results">No findings match your filters</div>'
+            :'';
+        if(!allFindings.length) renderEmpty(container);
+        return;
+    }
 
     const platFindings={};
 
-    allFindings.forEach(f=>{
+    findings.forEach(f=>{
         const plat=matchPlatform(f.title+' '+f.description)||'Other';
         (platFindings[plat]=platFindings[plat]||[]).push(f);
     });
