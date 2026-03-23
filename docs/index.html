@@ -98,7 +98,7 @@
         .finding-row { display:grid; grid-template-columns:28px 54px 1fr auto; gap:10px; align-items:center; padding:10px 12px; border-radius:var(--radius-xs); cursor:pointer; transition:background .15s; }
         .finding-row:hover { background:var(--bg-hover); }
         .finding-row+.finding-row { border-top:1px solid var(--border); }
-        .finding-logo { width:28px; height:28px; border-radius:var(--radius-xs); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; color:var(--text-3); background:var(--bg-inset); flex-shrink:0; }
+        .finding-logo { width:28px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
         .sev { font-size:10px; font-weight:800; letter-spacing:.5px; padding:4px 0; border-radius:var(--radius-xs); text-align:center; }
         .sev.HIGH { background:var(--red-soft); color:var(--red); }
         .sev.MEDIUM { background:var(--yellow-soft); color:var(--yellow); }
@@ -119,7 +119,7 @@
         .feed-card { background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); margin-bottom:12px; overflow:hidden; transition:box-shadow .2s var(--ease); }
         .feed-card:hover { box-shadow:var(--shadow-md); }
         .feed-header { padding:16px 20px 12px; display:flex; align-items:center; gap:12px; border-bottom:1px solid var(--border); }
-        .feed-logo { width:36px; height:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .feed-logo { width:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
         .feed-info { flex:1; min-width:0; }
         .feed-name { font-size:15px; font-weight:700; letter-spacing:-0.3px; }
         .feed-meta { display:flex; align-items:center; gap:8px; margin-top:2px; }
@@ -303,8 +303,8 @@ const platformLogos = {
 };
 function logoImg(platName,size){
     const url=platformLogos[platName];
-    if(!url)return `<div style="width:${size}px;height:${size}px;border-radius:4px;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;font-size:${Math.round(size/3)}px;font-weight:800;color:var(--text-3)">?</div>`;
-    return `<img src="${url}" width="${size}" height="${size}" style="object-fit:contain;padding:2px" alt="${platName}" loading="lazy">`;
+    if(!url)return '';
+    return `<img src="${url}" style="max-width:${size}px;max-height:${size}px;object-fit:contain" alt="${platName}" loading="lazy">`;
 }
 
 const platformTiers = {
