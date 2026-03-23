@@ -55,7 +55,7 @@ You are a **coverage gap detector**. Every finding should answer: "What new thin
      ```
 
      Where:
-     - **MODULE** = `AISPM` (new inventory entities: agents, tools, knowledge bases, MCPs, permissions, resources) or `AIDR` (new activity types, data flows, detection surfaces) or `ENDPOINT` (new local AI tools, IDE features, MCP servers) or `AIRT` (new attack surfaces for automated red/purple teaming: prompt injection vectors, guardrail bypasses, model vulnerabilities, tool execution risks)
+     - **MODULE** = `AISPM` (new inventory entities: agents, tools, knowledge bases, MCPs, permissions, resources; new violation rules; toxic combinations like overprivileged agents, exposed APIs, or unmonitored data flows) or `AIDR` (new activity types, data flows, detection surfaces) or `ENDPOINT` (new local AI tools, IDE features, MCP servers) or `AIRT` (new attack surfaces for automated red/purple teaming: prompt injection vectors, guardrail bypasses, model vulnerabilities, tool execution risks)
      - **SEVERITY** = `HIGH` (entirely new service/API surface) or `MEDIUM` (extension of existing capability)
 
      Example:

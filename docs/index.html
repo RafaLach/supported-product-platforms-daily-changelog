@@ -352,7 +352,7 @@ function detectChangeType(title, desc){
 }
 
 const moduleActions = {
-    AISPM: 'Add new entities to AISPM inventory. Map resources, permissions, and sharing configurations for this new service.',
+    AISPM: 'Add new entities to inventory, evaluate for violation rules, and check for toxic combinations with existing resources.',
     AIDR: 'Set up detection rules in AIDR. Monitor activity patterns and data flows for this new capability.',
     ENDPOINT: 'Update endpoint policy. Track this new tool in AI Endpoint inventory and enforce security controls.',
     AIRT: 'Evaluate for red/purple teaming. Assess new attack surfaces and update automated proactive testing scenarios.'
@@ -431,7 +431,7 @@ function renderByChange(){
     const groups={};
     const order=['AISPM','AIDR','AIRT','ENDPOINT'];
     const labels={AISPM:'AISPM',AIDR:'AIDR',AIRT:'AIRT',ENDPOINT:'Endpoint'};
-    const subs={AISPM:'New inventory entities to discover',AIDR:'New detection surfaces to monitor',AIRT:'New attack surfaces for red/purple teaming',ENDPOINT:'New local AI tools to track'};
+    const subs={AISPM:'New entities, violation rules, and toxic combinations',AIDR:'New detection surfaces to monitor',AIRT:'New attack surfaces for red/purple teaming',ENDPOINT:'New local AI tools to track'};
 
     allFindings.forEach(f=>{
         (groups[f.module]=groups[f.module]||[]).push(f);
