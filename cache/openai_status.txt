@@ -1,41 +1,30 @@
-# OpenAI Status Page
-Last Updated: Sunday, March 22, 2026, 10:12:28 GMT
+# OpenAI Status Page - Incident History Extract
 
-## Recent Incidents (All Resolved)
+**Page Details:**
+- Source: OpenAI Status Page (status.openai.com)
+- Last Updated: Monday, March 23, 2026, 07:18:08 GMT
+- Content Type: RSS Feed of Resolved Incidents
 
-1. **Pinned chats loading failure** (March 21, 2026)
-   - Affected: Conversations component
-   - Status: "All impacted services have now fully recovered"
+## All Incidents Listed (Most Recent First)
 
-2. **Sora video generation errors** (March 18, 2026)
-   - Affected: Video generation component
-   - Status: "Video generation error rates have returned to normal levels"
+### March 2026
+- **Mar 21**: "Pinned chats are not loading on web browsers for ChatGPT" - Conversations component affected, resolved
+- **Mar 18**: "Sora video generation failing" - Video generation service, resolved
+- **Mar 17**: "Excel Plugin is inaccessible for some users" - Connectors/Apps affected, resolved
+- **Mar 17**: "High Error rates with ChatGPT 5.4 Pro" - Conversations, resolved
+- **Mar 17**: "Elevated errors for sign-in and account creation" - Login component, resolved
+- **Mar 17**: "Elevated Errors Affecting ChatGPT Free and Guest Plan Users" - Conversations, resolved
 
-3. **Excel Plugin accessibility** (March 17, 2026)
-   - Affected: Connectors/Apps component
+### Additional Notable Incidents (Chronologically Descending)
+Services affected across incidents include: Conversations, Login, File uploads, Image Generation, Codex, Deep Research, Voice mode, GPTs, Agent, Compliance API, Connectors/Apps, Search, Responses, Batch, Audio, Realtime, Fine-tuning, Embeddings, Video generation, and ChatGPT Atlas.
 
-## Service Components Mentioned
+**Common Issue Categories:**
+- Authentication/Login errors
+- Conversation/Chat functionality failures
+- File upload and processing issues
+- API error rate elevations
+- Video and image generation problems
+- Regional service degradation (EU, LATAM)
+- Integration/connector availability
 
-- Conversations
-- Login/Authentication
-- File uploads/downloads
-- Image Generation (DALL-E, Images)
-- Video generation (Sora)
-- Codex
-- Chat Completions
-- Embeddings
-- Fine-tuning
-- Moderations
-- Batch processing
-- Audio
-- Realtime API
-- GPTs
-- Connectors/Apps
-- Deep Research
-- Search functionality
-- Voice mode
-- Agent
-- Responses API
-- ChatGPT Atlas
-- Compliance API
-- Feed
+All listed incidents show status as "Resolved" with full service recovery noted.

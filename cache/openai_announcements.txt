@@ -1,51 +1,45 @@
-# OpenAI Developer Community
+# OpenAI Developer Community Content Extraction
 
-## Main Categories
-- API
-- Announcements
-- GPT builders
-- Bugs
-- Community
-- Codex
-- Codex CLI
-- Prompting
-- ChatGPT Apps SDK
+## Community Forum Overview
+The OpenAI Developer Community serves as a discussion platform where developers can connect while building with OpenAI's APIs and developer tools.
 
-## Recent Topics & Features Mentioned
+## Featured Discussions & Topics
 
-**API & Models:**
-- GPT-5* models
-- GPT-5.4-mini
-- GPT-5.4-nano
-- Sora-2 API
-- gpt-realtime-1.5
-- gpt-image-1.5
-- gpt-image-1
-- Dall-E 3
+**Recent Announcements:**
+- "Welcome to community.openai.com!" (August 25, 2023)
+- Codex for Students program offering "$100 in credits for US and Canada"
 
-**Key Features/Services:**
-- "MCP server tools now in ChatGPT -- developer mode"
-- "MCP App publishing" (early access requested)
-- Realtime API with speech capabilities
-- Web Search pricing for reasoning models
-- Images/edits endpoint
-- Priority Service Tier
+**Active Discussion Categories:**
+- API development and integration
+- ChatGPT Apps and plugins
+- Image generation (DALL-E 3, ImageGen, GPT-4o)
+- Codex application (Windows and CLI versions)
+- Prompt engineering techniques
+- Commerce integration questions
+- MCP (Model Context Protocol) implementation
 
-**Tools/Products:**
-- Codex (Windows app, CLI)
-- Atlas Browser
-- ChatGPT Apps SDK
-- ChatGPT Commerce
+## Notable Issues & Bug Reports
 
-**Recent Issues Reported:**
-- Codex performance slowdowns
-- Authentication flow problems
-- Billing/token charging errors
-- Model system prompt non-compliance
-- Video duration restrictions
+**Billing/Account Problems:**
+- Codex billing errors with credit depletion
+- GPT-5.4-mini token charging discrepancies
+- Organization verification blocks
+- Costs API pagination failures
 
-**Notable Discussions:**
-- Merchant integration for ChatGPT commerce
-- British accent voices timeline
-- Structured prompt frameworks
-- AI-themed media recommendations
+**Technical Issues:**
+- Codex Windows app performance degradation
+- Caps Lock functionality failures in Codex CLI
+- Data loss concerns in file operations
+- ChatGPT Apps authentication flow problems
+- Sora-2 API duration parameter restrictions
+
+**Popular Discussion Threads:**
+- "Prompt Engineering Is Dead" discourse (105 replies, 20,073 views)
+- ImageGen/DALL-E Megathread (2,367 replies, 33,898 views)
+- Kruel.ai API companion system documentation
+
+## Platform Features
+- Search functionality
+- Category-based organization
+- User reputation system (Original Poster, Frequent Poster designations)
+- Discourse-powered infrastructure

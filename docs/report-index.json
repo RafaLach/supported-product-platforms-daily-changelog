@@ -1,5 +1,133 @@
 [
   {
+    "date": "2026-03-23",
+    "scan_time": "2026-03-23 09:27",
+    "file": "report-2026-03-23.md",
+    "platforms": [
+      {
+        "name": "Amazon Bedrock",
+        "status": "changed",
+        "details": [
+          "**Bedrock Mantle launched** (Dec 3, 2025): Full OpenAI-compatible inference engine with Responses API, Chat Completions API, asynchronous inference, stateful conversation management, and simplified tool use integration. Three new IAM policies: AmazonBedrockMantleFullAccess, AmazonBedrockMantleReadOnly, AmazonBedrockMantleInferenceAccess. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-mantle.html",
+          "**Converse API batch inference** (Feb 27, 2026): Converse API format can now be used for batch inference input data, providing consistent request format across models. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html",
+          "**Fine-tuning via OpenAI-compatible APIs** (Feb 17, 2026): Reinforcement fine-tuning for open-weight models through Files API, fine-tuning jobs APIs, and inference APIs. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/fine-tuning-openai-apis.html",
+          "**Reinforcement fine-tuning** (Dec 3, 2025): New capability to improve foundation model performance through feedback signals. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/reinforcement-fine-tuning.html",
+          "**Guardrails code security enhancements** (Nov 19, 2025): Standard tier enhanced with code content filters and prompt leakage detection for coding use cases. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-code-domain.html",
+          "**Cross-account Guardrails sharing** (Nov 21, 2025): Guardrails can now be shared across accounts within an AWS organization. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-resource-based-policies.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "changed",
+        "details": [
+          "**Evaluate API action** added to Data Plane operations \u2014 new API for agent evaluation not previously in the API reference. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Evaluate.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Q",
+        "status": "changed",
+        "details": [
+          "**Account subscription limit doubled** (Feb 18, 2026): Maximum increased from 10 to 20 accounts per AWS Region per organization. Source: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/doc-history.html",
+          "**GitHub conversation-based feedback** (Dec 29, 2025): Feature development workflow now uses /q command for conversation-based feedback instead of traditional GitHub review process. Source: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/github-feature-development.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Google Vertex AI",
+        "status": "changed",
+        "details": [
+          "**Agent Designer** (Dec 19, 2025): New low-code visual tool for building agents, available in preview. Source: https://docs.cloud.google.com/agent-builder/agent-designer",
+          "**Cloud API Registry** (Dec 18, 2025): New API management service available in preview. Source: https://docs.cloud.google.com/api-registry/docs/overview"
+        ],
+        "tier": "secondary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Amazon Bedrock Mantle inference engine",
+        "description": "Fully launched OpenAI-compatible inference engine providing Responses API, Chat Completions API, async inference, stateful conversation management, and simplified tool use. Introduces new IAM entities (MantleFullAccess, MantleReadOnly, MantleInferenceAccess) and a new API surface that must be discovered and mapped. Previously reported at surface level; full scope now documented",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-mantle.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Amazon Bedrock Converse API batch inference",
+        "description": "Converse API format now supported for batch inference input, creating a new bulk processing surface. AISPM must track batch inference jobs using Converse format alongside existing batch endpoints",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Amazon Bedrock fine-tuning via OpenAI-compatible APIs",
+        "description": "Open-weight models can now be fine-tuned through Files API, fine-tuning jobs APIs, and inference APIs using OpenAI-compatible endpoints. New fine-tuning surface distinct from native Bedrock fine-tuning that must be inventoried",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/fine-tuning-openai-apis.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Amazon Bedrock Guardrails code content filters and prompt leakage detection",
+        "description": "Guardrails Standard tier enhanced for coding use cases with code content filters and prompt leakage detection. AIDR must detect when guardrails lack code-specific protections on coding-focused deployments",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-code-domain.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Google Vertex AI Agent Designer",
+        "description": "New low-code visual agent builder in preview. Creates a new entity type (visually designed agents) that may bypass traditional code-based agent discovery patterns. AISPM must discover agents created through this visual tool",
+        "source": "https://docs.cloud.google.com/agent-builder/agent-designer",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Amazon Bedrock reinforcement fine-tuning",
+        "description": "New capability to improve foundation model performance through feedback signals. Extends the fine-tuning surface with a new training methodology that AISPM must track",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/reinforcement-fine-tuning.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Amazon Bedrock cross-account Guardrails sharing",
+        "description": "Guardrails can be shared across AWS accounts within an organization. AISPM must map guardrail sharing relationships and verify shared guardrails maintain proper configuration across account boundaries",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-resource-based-policies.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Amazon Bedrock AgentCore Evaluate API",
+        "description": "New Data Plane API action for agent evaluation. Extends AgentCore's API surface and introduces evaluation workflows as trackable entities",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Evaluate.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Google Vertex AI Cloud API Registry",
+        "description": "New API management service in preview. Introduces a registry of APIs that agents can access, creating a new inventory surface for API-to-agent relationships",
+        "source": "https://docs.cloud.google.com/api-registry/docs/overview",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Amazon Q Developer conversation-based GitHub workflow",
+        "description": "Feature development now uses /q command for conversation-based feedback instead of traditional GitHub review. Changes the interaction pattern AIDR must monitor for Q Developer GitHub integrations",
+        "source": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/github-feature-development.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-03-22",
     "scan_time": "2026-03-22 12:24",
     "file": "report-2026-03-22.md",

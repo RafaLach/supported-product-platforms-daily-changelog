@@ -1,40 +1,111 @@
-# Vertex AI Release Notes
+# Vertex AI Release Notes - Complete Content Extract
 
-## Latest Updates (March 2026)
+## Overview
+This document contains production updates to Vertex AI, with links to related release notes for Colab Enterprise, Generative AI on Vertex AI, and Vertex AI Workbench.
 
-**March 16, 2026**: Vertex Explainable AI has been deprecated.
+## Key Dates and Updates (March 2026 - April 2025)
 
-**March 12, 2026**: The Gen AI evaluation service now supports "evaluating partner models, such as Anthropic and Llama models."
+### March 2026
+- **Vector Search 2.0 GA** (March 5): Generally available with collections, auto-embeddings, hybrid search, and enterprise connectivity options
+- **Gemini 3.1 Flash-Lite** (March 3): "most cost-efficient Gemini model" optimized for low-latency, high-volume scenarios
+- **Gemini 3.1 Flash Image** (February 26): "high-quality image generation with improved pricing and latency"
+- **Video Generation Deprecations** (March 3): Multiple preview endpoints deprecated, migration required by April 2, 2026
 
-**March 5, 2026**: Vector Search 2.0 reached general availability, introducing collections, auto-embeddings, hybrid search capabilities, and enhanced security features.
+### February 2026
+- **Anthropic Claude 3 Haiku Deprecated** (Feb 23): Shutdown scheduled August 23, 2026
+- **Vertex AI Agent Builder - Code Execution GA** (Feb 18): Generally available feature
+- **Claude Sonnet 4.6** (Feb 17): Available in Model Garden
+- **Image Generation Endpoint Deprecations** (Feb 17): Multiple preview endpoints deprecated by March 19, 2026
+- **Feature Store Deprecations** (Feb 17): Both optimized online serving and Legacy/V1 versions deprecated
 
-**March 3, 2026**: Gemini 3.1 Flash-Lite became available in public preview as a cost-efficient model optimized for low-latency use cases.
+### January 2026
+- **Virtual Try-On GA** (Jan 23): Endpoint migration from preview to production version
+- **Gemini 3 Flash Preview** (Dec 17): "designed to tackle challenging agentic problems with strong coding"
+- **Sessions and Memory Bank GA** (Dec 17): Agent Engine features generally available
+- **Agent Designer Preview** (Dec 19): Low-code visual designer available in console
 
-## Major Features & Services
+### December 2025
+- **Veo 3.1 GA** (Nov 17): Introduces standard and fast variants for video generation
+- **Veo Extensions Support** (Dec 8): Video extension capability in preview
+- **Confidential Computing GA** (Dec 9): "Encrypt your data-in-use" support for Workbench instances
+- **Gemini 2.5 Flash with Native Audio GA** (Dec 12): "cutting-edge native audio functionality" for Live API
 
-**Generative AI Models**:
-- Gemini 3.1 Flash, Gemini 2.5 Pro, and Gemini 2.5 Flash-Lite
-- Veo 3.1 video generation with extended features
-- Partner models: Claude Opus/Sonnet (Anthropic), Llama variants, Mistral offerings
-- Open models: Qwen, DeepSeek, Llama Guard
+### November 2025
+- **Kimi K2 Thinking**: Available for complex problem-solving and reasoning
+- **Prompt Caching TTL Update**: "one-hour Time To Live" for Anthropic models
+- **Claude 3.7 Sonnet Deprecated** (Nov 11): Shutdown May 11, 2026
+- **Observability Features Preview** (Nov 7): Sessions, traces, logs, and events management
+- **Free Tier Launch**: New pricing tier for Agent Engine Runtime
 
-**Vertex AI Agent Engine**:
-Sessions, Memory Bank, and Code Execution moved from preview to GA. Features include bidirectional streaming, A2A protocol support, and enterprise security (CMEK, PSC-I, HIPAA compliance).
+### October 2025
+- **MiniMax M2**: "end-to-end development workflows" with planning and tool-calling
+- **Veo 3.1 Preview** (Oct 15): Advanced video controls and reference-guided generation
+- **Computer Use Tool Preview** (Oct 7): "automate tasks in the browser" with agent automation
+- **Qwen Models Available**: Image generation and editing variants
+- **vLLM TPU**: "highly-efficient serving framework" optimized for Cloud TPU
 
-**Vertex AI Workbench**:
-M139 release includes JupyterLab 4+ support, managed credentials, Gemini CLI integration, and Confidential Computing support.
+### September 2025
+- **Storage-Optimized Vector Search Preview** (Sep 15): "cost-effective solution for searching massive datasets"
+- **Agent Engine SDK Refactor** (Sep 10): "client-based design" migration required
+- **Code Execution Preview**: Isolated sandbox environment for agent operations
+- **A2A Protocol Support**: Agent-to-Agent protocol development capability
+- **DeepSeek-V3.1 Available**: Released through Model Garden
 
-**Vector Search 2.0**:
-Provides collections unifying data/vectors, auto-embeddings, hybrid search combining vector/full-text/semantic ranking.
+### August 2025
+- **Imagen 4 GA** (Aug 14): Generate, Fast Generate, and Ultra Generate models available
+- **Gemini 2.5 Flash-Lite GA** (July 22): "accessible using the API and Vertex AI Studio"
+- **Prompt Optimizer GA**: "generally available" optimization service
+- **Open Model Tuning**: Supervised fine-tuning for Llama 3.1 and others
+- **Custom Service Accounts**: Agent identity management capability
+- **Workforce Identity Federation GA** (Oct 1): "external identity provider" integration for Workbench
 
-## Deprecations & Removals
+### July 2025
+- **Veo 3 GA** (July 29): Video generation generally available
+- **Gemini 2.5 Flash and Pro GA** (June 17): Production-ready versions with expanded capabilities
+- **Memory Bank Preview** (July 8): "dynamically generate long-term memories" from conversations
+- **Flex-Start VMs Preview** (July 11): "Dynamic Workload Scheduler" discounted pricing option
+- **Reservations Support**: Colab Enterprise and Workbench reservation consumption
 
-- Vertex Explainable AI (March 2026)
-- Feature Store Optimized online serving (February 2026)
-- Multiple video generation preview endpoints (deadline: April 2, 2026)
-- Image generation preview endpoints (deadline: March 19, 2026)
-- Gemini 1.5 models unavailable for new projects (April 2025)
+### June 2025
+- **Gemini 2.5 Flash-Lite Preview** (June 17): Cost-efficient model variant
+- **Live API Private GA** (June 17): Private general availability offering announced
+- **Text Embeddings GA** (May 20): gemini-embedding-001 and text-embedding-005 models
+- **Lyria 2 GA**: Music generation model generally available
+- **Veo 3 Preview** (May 20): Available for allowlisted accounts
 
-## Key Pricing Changes
+### May 2025
+- **A3 Ultra and A4 Accelerators**: Support for custom training and online prediction
+- **MedLM Deprecated** (May 14): Access discontinued September 29, 2025
+- **Global Endpoint GA** (May 2): Generally available global routing option
+- **Grounding Features GA** (May 5): "Grounding on your data using Vertex AI Search"
+- **Gemini 2.0 Flash Image Generation Preview** (May 7): Image generation capability
 
-Vertex AI Agent Engine runtime pricing was lowered; Sessions, Memory Bank, and Code Execution began charging February 11, 2026. Regional pricing expansion across Asia-Pacific, Europe, and Americas regions.
+### April 2025
+- **Agent Development Kit Preview** (April 9): Available in preview state
+- **Agent Garden Preview** (April 9): Agent discovery and management interface
+- **Gemini 2.5 Pro Preview** (April 9): Public preview offering announced
+- **Live API Public Preview** (April 9): "Support for responses in 8 voices and 31 languages"
+- **Persistent Resources GA** (April 16): Custom training feature with reboot support
+- **Llama 4 Managed APIs Preview** (April 10): Maverick and Scout model variants
+
+## Deprecated/Discontinued Models and Services
+- Vertex Explainable AI (March 16, 2026)
+- MedLM (May 14, 2025)
+- Claude 3 Haiku, 3.5 Haiku, 3.7 Sonnet variants
+- Imagen 1 and 2, image captioning, VQA (September 24, 2025)
+- Codestral (25.01) and Mistral Large (24.11) (January 23, 2026)
+- Multiple video and image generation preview endpoints
+- Generative AI module in Vertex AI SDK
+
+## Regional/Availability Updates
+- Agent Engine expansion: Europe (Zurich, Milan), Asia (Hong Kong, Seoul, Jakarta), Americas (Toronto, São Paulo)
+- Runtime charging beginning: Asia-Southeast1, Australia-Southeast2, Europe-West2/3/4 (November 6, 2025)
+
+## Enterprise/Security Features
+- Private Service Connect Interface support
+- Customer-Managed Encryption Keys (CMEK)
+- HIPAA compliance support
+- Access Transparency
+- VPC Service Controls support
+- Confidential Computing integration
+- Organization Policy custom constraints

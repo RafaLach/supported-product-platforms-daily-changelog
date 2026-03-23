@@ -1,94 +1,147 @@
-# Windsurf Editor Changelog - Comprehensive Summary
+# Windsurf Editor Changelog - Complete Content Extract
 
-## Latest Versions & Features
+## Latest Versions & Major Updates
 
-**Current Release (March 19, 2026): Version 1.9577.43**
-- Mac x64 build fixes
+**Version 1.9577.43** (March 19, 2026): Fixed Mac x64 build issues.
 
-**Major Recent Releases:**
-- **1.9577.42** (March 19): Performance improvements
-- **1.9577.27** (March 12): Apple M5 support fix
-- **1.9577.24** (March 9): Cascade improvements, MCP enhancements, Jupyter Notebook optimizations
+**Version 1.9577.42** (March 19, 2026): "Various bug fixes and performance improvements"
 
-## Model Availability
+**GPT-5.4 Mini** (March 17, 2026): New model available at 1x credits promotional pricing.
 
-**Recently Added Models:**
-- GPT-5.4 Mini (promotional pricing starting at 1x credits)
-- GPT-5.4 (limited-time promotional pricing)
-- Gemini 3.1 Pro (0.5x-1x credits)
-- Claude Sonnet 4.6 (2-3x credits)
-- GLM-5 & Minimax M2.5 (0.75x and 0.25x credits respectively)
-- Claude Opus 4.6 & fast mode variants
-- GPT-5.2-Codex with reasoning effort options
-- SWE-1.5 Free (available for 3 months)
-- Gemini 3 Flash
+**Version 1.9577.27** (March 12, 2026): Apple M5 compatibility fix.
 
-## Core Features
+**Version 1.9577.24** (March 9, 2026): Major Cascade improvements including Jupyter Notebook support, diff zone fixes, and SKILL.md file loading from `.windsurf/skills/` directory. MCP system-level skill definitions for Enterprise via MDM configs added.
 
-**Cascade Agent:**
-- Plan Mode for implementation planning
-- Git worktree support for parallel sessions
-- Multi-cascade panes and tabs for side-by-side monitoring
-- Cascade Hooks for custom command execution
-- Context window indicator showing usage levels
-- Auto-continue setting for extended responses
-- Terminal command editing capabilities
+**GPT-5.4** (March 5, 2026): Multi-tier reasoning model with promotional pricing (1x-8x credits based on reasoning level).
 
-**Arena Mode:**
-Comparative evaluation through "side-by-side model comparison with hidden identities" and voting systems, featuring Battle Groups and leaderboards.
+## Featured Model Releases
 
-**Advanced Capabilities:**
-- Voice input support
-- MCP (Model Context Protocol) server integration
-- Web/docs search functionality
-- Memories system for context retention
-- Codemaps for codebase visualization
-- Vibe and Replace for intelligent find-and-replace
-- Fast Context powered by SWE-grep (20x faster, 2,800+ tokens/second)
+- **Claude Sonnet 4.6** (Feb 17): 2x credits (no thinking), 3x credits (with thinking)
+- **Gemini 3.1 Pro** (Feb 19): 0.5x-1x credits based on thinking level
+- **GLM-5 & Minimax M2.5** (Feb 17): 0.75x and 0.25x credits respectively
+- **Claude Opus 4.6** (Feb 4): 2x-3x credits; fast mode variant at 10x-12x credits
+- **SWE-1.5 Free** (Dec 27, 2024): Full intelligence model available free for 3 months
+- **Falcon Alpha** (Oct 22, 2025): Stealth speed-focused agentic model
+- **Grok Code Fast 1** (Aug 15, 2025): Available free for limited time
+- **GPT-5** Suite (Aug 7, 2025): Low, medium, high reasoning variants free for limited period
+- **Kimi K2** (July 23, 2025): 0.5 credits per prompt
 
-## Enterprise & Team Features
+## Major Features & Capabilities
 
-- MDM-managed system-level Skill definitions
-- Team conversation sharing with secure URLs
-- Windsurf Reviews GitHub app integration
-- Knowledge curation via Google Docs
-- Cascade Hooks cloud configuration
-- Team-wide command allow/deny lists
-- Windows Group Policy administration support
+**Cascade Agent Improvements:**
+- Planning Mode with automatic code mode switching
+- Multi-agent parallel sessions with Git worktree support
+- Dedicated terminal (zsh) for improved reliability
+- Context window usage indicator
+- Auto-linting of proposed changes
+- Cascade Hooks for custom execution at workflow points
+- Support for Agent Skills and system-level rules/workflows
+- Queued message handling for sequential processing
 
-## Platform Improvements
+**Arena Mode** (Wave 14): Side-by-side model comparison with hidden identities, battle groups, personal/global leaderboards, and voting system.
 
-- Linux ARM64 support with deb/rpm packaging
-- Dev Container support (Windows beta, Mac/Linux available)
-- Remote SSH improvements
-- WSL compatibility enhancements
-- VS Code 1.108 base merge
+**MCP (Model Context Protocol):**
+- OAuth authentication support
+- Resource loading and multimodel responses
+- Prompt support
+- GitLab and GitHub remote integration
+- Streamable HTTP transport
+- System-level definitions for Enterprise
 
-## UI/UX Enhancements
+**Windsurf Tab (Autocomplete Evolution):**
+- Unified experience combining autocomplete, supercomplete, Tab to Jump, Tab to Import
+- Predictive triggers and increased context awareness
+- Near-instant feedback with 3x faster performance claims
+- Tab to Import for automatic dependency suggestions
 
-- Redesigned model picker with family grouping
-- New announcement notification system
-- Improved Cascade panel rendering
-- Theme-aware code blocks
-- Sticky scroll lag fixes
-- Terminal rendering optimization
+**Codemaps** (Beta):
+- Codebase visualization and navigation
+- Chat with map functionality
+- Mermaid diagram generation
+- AI-powered suggestions and analysis
 
-## Developer Tools
+**Windsurf Previews** (Beta): Local website preview in IDE with element selection, console error sharing, and React component inspection.
 
-- Jupyter Notebook support improvements
-- Shell command auto-execution with safety lists
-- Deployment to Netlify via natural language
+**Web & Documentation Search:**
+- Automatic web search triggering
+- URL input and page reading
+- @web and @docs mention commands
+- Popular documentation site indexing
+
+**Planning & Workflows:**
+- Plan Mode for pre-implementation task planning
+- Custom saved workflows with slash commands
+- File-based rules with glob pattern attachment
+- "Megaplan" advanced form for comprehensive planning
+
+**Additional Features:**
+- Voice input for Cascade interaction
+- Image upload and multimodal analysis (up to 1MB+)
+- Cascade conversation sharing (Teams feature)
+- DeepWiki hover documentation
+- Vibe and Replace for AI-powered find-and-replace
+- Fast Context subagent (SWE-grep) for 20x faster relevant code discovery
+- Jupyter Notebook tool support
+- Deploys to Netlify functionality
 - Commit message generation
-- Auto-linting for proposed code changes
-- File-based Rules system (.windsurf/rules)
-- Workflow creation and management
+- Terminal command auto-execution with allow/deny lists
+- Memory system for context retention
+- Dev Container support (including Windows beta)
+- WSL and SSH remote support
+- Conversation history table of contents
 
-## Known Fixes & Stability
+## Enterprise & Teams Features
 
-- Memory leak resolutions
-- SSH/remote performance improvements
-- Autocomplete error handling
-- RTL language rendering in todo lists
-- MCP OAuth authentication improvements
-- Vim extension typing lag resolution
-- PowerShell Turbo Mode compatibility
+- MDM-managed configuration for system-level skills
+- Windsurf Reviews GitHub app (500 reviews/month for Teams)
+- Team Knowledge integration with Google Docs
+- Analytics dashboard with Cascade metrics
+- Conversation sharing between team members
+- Admin control over available models
+- Organization-wide command execution allow/deny lists
+- Cascade Hooks cloud configuration
+- Devin service key authentication
+
+## Performance & Stability Improvements
+
+- Over 100 bug fixes in recent releases
+- Sticky scroll lag resolution
+- Terminal rendering optimization
+- Vim extension typing lag fixes
+- Memory leak corrections
+- SSH & Remote performance enhancements
+- RTL language rendering improvements
+- Autocomplete error handling improvements
+- Windows update initialization path fixes
+
+## Deprecations & Removals
+
+- **Windsurf Browser** (deprecated Sept 11): Refactoring planned; users directed to Previews feature
+- **Legacy Mode**: Removed in favor of Write and Chat modes
+- **Knowledge Base Feature**: Removed
+- **Autocomplete Setting**: Removed as legacy option
+
+## Platform & Infrastructure Updates
+
+- VS Code base upgrades (1.108, 1.99.1, 1.97.0, 1.98, 1.99.3)
+- Linux ARM64 native client support with deb/rpm packaging
+- Windows ARM beta support
+- RHEL 8 support fixes
+- Electron & Chromium updates
+- Code OSS 1.105.0 (Electron 37.6.0, Chromium 138.0.7204.251)
+
+## Pricing & Credit System Changes
+
+- April 21, 2025: Shift from Flow Action Credits to Prompt Credits model
+- Prompt credits consumed per message (not per tool call)
+- Auto-top-off feature with maximum limits
+- Promotional pricing on new models (typically limited-time)
+- Priority processing for GPT-5.1 at 2x standard rate
+
+## Additional Resources
+
+- Changelog tabs: Windsurf Next, JetBrains Plugin
+- Documentation: docs.windsurf.com
+- Social: Twitter/X (@windsurf), Discord community
+- Arena Leaderboard available
+- Windsurf University program

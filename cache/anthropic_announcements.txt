@@ -1,43 +1,83 @@
-# Anthropic Newsroom
+# Anthropic Newsroom - Comprehensive Content Extraction
 
-## Featured Content
+## Featured Stories (Featured Grid Section)
 
-### Primary Feature Article
-- **Title**: "What 81,000 people want from AI"
-- **Date**: Mar 18, 2026
-- **Description**: Large multilingual qualitative study of Claude.ai user perspectives
+1. **"What 81,000 people want from AI"** (Mar 18, 2026)
+   - Large multilingual qualitative study of Claude.ai users
+   - Explores how users employ AI, aspirations, and concerns
 
-### Recent Product Announcements
+2. **Introducing Claude Sonnet 4.6** (Feb 17, 2026)
+   - "frontier performance across coding, agents, and professional work"
 
-1. **Claude Sonnet 4.6** (Feb 17, 2026)
-   - Focus: "frontier performance across coding, agents, and professional work at scale"
+3. **Introducing Claude Opus 4.6** (Feb 5, 2026)
+   - Upgraded smartest model with industry-leading capabilities across agentic coding, computer use, tool use, search, and finance
 
-2. **Claude Opus 4.6** (Feb 5, 2026)
-   - Capabilities: agentic coding, computer use, tool use, search, finance
+4. **Claude is a space to think** (Feb 4, 2026)
+   - Commitment to ad-free service; advertising incentives incompatible with helpful AI
 
-3. **Claude is a space to think** (Feb 4, 2026)
-   - Policy: Ad-free model commitment
+5. **Claude on Mars** (Jan 30, 2026)
+   - "first AI-assisted drive on another planet" with NASA's Perseverance rover
 
-4. **Claude on Mars** (Jan 30, 2026)
-   - Achievement: First AI-assisted rover drive on Mars (NASA Perseverance, 400 meters)
+## Recent News (Publication List - Latest 20+ Items)
 
-## Recent News Items (Latest)
+| Date | Category | Title |
+|------|----------|-------|
+| Mar 18, 2026 | Research | "What 81,000 people want from AI" |
+| Mar 12, 2026 | Announcements | Anthropic invests $100 million into Claude Partner Network |
+| Mar 11, 2026 | Announcements | Introducing The Anthropic Institute |
+| Mar 10, 2026 | Announcements | Sydney becomes Anthropic's fourth Asia-Pacific office |
+| Mar 6, 2026 | Policy | Partnering with Mozilla to improve Firefox security |
+| Mar 5, 2026 | Announcements | Where things stand with Department of War |
+| Feb 27, 2026 | Announcements | Statement on Secretary of War Pete Hegseth comments |
+| Feb 26, 2026 | Announcements | Dario Amodei statement on Department of War discussions |
+| Feb 25, 2026 | Announcements | Anthropic acquires Vercept for computer use capabilities |
+| Feb 24, 2026 | Policy | Responsible Scaling Policy: Version 3.0 |
+| Feb 23, 2026 | Announcements | Detecting and preventing distillation attacks |
+| Feb 20, 2026 | Announcements | Claude Code Security cybersecurity capability preview |
+| Feb 17, 2026 | Announcements | Anthropic and Infosys collaborate on AI agents for telecoms |
+| Feb 17, 2026 | Announcements | Introducing Claude Sonnet 4.6 |
+| Feb 16, 2026 | Announcements | Bengaluru office opens with partnerships across India |
+| Feb 13, 2026 | Announcements | CodePath partnership for US collegiate computer science |
+| Feb 13, 2026 | Announcements | Chris Liddell appointed to Anthropic board |
+| Feb 12, 2026 | Announcements | $30 billion Series G funding at $380 billion valuation |
+| Feb 12, 2026 | Policy | $20 million donation to Public First Action |
+| Feb 11, 2026 | Policy | Covering electricity cost increases from data centers |
+| Feb 5, 2026 | Announcements | Introducing Claude Opus 4.6 |
+| Feb 4, 2026 | Announcements | Claude is a space to think (ad-free commitment) |
+| Jan 30, 2026 | Announcements | Claude on Mars (NASA Perseverance rover AI-assisted drive) |
+| Jan 22, 2026 | Announcements | Claude's new constitution |
+| Jan 21, 2026 | Announcements | Mariano-Florentino Cuéllar appointed to Long-Term Benefit Trust |
+| Jan 21, 2026 | Announcements | Teach For All partnership for global AI educator training |
+| Jan 16, 2026 | Announcements | Irina Ghose appointed Managing Director of India |
+| Jan 15, 2026 | Case Study | Scientists using Claude to accelerate research |
+| Jan 15, 2026 | Economic Research | Anthropic Economic Index report: economic primitives |
+| Jan 13, 2026 | Announcements | Introducing Labs |
+| Jan 11, 2026 | Announcements | Claude healthcare and life sciences advancements |
+| Dec 19, 2025 | Policy | Compliance framework for California's SB53 |
+| Dec 18, 2025 | Announcements | US Department of Energy partnership for scientific discovery |
+| Dec 9, 2025 | Announcements | Donated Model Context Protocol; Agentic AI Foundation |
+| Dec 9, 2025 | Announcements | Accenture multi-year partnership for AI production |
+| Dec 3, 2025 | Announcements | Snowflake-Anthropic expanded partnership |
 
-- Anthropic invests $100 million into Claude Partner Network (Mar 12)
-- The Anthropic Institute launched (Mar 11)
-- Sydney becomes fourth Asia-Pacific office (Mar 10)
-- Mozilla Firefox security partnership (Mar 6)
-- Department of War discussions (Feb 26-27)
-- Vercept acquisition for computer use capabilities (Feb 25)
-- Responsible Scaling Policy v3.0 (Feb 24)
-- Distillation attack detection capabilities (Feb 23)
+## Newsroom Contact Information
 
-## Product Portfolio
+- **Press inquiries**: press@anthropic.com
+- **Non-media inquiries**: support@anthropic.com
+- **Media assets**: Download press kit available
 
-**Models**: Opus, Sonnet, Haiku
+## Key Company Products & Services
 
-**Applications**: Claude Code, Code Enterprise, Cowork, Chrome extension, Excel plugin, PowerPoint plugin, Slack integration, Skills marketplace
+**Claude Models**: Opus, Sonnet, Haiku
 
-**Plans**: Max, Team, Enterprise
+**Claude Platform Solutions**: AI agents, Code Security, code modernization, coding, customer support, education, financial services, government, healthcare, life sciences, nonprofits
 
-**Platform**: API access, Developer documentation, Marketplace, Regional compliance options, Cloud partnerships (Amazon Bedrock, Google Vertex AI, Microsoft Foundry)
+**Claude Applications**: Claude for Chrome, Excel, PowerPoint, Slack; Claude Code; Claude Cowork
+
+**Pricing Plans**: Max, Team, Enterprise
+
+## Accessibility & Support
+
+- Status page available
+- 24/7 support center
+- Available in multiple countries
+- HIPAA-ready infrastructure for healthcare
