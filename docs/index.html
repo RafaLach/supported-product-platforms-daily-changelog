@@ -110,18 +110,7 @@
         .feed-card { background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); margin-bottom:12px; overflow:hidden; transition:box-shadow .2s var(--ease); }
         .feed-card:hover { box-shadow:var(--shadow-md); }
         .feed-header { padding:16px 20px 12px; display:flex; align-items:center; gap:12px; border-bottom:1px solid var(--border); }
-        .feed-logo { width:36px; height:36px; border-radius:var(--radius-xs); background:var(--bg-inset); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:var(--text-3); flex-shrink:0; }
-        .feed-logo.microsoft { background:linear-gradient(135deg,#00a4ef,#7fba00); color:#fff; }
-        .feed-logo.aws { background:linear-gradient(135deg,#FF9900,#FFB84D); color:#fff; }
-        .feed-logo.openai { background:#1a1a2e; color:#10a37f; }
-        .feed-logo.anthropic { background:linear-gradient(135deg,#d4a574,#c4956a); color:#fff; }
-        .feed-logo.google { background:linear-gradient(135deg,#4285f4,#34a853); color:#fff; }
-        .feed-logo.salesforce { background:linear-gradient(135deg,#00A1E0,#1DB954); color:#fff; }
-        .feed-logo.cursor { background:#1a1a2e; color:#fff; }
-        .feed-logo.windsurf { background:linear-gradient(135deg,#0ea5e9,#22d3ee); color:#fff; }
-        .feed-logo.perplexity { background:#1a1a2e; color:#22d3ee; }
-        .feed-logo.dia { background:linear-gradient(135deg,#8b5cf6,#a78bfa); color:#fff; }
-        .feed-logo.servicenow { background:#81b5a1; color:#fff; }
+        .feed-logo { width:36px; height:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
         .feed-info { flex:1; min-width:0; }
         .feed-name { font-size:15px; font-weight:700; letter-spacing:-0.3px; }
         .feed-meta { display:flex; align-items:center; gap:8px; margin-top:2px; }
@@ -282,15 +271,20 @@
 let reports=[], latest=null, allFindings=[];
 
 const platformLogos = {
-    'Microsoft Copilot (M365)':['microsoft','M365'],'Microsoft Copilot Studio':['microsoft','CS'],
-    'Azure AI Foundry':['microsoft','AF'],'Power Apps':['microsoft','PA'],
-    'Power Automate':['microsoft','PM'],'Power Pages':['microsoft','PP'],
-    'Salesforce AgentForce':['salesforce','SF'],'Salesforce Einstein':['salesforce','SE'],
-    'ChatGPT Enterprise (OpenAI)':['openai','OA'],'Claude Enterprise (Anthropic)':['anthropic','An'],
-    'Amazon Q':['aws','Q'],'Amazon Bedrock':['aws','BR'],'Amazon Bedrock AgentCore':['aws','AC'],
-    'Google Vertex AI':['google','GV'],'ServiceNow':['servicenow','SN'],
-    'Cursor':['cursor','Cu'],'Windsurf':['windsurf','Ws'],'Perplexity':['perplexity','Px'],'Dia Browser':['dia','Di']
+    'Microsoft Copilot (M365)':'microsoft.com','Microsoft Copilot Studio':'microsoft.com',
+    'Azure AI Foundry':'azure.com','Power Apps':'powerapps.com',
+    'Power Automate':'powerautomate.com','Power Pages':'powerpages.com',
+    'Salesforce AgentForce':'salesforce.com','Salesforce Einstein':'salesforce.com',
+    'ChatGPT Enterprise (OpenAI)':'openai.com','Claude Enterprise (Anthropic)':'anthropic.com',
+    'Amazon Q':'aws.amazon.com','Amazon Bedrock':'aws.amazon.com','Amazon Bedrock AgentCore':'aws.amazon.com',
+    'Google Vertex AI':'cloud.google.com','ServiceNow':'servicenow.com',
+    'Cursor':'cursor.com','Windsurf':'windsurf.com','Perplexity':'perplexity.ai','Dia Browser':'diabrowser.com'
 };
+function logoImg(platName,size){
+    const domain=platformLogos[platName];
+    if(!domain)return `<div style="width:${size}px;height:${size}px;border-radius:var(--radius-xs);background:var(--bg-inset);display:flex;align-items:center;justify-content:center;font-size:${size/3}px;font-weight:800;color:var(--text-3)">?</div>`;
+    return `<img src="https://www.google.com/s2/favicons?domain=${domain}&sz=${size*2}" width="${size}" height="${size}" style="border-radius:var(--radius-xs);object-fit:contain" alt="${platName}" loading="lazy">`;
+}
 
 const platformTiers = {
     'Microsoft Copilot (M365)':'primary','Microsoft Copilot Studio':'primary','Azure AI Foundry':'primary',
@@ -423,11 +417,10 @@ function renderByChange(){
 
     container.innerHTML=sorted.map((item,gi)=>{
         const plat=matchPlatform(item.title+' '+item.description);
-        const logo=platformLogos[plat]||['','??'];
         const mod=(item.module||'').toUpperCase();
         const changeType=detectChangeType(item.title, item.description);
         return `<div class="finding-row" onclick="openPanel(${gi})">
-            <div class="finding-logo feed-logo ${logo[0]}" style="width:28px;height:28px;font-size:10px">${logo[1]}</div>
+            <div class="finding-logo">${logoImg(plat,28)}</div>
             <div class="sev ${item.severity}">${item.severity}</div>
             <div class="finding-main">
                 ${plat?`<div class="finding-plat">${plat}</div>`:''}
@@ -461,12 +454,11 @@ function renderByPlatform(){
 
     container.innerHTML=platOrder.map(platName=>{
         const items=platFindings[platName];
-        const logo=platformLogos[platName]||['','??'];
         const tier=platformTiers[platName]||'primary';
 
         return `<div class="feed-card">
             <div class="feed-header">
-                <div class="feed-logo ${logo[0]}">${logo[1]}</div>
+                <div class="feed-logo">${logoImg(platName,36)}</div>
                 <div class="feed-info">
                     <div class="feed-name">${platName}</div>
                     <div class="feed-meta">
