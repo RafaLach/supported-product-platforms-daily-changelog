@@ -84,6 +84,7 @@
         .module-icon.AISPM { background:var(--violet-50); color:var(--secondary); }
         .module-icon.AIDR { background:rgba(128,238,219,0.12); color:var(--primary-dark); }
         .module-icon.ENDPOINT { background:rgba(59,130,246,0.08); color:var(--blue); }
+        .module-icon.AIRT { background:var(--red-soft); color:var(--red); }
         .module-label { font-size:12px; font-weight:700; letter-spacing:-0.2px; }
         .module-sublabel { font-size:11px; color:var(--text-3); font-weight:500; }
         .module-count { font-size:10px; font-weight:700; color:var(--text-3); background:var(--bg-inset); padding:2px 7px; border-radius:20px; }
@@ -99,6 +100,7 @@
         .badge-sm.AIDR { background:rgba(128,238,219,0.12); color:var(--primary-dark); }
         .badge-sm.AISPM { background:var(--violet-50); color:var(--secondary); }
         .badge-sm.ENDPOINT { background:rgba(59,130,246,0.08); color:var(--blue); }
+        .badge-sm.AIRT { background:var(--red-soft); color:var(--red); }
         .change-tag { font-size:9px; font-weight:700; padding:2px 6px; border-radius:3px; background:var(--bg-inset); color:var(--text-3); white-space:nowrap; }
         .finding-main { min-width:0; }
         .finding-title { font-size:13px; font-weight:700; letter-spacing:-0.2px; margin-bottom:1px; }
@@ -146,6 +148,7 @@
         .panel-module-badge.AIDR { background:rgba(128,238,219,0.1); color:var(--primary-dark); }
         .panel-module-badge.AISPM { background:var(--violet-50); color:var(--secondary); }
         .panel-module-badge.ENDPOINT { background:rgba(59,130,246,0.08); color:var(--blue); }
+        .panel-module-badge.AIRT { background:var(--red-soft); color:var(--red); }
         .panel-plat { font-size:12px; color:var(--text-3); font-weight:600; margin-bottom:8px; }
         .panel-title { font-size:18px; font-weight:800; letter-spacing:-0.5px; margin-bottom:4px; }
         .panel-sev { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; }
@@ -271,19 +274,30 @@
 let reports=[], latest=null, allFindings=[];
 
 const platformLogos = {
-    'Microsoft Copilot (M365)':'microsoft.com','Microsoft Copilot Studio':'microsoft.com',
-    'Azure AI Foundry':'azure.com','Power Apps':'powerapps.com',
-    'Power Automate':'powerautomate.com','Power Pages':'powerpages.com',
-    'Salesforce AgentForce':'salesforce.com','Salesforce Einstein':'salesforce.com',
-    'ChatGPT Enterprise (OpenAI)':'openai.com','Claude Enterprise (Anthropic)':'anthropic.com',
-    'Amazon Q':'aws.amazon.com','Amazon Bedrock':'aws.amazon.com','Amazon Bedrock AgentCore':'aws.amazon.com',
-    'Google Vertex AI':'cloud.google.com','ServiceNow':'servicenow.com',
-    'Cursor':'cursor.com','Windsurf':'windsurf.com','Perplexity':'perplexity.ai','Dia Browser':'diabrowser.com'
+    'Microsoft Copilot (M365)':'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
+    'Microsoft Copilot Studio':'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
+    'Azure AI Foundry':'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg',
+    'Power Apps':'https://upload.wikimedia.org/wikipedia/commons/6/6e/Powerapps-logo.svg',
+    'Power Automate':'https://upload.wikimedia.org/wikipedia/commons/4/4d/Microsoft_Power_Automate.svg',
+    'Power Pages':'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
+    'Salesforce AgentForce':'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
+    'Salesforce Einstein':'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
+    'ChatGPT Enterprise (OpenAI)':'https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg',
+    'Claude Enterprise (Anthropic)':'https://cdn.simpleicons.org/anthropic',
+    'Amazon Q':'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+    'Amazon Bedrock':'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+    'Amazon Bedrock AgentCore':'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+    'Google Vertex AI':'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
+    'ServiceNow':'https://upload.wikimedia.org/wikipedia/commons/5/57/ServiceNow_logo.svg',
+    'Cursor':'https://cdn.simpleicons.org/cursor',
+    'Windsurf':'https://cdn.simpleicons.org/windsurf',
+    'Perplexity':'https://cdn.simpleicons.org/perplexity',
+    'Dia Browser':'https://www.diabrowser.com/favicon.svg'
 };
 function logoImg(platName,size){
-    const domain=platformLogos[platName];
-    if(!domain)return `<div style="width:${size}px;height:${size}px;border-radius:var(--radius-xs);background:var(--bg-inset);display:flex;align-items:center;justify-content:center;font-size:${size/3}px;font-weight:800;color:var(--text-3)">?</div>`;
-    return `<img src="https://www.google.com/s2/favicons?domain=${domain}&sz=${size*2}" width="${size}" height="${size}" style="border-radius:var(--radius-xs);object-fit:contain" alt="${platName}" loading="lazy">`;
+    const url=platformLogos[platName];
+    if(!url)return `<div style="width:${size}px;height:${size}px;border-radius:var(--radius-xs);background:var(--bg-inset);display:flex;align-items:center;justify-content:center;font-size:${size/3}px;font-weight:800;color:var(--text-3)">?</div>`;
+    return `<img src="${url}" width="${size}" height="${size}" style="border-radius:4px;object-fit:contain" alt="${platName}" loading="lazy" onerror="this.style.display='none'">`;
 }
 
 const platformTiers = {
@@ -338,7 +352,8 @@ function detectChangeType(title, desc){
 const moduleActions = {
     AISPM: 'Add new entities to AISPM inventory. Map resources, permissions, and sharing configurations for this new service.',
     AIDR: 'Set up detection rules in AIDR. Monitor activity patterns and data flows for this new capability.',
-    ENDPOINT: 'Update endpoint policy. Track this new tool in AI Endpoint inventory and enforce security controls.'
+    ENDPOINT: 'Update endpoint policy. Track this new tool in AI Endpoint inventory and enforce security controls.',
+    AIRT: 'Evaluate for red/purple teaming. Assess new attack surfaces and update automated proactive testing scenarios.'
 };
 
 async function init(){
@@ -415,23 +430,48 @@ function renderByChange(){
     const sOrder={HIGH:0,MEDIUM:1,LOW:2};
     const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
 
-    container.innerHTML=sorted.map((item,gi)=>{
-        const plat=matchPlatform(item.title+' '+item.description);
-        const mod=(item.module||'').toUpperCase();
-        const changeType=detectChangeType(item.title, item.description);
-        return `<div class="finding-row" onclick="openPanel(${gi})">
-            <div class="finding-logo">${logoImg(plat,28)}</div>
-            <div class="sev ${item.severity}">${item.severity}</div>
-            <div class="finding-main">
-                ${plat?`<div class="finding-plat">${plat}</div>`:''}
-                <div class="finding-title">${item.title}</div>
-                <div class="finding-desc">${item.description}</div>
-                <div class="finding-tags">
-                    <span class="badge-sm ${mod}">${mod}</span>
-                    <span class="change-tag">${changeType}</span>
+    const groups={};
+    const order=['AISPM','AIDR','AIRT','ENDPOINT'];
+    const labels={AISPM:'AISPM',AIDR:'AIDR',AIRT:'AIRT',ENDPOINT:'Endpoint'};
+    const subs={AISPM:'New inventory entities to discover',AIDR:'New detection surfaces to monitor',AIRT:'New attack surfaces for red/purple teaming',ENDPOINT:'New local AI tools to track'};
+
+    sorted.forEach(f=>{
+        const mod=(f.module||'AISPM').toUpperCase();
+        (groups[mod]=groups[mod]||[]).push(f);
+    });
+
+    container.innerHTML=order.filter(m=>groups[m]&&groups[m].length).map(mod=>{
+        const items=groups[mod];
+        // Sort HIGH before MEDIUM within each group
+        items.sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
+        return `
+        <div class="module-group">
+            <div class="module-header">
+                <div class="module-icon ${mod}">${mod.slice(0,2)}</div>
+                <div>
+                    <span class="module-label">${labels[mod]}</span>
+                    <span class="module-sublabel"> &mdash; ${subs[mod]}</span>
                 </div>
+                <span class="module-count">${items.length}</span>
             </div>
-            <div class="finding-arrow">&#8250;</div>
+            ${items.map(item=>{
+                const gi=sorted.indexOf(item);
+                const plat=matchPlatform(item.title+' '+item.description);
+                const changeType=detectChangeType(item.title, item.description);
+                return `<div class="finding-row" onclick="openPanel(${gi})">
+                    <div class="finding-logo">${logoImg(plat,28)}</div>
+                    <div class="sev ${item.severity}">${item.severity}</div>
+                    <div class="finding-main">
+                        ${plat?`<div class="finding-plat">${plat}</div>`:''}
+                        <div class="finding-title">${item.title}</div>
+                        <div class="finding-desc">${item.description}</div>
+                        <div class="finding-tags">
+                            <span class="change-tag">${changeType}</span>
+                        </div>
+                    </div>
+                    <div class="finding-arrow">&#8250;</div>
+                </div>`;
+            }).join('')}
         </div>`;
     }).join('');
 }

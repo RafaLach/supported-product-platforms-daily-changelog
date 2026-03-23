@@ -137,7 +137,7 @@ def extract_findings(content, section_name):
 
     # Fallback: try old format with ### AIDR / ### AISPM / ### AI Endpoint headers
     if not items:
-        for mod_name, mod_key in [('AIDR', 'AIDR'), ('AISPM', 'AISPM'), ('AI Endpoint', 'ENDPOINT')]:
+        for mod_name, mod_key in [('AIDR', 'AIDR'), ('AISPM', 'AISPM'), ('AI Endpoint', 'ENDPOINT'), ('AIRT', 'AIRT'), ('AI Red Teaming', 'AIRT')]:
             pattern = r'### ' + mod_name + r'[^\n]*\n(.*?)(?=\n### |\n## |\Z)'
             match = re.search(pattern, content, re.DOTALL)
             if match:
