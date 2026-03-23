@@ -40,8 +40,8 @@
         .nav { position:sticky; top:0; z-index:100; backdrop-filter:blur(24px) saturate(1.8); -webkit-backdrop-filter:blur(24px) saturate(1.8); border-bottom:1px solid var(--border); background:color-mix(in srgb, var(--bg-elevated) 80%, transparent); }
         .nav-inner { max-width:1360px; margin:0 auto; padding:0 28px; height:52px; display:flex; align-items:center; justify-content:space-between; }
         .nav-left { display:flex; align-items:center; gap:10px; }
-        .nav-logo { width:26px; height:26px; border-radius:7px; background:linear-gradient(135deg,var(--secondary),var(--primary)); display:flex; align-items:center; justify-content:center; }
-        .nav-logo svg { width:14px; height:14px; }
+        .nav-logo { width:26px; height:26px; display:flex; align-items:center; justify-content:center; }
+        .nav-logo img { width:26px; height:26px; }
         .nav-title { font-size:14px; font-weight:700; letter-spacing:-0.4px; }
         .nav-divider { width:1px; height:20px; background:var(--border-strong); margin:0 4px; }
         .nav-subtitle { font-size:12px; font-weight:600; color:var(--text-3); }
@@ -78,8 +78,14 @@
         .view-panel { display:none; }
         .view-panel.active { display:block; }
 
-        .module-group { margin-bottom:20px; }
-        .module-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; padding:0 2px; }
+        .module-group { margin-bottom:16px; background:var(--bg-elevated); border-radius:var(--radius); box-shadow:var(--shadow-glow); overflow:hidden; }
+        .module-header { display:flex; align-items:center; gap:10px; padding:14px 18px; cursor:pointer; transition:background .15s; user-select:none; }
+        .module-header:hover { background:var(--bg-hover); }
+        .module-chevron { width:16px; height:16px; color:var(--text-3); transition:transform .2s var(--ease); flex-shrink:0; }
+        .module-group.collapsed .module-chevron { transform:rotate(-90deg); }
+        .module-body { padding:0 6px 6px; }
+        .module-group.collapsed .module-body { display:none; }
+        .module-sev-summary { display:flex; gap:4px; margin-left:auto; }
         .module-icon { width:28px; height:28px; border-radius:var(--radius-xs); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; }
         .module-icon.AISPM { background:var(--violet-50); color:var(--secondary); }
         .module-icon.AIDR { background:rgba(128,238,219,0.12); color:var(--primary-dark); }
@@ -89,8 +95,9 @@
         .module-sublabel { font-size:11px; color:var(--text-3); font-weight:500; }
         .module-count { font-size:10px; font-weight:700; color:var(--text-3); background:var(--bg-inset); padding:2px 7px; border-radius:20px; }
 
-        .finding-row { display:grid; grid-template-columns:28px 60px 1fr auto; gap:10px; align-items:center; padding:12px 16px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); margin-bottom:5px; cursor:pointer; transition:all .2s var(--ease); }
-        .finding-row:hover { box-shadow:var(--shadow-md); transform:translateY(-1px); }
+        .finding-row { display:grid; grid-template-columns:28px 54px 1fr auto; gap:10px; align-items:center; padding:10px 12px; border-radius:var(--radius-xs); cursor:pointer; transition:background .15s; }
+        .finding-row:hover { background:var(--bg-hover); }
+        .finding-row+.finding-row { border-top:1px solid var(--border); }
         .finding-logo { width:28px; height:28px; border-radius:var(--radius-xs); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; color:var(--text-3); background:var(--bg-inset); flex-shrink:0; }
         .sev { font-size:10px; font-weight:800; letter-spacing:.5px; padding:4px 0; border-radius:var(--radius-xs); text-align:center; }
         .sev.HIGH { background:var(--red-soft); color:var(--red); }
@@ -207,7 +214,7 @@
 <nav class="nav">
     <div class="nav-inner">
         <div class="nav-left">
-            <div class="nav-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#020221" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="nav-logo"><img src="logos/zenity.svg" alt="Zenity"></div>
             <span class="nav-title">Zenity</span>
             <span class="nav-divider"></span>
             <span class="nav-subtitle">Platform Monitor</span>
@@ -274,30 +281,30 @@
 let reports=[], latest=null, allFindings=[];
 
 const platformLogos = {
-    'Microsoft Copilot (M365)':'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
-    'Microsoft Copilot Studio':'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
-    'Azure AI Foundry':'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg',
-    'Power Apps':'https://upload.wikimedia.org/wikipedia/commons/6/6e/Powerapps-logo.svg',
-    'Power Automate':'https://upload.wikimedia.org/wikipedia/commons/4/4d/Microsoft_Power_Automate.svg',
-    'Power Pages':'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
-    'Salesforce AgentForce':'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
-    'Salesforce Einstein':'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
-    'ChatGPT Enterprise (OpenAI)':'https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg',
-    'Claude Enterprise (Anthropic)':'https://cdn.simpleicons.org/anthropic',
-    'Amazon Q':'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
-    'Amazon Bedrock':'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
-    'Amazon Bedrock AgentCore':'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
-    'Google Vertex AI':'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
-    'ServiceNow':'https://upload.wikimedia.org/wikipedia/commons/5/57/ServiceNow_logo.svg',
-    'Cursor':'https://cdn.simpleicons.org/cursor',
-    'Windsurf':'https://cdn.simpleicons.org/windsurf',
-    'Perplexity':'https://cdn.simpleicons.org/perplexity',
-    'Dia Browser':'https://www.diabrowser.com/favicon.svg'
+    'Microsoft Copilot (M365)':'logos/microsoft.svg',
+    'Microsoft Copilot Studio':'logos/microsoft.svg',
+    'Azure AI Foundry':'logos/azure.svg',
+    'Power Apps':'logos/powerapps.svg',
+    'Power Automate':'logos/powerautomate.svg',
+    'Power Pages':'logos/microsoft.svg',
+    'Salesforce AgentForce':'logos/salesforce.svg',
+    'Salesforce Einstein':'logos/salesforce.svg',
+    'ChatGPT Enterprise (OpenAI)':'logos/openai.svg',
+    'Claude Enterprise (Anthropic)':'logos/anthropic.svg',
+    'Amazon Q':'logos/aws.svg',
+    'Amazon Bedrock':'logos/aws.svg',
+    'Amazon Bedrock AgentCore':'logos/aws.svg',
+    'Google Vertex AI':'logos/googlecloud.svg',
+    'ServiceNow':'logos/servicenow.svg',
+    'Cursor':'logos/cursor.svg',
+    'Windsurf':'logos/windsurf.svg',
+    'Perplexity':'logos/perplexity.svg',
+    'Dia Browser':'logos/dia.svg'
 };
 function logoImg(platName,size){
     const url=platformLogos[platName];
-    if(!url)return `<div style="width:${size}px;height:${size}px;border-radius:var(--radius-xs);background:var(--bg-inset);display:flex;align-items:center;justify-content:center;font-size:${size/3}px;font-weight:800;color:var(--text-3)">?</div>`;
-    return `<img src="${url}" width="${size}" height="${size}" style="border-radius:4px;object-fit:contain" alt="${platName}" loading="lazy" onerror="this.style.display='none'">`;
+    if(!url)return `<div style="width:${size}px;height:${size}px;border-radius:4px;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;font-size:${Math.round(size/3)}px;font-weight:800;color:var(--text-3)">?</div>`;
+    return `<img src="${url}" width="${size}" height="${size}" style="object-fit:contain;padding:2px" alt="${platName}" loading="lazy">`;
 }
 
 const platformTiers = {
@@ -362,9 +369,13 @@ async function init(){
         reports=await r.json();
         reports.sort((a,b)=>b.date.localeCompare(a.date));
         latest=reports[0];
-        allFindings = (latest.findings||[]).length > 0
+        const raw = (latest.findings||[]).length > 0
             ? latest.findings
             : [...(latest.aidr||[]), ...(latest.aispm||[]), ...(latest.endpoint||[])];
+        // Normalize severities and sort globally: HIGH first, then MEDIUM, then LOW
+        raw.forEach(f=>{f.severity=(f.severity||'MEDIUM').toUpperCase();f.module=(f.module||'AISPM').toUpperCase();});
+        const sOrder={HIGH:0,MEDIUM:1,LOW:2};
+        allFindings = raw.sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
         renderMetrics();
         renderPurpose();
         renderByChange();
@@ -427,35 +438,39 @@ function renderByChange(){
     const container=document.getElementById('by-change');
     if(!allFindings.length){renderEmpty(container);return;}
 
-    const sOrder={HIGH:0,MEDIUM:1,LOW:2};
-    const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
-
     const groups={};
     const order=['AISPM','AIDR','AIRT','ENDPOINT'];
     const labels={AISPM:'AISPM',AIDR:'AIDR',AIRT:'AIRT',ENDPOINT:'Endpoint'};
     const subs={AISPM:'New inventory entities to discover',AIDR:'New detection surfaces to monitor',AIRT:'New attack surfaces for red/purple teaming',ENDPOINT:'New local AI tools to track'};
 
-    sorted.forEach(f=>{
-        const mod=(f.module||'AISPM').toUpperCase();
-        (groups[mod]=groups[mod]||[]).push(f);
+    allFindings.forEach(f=>{
+        (groups[f.module]=groups[f.module]||[]).push(f);
     });
+
+    const highCount=items=>items.filter(i=>i.severity==='HIGH').length;
+    const medCount=items=>items.filter(i=>i.severity==='MEDIUM').length;
 
     container.innerHTML=order.filter(m=>groups[m]&&groups[m].length).map(mod=>{
         const items=groups[mod];
-        // Sort HIGH before MEDIUM within each group
-        items.sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
+        const hc=highCount(items), mc=medCount(items);
         return `
-        <div class="module-group">
-            <div class="module-header">
+        <div class="module-group" id="mod-${mod}">
+            <div class="module-header" onclick="document.getElementById('mod-${mod}').classList.toggle('collapsed')">
+                <svg class="module-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 <div class="module-icon ${mod}">${mod.slice(0,2)}</div>
                 <div>
                     <span class="module-label">${labels[mod]}</span>
                     <span class="module-sublabel"> &mdash; ${subs[mod]}</span>
                 </div>
+                <div class="module-sev-summary">
+                    ${hc?`<span class="sev HIGH" style="font-size:9px;padding:2px 6px">${hc} HIGH</span>`:''}
+                    ${mc?`<span class="sev MEDIUM" style="font-size:9px;padding:2px 6px">${mc} MED</span>`:''}
+                </div>
                 <span class="module-count">${items.length}</span>
             </div>
+            <div class="module-body">
             ${items.map(item=>{
-                const gi=sorted.indexOf(item);
+                const gi=allFindings.indexOf(item);
                 const plat=matchPlatform(item.title+' '+item.description);
                 const changeType=detectChangeType(item.title, item.description);
                 return `<div class="finding-row" onclick="openPanel(${gi})">
@@ -472,6 +487,7 @@ function renderByChange(){
                     <div class="finding-arrow">&#8250;</div>
                 </div>`;
             }).join('')}
+            </div>
         </div>`;
     }).join('');
 }
@@ -482,10 +498,8 @@ function renderByPlatform(){
     if(!allFindings.length){renderEmpty(container);return;}
 
     const platFindings={};
-    const sOrder={HIGH:0,MEDIUM:1,LOW:2};
-    const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
 
-    sorted.forEach(f=>{
+    allFindings.forEach(f=>{
         const plat=matchPlatform(f.title+' '+f.description)||'Other';
         (platFindings[plat]=platFindings[plat]||[]).push(f);
     });
@@ -509,7 +523,7 @@ function renderByPlatform(){
             </div>
             <div class="feed-items">
                 ${items.map(item=>{
-                    const gi=sorted.indexOf(item);
+                    const gi=allFindings.indexOf(item);
                     let hostname='';
                     try{hostname=new URL(item.source).hostname;}catch(e){}
                     return `<div class="feed-item" onclick="openPanel(${gi})">
@@ -534,9 +548,7 @@ function renderByPlatform(){
 
 /* ========== SIDE PANEL ========== */
 function openPanel(idx){
-    const sOrder={HIGH:0,MEDIUM:1,LOW:2};
-    const sorted=[...allFindings].sort((a,b)=>(sOrder[a.severity]||3)-(sOrder[b.severity]||3));
-    const item=sorted[idx];
+    const item=allFindings[idx];
     if(!item)return;
 
     const mod=(item.module||'').toUpperCase();
