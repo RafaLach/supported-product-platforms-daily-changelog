@@ -54,22 +54,16 @@
         .archive-btn svg { width:14px; height:14px; }
 
         .container { max-width:1360px; margin:0 auto; padding:20px 28px 60px; }
-        .purpose { font-size:12px; color:var(--text-3); margin-bottom:16px; line-height:1.4; }
+        .purpose { font-size:12px; color:var(--text-3); margin-bottom:12px; line-height:1.4; }
 
-        .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:8px; }
-        .metric { background:var(--bg-elevated); border-radius:var(--radius-sm); padding:14px 16px; box-shadow:var(--shadow-glow); position:relative; overflow:hidden; }
-        .metric::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
-        .metric.v-accent::after { background:linear-gradient(90deg,var(--secondary),var(--primary)); }
-        .metric.v-green::after { background:var(--green); }
-        .metric.v-yellow::after { background:var(--yellow); }
-        .metric.v-red::after { background:var(--red); }
-        .metric-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--text-3); margin-bottom:4px; }
-        .metric-val { font-size:26px; font-weight:800; letter-spacing:-1px; }
-        .metric-sub { font-size:11px; color:var(--text-3); margin-top:2px; }
-        .metric.v-accent .metric-val { color:var(--secondary); }
-        .metric.v-green .metric-val { color:var(--green); }
-        .metric.v-yellow .metric-val { color:var(--yellow); }
-        .metric.v-red .metric-val { color:var(--red); }
+        .summary-bar { display:flex; align-items:center; gap:16px; padding:10px 18px; background:var(--bg-elevated); border-radius:var(--radius-sm); box-shadow:var(--shadow-glow); margin-bottom:16px; flex-wrap:wrap; }
+        .summary-stat { display:flex; align-items:center; gap:5px; font-size:12px; font-weight:600; color:var(--text-2); }
+        .summary-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+        .summary-dot.high { background:var(--red); }
+        .summary-dot.med { background:var(--yellow); }
+        .summary-dot.plat { background:var(--secondary); }
+        .summary-dot.scan { background:var(--green); }
+        .summary-sep { width:1px; height:16px; background:var(--border-strong); }
 
         .view-toggle { display:flex; align-items:center; gap:6px; margin-bottom:16px; }
         .view-btn { padding:7px 16px; border-radius:8px; border:1px solid var(--border); background:var(--bg-elevated); cursor:pointer; font:600 12px/1 'Inter',sans-serif; color:var(--text-3); transition:all .2s var(--ease); display:flex; align-items:center; gap:6px; }
@@ -205,8 +199,8 @@
         .empty-sub a { color:var(--secondary); text-decoration:none; font-weight:600; cursor:pointer; }
         .loading { color:var(--text-3); padding:20px; text-align:center; font-size:13px; }
 
-        @media(max-width:900px) { .metrics{grid-template-columns:repeat(2,1fr)} .container{padding:14px} .nav-inner{padding:0 14px} .nav-subtitle,.nav-divider{display:none} .drawer-body{grid-template-columns:1fr} .drawer-list{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border)} .drawer-item{white-space:nowrap;border-bottom:none;border-right:1px solid var(--border)} }
-        @media(max-width:600px) { .metrics{grid-template-columns:1fr} .side-panel{width:100vw;max-width:100vw;right:-100vw} .archive-btn span{display:none} .finding-row{grid-template-columns:28px 50px 1fr auto} }
+        @media(max-width:900px) { .container{padding:14px} .nav-inner{padding:0 14px} .nav-subtitle,.nav-divider{display:none} .drawer-body{grid-template-columns:1fr} .drawer-list{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border)} .drawer-item{white-space:nowrap;border-bottom:none;border-right:1px solid var(--border)} .summary-bar{gap:10px} }
+        @media(max-width:600px) { .side-panel{width:100vw;max-width:100vw;right:-100vw} .archive-btn span{display:none} .finding-row{grid-template-columns:28px 50px 1fr auto} .summary-bar{flex-direction:column;align-items:flex-start;gap:6px} .summary-sep{display:none} }
         ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
     </style>
 </head>
@@ -260,8 +254,8 @@
 </div>
 
 <div class="container">
-    <div class="metrics" id="metrics"></div>
     <div class="purpose" id="purpose"></div>
+    <div class="summary-bar" id="summary-bar"></div>
 
     <div class="view-toggle">
         <button class="view-btn active" data-panel="by-change">
@@ -377,7 +371,7 @@ async function init(){
         raw.forEach(f=>{f.severity=(f.severity||'MEDIUM').toUpperCase();f.module=(f.module||'AISPM').toUpperCase();});
         const sOrder={HIGH:0,MEDIUM:1,LOW:2};
         allFindings = raw.sort((a,b)=>(sOrder[a.severity]??3)-(sOrder[b.severity]??3));
-        renderMetrics();
+        renderSummary();
         renderPurpose();
         renderByChange();
         renderByPlatform();
@@ -387,34 +381,29 @@ async function init(){
     }
 }
 
-function renderMetrics(){
+function renderSummary(){
     if(!latest)return;
-    const total=Object.keys(platformLogos).length;
     const high=allFindings.filter(f=>f.severity==='HIGH').length;
     const med=allFindings.filter(f=>f.severity==='MEDIUM').length;
     const platSet=new Set();
     allFindings.forEach(f=>{const p=matchPlatform(f.title+' '+f.description);if(p)platSet.add(p);});
-    document.getElementById('metrics').innerHTML=`
-        <div class="metric v-red">
-            <div class="metric-label">New Coverage Gaps</div>
-            <div class="metric-val">${high}</div>
-            <div class="metric-sub">new services / APIs to monitor</div>
-        </div>
-        <div class="metric v-yellow">
-            <div class="metric-label">Extended Coverage</div>
-            <div class="metric-val">${med}</div>
-            <div class="metric-sub">new capabilities on existing</div>
-        </div>
-        <div class="metric v-accent">
-            <div class="metric-label">Platforms</div>
-            <div class="metric-val">${platSet.size}<span style="font-size:14px;color:var(--text-3);font-weight:500">/${total}</span></div>
-            <div class="metric-sub">with new additions</div>
-        </div>
-        <div class="metric v-green">
-            <div class="metric-label">Last Scan</div>
-            <div class="metric-val" style="font-size:15px">${latest.scan_time||latest.date}</div>
-            <div class="metric-sub">daily at 08:17</div>
-        </div>`;
+    document.getElementById('summary-bar').innerHTML=`
+        <div class="summary-stat"><span class="summary-dot high"></span><strong>${high}</strong> high</div>
+        <div class="summary-stat"><span class="summary-dot med"></span><strong>${med}</strong> medium</div>
+        <div class="summary-sep"></div>
+        <div class="summary-stat"><span class="summary-dot plat"></span><strong>${platSet.size}</strong> platforms</div>
+        <div class="summary-sep"></div>
+        <div class="summary-stat"><span class="summary-dot scan"></span>Scanned ${latest.scan_time||latest.date}</div>`;
+}
+
+/* Accordion: expand one module, collapse the rest */
+function toggleModule(modId){
+    const el=document.getElementById(modId);
+    const wasCollapsed=el.classList.contains('collapsed');
+    // Collapse all
+    document.querySelectorAll('.module-group').forEach(g=>g.classList.add('collapsed'));
+    // Expand clicked one (if it was collapsed)
+    if(wasCollapsed) el.classList.remove('collapsed');
 }
 
 function renderPurpose(){
@@ -456,8 +445,8 @@ function renderByChange(){
         const items=groups[mod].sort((a,b)=>(sevRank[a.severity]??3)-(sevRank[b.severity]??3));
         const hc=highCount(items), mc=medCount(items);
         return `
-        <div class="module-group" id="mod-${mod}">
-            <div class="module-header" onclick="document.getElementById('mod-${mod}').classList.toggle('collapsed')">
+        <div class="module-group collapsed" id="mod-${mod}">
+            <div class="module-header" onclick="toggleModule('mod-${mod}')">
                 <svg class="module-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 <div class="module-icon ${mod}">${mod.slice(0,2)}</div>
                 <div>
