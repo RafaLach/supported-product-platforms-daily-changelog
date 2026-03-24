@@ -1,31 +1,24 @@
-# Dia Browser Release Notes - Latest (v1.23.0)
+# Dia Browser Release Notes - Latest Versions
 
-## Release Information
-- **Version:** 1.23.0
-- **Release Date:** March 19, 2026, 5:00 PM ET
-- **Location:** Brooklyn, USA
-- **Issue Number:** 17
-
-## Main Title
-"From review to merge to what's next"
-
-## Key Features Released
+## v1.23.0 (March 19, 2026)
+**"From review to merge to what's next"**
 
 ### GitHub Live Tab Groups Improvements
-The update enhances previously shipped GitHub PR integration features with several refinements:
-
-1. **Celebration Animations** - "As you complete a review or merge a PR, you'll see subtle animations that signal the transition from in-progress to done"
-
-2. **Automatic Cleanup** - When PRs merge, Dia automatically cleans up, providing visual confirmation of completion
-
-3. **Finished Work Recovery** - Users can hover to preview recently completed PRs and restore them to view
+- Celebration animations signaling PR transitions from in-progress to completed
+- Automatic cleanup visualization when PRs are merged
+- Hover preview of recently finished pull requests with quick restoration capability
 
 ### Visual Polish
-"A little delight along the way" - expressive animations added to basic browser controls (back, forward, reload buttons)
+- Expressive animations added to browser navigation controls (back, forward, reload buttons)
 
-## Additional Content
-- One Last Thing section featuring a team member's personal winemaking project update
-- Links to three previous releases (v1.22.0, v1.21.0, v1.20.0)
+## v1.22.0 (March 11, 2026)
+**"Don't think about the next step. Take it."**
+
+## v1.21.0 (March 5, 2026)
+**"Before you reach for it..."**
+
+## v1.20.0 (February 26, 2026)
+**"Little moments. Big feeling."**
 
 ## Navigation Elements
 - Download button/link available

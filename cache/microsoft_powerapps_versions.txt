@@ -25,6 +25,7 @@ Recent Unified Interface versions:
 
 Recent Power Apps Studio/Mobile versions:
 - 3.26034: Mar 23, 2026
+- 3.26033: Mar 16, 2026
 - 3.26031: Mar 02, 2026
 - 3.26024: Feb 23, 2026
 - 3.26022: Feb 05, 2026
@@ -45,4 +46,4 @@ Recent Make.PowerApps.com versions:
 - 26012: Jan 13, 2026
 - 26011: Jan 06, 2026
 
-Updated: 2026-03-20
+Updated: 2026-03-24

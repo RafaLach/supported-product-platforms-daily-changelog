@@ -2,7 +2,7 @@
 
 ## Complete List of Supported Actions
 
-The Amazon Bedrock AgentCore Data Plane API supports the following 40 actions:
+The Amazon Bedrock AgentCore Data Plane API supports the following actions:
 
 ### Memory Management Actions
 - **BatchCreateMemoryRecords** - Create multiple memory records in batch

@@ -6,8 +6,17 @@ The page is the **Changelog for Microsoft Graph** from the Microsoft Graph Dev C
 ## Recent Changes (Chronological Summary)
 
 ### February 2026
-- **Permissions updated**: `FileStorageContainerType.Manage.All` and `FileStorageContainerTypeReg.Manage.All` no longer require admin consent
-- **Threat Submission permissions**: `ThreatSubmission.Read` and `ThreatSubmission.ReadWrite` now require admin consent
+
+#### Permission Changes (February 23, 2026)
+- **FileStorageContainerType Permissions Update**: `FileStorageContainerType.Manage.All` and `FileStorageContainerTypeReg.Manage.All` delegated permissions no longer require admin consent
+- **ThreatSubmission Permissions Update**: `ThreatSubmission.Read` and `ThreatSubmission.ReadWrite` delegated permissions now require admin consent
+
+#### Identity and Access Governance Updates (February 19, 2026)
+- `administrationScopeTargets` relationship added to workflow base resources, enabling administrators to target specific organizational units when defining lifecycle workflows
+- New capability allows workflows to activate with specific scopes, including:
+  - Group-based scope activation
+  - Processing result scope activation
+  - Run-based scope activation
 
 ### January 2025
 - **Bicep resource added**: Microsoft Graph Bicep resource for deploying the `user` resource type in infrastructure-as-code scenarios
@@ -46,3 +55,5 @@ Feature now available in Microsoft Cloud for US Government
 
 ### Deprecations
 - Event Hubs shared access signature (SAS) authentication deprecated; migration to Microsoft Entra ID RBAC recommended
+
+Updated: 2026-03-24

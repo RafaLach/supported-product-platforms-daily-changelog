@@ -47,4 +47,6 @@ Content Filtering:
 
 Azure Search Query Types: simple, semantic, vector, vector_simple_hybrid, vector_semantic_hybrid
 
-Updated: 2026-03-21
+New preview inference API available - check API lifecycle guide for details on API evolution.
+
+Updated: 2026-03-24

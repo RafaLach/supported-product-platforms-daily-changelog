@@ -1,7 +1,7 @@
 # Amazon Bedrock User Guide - Document History (Complete Changelog)
 
 ## Latest Update
-**November 26, 2025**
+**February 27, 2026**
 
 ---
 

@@ -59,6 +59,7 @@ Additional models from other providers:
 - Linear integration
 - Slack integration
 - JetBrains integration
+- Figma integration
 
 ## Additional Services
 - Bugbot for automated code review

@@ -13,3 +13,6 @@ Note: Page rendered as Next.js server-side React components. Actual documentatio
 - Backend API: https://api.anthropic.com
 - Console URL: https://platform.claude.com
 - Claude AI URL: https://claude.ai
+
+## Note
+The page content is served as minified Next.js React Server Component payload data. Feature flags and experimental features are configured via GrowthBook. Various analytics and tracking services are integrated (Segment, Sift, Intercom). Actual API documentation content requires browser-side rendering to access.

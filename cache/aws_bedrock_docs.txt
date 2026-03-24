@@ -106,7 +106,7 @@ print(response)
 ### 4. Server-Side Tools Support (January 2026)
 - Responses API now supports server-side tools using OpenAI API-compatible service endpoints
 - AgentCore Gateway tools integration enabled
-- Server-side tool execution without client-side orchestration
+- Server-side tool execution without requiring client-side orchestration
 
 ---
 

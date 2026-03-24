@@ -14,6 +14,13 @@
 
 **GPT-5.4** (March 5, 2026): Multi-tier reasoning model with promotional pricing (1x-8x credits based on reasoning level).
 
+**Version 1.9566.9** (February 25, 2026):
+- New model picker grouping models by family with reasoning/speed toggles
+- Model pinning capability
+- Added POST_CASCADE_RESPONSE_WITH_TRANSCRIPT cascade hook
+- MCP refresh button and auto-triggered OAuth login
+- Linux ARM64 binary releases
+
 ## Featured Model Releases
 
 - **Claude Sonnet 4.6** (Feb 17): 2x credits (no thinking), 3x credits (with thinking)

@@ -18,6 +18,16 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - Commerce integration questions
 - MCP (Model Context Protocol) implementation
 
+## New Models & Features (March 2026)
+- GPT-5.4 Pro - Referenced in discussions about computer use functionality
+- GPT-5.4-mini/nano - Newly available models with complimentary daily token allocations
+- GPT Realtime with SIP Endpoint - Voice/communication capability
+- MCP (Model Context Protocol) Connectors - Integration discussions and OAuth authentication
+- Chatkit-js on Managed Backend - Framework supporting function tools
+- Responses API - Updated file handling
+- Computer Use Feature - Across multiple GPT-5.x model variants
+- Agent Builder - Platform with guardrails functionality
+
 ## Notable Issues & Bug Reports
 
 **Billing/Account Problems:**

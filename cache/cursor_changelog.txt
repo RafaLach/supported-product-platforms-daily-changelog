@@ -3,23 +3,24 @@
 ## Recent Updates (March 2026)
 
 **Mar 19, 2026: Composer 2**
-- New frontier-level coding model now available with strong performance on challenging tasks
+- Frontier-level coding model now available with strong results on challenging coding tasks
 - Pricing: Standard at $0.50/M input, $2.50/M output tokens; Fast (default) at $1.50/M input, $7.50/M output
 
 **Mar 11, 2026: New Marketplace Plugins**
-- Over 30 new plugins added from partners including Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, and PlanetScale
-- Plugins contain MCPs usable by cloud agents, triggerable via automations
+- Over 30 new integrations added from partners including Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, and PlanetScale
+- Plugins contain MCPs enabling cloud agents to read/write across user stacks
 
 **Mar 5, 2026: Automations**
-- Always-on agents running on schedules or event triggers from Slack, Linear, GitHub, PagerDuty, webhooks
-- Agents access memory tools for learning across repeated runs
+- Always-on agents triggered by schedules or events from Slack, Linear, GitHub, PagerDuty, webhooks
+- Agents access memory tools to learn from past runs and improve iteratively
+- Cloud sandbox execution with configurable MCPs and models
 
 **Mar 4, 2026: JetBrains IDE Support**
-- Available in IntelliJ IDEA, PyCharm, WebStorm through Agent Client Protocol (ACP)
-- Supports frontier models from OpenAI, Anthropic, Google, Cursor
+- Agent Client Protocol (ACP) integration for IntelliJ IDEA, PyCharm, WebStorm
+- Support for frontier models from OpenAI, Anthropic, Google, and Cursor
 
 **Mar 3, 2026: Version 2.6**
-- MCP Apps: Interactive UIs (Amplitude charts, Figma diagrams, tldraw whiteboards)
+- MCP Apps: Interactive UIs in agent chats featuring charts (Amplitude), diagrams (Figma), whiteboards (tldraw)
 - Team Marketplaces: Private plugin sharing with governance controls
 - Debug mode improvements and 15 desktop enhancements
 - 10 desktop bug fixes, 2 web improvements

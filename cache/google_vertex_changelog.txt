@@ -6,8 +6,10 @@ This document contains production updates to Vertex AI, with links to related re
 ## Key Dates and Updates (March 2026 - April 2025)
 
 ### March 2026
-- **Vector Search 2.0 GA** (March 5): Generally available with collections, auto-embeddings, hybrid search, and enterprise connectivity options
-- **Gemini 3.1 Flash-Lite** (March 3): "most cost-efficient Gemini model" optimized for low-latency, high-volume scenarios
+- **Vertex Explainable AI Deprecated** (March 16): Vertex Explainable AI is now deprecated, requiring users to transition to alternative solutions
+- **Partner Model Evaluations** (March 12): Gen AI evaluation service now supports assessing partner models including Anthropic and Llama models through console-based workflows
+- **Vector Search 2.0 GA** (March 5): Generally available with collections, auto-embeddings, hybrid search, and enterprise connectivity options (PSC/PGA/VPC)
+- **Gemini 3.1 Flash-Lite** (March 3): "most cost-efficient Gemini model" optimized for low-latency, high-volume scenarios, public preview as gemini-3.1-flash-lite-preview
 - **Gemini 3.1 Flash Image** (February 26): "high-quality image generation with improved pricing and latency"
 - **Video Generation Deprecations** (March 3): Multiple preview endpoints deprecated, migration required by April 2, 2026
 
@@ -98,7 +100,7 @@ This document contains production updates to Vertex AI, with links to related re
 - Generative AI module in Vertex AI SDK
 
 ## Regional/Availability Updates
-- Agent Engine expansion: Europe (Zurich, Milan), Asia (Hong Kong, Seoul, Jakarta), Americas (Toronto, São Paulo)
+- Agent Engine expansion: Europe (Zurich, Milan), Asia (Hong Kong, Seoul, Jakarta), Americas (Toronto, Sao Paulo)
 - Runtime charging beginning: Asia-Southeast1, Australia-Southeast2, Europe-West2/3/4 (November 6, 2025)
 
 ## Enterprise/Security Features
@@ -109,3 +111,6 @@ This document contains production updates to Vertex AI, with links to related re
 - VPC Service Controls support
 - Confidential Computing integration
 - Organization Policy custom constraints
+
+## Last Fetched
+2026-03-24

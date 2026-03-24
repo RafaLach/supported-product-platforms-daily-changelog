@@ -15,4 +15,4 @@ Azure components involved:
 - Azure Storage (data storage)
 - Microsoft Entra ID (authentication)
 
-Updated: 2025-05-12
+Updated: 2026-03-24

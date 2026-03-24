@@ -2,12 +2,13 @@
 
 **Page Details:**
 - Source: OpenAI Status Page (status.openai.com)
-- Last Updated: Monday, March 23, 2026, 07:18:08 GMT
+- Last Updated: Monday, March 24, 2026
 - Content Type: RSS Feed of Resolved Incidents
 
 ## All Incidents Listed (Most Recent First)
 
 ### March 2026
+- **Mar 24**: "Some customer may encounter errors creating, updating projects, and uploading files" - File uploads experiencing degraded performance
 - **Mar 21**: "Pinned chats are not loading on web browsers for ChatGPT" - Conversations component affected, resolved
 - **Mar 18**: "Sora video generation failing" - Video generation service, resolved
 - **Mar 17**: "Excel Plugin is inaccessible for some users" - Connectors/Apps affected, resolved

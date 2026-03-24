@@ -19,3 +19,6 @@ The page introduces Agentforce as an agent-driven layer of the Salesforce Platfo
 ## Additional Resources
 - Salesforce Help: Agentforce and Generative AI
 - Salesforce Help: Agentforce Agents
+
+## Last Fetched
+2026-03-24 - No changes detected from previous fetch.
