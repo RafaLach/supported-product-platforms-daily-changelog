@@ -1,67 +1,23 @@
-# Windsurf IDE Documentation - Complete Content Extract
+# Windsurf IDE - Feature Announcements & New Capabilities
 
-## Main Headings & Sections
-- Welcome to Windsurf
-- Set Up
-- Onboarding
-- Update Windsurf
-- Things to Try
-- Forgot to Import VS Code Configurations?
-- Incompatible Extensions
-- Custom App Icons (beta)
-- Windsurf Next
-- Uninstall Windsurf
+## New Features & Capabilities
 
-## Core Features & Components
+1. **Cascade Agent** - "Your agentic chatbot that can collaborate with you like never before." An AI-powered assistant integrated into the IDE for code writing and project generation.
 
-**Cascade**: Described as "Your agentic chatbot that can collaborate with you like never before." It functions as an AI-powered code assistant accessible via a panel on the IDE's right side.
+2. **MCP (Model Context Protocol) Servers** - Extensibility feature allowing servers to "extend the agent's capabilities" beyond base functionality.
 
-**Key Feature Cards**:
-- Usage (Credits and usage tracking)
-- Terminal (Upgraded terminal experience)
-- MCP (Model Context Protocol servers extending agent capabilities)
-- Memories (Customizable behavior through memories and rules)
-- Context Awareness (Codebase understanding)
-- Advanced (Configuration options)
-- Workflows (Automating repetitive development trajectories)
-- App Deploys (One-click application deployment)
+3. **Memories & Rules System** - Customization feature where "Memories and rules help customize behavior" of the AI assistant.
 
-## Installation Requirements
+4. **Context Awareness** - AI system that "instantly understands your codebase" for better code comprehension and suggestions.
 
-**Mac**: OS X Yosemite minimum
-**Windows**: Windows 10 minimum
-**Ubuntu**: Ubuntu 20.04+ (glibc >= 2.31, glibcxx >= 3.4.26)
-**Other Linux**: glibc >= 2.28, glibcxx >= 3.4.25
+5. **Workflows** - Automation capability to "automate repetitive trajectories" for increased productivity.
 
-## Onboarding Steps
+6. **App Deploys** - One-click deployment feature enabling users to "deploy applications in one click."
 
-1. **Setup Flow Selection**: Import from VS Code/Cursor or start fresh; optional PATH installation
-2. **Keybindings**: Choose VS Code or Vim bindings
-3. **Theme Selection**: Default color themes available
-4. **Authentication**: Windsurf account signup (free) or login required
-5. **Alternative Auth**: Manual authentication code entry available if needed
+7. **Terminal Enhancement** - "An upgraded Terminal experience" integrated into the IDE.
 
-## Configuration & Settings
+8. **Custom App Icons (Beta)** - Available for Mac OS, allowing paid users to personalize Windsurf's dock appearance.
 
-- Import settings/extensions from VS Code or Cursor
-- Settings accessible via "Windsurf - Settings" button (bottom right)
-- Advanced Settings available through profile dropdown
-- Command Palette access: Cmd+Shift+P (Mac) or Ctrl+Shift+P (Windows/Linux)
+9. **Windsurf Next** - Prerelease version providing early access to unreleased features and capabilities.
 
-## Additional Features
-
-**Custom App Icons**: Beta feature for Mac OS users; access via profile/settings icon for icon customization
-
-**Windsurf Next**: Prerelease version enabling early access to unreleased features; available at separate download link
-
-**Incompatible Extensions**: Cannot install other AI code completion tools or proprietary extensions; no marketplace access
-
-## Uninstallation Process
-
-Requires closing application, deleting application folder, removing configuration files (~/.codeium/windsurf), and cleaning up PATH variables.
-
-## Resources
-
-- Documentation Index: https://docs.windsurf.com/llms.txt
-- Changelog available at windsurf.com/changelog
-- Recommended Plugins section references additional extensions
+10. **Import Functionality** - Settings and extensions migration from VS Code or Cursor into Windsurf.

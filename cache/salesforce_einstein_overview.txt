@@ -2,25 +2,9 @@
 
 ## Page Information
 - **Title**: Agentforce and Generative AI | Agentforce Developer Guide | Salesforce Developers
-- **App Version**: 0.19.7
 
 ## Notes
-The overview page primarily serves as a navigation/landing page with minimal substantive content. It redirects to the Agentforce Developer Guide and related documentation sections. The page contains configuration metadata, analytics tracking, and component library version references but limited feature documentation content.
-
-## Component Library Versions
-- dx/scrollManager: 1.30.3
-- dx/skipNavLink: 1.30.3
-- doc/header: 1.28.2
-- dx/section: 1.30.3
-- dx/grid: 1.30.3
-- dx/groupText: 1.30.3
-- dx/featuresList: 1.30.3
-- dx/footer: 1.30.3
-- dw/instrumentation: 1.27.18
-
-## Environment
-- Mode: Production
-- Prerelease Version Referenced: Spring '26
+The overview page primarily serves as a navigation/landing page with minimal substantive content. It redirects to the Agentforce Developer Guide and related documentation sections. The page contains configuration metadata, analytics tracking, and component library version references but limited feature documentation content. The page returned JS configuration/infrastructure only.
 
 ## Last Fetched
-2026-03-24 - Page returned JS configuration/infrastructure only, no substantive content changes.
+2026-03-25 - No substantive content changes; page still returns JS configuration only.

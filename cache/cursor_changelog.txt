@@ -1,30 +1,24 @@
-# Cursor Changelog - Extracted Content
+# Cursor Changelog - Feature Announcements
 
-## Recent Updates (March 2026)
+## Mar 19, 2026
+**Composer 2** - "frontier-level coding performance with strong results on challenging coding tasks." Pricing: Standard ($0.50/M input, $2.50/M output tokens) and Fast ($1.50/M input, $7.50/M output tokens).
 
-**Mar 19, 2026: Composer 2**
-- Frontier-level coding model now available with strong results on challenging coding tasks
-- Pricing: Standard at $0.50/M input, $2.50/M output tokens; Fast (default) at $1.50/M input, $7.50/M output
+## Mar 11, 2026
+**New Marketplace Plugins** - Over 30 new plugins from partners including Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, and PlanetScale. Plugins enable reading, writing, and actions across development stacks via MCPs.
 
-**Mar 11, 2026: New Marketplace Plugins**
-- Over 30 new integrations added from partners including Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, and PlanetScale
-- Plugins contain MCPs enabling cloud agents to read/write across user stacks
+## Mar 5, 2026
+**Automations** - Always-on agents triggered by schedules or events from Slack, Linear, GitHub, PagerDuty, and webhooks. Agents access cloud sandboxes, MCPs, configurable models, and a memory tool for learning across runs.
 
-**Mar 5, 2026: Automations**
-- Always-on agents triggered by schedules or events from Slack, Linear, GitHub, PagerDuty, webhooks
-- Agents access memory tools to learn from past runs and improve iteratively
-- Cloud sandbox execution with configurable MCPs and models
+## Mar 4, 2026
+**Cursor in JetBrains IDEs** - Available in IntelliJ IDEA, PyCharm, WebStorm via Agent Client Protocol. Supports frontier models from OpenAI, Anthropic, Google, and Cursor for agent-driven development.
 
-**Mar 4, 2026: JetBrains IDE Support**
-- Agent Client Protocol (ACP) integration for IntelliJ IDEA, PyCharm, WebStorm
-- Support for frontier models from OpenAI, Anthropic, Google, and Cursor
+## Mar 3, 2026 (Version 2.6)
+**MCP Apps** - Interactive UIs for charts, diagrams, and whiteboards from Amplitude, Figma, and tldraw directly in Cursor.
 
-**Mar 3, 2026: Version 2.6**
-- MCP Apps: Interactive UIs in agent chats featuring charts (Amplitude), diagrams (Figma), whiteboards (tldraw)
-- Team Marketplaces: Private plugin sharing with governance controls
-- Debug mode improvements and 15 desktop enhancements
-- 10 desktop bug fixes, 2 web improvements
+**Team Marketplaces** - Teams and Enterprise admins can create private plugin marketplaces with governance and access controls.
 
-## Navigation & Resources
-Product areas: Agents, Code Review, Cloud, Tab, CLI, Marketplace
-Company links: Enterprise, Pricing, Careers, Blog, Community, Students
+**Desktop Improvements** (15 items) - Parallel Debug sessions, stale code cleanup, adaptive instrumentation logging, browser tool context menus and zoom, plan file content in autocomplete, image galleries, multiline Plan mode, faster modals, improved workflows, better PR context, smoother tool-use flows, reliable MCP setup, clearer policies, enhanced Slack integration, longer session reliability.
+
+**Desktop Bug Fixes** (10 items) - Web link fixes, refresh behavior, branch divergence handling, review comments accuracy, diff display preservation, MCP configuration stability, model picker fixes, permission inconsistencies, long-running workflow reliability, Debug port allocation.
+
+**Web Improvements & Fixes** (2 items) - Dashboard enhancements and layout improvements.

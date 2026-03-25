@@ -22,9 +22,12 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - GPT-5.4 Pro - Referenced in discussions about computer use functionality
 - GPT-5.4-mini/nano - Newly available models with complimentary daily token allocations
 - GPT Realtime with SIP Endpoint - Voice/communication capability
+- gpt-realtime-1.5 is live in Realtime API (March 24, 2026)
 - MCP (Model Context Protocol) Connectors - Integration discussions and OAuth authentication
+- MCP Apps Integration - Model Context Protocol apps integration with ChatGPT, including tool support and notification systems
+- ChatGPT Apps SDK - Active development with ui/notifications, tool-result handling, and model context updates
 - Chatkit-js on Managed Backend - Framework supporting function tools
-- Responses API - Updated file handling
+- Responses API - Updated file handling; new background mode for file input (March 25, 2026)
 - Computer Use Feature - Across multiple GPT-5.x model variants
 - Agent Builder - Platform with guardrails functionality
 
@@ -42,6 +45,7 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - Data loss concerns in file operations
 - ChatGPT Apps authentication flow problems
 - Sora-2 API duration parameter restrictions
+- Responses API with background mode server errors with PDF handling
 
 **Popular Discussion Threads:**
 - "Prompt Engineering Is Dead" discourse (105 replies, 20,073 views)

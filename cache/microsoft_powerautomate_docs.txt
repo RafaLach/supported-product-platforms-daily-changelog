@@ -10,6 +10,7 @@ Sections:
   - Process mining: Process Mining overview, Power Automate Process Mining (Minit), Task mining
   - Solutions: Distribute flows, Create cloud flow in solution, ALM
   - Integrate: Teams, SharePoint, Email
+  - Best practices: Plan a project, Automation Kit, Automation adoption
 
 - Administer and extend
   - Power Platform admin center
@@ -25,4 +26,4 @@ Sections:
   - Teams, SharePoint, Email, Forms, Approvals
   - Business process flows
 
-Updated: 2026-03-24
+Updated: 2026-03-25

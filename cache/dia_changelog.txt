@@ -1,26 +1,23 @@
-# Dia Browser Release Notes - Latest Versions
+# Dia Browser Release Notes - Feature Announcements
 
-## v1.23.0 (March 19, 2026)
-**"From review to merge to what's next"**
+**Release Date: March 19, 2026 (v1.23.0)**
 
-### GitHub Live Tab Groups Improvements
-- Celebration animations signaling PR transitions from in-progress to completed
-- Automatic cleanup visualization when PRs are merged
-- Hover preview of recently finished pull requests with quick restoration capability
+## New Features & Capabilities
 
-### Visual Polish
-- Expressive animations added to browser navigation controls (back, forward, reload buttons)
+1. **GitHub Live Tab Groups Improvements** - Enhanced PR workflow with visual feedback animations when completing reviews or merging pull requests
 
-## v1.22.0 (March 11, 2026)
-**"Don't think about the next step. Take it."**
+2. **Celebration Animations** - "Subtle animations that signal the transition from in-progress to done" for completed PR work
 
-## v1.21.0 (March 5, 2026)
-**"Before you reach for it..."**
+3. **Automatic Cleanup Notifications** - Visual confirmation when merged PRs are automatically cleaned up from tab groups
 
-## v1.20.0 (February 26, 2026)
-**"Little moments. Big feeling."**
+4. **Recently Completed PR Preview** - Ability to hover and preview finished pull requests and restore them to active view
 
-## Navigation Elements
-- Download button/link available
-- "View All Release Notes" option provided
-- Footer with company links and social media references
+5. **Expressive Navigation Controls** - Enhanced animations for back, forward, and reload browser controls with "more expressive animations into everyday interactions"
+
+6. **Skill Updates** - Easier creation of Skills with expanded feature usage capabilities (referenced in update instructions)
+
+## Past Releases Referenced
+
+- **v1.22.0** (March 11, 2026) - "Don't think about the next step. Take it."
+- **v1.21.0** (March 5, 2026) - "Before you reach for it..."
+- **v1.20.0** (February 26, 2026) - "Little moments. Big feeling."

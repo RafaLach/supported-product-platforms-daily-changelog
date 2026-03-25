@@ -14,6 +14,7 @@ This document contains production updates to Vertex AI, with links to related re
 - **Video Generation Deprecations** (March 3): Multiple preview endpoints deprecated, migration required by April 2, 2026
 
 ### February 2026
+- **Gemini 3.1 Pro Preview** (Feb 19): Advanced reasoning model with 1M token context window
 - **Anthropic Claude 3 Haiku Deprecated** (Feb 23): Shutdown scheduled August 23, 2026
 - **Vertex AI Agent Builder - Code Execution GA** (Feb 18): Generally available feature
 - **Claude Sonnet 4.6** (Feb 17): Available in Model Garden
@@ -22,6 +23,9 @@ This document contains production updates to Vertex AI, with links to related re
 
 ### January 2026
 - **Virtual Try-On GA** (Jan 23): Endpoint migration from preview to production version
+- **GLM 4.7 GA** (Jan 20): Complex reasoning and tool use capabilities
+- **Gemini CLI Preview** (Jan 16): Open source AI agent for terminal-based interactions with Gemini
+- **Veo 3.1 Features** (Jan 13): 9:16 aspect ratio and 1080p/4K upsampling support
 - **Gemini 3 Flash Preview** (Dec 17): "designed to tackle challenging agentic problems with strong coding"
 - **Sessions and Memory Bank GA** (Dec 17): Agent Engine features generally available
 - **Agent Designer Preview** (Dec 19): Low-code visual designer available in console
@@ -33,7 +37,7 @@ This document contains production updates to Vertex AI, with links to related re
 - **Gemini 2.5 Flash with Native Audio GA** (Dec 12): "cutting-edge native audio functionality" for Live API
 
 ### November 2025
-- **Kimi K2 Thinking**: Available for complex problem-solving and reasoning
+- **Kimi K2 Thinking** (Nov 13): Available for complex problem-solving and reasoning
 - **Prompt Caching TTL Update**: "one-hour Time To Live" for Anthropic models
 - **Claude 3.7 Sonnet Deprecated** (Nov 11): Shutdown May 11, 2026
 - **Observability Features Preview** (Nov 7): Sessions, traces, logs, and events management
@@ -42,6 +46,7 @@ This document contains production updates to Vertex AI, with links to related re
 ### October 2025
 - **MiniMax M2**: "end-to-end development workflows" with planning and tool-calling
 - **Veo 3.1 Preview** (Oct 15): Advanced video controls and reference-guided generation
+- **Claude Haiku 4.5** (Oct 15): New Claude variant in Model Garden
 - **Computer Use Tool Preview** (Oct 7): "automate tasks in the browser" with agent automation
 - **Qwen Models Available**: Image generation and editing variants
 - **vLLM TPU**: "highly-efficient serving framework" optimized for Cloud TPU
@@ -51,19 +56,22 @@ This document contains production updates to Vertex AI, with links to related re
 - **Agent Engine SDK Refactor** (Sep 10): "client-based design" migration required
 - **Code Execution Preview**: Isolated sandbox environment for agent operations
 - **A2A Protocol Support**: Agent-to-Agent protocol development capability
-- **DeepSeek-V3.1 Available**: Released through Model Garden
+- **DeepSeek-V3.1 Available** (Sep 9): Released through Model Garden
+- **DeepSeek-V3.2 Available** (Sep 30): Released through Model Garden
+- **Veo 3 Short Videos GA** (Sep 8): 4, 6, 8 second video generation
 
 ### August 2025
 - **Imagen 4 GA** (Aug 14): Generate, Fast Generate, and Ultra Generate models available
-- **Gemini 2.5 Flash-Lite GA** (July 22): "accessible using the API and Vertex AI Studio"
-- **Prompt Optimizer GA**: "generally available" optimization service
-- **Open Model Tuning**: Supervised fine-tuning for Llama 3.1 and others
+- **Gemini 2.5 Flash/Pro Supervised Fine-tuning** (Aug 8): Tuning support for Flash and Pro models
+- **Prompt Optimizer GA** (Aug 7): "generally available" optimization service including zero-shot optimization
+- **Open Model Fine-tuning** (Aug 7): Supervised fine-tuning for Llama 3.1 and others
 - **Custom Service Accounts**: Agent identity management capability
 - **Workforce Identity Federation GA** (Oct 1): "external identity provider" integration for Workbench
+- **Gemini 2.5 Flash-Lite GA** (July 22): "accessible using the API and Vertex AI Studio" with explicit caching and batch prediction support
 
 ### July 2025
 - **Veo 3 GA** (July 29): Video generation generally available
-- **Gemini 2.5 Flash and Pro GA** (June 17): Production-ready versions with expanded capabilities
+- **Gemini 2.5 Flash and Pro GA** (June 17): Production-ready versions with expanded capabilities and unified output token pricing
 - **Memory Bank Preview** (July 8): "dynamically generate long-term memories" from conversations
 - **Flex-Start VMs Preview** (July 11): "Dynamic Workload Scheduler" discounted pricing option
 - **Reservations Support**: Colab Enterprise and Workbench reservation consumption
@@ -83,6 +91,7 @@ This document contains production updates to Vertex AI, with links to related re
 - **Gemini 2.0 Flash Image Generation Preview** (May 7): Image generation capability
 
 ### April 2025
+- **Gemini 2.5 Flash Preview** (Apr 17): Thinking capabilities and general enhancements
 - **Agent Development Kit Preview** (April 9): Available in preview state
 - **Agent Garden Preview** (April 9): Agent discovery and management interface
 - **Gemini 2.5 Pro Preview** (April 9): Public preview offering announced
@@ -113,4 +122,4 @@ This document contains production updates to Vertex AI, with links to related re
 - Organization Policy custom constraints
 
 ## Last Fetched
-2026-03-24
+2026-03-25

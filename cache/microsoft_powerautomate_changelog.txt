@@ -5,4 +5,4 @@ Resources for new features released recently, features releasing soon, and known
 Weekly releases: See Service Updates for Power Automate
 Release plans: Power Automate release planner (releaseplans.microsoft.com)
 
-Updated: 2026-03-24
+Updated: 2026-03-25

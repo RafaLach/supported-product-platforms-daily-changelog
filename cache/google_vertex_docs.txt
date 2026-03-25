@@ -21,13 +21,13 @@
 ### MLOps & Workflow Management
 - **Vertex AI Pipelines**: ML workflow orchestration
 - **Model Registry**: Version control and model management
-- **Feature Store**: ML feature management and serving
+- **Feature Store**: ML feature management and serving (latest version)
 - **Experiments**: Model iteration and comparison
 - **TensorBoard**: Training visualization and profiling
 
 ### Deployment & Inference
 - **Vertex AI Inference**: Online and batch prediction serving
-- **Vector Search 2.0**: Intelligent retrieval for AI applications
+- **Vector Search 2.0**: Intelligent retrieval for AI applications with collections and data objects
 - **Endpoints**: Public, private, and dedicated deployment options
 - **Model Monitoring**: Performance tracking and drift detection
 
@@ -73,4 +73,4 @@
 - Organization policy constraints
 
 ## Last Fetched
-2026-03-24 - No changes detected from previous fetch (last updated February 5, 2026).
+2026-03-25 - No changes detected from previous fetch.

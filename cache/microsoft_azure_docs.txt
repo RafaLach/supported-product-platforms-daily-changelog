@@ -3,6 +3,8 @@ The AI app and agent factory - build, optimize, and govern AI apps and agents at
 
 Overview: What is Microsoft Foundry?
 Looking for Foundry (classic) portal documentation?
+Concept: Explore Foundry Models
+Overview: Manage agents, models, and tools (Control Plane)
 
 Sections:
 - Create apps with code
@@ -61,4 +63,4 @@ Further resources:
 - GitHub Models
 - Visual Studio Code extension
 
-Updated: 2026-03-24
+Updated: 2026-03-25

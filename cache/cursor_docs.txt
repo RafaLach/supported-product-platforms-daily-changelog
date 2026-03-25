@@ -1,74 +1,32 @@
-# Cursor Documentation - Content Extraction
+# Cursor Docs - Feature Announcements and New Capabilities
 
-## Core Product Information
-**Cursor** is described as "an AI editor and coding agent" built to make users "extraordinarily productive." The platform enables users to understand codebases, plan and build features, fix bugs, review changes, and integrate with existing tools.
-
-## Key Features & Capabilities
-- Understanding unfamiliar code
-- Creating and building features
-- Finding and fixing bugs
-- Code review functionality
-- Debugging assistance
-- Test generation
-- Documentation generation
-- Code modernization and refactoring
-- Rapid prototyping
-
-## Supported Languages & Frameworks
-The documentation references support for:
-- JavaScript & TypeScript
-- Python
-- Java
-- C#
-- iOS & macOS (Swift)
-- Data Science workflows (Python, R, SQL)
-- Web development
+## Core Features
+- **AI Editor and Coding Agent** - Described as built to make developers "extraordinarily productive"
+- **Code Understanding** - Ability to understand codebases and navigate large projects
+- **Feature Planning and Building** - Automated feature creation and development assistance
+- **Bug Fixing** - Automated bug detection and repair capabilities
+- **Code Review** - Integrated change review functionality
+- **Tool Integration** - Support for existing developer tools
 
 ## AI Models Available
-Multiple Claude models are documented:
-- Claude 4.5 Haiku
-- Claude 4.5 Sonnet
+Multiple Claude models including:
 - Claude 4.6 Sonnet
+- Claude 4.5 Sonnet and Haiku
 - Claude Opus variants (4.5, 4.6, 4.6 Fast)
+- Cursor Composer models (1, 1.5, 2)
+- Google Gemini support (3-series and 2.5 Flash)
+- OpenAI GPT-5 series models
+- Grok 4.20
+- Kimi K2.5
 
-Additional models from other providers:
-- Google Gemini series (2.5 Flash, 3.x variants)
-- OpenAI GPT-5 series (multiple versions)
-- Grok-4-20, Kimi-k2-5
+## Specialized Tools
+- **Bugbot** - Automated code review and bug detection
+- **Cloud Agent** - Remote execution capabilities with self-hosted and Kubernetes options
+- **Browser Tool** - Web browsing integration for agents
+- **Terminal Tool** - Command execution access
+- **MCP (Model Context Protocol)** - Extension and integration framework
+- **Slack Integration** - Team communication integration
 
-## Cursor-Specific Models
-- Cursor Composer 1, 1.5, and 2
-
-## Enterprise & Team Features
-- Admin API and analytics
-- Team dashboards and member management
-- SSO capabilities
-- SCIM integration
-- Service accounts
-- Billing groups
-- Cloud Agent deployment (self-hosted and Kubernetes options)
-- Private workers
-- Compliance monitoring
-
-## Developer Tools
-- CLI with authentication, configuration, and shell mode
-- MCP (Model Context Protocol) integration
-- Browser tools
-- Terminal access
-- GitHub and GitLab integrations
-- Linear integration
-- Slack integration
-- JetBrains integration
-- Figma integration
-
-## Additional Services
-- Bugbot for automated code review
-- Cloud Agent with automations
-- Skills and subagents
-- Rules engine
-- Plugins system
-- Hooks for third-party integration
-- Webhooks for Cloud Agent API
-
-## Documentation Structure
-The site includes sections for Get Started, Models & Pricing, Changelog, and comprehensive guides for various user roles (designers, product managers, sales engineers, support teams).
+## Documentation and Support
+- Industry-specific guides for Python, Java, C#, JavaScript/TypeScript, iOS/Swift, and more
+- Use-case documentation for design, product management, data science, and sales engineering

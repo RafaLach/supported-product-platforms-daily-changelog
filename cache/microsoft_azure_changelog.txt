@@ -28,18 +28,21 @@ Key model capabilities:
 `gpt-4o-mini-transcribe-2025-12-15`
 - Improved transcription accuracy and robustness for real-time scenarios. ~50% lower word error rate (WER) than previous gpt-4o-transcribe-mini on English benchmarks
 - Improves multilingual performance across Japanese, Indic, and other languages.
-- Reduced hallucinations on silence by up to 4x
+- Reduced hallucinations on silence by up to 4x, making it a more reliable choice for noisy environments and real-world audio streams.
+- Input remains audio, with text as output, and deployment is API-only.
 
 ### Realtime-mini (speech-to-speech) model update
 
 `gpt-realtime-mini-2025-12-15`
 - Feature parity with full gpt-realtime model in instruction-following and function-calling.
+- Input and output are both audio, and is API-only.
 
 ### Text to speech model update
 
 `gpt-4o-mini-tts-2025-12-15`
 - New benchmark for multilingual speech synthesis
 - More natural, human-like speech with fewer artifacts and improved speaker similarity.
+- Input is text, output is audio, and deployment is API-only.
 
 ## October 2025
 
@@ -49,11 +52,11 @@ The Realtime API now supports SIP, enabling telephony connections to realtimeapi
 
 ### GPT-4o audio model released
 
-- The `gpt-4o-transcribe-diarize` speech to text model is released. ASR model that converts spoken language into text in real time with diarization (identifying who spoke when).
+- The `gpt-4o-transcribe-diarize` speech to text model is released. ASR model that converts spoken language into text in real time with diarization (identifying who spoke when). Supports 100+ languages.
 
 ### GPT-image-1-mini
 
-The `gpt-image-1-mini` model is now available for global deployments.
+The `gpt-image-1-mini` model is now available for global deployments. Smaller version of gpt-image-1 with good balance between performance and cost.
 
 ### PII detection content filter
 
@@ -148,4 +151,4 @@ OpenAI's GPT RealTime and Audio models are now generally available on Azure AI F
 ### GPT-4o 2024-11-20
 ### NEW data zone provisioned deployment type
 
-Updated: 2026-03-24
+Updated: 2026-03-25

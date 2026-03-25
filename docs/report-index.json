@@ -1,5 +1,197 @@
 [
   {
+    "date": "2026-03-25",
+    "scan_time": "2026-03-25 11:21",
+    "file": "report-2026-03-25.md",
+    "platforms": [
+      {
+        "name": "Azure AI Foundry",
+        "status": "changed",
+        "details": [
+          "**Foundry IQ** \u2014 New service added to Azure AI Foundry documentation hub. Three new entries: \"What is Foundry IQ?\", \"Frequently asked questions\", and \"Connect knowledge base to agents\". Enables knowledge-base-connected AI agents. Source: https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
+          "**Foundry Control Plane** \u2014 New top-level documentation section with entries for managing agents, models, and tools; evaluating agentic workflows; and monitoring generative AI applications. Source: https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview",
+          "**Explore Foundry Models** \u2014 New concept card added to the documentation hub overview. Source: https://learn.microsoft.com/en-us/azure/foundry/",
+          "**Preview Inference API enhancements** \u2014 API reference now documents new preview inference API with monthly cadence, highlighting Structured Outputs (JSON schema via response_format), JSON Mode, and log probabilities parameters. Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Responses API with background mode** \u2014 New asynchronous file input processing capability for the Responses API (March 25, 2026). Source: https://platform.openai.com/docs/guides/background",
+          "**gpt-realtime-1.5 GA** \u2014 Community confirmation that gpt-realtime-1.5 is now generally available in the Realtime API (March 24, 2026). Source: https://community.openai.com",
+          "**ChatGPT Apps SDK** \u2014 New SDK actively developing with ui/notifications, tool-result handling, and model context update capabilities. Source: https://developers.openai.com/apps-sdk",
+          "**MCP Apps Integration** \u2014 Model Context Protocol apps now integrating with ChatGPT with tool support and notification systems, expanded from previously seen \"MCP Connectors\". Source: https://developers.openai.com/apps-sdk/concepts/mcp-server"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Bedrock",
+        "status": "changed",
+        "details": [
+          "**9 new foundation models** \u2014 Claude Sonnet 4.6, Claude Opus 4.6, DeepSeek V3.2, Kimi K2.5 (Moonshot AI), MiniMax M2.1, GLM 4.7 (Zhipu), GLM 4.7 Flash (Zhipu), Qwen3 Coder Next (Alibaba), Nova 2 (Amazon). Source: https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+          "**3 new model providers** \u2014 Moonshot AI, MiniMax, and Zhipu added as Bedrock providers. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+          "**OpenAI-compatible Projects API** \u2014 New API support in the Mantle inference engine enabling OpenAI API compatibility. Projects provide application-level isolation for GenAI workloads. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/projects.html",
+          "**Server-side tools in Responses API** \u2014 New tool execution capability using OpenAI API-compatible service endpoints with AgentCore Gateway integration. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "changed",
+        "details": [
+          "**InvokeAgentRuntimeCommand API** \u2014 New API action for executing shell commands inside running AgentCore Runtime sessions with streaming output. Agents created after March 17, 2026 support this automatically. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-execute-command.html",
+          "**Google ADK and OpenAI Agents SDK** \u2014 Two new agent frameworks added to supported frameworks list. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+          "**A2A (Agent-to-Agent) protocol** \u2014 New inter-agent communication protocol added to supported protocols. Enables agent discovery via Agent Cards and JSON-RPC communication. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a-protocol-contract.html",
+          "**OpenInference protocol** \u2014 New observability protocol added to supported protocols. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
+          "**Google Gemini model provider** \u2014 New model provider added to AgentCore. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Google Vertex AI",
+        "status": "changed",
+        "details": [
+          "**Gemini 3.1 Pro Preview** (Feb 19, 2026) \u2014 Advanced reasoning model with 1M token context window. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-pro",
+          "**GLM 4.7 GA** (Jan 20, 2026) \u2014 New model with complex reasoning and tool use capabilities, now generally available. Source: https://cloud.google.com/vertex-ai/docs/release-notes",
+          "**Gemini CLI Preview** (Jan 16, 2026) \u2014 Open source AI agent for terminal-based interactions with Gemini. Source: https://github.com/google-gemini/gemini-cli"
+        ],
+        "tier": "secondary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Azure Foundry IQ",
+        "description": "New knowledge-base-connected agent service added to Azure AI Foundry. Introduces new inventory entities: Foundry IQ agents, knowledge base connections, and IQ query sessions. AISPM must discover and map these resources and their data flow to knowledge bases",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Azure Foundry Control Plane",
+        "description": "New centralized management layer for agents, models, and tools in Azure AI Foundry. Includes agentic workflow evaluation and GenAI application monitoring. Creates a new governance surface \u2014 AISPM should inventory Control Plane-managed resources and track agent-model-tool relationships",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Amazon Bedrock \u2014 9 new models & 3 new providers",
+        "description": "Moonshot AI (Kimi K2.5), MiniMax (M2.1), and Zhipu (GLM 4.7/Flash) are entirely new providers. Plus Claude 4.6 variants, DeepSeek V3.2, Qwen3 Coder Next, and Nova 2. AISPM model inventory must be expanded to discover and classify these models and their deployments",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Amazon Bedrock OpenAI-compatible Projects API",
+        "description": "New API surface in Mantle inference engine provides OpenAI API compatibility. Creates a parallel invocation path that AISPM must discover \u2014 organizations may use this API to invoke Bedrock models without going through the native Bedrock API, bypassing existing monitoring",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/projects.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Bedrock AgentCore \u2014 A2A protocol & new frameworks",
+        "description": "Agent-to-Agent (A2A) protocol enables inter-agent communication, creating new entity relationships. Google ADK and OpenAI Agents SDK are now supported frameworks. AISPM must map A2A connections between agents and discover agents built with these new frameworks",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a-protocol-contract.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Bedrock AgentCore \u2014 InvokeAgentRuntimeCommand API",
+        "description": "New runtime API action for executing shell commands inside agent sessions. Extends the existing AgentCore API surface \u2014 AISPM should track calls to this endpoint for agent activity visibility",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-execute-command.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Google Vertex AI \u2014 Gemini 3.1 Pro & GLM 4.7 GA",
+        "description": "New models available in Vertex AI Model Garden. AISPM model inventory for Vertex AI should include these models and track their deployments",
+        "source": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-pro",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Responses API background mode",
+        "description": "New asynchronous processing mode enables long-running file-input operations that execute in the background. AIDR must detect and monitor background response sessions \u2014 these async operations may process sensitive documents without real-time visibility",
+        "source": "https://platform.openai.com/docs/guides/background",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Amazon Bedrock server-side tools in Responses API",
+        "description": "New tool execution capability via OpenAI-compatible endpoints with AgentCore Gateway. AIDR must monitor server-side tool invocations \u2014 tools executed server-side bypass client-side detection",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Bedrock AgentCore OpenInference protocol",
+        "description": "New observability protocol for agent tracing. AIDR can leverage OpenInference traces as a detection data source for monitoring agent behavior",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI ChatGPT Apps SDK",
+        "description": "New SDK for building ChatGPT applications with UI components, notifications, tool-result handling, and model context updates. Creates a new app ecosystem \u2014 ENDPOINT must detect ChatGPT Apps running in enterprise environments and monitor their tool usage and data access",
+        "source": "https://developers.openai.com/apps-sdk",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI MCP Apps Integration",
+        "description": "Model Context Protocol apps now integrate directly into ChatGPT with full tool support. MCP apps can access local tools, files, and services \u2014 ENDPOINT must discover MCP app connections and monitor the tools they expose to ChatGPT",
+        "source": "https://developers.openai.com/apps-sdk/concepts/mcp-server",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Google Gemini CLI",
+        "description": "New open-source terminal AI agent for Gemini interactions. ENDPOINT should detect Gemini CLI installations and monitor terminal-based AI agent activity",
+        "source": "https://github.com/google-gemini/gemini-cli",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI MCP Apps \u2014 tool execution attack surface",
+        "description": "MCP apps connecting external tools to ChatGPT introduce prompt injection vectors through tool descriptions and results. AIRT should test MCP app tool chains for injection vulnerabilities and data exfiltration via tool responses",
+        "source": "https://developers.openai.com/apps-sdk/concepts/mcp-server",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Bedrock A2A protocol \u2014 inter-agent attack surface",
+        "description": "Agent-to-Agent communication creates new prompt injection vectors where a compromised agent could manipulate other agents via A2A messages. AIRT should test A2A chains for cross-agent prompt injection and privilege escalation",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a-protocol-contract.html",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Azure Foundry IQ \u2014 knowledge base poisoning surface",
+        "description": "Foundry IQ connects knowledge bases to agents, creating a data poisoning vector. AIRT should test whether malicious content in knowledge bases can manipulate Foundry IQ agent responses",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-03-24",
     "scan_time": "2026-03-24 08:33",
     "file": "report-2026-03-24.md",

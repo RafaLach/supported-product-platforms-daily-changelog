@@ -1,154 +1,112 @@
-# Windsurf Editor Changelog - Complete Content Extract
+# Windsurf Editor Changelog - Feature Announcements
 
-## Latest Versions & Major Updates
+## New Models & AI Capabilities
 
-**Version 1.9577.43** (March 19, 2026): Fixed Mac x64 build issues.
+**GPT-5.4 & GPT-5.4 Mini** (March 5-17, 2026)
+- Latest OpenAI models with multiple reasoning effort levels available at promotional pricing
 
-**Version 1.9577.42** (March 19, 2026): "Various bug fixes and performance improvements"
+**Gemini 3.1 Pro** (February 19, 2026)
+- New Google model with thinking capabilities at discounted rates
 
-**GPT-5.4 Mini** (March 17, 2026): New model available at 1x credits promotional pricing.
+**Claude Sonnet 4.6 & Claude Opus 4.6** (February 17, 2026)
+- Anthropic models with thinking support; Opus 4.6 fast mode offers 2.5x faster output
 
-**Version 1.9577.27** (March 12, 2026): Apple M5 compatibility fix.
+**GLM-5 & Minimax M2.5** (February 17, 2026)
+- International AI models at promotional pricing; included in Arena battle groups
 
-**Version 1.9577.24** (March 9, 2026): Major Cascade improvements including Jupyter Notebook support, diff zone fixes, and SKILL.md file loading from `.windsurf/skills/` directory. MCP system-level skill definitions for Enterprise via MDM configs added.
+**GPT-5.2-Codex** (January 14, 2026)
+- "OpenAI's latest model designed for agentic coding" with four reasoning effort options
 
-**GPT-5.4** (March 5, 2026): Multi-tier reasoning model with promotional pricing (1x-8x credits based on reasoning level).
+**SWE-1.5 Free** (December 24, 2025)
+- Near-frontier coding model available free for three months
 
-**Version 1.9566.9** (February 25, 2026):
-- New model picker grouping models by family with reasoning/speed toggles
-- Model pinning capability
-- Added POST_CASCADE_RESPONSE_WITH_TRANSCRIPT cascade hook
-- MCP refresh button and auto-triggered OAuth login
-- Linux ARM64 binary releases
+**Gemini 3 Flash** (December 27, 2025)
+- Combines Pro-level reasoning with Flash-speed efficiency
 
-## Featured Model Releases
+## Major Features & Platforms
 
-- **Claude Sonnet 4.6** (Feb 17): 2x credits (no thinking), 3x credits (with thinking)
-- **Gemini 3.1 Pro** (Feb 19): 0.5x-1x credits based on thinking level
-- **GLM-5 & Minimax M2.5** (Feb 17): 0.75x and 0.25x credits respectively
-- **Claude Opus 4.6** (Feb 4): 2x-3x credits; fast mode variant at 10x-12x credits
-- **SWE-1.5 Free** (Dec 27, 2024): Full intelligence model available free for 3 months
-- **Falcon Alpha** (Oct 22, 2025): Stealth speed-focused agentic model
-- **Grok Code Fast 1** (Aug 15, 2025): Available free for limited time
-- **GPT-5** Suite (Aug 7, 2025): Low, medium, high reasoning variants free for limited period
-- **Kimi K2** (July 23, 2025): 0.5 credits per prompt
+**Arena Mode** (January 30, 2026)
+- Side-by-side model comparison with hidden identities; vote on preferred outputs
+- Personal and global leaderboards tracking user preferences
 
-## Major Features & Capabilities
+**Plan Mode** (January 30, 2026)
+- New Cascade mode for creating detailed implementation plans before coding
 
-**Cascade Agent Improvements:**
-- Planning Mode with automatic code mode switching
-- Multi-agent parallel sessions with Git worktree support
-- Dedicated terminal (zsh) for improved reliability
-- Context window usage indicator
-- Auto-linting of proposed changes
-- Cascade Hooks for custom execution at workflow points
-- Support for Agent Skills and system-level rules/workflows
-- Queued message handling for sequential processing
+**Multi-Cascade Sessions** (December 24, 2025)
+- Simultaneous parallel Cascade sessions in separate panes and tabs
 
-**Arena Mode** (Wave 14): Side-by-side model comparison with hidden identities, battle groups, personal/global leaderboards, and voting system.
+**Git Worktree Support** (December 24, 2025)
+- Spawn multiple Cascade sessions without branch conflicts
 
-**MCP (Model Context Protocol):**
-- OAuth authentication support
-- Resource loading and multimodel responses
-- Prompt support
-- GitLab and GitHub remote integration
-- Streamable HTTP transport
-- System-level definitions for Enterprise
+**Cascade Dedicated Terminal** (December 24, 2025)
+- New zsh shell for improved command reliability and interactivity
 
-**Windsurf Tab (Autocomplete Evolution):**
-- Unified experience combining autocomplete, supercomplete, Tab to Jump, Tab to Import
-- Predictive triggers and increased context awareness
-- Near-instant feedback with 3x faster performance claims
-- Tab to Import for automatic dependency suggestions
+**Agent Skills** (January 12, 2026)
+- Custom skills framework enabling agents to execute specialized tasks
 
-**Codemaps** (Beta):
-- Codebase visualization and navigation
-- Chat with map functionality
-- Mermaid diagram generation
-- AI-powered suggestions and analysis
+**Model Context Protocol (MCP)** (January 26, 2025)
+- Integration with custom MCP servers for extended tool capabilities; OAuth support
 
-**Windsurf Previews** (Beta): Local website preview in IDE with element selection, console error sharing, and React component inspection.
+**Windsurf Previews** (March 5, 2025)
+- Local website preview within IDE; select React elements for context sharing
 
-**Web & Documentation Search:**
-- Automatic web search triggering
-- URL input and page reading
-- @web and @docs mention commands
-- Popular documentation site indexing
+**Codemaps** (October 10, 2025)
+- Codebase visualization and navigation tool with chat and Mermaid diagrams
 
-**Planning & Workflows:**
-- Plan Mode for pre-implementation task planning
-- Custom saved workflows with slash commands
-- File-based rules with glob pattern attachment
-- "Megaplan" advanced form for comprehensive planning
+**Fast Context** (October 16, 2025)
+- "SWE-grep subagent enabling agents to find relevant code 20x faster"
 
-**Additional Features:**
-- Voice input for Cascade interaction
-- Image upload and multimodal analysis (up to 1MB+)
-- Cascade conversation sharing (Teams feature)
-- DeepWiki hover documentation
-- Vibe and Replace for AI-powered find-and-replace
-- Fast Context subagent (SWE-grep) for 20x faster relevant code discovery
-- Jupyter Notebook tool support
-- Deploys to Netlify functionality
-- Commit message generation
-- Terminal command auto-execution with allow/deny lists
-- Memory system for context retention
-- Dev Container support (including Windows beta)
-- WSL and SSH remote support
-- Conversation history table of contents
+**Vibe and Replace** (August 29, 2025)
+- AI-powered find-and-replace with intelligent transformations across multiple matches
 
-## Enterprise & Teams Features
+**Cascade Hooks** (December 2, 2025)
+- Custom command execution at key workflow points for auditing and automation
 
-- MDM-managed configuration for system-level skills
-- Windsurf Reviews GitHub app (500 reviews/month for Teams)
-- Team Knowledge integration with Google Docs
-- Analytics dashboard with Cascade metrics
-- Conversation sharing between team members
-- Admin control over available models
-- Organization-wide command execution allow/deny lists
-- Cascade Hooks cloud configuration
-- Devin service key authentication
+**JetBrains Plugin** (April 9, 2025)
+- Cascade available on JetBrains IDEs with Planning Mode and file-based Rules
 
-## Performance & Stability Improvements
+## Platform Enhancements
 
-- Over 100 bug fixes in recent releases
-- Sticky scroll lag resolution
-- Terminal rendering optimization
-- Vim extension typing lag fixes
-- Memory leak corrections
-- SSH & Remote performance enhancements
-- RTL language rendering improvements
-- Autocomplete error handling improvements
-- Windows update initialization path fixes
+**Voice Input** (July 23, 2025)
+- Speak prompts directly into Cascade chat interface
 
-## Deprecations & Removals
+**Web & Docs Search** (January 17, 2025)
+- Automatic web searching and "@docs" command for popular documentation access
 
-- **Windsurf Browser** (deprecated Sept 11): Refactoring planned; users directed to Previews feature
-- **Legacy Mode**: Removed in favor of Write and Chat modes
-- **Knowledge Base Feature**: Removed
-- **Autocomplete Setting**: Removed as legacy option
+**Cascade Memories** (January 17, 2025)
+- Auto-generated context retention between conversations with memory management
 
-## Platform & Infrastructure Updates
+**Windsurf Browser** (June 12, 2025)
+- Share browser context, code blocks, screenshots, and console logs with Cascade
 
-- VS Code base upgrades (1.108, 1.99.1, 1.97.0, 1.98, 1.99.3)
-- Linux ARM64 native client support with deb/rpm packaging
-- Windows ARM beta support
-- RHEL 8 support fixes
-- Electron & Chromium updates
-- Code OSS 1.105.0 (Electron 37.6.0, Chromium 138.0.7204.251)
+**Terminal Integration** (June 10, 2025)
+- Native terminal in Cascade panel with user input support
 
-## Pricing & Credit System Changes
+**Linux ARM64 Support** (February 12, 2026)
+- Full client support with deb and rpm packaging
 
-- April 21, 2025: Shift from Flow Action Credits to Prompt Credits model
-- Prompt credits consumed per message (not per tool call)
-- Auto-top-off feature with maximum limits
-- Promotional pricing on new models (typically limited-time)
-- Priority processing for GPT-5.1 at 2x standard rate
+**Dev Container Support** (January 17, 2025)
+- Remote development in containerized environments; attach to running containers
 
-## Additional Resources
+## Enterprise & Team Features
 
-- Changelog tabs: Windsurf Next, JetBrains Plugin
-- Documentation: docs.windsurf.com
-- Social: Twitter/X (@windsurf), Discord community
-- Arena Leaderboard available
-- Windsurf University program
+**Teams: Windsurf Reviews** (May 6, 2025)
+- GitHub integration for code review and PR automation
+
+**Teams: Conversation Sharing** (May 6, 2025)
+- Generate shareable conversation URLs restricted to team members
+
+**Teams: Knowledge Base** (May 6, 2025)
+- Connect Google Docs for team-wide "@mention" access
+
+**Teams Deploys** (May 6, 2025)
+- Netlify integration for direct app deployment via Cascade
+
+**Cascade Hooks Configuration** (February 25, 2026)
+- Cloud-based hook configuration for enterprise teams via dashboard
+
+**System-level Skill Definitions** (March 9, 2026)
+- MDM-managed skill configurations for enterprise deployments
+
+**Command Auto-Execution Lists** (January 25, 2026)
+- Organization-wide allow/deny lists for terminal command execution

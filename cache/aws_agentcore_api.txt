@@ -46,6 +46,7 @@ The Amazon Bedrock AgentCore Data Plane API supports the following actions:
 
 ### Runtime & General Actions
 - **InvokeAgentRuntime** - Invoke the agent runtime
+- **InvokeAgentRuntimeCommand** - Invoke agent runtime commands
 - **Evaluate** - Evaluate an expression or condition
 - **GetAgentCard** - Get agent card information
 - **ListActors** - List actors

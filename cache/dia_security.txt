@@ -1,49 +1,28 @@
-# Dia Browser Security Page - Content Extraction
+# Dia Browser Security Page - Feature Announcements
 
-## Main Sections
+## Prompt Injection Defense System
+- "Dia won't open or follow LLM-generated URLs"
+- Prevention of unauthorized tool access without user review
+- Content preview before insertion into third-party sites
+- Draft-based irreversible actions (calendar events, etc.)
+- Restricted agentic mode context visibility
+- URL filtering to prevent instruction hiding
 
-**The Browser Company Bounty Program**
-- Bug bounty program managed through HackerOne
-- Link: https://hackerone.com/bcny
-- Focus: Security and privacy vulnerabilities in BCNY products
-- Contact: help@diabrowser.com for security questions
+## Chromium Patching Schedule
+- Weekly releases every Thursday with latest stable Chromium
+- Critical security fixes deployed within 48 hours
 
-**Keeping Dia Secure**
+## Built-in Ad Blocker
+- Controllable via "Dia > Settings > Privacy"
 
-Core security approaches include:
+## Data Handling
+- Local encrypted storage for conversations, history, bookmarks, and files
+- Minimal data transmission to AI partners (restricted from training/retention)
+- De-identified data retention limited to 30 days for improvement purposes
+- Incognito mode with no data storage
+- Selective data flagging for security/compliance purposes only
 
-1. **Outside Security Assessments**
-   - Annual full-scope assessments with independent firms
-   - Point-in-time reviews for new/high-risk features
-   - Code reviews, architecture analysis, exploit testing
-   - Notable findings published in Security Bulletins
-
-2. **Browser Engine**
-   - Built on Chromium (same as Chrome/Edge)
-   - Weekly updates every Thursday with latest stable Chromium
-   - Critical security fixes within 48 hours of Google release
-
-3. **Disabled Chromium Features**
-   - Google Accounts Integration (GAIA)
-   - Google metrics (UMA) reporting
-   - Profile settings upload after reset
-   - Reporting Observers and API
-   - Network logging to file
-
-4. **Infrastructure**
-   - Role-based production access restrictions
-   - Data encryption at rest and in transit
-   - Minimal data retention policies
-   - Regular access audits
-
-## FAQ Highlights
-
-**Prompt Injection Defense:** "Dia won't open or follow LLM-generated URLs" and implements layered controls limiting blast radius
-
-**Data Storage:** Conversations stored locally encrypted; minimum data sent to trusted AI partners
-
-**Data Training:** De-identified content retained 30 days maximum; model providers contractually prohibited from retaining data
-
-**AI Content Flagging:** Security/compliance data retained only as long as needed for abuse detection and legal obligations
-
-**Ad-Blocker:** Built-in, controllable via Settings > Privacy
+## Security Infrastructure
+- Independent third-party security audits conducted annually
+- Full-scope assessments and point-in-time reviews for high-risk features
+- Disabled Chromium features including Google Accounts Integration and metrics reporting

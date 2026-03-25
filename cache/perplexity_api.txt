@@ -1,41 +1,22 @@
-# Perplexity AI Agent API Documentation - Content Extraction
+# Perplexity AI API Features & Capabilities
 
-## Core Information
-- **API Name**: Perplexity AI API
-- **Version**: 1.0.0
-- **Server URL**: https://api.perplexity.ai
-- **Documentation Index**: https://docs.perplexity.ai/llms.txt
+## APIs & Endpoints
+- **POST /v1/agent** - "Create Agent Response" endpoint for generating responses with optional web search and reasoning
 
-## Main Endpoint
-**POST /v1/agent** - "Generate a response for the provided input with optional web search and reasoning."
+## Core Capabilities
+- **Web Search Integration** - Ability to perform searches as part of agent responses
+- **Streaming Support** - Server-Sent Events (SSE) streaming via `stream` parameter
+- **Reasoning Configuration** - Effort levels (low, medium, high) for model reasoning
+- **Structured Output** - JSON schema validation for response formatting
 
-## Request Parameters
-- input (required): String or array of input items
-- model: Provider/model format (e.g., "xai/grok-4-1", "openai/gpt-4o")
-- models: Fallback chain, max 5 models
-- preset: Configuration names like "fast-search", "pro-search", "deep-research"
-- instructions: System instructions for the model
-- language_preference: ISO 639-1 language code
-- max_output_tokens: Integer, minimum 1
-- max_steps: 1-10, overrides preset value
-- reasoning: Configuration with effort levels (low/medium/high)
-- response_format: JSON schema specification
-- stream: Boolean for SSE streaming
-- tools: Web search, fetch URL, or function tools
+## Tools
+- **Web Search Tool** - Configurable search with domain/date filters and location personalization
+- **URL Fetch Tool** - Capability to fetch and extract content from URLs (max 10 per call)
+- **Function Calling** - Support for custom function definitions and execution
 
-## Response Features
-- Non-streaming JSON response (default)
-- Streaming Server-Sent Events (SSE) alternative
-- Token usage tracking with cost breakdown
-- Support for cache creation and read metrics
-
-## Tools Available
-1. Web Search Tool - Domain and date filters, location personalization
-2. Fetch URL Tool - Maximum 10 URLs per call
-3. Function Tool - Custom functions with JSON schema parameters
-
-## Stream Event Types (14 total)
-Response lifecycle events, output item updates, text streaming, reasoning phases, search/fetch operations
-
-## Authentication
-HTTPBearer security scheme required
+## Advanced Features
+- **Model Fallback Chain** - Up to 5 models with automatic fallback on failure
+- **Preset Configurations** - Pre-configured options like "fast-search," "pro-search," "deep-research"
+- **Token Caching** - Cache creation and read tracking in usage metrics
+- **Multi-format Input** - Support for text, images, and structured input items
+- **Cost Tracking** - Detailed cost breakdown by operation type

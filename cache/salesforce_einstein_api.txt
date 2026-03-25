@@ -22,8 +22,5 @@
 - Agent API Developer Guide
 - Models API Developer Guide
 
-## Application Version
-v/0_19_7
-
 ## Last Fetched
-2026-03-24 - No changes detected from previous fetch.
+2026-03-25 - No changes detected from previous fetch.
