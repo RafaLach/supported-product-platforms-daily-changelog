@@ -52,4 +52,4 @@ Structured Outputs: JSON schema support via response_format
 JSON Mode: { "type": "json_object" }
 Log probabilities: logprobs and top_logprobs parameters
 
-Updated: 2026-03-25
+Updated: 2026-03-26

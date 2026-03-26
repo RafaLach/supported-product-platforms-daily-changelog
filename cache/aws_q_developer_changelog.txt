@@ -1,7 +1,7 @@
 # Amazon Q Developer User Guide - Complete Document History
 
 ## Overview
-This is the document history for the Amazon Q Developer User Guide, tracking all updates from November 28, 2023 (initial preview release) through February 18, 2026.
+This is the document history for the Amazon Q Developer User Guide, tracking all updates from November 28, 2023 (initial preview release) through March 19, 2026.
 
 ## Key Updates by Category
 
@@ -9,6 +9,7 @@ This is the document history for the Amazon Q Developer User Guide, tracking all
 
 | Date | Change |
 |------|--------|
+| **March 19, 2026** | Builder ID unsubscribe instructions: Added guidance for unsubscribing personal accounts when Amazon Q Developer Profile is deleted |
 | **February 18, 2026** | Updated account limit for subscriptions: Maximum increased from 10 to 20 accounts per AWS Region, per organization |
 | **January 16, 2026** | Deprecated code transformation for GitLab - `/q transform` quick action and CI/CD pipeline customization removed |
 | **January 13, 2026** | Removed deprecated GitLab quick actions (`/q dev (revise)` and `/q test` unit test generation) |

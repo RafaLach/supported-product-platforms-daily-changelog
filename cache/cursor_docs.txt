@@ -26,6 +26,15 @@ Multiple Claude models including:
 - **Terminal Tool** - Command execution access
 - **MCP (Model Context Protocol)** - Extension and integration framework
 - **Slack Integration** - Team communication integration
+- **Subagents** - Specialized sub-agents for delegated tasks
+
+## Enterprise & Admin Features
+- Admin API for team management
+- Analytics and AI code tracking APIs
+- SCIM provisioning support
+- Service accounts for enterprise deployments
+- Compliance and monitoring capabilities
+- Network configuration options
 
 ## Documentation and Support
 - Industry-specific guides for Python, Java, C#, JavaScript/TypeScript, iOS/Swift, and more

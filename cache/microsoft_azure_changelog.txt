@@ -151,4 +151,4 @@ OpenAI's GPT RealTime and Audio models are now generally available on Azure AI F
 ### GPT-4o 2024-11-20
 ### NEW data zone provisioned deployment type
 
-Updated: 2026-03-25
+Updated: 2026-03-26

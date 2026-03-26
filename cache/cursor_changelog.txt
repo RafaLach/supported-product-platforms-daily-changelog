@@ -1,5 +1,8 @@
 # Cursor Changelog - Feature Announcements
 
+## Mar 25, 2026
+**Self-hosted Cloud Agents** - Run Cursor cloud agents entirely within your own network. Offers the same capabilities as Cursor-hosted agents: isolated VMs, full development environments, multi-model harnesses, and plugins. Keeps code and tool execution on-premise.
+
 ## Mar 19, 2026
 **Composer 2** - "frontier-level coding performance with strong results on challenging coding tasks." Pricing: Standard ($0.50/M input, $2.50/M output tokens) and Fast ($1.50/M input, $7.50/M output tokens).
 

@@ -2,6 +2,10 @@
 
 ## Latest Releases (March 2026)
 
+**v6.33.0** (March 25, 2026)
+- "add keys field to computer action types" - expanded input options for computer automation
+- WebSocket async iterator and stream() support added for improved real-time communication handling
+
 **v6.32.0** (March 17, 2026)
 - "5.4 nano and mini model slugs" added to the API
 

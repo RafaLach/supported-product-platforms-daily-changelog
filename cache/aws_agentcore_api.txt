@@ -28,6 +28,7 @@ The Amazon Bedrock AgentCore Data Plane API supports the following actions:
 - **DeleteEvent** - Delete an event
 - **GetEvent** - Retrieve a specific event
 - **ListEvents** - List all events
+- **ListActors** - List actors
 
 ### Browser Session Actions
 - **StartBrowserSession** - Start a browser session
@@ -49,9 +50,8 @@ The Amazon Bedrock AgentCore Data Plane API supports the following actions:
 - **InvokeAgentRuntimeCommand** - Invoke agent runtime commands
 - **Evaluate** - Evaluate an expression or condition
 - **GetAgentCard** - Get agent card information
-- **ListActors** - List actors
 - **ListSessions** - List all sessions
-- **StopRuntimeSession** - Stop a runtime session
+- **StopRuntimeSession** - Stop a runtime session (NEW - added since last scan)
 
 ## Documentation Structure
 - **Breadcrumb Navigation**: AWS > Amazon Bedrock AgentCore Data Plane > API Reference > Actions

@@ -6,6 +6,7 @@ This document contains production updates to Vertex AI, with links to related re
 ## Key Dates and Updates (March 2026 - April 2025)
 
 ### March 2026
+- **Lyria 3 Music Generation Public Preview** (March 25): New music generation model in public preview with extended duration support (184-second and 30-second variants)
 - **Vertex Explainable AI Deprecated** (March 16): Vertex Explainable AI is now deprecated, requiring users to transition to alternative solutions
 - **Partner Model Evaluations** (March 12): Gen AI evaluation service now supports assessing partner models including Anthropic and Llama models through console-based workflows
 - **Vector Search 2.0 GA** (March 5): Generally available with collections, auto-embeddings, hybrid search, and enterprise connectivity options (PSC/PGA/VPC)
@@ -89,6 +90,7 @@ This document contains production updates to Vertex AI, with links to related re
 - **Global Endpoint GA** (May 2): Generally available global routing option
 - **Grounding Features GA** (May 5): "Grounding on your data using Vertex AI Search"
 - **Gemini 2.0 Flash Image Generation Preview** (May 7): Image generation capability
+- **Claude Opus 4 and Sonnet 4 GA** (May 22): With Provisioned Throughput support
 
 ### April 2025
 - **Gemini 2.5 Flash Preview** (Apr 17): Thinking capabilities and general enhancements
@@ -122,4 +124,4 @@ This document contains production updates to Vertex AI, with links to related re
 - Organization Policy custom constraints
 
 ## Last Fetched
-2026-03-25
+2026-03-26

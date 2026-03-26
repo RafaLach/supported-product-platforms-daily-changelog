@@ -62,4 +62,4 @@ Feature now available in Microsoft Cloud for US Government
 ### Deprecations
 - Event Hubs shared access signature (SAS) authentication deprecated; migration to Microsoft Entra ID RBAC recommended
 
-Updated: 2026-03-25
+Updated: 2026-03-26

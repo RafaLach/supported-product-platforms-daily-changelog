@@ -69,17 +69,17 @@ print(response)
 
 ## Supported Foundation Models (100+)
 
-### Featured Models:
+### Featured Models (as of February/March 2026):
 - **Nova 2** (Amazon)
-- **Claude Opus 4.6** (Anthropic)
-- **Claude Sonnet 4.6** (Anthropic)
-- **DeepSeek V3.2** (DeepSeek)
-- **Kimi K2.5** (Moonshot AI)
-- **MiniMax M2.1** (MiniMax)
+- **Claude Opus 4.6** (Anthropic) — NEW Feb 2026
+- **Claude Sonnet 4.6** (Anthropic) — NEW Feb 2026
+- **DeepSeek V3.2** (DeepSeek) — NEW Feb 2026
+- **Kimi K2.5** (Moonshot AI) — NEW Feb 2026
+- **MiniMax M2.1** (MiniMax) — NEW Feb 2026
 - **GPT-OSS-20B** (OpenAI)
-- **GLM 4.7** (Zhipu)
-- **GLM 4.7 Flash** (Zhipu)
-- **Qwen3 Coder Next** (Alibaba)
+- **GLM 4.7** (Zhipu) — NEW Feb 2026
+- **GLM 4.7 Flash** (Zhipu) — NEW Feb 2026
+- **Qwen3 Coder Next** (Alibaba) — NEW Feb 2026
 
 **Providers:** Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, OpenAI, Zhipu, and others
 
@@ -103,7 +103,7 @@ print(response)
 - Qwen3 Coder Next
 - Focus: frontier reasoning and agentic coding
 
-### 4. Server-Side Tools Support (January 2026)
+### 4. Server-Side Tools Support in Responses API (January 2026)
 - Responses API now supports server-side tools using OpenAI API-compatible service endpoints
 - AgentCore Gateway tools integration enabled
 - Server-side tool execution without requiring client-side orchestration

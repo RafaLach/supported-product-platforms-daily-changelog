@@ -1,5 +1,162 @@
 [
   {
+    "date": "2026-03-26",
+    "scan_time": "2026-03-26 08:28",
+    "file": "report-2026-03-26.md",
+    "platforms": [
+      {
+        "name": "Amazon Bedrock",
+        "status": "changed",
+        "details": [
+          "**New open-weight models available (Feb 2026)**: DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next \u2014 frontier reasoning and agentic coding models. Source: https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models/",
+          "**Claude Opus 4.6 and Claude Sonnet 4.6** now listed as featured/available models on Bedrock. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+          "**Amazon Nova 2** now listed as a featured model. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+          "**Projects API support**: OpenAI-compatible Projects API now supported in Bedrock's Mantle inference engine. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/projects.html",
+          "**Server-side tools in Responses API (Jan 2026)**: Responses API now supports server-side tool execution via OpenAI-compatible endpoints, integrating with AgentCore Gateway tools \u2014 eliminates need for client-side orchestration. Source: https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-server-side-tool-execution-agentcore-gateway/"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "changed",
+        "details": [
+          "**StopRuntimeSession API**: New API action for stopping a runtime session. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopRuntimeSession.html",
+          "**Google ADK** added as a supported agent framework. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
+          "**OpenAI Agents SDK** added as a supported agent framework. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
+          "**Google Gemini** added as a supported model. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
+          "**A2A (Agent-to-Agent) protocol** now supported. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html",
+          "**Cedar policy language** explicitly supported in the Policy service as an alternative to natural language policies. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy-understanding-cedar.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**GPT-5.4 Pro and GPT-5.4 Thinking models** launched (Mar 25, 2026). Source: https://openai.com/index/introducing-gpt-5-4/",
+          "**Open Responses API** made available to the open-source community (Mar 25, 2026). Source: https://community.openai.com/t/open-responses-for-the-open-source-community/1371770",
+          "**Playwright MCP integration** added to Codex with approval workflow requirement (Mar 25, 2026). Source: https://developers.openai.com/codex/mcp",
+          "**Computer action `keys` field**: New `keys` field added to Click, DoubleClick, Drag, Move, Scroll computer action types in Python SDK v2.30.0 and Node SDK v6.33.0. Source: https://github.com/openai/openai-python/releases"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Google Vertex AI",
+        "status": "changed",
+        "details": [
+          "**Lyria 3 Pro Music Generation \u2014 Public Preview (Mar 25, 2026)**: New music generation model capable of generating full 3-minute tracks with structural awareness (intros, verses, choruses, bridges), upgrading from Lyria 2. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/music/generate-music"
+        ],
+        "tier": "secondary"
+      },
+      {
+        "name": "Cursor",
+        "status": "changed",
+        "details": [
+          "**Self-hosted Cloud Agents (Mar 25, 2026)**: Run Cursor cloud agents entirely within customer's own network \u2014 isolated VMs, full dev environments, multi-model harnesses, and marketplace plugins with full data residency. Source: https://cursor.com/blog/self-hosted-cloud-agents"
+        ],
+        "tier": "watching"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Bedrock AgentCore A2A Protocol Support",
+        "description": "Amazon Bedrock AgentCore now supports the Agent-to-Agent (A2A) protocol, enabling inter-agent communication across frameworks. Creates new entity types: A2A sessions, agent-to-agent message flows, and cross-framework agent connections. AISPM must discover and map A2A-enabled agents and their communication patterns to detect unauthorized inter-agent data flows",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI GPT-5.4 Pro and Thinking Models",
+        "description": "OpenAI launched GPT-5.4 Pro and GPT-5.4 Thinking \u2014 new frontier model variants with 1M token context, Tool Search capability, and enhanced computer use. AISPM must update model inventory to discover enterprise deployments using these models, track which agents and applications reference them, and ensure governance policies cover the expanded reasoning capabilities of the Thinking variant",
+        "source": "https://openai.com/index/introducing-gpt-5-4/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Bedrock Server-Side Tools in Responses API",
+        "description": "Amazon Bedrock's Responses API now supports server-side tool execution via AgentCore Gateway, eliminating client-side orchestration. This shifts tool execution from visible client-side calls to opaque server-side execution. AISPM must discover and inventory server-side tool configurations to ensure tool access permissions are tracked",
+        "source": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-server-side-tool-execution-agentcore-gateway/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Bedrock Projects API (Mantle)",
+        "description": "OpenAI-compatible Projects API now supported in Bedrock's Mantle inference engine. Introduces new organizational entities (projects) that group models, deployments, and API keys with IAM-based access control and cost tagging. AISPM should discover project resources to map ownership and access boundaries",
+        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/projects.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Bedrock AgentCore New Framework and Model Support",
+        "description": "AgentCore added Google ADK, OpenAI Agents SDK as supported frameworks and Google Gemini as a supported model. Expands the inventory of agent types that can run on AgentCore \u2014 AISPM must recognize agents built with these frameworks during discovery",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Bedrock AgentCore Cedar Policy Language",
+        "description": "AgentCore Policy service now explicitly supports Cedar as a policy definition language alongside natural language. New entity type: Cedar policy documents attached to agents. AISPM should parse and inventory Cedar policies to assess agent permission boundaries",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy-understanding-cedar.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Bedrock New Open-Weight Models",
+        "description": "Six new open-weight models added to Bedrock: DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next. AISPM model inventory must be updated to discover and track deployments using these models, especially for compliance with model governance policies",
+        "source": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Open Responses API",
+        "description": "OpenAI's Responses API is now an open-source specification (backed by Hugging Face) enabling multi-provider interoperability. Enterprises may adopt this as a standard agentic interface across providers. AISPM should monitor for new Responses API-based agent deployments and cross-provider agent configurations",
+        "source": "https://community.openai.com/t/open-responses-for-the-open-source-community/1371770",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Bedrock AgentCore StopRuntimeSession API",
+        "description": "New `StopRuntimeSession` API action enables programmatic termination of agent runtime sessions. AIDR should monitor calls to this API as they may indicate incident response actions or unauthorized session terminations",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopRuntimeSession.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Computer Use Keys Field Expansion",
+        "description": "OpenAI SDKs (Python v2.30.0, Node v6.33.0) added a `keys` field to all computer action types (Click, DoubleClick, Drag, Move, Scroll), enabling keyboard input during computer use actions. Expands the attack surface for computer-use agents \u2014 AIRT should test for keystroke injection and keyboard-based privilege escalation in computer-use scenarios",
+        "source": "https://github.com/openai/openai-python/releases",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Playwright MCP in Codex",
+        "description": "OpenAI Codex now integrates Playwright MCP with approval workflows. Creates a new browser automation attack surface \u2014 AIRT should test for prompt injection via web content during Playwright-driven browsing sessions",
+        "source": "https://developers.openai.com/codex/mcp",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor Self-Hosted Cloud Agents",
+        "description": "Cursor now supports running cloud agents entirely within customer networks with isolated VMs, full dev environments, and marketplace plugins. Deployed via Helm chart/Kubernetes operator with fleet management API. Introduces on-premise AI agent infrastructure that needs endpoint monitoring \u2014 code execution, tool access, and plugin activity occur within the enterprise perimeter",
+        "source": "https://cursor.com/blog/self-hosted-cloud-agents",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-03-25",
     "scan_time": "2026-03-25 11:21",
     "file": "report-2026-03-25.md",
@@ -1656,91 +1813,5 @@
         "action": "Uncategorized"
       }
     ]
-  },
-  {
-    "date": "2026-03-18",
-    "scan_time": "2026-03-18 20:19",
-    "file": "report-2026-03-18.md",
-    "platforms": [
-      {
-        "name": "Microsoft Copilot (M365)",
-        "status": "initial",
-        "details": [
-          "M365 Admin Center latest updates through November 2025, with Copilot Search Admin experience (June 2025) and AI Administrator role (January 2025) as notable recent additions",
-          "Graph API Changelog shows active development in identity governance, lifecycle workflows, and audit capabilities as of February 2026",
-          "Copilot extensibility documentation covers declarative agents, custom engine agents, plugins, connectors, and the new Microsoft Agent 365 (early access preview)",
-          "Sources checked:",
-          "https://developer.microsoft.com/graph/changelog/",
-          "https://learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview?view=o365-worldwide"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Microsoft Copilot Studio",
-        "status": "initial",
-        "details": [
-          "Extremely active development cadence with monthly feature releases",
-          "March 2026: Work IQ tools (Preview) for real-time work insights from M365",
-          "February 2026: Claude model integration (Sonnet 4.5 for Computer Use, Opus 4.6 for prompts), content moderation sensitivity controls",
-          "January 2026: Agent evaluations enhancements, Computer Use expansions with Cloud PC pooling, VS Code extension GA",
-          "November 2025: GPT-5 Chat GA, multi-agent orchestration, MCP server support, SharePoint metadata filters",
-          "Released versions page only shows August-September 2024 entries (may be incomplete)"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Azure AI Foundry",
-        "status": "initial",
-        "details": [
-          "Platform rebranded from \"Azure AI Studio\" to \"Microsoft Foundry\"",
-          "February 2026: GPT-Realtime-1.5 and GPT-Audio-1.5 models released",
-          "December 2025: GPT-image-1.5, improved transcription/TTS/realtime-mini models",
-          "October 2025: GPT-4o-transcribe-diarize, PII detection filter, Realtime API SIP support",
-          "August-September 2025: GPT-5 family (GPT-5, GPT-5-mini, GPT-5-nano, GPT-5-chat, GPT-5-codex), Sora video generation (text-to-video, image-to-video, video-to-video)",
-          "API Reference: GA version 2024-10-21, Control Plane 2025-06-01, with monthly previews"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Salesforce AgentForce",
-        "status": "initial",
-        "details": [
-          "Spring '26 release is live, themed around \"Agentic Enterprise\" \u2014 combining human expertise with AI productivity",
-          "AgentForce positioned as \"the agent-driven layer of the Salesforce Platform\" with Trust Layer architecture",
-          "Developer tools include: Agent API, Python SDK, Models API, Testing API, Mobile SDK (iOS/Android)",
-          "Agent Script provides hybrid natural language + programmatic expression authoring",
-          "Agentforce DX supports pro-code workflows via CLI and VS Code",
-          "Spring '26 spans Agentforce, Sales Cloud, Service Cloud, Field Service, Marketing Cloud, Commerce, and Analytics"
-        ],
-        "tier": "secondary"
-      },
-      {
-        "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "initial",
-        "details": [
-          "All three OpenAI URLs blocked automated access:",
-          "platform.openai.com/docs/changelog \u2014 403",
-          "openai.com/index/ \u2014 403",
-          "help.openai.com/en/articles/6825453-chatgpt-release-notes \u2014 403",
-          "**Action needed:** Consider alternative data sources such as RSS feeds, OpenAI's API status page, or manual browser-based checks",
-          "Sources checked:"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Claude Enterprise (Anthropic)",
-        "status": "initial",
-        "details": [
-          "Documentation has migrated from docs.anthropic.com to platform.claude.com (301 redirects)",
-          "Latest models: Claude Opus 4.6 (Feb 5, 2026) and Claude Sonnet 4.6 (Feb 17, 2026)",
-          "API surface organized into: Model capabilities, Tools (server-side & client-side), Tool infrastructure, Context management, Files/assets",
-          "Key capabilities: 1M token context, adaptive thinking, batch processing (50% savings), citations, computer use, MCP connector, agent skills",
-          "Beta features: Files API, Skills API",
-          "Available on direct API, Amazon Bedrock, Google Vertex AI, Azure AI"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": []
   }
 ]

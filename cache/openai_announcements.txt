@@ -19,7 +19,8 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - MCP (Model Context Protocol) implementation
 
 ## New Models & Features (March 2026)
-- GPT-5.4 Pro - Referenced in discussions about computer use functionality
+- GPT-5.4 Pro and Thinking models released (March 25, 2026) - new model versions with significant community interest
+- Open Responses API for open source community (March 25, 2026) - new API capability for open-source ecosystem
 - GPT-5.4-mini/nano - Newly available models with complimentary daily token allocations
 - GPT Realtime with SIP Endpoint - Voice/communication capability
 - gpt-realtime-1.5 is live in Realtime API (March 24, 2026)
@@ -30,6 +31,7 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - Responses API - Updated file handling; new background mode for file input (March 25, 2026)
 - Computer Use Feature - Across multiple GPT-5.x model variants
 - Agent Builder - Platform with guardrails functionality
+- Playwright MCP integration requiring approval workflows in latest Codex update
 
 ## Notable Issues & Bug Reports
 
