@@ -1,23 +1,20 @@
-# Dia Browser Release Notes - Feature Announcements
+# Dia Browser Release Notes
 
-**Release Date: March 19, 2026 (v1.23.0)**
+## March 2026
 
-## New Features & Capabilities
+**v1.24.0** (March 26, 2026)
+- Fixed memory leaks causing performance degradation over time
+- Optimized new tab page animations to reduce CPU/GPU usage
+- Accelerated command bar suggestion rendering
+- Improved system load handling by skipping unnecessary processing steps
 
-1. **GitHub Live Tab Groups Improvements** - Enhanced PR workflow with visual feedback animations when completing reviews or merging pull requests
+**v1.23.0** (March 19, 2026)
+- Features focused on review and merge workflows
 
-2. **Celebration Animations** - "Subtle animations that signal the transition from in-progress to done" for completed PR work
+**v1.22.0** (March 11, 2026)
+- "Don't think about the next step. Take it"
 
-3. **Automatic Cleanup Notifications** - Visual confirmation when merged PRs are automatically cleaned up from tab groups
+**v1.21.0** (March 5, 2026)
+- "Before you reach for it…"
 
-4. **Recently Completed PR Preview** - Ability to hover and preview finished pull requests and restore them to active view
-
-5. **Expressive Navigation Controls** - Enhanced animations for back, forward, and reload browser controls with "more expressive animations into everyday interactions"
-
-6. **Skill Updates** - Easier creation of Skills with expanded feature usage capabilities (referenced in update instructions)
-
-## Past Releases Referenced
-
-- **v1.22.0** (March 11, 2026) - "Don't think about the next step. Take it."
-- **v1.21.0** (March 5, 2026) - "Before you reach for it..."
-- **v1.20.0** (February 26, 2026) - "Little moments. Big feeling."
+Updated: 2026-03-27

@@ -1,100 +1,17 @@
-# OpenAI Status Page - Incident History Extract
+# OpenAI Status - March 2026
 
-**Page Details:**
-- Source: OpenAI Status Page (status.openai.com)
-- Last Updated: Thursday, March 26, 2026
-- Content Type: RSS Feed of Resolved Incidents
+## March 26-27: Responses API and Sora Issues
+- Elevated error rates affecting Responses service and Sora video generation
+- All services fully recovered
 
-## All Incidents Listed (Most Recent First)
+## March 25: File Management Disruption
+- Problems downloading and previewing project files
+- File uploads component restored to full functionality
 
-### March 2026
-- **Mar 25**: "Unable to download or preview project files" - File download/preview service affected
-- **Mar 24**: "Elevated error rates on Realtime API SIP endpoints" - Realtime API SIP service degraded
-- **Mar 24**: "Increased errors creating new sync apps and sync delays" - Sync apps creation affected
-- **Mar 24**: "Some customer may encounter errors creating, updating projects, and uploading files" - File uploads experiencing degraded performance
-- **Mar 21**: "Pinned chats are not loading on web browsers for ChatGPT" - Conversations component affected, resolved
-- **Mar 18**: "Sora video generation failing" - Video generation service, resolved
-- **Mar 17**: "Excel Plugin is inaccessible for some users" - Connectors/Apps affected, resolved
-- **Mar 17**: "High Error rates with ChatGPT 5.4 Pro" - Conversations, resolved
-- **Mar 17**: "Elevated errors for sign-in and account creation" - Login component, resolved
-- **Mar 17**: "Elevated Errors Affecting ChatGPT Free and Guest Plan Users" - Conversations, resolved
-- **Mar 13**: "Responses API errors when using background mode" - Responses API affected
-- **Mar 13**: "Conversation Errors for Logged out Users" - Conversations affected
-- **Mar 12**: "Some users seeing 'No Accessible Workspaces' when attempting" - Workspace access affected
-- **Mar 12**: "Increased errors with ChatGPT file downloads" - File downloads affected
-- **Mar 12**: "Increased errors on ChatGPT File Uploads" - File uploads affected
-- **Mar 11**: "Elevated login errors" - Login affected
-- **Mar 11**: "Elevated conversation errors for ChatGPT" - Conversations affected
-- **Mar 11**: "Elevated error rates for Deep Research in Enterprise" - Deep Research affected
-- **Mar 11**: "Codex unresponsive" - Codex affected
-- **Mar 10**: "Degraded performance with the Support chat" - Support chat affected
-- **Mar 10**: "Deep Research requests are erroring for LATAM users" - Deep Research LATAM affected
-- **Mar 09**: "Elevated conversation errors for Enterprise and Edu users" - Conversations affected
-- **Mar 07**: "Issues with Increased Codex Usage Rate" - Codex affected
-- **Mar 07**: "Login Issues" - Login affected
-- **Mar 06**: "Errors with Compliance API" - Compliance API affected
-- **Mar 05**: "ChatGPT Issues Sending Messages" - Conversations affected
-- **Mar 05**: "High Error Rate in Realtime API (EU)" - Realtime EU affected
-- **Mar 05**: "User may experience errors in ChatGPT" - Conversations affected
-- **Mar 05**: "API Error Rates" - API affected
-- **Mar 03**: "Elevated errors in ChatGPT file uploads" - File uploads affected
-- **Mar 03**: "Users may experience elevated error rate in Codex" - Codex affected
-- **Mar 02**: "File uploads and file processing failing" - File processing affected
-- **Mar 02**: "Errors in Sora API" - Sora API affected
-- **Mar 02**: "Increased Authentication Failures Affecting Some Users" - Login affected
+## March 24: Multiple Service Issues
+- Realtime API SIP endpoints — elevated error rates
+- Sync app creation and operation — increased errors and delays in Connectors/Apps
 
-### February 2026
-- **Feb 26**: "Issue with some ChatGPT Apps" - Apps affected
-- **Feb 25**: "Artifact generation on ChatGPT is down" - Artifact generation affected
-- **Feb 23**: "Elevated Error Rate for ChatGPT Conversations" - Conversations affected
-- **Feb 20**: "Increased latency in ChatGPT for some users" - Conversations affected
-- **Feb 19**: "Issues with API Platform Audit Logs" - Audit logs affected
-- **Feb 18**: "Sora 2 Degraded Performance" - Sora 2 affected
-- **Feb 16**: "Shopping Research Feature Down" - Shopping research affected
-- **Feb 16**: "Increased error rates on Codex Cloud" - Codex Cloud affected
-- **Feb 14**: "Delays in Support Email Processing" - Support affected
-- **Feb 14**: "High errors with image generation" - Image generation affected
-- **Feb 12**: "ChatGPT Conversation Issues" - Conversations affected
-- **Feb 12**: "high error rate in text-embedding-3-small" - Embeddings affected
-- **Feb 12**: "Some users may experience issues starting conversations" - Conversations affected
-- **Feb 11**: "Increased login errors for ChatGPT" - Login affected
-- **Feb 10**: "Increased error rates for ChatGPT Go" - ChatGPT Go affected
-- **Feb 10**: "GPT 5.2 Elevated Error Rates" - GPT 5.2 affected
-- **Feb 09**: "Codex Cloud issues due to Github Dependencies" - Codex Cloud affected
-- **Feb 07**: "Some ChatGPT users may be experiencing issues with loading" - Conversations affected
-- **Feb 05**: "Increased ChatGPT errors for some users" - Conversations affected
-- **Feb 04**: "ChatGPT Availability Impacted" - Conversations affected
-- **Feb 04**: "Custom GPT updates are failing for users" - GPTs affected
-- **Feb 04**: "Some users may experience issues loading or starting" - Conversations affected
-- **Feb 03**: "Elevated error rates for finetuning jobs" - Fine-tuning affected
-- **Feb 03**: "Elevated error rates for ChatGPT and Platform users" - Multiple services affected
+All incidents resolved with full service recovery.
 
-### January 2026
-- **Jan 31**: "Some ChatGPT users may be experiencing issues" - Conversations affected
-- **Jan 31**: "Some Android users may be experiencing errors when signing up" - Login affected
-- **Jan 28**: "Brief Issue with Image Generation Results" - Image generation affected
-- **Jan 27**: "Elevated Codex Error Rate" - Codex affected
-- **Jan 26**: "ChatGPT availability degraded for free and logged out users" - Conversations affected
-- **Jan 22**: "Codex Github Issues" - Codex affected
-- **Jan 14**: "Elevated error rates for ChatGPT users" - Conversations affected
-- **Jan 12**: "Connectors/Apps unselectable in ChatGPT Input Menu" - Connectors/Apps affected
-- **Jan 08**: "Increased error rate for ChatGPT and API for prompts" - Multiple services affected
-- **Jan 08**: "High error rate for Dall-e" - Image generation affected
-- **Jan 08**: "Some Codex cloud tasks are failing" - Codex Cloud affected
-- **Jan 07**: "Elevated error rates for Responses API" - Responses API affected
-- **Jan 06**: "ChatGPT issues while retrieving workspace members" - Workspace affected
-- **Jan 06**: "GPT-5.1 Codex Max Elevated Error Rate" - Codex affected
-
-### Additional Notable Incidents (Chronologically Descending)
-Services affected across incidents include: Conversations, Login, File uploads, Image Generation, Codex, Deep Research, Voice mode, GPTs, Agent, Compliance API, Connectors/Apps, Search, Responses, Batch, Audio, Realtime, Fine-tuning, Embeddings, Video generation, and ChatGPT Atlas.
-
-**Common Issue Categories:**
-- Authentication/Login errors
-- Conversation/Chat functionality failures
-- File upload and processing issues
-- API error rate elevations
-- Video and image generation problems
-- Regional service degradation (EU, LATAM)
-- Integration/connector availability
-
-All listed incidents show status as "Resolved" with full service recovery noted.
+Updated: 2026-03-27
