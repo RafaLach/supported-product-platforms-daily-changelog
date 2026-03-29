@@ -7,6 +7,8 @@
 - **Bug Fixing** - Automated bug detection and repair capabilities
 - **Code Review** - Integrated change review functionality
 - **Tool Integration** - Support for existing developer tools
+- **Rapid Prototyping** - Quick prototype creation and iteration
+- **Legacy Code Modernization** - AI-assisted modernization of legacy codebases
 
 ## AI Models Available
 Multiple Claude models including:
@@ -27,6 +29,7 @@ Multiple Claude models including:
 - **MCP (Model Context Protocol)** - Extension and integration framework
 - **Slack Integration** - Team communication integration
 - **Subagents** - Specialized sub-agents for delegated tasks
+- **CLI (Command Line Interface)** - Command-line reference for Cursor operations
 
 ## Enterprise & Admin Features
 - Admin API for team management
@@ -36,6 +39,23 @@ Multiple Claude models including:
 - Compliance and monitoring capabilities
 - Network configuration options
 
+## Integrations
+- GitHub, GitLab, Slack
+- Linear, JetBrains, Xcode
+- AWS Bedrock customization
+
+## Use Cases
+- Code understanding and navigation
+- Debugging and bug fixing
+- Test generation
+- Documentation writing
+- Code review processes
+- Rapid prototyping
+- Legacy code modernization
+
 ## Documentation and Support
 - Industry-specific guides for Python, Java, C#, JavaScript/TypeScript, iOS/Swift, and more
 - Use-case documentation for design, product management, data science, and sales engineering
+
+## Last Fetched
+2026-03-29

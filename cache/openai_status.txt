@@ -1,5 +1,10 @@
 # OpenAI Status - March 2026
 
+## March 29: Account Creation and Login Instability
+- Account creation and login are unstable across all surfaces
+- Login service returned to operational status after users experienced authentication difficulties
+- Status: Resolved
+
 ## March 26-27: Responses API and Sora Issues
 - Elevated error rates affecting Responses service and Sora video generation
 - All services fully recovered
@@ -11,7 +16,8 @@
 ## March 24: Multiple Service Issues
 - Realtime API SIP endpoints — elevated error rates
 - Sync app creation and operation — increased errors and delays in Connectors/Apps
+- Project and File Upload Errors — customers experienced errors creating and updating projects alongside file upload complications
 
 All incidents resolved with full service recovery.
 
-Updated: 2026-03-27
+Updated: 2026-03-29

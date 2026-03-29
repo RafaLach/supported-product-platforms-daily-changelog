@@ -1,5 +1,10 @@
 # Dia Browser Security Page - Feature Announcements
 
+## Bug Bounty Program
+- Responsible disclosure program through HackerOne
+- Security researchers invited to report vulnerabilities
+- "Your work helps us build a safer, more secure browsing experience for all"
+
 ## Prompt Injection Defense System
 - "Dia won't open or follow LLM-generated URLs"
 - Prevention of unauthorized tool access without user review
@@ -26,3 +31,9 @@
 - Independent third-party security audits conducted annually
 - Full-scope assessments and point-in-time reviews for high-risk features
 - Disabled Chromium features including Google Accounts Integration and metrics reporting
+- Role-based production access restrictions
+- Data encrypted in transit and at rest
+- Regular data collection audits
+
+## Last Fetched
+2026-03-29

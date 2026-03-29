@@ -1,19 +1,19 @@
 Released Versions Power Apps
 
-Latest version availability (as of 2026-03-20):
+Latest version availability (as of 2026-03-25):
 
 | Region | Unified Interface | Power Apps Studio/Mobile | Make.PowerApps.com |
-| Preview (United States) | 9.2 25084 | 3.26034 | 26032 |
-| Canada | 9.2 25083 | 3.26033 | 26031 |
-| India | 9.2 25083 | 3.26033 | 26031 |
-| South America | 9.2 25083 | 3.26033 | 26031 |
-| Japan | 9.2 25082 | 3.26033 | 26031 |
-| Asia Pacific | 9.2 25082 | 3.26033 | 26031 |
-| Australia | 9.2 25082 | 3.26033 | 26031 |
-| United Kingdom | 9.2 25082 | 3.26033 | 26031 |
-| Europe | 9.2 25081 | 3.26033 | 26031 |
-| United States | 9.2 25074 | 3.26032 | 26031 |
-| US Government (GCC) | 9.2 25073 | 3.26032 | 26031 |
+| Preview (United States) | 9.2 25084 | 3.26034 | 26033 |
+| Canada | 9.2 25083 | 3.26033 | 26032 |
+| India | 9.2 25083 | 3.26033 | 26032 |
+| South America | 9.2 25083 | 3.26033 | 26032 |
+| Japan | 9.2 25082 | 3.26033 | 26032 |
+| Asia Pacific | 9.2 25082 | 3.26033 | 26032 |
+| Australia | 9.2 25082 | 3.26033 | 26032 |
+| United Kingdom | 9.2 25082 | 3.26033 | 26032 |
+| Europe | 9.2 25081 | 3.26033 | 26032 |
+| United States | 9.2 25074 | 3.26032 | 26032 |
+| US Government (GCC) | 9.2 25073 | 3.26032 | 26032 |
 
 Recent Unified Interface versions:
 - 9.2 25084: Aug 29, 2025
@@ -25,7 +25,7 @@ Recent Unified Interface versions:
 
 Recent Power Apps Studio/Mobile versions:
 - 3.26034: Mar 23, 2026
-- 3.26033: Mar 16, 2026
+- 3.26033: Mar 16, 2026 (new - previously missing from cache)
 - 3.26031: Mar 02, 2026
 - 3.26024: Feb 23, 2026
 - 3.26022: Feb 05, 2026
@@ -35,15 +35,13 @@ Recent Power Apps Studio/Mobile versions:
 - 3.26011: Jan 05, 2026
 
 Recent Make.PowerApps.com versions:
-- 26032: Mar 16, 2026
-- 26031: Mar 09, 2026
-- 26024: Feb 24, 2026
-- 26023: Feb 17, 2026
-- 26022: Feb 10, 2026
-- 26021: Feb 03, 2026
-- 26014: Jan 27, 2026
-- 26013: Jan 20, 2026
-- 26012: Jan 13, 2026
-- 26011: Jan 06, 2026
+- 26033: Mar 25, 2026
+- 26032: Mar 18, 2026
+- 26023: Feb 25, 2026
+- 26015: Feb 05, 2026
+- 26014: Jan 28, 2026
+- 26013: Jan 21, 2026
+- 26012: Jan 14, 2026
+- 26011: Jan 07, 2026
 
-Updated: 2026-03-26
+Updated: 2026-03-29

@@ -5,6 +5,8 @@
 **v6.33.0** (March 25, 2026)
 - "add keys field to computer action types" - expanded input options for computer automation
 - WebSocket async iterator and stream() support added for improved real-time communication handling
+- Aligned SDK response types with expanded item schemas
+- Made type required in ResponseInputMessageItem
 
 **v6.32.0** (March 17, 2026)
 - "5.4 nano and mini model slugs" added to the API
@@ -38,3 +40,5 @@
 
 **v6.24.0** (February 24, 2026)
 - New models gpt-realtime-1.5 and gpt-audio-1.5 added to realtime functionality
+
+Updated: 2026-03-29

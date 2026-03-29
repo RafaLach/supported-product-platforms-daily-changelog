@@ -57,10 +57,25 @@ Sections:
 SDKs: Python, C#, JavaScript, Java
 
 Further resources:
-- Microsoft Foundry portal (ai.azure.com)
-- Microsoft Foundry SDKs
-- Microsoft Foundry labs
-- GitHub Models
-- Visual Studio Code extension
+- Explore Microsoft Foundry
+  - Microsoft Foundry portal (ai.azure.com)
+  - Microsoft Foundry SDKs
+  - Microsoft Foundry labs
+  - GitHub Models
+  - Visual Studio Code extension
 
-Updated: 2026-03-26
+- Explore more Azure AI
+  - What are Foundry Tools?
+  - Microsoft Agent Framework
+  - Document Intelligence
+  - Vision
+  - Immersive Reader
+
+- Training & certification
+  - AI learning and community hub
+  - Develop generative AI apps in Microsoft Foundry
+  - Identify principles and practices for responsible AI
+  - AI Learning paths and modules
+  - AI Engineer career path
+
+Updated: 2026-03-29

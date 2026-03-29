@@ -43,3 +43,6 @@
 ## March 2025
 - **Structured Outputs** - JSON formatting available to all users (previously tier-restricted)
 - **Three New Search Modes** - "High", "Medium", "Low" depth options across Sonar models
+
+## Last Fetched
+2026-03-29 - No changes detected from previous fetch.

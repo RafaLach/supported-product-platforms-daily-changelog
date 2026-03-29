@@ -1,5 +1,24 @@
 # Windsurf Editor Changelog - Feature Announcements
 
+## Version 1.9577.43 (March 19, 2026)
+- Introduced support for a new quota billing system
+- Daily and weekly quota usage metrics now visible directly in the IDE
+- Fixed Mac x64 build issues
+
+## Version 1.9577.42 (March 19, 2026)
+- Various bug fixes and performance enhancements
+
+## GPT-5.4 Mini Announcement (March 17, 2026)
+- GPT-5.4 Mini available at promotional pricing of 1x credits
+
+## Version 1.9577.27 (March 12, 2026)
+- Addressed compatibility issues with Apple M5 processors
+
+## Version 1.9577.24 (March 9, 2026)
+- Cascade: Resolved dangling diff zones for Jupyter Notebooks, enhanced Jupyter performance on WSL, improved UI rendering, stabilized agent panel, better model price change notifications, added SKILL.md file support from `.windsurf/skills/` directory, fixed AGENTS.md processing issues
+- MCP: Added system-level skill definitions support via MDM-managed configs for Enterprise clients, improved MCP server context management
+- Stability & Performance: Enhanced autocomplete error handling and performance, improved SSH and remote connection performance
+
 ## New Models & AI Capabilities
 
 **GPT-5.4 & GPT-5.4 Mini** (March 5-17, 2026)
@@ -110,3 +129,6 @@
 
 **Command Auto-Execution Lists** (January 25, 2026)
 - Organization-wide allow/deny lists for terminal command execution
+
+## Last Fetched
+2026-03-29

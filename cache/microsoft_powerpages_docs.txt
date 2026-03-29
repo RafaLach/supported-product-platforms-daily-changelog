@@ -11,6 +11,7 @@ Sections:
   - Architecture and security white papers
 
 - Tutorials
+  - Tutorials and training videos overview
   - Design home page
   - Set up brand kit
   - Create page with list
@@ -38,6 +39,7 @@ Sections:
   - Data workspace
   - Lists, forms, multistep forms
   - Table permissions
+  - Create, update, and view Dataverse information
 
 - Customize and extend
   - Liquid, Web templates, Portals web API, Code components
@@ -46,6 +48,7 @@ Sections:
 
 - Security
   - Authentication, Web roles, Table permissions
+  - Architecture and security white papers
 
 - Go live
   - Checklist, Licensing, ALM
@@ -56,4 +59,4 @@ Sections:
   - Maintenance and updates
   - Consumption reports
 
-Updated: 2026-03-26
+Updated: 2026-03-29

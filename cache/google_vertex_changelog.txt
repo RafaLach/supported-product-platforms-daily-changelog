@@ -7,6 +7,7 @@ This document contains production updates to Vertex AI, with links to related re
 
 ### March 2026
 - **Lyria 3 Music Generation Public Preview** (March 25): New music generation model in public preview with extended duration support (184-second and 30-second variants)
+- **Imagen & Video Generation Endpoint Deprecations** (March 24): Multiple Imagen endpoints (imagegeneration@002 through imagen-4.0-ultra-generate-001) and video generation endpoints (veo-3.0 and veo-2.0 models) deprecated; migration to gemini-2.5-flash-image and veo-3.1-generate-001/veo-3.1-fast-generate-001 required by June 30, 2026
 - **Vertex Explainable AI Deprecated** (March 16): Vertex Explainable AI is now deprecated, requiring users to transition to alternative solutions
 - **Partner Model Evaluations** (March 12): Gen AI evaluation service now supports assessing partner models including Anthropic and Llama models through console-based workflows
 - **Vector Search 2.0 GA** (March 5): Generally available with collections, auto-embeddings, hybrid search, and enterprise connectivity options (PSC/PGA/VPC)
@@ -103,6 +104,8 @@ This document contains production updates to Vertex AI, with links to related re
 
 ## Deprecated/Discontinued Models and Services
 - Vertex Explainable AI (March 16, 2026)
+- Imagen endpoints (imagegeneration@002 through imagen-4.0-ultra-generate-001) (March 24, 2026, deadline June 30, 2026)
+- Video generation endpoints (veo-3.0, veo-2.0 models) (March 24, 2026, deadline June 30, 2026)
 - MedLM (May 14, 2025)
 - Claude 3 Haiku, 3.5 Haiku, 3.7 Sonnet variants
 - Imagen 1 and 2, image captioning, VQA (September 24, 2025)
@@ -124,4 +127,4 @@ This document contains production updates to Vertex AI, with links to related re
 - Organization Policy custom constraints
 
 ## Last Fetched
-2026-03-26
+2026-03-29

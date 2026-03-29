@@ -40,6 +40,7 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - GPT-5.4-mini token charging discrepancies
 - Organization verification blocks
 - Costs API pagination failures
+- Organization creation and API authentication problems
 
 **Technical Issues:**
 - Codex Windows app performance degradation
@@ -48,6 +49,15 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - ChatGPT Apps authentication flow problems
 - Sora-2 API duration parameter restrictions
 - Responses API with background mode server errors with PDF handling
+- Widget rendering issues in ChatGPT Apps SDK
+- Codex model compatibility issues (GPT-5.4 not supported with ChatGPT accounts)
+- Sora 2 Pro moderation blocks affecting video generation
+
+**Developer Discussions:**
+- Red-team security testing skills for Codex to assess prompt injection vulnerabilities
+- PHP's potential role in AI agent development and MCP integration
+- Connecting Codex applications to Docker in local environments
+- Token usage tracking for individual users through the API
 
 **Popular Discussion Threads:**
 - "Prompt Engineering Is Dead" discourse (105 replies, 20,073 views)
@@ -59,3 +69,5 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - Category-based organization
 - User reputation system (Original Poster, Frequent Poster designations)
 - Discourse-powered infrastructure
+
+Updated: 2026-03-29

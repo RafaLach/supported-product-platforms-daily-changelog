@@ -6,7 +6,7 @@ Sections:
 - Create and design
   - Try/Buy Power Apps
   - Create apps: Choose app type, Plan designer, Canvas apps, Model-driven apps, Code apps
-  - AI copilot capabilities: Plan designer, New experience (preview), Build apps through conversation, Add Copilot control (preview)
+  - AI copilot capabilities: Get started with AI copilot, Plan designer, Overview of the new experience (preview), Build apps through conversation, Add Copilot control (preview)
   - Create and manage data: Microsoft Dataverse, Tables and metadata, Business logic, Dataflows
   - Use solutions: Solutions overview, ALM, Pipelines
   - Integrate: Power BI, Azure Synapse Link, Teams
@@ -16,13 +16,13 @@ Sections:
   - Power Platform admin center
   - Licensing
   - Security and governance
-  - Dataverse developer guide
-  - Model-driven apps developer guide
-  - Canvas apps developer guide
+  - Dataverse developer guide (Work with data, Apply business logic, Create client apps)
+  - Model-driven apps developer guide (Client scripting, Code components)
+  - Canvas apps developer guide (Custom connectors, Offline-capable apps, Canvas components)
 
 - Use
-  - Mobile devices
-  - Web browsers
-  - Teams
+  - Mobile devices (Power Apps mobile, Power Apps for Windows)
+  - Web browsers (Navigation, Search, Reports)
+  - Teams (Canvas as tab, Canvas as personal app, Model-driven as tab, Model-driven as personal app)
 
-Updated: 2026-03-26
+Updated: 2026-03-29

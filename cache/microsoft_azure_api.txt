@@ -4,6 +4,7 @@ API Specifications:
 - Control Plane: Latest preview: 2025-07-01-preview, Latest GA: 2025-06-01
 - Data Plane Authoring: Latest preview: v1 preview, Latest GA: v1
 - Data Plane Inference: Latest preview: v1 preview, Latest GA: v1
+- Data Plane Inference GA version: 2024-10-21
 
 New preview inference API available - check API lifecycle guide for details on API evolution. Preview releases follow a monthly cadence.
 
@@ -27,13 +28,13 @@ Parameters: messages, temperature, top_p, stream, stop, max_tokens, max_completi
 Message types: system, user, assistant, tool, function (deprecated)
 
 Chat Extensions:
-- Azure Search integration (simple, semantic, vector, hybrid)
+- Azure Search integration (simple, semantic, vector, hybrid, vector_simple_hybrid, vector_semantic_hybrid)
 - Azure Cosmos DB integration (MongoDB vCore)
 - Multiple authentication options: API key, connection string, system-assigned managed identity, user-assigned managed identity
 
 4. Audio Transcriptions
 POST /openai/deployments/{deployment-id}/audio/transcriptions
-Parameters: file, prompt, response_format, temperature, language
+Parameters: file, prompt, response_format (json, verbose_json, text, vtt, srt), temperature, language
 
 5. Audio Translations
 POST /openai/deployments/{deployment-id}/audio/translations
@@ -41,7 +42,7 @@ Parameters: file, prompt, response_format, temperature
 
 6. Image Generation
 POST /openai/deployments/{deployment-id}/images/generations
-Parameters: prompt, n, size, response_format (url/b64_json), quality (standard/hd), style (vivid/natural), user
+Parameters: prompt (max 4000 chars), n, size (1024x1024, 1792x1024, 1024x1792), response_format (url/b64_json), quality (standard/hd), style (vivid/natural), user
 
 Content Filtering:
 - Categories: sexual, violence, hate, self_harm, profanity, jailbreak
@@ -52,4 +53,11 @@ Structured Outputs: JSON schema support via response_format
 JSON Mode: { "type": "json_object" }
 Log probabilities: logprobs and top_logprobs parameters
 
-Updated: 2026-03-26
+Key Features by Endpoint:
+- Streaming: Completions, Chat (yes); Embeddings, Audio, Image (no)
+- Tool/Function Calling: Chat only
+- Logprobs: Completions, Chat only
+- Response Format Control: Chat, Embeddings, Audio, Image
+- Deterministic Output (seed): Completions, Chat only
+
+Updated: 2026-03-29

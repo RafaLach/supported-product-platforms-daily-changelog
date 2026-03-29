@@ -8,6 +8,21 @@
 - ThreatSubmission.Read — Updated delegated permission: now requires admin consent
 - ThreatSubmission.ReadWrite — Updated delegated permission: now requires admin consent
 
+### February 19, 2026 - Workflow Administration Scope (v1.0)
+- Added administrationScopeTargets relationship to the workflowBase resource, inherited by workflow and workflowVersion types (Identity and Access / Governance)
+
+## Older Entries
+
+### November 25, 2025 - User Inactivity Trigger (v1.0)
+- Introduced the userInactivityTrigger resource for identity governance
+
+### November 17, 2025 - Agent Sign-In Enhancement
+- Added new enumeration members agentIdentityBlueprintPrincipal and agentIDuser to agentType
+- Added properties agentSubjectParentId and agentSubjectType to agentSignIn resource
+
+### November 10, 2025 - Workflow Activation Scope
+- Introduced activation scope resources and activateWithScope method for managing targeted workflow executions
+
 No March 2026 entries found.
 
-Updated: 2026-03-27
+Updated: 2026-03-29

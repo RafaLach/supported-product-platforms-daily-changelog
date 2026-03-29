@@ -1,5 +1,145 @@
 [
   {
+    "date": "2026-03-29",
+    "scan_time": "2026-03-29 10:33",
+    "file": "report-2026-03-29.md",
+    "platforms": [
+      {
+        "name": "Azure AI Foundry (now \"Microsoft Foundry\")",
+        "status": "changed",
+        "details": [
+          "**New \"Explore more Azure AI\" section** added to landing page with cross-references to **\"What are Foundry Tools?\"** and **\"Microsoft Agent Framework\"** \u2014 indicating new services/concepts in the Foundry ecosystem. Source: https://learn.microsoft.com/en-us/azure/ai-studio/",
+          "**Foundry IQ (preview)** \u2014 new knowledge-base-connected agent feature announced in March 2026 what's new. Connects knowledge bases to Foundry Agent Service. Source: https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry",
+          "**Fireworks models (preview)** \u2014 new third-party model provider integration on Microsoft Foundry. Source: https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry",
+          "**Hosted agent lifecycle management** \u2014 new articles for deploying and managing hosted agents in Foundry Agent Service. Source: https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry",
+          "**Claude Code for Microsoft Foundry** \u2014 new integration enabling Claude Code configuration with Microsoft Foundry. Source: https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry",
+          "**Microsoft Agent Framework** \u2014 comprehensive agent orchestration framework with support for multiple providers (Foundry, Azure OpenAI, OpenAI, Anthropic, Amazon Bedrock, GitHub Copilot, Ollama) and A2A protocol. Source: https://learn.microsoft.com/en-us/agent-framework/agents/"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Power Apps",
+        "status": "changed",
+        "details": [
+          "**New \"Vibe\" AI copilot experience (preview)** \u2014 AI-native platform that builds complete solutions (data models, business logic, UI) from natural language. Available at vibe.powerapps.com. Source: https://learn.microsoft.com/en-us/power-apps/vibe/overview",
+          "**New \"Create a code app\"** capability \u2014 code-first app creation using React/Vue with Power Platform deployment via `pac code push`. Source: https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview",
+          "**New version 26033** rolling out (Make.PowerApps.com), first available Mar 25, 2026. Source: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Power Pages",
+        "status": "changed",
+        "details": [
+          "**New \"Enable agent in your site\"** capability \u2014 embed AI agents directly into Power Pages sites with site-context awareness and web role-based visibility control. Source: https://learn.microsoft.com/en-us/power-pages/getting-started/enable-agent",
+          "**New \"Force Bing webmaster to index your site\"** option added under AI and Copilot section. Source: https://learn.microsoft.com/en-us/power-pages/"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Windsurf",
+        "status": "changed",
+        "details": [
+          "**SKILL.md file support** (v1.9577.24, Mar 9) \u2014 custom skill definitions from `.windsurf/skills/` directory with supporting files. Source: https://docs.windsurf.com/windsurf/cascade/skills",
+          "**Enterprise MDM-managed system-level skill definitions** \u2014 organizations can deploy managed skill sets via MDM policies. Source: https://docs.windsurf.com/windsurf/cascade/skills",
+          "**Quota billing system** (v1.9577.43, Mar 19) \u2014 new daily/weekly usage metrics within the IDE. Source: https://windsurf.com/changelog"
+        ],
+        "tier": "watching"
+      },
+      {
+        "name": "Dia Browser",
+        "status": "changed",
+        "details": [
+          "**Bug Bounty Program** launched via HackerOne for responsible vulnerability disclosure. Source: https://diabrowser.com/security",
+          "**Expanded infrastructure security details** \u2014 role-based production access restrictions, encryption in transit and at rest, regular data collection audits. Source: https://diabrowser.com/security"
+        ],
+        "tier": "watching"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Microsoft Foundry IQ (Preview)",
+        "description": "New knowledge-base-connected agent feature in Foundry Agent Service. Foundry IQ enables agents to query connected knowledge bases, introducing new entity types: IQ-enabled agents, knowledge base connections, and IQ query sessions. AISPM must discover and inventory Foundry IQ agents and their knowledge base bindings to map data access patterns and ensure sensitive knowledge bases are governed",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Microsoft Agent Framework",
+        "description": "New comprehensive agent orchestration framework with support for 11+ inference providers (Foundry, Azure OpenAI, OpenAI, Anthropic, Amazon Bedrock, GitHub Copilot, Ollama) and A2A (Agent-to-Agent) protocol for cross-agent communication. Introduces new entity types: framework-managed agents, multi-provider agent configurations, A2A proxy agents, and hosted agent deployments. AISPM must discover agents built with this framework across all supported providers and map their tool bindings, MCP connections, and inter-agent communication patterns",
+        "source": "https://learn.microsoft.com/en-us/agent-framework/agents/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Power Apps \"Vibe\" AI Copilot Experience",
+        "description": "New AI-native app creation experience in Power Apps (preview). Users describe business problems in natural language, and Vibe generates complete solutions including data models, business logic, and UI code. Creates new entity types (Vibe-generated apps, AI-created data models and code components) that need discovery and inventory tracking. AISPM must map Vibe apps as a distinct resource type \u2014 they may contain AI-generated code with different security characteristics than manually built apps",
+        "source": "https://learn.microsoft.com/en-us/power-apps/vibe/overview",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Power Pages Agent Enablement",
+        "description": "New capability to embed AI agents within Power Pages sites. Agents automatically gain site-context awareness and can generate responses based on visitor web roles. Introduces agent entities deployed on public-facing web pages with role-based access control. AISPM must discover these agents and AIDR must monitor their data flows given the external exposure surface \u2014 agents responding to unauthenticated or low-privilege visitors pose data leakage risk",
+        "source": "https://learn.microsoft.com/en-us/power-pages/getting-started/enable-agent",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Microsoft Foundry Hosted Agents",
+        "description": "New managed deployment model for AI agents in Foundry Agent Service. Agents can be deployed as hosted services with lifecycle management (create, deploy, scale, stop). Introduces new infrastructure entities: hosted agent instances, deployment configurations, and service endpoints. AISPM must discover hosted agents and map their model bindings, tool access, and network exposure",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/quickstarts/quickstart-hosted-agent",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Fireworks Models on Microsoft Foundry (Preview)",
+        "description": "New third-party model provider (Fireworks AI) integrated into Microsoft Foundry. Expands the model catalog with Fireworks models. AISPM model inventory must be updated to discover and track deployments using Fireworks models for compliance and governance",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/fireworks/enable-fireworks-models",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Foundry Tools (Rebranded Azure AI Services)",
+        "description": "\"Foundry Tools\" is the new name for Azure AI Services within the Microsoft Foundry platform. Includes Azure OpenAI, Content Safety, Speech, Vision, Document Intelligence, Language, and Translation services. While the underlying services exist, the rebranding under Foundry means new API endpoints, SDK paths, and resource identifiers that AISPM inventory mappings must be updated to track",
+        "source": "https://learn.microsoft.com/en-us/azure/ai-services/what-are-ai-services",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Power Apps Code Apps",
+        "description": "New code-first app creation type in Power Apps. Developers build with React/Vue locally and deploy to Power Platform via `pac code push`. These apps have different security characteristics than canvas/model-driven apps \u2014 developer-authored code runs within Power Platform's runtime. AISPM inventory should track this new app type distinctly",
+        "source": "https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Windsurf SKILL.md and Enterprise MDM Skills",
+        "description": "Windsurf added SKILL.md file support for custom skill definitions (`.windsurf/skills/`) and MDM-managed system-level skill definitions for Enterprise deployments. Skills can bundle supporting files and define multi-step workflows that Cascade AI executes. Enterprise MDM integration enables organization-wide skill policies deployed to all user machines \u2014 endpoint monitoring should track skill definitions and their tool/MCP interactions",
+        "source": "https://docs.windsurf.com/windsurf/cascade/skills",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Claude Code Integration with Microsoft Foundry",
+        "description": "New documentation for configuring Claude Code as an AI development tool connected to Microsoft Foundry. This creates a new attack surface where Claude Code agents can interact with Foundry resources, models, and deployed agents. AIRT should test for prompt injection and privilege escalation in Claude Code sessions connected to Foundry",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/configure-claude-code",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-03-27",
     "scan_time": "2026-03-27 12:08",
     "file": "report-2026-03-27.md",
@@ -748,708 +888,5 @@
         "action": "New Coverage Required"
       }
     ]
-  },
-  {
-    "date": "2026-03-21",
-    "scan_time": "2026-03-21 10:12",
-    "file": "report-2026-03-21.md",
-    "platforms": [
-      {
-        "name": "Microsoft Copilot (M365)",
-        "status": "changed",
-        "details": [
-          "Microsoft Graph API Changelog: Bicep infrastructure-as-code support added for User, Application, servicePrincipal, OAuth2PermissionGrant, appRoleAssignment, Group resources. Source: https://developer.microsoft.com/graph/changelog/",
-          "Lifecycle Workflows workflow creation limit raised from 50 to 100. New resources: attributeChangeTrigger, groupBasedSubjectSet, membershipChangeTrigger, insights. Source: https://developer.microsoft.com/graph/changelog/",
-          "Event Hubs change notifications will retire SAS authentication \u2014 migrate to Entra ID RBAC. Source: https://developer.microsoft.com/graph/changelog/",
-          "New agentSignIn resource with agentType enumeration for identity blueprint principals. Source: https://developer.microsoft.com/graph/changelog/",
-          "New selfServiceSignUp, signUpIdentity, signUpStatus resources for external ID tracking. Source: https://developer.microsoft.com/graph/changelog/",
-          "17 new protocol type members added (implicit flows, authorization code variants, client credentials, Kerberos, SSO, OBO). Source: https://developer.microsoft.com/graph/changelog/"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Microsoft Copilot Studio",
-        "status": "changed",
-        "details": [
-          "March 2026: Work IQ tools (Preview) \u2014 connects Microsoft 365 Copilot and agents to Work IQ service for real-time insights from M365 files, emails, meetings, and chats. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new",
-          "February 2026 expanded: Claude Opus 4.6 added as model option. Prompt builder now supports content moderation sensitivity controls (hate/fairness, sexual, violence, self-harm). Inline editing of prompt instructions in agent tool details view. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Azure AI Foundry",
-        "status": "stable",
-        "details": [],
-        "tier": "primary"
-      },
-      {
-        "name": "Power Apps",
-        "status": "changed",
-        "details": [
-          "Studio/Mobile version 3.26034 now in Preview US region. Version 3.26033 broadly deployed to Canada, India, South America, Japan, APAC, Australia, UK, Europe. Version 3.26032 now in US and GCC. Source: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Power Automate",
-        "status": "stable",
-        "details": [],
-        "tier": "primary"
-      },
-      {
-        "name": "Power Pages",
-        "status": "stable",
-        "details": [],
-        "tier": "primary"
-      },
-      {
-        "name": "Salesforce AgentForce",
-        "status": "stable",
-        "details": [],
-        "tier": "secondary"
-      },
-      {
-        "name": "Salesforce Einstein",
-        "status": "stable",
-        "details": [],
-        "tier": "secondary"
-      },
-      {
-        "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "changed",
-        "details": [
-          "OpenAI Community Forum: GPT-5.4-nano Priority Service Tier experiencing inconsistent latency. Source: https://community.openai.com",
-          "MCP connector refreshing tokens on every tool call without session persistence. Source: https://community.openai.com",
-          "Codex severe performance degradation with multiple files. Source: https://community.openai.com",
-          "Platform logs not being deleted after 30 days as expected. Source: https://community.openai.com",
-          "Fine-tuning operations stuck in \"Waiting\" status. Source: https://community.openai.com",
-          "ChatGPT Apps enabled but not visible in UI dropdown. Source: https://community.openai.com"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Claude Enterprise (Anthropic)",
-        "status": "changed",
-        "details": [
-          "API Docs: Models API now returns capabilities object per model for programmatic feature discovery. Source: https://platform.claude.com/docs/api/getting-started",
-          "Response headers documented: request-id and anthropic-organization-id returned in every response. Source: https://platform.claude.com/docs/api/getting-started",
-          "Files API expanded: GET /v1/files endpoint added. Skills API expanded: GET /v1/skills endpoint added. Source: https://platform.claude.com/docs/api/getting-started",
-          "Third-party platform size limits documented: Vertex AI 30 MB, Amazon Bedrock 20 MB. Source: https://platform.claude.com/docs/api/getting-started",
-          "Build with Claude Docs: Full feature availability classification documented (Beta, GA, Deprecated, Retired). Source: https://platform.claude.com/docs/build-with-claude/overview",
-          "Structured outputs availability now explicitly excludes Vertex AI. Source: https://platform.claude.com/docs/build-with-claude/overview"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Q",
-        "status": "changed",
-        "details": [
-          "Q Developer Doc History: Full detailed changelog now captured with 60+ entries. Notable: Context hooks deprecated, remote MCP servers with OAuth, Q CLI v1.16.0 features, enhanced context management. Source: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/doc-history.html",
-          "Q Business Doc History: Full detailed changelog captured with precise dates for all entries. Source: https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-history.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock",
-        "status": "changed",
-        "details": [
-          "Six new open-weight models: DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-          "OpenAI-Compatible Projects API now supported in Mantle inference engine. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-          "Server-Side Tools Support \u2014 AgentCore Gateway tools integrate with Bedrock models via Responses API without client-side orchestration. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-          "Claude Opus 4 deprecation warning: migrate to Claude Opus 4.1 before May 31, 2026. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "Google ADK and OpenAI Agents SDK now listed as supported frameworks (alongside CrewAI, LangGraph, LlamaIndex, Strands Agents). Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-          "Gateway integrations now list Salesforce, Zoom, JIRA, Slack as supported third-party tools. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-          "Browser service now supports Playwright and BrowserUse integrations. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-          "Policy service supports both natural language and Cedar (AWS open-source policy language). Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-          "Evaluations service integrates with CloudWatch and requires OpenTelemetry/OpenInference instrumentation. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-          "AgentCore Doc History: No new entries since December 2, 2025. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/doc-history.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Google Vertex AI",
-        "status": "changed",
-        "details": [
-          "Claude 3.5 Haiku deprecation added \u2014 shutdown July 5, 2026. Source: https://cloud.google.com/vertex-ai/docs/release-notes",
-          "Gemini 3.1 Pro, 3.1 Flash Image, and Gemini 2.5 Flash with Live API Native Audio model releases. Source: https://cloud.google.com/vertex-ai/docs/release-notes",
-          "Agent Engine expansion: Code Execution, bidirectional streaming, Memory Bank features. Source: https://cloud.google.com/vertex-ai/docs/release-notes",
-          "Veo 3.1 video generation with extended aspect ratios, 4K upsampling, advanced editing. Source: https://cloud.google.com/vertex-ai/docs/release-notes",
-          "Evaluation service now supports Anthropic and Llama partner models. Source: https://cloud.google.com/vertex-ai/docs/release-notes",
-          "Workbench: JupyterLab 4+ support, managed credentials, Confidential Computing, Gemini CLI. Source: https://cloud.google.com/vertex-ai/docs/release-notes"
-        ],
-        "tier": "secondary"
-      },
-      {
-        "name": "ServiceNow",
-        "status": "stable",
-        "details": [],
-        "tier": "secondary"
-      },
-      {
-        "name": "Cursor",
-        "status": "changed",
-        "details": [
-          "v2.6 (Mar 19, 2026): Automatic stale code cleanup after each turn. Dynamic instrumentation logging. Plan file content in autocomplete. Image galleries. Multiline Plan mode questions. Source: https://cursor.com/changelog",
-          "Enhanced agent workflows, improved PR/review anchoring, smoother tool-use flows, more reliable MCP setup. Source: https://cursor.com/changelog",
-          "Clearer team/enterprise access controls. Enhanced Slack integration. Improved long-running session reliability. Source: https://cursor.com/changelog",
-          "Bug fixes: plan editor web link fixes, branch/PR status refresh, diverged branch blocker, MCP dialog stability, Debug mode port conflict resolution. Source: https://cursor.com/changelog",
-          "Documentation expanded to 200+ entries covering CLI tools, language-specific setups, Figma integration, test generation. Source: https://docs.cursor.com"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "Windsurf",
-        "status": "changed",
-        "details": [
-          "v1.9577.43 (Mar 19): Fixed Mac x64 build issues. Source: https://windsurf.com/changelog",
-          "v1.9577.42 (Mar 19): Stability and performance enhancements. Source: https://windsurf.com/changelog",
-          "GPT-5.4 Mini (Mar 17): Now available at 1x credits with promotional pricing. Source: https://windsurf.com/changelog",
-          "v1.9577.27 (Mar 12): Fixed Apple M5 processor compatibility. Source: https://windsurf.com/changelog",
-          "v1.9577.24 expanded details: Diff Zone fixes, AGENTS.md fix, improved SSH/Remote performance. Source: https://windsurf.com/changelog",
-          "Deprecated features: Windsurf Browser (deprecated Sep 2025), Knowledge Base removed, Legacy Mode removed. Source: https://windsurf.com/changelog"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "Perplexity",
-        "status": "changed",
-        "details": [
-          "Agent API now described with \"model behavior controls\". Embeddings API includes \"retrieval workflow guides\". Source: https://docs.perplexity.ai/changelog",
-          "MCP Server tools enumerated: perplexity_search, perplexity_ask, perplexity_research, perplexity_reason. Source: https://docs.perplexity.ai/changelog",
-          "API key rotation recommendation: every 30-90 days. Source: https://docs.perplexity.ai/changelog",
-          "API Reference: /v1/agent endpoint confirmed (migration from /v1/chat/completions). Source: https://docs.perplexity.ai/api-reference",
-          "Model fallback chains documented (up to 5 models). Presets: \"fast-search\", \"pro-search\", \"deep-research\". Source: https://docs.perplexity.ai/api-reference",
-          "New parameters: instructions (custom system instructions), research_loop_steps (1-10). Source: https://docs.perplexity.ai/api-reference"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "Dia Browser",
-        "status": "changed",
-        "details": [
-          "v1.23.0 (Mar 19, Issue #17): GitHub Live Tab Groups \u2014 PR Status Celebrations animations, Automatic Cleanup on PR merge, Recently Completed PR Preview (hover to restore), enhanced navigation animations. Source: https://diabrowser.com/release-notes",
-          "v1.22.0 (Issue #16, Mar 11) expanded: Proactive Suggestions AI-curated, performance fixes (sluggishness/memory leaks), profile switching shortcuts (Ctrl+1,2,3), Command Bar routing to Chat and Google Search. Source: https://diabrowser.com/release-notes",
-          "Security page updated: Independent security firm assessment detailed (code reviews, architecture analysis, exploit testing). AI data retention policy clarified \u2014 never used for training. Prompt injection safeguard note: some attacks can cause unexpected style/tone shifts without compromising system security. Source: https://diabrowser.com/security"
-        ],
-        "tier": "watching"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Microsoft Graph agentSignIn resource",
-        "description": "New agentType enumeration enables tracking of agent identity principals \u2014 Zenity must update Activity monitoring to detect and classify agent-type sign-ins vs human sign-ins",
-        "source": "https://developer.microsoft.com/graph/changelog/",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Copilot Studio Work IQ tools (Preview)",
-        "description": "Agents can now access real-time M365 files, emails, meetings, and chats \u2014 creates new data exfiltration vectors through agent-accessible work context. Data Lens must monitor Work IQ tool invocations",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock Server-Side Tools",
-        "description": "AgentCore Gateway tools execute server-side without client orchestration \u2014 Activity monitoring loses client-side visibility into tool execution. Must adapt detection to server-side tool call patterns",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Anthropic Memory tool multi-platform expansion",
-        "description": "Agents can now persist and recall information across sessions on Bedrock, Vertex AI, Azure AI \u2014 creates persistent data exposure vectors. AIDR Findings must detect sensitive data stored in agent memory",
-        "source": "https://platform.claude.com/docs/build-with-claude/overview",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI MCP connector token refresh issue",
-        "description": "MCP connector refreshing tokens on every tool call without session persistence \u2014 potential token leakage/replay attack surface",
-        "source": "https://community.openai.com",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Microsoft Graph 17 new protocol types",
-        "description": "Implicit flows, authorization code variants, client credentials, Kerberos, SSO, OBO \u2014 expand the attack surface for token-based attacks. Activity detection rules need updating",
-        "source": "https://developer.microsoft.com/graph/changelog/",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Microsoft Graph selfServiceSignUp resources",
-        "description": "New signUpIdentity and signUpStatus resources for external ID tracking \u2014 potential for unauthorized external identity creation",
-        "source": "https://developer.microsoft.com/graph/changelog/",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Microsoft Graph SAS auth deprecation",
-        "description": "Organizations must migrate Event Hubs change notification auth to Entra ID RBAC or lose notification delivery",
-        "source": "https://developer.microsoft.com/graph/changelog/",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock AgentCore Gateway enterprise integrations",
-        "description": "Salesforce, Zoom, JIRA, Slack integrations \u2014 agents can now interact with sensitive enterprise systems. Activity monitoring needs to cover these tool invocations",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock AgentCore Browser service",
-        "description": "Playwright and BrowserUse integrations let agents browse autonomously \u2014 Data Lens must track websites and content accessed by browser-enabled agents",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Vertex AI Agent Engine expansion",
-        "description": "Code Execution, bidirectional streaming, and Memory Bank \u2014 agents gain persistent memory and code execution capabilities. Must monitor for data persistence and code injection risks",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI platform log retention issue",
-        "description": "Platform logs not deleted after 30 days as expected \u2014 data retention violation may affect compliance monitoring",
-        "source": "https://community.openai.com",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Perplexity Agent API migration",
-        "description": "/v1/agent endpoint with model behavior controls and research_loop_steps \u2014 new autonomous agent patterns to monitor",
-        "source": "https://docs.perplexity.ai/api-reference",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "LOW",
-        "title": "Microsoft Graph eDiscovery Beta APIs",
-        "description": "Legal discovery workflows may expose sensitive data through new API surface",
-        "source": "https://developer.microsoft.com/graph/changelog/",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "LOW",
-        "title": "OpenAI ChatGPT pinned chats incident",
-        "description": "Service disruption on Mar 21 \u2014 monitor for data accessibility issues",
-        "source": "https://status.openai.com/history.rss",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "LOW",
-        "title": "Anthropic structured outputs Vertex AI exclusion",
-        "description": "Platform parity gap may affect detection consistency",
-        "source": "https://platform.claude.com/docs/build-with-claude/overview",
-        "module": "AIDR",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock six new open-weight models",
-        "description": "DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next \u2014 Inventory must map these new model deployments. Open-weight models may have different security profiles",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Bedrock AgentCore new framework support",
-        "description": "Google ADK and OpenAI Agents SDK now supported \u2014 Inventory must discover agents built with these frameworks. Expands the agent ecosystem needing posture assessment",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Claude Opus 4 deprecation",
-        "description": "Migrate before May 31, 2026 \u2014 AISPM Violations should flag Opus 4 usage as deprecated model risk",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Vertex AI Claude 3.5 Haiku deprecation",
-        "description": "Shutdown July 5, 2026 \u2014 Inventory must identify all Claude 3.5 Haiku deployments and flag for migration",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Copilot Studio Claude Opus 4.6 model option",
-        "description": "Content moderation sensitivity controls added \u2014 Inventory must track new model availability. Violations should verify moderation controls are properly configured",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Microsoft Graph Lifecycle Workflows doubled",
-        "description": "Limit raised 50\u2192100 \u2014 organizations can deploy more automated identity workflows. Inventory must track expanded automation",
-        "source": "https://developer.microsoft.com/graph/changelog/",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Amazon Bedrock OpenAI-Compatible Projects API",
-        "description": "New API surface on Mantle for model access needs inventory mapping",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock AgentCore Cedar policy language",
-        "description": "Organizations may define agent policies in Cedar \u2014 Violations should check for misconfigured or overly permissive agent policies",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Anthropic Models API capabilities object",
-        "description": "Enables programmatic model capability discovery \u2014 Inventory can leverage this for automated model capability mapping",
-        "source": "https://platform.claude.com/docs/api/getting-started",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Anthropic Files and Skills API GET endpoints",
-        "description": "New API surfaces for listing files and skills \u2014 Inventory should map these resources. Violations should check for exposed/shared files",
-        "source": "https://platform.claude.com/docs/api/getting-started",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Perplexity MCP Server tools",
-        "description": "perplexity_search, perplexity_ask, perplexity_research, perplexity_reason \u2014 new MCP tools to include in agent tool Inventory",
-        "source": "https://docs.perplexity.ai/changelog",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Microsoft Graph Schema Extensions GA in US Government",
-        "description": "Expanded government cloud capabilities may affect GovCloud compliance monitoring",
-        "source": "https://developer.microsoft.com/graph/changelog/",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Vertex AI Gemini 3.1 Pro and Flash models",
-        "description": "New model releases require Inventory updates for organizations using Vertex AI",
-        "source": "https://cloud.google.com/vertex-ai/docs/release-notes",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "LOW",
-        "title": "Power Apps version rollout",
-        "description": "3.26033/3.26034 deploying across regions \u2014 track version adoption for compliance",
-        "source": "https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "LOW",
-        "title": "Perplexity model fallback chains",
-        "description": "Up to 5 models in sequence \u2014 Inventory should capture fallback configurations",
-        "source": "https://docs.perplexity.ai/api-reference",
-        "module": "AISPM",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Cursor v2.6 dynamic instrumentation logging",
-        "description": "Captures runtime behavior data from developer sessions. Enterprise access controls tightened. MCP setup changes may affect endpoint security posture",
-        "source": "https://cursor.com/changelog",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Windsurf enterprise management features",
-        "description": "MDM config support, Devin service key authentication, org-wide command lists \u2014 new capabilities for endpoint inventory and policy enforcement",
-        "source": "https://windsurf.com/changelog",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Dia prompt injection safeguard acknowledgment",
-        "description": "Official docs state some attacks can cause unexpected style or tone shifts without compromising system security \u2014 confirms prompt injection as recognized limitation in AI browsers",
-        "source": "https://diabrowser.com/security",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Cursor v2.6 automatic stale code cleanup",
-        "description": "Modifies code without explicit user action. Plan file content feeds into autocomplete \u2014 potential context leakage between sessions",
-        "source": "https://cursor.com/changelog",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Windsurf GPT-5.4 Mini availability",
-        "description": "New model at 1x credits for AI coding \u2014 monitor for data handling differences",
-        "source": "https://windsurf.com/changelog",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Windsurf deprecated features",
-        "description": "Windsurf Browser removed (Sep 2025), Knowledge Base removed, Legacy Mode removed \u2014 endpoint capabilities changing",
-        "source": "https://windsurf.com/changelog",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Windsurf Apple M5 compatibility",
-        "description": "New hardware support expands endpoint surface",
-        "source": "https://windsurf.com/changelog",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Dia v1.23.0 GitHub Live Tab Groups",
-        "description": "AI browser automatically managing developer GitHub workflows with automatic PR cleanup",
-        "source": "https://diabrowser.com/release-notes",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Dia AI data retention policy",
-        "description": "Retained only for security/compliance, never for training. Independent security assessments scope detailed",
-        "source": "https://diabrowser.com/security",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Perplexity MCP Server endpoint tools",
-        "description": "Four named tools (search, ask, research, reason) \u2014 endpoint-level MCP integration expands local AI tool surface",
-        "source": "https://docs.perplexity.ai/changelog",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "LOW",
-        "title": "Cursor documentation expansion",
-        "description": "200+ entries including Figma integration, test generation, legacy code modernization",
-        "source": "https://docs.cursor.com",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "LOW",
-        "title": "Windsurf documentation update",
-        "description": "Onboarding process and incompatibility warnings with other AI extensions",
-        "source": "https://docs.windsurf.com",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      },
-      {
-        "severity": "LOW",
-        "title": "OpenAI Codex performance degradation",
-        "description": "Multiple files causing severe degradation \u2014 may affect developer workflow reliability",
-        "source": "https://community.openai.com",
-        "module": "ENDPOINT",
-        "action": "Uncategorized"
-      }
-    ]
-  },
-  {
-    "date": "2026-03-20",
-    "scan_time": "2026-03-20 08:23",
-    "file": "report-2026-03-20.md",
-    "platforms": [
-      {
-        "name": "Microsoft Copilot (M365)",
-        "status": "changed",
-        "details": [
-          "Microsoft Graph API Changelog: New Bicep template support for user resource type (January 30, 2026), `activateWithScope` method for targeted workflow activation, `activationScope` resource with derived types. Source: https://developer.microsoft.com/graph/changelog/"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Microsoft Copilot Studio",
-        "status": "stable",
-        "details": [],
-        "tier": "primary"
-      },
-      {
-        "name": "Azure AI Foundry",
-        "status": "changed",
-        "details": [
-          "Azure AI Foundry Docs updated (Mar 19): New \"Create apps with code\" section with quickstarts, \"Evaluate agentic workflows\" and \"Monitor your generative AI applications\" added to Foundry Control Plane, Foundry IQ now includes \"Connect knowledge base to agents\", Microsoft Agent Framework now listed in resources. Source: https://learn.microsoft.com/en-us/azure/ai-studio/",
-          "Azure OpenAI API Reference updated: Content Filtering now includes \"jailbreak\" and \"protected material\" categories, Parallel Tool Calls parameter documented (default: true), Managed Identity authentication options added, `max_completion_tokens` documented as replacement for `max_tokens`, Vision detail levels (low/high/auto) documented. Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference",
-          "Azure OpenAI What's New: Minor enrichments to existing February 2026 and earlier entries (models available via Foundry, GPT-image-1.5 inpainting, transcription improvements). No new monthly sections. Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/whats-new"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Power Apps",
-        "status": "changed",
-        "details": [
-          "New version releases: Studio/Mobile 3.26031 (first available Mar 2, worldwide Mar 23), 3.26024 (Feb 23 / Mar 16), 3.26022 (Feb 5 / Mar 3). Make.PowerApps.com 26032 (Mar 18 / Apr 1), 26023 (Feb 25 / Mar 11), 26015 (Feb 5 / Mar 2). Train 3.26023 cancelled due to Winter Olympics/Super Bowl/Lunar New Year. Source: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps",
-          "Power Apps Docs: New \"Vibe\" coding experience (preview) at /vibe/overview, \"Create a code app\" option, \"Plan designer\" feature added. Source: https://learn.microsoft.com/en-us/power-apps/"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Power Automate",
-        "status": "stable",
-        "details": [],
-        "tier": "primary"
-      },
-      {
-        "name": "Power Pages",
-        "status": "stable",
-        "details": [],
-        "tier": "primary"
-      },
-      {
-        "name": "Salesforce AgentForce",
-        "status": "changed",
-        "details": [
-          "Salesforce Releases page: Spring '26 now described as \"AI-driven innovation across every cloud and industry.\" New webinar scheduled 3/3/26 for ISV partners. Expanded on-demand webinars: Agentforce Voice innovations, Marketing Cloud Spring '26, Field Service, Platform Roadmap. New product demo collections including Slack and Revenue Management as featured products. Source: https://www.salesforce.com/releases/"
-        ],
-        "tier": "secondary"
-      },
-      {
-        "name": "Salesforce Einstein",
-        "status": "stable",
-        "details": [],
-        "tier": "secondary"
-      },
-      {
-        "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "error",
-        "details": [
-          "OpenAI Community Forum: gpt-realtime-1.5 is live in Realtime API (3,527 views); .NET libraries released for Agents SDK and ChatKit-style workflows; File upload problems with code interpreter in Assistants API; Signed URL file input logic broken; Codex consuming excessive credits during idle; Weekly usage limits exceeded without hitting 5-hour threshold; Codex data loss thread growing (25 replies, 986 views). Source: https://community.openai.com",
-          "OpenAI Status: Mar 13 \u2014 Responses API errors during background mode usage (resolved); Mar 13 \u2014 Conversation errors affecting logged-out users (resolved). Source: https://status.openai.com/history.rss",
-          "Python SDK (v2.29.0) and Node SDK (v6.32.0): No new releases since Mar 17. Source: https://github.com/openai/openai-python/releases"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Claude Enterprise (Anthropic)",
-        "status": "error",
-        "details": [
-          "Anthropic News: No new announcements (latest: \"What 81,000 people want from AI\" from Mar 18). Source: https://www.anthropic.com/news",
-          "API Docs and Build with Claude: Fetch errors (Next.js rendering / 404). Source: https://platform.claude.com/docs/api/getting-started"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Q",
-        "status": "stable",
-        "details": [],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock",
-        "status": "stable",
-        "details": [],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "API Reference: 3 new API operations added (total now 40, up from 37). New `Evaluate` operation for programmatic agent evaluation. `GetWorkloadAccessTokenForJWT` and `GetWorkloadAccessTokenForUserId` now explicitly listed. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Operations.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Google Vertex AI",
-        "status": "stable",
-        "details": [],
-        "tier": "secondary"
-      },
-      {
-        "name": "ServiceNow",
-        "status": "error",
-        "details": [
-          "Fetch errors \u2014 both docs pages require JavaScript rendering. Manual review recommended. Source: https://www.servicenow.com/docs/r/release-notes/family-release-notes.html"
-        ],
-        "tier": "secondary"
-      },
-      {
-        "name": "Cursor",
-        "status": "changed",
-        "details": [
-          "**Composer 2 released (March 19, 2026)**: New model achieving \"frontier-level coding performance.\" Token-based pricing: Standard $0.50/M input, $2.50/M output; Fast (default) $1.50/M input, $7.50/M output. Source: https://cursor.com/changelog"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "Windsurf",
-        "status": "changed",
-        "details": [
-          "**v1.9577.43 (March 19, 2026)**: Mac x64 build fix. Source: https://windsurf.com/changelog",
-          "**v1.9577.42 (March 19, 2026)**: Various bug fixes and performance improvements. Source: https://windsurf.com/changelog",
-          "Earlier builds now show enriched details: SKILL.md loading from `.windsurf/skills/` directory, POST_CASCADE_RESPONSE_WITH_TRANSCRIPT cascade hook, windsurf.cascade.readClaudeCodeConfig flag, VS Code 1.108 merge, model pinning feature. Source: https://windsurf.com/changelog",
-          "Docs updated: System requirements section added, Custom App Icons (beta) for Mac, onboarding process with import from VS Code/Cursor. Source: https://docs.windsurf.com"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "Perplexity",
-        "status": "changed",
-        "details": [
-          "API Reference expanded: Tools section now documents three categories (Web Search, Fetch URL, Function Calls). New parameters: maximum output tokens, research loop steps 1-10, custom system instructions, language preference via ISO 639-1 codes. Streaming now specified as 14 distinct SSE event types with status indicators. Source: https://docs.perplexity.ai/api-reference"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "Dia Browser",
-        "status": "changed",
-        "details": [
-          "**v1.23.0 (Issue #17, March 19, 2026)**: \"From review to merge to what's next.\" Features: PR Status Celebrations (merge transition animations), Cleaned Closure Handling (automatic PR cleanup), Completed Work Preview (hover to preview finished PRs), Navigation Refinements. Source: https://diabrowser.com/release-notes",
-          "Security page: Prompt Injection Safeguards now documented as a distinct section with eight specific controls. Acknowledges some attacks can cause \"unexpected style or tone shifts\" without compromising system security. Source: https://diabrowser.com/security"
-        ],
-        "tier": "watching"
-      }
-    ],
-    "findings": []
   }
 ]

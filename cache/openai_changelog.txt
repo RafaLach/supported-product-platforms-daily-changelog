@@ -5,6 +5,7 @@
 **v2.30.0** (March 25, 2026)
 - Computer Actions Enhancement: Added "keys field to Click/DoubleClick/Drag/Move/Scroll computer actions"
 - Type System: Made type required in ResponseInputMessageItem; aligned SDK response types with expanded item schemas
+- Fixed endpoint path sanitization
 
 **v2.29.0** (March 17, 2026)
 - Features include "5.4 nano and mini model slugs," addition of "/v1/videos endpoint to batches create method," "defer_loading field to ToolFunction," and "in and nin operators to ComparisonFilter type"
@@ -40,3 +41,5 @@
 
 **v2.20.0** (February 10, 2026)
 - Introduced "support for images in batch api"
+
+Updated: 2026-03-29
