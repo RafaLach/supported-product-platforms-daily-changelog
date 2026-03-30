@@ -1,0 +1,29 @@
+Azure OpenAI REST API Reference
+
+Page last updated: 2026-03-21
+
+API Versions:
+- Control Plane Latest GA: 2025-06-01
+- Control Plane Latest Preview: 2025-07-01-preview
+- Data Plane GA: 2024-10-21
+- Data Plane Preview: v1 preview
+
+Core Endpoints:
+- Chat Completions: POST /openai/deployments/{deployment-id}/chat/completions (streaming, tool calling, parallel execution, log probs, JSON mode, structured outputs, vision)
+- Completions: POST /openai/deployments/{deployment-id}/completions
+- Embeddings: POST /openai/deployments/{deployment-id}/embeddings (configurable dimensions, float/base64 encoding)
+- Audio Transcriptions: POST /openai/deployments/{deployment-id}/audio/transcriptions (multiple formats: json, verbose_json, text, vtt, srt)
+- Audio Translations: POST /openai/deployments/{deployment-id}/audio/translations
+- Image Generation: POST /openai/deployments/{deployment-id}/images/generations (DALL-E, quality standard/hd, style vivid/natural)
+
+Chat Extensions (On Your Data):
+- Azure Search (vector, semantic, hybrid query types, field mapping, strictness)
+- Azure Cosmos DB (MongoDB vCore, vector search, embedding dependency)
+
+Authentication: API Key (api-key header), Microsoft Entra ID (Bearer token)
+
+Content Filtering: Sexual, Violence, Hate, Self-harm, Profanity, Jailbreak, Protected material (text/code)
+
+Advanced Features: Parallel tool calls, Structured outputs (JSON Schema), Seed parameter (Beta), Log probabilities, Response streaming (SSE)
+
+Updated: 2026-03-30

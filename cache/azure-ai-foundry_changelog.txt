@@ -1,0 +1,72 @@
+What's new in Azure OpenAI in Azure AI Foundry Models (classic)
+
+Page last updated: 2026-03-13
+
+February 2026:
+- GPT-Realtime-1.5 and GPT-Audio-1.5 models released — improved instruction following, multi-lingual support, and tool calling
+
+December 2025:
+- GPT-image-1.5 model available (limited access) — improved performance, quality, editing controls, face preservation, inpainting
+- gpt-4o-mini-transcribe-2025-12-15 ASR model — ~50% lower WER, improved multilingual, reduced hallucinations
+- gpt-realtime-mini-2025-12-15 speech-to-speech model — feature parity with full gpt-realtime
+- gpt-4o-mini-tts-2025-12-15 text-to-speech model — improved multilingual synthesis
+
+October 2025:
+- Realtime API SIP support for telephony
+- gpt-4o-transcribe-diarize ASR model with speaker diarization
+- gpt-image-1-mini model for global deployments
+- PII detection content filter
+
+September 2025:
+- GPT-5-codex available (limited access)
+- Sora video-to-video support
+
+August 2025:
+- Sora image-to-video support (Sweden Central, East US 2)
+- Realtime API audio model GA (new voices Marin/Cedar, image input, improved function calling, conversation mode)
+- Provisioned spillover GA
+- GPT-5 models (gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-chat) available
+- Model router updated with GPT-5 support
+
+July 2025:
+- GPT-image-1 update: input_fidelity parameter, partial image streaming
+
+June 2025:
+- codex-mini and o3-pro models released
+
+May 2025:
+- Sora video generation (preview)
+- Spotlighting for prompt shields (preview)
+- Model router (preview)
+
+April 2025:
+- Realtime API WebRTC support (preview)
+- GPT-image-1 released (preview, limited access)
+- o4-mini and o3 models released
+- GPT-4.1 and GPT-4.1-nano released (1M token context)
+- gpt-4o-transcribe, gpt-4o-mini-transcribe, gpt-4o-mini-tts audio models
+
+March 2025:
+- Responses API and computer-use-preview model
+- Provisioned spillover (preview)
+- Request-time content filtering configuration
+
+February 2025:
+- GPT-4.5 Preview
+- Stored completions API
+- o3-mini data zone standard deployments
+- gpt-4o-mini-audio-preview and gpt-4o-mini-realtime-preview
+
+January 2025:
+- o3-mini released
+- GPT-4o audio completions global deployments
+- GPT Realtime API 2024-12-17 (prompt caching, new voices, RPM/TPM rate limits)
+
+December 2024:
+- o1 reasoning model (limited access)
+- Preference fine-tuning DPO (preview)
+- Stored completions & distillation
+- GPT-4o 2024-11-20 global standard deployment
+- Data zone provisioned deployment type
+
+Updated: 2026-03-30

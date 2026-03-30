@@ -1,0 +1,27 @@
+# Amazon Bedrock User Guide - Document History (Complete Changelog)
+
+## Latest Update
+**February 27, 2026**
+
+---
+
+## All Documented Changes (Most Recent First)
+
+### February 2026
+- **Converse API support for batch inference** (Feb 27, 2026): Use Converse API format for batch inference input data with consistent request format across models
+- **Fine-tuning open-weight models with OpenAI APIs** (Feb 17, 2026): Create, monitor, and manage reinforcement fine-tuning jobs through OpenAI SDK endpoints (Files API, fine-tuning jobs APIs, inference APIs)
+
+### December 2025 - January 2026
+- **Service tier model support updates** (Dec 31, 2025): Updated list of models for priority and flex service tiers
+- **Blueprint instruction optimization** (Dec 18, 2025): Amazon Bedrock Data Automation supports document blueprint instruction optimization with ground truth labels
+- **New managed IAM policies** (Dec 3, 2025):
+  - AmazonBedrockMantleFullAccess
+  - AmazonBedrockMantleReadOnly
+  - AmazonBedrockMantleInferenceAccess
+- **OpenAI compatible API endpoints** (Dec 3, 2025): Amazon Bedrock Mantle provides OpenAI-compatible endpoints including Responses API and Chat Completions API for asynchronous inference
+- **Reinforcement fine-tuning** (Dec 3, 2025): New reinforcement fine-tuning feature to improve foundation model performance
+- **Reserved service tier** (Nov 26, 2025): New "Reserved" service tier for Bedrock inference
+- **Claude Opus 4.5 support** (Nov 24, 2025): New Anthropic Claude Opus 4.5 model available
+
+## Note
+Last fetched: 2026-03-30. No new entries since February 27, 2026.

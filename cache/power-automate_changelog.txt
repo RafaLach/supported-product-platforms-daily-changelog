@@ -1,0 +1,18 @@
+Source: https://learn.microsoft.com/en-us/power-automate/whats-new
+Fetched: 2026-03-30
+
+# What's new in Power Automate
+
+This article provides resources that you can use to learn about the features that were released recently, features that will be released soon, and known issues.
+
+## Weekly releases
+
+You can find information about the new features, fixes, and improvements that were released in the past few weeks in Service Updates for Power Automate.
+
+Note: Releases are rolled out over several days. New or updated functionality might not appear immediately.
+
+## Release plans
+
+Get familiar with upcoming features and plan your deployments by reading the Power Automate release planner.
+
+Page last updated: 2025-07-11

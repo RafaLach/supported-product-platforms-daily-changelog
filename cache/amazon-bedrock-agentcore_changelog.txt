@@ -1,0 +1,40 @@
+# Amazon Bedrock AgentCore - Document History
+
+## Documentation Releases Timeline
+
+### December 2, 2025
+- Policy in Amazon Bedrock AgentCore - Policy-based governance and control for agent interactions
+- Episodic memory strategy - AgentCore Memory feature
+- Custom claims value support for AgentCore Gateway authentication
+- Bidirectional streaming - WebSocket protocol for real-time, full-duplex communication
+- Authentication token support for AgentCore Gateway - OAuth authorization setup
+- Amazon Bedrock AgentCore Evaluations - Performance, accuracy, and reliability measurement tools
+- API gateways as gateway targets - Amazon API Gateway REST API stages as targets
+
+### November 4, 2025
+- Direct code deployment - Python agents deployment via ZIP file archives
+
+### October 31, 2025
+- Get started updates - Changes to prerequisites, files, and commands
+
+### October 30, 2025
+- Web Bot Auth (Preview) - Browser Web Bot Auth feature, cryptographic HTTP request signing
+
+### October 13, 2025
+- Runtime identity service-linked role - Manages workload identity access tokens and OAuth credentials
+- General release - Amazon Bedrock AgentCore now generally available (GA)
+
+### October 10, 2025
+- Model Context Protocol (MCP) servers as Gateway targets
+
+### October 2, 2025
+- Model Context Protocol (MCP) server support - Compatible MCP clients: Kiro, Cursor, Claude Code, Amazon Q CLI
+
+### September 19, 2025
+- Managed policy updates - BedrockAgentCoreNetworkServiceRolePolicy (new), BedrockAgentCoreFullAccess updated
+
+### July 16, 2025
+- Initial release (preview) - First release of Amazon Bedrock AgentCore Developer Guide
+
+## Note
+Last fetched: 2026-03-30. No new entries since December 2, 2025.

@@ -1,0 +1,18 @@
+# Amazon Q Business Document History
+
+## All Changes Listed (Chronological - Newest to Oldest)
+
+| Change | Description | Date |
+|--------|-------------|------|
+| **New Agentic RAG feature** | Enhance Amazon Q Business standard retrieval augmented generation (RAG) capabilities with agentic workflows | August 14, 2025 |
+| **Added support for Clickable S3 Link Feature** | Users can access source documents from S3 through citation links in chat responses | July 22, 2025 |
+| **Relevancy tuning replaces metadata boosting on new applications** | Admins can control search results based on document creation/modification dates or storage location | July 1, 2025 |
+| **New response customization feature** | Customize Amazon Q Business chat responses | July 1, 2025 |
+| **Amazon Q Business application environments for anonymous access** | Create Amazon Q Business application environments for anonymous access | April 29, 2025 |
+| **New hallucination mitigation feature** | Reduce response hallucinations during Amazon Q Business chat | April 10, 2025 |
+| **Private Amazon S3 buckets for web customization artifacts** | Save customizations in private S3 buckets | March 18, 2025 |
+| **Amazon Q Business integration for Microsoft Word** | Add-in for Microsoft Word integration | February 27, 2025 |
+| **Amazon Q Business integration for Microsoft Outlook** | Add-in for Microsoft Outlook integration | February 27, 2025 |
+
+## Note
+Last fetched: 2026-03-30. No new entries since August 14, 2025.

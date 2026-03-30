@@ -1,0 +1,42 @@
+# Amazon Bedrock AgentCore - Overview
+
+## Core Definition
+Amazon Bedrock AgentCore is an agentic platform for building, deploying, and operating highly effective agents securely at scale using any framework and foundation model, without infrastructure management.
+
+## Core Services
+
+| Service | Description | Key Integrations |
+|---------|-------------|------------------|
+| **Runtime** | Secure, serverless runtime for deploying/scaling dynamic AI agents and tools. Features: fast cold starts, extended async support, session isolation, built-in identity, multi-modal/multi-agent support | CrewAI, LangGraph, LlamaIndex, OpenAI SDK, any foundation model |
+| **Memory** | Context-aware agents with short-term (multi-turn) and long-term (cross-session) memory with sharing capabilities | LangGraph, LangChain, Strands, LlamaIndex |
+| **Gateway** | Converts APIs, Lambda functions, existing services into MCP-compatible tools. Connects to pre-existing MCP servers | Salesforce, Zoom, JIRA, Slack, any OpenAPI specs |
+| **Identity** | Secure agent identity/access/authentication management compatible with existing IdPs (Amazon Cognito, Okta, Microsoft Azure Entra ID, Auth0) | Cognito, Okta, Azure Entra ID, Auth0 |
+| **Code Interpreter** | Isolated sandbox for agents to execute code (Python, JavaScript, TypeScript) | Multiple language support |
+| **Browser** | Fast, secure cloud-based browser runtime for web interactions and form filling | Playwright, BrowserUse frameworks |
+| **Observability** | Unified tracing, debugging, monitoring via OpenTelemetry (OTEL)-compatible format | OpenTelemetry (OTEL), CloudWatch |
+| **Evaluations** | Automated agent assessment measuring execution quality, edge case handling, output reliability | LangGraph, Strands, OpenInference, CloudWatch |
+| **Policy** | Deterministic control using natural language or Cedar policy language | Cedar policy language, Gateway integration |
+
+## Use Cases
+
+1. **Agents** - Autonomous apps for customer support, workflow automation, data analysis, coding assistance
+2. **Tools & MCP Servers** - Transform existing APIs/services into agent-accessible tools
+3. **Agent Platforms** - Enterprise frameworks with centralized observability and governance
+
+## Supported Frameworks
+CrewAI, LangGraph, LlamaIndex, Strands Agents, LangChain, Google ADK, OpenAI Agents SDK
+
+## Supported Models
+Anthropic Claude, OpenAI, Google Gemini, Amazon Nova, Meta Llama, Mistral
+
+## Protocols
+Model Context Protocol (MCP), A2A (Agent-to-Agent), OpenTelemetry (OTEL), OpenInference
+
+## Integrations
+Salesforce, Zoom, JIRA, Slack (via Gateway)
+
+## Pricing
+Consumption-based (no upfront commitments or minimum fees)
+
+## Note
+Last fetched: 2026-03-30. No changes detected from previous scan.

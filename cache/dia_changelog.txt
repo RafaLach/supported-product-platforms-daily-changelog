@@ -5,8 +5,10 @@
 **v1.24.0** (March 26, 2026)
 - Fixed memory leaks causing performance degradation over time
 - Optimized new tab page animations to reduce CPU/GPU usage
-- Accelerated command bar suggestion rendering
+- Accelerated command bar suggestion rendering with pre-warmed favicon/database caches
 - Improved system load handling by skipping unnecessary processing steps
+- Added Early Birds Program for early feature access and direct feedback
+- Built-in performance issue recording tool (Help > Record a Performance Issue)
 
 **v1.23.0** (March 19, 2026)
 - Features focused on review and merge workflows
@@ -15,6 +17,6 @@
 - "Don't think about the next step. Take it"
 
 **v1.21.0** (March 5, 2026)
-- "Before you reach for it…"
+- "Before you reach for it..."
 
-Updated: 2026-03-29
+Updated: 2026-03-30

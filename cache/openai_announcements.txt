@@ -70,4 +70,4 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - User reputation system (Original Poster, Frequent Poster designations)
 - Discourse-powered infrastructure
 
-Updated: 2026-03-29
+Updated: 2026-03-30

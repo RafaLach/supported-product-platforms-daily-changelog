@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-03-30",
+    "scan_time": "2026-03-30 08:25",
+    "file": "report-2026-03-30.md",
+    "platforms": [],
+    "findings": []
+  },
+  {
     "date": "2026-03-29",
     "scan_time": "2026-03-29 10:33",
     "file": "report-2026-03-29.md",
@@ -829,62 +836,6 @@
         "description": "Feature development now uses /q command for conversation-based feedback instead of traditional GitHub review. Changes the interaction pattern AIDR must monitor for Q Developer GitHub integrations",
         "source": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/github-feature-development.html",
         "module": "AIDR",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-03-22",
-    "scan_time": "2026-03-22 12:24",
-    "file": "report-2026-03-22.md",
-    "platforms": [],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Copilot Studio Work IQ tools (Preview)",
-        "description": "Agents access real-time M365 files, emails, meetings, chats via Work IQ service \u2014 new inventory entities and data flow vectors",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-work-iq",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock six new open-weight models",
-        "description": "DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next \u2014 inventory must map these model deployments",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock Server-Side Tools",
-        "description": "AgentCore Gateway tools execute server-side without client orchestration \u2014 activity monitoring loses client-side visibility",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Anthropic Memory tool multi-platform expansion",
-        "description": "Agents persist/recall info across sessions on Bedrock, Vertex AI, Azure AI \u2014 persistent data exposure vectors",
-        "source": "https://platform.claude.com/docs/build-with-claude/overview",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Bedrock AgentCore new framework support",
-        "description": "Google ADK and OpenAI Agents SDK now supported alongside CrewAI, LangGraph, LlamaIndex, Strands",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Cursor Composer 2",
-        "description": "Proprietary frontier-level coding model with token-based pricing \u2014 new model type in AI coding endpoint",
-        "source": "https://cursor.com/changelog",
-        "module": "ENDPOINT",
         "action": "New Coverage Required"
       }
     ]

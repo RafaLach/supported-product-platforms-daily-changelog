@@ -1,0 +1,25 @@
+# Amazon Q Business API Reference
+
+## Service Endpoints
+
+### QBusiness
+- Fully managed, generative-AI powered enterprise chat assistant
+- Key Capabilities: Question-answering, knowledge discovery, writing email messages, summarizing text, drafting document outlines, brainstorming ideas
+
+### QApps
+- Web experience feature within Amazon Q Business
+- Allows creation of lightweight, purpose-built AI apps
+- Use cases: Marketing content generation, customer email writing, promotional content creation
+
+## Documentation Resources
+- Amazon Q Business User Guide
+- Overview of Amazon Q Business API operations
+- IAM roles for Amazon Q Business
+- Setting up for Amazon Q Business
+- Amazon Q Business CLI Reference
+- Amazon Q Apps capabilities
+- Overview of Amazon Q Apps API operations
+- IAM role for Amazon Q Business web experience including Amazon Q Apps
+
+## Note
+Last fetched: 2026-03-30. Static reference page, no changes detected.

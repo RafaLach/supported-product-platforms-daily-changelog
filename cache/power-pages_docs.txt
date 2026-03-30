@@ -1,0 +1,19 @@
+Source: https://learn.microsoft.com/en-us/power-pages/
+Fetched: 2026-03-30
+
+# Microsoft Power Pages documentation
+
+Use Power Pages to create external-facing websites that allow users outside their organizations to sign in with a wide variety of identities, create and view data in Dataverse, or even browse content anonymously.
+
+## Key capabilities listed:
+- Getting started: What is Power Pages, capabilities, create and manage sites, security, architecture white papers
+- Tutorials: Design home page, set up brand kit, create page with list, create page with form, configure site authentication
+- Design and build: Design studio, Pages workspace, Styling workspace, templates, Portal Management app, VS Code and Power Platform CLI
+- AI and Copilot: AI-powered overview, AI-generated form using Copilot, AI-generated text using Copilot, enable agent in site, Bing webmaster indexing
+- Connect to Dataverse: Data workspace, lists, basic forms, multistep forms, table permissions
+- Customize and extend: Liquid, web templates, Portals web API, code components, Power Automate cloud flows integration, advanced configuration
+- Security: Authentication, web roles, table permissions
+- Go live: Checklist, licensing, ALM
+- Administer and monitor: Admin center, diagnostics, maintenance, consumption reports
+
+Page last updated: 2025-06-28

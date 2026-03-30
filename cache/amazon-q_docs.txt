@@ -1,0 +1,39 @@
+# Amazon Q Developer - What is Amazon Q Developer?
+
+## Core Capabilities
+- Generative AI-powered conversational assistant
+- Helps understand, build, extend, and operate AWS applications
+- Answers questions about AWS architecture, resources, best practices, documentation, and support
+- Powered by Amazon Bedrock
+
+## IDE Capabilities
+- Chat about code
+- Inline code completions
+- Generate new code
+- Code security vulnerability scanning
+- Code upgrades and improvements
+
+## Getting Started Methods
+
+### AWS Apps and Websites
+- AWS Management Console
+- AWS Documentation website
+- AWS website
+- AWS Console Mobile Application
+
+### IDEs (Free with AWS Builder ID)
+- Visual Studio Code
+- JetBrains IDEs
+- AWS Toolkit for Visual Studio
+- Eclipse IDEs (Preview)
+
+### Chat Applications
+- Microsoft Teams
+- Slack
+
+## Pricing
+- Free tier available
+- Pro subscription: Amazon Q Developer Pro
+
+## Note
+Last fetched: 2026-03-30. No changes detected from previous scan.

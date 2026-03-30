@@ -1,0 +1,16 @@
+# Microsoft Copilot Studio Release Notes
+
+Microsoft Copilot Studio is a tool for creating and maintaining copilots.
+
+A copilot is an AI-powered conversational interface based on large language models (LLMs) and additional sources of knowledge.
+
+## Release timelines
+
+Releases happen frequently, and the list is updated throughout the month as features reach worldwide availability.
+
+## Worldwide availability
+
+| Month |
+| --- |
+| September - 2024 |
+| August - 2024 |

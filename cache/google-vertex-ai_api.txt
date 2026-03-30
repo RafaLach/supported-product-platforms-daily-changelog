@@ -1,0 +1,19 @@
+# Vertex AI API Reference
+
+## API Structure
+Reference index/navigation page for Vertex AI APIs. Contains no dated changelog entries.
+
+## Key API Resources
+- REST API endpoints (v1 and v1beta1 versions)
+- SDK references (Python, Go, Node.js, Java, C#)
+- gcloud CLI references
+- Resource categories: datasets, models, endpoints, training pipelines, feature stores
+- Model deployment and prediction services
+- Feature management (feature stores, online stores, feature groups)
+- Training and tuning jobs
+- Metadata stores and artifact management
+- RAG (Retrieval-Augmented Generation) operations
+- Reasoning engines
+
+## Last Fetched
+2026-03-30

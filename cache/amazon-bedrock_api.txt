@@ -1,0 +1,35 @@
+# Amazon Bedrock API Reference
+
+## Service Endpoints
+
+### 1. bedrock (Control Plane)
+- Manages, trains, and deploys models
+- Actions: Amazon Bedrock Actions
+- Data Types: Amazon Bedrock Data Types
+
+### 2. bedrock-runtime (Data Plane)
+- Makes inference requests for models hosted in Amazon Bedrock
+- Actions: Amazon Bedrock Runtime Actions
+- Data Types: Amazon Bedrock Runtime Data Types
+
+### 3. bedrock-agent (Control Plane)
+- Creates and manages agents, knowledge bases, prompt management, and prompt flows
+- Actions: Amazon Bedrock Agents Actions
+- Data Types: Amazon Bedrock Agents Data Types
+
+### 4. bedrock-agent-runtime (Data Plane)
+- Invokes agents and flows; queries knowledge bases
+- Actions: Amazon Bedrock Agents Runtime Actions
+- Data Types: Amazon Bedrock Agents Runtime Data Types
+
+## Supported SDKs
+C++, Go, Java, JavaScript, Kotlin, .NET, PHP, Python (Boto3), Ruby, Rust, SAP ABAP, Swift
+
+## CLI References
+- Amazon Bedrock CLI commands
+- Amazon Bedrock Runtime CLI commands
+- Amazon Bedrock Agents CLI commands
+- Amazon Bedrock Agents Runtime CLI commands
+
+## Note
+Last fetched: 2026-03-30. Static reference page, no changes detected.

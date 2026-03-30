@@ -1,0 +1,15 @@
+What's new in Power Apps
+
+Resources for new features recently released, features releasing in the next few months, and known limitations.
+
+Weekly releases: See Released versions for Microsoft Power Apps
+Release plan: See Release Planner (releaseplans.microsoft.com)
+
+Monthly releases for model-driven apps:
+- Semi-annual: Twice per year (default), rollout starts early April and early October
+- Monthly: Once per month
+
+Release channel options and monthly channel available.
+Known limitations: Common issues and resolutions
+
+Updated: 2026-03-30

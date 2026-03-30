@@ -1,0 +1,52 @@
+# What's new in the Microsoft 365 admin center
+
+## November 2025
+
+- The **Engineering direct** portal is now renamed to **Enhanced Engagements**.
+- Inside **Engagements** there are four new options:
+    - Service requests is now Engineering escalations
+    - Business Process Awareness (BPAs)
+    - Customer Advisory Board (CAB)
+    - Incident Analysis
+- (Preview) **History** tab is now renamed to **Design change requests (DCR)**.
+
+## June 2025
+
+### Copilot Search admin experience
+
+The Microsoft 365 Admin center now includes the **Copilot Search Admin experience**, giving you powerful tools to manage and optimize search across your organization. This release introduces enhanced support for **Acronyms** and **Bookmarks**, enabling you to deliver more relevant and contextual search results to users.
+
+### Key Highlights
+
+- **Acronyms**
+    - Define and manage organization-specific acronyms to improve search clarity.
+    - Upload acronyms in bulk via CSV or add them individually.
+    - Acronyms are discoverable across Microsoft Search endpoints like SharePoint.
+- **Bookmarks**
+    - Create quick access links to frequently used resources.
+    - Boost visibility of important tools, sites, or documents in search results.
+    - Customize bookmark meta data including title, URL, description, and audience targeting.
+
+## April 2025
+
+### Microsoft 365 Copilot network connectivity test
+
+A new addition to the Microsoft 365 network connectivity test tool enables users to run diagnostics specifically for Microsoft 365 Copilot. The tool helps users evaluate the network performance between their device and Microsoft 365 endpoints, specifically for Microsoft 365 Copilot.
+
+## March 2025
+
+### Exchange Web Services usage report
+
+The Microsoft 365 admin center now includes a new Exchange Web Services (EWS) usage report that provides insights into the non-Microsoft (third-party) applications in your tenant that use EWS.
+
+## February 2025
+
+### Provide admin-initiated feedback for Microsoft 365 Copilot
+
+You can provide feedback about Microsoft 365 Copilot on behalf of your users within the Microsoft 365 admin center.
+
+## January 2025
+
+### AI Administrator role in Microsoft 365 admin center
+
+The AI administrator role is designed to manage all settings related to Copilot within the Microsoft 365 admin center.

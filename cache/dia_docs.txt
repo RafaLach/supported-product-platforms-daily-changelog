@@ -1,0 +1,37 @@
+# Dia Browser Security & Documentation
+
+## Security Features
+
+**Prompt Injection Defenses:**
+- Dia won't open or follow LLM-generated URLs to prevent data exfiltration
+- Dia won't allow tools beyond what user intends to use; chat starts with no access to other tabs
+- Blocks insertion of data into third-party sites without user approval
+- Prevents irreversible actions; calendar events remain in draft until confirmed
+- Dia won't run agentic mode on unapproved context
+- Restricts agent navigation to other websites to limit blast radius
+- Hides sensitive form fields and irreversible action buttons from the agent
+- Filters URLs to prevent hidden instructions from influencing AI
+
+**Browser Security:**
+- Built on Chromium engine with inherited security patches
+- Weekly updates every Thursday with latest stable Chromium
+- Critical patches deployed within 48 hours of Google release
+- Disabled Google Accounts Integration (GAIA)
+- Disabled Google metrics (UMA) reporting
+- Built-in ad-blocker (configurable via Settings > Privacy)
+
+**Data Protection:**
+- Conversations and files stored locally encrypted on device
+- Minimum necessary data briefly sent to trusted AI partners
+- De-identified content data retained maximum 30 days then deleted
+- Incognito mode stores nothing
+
+**Infrastructure:**
+- Role-based production access restrictions
+- Data encrypted at rest and in transit
+- Regular independent security audits and assessments
+
+**Bug Bounty Program:** Operates through HackerOne
+
+## Last Fetched
+2026-03-30

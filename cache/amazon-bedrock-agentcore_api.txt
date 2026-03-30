@@ -1,0 +1,55 @@
+# Amazon Bedrock AgentCore Data Plane - Actions API Reference
+
+## Complete List of Supported Actions (40 total)
+
+### Memory Management Actions
+- **BatchCreateMemoryRecords** - Create multiple memory records in batch
+- **BatchDeleteMemoryRecords** - Delete multiple memory records in batch
+- **BatchUpdateMemoryRecords** - Update multiple memory records in batch
+- **DeleteMemoryRecord** - Delete a single memory record
+- **GetMemoryRecord** - Retrieve a specific memory record
+- **ListMemoryRecords** - List all memory records
+- **RetrieveMemoryRecords** - Retrieve memory records
+- **StartMemoryExtractionJob** - Start a memory extraction job
+- **ListMemoryExtractionJobs** - List memory extraction jobs
+
+### Authentication & Token Actions
+- **CompleteResourceTokenAuth** - Complete resource token authentication
+- **GetResourceApiKey** - Get resource API key
+- **GetResourceOauth2Token** - Get OAuth2 token for a resource
+- **GetWorkloadAccessToken** - Get workload access token
+- **GetWorkloadAccessTokenForJWT** - Get access token using JWT
+- **GetWorkloadAccessTokenForUserId** - Get access token for a user ID
+
+### Event Management Actions
+- **CreateEvent** - Create an event
+- **DeleteEvent** - Delete an event
+- **GetEvent** - Retrieve a specific event
+- **ListEvents** - List all events
+- **ListActors** - List actors
+
+### Browser Session Actions
+- **StartBrowserSession** - Start a browser session
+- **StopBrowserSession** - Stop a browser session
+- **GetBrowserSession** - Get browser session details
+- **ListBrowserSessions** - List all browser sessions
+- **SaveBrowserSessionProfile** - Save browser session profile
+- **UpdateBrowserStream** - Update browser stream
+
+### Code Interpreter Actions
+- **StartCodeInterpreterSession** - Start a code interpreter session
+- **StopCodeInterpreterSession** - Stop a code interpreter session
+- **GetCodeInterpreterSession** - Get code interpreter session details
+- **ListCodeInterpreterSessions** - List all code interpreter sessions
+- **InvokeCodeInterpreter** - Invoke code interpreter
+
+### Runtime & General Actions
+- **InvokeAgentRuntime** - Invoke the agent runtime
+- **InvokeAgentRuntimeCommand** - Invoke agent runtime commands
+- **Evaluate** - Evaluate an expression or condition
+- **GetAgentCard** - Get agent card information
+- **ListSessions** - List all sessions
+- **StopRuntimeSession** - Stop a runtime session
+
+## Note
+Last fetched: 2026-03-30. No new API actions detected from previous scan.

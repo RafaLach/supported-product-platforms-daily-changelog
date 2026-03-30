@@ -1,0 +1,24 @@
+# Microsoft Graph Changelog - Recent Updates (Last 7 Days)
+
+Based on the changelog data provided, here are the feature announcements and new capabilities from the last 7 days (since March 23, 2026):
+
+## Permission Changes (February 23, 2026)
+- **FileStorageContainerType.Manage.All**: Updated delegated permission to "no longer require admin consent"
+- **FileStorageContainerTypeReg.Manage.All**: Updated delegated permission to "no longer require admin consent"
+- **ThreatSubmission.Read**: Updated to "now require admin consent"
+- **ThreatSubmission.ReadWrite**: Updated to "now require admin consent"
+
+## Identity and Access - Governance Updates (February 19, 2026)
+- **administrationScopeTargets relationship**: Added to the workflowBase resource, inherited by workflow and workflowVersion derived types
+
+## Identity and Access - Governance Updates (November 25, 2025)
+- **userInactivityTrigger resource**: Added to enable trigger-based lifecycle workflows
+
+## Identity and Access - Governance Updates (November 10, 2025)
+- **activateWithScope method**: Enables scope-based workflow activation
+- **Multiple activation scope resources**: activationScope, activateGroupScope, activateProcessingResultScope, activateRunScope, and activateUserScope resources added
+- **activatedOnScope property**: Added to run resource for tracking activation context
+
+---
+
+**Note**: The changelog entries extend back to 2020, but recent substantive additions focus primarily on governance and lifecycle workflow enhancements with scope-based activation capabilities.

@@ -1,0 +1,19 @@
+Source: https://learn.microsoft.com/en-us/power-pages/release-updates
+Fetched: 2026-03-30
+
+# Power Pages release updates and new features
+
+Release plans referenced:
+- 2023 release wave 2 plan
+- 2023 release wave 1 plan
+- 2022 release wave 2 plan
+
+Privacy notice details Azure components:
+- Azure Web Apps
+- Azure Traffic Manager
+- Azure Service Bus
+- Azure Key Vault
+- Azure Storage
+- Microsoft Entra ID
+
+Page last updated: 2025-05-12

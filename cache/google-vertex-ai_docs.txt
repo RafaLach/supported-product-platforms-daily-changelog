@@ -1,0 +1,19 @@
+# Vertex AI Documentation
+
+## Overview
+"Vertex AI is a machine learning (ML) platform that lets you train and deploy ML models and AI applications"
+
+## Core Capabilities
+- Gemini (multimodal generative AI model)
+- Generative AI access and Model Garden
+- Model training and MLOps tools
+
+## Major Product Categories
+- Vertex AI Training (serverless, clusters, Ray integration)
+- AutoML for tabular and image data
+- Inference and deployment tools
+- Feature Store and Model Registry
+- Pipelines and experiments
+
+## Last Fetched
+2026-03-30

@@ -1,0 +1,29 @@
+Source: https://learn.microsoft.com/en-us/power-automate/
+Fetched: 2026-03-30
+
+# Microsoft Power Automate documentation
+
+Discover how to make the most of Power Automate with online training courses, docs, and videos covering product capabilities and how-to articles.
+
+## Key capabilities listed:
+- Create automated flows
+- Create scheduled flows
+- Create desktop flows
+- AI copilot capabilities (Copilot in cloud flows, Process Mining, desktop flows)
+- Process mining capability
+- Use solutions to distribute flows
+- Integrate with Teams, SharePoint, Email
+- Use Dataverse (Add/Delete rows, Upload/Download files and images)
+- Use flows with Teams, SharePoint, Email, Forms, Approvals
+- Business process flows
+- Enterprise developer, ISV, and partner guide
+- Custom connectors
+- Desktop flow public APIs
+- Data loss prevention policies
+
+## Sections:
+- Create and design
+- Administer and extend
+- Use
+
+Page last updated: 2025-07-11
