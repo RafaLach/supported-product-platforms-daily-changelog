@@ -1,6 +1,6 @@
 # Amazon Bedrock AgentCore Data Plane - Actions API Reference
 
-## Complete List of Supported Actions (40 total)
+## Complete List of Supported Actions (43 total per live page)
 
 ### Memory Management Actions
 - **BatchCreateMemoryRecords** - Create multiple memory records in batch
@@ -52,4 +52,4 @@
 - **StopRuntimeSession** - Stop a runtime session
 
 ## Note
-Last fetched: 2026-03-30. No new API actions detected from previous scan.
+Last fetched: 2026-03-31. Live page reports 43 actions (vs 40 previously noted); substantive API action set unchanged. No new API actions detected.

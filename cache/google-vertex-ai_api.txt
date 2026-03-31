@@ -15,5 +15,35 @@ Reference index/navigation page for Vertex AI APIs. Contains no dated changelog 
 - RAG (Retrieval-Augmented Generation) operations
 - Reasoning engines
 
+## Additional Resources (refreshed 2026-03-31)
+- Batch Prediction Jobs
+- Cached Contents
+- Custom Jobs
+- Datasets & Data Items
+- Deployment Resource Pools
+- Endpoints (predict, explain, deploy models)
+- Feature Groups & Feature Online Stores
+- Hyperparameter Tuning Jobs
+- Index Endpoints & Indexes
+- Metadata Stores
+- Model Deployment Monitoring
+- Models & Model Evaluations
+- Notebook Execution & Runtime Management
+- Pipeline Jobs
+- RAG Corpora & RAG Files
+- Reasoning Engines
+- Schedules
+- Studies & Trials
+- Tensorboards
+- Training Pipelines
+- Tuning Jobs
+- serverStreamingPredict and streamRawPredict operations
+- directPredict, directRawPredict methods
+- Long-running operations management
+- IAM policy controls (getIamPolicy, setIamPolicy, testIamPermissions)
+- Synthetic data generation
+- Context retrieval and augmentation
+- Token counting for language models
+
 ## Last Fetched
-2026-03-30
+2026-03-31

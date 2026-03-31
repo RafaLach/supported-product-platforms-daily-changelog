@@ -11,6 +11,7 @@
 ### 2. Chat Completions API (OpenAI Compatible)
 ### 3. Invoke API (Boto3)
 ### 4. Converse API (Boto3)
+### 5. Projects API (OpenAI Compatible, via Mantle inference engine)
 
 ---
 
@@ -60,4 +61,4 @@
 4. **Flexible APIs** - Multiple API options (OpenAI-compatible, Boto3, custom)
 
 ## Note
-Last fetched: 2026-03-30. No changes detected from previous scan.
+Last fetched: 2026-03-31. No changes detected from previous scan.

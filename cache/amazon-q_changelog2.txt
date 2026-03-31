@@ -13,6 +13,48 @@
 | **Private Amazon S3 buckets for web customization artifacts** | Save customizations in private S3 buckets | March 18, 2025 |
 | **Amazon Q Business integration for Microsoft Word** | Add-in for Microsoft Word integration | February 27, 2025 |
 | **Amazon Q Business integration for Microsoft Outlook** | Add-in for Microsoft Outlook integration | February 27, 2025 |
+| **Chat orchestration controls** | Admin controls for chat orchestration | February 4, 2025 |
+| **Amazon Kendra GenAI Enterprise Edition support** | New retriever option | December 4, 2024 |
+| **Q Apps plugins support** | Plugin support in Q Apps | December 3, 2024 |
+| **QBusinessQuicksightPluginPolicy managed policy** | New IAM managed policy | December 3, 2024 |
+| **Quick plugin** | Insights from structured data | December 3, 2024 |
+| **Updated plugins experience** | Plugin UX improvements | December 3, 2024 |
+| **Amazon QuickSight integration** | QuickSight plugin integration | December 3, 2024 |
+| **Visual theme customization** | UI customization options | December 3, 2024 |
+| **Data Accessors feature** | Cross-app data sharing | December 3, 2024 |
+| **Amazon Q index for ISVs** | Index for software providers | December 3, 2024 |
+| **Slack integration** | Q Business in Slack | December 1, 2024 |
+| **Microsoft Teams integration** | Q Business in Microsoft Teams | December 1, 2024 |
+| **Embedded visual content extraction** | Extract visuals from documents | December 1, 2024 |
+| **Data collection in Q Apps** | Collect data in Q Apps | November 26, 2024 |
+| **Browser extensions** | Browser extension support | November 22, 2024 |
+| **Smartsheet connector** | New data source connector | November 21, 2024 |
+| **Recent file support** | Access recently used files | November 21, 2024 |
+| **Cross-region inference** | Run inference across regions | November 19, 2024 |
+| **Custom labels for Q Apps** | Label management for Q Apps | November 7, 2024 |
+| **Service-linked role support for Q Apps** | IAM service-linked roles | October 22, 2024 |
+| **Q App Analytics dashboard** | Analytics and monitoring | October 22, 2024 |
+| **QAppsServiceRolePolicy managed policy** | New IAM managed policy | October 22, 2024 |
+| **CloudWatch Logs integration for conversations** | Conversation logging | October 22, 2024 |
+| **CloudWatch metrics for Q Apps** | Metrics and monitoring | October 22, 2024 |
+| **Amazon Q embedded** | Embed Q Business in websites | October 15, 2024 |
+| **App verification feature** | Admin verification for Q Apps | September 10, 2024 |
+| **IAM Federation support** | Federation-based access | August 22, 2024 |
+| **Cross-region IAM Identity Center support** | Multi-region IAM Identity Center | July 25, 2024 |
+| **New CloudWatch chat metrics** | Additional chat monitoring metrics | July 24, 2024 |
+| **Q Apps General Availability (GA)** | Q Apps officially released | July 10, 2024 |
+| **Personalized chat responses** | Personalization for chat | July 5, 2024 |
+| **Scanned PDF support** | Support for scanned PDF documents | July 2, 2024 |
+| **Service-linked role support** | IAM service-linked role support | April 30, 2024 |
+| **Q Apps Preview release** | Initial Q Apps preview | April 30, 2024 |
+| **SAML 2.0 to IAM Identity Center migration** | Migration tooling | April 30, 2024 |
+| **Custom plugins support** | Custom plugin framework | April 30, 2024 |
+| **Streaming chat API** | Real-time streaming API | April 30, 2024 |
+| **Amazon Q Business GA** | General availability release | April 30, 2024 |
+| **IAM Identity Center integration** | Identity Center support | April 16, 2024 |
+| **Admin controls and guardrails** | Administrative features | April 16, 2024 |
+| **Metadata boosting** | Document attribute boosting | February 14, 2024 |
+| **Initial preview release** | First public preview | November 28, 2023 |
 
 ## Note
-Last fetched: 2026-03-30. No new entries since August 14, 2025.
+Last fetched: 2026-03-31. No new entries since August 14, 2025.

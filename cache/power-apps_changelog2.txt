@@ -1,31 +1,34 @@
 Released Versions Power Apps
 
-Latest version availability (as of 2026-03-25):
+Latest version availability (as of 2026-03-31):
 
 | Region | Unified Interface | Power Apps Studio/Mobile | Make.PowerApps.com |
-| Preview (United States) | 9.2 25084 | 3.26034 | 26033 |
-| Canada | 9.2 25083 | 3.26033 | 26032 |
-| India | 9.2 25083 | 3.26033 | 26032 |
-| South America | 9.2 25083 | 3.26033 | 26032 |
-| Japan | 9.2 25082 | 3.26033 | 26032 |
-| Asia Pacific | 9.2 25082 | 3.26033 | 26032 |
-| Australia | 9.2 25082 | 3.26033 | 26032 |
-| United Kingdom | 9.2 25082 | 3.26033 | 26032 |
-| Europe | 9.2 25081 | 3.26033 | 26032 |
-| United States | 9.2 25074 | 3.26032 | 26032 |
-| US Government (GCC) | 9.2 25073 | 3.26032 | 26032 |
+| Preview (United States) | 9.2 25084 | 3.26035 | 26033 |
+| Canada | 9.2 25083 | 3.26034 | 26032 |
+| India | 9.2 25083 | 3.26034 | 26032 |
+| South America | 9.2 25083 | 3.26034 | 26032 |
+| Japan | 9.2 25082 | 3.26034 | 26032 |
+| Asia Pacific | 9.2 25082 | 3.26034 | 26032 |
+| Australia | 9.2 25082 | 3.26034 | 26032 |
+| United Kingdom | 9.2 25082 | 3.26034 | 26032 |
+| Europe | 9.2 25081 | 3.26034 | 26032 |
+| United States | 9.2 25074 | 3.26033 | 26032 |
+| US Government (GCC) | 9.2 25073 | 3.26033 | 26032 |
 
-Recent Power Apps Studio/Mobile versions:
-- 3.26034: Mar 23, 2026
-- 3.26031: Mar 02, 2026
-- 3.26024: Feb 23, 2026
-- 3.26022: Feb 05, 2026
+Recent Power Apps Studio/Mobile versions (2026):
+- 3.26035: Mar 30, 2026 (NEW - first available, worldwide Apr 20, 2026)
+- 3.26034: Mar 23, 2026 (worldwide Apr 14, 2026)
+- 3.26031: Mar 02, 2026 (worldwide Mar 23, 2026)
+- 3.26024: Feb 23, 2026 (worldwide Mar 16, 2026)
+- 3.26023: Train cancelled (Winter Olympics/Super Bowl/Lunar New Year)
+- 3.26022: Feb 05, 2026 (worldwide Mar 03, 2026)
+- 3.26021: Train cancelled after S1
 - 3.26014: Jan 26, 2026
 - 3.26013: Jan 20, 2026
 - 3.26012: Jan 12, 2026
 - 3.26011: Jan 05, 2026
 
-Recent Make.PowerApps.com versions:
+Recent Make.PowerApps.com versions (2026):
 - 26033: Mar 25, 2026
 - 26032: Mar 18, 2026
 - 26023: Feb 25, 2026
@@ -35,4 +38,5 @@ Recent Make.PowerApps.com versions:
 - 26012: Jan 14, 2026
 - 26011: Jan 07, 2026
 
-Updated: 2026-03-30
+Page last updated: 2026-03-30
+Updated: 2026-03-31

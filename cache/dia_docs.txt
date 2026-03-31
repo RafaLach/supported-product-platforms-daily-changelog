@@ -18,20 +18,22 @@
 - Critical patches deployed within 48 hours of Google release
 - Disabled Google Accounts Integration (GAIA)
 - Disabled Google metrics (UMA) reporting
-- Built-in ad-blocker (configurable via Settings > Privacy)
 
 **Data Protection:**
 - Conversations and files stored locally encrypted on device
 - Minimum necessary data briefly sent to trusted AI partners
 - De-identified content data retained maximum 30 days then deleted
 - Incognito mode stores nothing
+- AI partners prohibited from training on or retaining user data
 
 **Infrastructure:**
 - Role-based production access restrictions
 - Data encrypted at rest and in transit
 - Regular independent security audits and assessments
+- Annual full-scope audits with independent firms; point-in-time reviews for new/high-risk features
+- Security Bulletins published for notable findings
 
-**Bug Bounty Program:** Operates through HackerOne
+**Bug Bounty Program:** Operates through HackerOne (https://hackerone.com/bcny)
 
 ## Last Fetched
-2026-03-30
+2026-03-31 - No changes detected from previous fetch.

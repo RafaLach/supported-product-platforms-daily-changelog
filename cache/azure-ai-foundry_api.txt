@@ -17,13 +17,24 @@ Core Endpoints:
 - Image Generation: POST /openai/deployments/{deployment-id}/images/generations (DALL-E, quality standard/hd, style vivid/natural)
 
 Chat Extensions (On Your Data):
-- Azure Search (vector, semantic, hybrid query types, field mapping, strictness)
+- Azure Search (vector, semantic, hybrid query types, field mapping, strictness, top_n_documents)
 - Azure Cosmos DB (MongoDB vCore, vector search, embedding dependency)
 
-Authentication: API Key (api-key header), Microsoft Entra ID (Bearer token)
+Authentication: API Key (api-key header), Microsoft Entra ID (Bearer token), system/user-assigned managed identities
 
-Content Filtering: Sexual, Violence, Hate, Self-harm, Profanity, Jailbreak, Protected material (text/code)
+Content Filtering: Sexual, Violence, Hate, Self-harm, Profanity, Jailbreak, Protected material (text/code with citations)
+- Severity levels: safe, low, medium, high
+- Custom blocklist support
 
-Advanced Features: Parallel tool calls, Structured outputs (JSON Schema), Seed parameter (Beta), Log probabilities, Response streaming (SSE)
+Advanced Features:
+- Parallel tool calls (up to 128 functions, enabled by default)
+- Structured outputs (JSON Schema) — compatible with GPT-4o, GPT-4o mini, GPT-4 Turbo, GPT-3.5 Turbo 1106+
+- Seed parameter (Beta) for deterministic outputs
+- Log probabilities (logprobs + top_logprobs)
+- Response streaming (SSE, data: [DONE] delimiter)
+- Vision support (image URL with detail: auto/low/high)
+- max_completion_tokens (replaces max_tokens for newer models)
+- system_fingerprint for backend reproducibility
+- logit_bias for token-level probability modification
 
-Updated: 2026-03-30
+Updated: 2026-03-31

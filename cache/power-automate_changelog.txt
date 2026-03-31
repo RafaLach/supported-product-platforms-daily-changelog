@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/power-automate/whats-new
-Fetched: 2026-03-30
+Fetched: 2026-03-31
 
 # What's new in Power Automate
 

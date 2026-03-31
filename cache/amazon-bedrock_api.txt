@@ -32,4 +32,4 @@ C++, Go, Java, JavaScript, Kotlin, .NET, PHP, Python (Boto3), Ruby, Rust, SAP AB
 - Amazon Bedrock Agents Runtime CLI commands
 
 ## Note
-Last fetched: 2026-03-30. Static reference page, no changes detected.
+Last fetched: 2026-03-31. Static reference page, no changes detected.

@@ -15,4 +15,4 @@ This is the document history for the Amazon Q Developer User Guide, tracking all
 | **January 13, 2026** | Removed deprecated GitLab quick actions (`/q dev (revise)` and `/q test` unit test generation) |
 
 ## Note
-Last fetched: 2026-03-30. No new entries since March 19, 2026.
+Last fetched: 2026-03-31. No new entries since March 19, 2026.

@@ -15,5 +15,22 @@
 - Feature Store and Model Registry
 - Pipelines and experiments
 
+## Additional Components (refreshed 2026-03-31)
+- Vector Search (versions 1.0 and 2.0)
+- Neural Architecture Search
+- Ray on Vertex AI
+- Dedicated/private endpoints
+- Private Service Connect (PSC)
+- Vertex AI Workbench
+- Colab Enterprise
+- Jupyter notebooks
+- BigQuery integration
+- Cloud Storage connectivity
+- Data labeling services
+- Model Monitoring
+- Explainable AI (interpretability — deprecated March 2026)
+- TensorBoard (performance tracking)
+- Vertex AI Experiments
+
 ## Last Fetched
-2026-03-30
+2026-03-31
