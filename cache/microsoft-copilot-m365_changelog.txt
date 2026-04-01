@@ -22,3 +22,5 @@ Based on the changelog data provided, here are the feature announcements and new
 ---
 
 **Note**: The changelog entries extend back to 2020, but recent substantive additions focus primarily on governance and lifecycle workflow enhancements with scope-based activation capabilities.
+
+Updated: 2026-04-01

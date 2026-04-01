@@ -1,4 +1,9 @@
-# OpenAI Status - March 2026
+# OpenAI Status - March/April 2026
+
+## March 31: ChatGPT Enterprise/Edu SSO Issues
+- Elevated failures for some users joining ChatGPT Enterprise and ChatGPT Edu workspaces via SSO
+- Login component experienced issues affecting workspace access through single sign-on
+- Status: Resolved
 
 ## March 29: Account Creation and Login Instability
 - Account creation and login are unstable across all surfaces
@@ -20,4 +25,4 @@
 
 All incidents resolved with full service recovery.
 
-Updated: 2026-03-31
+Updated: 2026-04-01

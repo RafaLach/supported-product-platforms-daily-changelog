@@ -37,17 +37,18 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - GPT-5.4-mini - Billing charged per 1M token group rather than 10M token group
 - GPT-5.3-Codex - Subject of credit-wasting complaints
 - GPT-5.2 - LogProbs support reportedly removed
-- GPT-Realtime 1.5 - Voice expressiveness and accent quality regressions noted
+- GPT-Realtime 1.5 - Voice expressiveness and accent quality regressions noted (March 31, 2026)
 - Sora - Video generation tool with access proposals discussed
 - Codex App (Windows) - IDE tool with file deletion bugs and submodule commit features requested
 - Atlas Browser - Feature request collection thread active
 - Beetroot - Windows clipboard manager with integrated OpenAI text transforms
 - Claude Code - New Codex Plugin introduced
 - Realtime API - WebSocket implementation lacking proper CLOSE frame handling
-- Costs API - Pagination issues with invalid page tokens
+- Costs API - Pagination issues with invalid page tokens (March 31, 2026)
 - Fine-tuning - Jobs stuck in queued state reported
 - MCP Connectors - Custom connectors showing disabled tools issue
-- ChatGPT Apps SDK - Widget URI versioning and app submission concerns
+- ChatGPT Apps SDK - Widget URI versioning and app submission concerns; new full screen modal opening on mobile (March 31, 2026)
+- Community-developed MCP Server connecting ChatGPT, Claude, Gemini & Perplexity to AI coding tools (March 31, 2026)
 
 ## Notable Issues & Bug Reports
 
@@ -89,4 +90,4 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - User reputation system (Original Poster, Frequent Poster designations)
 - Discourse-powered infrastructure
 
-Updated: 2026-03-31
+Updated: 2026-04-01

@@ -33,4 +33,4 @@
 - Virtual Try-On model promoted to GA with new `virtual-try-on-001` endpoint
 
 ## Last Fetched
-2026-03-31
+2026-04-01

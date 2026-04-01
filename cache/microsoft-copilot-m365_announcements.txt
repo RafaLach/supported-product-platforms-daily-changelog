@@ -50,3 +50,5 @@ You can provide feedback about Microsoft 365 Copilot on behalf of your users wit
 ### AI Administrator role in Microsoft 365 admin center
 
 The AI administrator role is designed to manage all settings related to Copilot within the Microsoft 365 admin center.
+
+Updated: 2026-04-01

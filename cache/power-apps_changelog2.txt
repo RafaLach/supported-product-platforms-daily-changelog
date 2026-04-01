@@ -1,6 +1,6 @@
 Released Versions Power Apps
 
-Latest version availability (as of 2026-03-31):
+Latest version availability (as of 2026-04-01):
 
 | Region | Unified Interface | Power Apps Studio/Mobile | Make.PowerApps.com |
 | Preview (United States) | 9.2 25084 | 3.26035 | 26033 |
@@ -39,4 +39,4 @@ Recent Make.PowerApps.com versions (2026):
 - 26011: Jan 07, 2026
 
 Page last updated: 2026-03-30
-Updated: 2026-03-31
+Updated: 2026-04-01

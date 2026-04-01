@@ -41,4 +41,4 @@
 **v6.24.0** (February 24, 2026)
 - New models gpt-realtime-1.5 and gpt-audio-1.5 added to realtime functionality
 
-Updated: 2026-03-31
+Updated: 2026-04-01

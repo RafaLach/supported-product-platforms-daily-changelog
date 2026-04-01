@@ -22,6 +22,7 @@
 
 | Date | Category | Title |
 |------|----------|-------|
+| Mar 31, 2026 | Announcements | Australian Government and Anthropic Sign MOU for AI Safety and Research |
 | Mar 18, 2026 | Research | "What 81,000 people want from AI" |
 | Mar 12, 2026 | Announcements | Anthropic invests $100 million into Claude Partner Network |
 | Mar 11, 2026 | Announcements | Introducing The Anthropic Institute |
@@ -82,4 +83,4 @@
 - Available in multiple countries
 - HIPAA-ready infrastructure for healthcare
 
-Updated: 2026-03-31
+Updated: 2026-04-01

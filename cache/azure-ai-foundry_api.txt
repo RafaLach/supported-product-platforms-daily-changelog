@@ -37,4 +37,6 @@ Advanced Features:
 - system_fingerprint for backend reproducibility
 - logit_bias for token-level probability modification
 
-Updated: 2026-03-31
+Note: New preview inference API available — see API lifecycle guide for details.
+
+Updated: 2026-04-01

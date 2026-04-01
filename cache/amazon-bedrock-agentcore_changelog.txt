@@ -37,4 +37,4 @@
 - Initial release (preview) - First release of Amazon Bedrock AgentCore Developer Guide
 
 ## Note
-Last fetched: 2026-03-31. No new entries since December 2, 2025.
+Last fetched: 2026-04-01. No new entries since December 2, 2025.

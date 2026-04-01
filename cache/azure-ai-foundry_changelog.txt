@@ -69,4 +69,4 @@ December 2024:
 - GPT-4o 2024-11-20 global standard deployment
 - Data zone provisioned deployment type
 
-Updated: 2026-03-31
+Updated: 2026-04-01

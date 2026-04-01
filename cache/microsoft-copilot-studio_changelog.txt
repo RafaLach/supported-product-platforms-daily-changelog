@@ -88,3 +88,5 @@
 - (Preview) Generative orchestration available for all supported languages.
 - Redesigned Channels page.
 - (US-only preview) GPT-4.1 mini experimental response model.
+
+Updated: 2026-04-01

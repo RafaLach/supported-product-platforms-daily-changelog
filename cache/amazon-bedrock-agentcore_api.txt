@@ -52,4 +52,4 @@
 - **StopRuntimeSession** - Stop a runtime session
 
 ## Note
-Last fetched: 2026-03-31. Live page reports 43 actions (vs 40 previously noted); substantive API action set unchanged. No new API actions detected.
+Last fetched: 2026-04-01. Live page reports 43 actions (vs 40 previously noted); substantive API action set unchanged. No new API actions detected.

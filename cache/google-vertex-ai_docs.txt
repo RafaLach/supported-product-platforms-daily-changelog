@@ -15,7 +15,7 @@
 - Feature Store and Model Registry
 - Pipelines and experiments
 
-## Additional Components (refreshed 2026-03-31)
+## Additional Components (refreshed 2026-04-01)
 - Vector Search (versions 1.0 and 2.0)
 - Neural Architecture Search
 - Ray on Vertex AI
@@ -33,4 +33,4 @@
 - Vertex AI Experiments
 
 ## Last Fetched
-2026-03-31
+2026-04-01
