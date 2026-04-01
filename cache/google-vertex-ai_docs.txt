@@ -31,6 +31,11 @@
 - Explainable AI (interpretability — deprecated March 2026)
 - TensorBoard (performance tracking)
 - Vertex AI Experiments
+- Deep Learning Containers
+- Custom training pipelines
+- Hyperparameter tuning
+- Distributed training
+- Model co-hosting
 
 ## Last Fetched
 2026-04-01

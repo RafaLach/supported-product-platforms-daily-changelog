@@ -4,6 +4,8 @@ Learn how to build custom Copilot experiences by using Microsoft 365 extensibili
 
 ## Get started with Copilot extensibility
 
+### Get started
+
 - Overview
 - Planning guide
 - Licensing and cost considerations

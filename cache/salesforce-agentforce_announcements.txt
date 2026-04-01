@@ -1,7 +1,7 @@
 # Salesforce Releases Page
 
 ## Note
-Fetch on 2026-03-31 returned HTTP 403 error. Cache content preserved from 2026-03-25.
+Fetch on 2026-04-01 returned HTTP 403 error. Cache content preserved from 2026-03-25.
 
 ## Content (from 2026-03-25 fetch)
 
@@ -83,4 +83,4 @@ Spring '26 includes innovations for Automotive, Communications, Consumer Goods, 
 - Blog updates on seasonal releases
 
 ## Last Fetched
-2026-03-31 - FAILED (403 error). Cache content preserved from 2026-03-25.
+2026-04-01 - FAILED (403 error). Cache content preserved from 2026-03-25.

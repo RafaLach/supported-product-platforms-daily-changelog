@@ -1,0 +1,39 @@
+# OpenAI Codex Changelog
+
+## Version 0.118.0 (March 31, 2026)
+
+**New Features:**
+- Windows sandbox now enforces proxy-only networking with OS-level egress rules
+- App-server clients support device code flow for ChatGPT sign-in
+- `codex exec` enables prompt-plus-stdin workflow with piped input
+- Custom model providers can fetch and refresh short-lived bearer tokens dynamically
+
+**Bug Fixes:**
+- Project-local `.codex` files protected on first creation
+- Linux sandbox launches more reliable with trusted system `bwrap`
+- App-server TUI regained missing workflows: hook notifications, `/copy`, `/resume`
+- MCP startup more robust with longer startup window
+- Windows `apply_patch` less likely to fail with redundant writable roots
+
+## Version 0.117.0 (March 26, 2026)
+
+**New Features:**
+- Plugins are now a first-class workflow with startup sync and TUI browsing
+- Sub-agents use path-based addresses like `/root/agent_a`
+- `/title` terminal-title picker works in classic and app-server TUI
+- App-server clients support shell commands, filesystem watches, remote websocket connections
+- `view_image` returns image URLs for code mode
+- Prompt history recall works in app-server TUI across sessions
+
+**Bug Fixes:**
+- `tui_app_server` no longer duplicates reasoning summaries or `/review` output
+- ChatGPT login opens local browser, cancels on Ctrl+C
+- Terminal state restored reliably on early exits
+- Linux sandboxed tools more reliable on older distributions
+- Remote multi-agent sessions show agent names instead of IDs
+
+**Chores:**
+- App-server-backed TUI now enabled by default
+- Legacy artifact tool removed; deprecated `read_file` and `grep_files`
+
+Updated: 2026-04-01

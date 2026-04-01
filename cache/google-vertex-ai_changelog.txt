@@ -5,7 +5,7 @@
 
 ## March 24, 2026
 - **Image Generation Endpoint Deprecations**: Multiple Imagen endpoints (versions 3.0 and 4.0) being discontinued June 30, 2026, with migration to `gemini-2.5-flash-image` recommended
-- **Video Generation Endpoint Deprecations**: Veo 3.0 and 2.0 models deprecated, with guidance to migrate to `veo-3.1-generate-001`
+- **Video Generation Endpoint Deprecations**: Veo 3.0 and 2.0 models deprecated, with guidance to migrate to `veo-3.1-generate-001` and `veo-3.1-fast-generate-001`
 
 ## March 16, 2026
 - Vertex Explainable AI marked as deprecated

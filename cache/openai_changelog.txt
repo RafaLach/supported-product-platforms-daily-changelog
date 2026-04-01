@@ -42,4 +42,7 @@
 **v2.20.0** (February 10, 2026)
 - Introduced "support for images in batch api"
 
+## Build/Test Infrastructure
+- Transitioned testing framework from Prism to Steady
+
 Updated: 2026-04-01

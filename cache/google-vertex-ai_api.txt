@@ -6,14 +6,14 @@ Reference index/navigation page for Vertex AI APIs. Contains no dated changelog 
 ## Key API Resources
 - REST API endpoints (v1 and v1beta1 versions)
 - SDK references (Python, Go, Node.js, Java, C#)
-- gcloud CLI references
+- gcloud CLI references (ai and beta ai commands)
 - Resource categories: datasets, models, endpoints, training pipelines, feature stores
 - Model deployment and prediction services
 - Feature management (feature stores, online stores, feature groups)
 - Training and tuning jobs
 - Metadata stores and artifact management
 - RAG (Retrieval-Augmented Generation) operations
-- Reasoning engines
+- Reasoning Engines with Sandbox Environments
 
 ## Additional Resources (refreshed 2026-04-01)
 - Batch Prediction Jobs
@@ -28,17 +28,25 @@ Reference index/navigation page for Vertex AI APIs. Contains no dated changelog 
 - Metadata Stores
 - Model Deployment Monitoring
 - Models & Model Evaluations
+- NAS Jobs and Trial Details
 - Notebook Execution & Runtime Management
+- Persistent Resources
 - Pipeline Jobs
 - RAG Corpora & RAG Files
 - Reasoning Engines
 - Schedules
+- Specialist Pools
 - Studies & Trials
 - Tensorboards
 - Training Pipelines
 - Tuning Jobs
+- Publisher Models (publishers.models with predict and embed methods)
 - serverStreamingPredict and streamRawPredict operations
 - directPredict, directRawPredict methods
+- embedContent for embedding generation
+- retrieveContexts and asyncRetrieveContexts for RAG
+- fetchFeatureValues for feature retrieval
+- searchNearestEntities for vector search
 - Long-running operations management
 - IAM policy controls (getIamPolicy, setIamPolicy, testIamPermissions)
 - Synthetic data generation

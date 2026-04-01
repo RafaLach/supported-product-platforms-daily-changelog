@@ -23,6 +23,16 @@
 - Sync app creation and operation — increased errors and delays in Connectors/Apps
 - Project and File Upload Errors — customers experienced errors creating and updating projects alongside file upload complications
 
+## March 21: Pinned Chats Not Loading
+- Pinned chats are not loading on web browsers for ChatGPT
+- Conversations component affected
+- Status: Resolved
+
+## March 18: Sora Video Generation Failing
+- Sora video generation failing
+- Video generation component affected
+- Status: Resolved
+
 All incidents resolved with full service recovery.
 
 Updated: 2026-04-01

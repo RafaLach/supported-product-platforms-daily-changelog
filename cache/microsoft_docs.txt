@@ -1,34 +1,81 @@
-# Microsoft 365 Copilot extensibility documentation
+# What's new in Copilot Studio
 
-Learn how to build custom Copilot experiences by using Microsoft 365 extensibility options including agents, connectors, and Copilot APIs.
+Page last updated: 2026-03-09
 
-## Get started with Copilot extensibility
+## March 2026
+- (Preview) Use Work IQ tools to connect Microsoft 365 Copilot and agents to the Work IQ service for real-time work insights and context from Microsoft 365 files, emails, meetings, chats, and more.
 
-### Get started
+## February 2026
+- Improved agent responses for ticket-based Microsoft 365 Graph connectors (ServiceNow tickets, Azure DevOps work items).
+- Select Claude Sonnet 4.5 (beta) for Computer Use agents, improving nuanced decision-making.
+- Prompt builder enhancements:
+    - Configure content moderation sensitivity per prompt (hate/fairness, sexual, violence, self-harm).
+    - Optimize prompts with Claude Opus 4.6 or Claude Sonnet 4.5 model selection.
+    - Edit prompt instructions and settings inline in agent tool details.
 
-- Overview
-- Planning guide
-- Licensing and cost considerations
+## January 2026
+- (Preview) Agent evaluations enhancements: thumbs-up/down feedback, activity maps, CSV template for test sets.
+- (Preview) Expanded computer use capabilities: new model support, built-in credentials, enhanced audit logging with session replay, Cloud PC pooling.
+- (GA) Microsoft Copilot Studio extension for Visual Studio Code.
 
-## Create and manage agents
+## December 2025
+- Compare multiple agent versions side by side for evaluation.
 
-- Agents overview
-- Build a declarative agent
-- Build a custom engine agent
-- Manage agents in the Microsoft 365 admin center
+## November 2025
+- GPT-5 Chat GA rollout for European and US regions.
+- (Preview) Automatic Microsoft Entra agent identities.
+- Improved SharePoint-grounded knowledge retrieval with tenant graph grounding.
+- SharePoint metadata filters for knowledge retrieval.
+- Orchestrate multiple agents for complex tasks (including Microsoft Fabric data agents).
+- (Preview) Tool groups for faster agent setup.
+- Copy agents from Microsoft 365 Copilot to Copilot Studio.
+- (Preview) Request for information action for human input in workflows.
+- New 'copilotstudio' namespace for Power Platform API calls.
+- Component collections enhancements (child agents, MCP support).
 
-## Extend with plugins and connectors
+## October 2025
+- GPT-4o retired; GPT-4.1 default model for generative orchestration.
+- Multiple AI model selection for agents.
+- (Preview) GPT-5 models for testing.
+- Copilot Studio Kit suite of tools.
+- (Preview) Themes for grouping user questions.
+- Time and cost savings tracking for agents.
+- Unified activity and transcript view.
+- (Preview) Accelerate flow execution.
+- Model Context Protocol (MCP) server support.
+- (Preview) Agent evaluation with customizable test sets.
 
-- Add plugins to declarative agents
-- Use Copilot connectors
-- Build a custom Copilot connector
+## September 2025
+- (Preview) Computer-Using Agents (CUA) for desktop applications.
+- Client SDK for embedding agents in Android, iOS, Windows apps.
+- (Preview) Upload Excel, CSV, PDF for code interpreter analysis.
 
-## Use developer tools and APIs
+## August 2025
+- (GA) Code interpreter for Python code generation.
+- (GA) File groups for knowledge sources.
+- File and image upload for agent analysis.
+- (GA) Generated answer rate and quality analytics.
+- MCP server connection via guided experience.
 
-- Microsoft 365 Agents Toolkit
-- Microsoft 365 Agents SDK
-- Microsoft 365 Copilot APIs
-- Copilot Studio documentation
-- Microsoft Agent 365 (early access preview)
+## July 2025
+- Advanced NLU customization.
+- Search across agent components.
+- ROI analytics for autonomous agents.
+- Thumbs up/down comments in analytics.
+- (Preview) Microsoft Information Protection (MIP) labels.
+- WhatsApp publishing.
+- (Preview) SSO Consent Card for Entra ID.
 
-Updated: 2026-03-29
+## June 2025
+- Improved tools experience (grouping, filtering, IntelliSense, auto-detection of SSO).
+- (Preview) Microsoft 365 Copilot Tuning for fine-tuned models.
+- Actionable insights for unanswered questions.
+- Knowledge sources analysis for autonomous agents.
+- Power Fx formulas in prompt builder.
+- Regular expression support in Power Fx.
+- (Preview) File groups as knowledge sources.
+- (Preview) Generative orchestration for all supported languages.
+- Redesigned Channels page.
+- (US-only preview) GPT-4.1 mini experimental response model.
+
+Updated: 2026-04-01

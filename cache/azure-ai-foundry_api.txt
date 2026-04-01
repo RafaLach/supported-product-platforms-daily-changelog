@@ -5,8 +5,9 @@ Page last updated: 2026-03-21
 API Versions:
 - Control Plane Latest GA: 2025-06-01
 - Control Plane Latest Preview: 2025-07-01-preview
-- Data Plane GA: 2024-10-21
+- Data Plane GA: v1
 - Data Plane Preview: v1 preview
+- Inference (GA): 2024-10-21
 
 Core Endpoints:
 - Chat Completions: POST /openai/deployments/{deployment-id}/chat/completions (streaming, tool calling, parallel execution, log probs, JSON mode, structured outputs, vision)
@@ -38,5 +39,6 @@ Advanced Features:
 - logit_bias for token-level probability modification
 
 Note: New preview inference API available — see API lifecycle guide for details.
+Note: Data Plane GA version now listed as "v1" (previously "2024-10-21" still listed for inference GA).
 
 Updated: 2026-04-01

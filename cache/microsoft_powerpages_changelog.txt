@@ -1,18 +1,17 @@
-Power Pages release updates and new features
+# Microsoft Copilot Studio Release Notes
 
-Release plans:
-- 2023 release wave 2 plan
-- 2023 release wave 1 plan
-- 2022 release wave 2 plan
+Microsoft Copilot Studio is a tool for creating and maintaining copilots.
 
-Privacy notice: Dynamics 365 data can be exposed through external-facing website.
+Releases happen frequently and this list is updated throughout the month as features reach worldwide availability.
 
-Azure components involved:
-- Azure Web Apps (hosting)
-- Azure Traffic Manager (high availability)
-- Azure Service Bus (cache invalidation)
-- Azure Key Vault (configuration)
-- Azure Storage (data storage)
-- Microsoft Entra ID (authentication)
+## Release timelines
 
-Updated: 2026-03-29
+Worldwide availability releases:
+| Month |
+| --- |
+| September - 2024 |
+| August - 2024 |
+
+Note: The released versions page shows limited recent entries. Detailed release notes are available per-month.
+
+Updated: 2026-04-01
