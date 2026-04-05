@@ -83,4 +83,4 @@
 - Available in multiple countries
 - HIPAA-ready infrastructure for healthcare
 
-Updated: 2026-04-01
+Updated: 2026-04-05

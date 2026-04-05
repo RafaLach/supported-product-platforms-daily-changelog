@@ -58,4 +58,4 @@ Multiple Claude models including:
 - Use-case documentation for design, product management, data science, and sales engineering
 
 ## Last Fetched
-2026-03-31 - No changes detected from previous fetch.
+2026-04-05 - Fetch failed (HTTP 429 rate limit). Content preserved from previous fetch.

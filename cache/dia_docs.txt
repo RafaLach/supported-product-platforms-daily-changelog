@@ -36,4 +36,4 @@
 **Bug Bounty Program:** Operates through HackerOne (https://hackerone.com/bcny)
 
 ## Last Fetched
-2026-03-31 - No changes detected from previous fetch.
+2026-04-05 - No changes detected from previous fetch.

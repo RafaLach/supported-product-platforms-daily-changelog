@@ -1,5 +1,16 @@
 # Dia Browser Release Notes
 
+## April 2026
+
+**v1.25.0** (April 2, 2026)
+- Downloads with Visual Guidance: file downloads animate toward sidebar for clear placement feedback
+- Custom Tab Icons: replace any tab's favicon with an emoji for personalized navigation
+- Split-Screen Multitasking: drag any tab to screen edge for instant side-by-side view
+- Meeting Countdown Animations: smooth transition animations on meeting countdowns
+- Tab Group Naming Animation: rainbow shimmer effect when Dia auto-names tab groups
+- Spotify Integration Visual: animated musical notes around Spotify tab favicon; hover reveals current track
+- Navigation Button Feedback: fluid response animations on navigation buttons
+
 ## March 2026
 
 **v1.24.0** (March 26, 2026)
@@ -19,4 +30,5 @@
 **v1.21.0** (March 5, 2026)
 - "Before you reach for it..."
 
-Updated: 2026-03-31 - No new entries detected beyond what was previously cached.
+## Last Fetched
+2026-04-05

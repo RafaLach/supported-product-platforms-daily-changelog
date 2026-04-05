@@ -1,5 +1,23 @@
 # Cursor Changelog - Feature Announcements
 
+## Apr 2, 2026
+**Cursor 3 Interface Launch**
+- New Agents Window enabling parallel agent execution across local, cloud, and remote SSH environments
+- Design Mode feature for annotating UI elements directly in browsers with keyboard shortcuts
+- Agent Tabs allowing side-by-side or grid view of multiple chats simultaneously
+
+**Editor Updates:**
+- `/worktree` command for isolated git worktrees
+- `/best-of-n` command for parallel multi-model task execution with outcome comparison
+- Deprecated previous worktree/best-of-n selection; removed cloud agents from Editor
+
+**Infrastructure & Quality:**
+- MCP Apps now support structured content for richer tool outputs
+- Large-file diff rendering performance improvements
+- New `Await` tool for monitoring long-running jobs and subagents
+- Enhanced browser automation with screenshot-based coordinate clicking fallback
+- 8 bug fixes including text area behavior, hooks loading, markdown parsing, and streaming issues
+
 ## Mar 25, 2026
 **Self-hosted Cloud Agents** - Run Cursor cloud agents entirely within your own network. Offers the same capabilities as Cursor-hosted agents: isolated VMs, full development environments, multi-model harnesses, and plugins. Keeps code and tool execution on-premise.
 
@@ -27,4 +45,4 @@
 **Web Improvements & Fixes** (2 items) - Dashboard enhancements and layout improvements.
 
 ## Last Fetched
-2026-03-31
+2026-04-05

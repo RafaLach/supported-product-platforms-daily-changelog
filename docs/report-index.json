@@ -1,5 +1,94 @@
 [
   {
+    "date": "2026-04-05",
+    "scan_time": "2026-04-05 18:04",
+    "file": "report-2026-04-05.md",
+    "platforms": [
+      {
+        "name": "Google Vertex AI",
+        "status": "changed",
+        "details": [
+          "**RAG Engine Serverless Mode** (April 3, public preview): Fully managed database mode for RAG Engine that abstracts away database provisioning and scaling. Introduces new `RagManagedVertexVectorSearch` vector database type. Supports seamless transition between Serverless and Spanner deployment modes. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/serverless-mode",
+          "**Veo 3.1 Lite** (April 2, public preview): Most cost-efficient Veo video generation model on Vertex AI. Completes the Veo 3.1 family (standard, Fast, Lite) \u2014 all with native audio generation. Source: https://cloud.google.com/blog/products/ai-machine-learning/veo-3-1-lite-and-a-new-veo-upscaling-capability-on-vertex-ai"
+        ],
+        "tier": "secondary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Codex Plugin for Claude Code** (April 4): Official OpenAI MCP integration (`openai/codex-plugin-cc`) that allows Claude Code users to delegate code review, adversarial review, and background tasks to OpenAI Codex. Creates cross-provider data flow via Model Context Protocol. Source: https://github.com/openai/codex-plugin-cc",
+          "**Codex Pay-as-You-Go Team Seats** (April 2): ChatGPT Business and Enterprise workspaces can now add Codex-only seats with usage-based pricing (no fixed seat fee). Introduces a new user seat type within enterprise workspaces. Source: https://openai.com/index/codex-flexible-pricing-for-teams/",
+          "**ChatGPT in Apple CarPlay** (April 4, all plans): Voice-only ChatGPT access via Apple CarPlay on iOS 26.4+. Available on all plans including enterprise. New access surface for enterprise conversations. Source: https://help.openai.com/en/articles/20001153-using-chatgpt-on-carplay"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Cursor",
+        "status": "changed",
+        "details": [
+          "**Cursor 3 Interface** (April 2): Major release introducing three new capabilities:",
+          "**Agents Window**: Standalone workspace for running parallel agents across local, cloud, and remote SSH environments",
+          "**Design Mode**: Annotate and target UI elements directly in browsers for agent feedback",
+          "**Agent Tabs**: Side-by-side or grid view of multiple agent sessions",
+          "New `/worktree` command for isolated git worktrees, `/best-of-n` for parallel multi-model comparison, `Await` tool for monitoring long-running jobs, structured MCP content support",
+          "Source: https://cursor.com/changelog/3-0"
+        ],
+        "tier": "watching"
+      },
+      {
+        "name": "Dia Browser",
+        "status": "changed",
+        "details": [
+          "**v1.25.0** (April 2): Split-screen multitasking (drag tab to screen edge), custom tab icons (emoji favicons), Spotify integration visual (animated notes, hover for current track), download guidance animations. Source: https://diabrowser.com/release-notes"
+        ],
+        "tier": "watching"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "MEDIUM",
+        "title": "Vertex AI RAG Engine Serverless Mode",
+        "description": "New fully managed deployment mode for RAG Engine in public preview. Introduces `RagManagedVertexVectorSearch` as a new vector database entity type. AISPM should discover RAG Engine deployment mode configurations and map Serverless vs Spanner resource types to track which mode tenant data resides in",
+        "source": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/serverless-mode",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Codex Plugin for Claude Code (MCP)",
+        "description": "Official cross-provider MCP integration allowing Claude Code to route code review and task delegation to OpenAI Codex. Creates a new enterprise data flow where source code and review context traverse from Anthropic's agent to OpenAI's Codex. Endpoint monitoring must detect this MCP server installation and flag the cross-provider data exfiltration surface",
+        "source": "https://github.com/openai/codex-plugin-cc",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex Pay-as-You-Go Team Seats",
+        "description": "New Codex-only seat type in ChatGPT Business/Enterprise workspaces with usage-based billing. Introduces a new user entity type (Codex-only member) that may have different permissions and access patterns than standard seats. AISPM inventory should distinguish Codex-only seats from full ChatGPT seats when mapping workspace members",
+        "source": "https://openai.com/index/codex-flexible-pricing-for-teams/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "ChatGPT CarPlay Voice Access",
+        "description": "ChatGPT now accessible via Apple CarPlay on all plans including enterprise. Creates a new unmonitored access surface \u2014 voice conversations in vehicles bypass typical enterprise DLP controls. AIDR should flag CarPlay as an activity source for enterprise session tracking",
+        "source": "https://help.openai.com/en/articles/20001153-using-chatgpt-on-carplay",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Cursor 3 Agents Window and Parallel Execution",
+        "description": "Cursor 3 introduces a fundamentally new agent execution model \u2014 the Agents Window supports parallel agent execution across local, cloud, and remote SSH environments simultaneously. Design Mode adds browser-annotation capabilities. The `/worktree` command creates isolated git worktrees, and the `Await` tool monitors long-running subagents. Endpoint monitoring must account for parallel agent sessions, cloud-local handoff, and the expanded MCP structured content surface",
+        "source": "https://cursor.com/changelog/3-0",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-04-01",
     "scan_time": "2026-04-01 13:26",
     "file": "report-2026-04-01.md",
@@ -255,362 +344,6 @@
         "title": "Claude Code Integration with Microsoft Foundry",
         "description": "New documentation for configuring Claude Code as an AI development tool connected to Microsoft Foundry. This creates a new attack surface where Claude Code agents can interact with Foundry resources, models, and deployed agents. AIRT should test for prompt injection and privilege escalation in Claude Code sessions connected to Foundry",
         "source": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/configure-claude-code",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-03-27",
-    "scan_time": "2026-03-27 12:08",
-    "file": "report-2026-03-27.md",
-    "platforms": [],
-    "findings": []
-  },
-  {
-    "date": "2026-03-26",
-    "scan_time": "2026-03-26 08:28",
-    "file": "report-2026-03-26.md",
-    "platforms": [
-      {
-        "name": "Amazon Bedrock",
-        "status": "changed",
-        "details": [
-          "**New open-weight models available (Feb 2026)**: DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next \u2014 frontier reasoning and agentic coding models. Source: https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models/",
-          "**Claude Opus 4.6 and Claude Sonnet 4.6** now listed as featured/available models on Bedrock. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-          "**Amazon Nova 2** now listed as a featured model. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-          "**Projects API support**: OpenAI-compatible Projects API now supported in Bedrock's Mantle inference engine. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/projects.html",
-          "**Server-side tools in Responses API (Jan 2026)**: Responses API now supports server-side tool execution via OpenAI-compatible endpoints, integrating with AgentCore Gateway tools \u2014 eliminates need for client-side orchestration. Source: https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-server-side-tool-execution-agentcore-gateway/"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "**StopRuntimeSession API**: New API action for stopping a runtime session. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopRuntimeSession.html",
-          "**Google ADK** added as a supported agent framework. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
-          "**OpenAI Agents SDK** added as a supported agent framework. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
-          "**Google Gemini** added as a supported model. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
-          "**A2A (Agent-to-Agent) protocol** now supported. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html",
-          "**Cedar policy language** explicitly supported in the Policy service as an alternative to natural language policies. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy-understanding-cedar.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "changed",
-        "details": [
-          "**GPT-5.4 Pro and GPT-5.4 Thinking models** launched (Mar 25, 2026). Source: https://openai.com/index/introducing-gpt-5-4/",
-          "**Open Responses API** made available to the open-source community (Mar 25, 2026). Source: https://community.openai.com/t/open-responses-for-the-open-source-community/1371770",
-          "**Playwright MCP integration** added to Codex with approval workflow requirement (Mar 25, 2026). Source: https://developers.openai.com/codex/mcp",
-          "**Computer action `keys` field**: New `keys` field added to Click, DoubleClick, Drag, Move, Scroll computer action types in Python SDK v2.30.0 and Node SDK v6.33.0. Source: https://github.com/openai/openai-python/releases"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Google Vertex AI",
-        "status": "changed",
-        "details": [
-          "**Lyria 3 Pro Music Generation \u2014 Public Preview (Mar 25, 2026)**: New music generation model capable of generating full 3-minute tracks with structural awareness (intros, verses, choruses, bridges), upgrading from Lyria 2. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/music/generate-music"
-        ],
-        "tier": "secondary"
-      },
-      {
-        "name": "Cursor",
-        "status": "changed",
-        "details": [
-          "**Self-hosted Cloud Agents (Mar 25, 2026)**: Run Cursor cloud agents entirely within customer's own network \u2014 isolated VMs, full dev environments, multi-model harnesses, and marketplace plugins with full data residency. Source: https://cursor.com/blog/self-hosted-cloud-agents"
-        ],
-        "tier": "watching"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Bedrock AgentCore A2A Protocol Support",
-        "description": "Amazon Bedrock AgentCore now supports the Agent-to-Agent (A2A) protocol, enabling inter-agent communication across frameworks. Creates new entity types: A2A sessions, agent-to-agent message flows, and cross-framework agent connections. AISPM must discover and map A2A-enabled agents and their communication patterns to detect unauthorized inter-agent data flows",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI GPT-5.4 Pro and Thinking Models",
-        "description": "OpenAI launched GPT-5.4 Pro and GPT-5.4 Thinking \u2014 new frontier model variants with 1M token context, Tool Search capability, and enhanced computer use. AISPM must update model inventory to discover enterprise deployments using these models, track which agents and applications reference them, and ensure governance policies cover the expanded reasoning capabilities of the Thinking variant",
-        "source": "https://openai.com/index/introducing-gpt-5-4/",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock Server-Side Tools in Responses API",
-        "description": "Amazon Bedrock's Responses API now supports server-side tool execution via AgentCore Gateway, eliminating client-side orchestration. This shifts tool execution from visible client-side calls to opaque server-side execution. AISPM must discover and inventory server-side tool configurations to ensure tool access permissions are tracked",
-        "source": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-server-side-tool-execution-agentcore-gateway/",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock Projects API (Mantle)",
-        "description": "OpenAI-compatible Projects API now supported in Bedrock's Mantle inference engine. Introduces new organizational entities (projects) that group models, deployments, and API keys with IAM-based access control and cost tagging. AISPM should discover project resources to map ownership and access boundaries",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/projects.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock AgentCore New Framework and Model Support",
-        "description": "AgentCore added Google ADK, OpenAI Agents SDK as supported frameworks and Google Gemini as a supported model. Expands the inventory of agent types that can run on AgentCore \u2014 AISPM must recognize agents built with these frameworks during discovery",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock AgentCore Cedar Policy Language",
-        "description": "AgentCore Policy service now explicitly supports Cedar as a policy definition language alongside natural language. New entity type: Cedar policy documents attached to agents. AISPM should parse and inventory Cedar policies to assess agent permission boundaries",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy-understanding-cedar.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock New Open-Weight Models",
-        "description": "Six new open-weight models added to Bedrock: DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next. AISPM model inventory must be updated to discover and track deployments using these models, especially for compliance with model governance policies",
-        "source": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models/",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Open Responses API",
-        "description": "OpenAI's Responses API is now an open-source specification (backed by Hugging Face) enabling multi-provider interoperability. Enterprises may adopt this as a standard agentic interface across providers. AISPM should monitor for new Responses API-based agent deployments and cross-provider agent configurations",
-        "source": "https://community.openai.com/t/open-responses-for-the-open-source-community/1371770",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock AgentCore StopRuntimeSession API",
-        "description": "New `StopRuntimeSession` API action enables programmatic termination of agent runtime sessions. AIDR should monitor calls to this API as they may indicate incident response actions or unauthorized session terminations",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopRuntimeSession.html",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Computer Use Keys Field Expansion",
-        "description": "OpenAI SDKs (Python v2.30.0, Node v6.33.0) added a `keys` field to all computer action types (Click, DoubleClick, Drag, Move, Scroll), enabling keyboard input during computer use actions. Expands the attack surface for computer-use agents \u2014 AIRT should test for keystroke injection and keyboard-based privilege escalation in computer-use scenarios",
-        "source": "https://github.com/openai/openai-python/releases",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Playwright MCP in Codex",
-        "description": "OpenAI Codex now integrates Playwright MCP with approval workflows. Creates a new browser automation attack surface \u2014 AIRT should test for prompt injection via web content during Playwright-driven browsing sessions",
-        "source": "https://developers.openai.com/codex/mcp",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Cursor Self-Hosted Cloud Agents",
-        "description": "Cursor now supports running cloud agents entirely within customer networks with isolated VMs, full dev environments, and marketplace plugins. Deployed via Helm chart/Kubernetes operator with fleet management API. Introduces on-premise AI agent infrastructure that needs endpoint monitoring \u2014 code execution, tool access, and plugin activity occur within the enterprise perimeter",
-        "source": "https://cursor.com/blog/self-hosted-cloud-agents",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-03-25",
-    "scan_time": "2026-03-25 11:21",
-    "file": "report-2026-03-25.md",
-    "platforms": [
-      {
-        "name": "Azure AI Foundry",
-        "status": "changed",
-        "details": [
-          "**Foundry IQ** \u2014 New service added to Azure AI Foundry documentation hub. Three new entries: \"What is Foundry IQ?\", \"Frequently asked questions\", and \"Connect knowledge base to agents\". Enables knowledge-base-connected AI agents. Source: https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
-          "**Foundry Control Plane** \u2014 New top-level documentation section with entries for managing agents, models, and tools; evaluating agentic workflows; and monitoring generative AI applications. Source: https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview",
-          "**Explore Foundry Models** \u2014 New concept card added to the documentation hub overview. Source: https://learn.microsoft.com/en-us/azure/foundry/",
-          "**Preview Inference API enhancements** \u2014 API reference now documents new preview inference API with monthly cadence, highlighting Structured Outputs (JSON schema via response_format), JSON Mode, and log probabilities parameters. Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "changed",
-        "details": [
-          "**Responses API with background mode** \u2014 New asynchronous file input processing capability for the Responses API (March 25, 2026). Source: https://platform.openai.com/docs/guides/background",
-          "**gpt-realtime-1.5 GA** \u2014 Community confirmation that gpt-realtime-1.5 is now generally available in the Realtime API (March 24, 2026). Source: https://community.openai.com",
-          "**ChatGPT Apps SDK** \u2014 New SDK actively developing with ui/notifications, tool-result handling, and model context update capabilities. Source: https://developers.openai.com/apps-sdk",
-          "**MCP Apps Integration** \u2014 Model Context Protocol apps now integrating with ChatGPT with tool support and notification systems, expanded from previously seen \"MCP Connectors\". Source: https://developers.openai.com/apps-sdk/concepts/mcp-server"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock",
-        "status": "changed",
-        "details": [
-          "**9 new foundation models** \u2014 Claude Sonnet 4.6, Claude Opus 4.6, DeepSeek V3.2, Kimi K2.5 (Moonshot AI), MiniMax M2.1, GLM 4.7 (Zhipu), GLM 4.7 Flash (Zhipu), Qwen3 Coder Next (Alibaba), Nova 2 (Amazon). Source: https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
-          "**3 new model providers** \u2014 Moonshot AI, MiniMax, and Zhipu added as Bedrock providers. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
-          "**OpenAI-compatible Projects API** \u2014 New API support in the Mantle inference engine enabling OpenAI API compatibility. Projects provide application-level isolation for GenAI workloads. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/projects.html",
-          "**Server-side tools in Responses API** \u2014 New tool execution capability using OpenAI API-compatible service endpoints with AgentCore Gateway integration. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "**InvokeAgentRuntimeCommand API** \u2014 New API action for executing shell commands inside running AgentCore Runtime sessions with streaming output. Agents created after March 17, 2026 support this automatically. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-execute-command.html",
-          "**Google ADK and OpenAI Agents SDK** \u2014 Two new agent frameworks added to supported frameworks list. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-          "**A2A (Agent-to-Agent) protocol** \u2014 New inter-agent communication protocol added to supported protocols. Enables agent discovery via Agent Cards and JSON-RPC communication. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a-protocol-contract.html",
-          "**OpenInference protocol** \u2014 New observability protocol added to supported protocols. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
-          "**Google Gemini model provider** \u2014 New model provider added to AgentCore. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Google Vertex AI",
-        "status": "changed",
-        "details": [
-          "**Gemini 3.1 Pro Preview** (Feb 19, 2026) \u2014 Advanced reasoning model with 1M token context window. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-pro",
-          "**GLM 4.7 GA** (Jan 20, 2026) \u2014 New model with complex reasoning and tool use capabilities, now generally available. Source: https://cloud.google.com/vertex-ai/docs/release-notes",
-          "**Gemini CLI Preview** (Jan 16, 2026) \u2014 Open source AI agent for terminal-based interactions with Gemini. Source: https://github.com/google-gemini/gemini-cli"
-        ],
-        "tier": "secondary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Azure Foundry IQ",
-        "description": "New knowledge-base-connected agent service added to Azure AI Foundry. Introduces new inventory entities: Foundry IQ agents, knowledge base connections, and IQ query sessions. AISPM must discover and map these resources and their data flow to knowledge bases",
-        "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Azure Foundry Control Plane",
-        "description": "New centralized management layer for agents, models, and tools in Azure AI Foundry. Includes agentic workflow evaluation and GenAI application monitoring. Creates a new governance surface \u2014 AISPM should inventory Control Plane-managed resources and track agent-model-tool relationships",
-        "source": "https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock \u2014 9 new models & 3 new providers",
-        "description": "Moonshot AI (Kimi K2.5), MiniMax (M2.1), and Zhipu (GLM 4.7/Flash) are entirely new providers. Plus Claude 4.6 variants, DeepSeek V3.2, Qwen3 Coder Next, and Nova 2. AISPM model inventory must be expanded to discover and classify these models and their deployments",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock OpenAI-compatible Projects API",
-        "description": "New API surface in Mantle inference engine provides OpenAI API compatibility. Creates a parallel invocation path that AISPM must discover \u2014 organizations may use this API to invoke Bedrock models without going through the native Bedrock API, bypassing existing monitoring",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/projects.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Bedrock AgentCore \u2014 A2A protocol & new frameworks",
-        "description": "Agent-to-Agent (A2A) protocol enables inter-agent communication, creating new entity relationships. Google ADK and OpenAI Agents SDK are now supported frameworks. AISPM must map A2A connections between agents and discover agents built with these new frameworks",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a-protocol-contract.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock AgentCore \u2014 InvokeAgentRuntimeCommand API",
-        "description": "New runtime API action for executing shell commands inside agent sessions. Extends the existing AgentCore API surface \u2014 AISPM should track calls to this endpoint for agent activity visibility",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-execute-command.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Google Vertex AI \u2014 Gemini 3.1 Pro & GLM 4.7 GA",
-        "description": "New models available in Vertex AI Model Garden. AISPM model inventory for Vertex AI should include these models and track their deployments",
-        "source": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-pro",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Responses API background mode",
-        "description": "New asynchronous processing mode enables long-running file-input operations that execute in the background. AIDR must detect and monitor background response sessions \u2014 these async operations may process sensitive documents without real-time visibility",
-        "source": "https://platform.openai.com/docs/guides/background",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock server-side tools in Responses API",
-        "description": "New tool execution capability via OpenAI-compatible endpoints with AgentCore Gateway. AIDR must monitor server-side tool invocations \u2014 tools executed server-side bypass client-side detection",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock AgentCore OpenInference protocol",
-        "description": "New observability protocol for agent tracing. AIDR can leverage OpenInference traces as a detection data source for monitoring agent behavior",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI ChatGPT Apps SDK",
-        "description": "New SDK for building ChatGPT applications with UI components, notifications, tool-result handling, and model context updates. Creates a new app ecosystem \u2014 ENDPOINT must detect ChatGPT Apps running in enterprise environments and monitor their tool usage and data access",
-        "source": "https://developers.openai.com/apps-sdk",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI MCP Apps Integration",
-        "description": "Model Context Protocol apps now integrate directly into ChatGPT with full tool support. MCP apps can access local tools, files, and services \u2014 ENDPOINT must discover MCP app connections and monitor the tools they expose to ChatGPT",
-        "source": "https://developers.openai.com/apps-sdk/concepts/mcp-server",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Google Gemini CLI",
-        "description": "New open-source terminal AI agent for Gemini interactions. ENDPOINT should detect Gemini CLI installations and monitor terminal-based AI agent activity",
-        "source": "https://github.com/google-gemini/gemini-cli",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI MCP Apps \u2014 tool execution attack surface",
-        "description": "MCP apps connecting external tools to ChatGPT introduce prompt injection vectors through tool descriptions and results. AIRT should test MCP app tool chains for injection vulnerabilities and data exfiltration via tool responses",
-        "source": "https://developers.openai.com/apps-sdk/concepts/mcp-server",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Bedrock A2A protocol \u2014 inter-agent attack surface",
-        "description": "Agent-to-Agent communication creates new prompt injection vectors where a compromised agent could manipulate other agents via A2A messages. AIRT should test A2A chains for cross-agent prompt injection and privilege escalation",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a-protocol-contract.html",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Azure Foundry IQ \u2014 knowledge base poisoning surface",
-        "description": "Foundry IQ connects knowledge bases to agents, creating a data poisoning vector. AIRT should test whether malicious content in knowledge bases can manipulate Foundry IQ agent responses",
-        "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
         "module": "AIRT",
         "action": "New Coverage Required"
       }

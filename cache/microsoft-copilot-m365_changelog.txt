@@ -7,11 +7,11 @@
 - **ThreatSubmission.ReadWrite**: Updated to "now require admin consent"
 
 ## Other Notable Additions
-- **User resource**: Added Microsoft Graph Bicep resource for infrastructure-as-code scenarios (January 30, 2025)
+- **User resource**: Added Microsoft Graph Bicep resource for infrastructure-as-code scenarios (January 30, 2026)
 - **Application resource**: Added Bicep template support (May 21, 2024)
 - **ServicePrincipal resource**: Added Bicep template support (May 21, 2024)
 - **Microsoft Graph activity logs**: Now available in China operated by 21Vianet (December 16, 2024)
 
 **Note**: Limited March-April 2026 entries. Most recent substantive API changes date to February 23, 2026, focusing on permission consent requirement modifications.
 
-Updated: 2026-04-01
+Updated: 2026-04-05

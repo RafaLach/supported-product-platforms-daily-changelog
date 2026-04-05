@@ -15,7 +15,7 @@ Reference index/navigation page for Vertex AI APIs. Contains no dated changelog 
 - RAG (Retrieval-Augmented Generation) operations
 - Reasoning Engines with Sandbox Environments
 
-## Additional Resources (refreshed 2026-04-01)
+## Additional Resources (refreshed 2026-04-05)
 - Batch Prediction Jobs
 - Cached Contents
 - Custom Jobs
@@ -54,4 +54,4 @@ Reference index/navigation page for Vertex AI APIs. Contains no dated changelog 
 - Token counting for language models
 
 ## Last Fetched
-2026-04-01
+2026-04-05

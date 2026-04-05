@@ -1,5 +1,15 @@
 # OpenAI Status - March/April 2026
 
+## April 2: ChatGPT Dictation Elevated Error Rate
+- Voice mode/dictation experienced elevated error rates
+- ChatGPT Dictation recovered to operational status
+- Status: Resolved
+
+## April 2: High Error Rate for Completions API (gpt-5-nano)
+- Chat Completions service experienced high error rate specifically for gpt-5-nano model
+- Service restored to operational status
+- Status: Resolved
+
 ## March 31: ChatGPT Enterprise/Edu SSO Issues
 - Elevated failures for some users joining ChatGPT Enterprise and ChatGPT Edu workspaces via SSO
 - Login component experienced issues affecting workspace access through single sign-on
@@ -35,4 +45,4 @@
 
 All incidents resolved with full service recovery.
 
-Updated: 2026-04-01
+Updated: 2026-04-05

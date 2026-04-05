@@ -18,7 +18,11 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - Commerce integration questions
 - MCP (Model Context Protocol) implementation
 
-## New Models & Features (March 2026)
+## New Models & Features (March-April 2026)
+- ChatGPT in CarPlay for All Plans (April 4, 2026) - Apple CarPlay integration expanded to all ChatGPT subscription tiers
+- Codex Plugin for Claude Code (April 4, 2026) - New plugin bringing Codex capabilities to Claude Code environment
+- Codex Team Licensing Model (April 4, 2026) - "Bring Codex to your team without fixed seat costs" - flexible team deployment
+- April 2026 Community Gallery (April 5, 2026) - Spring/New Beginnings generative art showcase
 - GPT-5.4 Pro and Thinking models released (March 25, 2026) - new model versions with significant community interest
 - Open Responses API for open source community (March 25, 2026) - new API capability for open-source ecosystem
 - GPT-5.4-mini/nano - Newly available models with complimentary daily token allocations
@@ -33,7 +37,7 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - Agent Builder - Platform with guardrails functionality
 - Playwright MCP integration requiring approval workflows in latest Codex update
 
-## Models & Services Discussed (As of March 31, 2026)
+## Models & Services Discussed (As of April 5, 2026)
 - GPT-5.4-mini - Billing charged per 1M token group rather than 10M token group
 - GPT-5.3-Codex - Subject of credit-wasting complaints
 - GPT-5.2 - LogProbs support reportedly removed
@@ -49,6 +53,7 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - MCP Connectors - Custom connectors showing disabled tools issue
 - ChatGPT Apps SDK - Widget URI versioning and app submission concerns; new full screen modal opening on mobile (March 31, 2026)
 - Community-developed MCP Server connecting ChatGPT, Claude, Gemini & Perplexity to AI coding tools (March 31, 2026)
+- Codex rate limiting and usage cap concerns (5-hour limit frustrations)
 
 ## Notable Issues & Bug Reports
 
@@ -90,4 +95,4 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - User reputation system (Original Poster, Frequent Poster designations)
 - Discourse-powered infrastructure
 
-Updated: 2026-04-01
+Updated: 2026-04-05

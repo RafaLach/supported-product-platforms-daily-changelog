@@ -33,4 +33,4 @@ Learn how to build custom Copilot experiences by using Microsoft 365 extensibili
 
 Page last updated: 2026-03-24
 
-Updated: 2026-04-01
+Updated: 2026-04-05

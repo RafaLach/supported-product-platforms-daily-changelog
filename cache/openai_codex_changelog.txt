@@ -36,4 +36,4 @@
 - App-server-backed TUI now enabled by default
 - Legacy artifact tool removed; deprecated `read_file` and `grep_files`
 
-Updated: 2026-04-01
+Updated: 2026-04-05
