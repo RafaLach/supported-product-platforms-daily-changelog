@@ -48,14 +48,6 @@ Multiple Claude models including:
 - Code understanding and navigation
 - Debugging and bug fixing
 - Test generation
-- Documentation writing
-- Code review processes
-- Rapid prototyping
-- Legacy code modernization
-
-## Documentation and Support
-- Industry-specific guides for Python, Java, C#, JavaScript/TypeScript, iOS/Swift, and more
-- Use-case documentation for design, product management, data science, and sales engineering
 
 ## Last Fetched
-2026-04-05 - Fetch failed (HTTP 429 rate limit). Content preserved from previous fetch.
+2026-04-06 - Fetch failed (HTTP 429 rate limit). Content preserved from previous scan.

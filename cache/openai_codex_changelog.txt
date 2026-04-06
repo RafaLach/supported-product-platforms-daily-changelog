@@ -11,29 +11,46 @@
 **Bug Fixes:**
 - Project-local `.codex` files protected on first creation
 - Linux sandbox launches more reliable with trusted system `bwrap`
-- App-server TUI regained missing workflows: hook notifications, `/copy`, `/resume`
-- MCP startup more robust with longer startup window
-- Windows `apply_patch` less likely to fail with redundant writable roots
+- App-server TUI regained missing workflows: hook notifications, `/copy`, `/resume`, `/agent`, and skills picker pagination
+- MCP startup more robust with longer startup window and warning visibility
+- Windows `apply_patch` reduced redundant ACL changes
+
+**Key PRs:** #12220, #15525, #15917, #16286-16288
 
 ## Version 0.117.0 (March 26, 2026)
 
 **New Features:**
 - Plugins are now a first-class workflow with startup sync and TUI browsing
-- Sub-agents use path-based addresses like `/root/agent_a`
+- Sub-agents use path-based addresses like `/root/agent_a` with structured messaging
 - `/title` terminal-title picker works in classic and app-server TUI
-- App-server clients support shell commands, filesystem watches, remote websocket connections
-- `view_image` returns image URLs for code mode
+- App-server clients support shell commands (`!`), filesystem watches, remote websocket with bearer-token auth
+- Image workflows: `view_image` returns URLs for code mode, reopenable generated images, persistent history
 - Prompt history recall works in app-server TUI across sessions
 
 **Bug Fixes:**
-- `tui_app_server` no longer duplicates reasoning summaries or `/review` output
-- ChatGPT login opens local browser, cancels on Ctrl+C
-- Terminal state restored reliably on early exits
-- Linux sandboxed tools more reliable on older distributions
-- Remote multi-agent sessions show agent names instead of IDs
+- `tui_app_server` eliminates reasoning summary duplication and `/review` output duplication
+- ChatGPT login opens local browser, cancels cleanly on Ctrl+C, handles logged-out state
+- Terminal state restoration reliable on early exit; tmux `Shift+Left` editing fixed
+- Linux sandboxing improved for older `bubblewrap`; Windows split-policy carveout layouts enhanced
+- Remote multi-agent sessions display agent names; stale turn-steering races resolved
+- Plugin mentions preserve context; product gating predictability improved
+
+**Documentation:**
+- Expanded app-server and exec-server docs covering setup, filesystem watches, realtime transcription, Python `thread.run()` quickstart
 
 **Chores:**
-- App-server-backed TUI now enabled by default
-- Legacy artifact tool removed; deprecated `read_file` and `grep_files`
+- App-server TUI now enabled by default
+- Plugin/app rollout flags activated in normal builds
+- Legacy artifact tool removed; `read_file` and `grep_files` handlers retired
 
-Updated: 2026-04-05
+**Key PRs:** #15041-15042, #15195, #15215-15217, #15264, #15275, #15342, #15580, #15606, #15802, #15313, #15515, #15556, #15570, #15621, #15647, #12334, #15860
+
+## Key Infrastructure Updates
+- Bazel build improvements and CI stabilization
+- Windows gnullvm CI path enablement
+- Native Bazel aspect migration for linting
+- macOS SDK pin refresh
+- Rust 2024 edition adoption for multiple crates
+- Git utilities consolidated into dedicated crate
+
+Updated: 2026-04-06

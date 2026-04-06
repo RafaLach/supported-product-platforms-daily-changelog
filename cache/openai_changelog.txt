@@ -6,43 +6,58 @@
 - Computer Actions Enhancement: Added "keys field to Click/DoubleClick/Drag/Move/Scroll computer actions"
 - Type System: Made type required in ResponseInputMessageItem; aligned SDK response types with expanded item schemas
 - Fixed endpoint path sanitization
+- Updated testing with steady v0.19.4-0.19.7 versions
+- Migrated from prism to steady testing framework
 
 **v2.29.0** (March 17, 2026)
-- Features include "5.4 nano and mini model slugs," addition of "/v1/videos endpoint to batches create method," "defer_loading field to ToolFunction," and "in and nin operators to ComparisonFilter type"
-- Bug fixes addressed typing-extensions versioning and pydantic by_alias parameter handling
+- Added GPT-5.4 nano and mini model options
+- Added /v1/videos endpoint support for batch operations
+- Introduced defer_loading field to ToolFunction
+- Implemented "in" and "nin" operators for ComparisonFilter
+- Bug fixes: bumped minimum typing-extensions version, fixed Pydantic by_alias parameter handling
 
 **v2.28.0** (March 13, 2026)
-- Introduced custom voices functionality
+- Custom voices implementation for audio capabilities
 
 **v2.27.0** (March 13, 2026)
-- Featured "sora api improvements: character api, video extensions/edits, higher resolution exports"
-- Repaired merged videos resource and included multiple codegen updates
+- Sora API enhancements: character API, video extensions/edits, higher resolution exports
+- API updates and manual refinements
+- Fixed merged videos resource
 
 **v2.26.0** (March 5, 2026)
-- ComputerTool class moved to GA; computer_use_preview transitioned to ComputerUsePreview
+- General availability of ComputerTool class
+- Moved computer_use_preview tool to ComputerUsePreview
 
 **v2.25.0** (March 5, 2026)
-- Added "gpt-5.4, tool search tool, and new computer tool"
-- Removed prompt_cache_key param from responses; adjusted message type phases
+- Released GPT-5.4 model
+- Introduced tool search capability
+- Implemented new computer tool functionality
+- Removed prompt_cache_key parameter from responses
+- Updated phase field handling in message types
 
 **v2.24.0** (February 24, 2026)
-- Introduced phase field functionality with associated bug fixes and documentation
+- Added phase field support
+- Enhanced descriptions for audio, chat, realtime, skills, uploads, and videos methods
+- Updated safety_identifier documentation
+- Added batch size limit specifications
 
 **v2.23.0** (February 24, 2026)
-- Added "gpt-realtime-1.5 and gpt-audio-1.5 model options to realtime calls"
+- Added gpt-realtime-1.5 and gpt-audio-1.5 model options for realtime calls
 
 **v2.22.0** (February 23, 2026)
 - Implemented "websockets for responses api"
-- Enhanced documentation across audio, chat, realtime, skills, uploads, and videos methods
 
 **v2.21.0** (February 13, 2026)
-- Added "container network_policy and skills"
+- Container network_policy implementation
+- Skills integration
 - Resolved memory leak in structured outputs parse methods
+- Preserved method visibility in webhooks for compatibility
 
-**v2.20.0** (February 10, 2026)
-- Introduced "support for images in batch api"
+## Repository Statistics
+- Issues: 176 open
+- Pull Requests: 198 open
 
 ## Build/Test Infrastructure
 - Transitioned testing framework from Prism to Steady
 
-Updated: 2026-04-05
+Updated: 2026-04-06

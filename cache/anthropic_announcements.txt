@@ -1,24 +1,23 @@
 # Anthropic Newsroom - Comprehensive Content Extraction
 
-## Featured Stories (Featured Grid Section)
+## Featured Stories
 
 1. **"What 81,000 people want from AI"** (Mar 18, 2026)
-   - Large multilingual qualitative study of Claude.ai users
-   - Explores how users employ AI, aspirations, and concerns
+   - Largest multilingual qualitative study of Claude.ai users
 
 2. **Introducing Claude Sonnet 4.6** (Feb 17, 2026)
    - "frontier performance across coding, agents, and professional work"
 
 3. **Introducing Claude Opus 4.6** (Feb 5, 2026)
-   - Upgraded smartest model with industry-leading capabilities across agentic coding, computer use, tool use, search, and finance
+   - Industry-leading model for agentic coding, computer use, tool use
 
 4. **Claude is a space to think** (Feb 4, 2026)
-   - Commitment to ad-free service; advertising incentives incompatible with helpful AI
+   - Commitment to ad-free service
 
 5. **Claude on Mars** (Jan 30, 2026)
    - "first AI-assisted drive on another planet" with NASA's Perseverance rover
 
-## Recent News (Publication List - Latest 20+ Items)
+## Recent News
 
 | Date | Category | Title |
 |------|----------|-------|
@@ -37,6 +36,7 @@
 | Feb 20, 2026 | Announcements | Claude Code Security cybersecurity capability preview |
 | Feb 17, 2026 | Announcements | Anthropic and Infosys collaborate on AI agents for telecoms |
 | Feb 17, 2026 | Announcements | Introducing Claude Sonnet 4.6 |
+| Feb 17, 2026 | Announcements | Rwanda government MOU for health and education |
 | Feb 16, 2026 | Announcements | Bengaluru office opens with partnerships across India |
 | Feb 13, 2026 | Announcements | CodePath partnership for US collegiate computer science |
 | Feb 13, 2026 | Announcements | Chris Liddell appointed to Anthropic board |
@@ -45,7 +45,10 @@
 | Feb 11, 2026 | Policy | Covering electricity cost increases from data centers |
 | Feb 5, 2026 | Announcements | Introducing Claude Opus 4.6 |
 | Feb 4, 2026 | Announcements | Claude is a space to think (ad-free commitment) |
+| Feb 2, 2026 | Announcements | Allen Institute and Howard Hughes Medical Institute partnership |
 | Jan 30, 2026 | Announcements | Claude on Mars (NASA Perseverance rover AI-assisted drive) |
+| Jan 28, 2026 | Announcements | ServiceNow integration |
+| Jan 27, 2026 | Announcements | UK Government partnership for GOV.UK services |
 | Jan 22, 2026 | Announcements | Claude's new constitution |
 | Jan 21, 2026 | Announcements | Mariano-Florentino Cuéllar appointed to Long-Term Benefit Trust |
 | Jan 21, 2026 | Announcements | Teach For All partnership for global AI educator training |
@@ -53,34 +56,22 @@
 | Jan 15, 2026 | Case Study | Scientists using Claude to accelerate research |
 | Jan 15, 2026 | Economic Research | Anthropic Economic Index report: economic primitives |
 | Jan 13, 2026 | Announcements | Introducing Labs |
-| Jan 11, 2026 | Announcements | Claude healthcare and life sciences advancements |
+| Jan 11, 2026 | Announcements | Claude healthcare and life sciences advancements (HIPAA infrastructure) |
 | Dec 19, 2025 | Policy | Compliance framework for California's SB53 |
 | Dec 18, 2025 | Announcements | US Department of Energy partnership for scientific discovery |
 | Dec 9, 2025 | Announcements | Donated Model Context Protocol; Agentic AI Foundation |
 | Dec 9, 2025 | Announcements | Accenture multi-year partnership for AI production |
-| Dec 3, 2025 | Announcements | Snowflake-Anthropic expanded partnership |
+| Dec 3, 2025 | Announcements | Snowflake-Anthropic $200M expanded partnership |
 
-## Newsroom Contact Information
+## Key Products & Services
 
-- **Press inquiries**: press@anthropic.com
-- **Non-media inquiries**: support@anthropic.com
-- **Media assets**: Download press kit available
-
-## Key Company Products & Services
-
-**Claude Models**: Opus, Sonnet, Haiku
-
-**Claude Platform Solutions**: AI agents, Code Security, code modernization, coding, customer support, education, financial services, government, healthcare, life sciences, nonprofits
-
-**Claude Applications**: Claude for Chrome, Excel, PowerPoint, Slack; Claude Code; Claude Cowork
-
+**Claude Models**: Opus 4.6, Sonnet 4.6, Haiku
+**Applications**: Claude.ai, Claude Code (with Security), Claude Cowork, Chrome extension, Excel/PowerPoint/Slack integrations
+**Platform**: API access, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry, Marketplace
 **Pricing Plans**: Max, Team, Enterprise
 
-## Accessibility & Support
+## Contact
+- Press: press@anthropic.com
+- Support: support@anthropic.com
 
-- Status page available
-- 24/7 support center
-- Available in multiple countries
-- HIPAA-ready infrastructure for healthcare
-
-Updated: 2026-04-05
+Updated: 2026-04-06

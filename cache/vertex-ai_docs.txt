@@ -1,0 +1,44 @@
+# Vertex AI Documentation
+
+## Overview
+"Vertex AI is a machine learning (ML) platform that lets you train and deploy ML models and AI applications"
+
+## Core Capabilities
+- Gemini (multimodal generative AI model)
+- Generative AI access and Model Garden
+- Model training and MLOps tools
+
+## Major Product Categories
+- Vertex AI Training (serverless, clusters, Ray integration)
+- AutoML for tabular and image data
+- Inference and deployment tools
+- Feature Store and Model Registry
+- Pipelines and experiments
+
+## Additional Components (refreshed 2026-04-06)
+- Vector Search (versions 1.0 and 2.0)
+- Neural Architecture Search
+- Ray on Vertex AI
+- Dedicated/private endpoints
+- Private Service Connect (PSC)
+- Vertex AI Workbench
+- Colab Enterprise
+- Jupyter notebooks
+- BigQuery integration
+- Cloud Storage connectivity
+- Data labeling services
+- Model Monitoring
+- Explainable AI (interpretability — deprecated March 2026)
+- TensorBoard (performance tracking)
+- Vertex AI Experiments
+- Deep Learning Containers
+- Custom training pipelines
+- Hyperparameter tuning
+- Distributed training
+- Model co-hosting
+- Flex-Start VMs for cost-optimized training
+- Cloud TPU VM training
+- SLURM orchestration for training clusters
+
+## Last Fetched
+2026-04-06

@@ -1,17 +1,57 @@
-# Microsoft Graph Changelog - Recent Updates
+# Microsoft Graph Changelog - Comprehensive Feature Extraction
 
 ## Permission Changes (February 23, 2026)
-- **FileStorageContainerType.Manage.All**: Updated delegated permission to "no longer require admin consent"
-- **FileStorageContainerTypeReg.Manage.All**: Updated delegated permission to "no longer require admin consent"
-- **ThreatSubmission.Read**: Updated to "now require admin consent"
-- **ThreatSubmission.ReadWrite**: Updated to "now require admin consent"
+- **FileStorageContainerType.Manage.All**: No longer requires admin consent
+- **FileStorageContainerTypeReg.Manage.All**: No longer requires admin consent
+- **ThreatSubmission.Read**: Now requires admin consent
+- **ThreatSubmission.ReadWrite**: Now requires admin consent
 
-## Other Notable Additions
-- **User resource**: Added Microsoft Graph Bicep resource for infrastructure-as-code scenarios (January 30, 2026)
-- **Application resource**: Added Bicep template support (May 21, 2024)
-- **ServicePrincipal resource**: Added Bicep template support (May 21, 2024)
-- **Microsoft Graph activity logs**: Now available in China operated by 21Vianet (December 16, 2024)
+## Identity & Governance Features
 
-**Note**: Limited March-April 2026 entries. Most recent substantive API changes date to February 23, 2026, focusing on permission consent requirement modifications.
+### Lifecycle Workflows Enhancements
+- **User Inactivity Trigger** (November 25, 2025): New resource for detecting inactive users
+- **Activation with Scope** (November 10, 2025): Added activateWithScope method
+- **Administration Scope Targets** (February 19, 2026): Relationship added to workflowBase resource
+- **Workflow Capacity Increase** (April 18, 2024): Support expanded from 50 to 100 workflows per tenant
 
-Updated: 2026-04-05
+### Insights & Analytics
+- **Lifecycle Workflows Insights** (May 7, 2024): Aggregate health metrics
+- Four summary methods: topTasksProcessedSummary, topWorkflowsProcessedSummary, workflowsProcessedByCategory, workflowsProcessedSummary
+
+### Advanced Trigger Types (April 15, 2024)
+- attributeChangeTrigger, membershipChangeTrigger, groupBasedSubjectSet
+
+## Users & Groups - Bicep Template Support
+- User resource (January 30, 2025)
+- Application resources (May 21, 2024): application, federatedIdentityCredential, servicePrincipal, oAuth2PermissionGrant, appRoleAssignment
+- Group resource (May 21, 2024)
+
+## Regional Availability
+- Microsoft Graph Activity Logs in China operated by 21Vianet (December 16, 2024)
+
+## Change Notifications
+- Event Hubs SAS authentication deprecation, Microsoft Entra ID RBAC recommended (September 19, 2024)
+
+## Reports & Sign-In Analytics
+- **agent** property with agentSignIn resource and agentType enumeration (May 13, 2025)
+- **samlSignInFailure** alert (July 31, 2025)
+- **conditionalAccessBlockedSignIn** alert (April 1, 2025)
+- New protocolType members: kerberos, seamlessSso, prtGrant, onBehalfOf, samlOnBehalfOf
+- Self-Service Sign-Up Analytics (June 20, 2025): selfServiceSignUp, signUpIdentity, signUpStatus
+- Audit Log linkableIdentifiers and tokenDetails (March 26, 2025)
+- emailOtpSend, attributeCollectionStart, attributeCollectionSubmit (January 10, 2025)
+- sessionId (November 13, 2024), appOwnerTenantId/resourceOwnerTenantId (January 28, 2025)
+
+## Agents
+- Agent Sign-In Tracking (November 17, 2025): Extended agentType enumeration with agentIdentityBlueprintPrincipal and agentIDuser
+
+## Network & Security
+- New filteringPolicyAction and remoteNetworkStatus enumerations
+
+## Deletions
+- conditionalAccessAudience removed (December 11, 2025 - Beta)
+
+## Schema Extensions
+- Generally available in Microsoft Cloud for US Government
+
+Updated: 2026-04-06

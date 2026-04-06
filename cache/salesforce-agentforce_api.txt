@@ -28,7 +28,6 @@
 
 **Models API**
 - Apex classes and REST endpoints connecting applications to large language models
-- Available in both Apex and REST formats
 
 **Testing API**
 - Combines Metadata API and Connect API endpoints for agent testing
@@ -43,4 +42,4 @@
 Comprehensive guides available for Agentforce, Agent API, and Models API implementations.
 
 ## Last Fetched
-2026-04-05 - No changes detected from previous fetch.
+2026-04-06 - No changes detected from previous fetch.

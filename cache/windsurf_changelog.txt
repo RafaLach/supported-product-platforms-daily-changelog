@@ -75,60 +75,11 @@
 **Fast Context** (October 16, 2025)
 - "SWE-grep subagent enabling agents to find relevant code 20x faster"
 
-**Vibe and Replace** (August 29, 2025)
+**Vibe and Replace** (August 14, 2025)
 - AI-powered find-and-replace with intelligent transformations across multiple matches
 
-**Cascade Hooks** (December 2, 2025)
-- Custom command execution at key workflow points for auditing and automation
-
-**JetBrains Plugin** (April 9, 2025)
-- Cascade available on JetBrains IDEs with Planning Mode and file-based Rules
-
-## Platform Enhancements
-
-**Voice Input** (July 23, 2025)
-- Speak prompts directly into Cascade chat interface
-
-**Web & Docs Search** (January 17, 2025)
-- Automatic web searching and "@docs" command for popular documentation access
-
-**Cascade Memories** (January 17, 2025)
-- Auto-generated context retention between conversations with memory management
-
-**Windsurf Browser** (June 12, 2025)
-- Share browser context, code blocks, screenshots, and console logs with Cascade
-
-**Terminal Integration** (June 10, 2025)
-- Native terminal in Cascade panel with user input support
-
-**Linux ARM64 Support** (February 12, 2026)
-- Full client support with deb and rpm packaging
-
-**Dev Container Support** (January 17, 2025)
-- Remote development in containerized environments; attach to running containers
-
-## Enterprise & Team Features
-
-**Teams: Windsurf Reviews** (May 6, 2025)
-- GitHub integration for code review and PR automation
-
-**Teams: Conversation Sharing** (May 6, 2025)
-- Generate shareable conversation URLs restricted to team members
-
-**Teams: Knowledge Base** (May 6, 2025)
-- Connect Google Docs for team-wide "@mention" access
-
-**Teams Deploys** (May 6, 2025)
-- Netlify integration for direct app deployment via Cascade
-
-**Cascade Hooks Configuration** (February 25, 2026)
-- Cloud-based hook configuration for enterprise teams via dashboard
-
-**System-level Skill Definitions** (March 9, 2026)
-- MDM-managed skill configurations for enterprise deployments
-
-**Command Auto-Execution Lists** (January 25, 2026)
-- Organization-wide allow/deny lists for terminal command execution
+**DeepWiki Integration** (August 14, 2025)
+- Hover documentation for code symbols with intelligent context-aware help
 
 ## Last Fetched
-2026-04-05 - No new entries detected beyond what was previously cached.
+2026-04-06

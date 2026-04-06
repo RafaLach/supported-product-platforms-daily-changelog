@@ -20,6 +20,15 @@
 - **Token Caching** - Cache creation and read tracking in usage metrics
 - **Multi-format Input** - Support for text, images, and structured input items
 - **Cost Tracking** - Detailed cost breakdown by operation type
+- **Max Steps** - Research loop iterations (1-10 maximum) for controlling agent depth
+
+## Streaming Events (14 types)
+- response.created, response.in_progress, response.completed, response.failed
+- response.output_item.added, response.output_item.done
+- response.output_text.delta, response.output_text.done
+- response.reasoning.started, response.reasoning.stopped
+- response.reasoning.search_queries, response.reasoning.search_results
+- response.reasoning.fetch_url_queries, response.reasoning.fetch_url_results
 
 ## Last Fetched
-2026-04-05 - No changes detected from previous fetch.
+2026-04-06

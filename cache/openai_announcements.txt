@@ -14,15 +14,19 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - ChatGPT Apps and plugins
 - Image generation (DALL-E 3, ImageGen, GPT-4o)
 - Codex application (Windows and CLI versions)
+- Codex and Codex CLI
+- ChatGPT Apps SDK
 - Prompt engineering techniques
 - Commerce integration questions
 - MCP (Model Context Protocol) implementation
+- Bugs and Feedback sections
+- Community projects
 
 ## New Models & Features (March-April 2026)
+- April 2026 Community Gallery (April 5, 2026) - Spring/New Beginnings generative art showcase (133 replies, 702 views)
 - ChatGPT in CarPlay for All Plans (April 4, 2026) - Apple CarPlay integration expanded to all ChatGPT subscription tiers
 - Codex Plugin for Claude Code (April 4, 2026) - New plugin bringing Codex capabilities to Claude Code environment
 - Codex Team Licensing Model (April 4, 2026) - "Bring Codex to your team without fixed seat costs" - flexible team deployment
-- April 2026 Community Gallery (April 5, 2026) - Spring/New Beginnings generative art showcase
 - GPT-5.4 Pro and Thinking models released (March 25, 2026) - new model versions with significant community interest
 - Open Responses API for open source community (March 25, 2026) - new API capability for open-source ecosystem
 - GPT-5.4-mini/nano - Newly available models with complimentary daily token allocations
@@ -37,11 +41,15 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - Agent Builder - Platform with guardrails functionality
 - Playwright MCP integration requiring approval workflows in latest Codex update
 
-## Models & Services Discussed (As of April 5, 2026)
+## Models & Services Discussed (As of April 6, 2026)
+- GPT-5.4 reported as "too much sensitive" and incorrectly reporting knowledge cutoff as 2024-06
 - GPT-5.4-mini - Billing charged per 1M token group rather than 10M token group
 - GPT-5.3-Codex - Subject of credit-wasting complaints
 - GPT-5.2 - LogProbs support reportedly removed
 - GPT-Realtime 1.5 - Voice expressiveness and accent quality regressions noted (March 31, 2026)
+- Star Trek Medical Computer built on Realtime API "Works 30% of the Time" reliability issues
+- Audio Quality Decrease in Gpt-4o-mini-tts reported
+- "This Chat is Nearing Its Limit" error messages discussion
 - Sora - Video generation tool with access proposals discussed
 - Codex App (Windows) - IDE tool with file deletion bugs and submodule commit features requested
 - Atlas Browser - Feature request collection thread active
@@ -54,12 +62,14 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - ChatGPT Apps SDK - Widget URI versioning and app submission concerns; new full screen modal opening on mobile (March 31, 2026)
 - Community-developed MCP Server connecting ChatGPT, Claude, Gemini & Perplexity to AI coding tools (March 31, 2026)
 - Codex rate limiting and usage cap concerns (5-hour limit frustrations)
+- Kruel.ai KV2.0 with persistent memory and full modality understanding (544 replies)
 
 ## Notable Issues & Bug Reports
 
 **Billing/Account Problems:**
 - Codex billing errors with credit depletion
 - GPT-5.4-mini token charging discrepancies
+- Reports of users "not getting billed recently"
 - Organization verification blocks
 - Costs API pagination failures
 - Organization creation and API authentication problems
@@ -77,12 +87,16 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - Sora 2 Pro moderation blocks affecting video generation
 - Organization creation failures documented
 - Support responsiveness complaints filed
+- Codex code review functionality issues
 
 **Developer Discussions:**
 - Red-team security testing skills for Codex to assess prompt injection vulnerabilities
 - PHP's potential role in AI agent development and MCP integration
 - Connecting Codex applications to Docker in local environments
 - Token usage tracking for individual users through the API
+- Feature requests for local multi-agent workflows
+- OSS CI gates for plugin security
+- MCP server and connector discussions
 
 **Popular Discussion Threads:**
 - "Prompt Engineering Is Dead" discourse (105 replies, 20,073 views)
@@ -95,4 +109,4 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - User reputation system (Original Poster, Frequent Poster designations)
 - Discourse-powered infrastructure
 
-Updated: 2026-04-05
+Updated: 2026-04-06

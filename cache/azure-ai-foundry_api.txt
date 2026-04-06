@@ -41,4 +41,4 @@ Advanced Features:
 Note: New preview inference API available — see API lifecycle guide for details.
 Note: Data Plane GA version now listed as "v1" (previously "2024-10-21" still listed for inference GA).
 
-Updated: 2026-04-05
+Updated: 2026-04-06
