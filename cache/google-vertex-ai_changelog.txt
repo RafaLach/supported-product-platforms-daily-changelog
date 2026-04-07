@@ -1,5 +1,8 @@
 # Vertex AI Release Notes - Feature Announcements
 
+## April 6, 2026
+- **Metadata Search for RAG Engine**: Schema-based metadata filtering capability added to Vertex AI RAG Engine. Users can define metadata schemas for corpora, attach metadata to files, and filter contexts during retrieval operations.
+
 ## April 3, 2026
 - **Vertex AI RAG Engine Serverless Mode**: Public preview of fully managed database for storing RAG resources that abstracts away database provisioning and scaling. Supports seamless transition between Serverless and Spanner deployment modes.
 
@@ -40,4 +43,4 @@
 - Virtual Try-On model promoted to GA with new `virtual-try-on-001` endpoint
 
 ## Last Fetched
-2026-04-05
+2026-04-07

@@ -1,5 +1,92 @@
 [
   {
+    "date": "2026-04-07",
+    "scan_time": "2026-04-07 08:31",
+    "file": "report-2026-04-07.md",
+    "platforms": [
+      {
+        "name": "Microsoft Copilot Studio",
+        "status": "changed",
+        "details": [
+          "**Agent evaluations GA**: Agent evaluations moved from preview to general availability. Validates agent performance using customizable test sets across diverse scenarios. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro",
+          "**Multi-turn conversation tests**: New capability to create multi-turn conversation tests to evaluate agents across realistic dialog flows instead of single-turn interactions. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-multi-turn",
+          "**ChatGPT-5 GA globally**: ChatGPT-5 is now generally available globally (excluding GCC) for use in production agents. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model",
+          "**Claude Sonnet 4.5, Claude Sonnet 4.6, Claude Opus GA globally**: Third-party Anthropic models now generally available globally (excluding GCC) for production agents, enabling fine-grained control over reasoning depth, quality, latency, and cost. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model",
+          "**Agent node for agent flows**: New capability to call a Copilot Studio agent from an agent flow, enabling agent-to-agent orchestration. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-node-workflow",
+          "**Bing Custom Search as knowledge source**: Agents can now use Bing Custom Search to ground responses in a curated, scoped web index using a Custom Configuration ID. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-bing-custom-search"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Google Vertex AI",
+        "status": "changed",
+        "details": [
+          "**Metadata Search for RAG Engine** (April 6): Schema-based metadata filtering capability added to Vertex AI RAG Engine. Users can define metadata schemas for corpora, attach metadata to files, and filter contexts during retrieval operations. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/use-metadata-search"
+        ],
+        "tier": "secondary"
+      },
+      {
+        "name": "Windsurf",
+        "status": "changed",
+        "details": [
+          "**Adaptive Model Router** (April 6): New model routing feature that intelligently selects the best model for each task. Available to Pro, Max, and Teams plan users. Dynamically chooses underlying model while maintaining fixed per-token quota consumption. Source: https://windsurf.com/changelog",
+          "**Updated Model Picker with Pricing Context** (April 6): Token pricing display showing input, output, and cache read rates per model; prompt cache timer; token counts in response cards. Source: https://windsurf.com/changelog"
+        ],
+        "tier": "watching"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "MEDIUM",
+        "title": "Copilot Studio Agent Node (Agent-to-Agent Orchestration)",
+        "description": "New agent node allows calling a Copilot Studio agent from an agent flow, enabling multi-agent orchestration chains. Introduces new entity relationships: agent flow \u2192 agent invocations. AISPM must map these agent-to-agent call chains to detect toxic combinations such as overprivileged agents invoking other agents or unmonitored delegation paths",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-node-workflow",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Copilot Studio Bing Custom Search Knowledge Source",
+        "description": "Agents can now connect to Bing Custom Search as a knowledge source via Custom Configuration ID. Introduces new knowledge connection type: curated web index. AISPM must discover and inventory these connections and monitor for data exposure through externally-sourced web content flowing into agent responses",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-bing-custom-search",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Copilot Studio Voice Post-Call Actions",
+        "description": "Voice-enabled agents can now trigger automated backend actions after call completion. Introduces new entity: post-call action topics with automatic execution triggers. AISPM must track these automated action configurations to detect unmonitored backend operations triggered by voice agent conversations",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/voice-post-call-actions",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Third-Party Models GA in Copilot Studio (ChatGPT-5, Claude Opus/Sonnet)",
+        "description": "ChatGPT-5 and multiple Anthropic Claude models (Sonnet 4.5, Sonnet 4.6, Opus) are now generally available globally for production agents. AISPM must track which external models production agents use, as model choice affects data processing boundaries \u2014 some models may require data processing outside the organization's geographic boundaries",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Copilot Studio Multi-Turn Conversation Evaluation Tests",
+        "description": "New multi-turn conversation test capability for evaluating agents across realistic dialog flows. Agent evaluations are now GA. Introduces new data artifacts: test sets, evaluation results, and multi-turn conversation test configurations. AIDR should monitor evaluation data flows as they may contain sensitive conversation patterns",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-multi-turn",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Vertex AI RAG Engine Metadata Search",
+        "description": "New schema-based metadata filtering for RAG Engine corpora. Users can define metadata schemas, attach metadata to files, and filter contexts during retrieval. Extends RAG data flow surface with structured metadata that controls what knowledge is retrieved. AISPM should track metadata schema configurations as they influence agent knowledge access boundaries",
+        "source": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/use-metadata-search",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-04-06",
     "scan_time": "2026-04-06 08:37",
     "file": "report-2026-04-06.md",
@@ -208,12 +295,5 @@
         "action": "New Coverage Required"
       }
     ]
-  },
-  {
-    "date": "2026-03-30",
-    "scan_time": "2026-03-30 08:25",
-    "file": "report-2026-03-30.md",
-    "platforms": [],
-    "findings": []
   }
 ]

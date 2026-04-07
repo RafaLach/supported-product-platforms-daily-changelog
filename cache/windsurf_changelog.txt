@@ -1,5 +1,16 @@
 # Windsurf Editor Changelog - Feature Announcements
 
+## Version 1.9600.40 (April 6, 2026)
+- Improved visibility of the adaptive model option within the model picker interface
+
+## Version 1.9600.38 (April 6, 2026)
+- Introducing Adaptive: New model router that intelligently selects the best model for each task
+- Available to all self-serve users on Pro, Max, and Teams plans
+- Dynamically chooses the appropriate underlying model while maintaining fixed per-token quota consumption
+- Updated Model Picker with token pricing display showing input, output, and cache read rates per model
+- New prompt cache timer integrated into context window indicator
+- Token counts included in response cards for cost transparency
+
 ## Version 1.9577.43 (March 19, 2026)
 - Introduced support for a new quota billing system
 - Daily and weekly quota usage metrics now visible directly in the IDE
@@ -82,4 +93,4 @@
 - Hover documentation for code symbols with intelligent context-aware help
 
 ## Last Fetched
-2026-04-06
+2026-04-07
