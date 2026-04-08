@@ -1,5 +1,12 @@
 # OpenAI Codex Changelog
 
+## Model Availability Update (April 7, 2026)
+- Older models (gpt-5.2-codex, gpt-5.1-codex-mini, gpt-5.1-codex-max, gpt-5.1-codex, gpt-5.1, gpt-5) removed from model picker
+- Complete removal on April 14, 2026
+- Remaining models: gpt-5.4, gpt-5.4-mini, gpt-5.3-codex, gpt-5.2
+- ChatGPT Pro subscribers also get gpt-5.3-codex-spark
+- Older models still accessible via API key or custom model provider
+
 ## Version 0.118.0 (March 31, 2026)
 
 **New Features:**
@@ -53,4 +60,4 @@
 - Rust 2024 edition adoption for multiple crates
 - Git utilities consolidated into dedicated crate
 
-Updated: 2026-04-06
+Updated: 2026-04-08

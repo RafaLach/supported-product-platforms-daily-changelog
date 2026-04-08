@@ -21,6 +21,8 @@
 
 | Date | Category | Title |
 |------|----------|-------|
+| Apr 7, 2026 | Announcements | Project Glasswing: Multi-company initiative to enhance global software security (AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorgan Chase, Linux Foundation, Microsoft, NVIDIA, Palo Alto Networks) |
+| Apr 6, 2026 | Announcements | Google & Broadcom partnership for multiple gigawatts of next-generation computing infrastructure |
 | Mar 31, 2026 | Announcements | Australian Government and Anthropic Sign MOU for AI Safety and Research |
 | Mar 18, 2026 | Research | "What 81,000 people want from AI" |
 | Mar 12, 2026 | Announcements | Anthropic invests $100 million into Claude Partner Network |
@@ -74,4 +76,4 @@
 - Press: press@anthropic.com
 - Support: support@anthropic.com
 
-Updated: 2026-04-06
+Updated: 2026-04-08

@@ -1,5 +1,9 @@
 # Windsurf Editor Changelog - Feature Announcements
 
+## Version 1.9600.41 (April 7, 2026)
+- Fixed bug preventing model switching after first request in Adaptive mode
+- All affected users received quota resets and overage restoration
+
 ## Version 1.9600.40 (April 6, 2026)
 - Improved visibility of the adaptive model option within the model picker interface
 
@@ -19,78 +23,4 @@
 ## Version 1.9577.42 (March 19, 2026)
 - Various bug fixes and performance enhancements
 
-## GPT-5.4 Mini Announcement (March 17, 2026)
-- GPT-5.4 Mini available at promotional pricing of 1x credits
-
-## Version 1.9577.27 (March 12, 2026)
-- Addressed compatibility issues with Apple M5 processors
-
-## Version 1.9577.24 (March 9, 2026)
-- Cascade: Resolved dangling diff zones for Jupyter Notebooks, enhanced Jupyter performance on WSL, improved UI rendering, stabilized agent panel, better model price change notifications, added SKILL.md file support from `.windsurf/skills/` directory, fixed AGENTS.md processing issues
-- MCP: Added system-level skill definitions support via MDM-managed configs for Enterprise clients, improved MCP server context management
-- Stability & Performance: Enhanced autocomplete error handling and performance, improved SSH and remote connection performance
-
-## New Models & AI Capabilities
-
-**GPT-5.4 & GPT-5.4 Mini** (March 5-17, 2026)
-- Latest OpenAI models with multiple reasoning effort levels available at promotional pricing
-
-**Gemini 3.1 Pro** (February 19, 2026)
-- New Google model with thinking capabilities at discounted rates
-
-**Claude Sonnet 4.6 & Claude Opus 4.6** (February 17, 2026)
-- Anthropic models with thinking support; Opus 4.6 fast mode offers 2.5x faster output
-
-**GLM-5 & Minimax M2.5** (February 17, 2026)
-- International AI models at promotional pricing; included in Arena battle groups
-
-**GPT-5.2-Codex** (January 14, 2026)
-- "OpenAI's latest model designed for agentic coding" with four reasoning effort options
-
-**SWE-1.5 Free** (December 24, 2025)
-- Near-frontier coding model available free for three months
-
-**Gemini 3 Flash** (December 27, 2025)
-- Combines Pro-level reasoning with Flash-speed efficiency
-
-## Major Features & Platforms
-
-**Arena Mode** (January 30, 2026)
-- Side-by-side model comparison with hidden identities; vote on preferred outputs
-- Personal and global leaderboards tracking user preferences
-
-**Plan Mode** (January 30, 2026)
-- New Cascade mode for creating detailed implementation plans before coding
-
-**Multi-Cascade Sessions** (December 24, 2025)
-- Simultaneous parallel Cascade sessions in separate panes and tabs
-
-**Git Worktree Support** (December 24, 2025)
-- Spawn multiple Cascade sessions without branch conflicts
-
-**Cascade Dedicated Terminal** (December 24, 2025)
-- New zsh shell for improved command reliability and interactivity
-
-**Agent Skills** (January 12, 2026)
-- Custom skills framework enabling agents to execute specialized tasks
-
-**Model Context Protocol (MCP)** (January 26, 2025)
-- Integration with custom MCP servers for extended tool capabilities; OAuth support
-
-**Windsurf Previews** (March 5, 2025)
-- Local website preview within IDE; select React elements for context sharing
-
-**Codemaps** (October 10, 2025)
-- Codebase visualization and navigation tool with chat and Mermaid diagrams
-
-**Fast Context** (October 16, 2025)
-- "SWE-grep subagent enabling agents to find relevant code 20x faster"
-
-**Vibe and Replace** (August 14, 2025)
-- AI-powered find-and-replace with intelligent transformations across multiple matches
-
-**DeepWiki Integration** (August 14, 2025)
-- Hover documentation for code symbols with intelligent context-aware help
-
-## Last Fetched
-2026-04-07
+Updated: 2026-04-08

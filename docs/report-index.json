@@ -1,5 +1,38 @@
 [
   {
+    "date": "2026-04-08",
+    "scan_time": "2026-04-08 11:07",
+    "file": "report-2026-04-08.md",
+    "platforms": [
+      {
+        "name": "Claude Enterprise (Anthropic)",
+        "status": "changed",
+        "details": [
+          "**Project Glasswing** (Apr 7): Multi-company initiative to enhance global software security. Participating organizations include AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorgan Chase, Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks. This is a policy/partnership announcement, not a new product or API. Source: https://www.anthropic.com/news",
+          "**Google & Broadcom infrastructure partnership** (Apr 6): Anthropic secured multiple gigawatts of next-generation computing infrastructure through expanded Google and Broadcom partnership. Infrastructure expansion \u2014 no new services. Source: https://www.anthropic.com/news"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Codex model availability update** (Apr 7): Older models (gpt-5.2-codex, gpt-5.1-codex-mini/max, gpt-5.1, gpt-5) removed from model picker. Remaining: gpt-5.4, gpt-5.4-mini, gpt-5.3-codex, gpt-5.2. Pro subscribers also get gpt-5.3-codex-spark. This is model lifecycle housekeeping, not a new service. Source: https://developers.openai.com/codex/changelog"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Windsurf",
+        "status": "changed",
+        "details": [
+          "**Adaptive model bug fix** (Apr 7, v1.9600.41): Fixed model switching issue introduced with the Adaptive feature. Bug fix only. Source: https://windsurf.com/changelog"
+        ],
+        "tier": "watching"
+      }
+    ],
+    "findings": []
+  },
+  {
     "date": "2026-04-07",
     "scan_time": "2026-04-07 08:31",
     "file": "report-2026-04-07.md",
@@ -265,33 +298,6 @@
         "description": "Codex v0.117.0 introduced a first-class plugin system with startup sync, TUI browsing, and path-based sub-agent addressing (`/root/agent_a`). Codex v0.118.0 added `codex exec` command for prompt-plus-stdin workflows and dynamic bearer token management for custom model providers. The sub-agent architecture means Codex sessions can now spawn and coordinate multiple autonomous agents. Endpoint monitoring should track Codex plugin configurations, sub-agent spawning, and the new network egress enforcement on Windows",
         "source": "https://developers.openai.com/codex/plugins",
         "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-03-31",
-    "scan_time": "2026-03-31 10:37",
-    "file": "report-2026-03-31.md",
-    "platforms": [
-      {
-        "name": "Google Vertex AI",
-        "status": "changed",
-        "details": [
-          "**Lyria 3 Audio Generation (Public Preview) \u2014 March 25, 2026**: Two new AI audio/music generation models added to Vertex AI:",
-          "`lyria-3-pro-preview` \u2014 generates up to 184 seconds of audio",
-          "`lyria-3-clip-preview` \u2014 generates up to 30 seconds of audio"
-        ],
-        "tier": "secondary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "MEDIUM",
-        "title": "Vertex AI Lyria 3 Audio Generation Models",
-        "description": "Google added two new generative AI model endpoints (`lyria-3-pro-preview`, `lyria-3-clip-preview`) to Vertex AI in public preview. These expand the platform's generative surface area beyond text and image into audio/music generation. If enterprise agents or workflows can invoke these models, AISPM should discover and inventory Lyria 3 deployments and track data flows through audio generation endpoints",
-        "source": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/lyria/lyria-3",
-        "module": "AISPM",
         "action": "New Coverage Required"
       }
     ]

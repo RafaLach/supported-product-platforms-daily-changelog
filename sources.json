@@ -190,6 +190,11 @@
           "label": "OpenAI Status & Incidents (RSS)",
           "url": "https://status.openai.com/history.rss",
           "type": "status"
+        },
+        {
+          "label": "OpenAI Codex Changelog",
+          "url": "https://developers.openai.com/codex/changelog",
+          "type": "changelog"
         }
       ]
     },
