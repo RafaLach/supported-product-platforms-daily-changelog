@@ -1,5 +1,8 @@
 # Vertex AI Release Notes - Feature Announcements
 
+## April 8, 2026
+- (No new entries detected beyond April 6)
+
 ## April 6, 2026
 - **Metadata Search for RAG Engine**: Schema-based metadata filtering capability added to Vertex AI RAG Engine. Users can define metadata schemas for corpora, attach metadata to files, and filter contexts during retrieval operations.
 
@@ -39,8 +42,162 @@
 ## February 18, 2026
 - Vertex AI Agent Engine Code Execution now generally available
 
+## February 17, 2026
+- Anthropic's Claude Sonnet 4.6 available in Model Garden
+
+## February 10, 2026
+- GLM 5 experimental launch for complex systems engineering and agentic tasks
+
+## February 4, 2026
+- Anthropic's Claude Opus 4.6 available in Model Garden
+
 ## January 23, 2026
 - Virtual Try-On model promoted to GA with new `virtual-try-on-001` endpoint
 
+## January 21, 2026
+- Data Science Agent supporting BigFrames, BigQuery ML, and Apache Spark in Colab Enterprise
+
+## January 20, 2026
+- GLM 4.7 generally available as managed API in Model Garden
+
+## January 16, 2026
+- Gemini CLI available in preview for Vertex AI Workbench instances
+
+## January 13, 2026
+- Veo 3.1 preview supporting 9:16 aspect ratio and 1080p/4k upsampling
+
+## January 6, 2026
+- GLM 4.7 experimental launch for coding and complex reasoning tasks
+
+## December 19, 2025
+- Vertex AI Agent Builder Agent Designer low-code visual designer in preview
+- FunctionGemma and T5Gemma 2 models available in Model Garden
+
+## December 18, 2025
+- Prompt sharing in Vertex AI Studio no longer requires admin enablement
+- Cloud API Registry in preview for managing MCP servers and agent tools
+
+## December 17, 2025
+- Post-startup scripts generally available for Colab Enterprise
+- Gemini 3 Flash in public preview for multimodal understanding
+
+## December 16, 2025
+- Vertex AI Agent Engine Sessions and Memory Bank generally available
+- Vertex AI Agent Engine Runtime pricing reduction
+- Virtual Try-On model improvements for latency and quality
+
+## December 12, 2025
+- Gemini 2.5 Flash with Live API Native Audio generally available
+- Agent identity credentials secured by default with Context-Aware Access
+
+## December 10, 2025
+- DeepSeek-V3.2 available in Model Garden as managed API
+
+## December 9, 2025
+- Ministral 3 and Mistral Large 3 models available in Model Garden
+- Vertex AI Workbench Confidential Computing support generally available
+
+## December 8, 2025
+- Veo 3.1 video extension support in preview
+
+## December 2, 2025
+- Model Garden vLLM container for multi-replica and multi-model serving
+
+## November 17, 2025
+- Veo 3.1 generally available with fast variant
+- LearnLM capabilities integrated into Gemini models
+
+## November 13, 2025
+- Kimi K2 Thinking available in Model Garden for complex problem-solving
+- Updated prompt caching for Anthropic Claude models with one-hour TTL
+
+## November 7, 2025
+- Vertex AI Agent Engine observability features, playground, agent evaluation, and memory revisions in preview
+- Express mode support and free tier for Vertex AI Agent Engine Runtime generally available
+
+## November 4, 2025
+- MiniMax M2 available in Model Garden for tool-calling tasks
+
+## October 23, 2025
+- DeepSeek-OCR, Qwen3-VL, and Earth AI models in Model Garden
+
+## October 20, 2025
+- Visualization cells in preview for Colab Enterprise
+- Computer Use tool available in preview
+
+## October 16, 2025
+- Mistral's Codestral 2 available in Model Garden
+- vLLM TPU through Model Garden for LLM serving optimization
+- Anthropic's Claude Haiku 4.5 available in Model Garden
+- Veo 3.1 in preview supporting advanced video controls
+- Veo 2 supporting object insertion and removal in preview
+
+## October 7, 2025
+- Qwen-Image, Qwen-Image-Edit, and Qwen-Image-Edit-2509 models available
+
+## October 3, 2025
+- Prompt management using Vertex AI SDK with versioning capabilities
+
+## October 2, 2025
+- Gemini 2.5 Flash Image generally available with aspect ratio controls and batch prediction support
+- Google Gen AI SDK in C# preview
+
+## October 1, 2025
+- Workforce Identity Federation support for Vertex AI Workbench generally available
+
+## September 23, 2025
+- Gemini 2.5 Flash with Live API Native Audio preview with improved barge-in and function calling
+
+## September 17, 2025
+- Vector Search storage-optimized indexes in preview for large-scale RAG
+
+## September 10, 2025
+- Vertex AI Agent Engine SDK refactored to client-based design
+- Agent Engine Code Execution in preview
+- Agent-to-Agent protocol support
+- Bidirectional streaming support
+- Memory Bank tab in Cloud Console
+
+## September 9, 2025
+- EmbeddingGemma and DeepSeek-V3.1 in Model Garden
+- AI Singapore's SEA-LION V4 models available
+
+## September 8, 2025
+- Veo 3 short-duration video support (4, 6, 8 seconds) generally available
+
+## August 21, 2025
+- Vertex AI Agent Engine Private Service Connect support
+- Customer-managed encryption keys support
+- HIPAA workload support
+
+## August 14, 2025
+- Imagen 4 generally available with Generate, Fast Generate, and Ultra variants
+
+## August 13, 2025
+- Qwen3 Coder and Qwen3 235B available as Model-as-Service options
+- OpenAI gpt-oss-120b and gpt-oss-20b available as Model-as-Service
+
+## August 8, 2025
+- Gemini 2.5 Flash-Lite and Gemini 2.5 Pro supervised fine-tuning support
+
+## August 7, 2025
+- Vertex AI prompt optimizer generally available
+- Zero-shot prompt optimizer
+
+## August 4, 2025
+- Data Science Agent in preview for Colab Enterprise
+
+## July 29, 2025
+- Veo 3 and Veo 3 Fast generally available
+
+## July 23, 2025
+- Grounding with Google Maps in preview across all regions except EEA
+
+## July 22, 2025
+- Gemini 2.5 Flash-Lite generally available with caching and batch prediction support
+
+## July 8, 2025
+- Vertex AI Agent Engine Memory Bank in preview for dynamic long-term memories
+
 ## Last Fetched
-2026-04-07
+2026-04-10

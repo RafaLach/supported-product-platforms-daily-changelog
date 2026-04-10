@@ -2,6 +2,14 @@
 
 ## Latest Releases
 
+**v2.31.0** (April 8, 2026)
+- Added phase field to conversations message
+- Added web_search_call.results to ResponseIncludable type
+- Short-lived token support for client authentication
+- Raw data transmission over WebSocket connections
+- Array format indices for query and form serialization
+- Bug fixes: query parameter merging preservation, web search call results type correction
+
 **v2.30.0** (March 25, 2026)
 - Computer Actions Enhancement: Added "keys field to Click/DoubleClick/Drag/Move/Scroll computer actions"
 - Type System: Made type required in ResponseInputMessageItem; aligned SDK response types with expanded item schemas
@@ -60,4 +68,4 @@
 ## Build/Test Infrastructure
 - Transitioned testing framework from Prism to Steady
 
-Updated: 2026-04-06
+Updated: 2026-04-10

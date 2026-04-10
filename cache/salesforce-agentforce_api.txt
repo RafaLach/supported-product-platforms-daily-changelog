@@ -8,6 +8,7 @@
 **Agent API**
 - Enables communication with AI agents in organizational environments
 - Requires creating a connected app, generating a token, and sending messages to agents
+- Supports subagents and actions (terminology: "topics" renamed to "subagents" as of April 2026)
 
 **Agentforce Python SDK**
 - Allows programmatic agent creation, management, and deployment
@@ -42,4 +43,4 @@
 Comprehensive guides available for Agentforce, Agent API, and Models API implementations.
 
 ## Last Fetched
-2026-04-06 - No changes detected from previous fetch.
+2026-04-10 - No new APIs or SDKs detected beyond previous fetch. Subagent terminology noted in Agent API description.

@@ -1,6 +1,6 @@
 # OpenAI Status - Incident History
 
-Page generated: Mon, 06 Apr 2026 05:28:41 GMT
+Page generated: Thu, 10 Apr 2026
 
 ## Services Monitored
 
@@ -24,6 +24,10 @@ Page generated: Mon, 06 Apr 2026 05:28:41 GMT
 - Codex Web/Cloud, API Platform, Audit logs
 
 ## Recent Incidents
+
+### April 10: API Platform Login and Account Creation Issues
+- API platform login and account creation experiencing instability
+- Status: Active/Investigating
 
 ### April 2: ChatGPT Dictation Elevated Error Rate
 - Voice mode/dictation experienced elevated error rates
@@ -63,6 +67,6 @@ Page generated: Mon, 06 Apr 2026 05:28:41 GMT
 - Sora video generation failing
 - Status: Resolved
 
-All incidents resolved. Date span of full history: January 6, 2026 - April 2, 2026.
+Date span of full history: January 26, 2026 - April 10, 2026.
 
-Updated: 2026-04-06
+Updated: 2026-04-10

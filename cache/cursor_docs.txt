@@ -50,4 +50,4 @@ Multiple Claude models including:
 - Test generation
 
 ## Last Fetched
-2026-04-06 - Fetch failed (HTTP 429 rate limit). Content preserved from previous scan.
+2026-04-10 - Fetch failed (HTTP 429 rate limit). Content preserved from previous scan with model list updated from changelog.

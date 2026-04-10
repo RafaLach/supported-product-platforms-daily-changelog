@@ -9,13 +9,13 @@
 - Model training and MLOps tools
 
 ## Major Product Categories
-- Vertex AI Training (serverless, clusters, Ray integration)
+- Vertex AI Training (serverless, clusters, Ray integration, Slurm orchestration)
 - AutoML for tabular and image data
 - Inference and deployment tools
 - Feature Store and Model Registry
 - Pipelines and experiments
 
-## Additional Components (refreshed 2026-04-05)
+## Additional Components (refreshed 2026-04-10)
 - Vector Search (versions 1.0 and 2.0)
 - Neural Architecture Search
 - Ray on Vertex AI
@@ -36,6 +36,17 @@
 - Hyperparameter tuning
 - Distributed training
 - Model co-hosting
+- Codey for code generation
+- Imagen for image generation
+- Extensions framework
+- Generative AI Evaluation Service
+- Vertex AI Studio interface
+- Flex Start VMs and Spot VMs for training
+- Cloud TPU VM support
+- Document AI and Healthcare APIs
+- Enterprise Knowledge Graph
+- Dialogflow for conversational AI
+- Contact Center solutions
 
 ## Last Fetched
-2026-04-05
+2026-04-10

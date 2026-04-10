@@ -16,6 +16,7 @@ Amazon Bedrock AgentCore is an agentic platform for building, deploying, and ope
 | **Observability** | Unified tracing, debugging, monitoring via OpenTelemetry (OTEL)-compatible format | OpenTelemetry (OTEL), CloudWatch |
 | **Evaluations** | Automated agent assessment measuring execution quality, edge case handling, output reliability | LangGraph, Strands, OpenInference, CloudWatch |
 | **Policy** | Deterministic control using natural language or Cedar policy language | Cedar policy language, Gateway integration |
+| **Registry** (NEW) | Centralized catalog for agents, MCP servers, tools, and skills; governed workflows for publishing/reviewing/approving; hybrid semantic and keyword search | Agent Registry, AWS Agent Registry |
 
 ## Use Cases
 
@@ -39,4 +40,4 @@ Salesforce, Zoom, JIRA, Slack (via Gateway)
 Consumption-based (no upfront commitments or minimum fees)
 
 ## Note
-Last fetched: 2026-04-06. No changes detected from previous scan.
+Last fetched: 2026-04-10. NEW service added: Registry (AWS Agent Registry). Centralized catalog for agent/MCP/tool discovery and governance.

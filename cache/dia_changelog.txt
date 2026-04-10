@@ -2,6 +2,12 @@
 
 ## April 2026
 
+**v1.26.0** (April 9, 2026)
+- **Sync Feature Launch**: Cross-device browser synchronization with end-to-end encryption and local-first architecture
+  - Recovery kit creation for account backup
+  - Connect multiple devices through 6-character codes
+  - Syncs favorites/bookmarks and other browser data across devices
+
 **v1.25.0** (April 2, 2026)
 - Downloads with Visual Guidance: file downloads animate toward sidebar for clear placement feedback
 - Custom Tab Icons: replace any tab's favicon with an emoji for personalized navigation
@@ -31,4 +37,4 @@
 - "Before you reach for it..."
 
 ## Last Fetched
-2026-04-06
+2026-04-10

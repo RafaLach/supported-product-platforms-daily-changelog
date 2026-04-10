@@ -1,0 +1,60 @@
+# OpenAI Node.js SDK Releases
+
+## Latest Releases
+
+**v6.34.0** (April 8, 2026)
+- Added phase field to Message in conversations
+- Added support for short-lived tokens
+- Bug fix: Removed web_search_call.results from ResponseIncludable in responses
+- Documentation: Added multi-file ingestion recommendations for vector-stores
+
+**v6.33.0** (March 25, 2026)
+- Added keys field to computer action types
+- Implemented async iterator and stream() functionality for WebSocket classes
+- Aligned SDK response types with expanded item schemas
+- Made type field required in ResponseInputMessageItem
+- Migrated testing framework from prism to steady
+
+**v6.32.0** (March 17, 2026)
+- Added support for GPT-5.4 nano and mini model slugs
+
+**v6.31.0** (March 16, 2026)
+- Introduced "in/nin" filter types to ComparisonFilter
+
+**v6.30.0** (March 16, 2026)
+- Added /v1/videos endpoint option to batch processing
+- Introduced defer_loading field to NamespaceTool
+- Fixed OIDC publishing for npm distribution
+
+**v6.29.0** (March 13, 2026)
+- Implemented custom voices functionality
+
+**v6.28.0** (March 13, 2026)
+- Sora API enhancements including character API, video extensions/edits, higher resolution exports
+- Manual API updates
+- Removed detail field from ResponseInputFile and ResponseInputFileContent
+- Updated WebSocket protocol matching
+
+**v6.27.0** (March 5, 2026)
+- Transitioned ComputerTool to GA; moved computer_use_preview to ComputerUsePreview class
+
+**v6.26.0** (March 5, 2026)
+- GPT-5.4 model release
+- Tool search functionality
+- New computer tool implementation
+- Internal schema corrections
+- Phase parameter management adjustments
+
+**v6.25.0** (February 24, 2026)
+- Added phase parameter; refined phase enum implementation; refactored SSE event parsing
+
+## Repository Metrics
+- Stars: 10.8k
+- Forks: 1.5k
+- Open Issues: 114
+- Pull Requests: 75
+
+## Build/Test Infrastructure
+- Updated CI/testing infrastructure with steady v0.19.4-0.19.7 bumps
+
+Updated: 2026-04-10

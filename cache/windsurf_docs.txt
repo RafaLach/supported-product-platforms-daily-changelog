@@ -22,5 +22,9 @@
 
 10. **Import Functionality** - Settings and extensions migration from VS Code or Cursor into Windsurf.
 
+11. **Remote Development** - Support for SSH connections and local dev container integration.
+
+12. **Adaptive Model Router** - Intelligent model routing that selects the best model for each task.
+
 ## Last Fetched
-2026-04-06 - No changes detected from previous fetch.
+2026-04-10 - No major new capabilities detected from previous fetch (docs overview page unchanged).

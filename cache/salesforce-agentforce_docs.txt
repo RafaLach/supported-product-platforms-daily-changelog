@@ -18,9 +18,12 @@ Agentforce is described as "the agent-driven layer of the Salesforce Platform" t
 ## Models and Prompts
 Guidance for configuring and utilizing large language models, including Prompt Builder features.
 
+## Terminology Update (NEW — April 2026)
+- **Subagents** - Beginning April 2026, agent "topics" are now called "subagents" (no functional changes, terminology transition only)
+
 ## External Resources
 - Salesforce Help articles on Agentforce and Generative AI
 - Salesforce Help articles on Agentforce Agents
 
 ## Last Fetched
-2026-04-06 - No changes detected from previous fetch.
+2026-04-10 - NEW: Terminology change noted — agent "topics" renamed to "subagents" effective April 2026.

@@ -1,8 +1,8 @@
 # Perplexity API Features & Announcements
 
 ## February 2026
-- **Agent API** - "Build autonomous agents with production-ready guidance on model behavior"
-- **Embeddings API** - Launched with guides for standard and contextualized embeddings, semantic search support
+- **Agent API** - General availability launched with production guidance and OpenAI-compatibility
+- **Embeddings API** - Released with guides for standard/contextualized embeddings and semantic search
 
 ## December 2025
 - **Media Classifier** - Automatically detects visual content needs and includes relevant images/videos in responses
@@ -20,6 +20,7 @@
 ## September 2025
 - **File Attachments Support** - Document upload and analysis for PDF, DOC, DOCX, TXT, RTF formats
 - **Standalone Search API** - Direct access to search results without LLM processing
+- **API Key Rotation** - Comprehensive system with seamless rotation, automation, and audit trails
 
 ## July 2025
 - **Detailed Cost Information** - API responses now include input/output token costs and per-request charges
@@ -32,6 +33,7 @@
 ## May 2025
 - **Reasoning Effort Parameter** - Control computational effort ("low", "medium", "high") for Sonar Deep Research
 - **Asynchronous API** - Dedicated endpoints for research-intensive tasks with 7-day result retention
+- **search_results Field** - Enhanced API responses providing titles, URLs, and publication dates
 
 ## April 2025
 - **API Portal** - Organization management, API key handling, usage insights
@@ -44,5 +46,8 @@
 - **Structured Outputs** - JSON formatting available to all users (previously tier-restricted)
 - **Three New Search Modes** - "High", "Medium", "Low" depth options across Sonar models
 
+## January 2025
+- **Sonar & Sonar Pro Models** - New cost-effective search-based APIs with built-in citations
+
 ## Last Fetched
-2026-04-06 - No new entries detected beyond what was previously cached.
+2026-04-10 - No new entries detected beyond what was previously cached.

@@ -15,16 +15,27 @@ Note: Page rendered as Next.js server-side React components. Actual documentatio
 - Claude AI URL: https://claude.ai
 - User Content Renderer: https://www.claudeusercontent.com
 
+## MCP Infrastructure (newly identified)
+- Local MCP connector: https://www.claudemcpclient.com
+- MCP sandbox proxy: https://sandbox.claudemcpcontent.com
+- Imagine MCP: https://sandbox.claudemcpcontent.com/imagine_mcp
+
 ## Third-Party Integrations
-- Stripe (payment processing)
+- Stripe (payment processing, multiple regional keys: US, Ireland, Sandbox)
 - Google OAuth
 - Intercom (support)
 - Segment (analytics)
 - Sift (fraud detection)
-- Arkose (security)
+- Arkose (security/bot protection)
 - GrowthBook (feature flags)
+- StatsIG (experimentation)
+
+## Browser Extensions / Add-ins
+- Claude Browser Extension ID: fcoeoabgfenejglbffodgkkbkcdhcgfn
+- Ant-only Extension ID: dngcpimnedloihjnnfngkgjoidhnaolf
+- Excel Add-in Client ID: 966eba67-8b8c-4eae-bbb3-08361d1b9292
 
 ## Note
-The page content is served as minified Next.js React Server Component payload data. Feature flags and experimental features are configured via GrowthBook. Various analytics and tracking services are integrated. Actual API documentation content requires browser-side rendering to access.
+The page content is served as minified Next.js React Server Component payload data. Feature flags and experimental features are configured via GrowthBook and StatsIG. Various analytics and tracking services are integrated. Actual API documentation content requires browser-side rendering to access.
 
-Updated: 2026-04-06
+Updated: 2026-04-10

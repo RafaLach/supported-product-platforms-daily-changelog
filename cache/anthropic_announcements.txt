@@ -76,4 +76,4 @@
 - Press: press@anthropic.com
 - Support: support@anthropic.com
 
-Updated: 2026-04-08
+Updated: 2026-04-10

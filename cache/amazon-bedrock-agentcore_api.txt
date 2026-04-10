@@ -1,6 +1,6 @@
 # Amazon Bedrock AgentCore Data Plane - Actions API Reference
 
-## Complete List of Supported Actions (43 total)
+## Complete List of Supported Actions (38 total as of 2026-04-10)
 
 ### Memory Management Actions
 - **BatchCreateMemoryRecords** - Create multiple memory records in batch
@@ -43,6 +43,9 @@
 - **ListCodeInterpreterSessions** - List all code interpreter sessions
 - **InvokeCodeInterpreter** - Invoke code interpreter
 
+### Registry Actions (NEW)
+- **SearchRegistryRecords** - Search registry records (agent registry catalog)
+
 ### Runtime & General Actions
 - **InvokeAgentRuntime** - Invoke the agent runtime
 - **InvokeAgentRuntimeCommand** - Invoke agent runtime commands
@@ -52,4 +55,4 @@
 - **StopRuntimeSession** - Stop a runtime session
 
 ## Note
-Last fetched: 2026-04-06. No new API actions detected since previous scan.
+Last fetched: 2026-04-10. NEW action detected: SearchRegistryRecords (Registry service). Previous count was 37 actions; now 38.

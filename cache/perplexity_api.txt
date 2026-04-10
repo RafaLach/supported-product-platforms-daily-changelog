@@ -21,6 +21,8 @@
 - **Multi-format Input** - Support for text, images, and structured input items
 - **Cost Tracking** - Detailed cost breakdown by operation type
 - **Max Steps** - Research loop iterations (1-10 maximum) for controlling agent depth
+- **Language Preference** - ISO 639-1 code for response language
+- **Max Output Tokens** - Token generation limit (minimum: 1)
 
 ## Streaming Events (14 types)
 - response.created, response.in_progress, response.completed, response.failed
@@ -30,5 +32,13 @@
 - response.reasoning.search_queries, response.reasoning.search_results
 - response.reasoning.fetch_url_queries, response.reasoning.fetch_url_results
 
+## Response Metadata
+- Unique response ID
+- Model used (reflects actual model from fallback chain)
+- Status (completed/failed/in_progress/requires_action)
+- Token usage with cache details
+- Cost breakdown (USD)
+- Timestamps (Unix format)
+
 ## Last Fetched
-2026-04-06
+2026-04-10

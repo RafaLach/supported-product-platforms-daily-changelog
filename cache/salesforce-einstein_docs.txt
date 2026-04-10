@@ -7,4 +7,4 @@
 The overview page primarily serves as a navigation/landing page with minimal substantive content. It redirects to the Agentforce Developer Guide and related documentation sections. The page contains configuration metadata, analytics tracking, and component library version references but limited feature documentation content. The page returned JS configuration/infrastructure only.
 
 ## Last Fetched
-2026-04-06 - No substantive content changes; page still returns JS configuration only.
+2026-04-10 - No substantive content changes; page still returns JS configuration only.

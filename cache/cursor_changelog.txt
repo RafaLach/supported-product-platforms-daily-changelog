@@ -1,5 +1,13 @@
 # Cursor Changelog - Feature Announcements
 
+## Apr 8, 2026
+**Bugbot Enhancements**
+- **Bugbot Learned Rules**: Self-improving code review system that turns feedback signals into learned rules that improve future reviews
+- **Bugbot MCP Support**: Bugbot now has access to MCP servers for enhanced context during code reviews
+- **Bugbot Resolution Rate**: Increased to 78%
+- **Bugbot "Fix All" Action**: Apply multiple Bugbot fixes in one operation
+- **Bugbot Autofix Improvements**: Only runs autofix when findings warrant it; uses only relevant rules
+
 ## Apr 2, 2026
 **Cursor 3.0 Launch**
 - New Agents Window enabling parallel agent execution across local, worktrees, cloud, and remote SSH environments
@@ -60,4 +68,4 @@
 **Web Improvements & Fixes** (2 items) - Dashboard enhancements and layout improvements.
 
 ## Last Fetched
-2026-04-06
+2026-04-10

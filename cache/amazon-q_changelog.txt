@@ -14,5 +14,62 @@ This is the document history for the Amazon Q Developer User Guide, tracking all
 | **January 16, 2026** | Deprecated code transformation for GitLab - `/q transform` quick action and CI/CD pipeline customization removed |
 | **January 13, 2026** | Removed deprecated GitLab quick actions (`/q dev (revise)` and `/q test` unit test generation) |
 
+### 2025 Updates (Selected)
+
+| Date | Change |
+|------|--------|
+| **December 29, 2025** | Updated GitHub feature development workflow to use conversation-based feedback with the `/q` command |
+| **December 18, 2025** | Updated GitHub app installation registration steps for Kiro and Amazon Q Developer shared console |
+| **December 15, 2025** | Deprecated code transformation for GitHub (Java modernization) |
+| **November 17, 2025** | Q CLI becomes Kiro CLI |
+| **October 29, 2025** | Updated managed policies: AmazonQFullAccess, AmazonQDeveloperAccess, AWSServiceRoleForUserSubscriptions |
+| **October 21, 2025** | Removed IDE agent documentation; agentic chat replaces /dev, /doc, /test, /review agents |
+| **October 21, 2025** | Added IDE memory bank documentation |
+| **October 3, 2025** | Added Q CLI feature documentation (agents with AI assistance, prompt management, project rules) |
+| **September 23, 2025** | Enhanced context management documentation with comparison table and decision flowchart |
+| **September 18, 2025** | Added Q CLI v1.16.0 feature documentation (agent default behavior, legacy MCP config, new chat commands) |
+| **September 17, 2025** | Context hooks deprecated in favor of agent hooks |
+| **September 17, 2025** | Added remote MCP server support with OAuth authentication |
+| **August 21, 2025** | Disabling MCP for organizations |
+| **August 7, 2025** | Added `qct history` command documentation for transformation job history |
+| **August 6, 2025** | Added IDE transformation job history topic for Visual Studio Code |
+| **August 5, 2025** | GitLab self-managed instances require GitLab 17.11.0 or later |
+| **July 31, 2025** | Added code reviews with agentic chat in VS Code |
+| **July 31, 2025** | Added model selection for IDE chat |
+| **July 31, 2025** | Added keyboard shortcuts topic |
+| **July 31, 2025** | Added custom agents feature for CLI |
+| **July 30, 2025** | Added chat history compaction topic |
+| **July 9, 2025** | Image context support added to IDE chat |
+| **June 30, 2025** | Added slash commands for GitHub (feature development, code reviews, code transformation) |
+| **June 26, 2025** | New content for creating project rules in GitLab and GitHub |
+| **June 24, 2025** | Rebranded Amazon Q Developer operational investigations to CloudWatch investigations |
+| **June 19, 2025** | Amazon Q Developer for GitHub can be invoked via slash commands in issue comments |
+| **June 18, 2025** | Rules button added to VS Code IDE chat |
+| **June 18, 2025** | Pinned context support added to VS Code IDE chat |
+| **June 17, 2025** | Chat with Amazon Q about network security in console and chat apps |
+| **June 12, 2025** | MCP servers now usable with Amazon Q Developer in the IDE |
+| **June 11, 2025** | Personal account (Builder ID) users can upgrade to Pro tier |
+| **June 5, 2025** | Model selection for chat on the command line |
+| **June 5, 2025** | Chat context support expanded to JetBrains, Visual Studio, and Eclipse IDEs |
+| **June 5, 2025** | Agentic chat available in all supported IDEs |
+| **June 2, 2025** | Cost optimization capabilities in chat |
+| **May 21, 2025** | MCP configuration commands for CLI |
+| **May 15, 2025** | Added image support in chat (analyze and discuss images) |
+| **May 15, 2025** | Added conversation persistence (remembers conversations by directory) |
+| **May 14, 2025** | Support for multiple conversations in console chat |
+| **May 5, 2025** | Amazon Q Developer for GitHub launch |
+| **May 3, 2025** | Added context hooks support |
+| **May 1, 2025** | Agentic chat in the IDE |
+| **April 30, 2025** | Customizations now support additional languages |
+| **April 29, 2025** | Added MCP support for CLI |
+| **April 21, 2025** | Support for conversation history in IDE |
+| **April 21, 2025** | Support for code as context in IDE chat |
+| **April 13, 2025** | Enhanced security documentation for command line |
+| **April 12, 2025** | Added command-line settings section with tool permissions |
+| **April 10, 2025** | Inline chat available in Eclipse |
+| **April 10, 2025** | Amazon Q Developer profiles available in Europe (Frankfurt) |
+| **April 10, 2025** | `/tools` feature added to CLI for managing tool permissions |
+| **April 9, 2025** | Support for non-English languages in IDE and CLI chat |
+
 ## Note
-Last fetched: 2026-04-06. No new entries since March 19, 2026.
+Last fetched: 2026-04-10. No new entries since March 19, 2026.

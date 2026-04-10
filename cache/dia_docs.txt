@@ -30,6 +30,7 @@
 - Incognito mode stores nothing
 - AI partners prohibited from training on or retaining user data
 - Flagged content (moderation flags, misuse detection, prompt injection events) retained only for security/compliance
+- Synced data end-to-end encrypted; servers cannot read it
 
 **Infrastructure:**
 - Role-based production access restrictions
@@ -37,6 +38,15 @@
 - Regular independent security audits and assessments
 - Annual full-scope audits with independent firms; point-in-time reviews for new/high-risk features
 - Security Bulletins published for notable findings
+- SOC 2 Type II completed for calendar year 2025; report issued 2026
+
+**Enterprise Capabilities:**
+- Supports standard Chromium enterprise policies
+- Google Chrome Cloud Management integration
+- Dia-specific MDM policies for disabling AI features on specific sites
+- SAML-based SSO (Google, Okta, Microsoft Entra ID, others)
+- Email domain restrictions for employee-only access
+- Organization-wide content sharing disablement
 
 **Ad Blocker:** Built-in, controllable via Dia > Settings > Privacy
 
@@ -44,5 +54,7 @@
 
 **Trust Center:** Available at trust.diabrowser.com
 
+**Atlassian Acquisition Note:** "Dia continues to operate under its own privacy policy and data handling commitments" despite The Browser Company becoming part of Atlassian.
+
 ## Last Fetched
-2026-04-06
+2026-04-10
