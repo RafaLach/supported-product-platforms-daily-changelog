@@ -1,17 +1,12 @@
-# Microsoft Copilot Studio Release Notes
+Power Pages Release Updates
 
-Microsoft Copilot Studio is a tool for creating and maintaining copilots.
+Page last updated: 2025-05-12 (source document - no new release notes content since last scan)
 
-Releases happen frequently and this list is updated throughout the month as features reach worldwide availability.
+The Power Pages release-updates page links to:
+- 2023 release wave 2 plan
+- 2023 release wave 1 plan
+- 2022 release wave 2 plan
 
-## Release timelines
+No new feature announcements have been added since the last scan on 2026-04-08.
 
-Worldwide availability releases:
-| Month |
-| --- |
-| September - 2024 |
-| August - 2024 |
-
-Note: The released versions page shows limited recent entries. Detailed release notes are available per-month.
-
-Updated: 2026-04-01
+Updated: 2026-04-10

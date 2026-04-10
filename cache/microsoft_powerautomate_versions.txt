@@ -2,6 +2,8 @@ Released versions for Power Automate
 
 Latest Update: Power Automate 2508.2 - August 25, 2025
 
+Note: The Power Automate released-versions page (updated_at: 2025-09-02) still shows 2508.2 as the latest. No new versions have been added since the last scan.
+
 Recent versions:
 - 2508.2: August 28, 2025
 - 2508.1: August 21, 2025
@@ -36,4 +38,4 @@ Recent versions:
 
 Portal version can be seen via control-shift-alt-A and reviewing "buildBranch" value.
 
-Updated: 2026-03-29
+Updated: 2026-04-10

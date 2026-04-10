@@ -2,6 +2,8 @@ Microsoft Power Apps documentation
 
 Build low-code apps that modernize processes and solve business challenges.
 
+Page last updated: 2026-03-03
+
 Sections:
 - Create and design
   - Try/Buy Power Apps
@@ -25,4 +27,4 @@ Sections:
   - Web browsers (Navigation, Search, Reports)
   - Teams (Canvas as tab, Canvas as personal app, Model-driven as tab, Model-driven as personal app)
 
-Updated: 2026-03-29
+Updated: 2026-04-10

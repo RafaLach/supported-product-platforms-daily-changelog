@@ -8,6 +8,12 @@ A copilot is an AI-powered conversational interface based on large language mode
 
 Releases happen frequently, and the list is updated throughout the month as features reach worldwide availability.
 
+## Version releases
+
+| Version |
+| --- |
+| 2507.1 |
+
 ## Worldwide availability
 
 | Month |
@@ -15,4 +21,6 @@ Releases happen frequently, and the list is updated throughout the month as feat
 | September - 2024 |
 | August - 2024 |
 
-Updated: 2026-04-06
+Note: Page updated 2026-04-09 (source updated_at). The released versions page shows limited recent entries; detailed release notes available per-month on the What's New page.
+
+Updated: 2026-04-10

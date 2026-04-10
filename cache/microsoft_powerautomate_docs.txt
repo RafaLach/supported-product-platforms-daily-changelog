@@ -2,6 +2,8 @@ Microsoft Power Automate documentation
 
 Create automated workflows between apps and services to synchronize files, get notifications, collect data, and more.
 
+Page last updated: 2025-07-11
+
 Sections:
 - Create and design
   - Try/Buy Power Automate
@@ -26,4 +28,4 @@ Sections:
   - Teams, SharePoint, Email, Forms, Approvals
   - Business process flows
 
-Updated: 2026-03-29
+Updated: 2026-04-10
