@@ -1,5 +1,33 @@
 # OpenAI Codex Changelog
 
+## Version 0.120.0 (April 11, 2026)
+
+**New Features:**
+- Realtime V2 now streams background agent progress while work continues
+- WebRTC-based voice sessions become the default transport option
+- MCP Apps gain richer functionality including resource reads and tool metadata
+- Remote workflows support egress websocket transport with sandbox-aware filesystem APIs
+- TUI copy functionality via Ctrl+O with improved clipboard behavior across platforms
+- Resume feature allows jumping directly to sessions by ID or name
+
+**Bug Fixes:**
+- Windows elevated sandbox handling for split filesystem policies
+- Symlinked writable roots and carveout permission issues
+- WebSocket connection panics via Rustls crypto provider installation
+- Tool search result ordering preservation
+- MCP status improvements and faster startup times
+
+**Documentation:**
+- Elevated vs restricted-token Windows sandbox support
+- App-server protocol updates
+- Clarified exec approval messaging
+
+## Version 0.119.0 (April 10, 2026)
+
+**New Features:**
+- Realtime V2 and background agent streaming enhancements
+- Continued MCP Apps and remote workflow improvements
+
 ## Model Availability Update (April 7, 2026)
 - Older models (gpt-5.2-codex, gpt-5.1-codex-mini, gpt-5.1-codex-max, gpt-5.1-codex, gpt-5.1, gpt-5) removed from model picker
 - Complete removal on April 14, 2026
@@ -12,15 +40,15 @@
 **New Features:**
 - Windows sandbox now enforces proxy-only networking with OS-level egress rules
 - App-server clients support device code flow for ChatGPT sign-in
-- `codex exec` enables prompt-plus-stdin workflow with piped input
+- codex exec enables prompt-plus-stdin workflow with piped input
 - Custom model providers can fetch and refresh short-lived bearer tokens dynamically
 
 **Bug Fixes:**
-- Project-local `.codex` files protected on first creation
-- Linux sandbox launches more reliable with trusted system `bwrap`
-- App-server TUI regained missing workflows: hook notifications, `/copy`, `/resume`, `/agent`, and skills picker pagination
+- Project-local .codex files protected on first creation
+- Linux sandbox launches more reliable with trusted system bwrap
+- App-server TUI regained missing workflows: hook notifications, /copy, /resume, /agent, and skills picker pagination
 - MCP startup more robust with longer startup window and warning visibility
-- Windows `apply_patch` reduced redundant ACL changes
+- Windows apply_patch reduced redundant ACL changes
 
 **Key PRs:** #12220, #15525, #15917, #16286-16288
 
@@ -28,27 +56,27 @@
 
 **New Features:**
 - Plugins are now a first-class workflow with startup sync and TUI browsing
-- Sub-agents use path-based addresses like `/root/agent_a` with structured messaging
-- `/title` terminal-title picker works in classic and app-server TUI
-- App-server clients support shell commands (`!`), filesystem watches, remote websocket with bearer-token auth
-- Image workflows: `view_image` returns URLs for code mode, reopenable generated images, persistent history
+- Sub-agents use path-based addresses like /root/agent_a with structured messaging
+- /title terminal-title picker works in classic and app-server TUI
+- App-server clients support shell commands, filesystem watches, remote websocket with bearer-token auth
+- Image workflows: view_image returns URLs for code mode, reopenable generated images, persistent history
 - Prompt history recall works in app-server TUI across sessions
 
 **Bug Fixes:**
-- `tui_app_server` eliminates reasoning summary duplication and `/review` output duplication
+- tui_app_server eliminates reasoning summary duplication and /review output duplication
 - ChatGPT login opens local browser, cancels cleanly on Ctrl+C, handles logged-out state
-- Terminal state restoration reliable on early exit; tmux `Shift+Left` editing fixed
-- Linux sandboxing improved for older `bubblewrap`; Windows split-policy carveout layouts enhanced
+- Terminal state restoration reliable on early exit; tmux Shift+Left editing fixed
+- Linux sandboxing improved for older bubblewrap; Windows split-policy carveout layouts enhanced
 - Remote multi-agent sessions display agent names; stale turn-steering races resolved
 - Plugin mentions preserve context; product gating predictability improved
 
 **Documentation:**
-- Expanded app-server and exec-server docs covering setup, filesystem watches, realtime transcription, Python `thread.run()` quickstart
+- Expanded app-server and exec-server docs covering setup, filesystem watches, realtime transcription, Python thread.run() quickstart
 
 **Chores:**
 - App-server TUI now enabled by default
 - Plugin/app rollout flags activated in normal builds
-- Legacy artifact tool removed; `read_file` and `grep_files` handlers retired
+- Legacy artifact tool removed; read_file and grep_files handlers retired
 
 **Key PRs:** #15041-15042, #15195, #15215-15217, #15264, #15275, #15342, #15580, #15606, #15802, #15313, #15515, #15556, #15570, #15621, #15647, #12334, #15860
 
@@ -60,4 +88,4 @@
 - Rust 2024 edition adoption for multiple crates
 - Git utilities consolidated into dedicated crate
 
-Updated: 2026-04-10
+Updated: 2026-04-11

@@ -1,5 +1,39 @@
 [
   {
+    "date": "2026-04-11",
+    "scan_time": "2026-04-11 08:36",
+    "file": "report-2026-04-11.md",
+    "platforms": [
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**OpenAI Codex CLI v0.120.0 released** (Apr 11): MCP Apps gain richer functionality including resource reads and tool metadata. Remote workflows now support egress websocket transport with sandbox-aware filesystem APIs. WebRTC-based voice sessions become the default transport option. New resume feature for jumping directly to sessions by ID or name. Source: https://developers.openai.com/codex/changelog",
+          "**OpenAI Codex CLI v0.119.0 released** (Apr 10): Continued enhancements to the Codex agent platform including Realtime V2 streaming of background agent progress. Source: https://developers.openai.com/codex/changelog"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex MCP Apps Resource Reads and Tool Metadata",
+        "description": "Codex v0.120.0 expands MCP Apps to support resource reads and tool metadata access, beyond just tool invocation. This means MCP Apps running inside Codex can now pull data from MCP servers (reading resources) and inspect tool schemas (metadata), expanding the data access surface area. Endpoint monitoring should track what resources MCP Apps read and what tool metadata they access, as these represent new data flow paths from enterprise MCP servers into the Codex environment",
+        "source": "https://developers.openai.com/codex/mcp",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex Remote Workflow Egress WebSocket Transport",
+        "description": "Codex v0.120.0 introduces egress websocket transport for remote workflows with sandbox-aware filesystem APIs. This creates a new outbound data flow pattern \u2014 Codex agents can now establish persistent websocket connections from their sandbox to external endpoints, with filesystem access within the sandbox boundary. AIDR should monitor these outbound websocket connections as potential data exfiltration vectors",
+        "source": "https://developers.openai.com/codex/app-server",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-04-10",
     "scan_time": "2026-04-10 09:23",
     "file": "report-2026-04-10.md",
