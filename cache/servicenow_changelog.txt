@@ -4,4 +4,4 @@
 The ServiceNow documentation portal (servicenow.com/docs/) requires JavaScript rendering and does not return substantive content via static fetch. The release notes page at /docs/r/release-notes/family-release-notes.html loads dynamically and could not be scraped.
 
 ## Last Fetch Attempt
-2026-04-10 - Page returned loading screen only (same behavior as previous fetches). No content extractable.
+2026-04-12 - Page returned loading screen only (same behavior as previous fetches). No content extractable.

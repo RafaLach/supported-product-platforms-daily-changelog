@@ -1,5 +1,8 @@
 # Vertex AI Release Notes - Feature Announcements
 
+## April 12, 2026
+- No new entries detected beyond April 6 (page fetched 2026-04-12; summarized content covers April 2026 back to April 2025, no specific new dated entries since last fetch)
+
 ## April 8, 2026
 - (No new entries detected beyond April 6)
 
@@ -200,4 +203,4 @@
 - Vertex AI Agent Engine Memory Bank in preview for dynamic long-term memories
 
 ## Last Fetched
-2026-04-10
+2026-04-12

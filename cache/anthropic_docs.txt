@@ -10,5 +10,6 @@ Note: Page returned 404 Not Found. The URL /docs/build-with-claude/overview may 
 ## Infrastructure details visible in page source
 - Conway Shell: https://conway.claudeusercontent.com
 - Published Artifacts hosted at: https://claude.ai and https://claude.site
+- Country Detected: IL (Israel)
 
-Updated: 2026-04-10
+Updated: 2026-04-12

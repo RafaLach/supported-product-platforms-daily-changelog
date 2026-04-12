@@ -2,7 +2,7 @@
 
 ## Documentation Releases Timeline
 
-### April 9, 2026 (NEW since last scan)
+### April 9, 2026
 - **AWS Agent Registry** - Added documentation for AWS Agent Registry: a centralized catalog for discovering and managing agents, MCP servers, tools, and skills. Provides governed workflows for publishing, reviewing, and approving resources with hybrid semantic and keyword search.
 
 ### December 2, 2025
@@ -40,4 +40,4 @@
 - Initial release (preview) - First release of Amazon Bedrock AgentCore Developer Guide
 
 ## Note
-Last fetched: 2026-04-10. NEW entry found: AWS Agent Registry (April 9, 2026).
+Last fetched: 2026-04-12. NEW entry found this cycle: AWS Agent Registry (April 9, 2026).

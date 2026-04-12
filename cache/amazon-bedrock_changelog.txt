@@ -25,4 +25,4 @@
 - **Cross-account Guardrails sharing** (Nov 21, 2025): Share guardrails across AWS accounts
 
 ## Note
-Last fetched: 2026-04-10. No new entries since February 27, 2026.
+Last fetched: 2026-04-12. No new entries since February 27, 2026.

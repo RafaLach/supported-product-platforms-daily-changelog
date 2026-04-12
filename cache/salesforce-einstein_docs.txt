@@ -3,8 +3,17 @@
 ## Page Information
 - **Title**: Agentforce and Generative AI | Agentforce Developer Guide | Salesforce Developers
 
+## Technical Configuration Details (from page metadata)
+- App ID: 1daf6332f3891e21e06f
+- Bootstrap Module: @lwrjs/app-service/1daf6332f3891e21e06f/module/esm/v/0_19_7
+- Component versions: dx/scrollManager v/1_31_0, dx/globalHeader v/1_31_0, doc/header v/1_28_4, dx/section v/1_31_0, dx/grid v/1_31_0, dx/groupText v/1_31_0, dx/featuresList v/1_31_0, dx/footer v/1_31_0, dw/instrumentation v/1_28_0
+- GTM Container: GTM-MWZCN8
+- Sprig Environment ID: PZOIfnbk1ROP
+- Prerelease Trial Version: Spring '26
+- Environment: Production, SSG enabled, Dark Mode enabled
+
 ## Notes
 The overview page primarily serves as a navigation/landing page with minimal substantive content. It redirects to the Agentforce Developer Guide and related documentation sections. The page contains configuration metadata, analytics tracking, and component library version references but limited feature documentation content. The page returned JS configuration/infrastructure only.
 
 ## Last Fetched
-2026-04-10 - No substantive content changes; page still returns JS configuration only.
+2026-04-12 - No substantive content changes; page still returns JS configuration/infrastructure only. No new features detected.

@@ -7,6 +7,7 @@
   - Recovery kit creation for account backup
   - Connect multiple devices through 6-character codes
   - Syncs favorites/bookmarks and other browser data across devices
+  - No central server arbitration — conflict resolution handled locally
 
 **v1.25.0** (April 2, 2026)
 - Downloads with Visual Guidance: file downloads animate toward sidebar for clear placement feedback
@@ -37,4 +38,4 @@
 - "Before you reach for it..."
 
 ## Last Fetched
-2026-04-10
+2026-04-12

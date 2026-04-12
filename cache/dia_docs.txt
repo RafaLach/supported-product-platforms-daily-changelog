@@ -56,5 +56,10 @@
 
 **Atlassian Acquisition Note:** "Dia continues to operate under its own privacy policy and data handling commitments" despite The Browser Company becoming part of Atlassian.
 
+## AI Models Used
+- GPT (OpenAI Azure)
+- Claude (Anthropic, Vertex, AWS)
+- Gemini (Vertex)
+
 ## Last Fetched
-2026-04-10
+2026-04-12

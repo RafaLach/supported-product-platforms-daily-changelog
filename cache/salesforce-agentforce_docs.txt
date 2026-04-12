@@ -13,10 +13,7 @@ Agentforce is described as "the agent-driven layer of the Salesforce Platform" t
 ## Development Tools
 - **Agent Script** - Language for building agents in Agentforce Builder
 - **Agentforce DX** - Pro-code tools for Salesforce CLI and VS Code integration
-- **Prompt Builder** - Features for creating, managing, and using prompt templates
-
-## Models and Prompts
-Guidance for configuring and utilizing large language models, including Prompt Builder features.
+- **Models and Prompts** - Features for creating, managing, and deploying prompt templates (formerly "Prompt Builder")
 
 ## Terminology Update (NEW — April 2026)
 - **Subagents** - Beginning April 2026, agent "topics" are now called "subagents" (no functional changes, terminology transition only)
@@ -26,4 +23,4 @@ Guidance for configuring and utilizing large language models, including Prompt B
 - Salesforce Help articles on Agentforce Agents
 
 ## Last Fetched
-2026-04-10 - NEW: Terminology change noted — agent "topics" renamed to "subagents" effective April 2026.
+2026-04-12 - No new features detected beyond previous fetch. Section previously labeled "Prompt Builder" now described as "Models and Prompts" (minor label change).

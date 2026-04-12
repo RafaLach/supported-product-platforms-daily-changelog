@@ -24,4 +24,4 @@ The page introduces Agentforce as an agent-driven layer of the Salesforce Platfo
 - Salesforce Help: Agentforce Agents
 
 ## Last Fetched
-2026-04-10 - NEW: Terminology change noted — agent "topics" renamed to "subagents" effective April 2026.
+2026-04-12 - No new features detected beyond previous fetch. No changes from 2026-04-10.

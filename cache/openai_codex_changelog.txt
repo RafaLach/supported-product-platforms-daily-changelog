@@ -2,31 +2,63 @@
 
 ## Version 0.120.0 (April 11, 2026)
 
+**Install:** `npm install -g @openai/codex@0.120.0`
+
 **New Features:**
-- Realtime V2 now streams background agent progress while work continues
-- WebRTC-based voice sessions become the default transport option
-- MCP Apps gain richer functionality including resource reads and tool metadata
-- Remote workflows support egress websocket transport with sandbox-aware filesystem APIs
-- TUI copy functionality via Ctrl+O with improved clipboard behavior across platforms
-- Resume feature allows jumping directly to sessions by ID or name
+- Realtime V2 background agent progress streaming with queued follow-up responses
+- Enhanced hook activity display in TUI with live running hooks shown separately
+- Custom TUI status lines supporting renamed thread titles
+- Code-mode tool declarations include MCP outputSchema details for precise typing
+- SessionStart hooks distinguish sessions created by /clear from fresh startup
 
 **Bug Fixes:**
 - Windows elevated sandbox handling for split filesystem policies
-- Symlinked writable roots and carveout permission issues
-- WebSocket connection panics via Rustls crypto provider installation
+- Sandbox permission handling for symlinked writable roots
+- Remote websocket connection panics resolved
 - Tool search result ordering preservation
-- MCP status improvements and faster startup times
+- Live stop-hook prompts display immediately
+- App-server MCP cleanup on disconnect
 
-**Documentation:**
-- Elevated vs restricted-token Windows sandbox support
-- App-server protocol updates
-- Clarified exec approval messaging
+**Documentation Updates:**
+- Windows sandbox support split documentation
+- App-server protocol documentation for /clear SessionStart source
+
+**Chores:**
+- Rollout recording reliability improvements
+- Analytics schemas and metadata wiring for compaction and Guardian review
+- Guardian follow-up efficiency via transcript deltas
+- Stable Guardian review IDs
 
 ## Version 0.119.0 (April 10, 2026)
 
-**New Features:**
-- Realtime V2 and background agent streaming enhancements
-- Continued MCP Apps and remote workflow improvements
+**Install:** `npm install -g @openai/codex@0.119.0`
+
+**Major Features:**
+- Realtime voice sessions default to v2 WebRTC with configurable transport and voice selection
+- MCP Apps support: resource reads, tool-call metadata, custom-server tool search
+- Remote/app-server workflows with egress websocket transport and remote --cd forwarding
+- TUI copy latest agent response with Ctrl+O
+- /resume command jumps directly to sessions by ID or name
+- Configurable TUI notifications with Warp OSC 9 support
+
+**Bug Fixes:**
+- Faster TUI startup via asynchronous rate limit fetching
+- Resume flow stability improvements
+- Composer and chat behavior refinements
+- Fast Mode toggle reliability in app-server sessions
+- MCP status and startup performance optimizations
+- Sandbox and platform edge case handling
+
+**Documentation:**
+- Updated README with current ChatGPT Business plan naming
+- Developer guidance for argument_comment_lint
+- Clearer codex exec help text
+
+**Architecture:**
+- Codex-core crate slimmed through major extractions (MCP, tools, config, auth, feedback, protocol)
+- Rust CI workspace guardrails simplified
+- Core compile times reduced via async-trait removal
+- Bazel diagnostics and dependency improvements
 
 ## Model Availability Update (April 7, 2026)
 - Older models (gpt-5.2-codex, gpt-5.1-codex-mini, gpt-5.1-codex-max, gpt-5.1-codex, gpt-5.1, gpt-5) removed from model picker
@@ -50,8 +82,6 @@
 - MCP startup more robust with longer startup window and warning visibility
 - Windows apply_patch reduced redundant ACL changes
 
-**Key PRs:** #12220, #15525, #15917, #16286-16288
-
 ## Version 0.117.0 (March 26, 2026)
 
 **New Features:**
@@ -70,15 +100,10 @@
 - Remote multi-agent sessions display agent names; stale turn-steering races resolved
 - Plugin mentions preserve context; product gating predictability improved
 
-**Documentation:**
-- Expanded app-server and exec-server docs covering setup, filesystem watches, realtime transcription, Python thread.run() quickstart
-
 **Chores:**
 - App-server TUI now enabled by default
 - Plugin/app rollout flags activated in normal builds
 - Legacy artifact tool removed; read_file and grep_files handlers retired
-
-**Key PRs:** #15041-15042, #15195, #15215-15217, #15264, #15275, #15342, #15580, #15606, #15802, #15313, #15515, #15556, #15570, #15621, #15647, #12334, #15860
 
 ## Key Infrastructure Updates
 - Bazel build improvements and CI stabilization
@@ -88,4 +113,4 @@
 - Rust 2024 edition adoption for multiple crates
 - Git utilities consolidated into dedicated crate
 
-Updated: 2026-04-11
+Updated: 2026-04-12

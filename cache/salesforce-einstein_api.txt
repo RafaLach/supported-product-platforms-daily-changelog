@@ -6,7 +6,7 @@
 ## API and SDK References Listed
 
 1. **Agent API Reference** - Enables communication with AI agents in your org; supports subagents and actions (note: "topics" renamed to "subagents" as of April 2026)
-2. **Agentforce Python SDK Reference** - Programmatic agent and prompt template creation using Salesforce Metadata API
+2. **Agentforce Python SDK Reference** - Programmatic agent and prompt template creation using Salesforce Metadata API; available on GitHub
 3. **Agent Script Reference** - Language combining natural language with programmatic expressions for agent workflows
 4. **Agentforce DX Reference** - Pro-code tools for agent creation and testing outside Builder UI
 5. **Agentforce Mobile SDK Reference** - Native iOS and Android integration for conversational AI
@@ -23,4 +23,4 @@
 - Models API Developer Guide
 
 ## Last Fetched
-2026-04-10 - No new APIs detected. Subagent terminology reflected in Agent API description.
+2026-04-12 - No new APIs detected. No changes from 2026-04-10.

@@ -24,6 +24,10 @@
 - **Language Preference** - ISO 639-1 code for response language
 - **Max Output Tokens** - Token generation limit (minimum: 1)
 
+## Model Support
+- Supports third-party model IDs (e.g., "xai/grok-4-1", "openai/gpt-4o")
+- `models` parameter supports fallback chain of up to 5 models
+
 ## Streaming Events (14 types)
 - response.created, response.in_progress, response.completed, response.failed
 - response.output_item.added, response.output_item.done
@@ -40,5 +44,8 @@
 - Cost breakdown (USD)
 - Timestamps (Unix format)
 
+## Authentication
+- Bearer token (HTTPBearer)
+
 ## Last Fetched
-2026-04-10
+2026-04-12

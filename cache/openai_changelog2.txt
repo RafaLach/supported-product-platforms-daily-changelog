@@ -2,6 +2,11 @@
 
 ## Latest Releases
 
+**v6.34.0** (April 8, 2026)
+- Added phase field to Message in conversations
+- Added support for short-lived tokens
+- Bug fixes: web search call results handling
+
 **v6.33.0** (March 25, 2026)
 - Added keys field to computer action types
 - Implemented async iterator and stream() functionality for WebSocket classes
@@ -53,4 +58,4 @@
 ## Build/Test Infrastructure
 - Updated CI/testing infrastructure with steady v0.19.4-0.19.7 bumps
 
-Updated: 2026-04-06
+Updated: 2026-04-12

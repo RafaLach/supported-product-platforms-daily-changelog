@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/power-pages/release-updates
-Fetched: 2026-04-06
+Fetched: 2026-04-12
 
 # Power Pages release updates and new features
 

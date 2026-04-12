@@ -13,6 +13,7 @@
 **Agentforce Python SDK**
 - Allows programmatic agent creation, management, and deployment
 - Based on Salesforce Metadata API implementation
+- Available on GitHub
 
 **Agent Script**
 - Language for building agents within Agentforce Builder
@@ -43,4 +44,4 @@
 Comprehensive guides available for Agentforce, Agent API, and Models API implementations.
 
 ## Last Fetched
-2026-04-10 - No new APIs or SDKs detected beyond previous fetch. Subagent terminology noted in Agent API description.
+2026-04-12 - No new APIs or SDKs detected beyond previous fetch. No changes from 2026-04-10.

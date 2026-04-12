@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/power-platform/released-versions/power-automate
-Fetched: 2026-04-06
+Fetched: 2026-04-12
 
 # Released versions for Power Automate
 

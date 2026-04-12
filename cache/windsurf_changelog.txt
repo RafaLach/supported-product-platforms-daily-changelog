@@ -14,6 +14,7 @@
 - Updated Model Picker with token pricing display showing input, output, and cache read rates per model
 - New prompt cache timer integrated into context window indicator
 - Token counts included in response cards for cost transparency
+- Extra usage promo pricing: $0.50/M input tokens, $2.00/M output tokens, $0.10/M cache read tokens
 
 ## Version 1.9577.43 (March 19, 2026)
 - Introduced support for a new quota billing system
@@ -177,4 +178,4 @@
 - Native terminal in Cascade panel
 
 ## Updated
-2026-04-10
+2026-04-12

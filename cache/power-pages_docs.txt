@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/power-pages/
-Fetched: 2026-04-06
+Fetched: 2026-04-12
 
 # Microsoft Power Pages documentation
 

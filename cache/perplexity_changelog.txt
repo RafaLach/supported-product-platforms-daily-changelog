@@ -7,14 +7,16 @@
 ## December 2025
 - **Media Classifier** - Automatically detects visual content needs and includes relevant images/videos in responses
 - **Search API Enhancements** - New `max_tokens` parameter for controlling extracted tokens per page; `last_updated_filter` for content freshness; Vercel AI SDK compatibility
+- **sonar-reasoning model deprecated** (December 15, 2025); migration path to `sonar-reasoning-pro`
 
 ## November 2025
 - **Pro Search** - "Multi-step reasoning through intelligent tool orchestration" with automated tool usage and real-time thought streaming
 - **MCP Server One-Click Installation** - Auto-configuration support for Cursor, VS Code, Claude Desktop, and Claude Code
+- Four MCP tools: `perplexity_search`, `perplexity_ask`, `perplexity_research`, `perplexity_reason`
 
 ## October 2025
-- **Official Perplexity SDKs** - Python and TypeScript SDKs with type-safe API access and streaming support
-- **Interactive Search API Playground** - Test queries without API key requirement
+- **Official Perplexity SDKs** - Python (`perplexityai`) and TypeScript (`@perplexity-ai/perplexity_ai`) SDKs with type-safe API access and streaming support
+- **Interactive Search API Playground** - Test queries without API key requirement at https://console.perplexity.ai
 - **New Search Capabilities** - `language_preference` parameter; `search_domain_filter` for targeted results
 
 ## September 2025
@@ -50,4 +52,4 @@
 - **Sonar & Sonar Pro Models** - New cost-effective search-based APIs with built-in citations
 
 ## Last Fetched
-2026-04-10 - No new entries detected beyond what was previously cached.
+2026-04-12 - No new entries detected beyond what was previously cached.

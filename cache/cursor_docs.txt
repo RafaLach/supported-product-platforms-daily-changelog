@@ -49,5 +49,14 @@ Multiple Claude models including:
 - Debugging and bug fixing
 - Test generation
 
+## Documentation Categories
+- Getting Started, Agent Features, Tools, Models, Integration
+- Account Management, Cloud Agent, Enterprise, CLI, Developer Resources
+- Use case guides for Designers, PMs, Sales Engineers, Support teams
+- Language guides: Web, JS/TS, Python, Java, C#, Data Science
+
+## Localization
+English, Chinese (Simplified & Traditional), Japanese, Spanish, French, Portuguese (Brazil), Korean, Russian, Turkish, Indonesian, German
+
 ## Last Fetched
-2026-04-10 - Fetch failed (HTTP 429 rate limit). Content preserved from previous scan with model list updated from changelog.
+2026-04-12

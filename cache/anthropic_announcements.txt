@@ -2,19 +2,22 @@
 
 ## Featured Stories
 
-1. **"What 81,000 people want from AI"** (Mar 18, 2026)
+1. **Project Glasswing** (Apr 7, 2026)
+   - "A new initiative that brings together Amazon Web Services, Anthropic, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks in an effort to secure the world's most critical software."
+
+2. **"What 81,000 people want from AI"** (Mar 18, 2026)
    - Largest multilingual qualitative study of Claude.ai users
 
-2. **Introducing Claude Sonnet 4.6** (Feb 17, 2026)
+3. **Introducing Claude Sonnet 4.6** (Feb 17, 2026)
    - "frontier performance across coding, agents, and professional work"
 
-3. **Introducing Claude Opus 4.6** (Feb 5, 2026)
+4. **Introducing Claude Opus 4.6** (Feb 5, 2026)
    - Industry-leading model for agentic coding, computer use, tool use
 
-4. **Claude is a space to think** (Feb 4, 2026)
+5. **Claude is a space to think** (Feb 4, 2026)
    - Commitment to ad-free service
 
-5. **Claude on Mars** (Jan 30, 2026)
+6. **Claude on Mars** (Jan 30, 2026)
    - "first AI-assisted drive on another planet" with NASA's Perseverance rover
 
 ## Recent News
@@ -67,8 +70,8 @@
 
 ## Key Products & Services
 
-**Claude Models**: Opus 4.6, Sonnet 4.6, Haiku
-**Applications**: Claude.ai, Claude Code (with Security), Claude Cowork, Chrome extension, Excel/PowerPoint/Slack integrations
+**Claude Models**: Opus 4.6, Sonnet 4.6, Haiku, Mythos preview
+**Applications**: Claude.ai, Claude Code (with Security), Claude Cowork, Chrome extension, Excel/PowerPoint/Word/Slack integrations
 **Platform**: API access, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry, Marketplace
 **Pricing Plans**: Max, Team, Enterprise
 
@@ -76,4 +79,4 @@
 - Press: press@anthropic.com
 - Support: support@anthropic.com
 
-Updated: 2026-04-10
+Updated: 2026-04-12
