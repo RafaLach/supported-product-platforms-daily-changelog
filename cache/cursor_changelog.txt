@@ -1,71 +1,50 @@
 # Cursor Changelog - Feature Announcements
 
-## Apr 8, 2026
-**Bugbot Enhancements**
-- **Bugbot Learned Rules**: Self-improving code review system that turns feedback signals into learned rules that improve future reviews
-- **Bugbot MCP Support**: Bugbot now has access to MCP servers for enhanced context during code reviews
-- **Bugbot Resolution Rate**: Increased to 78%
-- **Bugbot "Fix All" Action**: Apply multiple Bugbot fixes in one operation
-- **Bugbot Autofix Improvements**: Only runs autofix when findings warrant it; uses only relevant rules
+## Apr 15, 2026 — Canvases
+- Interactive canvases with dashboards and custom interfaces using tables, boxes, diagrams, and charts
+- New artifact/workspace type for building visual dashboards from agent activity
 
-## Apr 2, 2026
-**Cursor 3.0 Launch**
-- New Agents Window enabling parallel agent execution across local, worktrees, cloud, and remote SSH environments
-- Design Mode feature for annotating UI elements directly in browsers with keyboard shortcuts
-- Agent Tabs allowing side-by-side or grid view of multiple chats simultaneously
+## Apr 13, 2026 — Cursor 3.1
+- **Tiled Layout** — Split current view into panes to run and manage several agents in parallel
+- **Upgraded Voice Input** — Enhanced dictation with batch speech-to-text transcription and recording controls
+- **Branch Selection** — Search and select git branches before launching cloud agents
+- **Diff to File Navigation** — Jump from diffs to exact file lines with full editor capabilities
+- **Search Filters** — Include/exclude filters for scoping code search to specific file sets
 
-**Editor Updates:**
-- `/worktree` command for isolated git worktrees
-- `/best-of-n` command for parallel multi-model task execution with outcome comparison
-- Deprecated previous worktree/best-of-n selection; removed cloud agents from Editor
+## Apr 8, 2026 — Bugbot Enhancements
+- **Bugbot Learned Rules** — Self-improving code review; turns PR feedback signals into learned rules
+- **Bugbot MCP Support** — MCP server access for additional context during code reviews
+- **Bugbot Resolution Rate** — Improved to 78%
+- **Bugbot "Fix All" Action** — Apply multiple Bugbot fixes in one operation
 
-**Plugins & MCP:**
-- MCP Apps now support structured content for richer tool outputs
-- Third-party plugin imports default to off for Enterprises (preserves admin overrides)
-
-**Enterprise & Teams:**
-- Directory group names in audit logs for readability
+## Apr 2, 2026 — Cursor 3.0 Launch
+- New Agents Window — parallel agent execution across local, worktrees, cloud, and remote SSH
+- Design Mode — annotate UI elements directly in browsers
+- Agent Tabs — side-by-side or grid view of multiple chats
+- /worktree command, /best-of-n command
+- MCP Apps support structured content
 - Team-level Admin setting restricting cloud agent secret management
 - Enterprise control to disable "Made with Cursor" attribution
 
-**Infrastructure & Quality:**
-- Large-file diff rendering performance improvements
-- Enhanced long-running job monitoring
-- New `Await` tool for agents to wait for commands/subagents/specific outputs
-- Reduced browser automation surface; improved reliability
-- Plans included in shared chats
-- Explorer subagent startup caching
-- Chat transcripts in at-mention search
-- "Scroll to bottom" button in agent panel
-- Full-width tab bar in maximized layouts
-- Early Access consolidated into Nightly
-- 8 bug fixes including text area behavior, hooks loading, markdown parsing, and streaming issues
-
-## Mar 25, 2026
-**Self-hosted Cloud Agents** - Run Cursor cloud agents entirely within your own network. Offers the same capabilities as Cursor-hosted agents: isolated VMs, full development environments, multi-model harnesses, and plugins. Keeps code and tool execution on-premise.
+## Mar 25, 2026 — Self-hosted Cloud Agents
+- Run Cursor cloud agents entirely within your own network
+- Same capabilities as Cursor-hosted agents: isolated VMs, full dev environments, multi-model harnesses, plugins
 
 ## Mar 19, 2026
-**Composer 2** - "frontier-level coding performance with strong results on challenging coding tasks." Pricing: Standard ($0.50/M input, $2.50/M output tokens) and Fast ($1.50/M input, $7.50/M output tokens).
+- **Composer 2** — frontier-level coding performance
 
 ## Mar 11, 2026
-**New Marketplace Plugins** - Over 30 new plugins from partners including Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, and PlanetScale. Plugins enable reading, writing, and actions across development stacks via MCPs.
+- **New Marketplace Plugins** — 30+ plugins from Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, PlanetScale
 
 ## Mar 5, 2026
-**Automations** - Always-on agents triggered by schedules or events from Slack, Linear, GitHub, PagerDuty, and webhooks. Agents access cloud sandboxes, MCPs, configurable models, and a memory tool for learning across runs.
+- **Automations** — Always-on agents triggered by schedules or events from Slack, Linear, GitHub, PagerDuty, webhooks
 
 ## Mar 4, 2026
-**Cursor in JetBrains IDEs** - Available in IntelliJ IDEA, PyCharm, WebStorm via Agent Client Protocol. Supports frontier models from OpenAI, Anthropic, Google, and Cursor for agent-driven development.
+- **Cursor in JetBrains IDEs** — IntelliJ IDEA, PyCharm, WebStorm via Agent Client Protocol
 
 ## Mar 3, 2026 (Version 2.6)
-**MCP Apps** - Interactive UIs for charts, diagrams, and whiteboards from Amplitude, Figma, and tldraw directly in Cursor.
-
-**Team Marketplaces** - Teams and Enterprise admins can create private plugin marketplaces with governance and access controls.
-
-**Desktop Improvements** (15 items) - Parallel Debug sessions, stale code cleanup, adaptive instrumentation logging, browser tool context menus and zoom, plan file content in autocomplete, image galleries, multiline Plan mode, faster modals, improved workflows, better PR context, smoother tool-use flows, reliable MCP setup, clearer policies, enhanced Slack integration, longer session reliability.
-
-**Desktop Bug Fixes** (10 items) - Web link fixes, refresh behavior, branch divergence handling, review comments accuracy, diff display preservation, MCP configuration stability, model picker fixes, permission inconsistencies, long-running workflow reliability, Debug port allocation.
-
-**Web Improvements & Fixes** (2 items) - Dashboard enhancements and layout improvements.
+- **MCP Apps** — Interactive UIs for charts, diagrams, whiteboards from Amplitude, Figma, tldraw
+- **Team Marketplaces** — Private plugin marketplaces with governance and access controls
 
 ## Last Fetched
-2026-04-12
+2026-04-19 — New entries: Canvases (Apr 15), Cursor 3.1 Tiled Layout/Voice/Branch Selection/Diff Nav/Search Filters (Apr 13)

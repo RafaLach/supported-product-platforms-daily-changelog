@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/power-platform/released-versions/power-automate
-Fetched: 2026-04-12
+Fetched: 2026-04-15
 
 # Released versions for Power Automate
 
@@ -36,5 +36,8 @@ Service Update History:
 - 2412.3 - January 17, 2025
 - 2412.2 - January 16, 2025
 - 2412.1 - January 8, 2025
+- 2411.3 - December 13, 2024
+- 2411.2 - November 20, 2024
+- 2411.1 - November 14, 2024
 
 Page last updated: 2025-09-02

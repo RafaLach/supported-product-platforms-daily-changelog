@@ -7,7 +7,7 @@ Amazon Bedrock AgentCore is an agentic platform for building, deploying, and ope
 
 | Service | Description | Key Integrations |
 |---------|-------------|------------------|
-| **Runtime** | Secure, serverless runtime for deploying/scaling dynamic AI agents and tools. Features: fast cold starts, extended async support, session isolation, built-in identity, multi-modal/multi-agent support | CrewAI, LangGraph, LlamaIndex, OpenAI SDK, any foundation model |
+| **Runtime** | Secure, serverless runtime for deploying/scaling dynamic AI agents and tools. Features: fast cold starts, extended async support, session isolation, built-in identity, multi-modal/multi-agent support | CrewAI, LangGraph, LlamaIndex, Google ADK, OpenAI Agents SDK, Strands Agents; supports MCP and A2A protocols |
 | **Memory** | Context-aware agents with short-term (multi-turn) and long-term (cross-session) memory with sharing capabilities | LangGraph, LangChain, Strands, LlamaIndex |
 | **Gateway** | Converts APIs, Lambda functions, existing services into MCP-compatible tools. Connects to pre-existing MCP servers | Salesforce, Zoom, JIRA, Slack, any OpenAPI specs |
 | **Identity** | Secure agent identity/access/authentication management compatible with existing IdPs (Amazon Cognito, Okta, Microsoft Azure Entra ID, Auth0) | Cognito, Okta, Azure Entra ID, Auth0 |
@@ -40,4 +40,4 @@ Salesforce, Zoom, JIRA, Slack (via Gateway)
 Consumption-based (no upfront commitments or minimum fees)
 
 ## Note
-Last fetched: 2026-04-12. Registry service now confirmed in core services list. Newly documented frameworks: Google ADK (Google Agent Development Kit).
+Last fetched: 2026-04-15. No changes detected from previous scan. Runtime integration list confirmed to include Google ADK and OpenAI Agents SDK (consistent with prior cache).

@@ -1,116 +1,60 @@
 # OpenAI Codex Changelog
 
+## April 18, 2026 — Codex Apps SDK Submission Flow
+- Official roundup of enhancements to the ChatGPT Apps SDK submission process
+
+## April 16, 2026 — Codex Major Update (beyond coding)
+"Codex is getting a major update. Already used by millions of developers, it is now expanding beyond coding to support a broader range of work."
+- In-app browser for local/public page previews (early-stage)
+- Computer use for macOS app operation (seeing, clicking, typing) for native app testing and GUI-only bug handling
+- Chats without project folders (projectless threads for research, writing, planning, analysis)
+- Thread automations — scheduled wake-ups preserving conversation context for monitoring and automated follow-up loops
+- Pull request workflow integration — inspect GitHub PRs, review diffs, inspect changed files, streamlined feedback
+- Task sidebar — dedicated sidebar tracking plans, sources, generated artifacts, and summaries
+- Artifact viewer — preview generated files (PDFs, spreadsheets, documents, presentations) in sidebar before commit
+
+## April 15, 2026 — CLI 0.121.0
+- Marketplace installation from GitHub/git URLs
+- TUI history with Ctrl+R reverse search
+- Memory mode controls
+- MCP Apps tool calls
+- Parallel-call opt-in
+- Realtime/app-server APIs for output modality and transcript events
+- Secure devcontainer profile with bubblewrap
+
 ## Version 0.120.0 (April 11, 2026)
-
-**Install:** `npm install -g @openai/codex@0.120.0`
-
-**New Features:**
 - Realtime V2 background agent progress streaming with queued follow-up responses
-- Enhanced hook activity display in TUI with live running hooks shown separately
+- Enhanced hook activity display in TUI
 - Custom TUI status lines supporting renamed thread titles
-- Code-mode tool declarations include MCP outputSchema details for precise typing
+- Code-mode tool declarations include MCP outputSchema details
 - SessionStart hooks distinguish sessions created by /clear from fresh startup
 
-**Bug Fixes:**
-- Windows elevated sandbox handling for split filesystem policies
-- Sandbox permission handling for symlinked writable roots
-- Remote websocket connection panics resolved
-- Tool search result ordering preservation
-- Live stop-hook prompts display immediately
-- App-server MCP cleanup on disconnect
-
-**Documentation Updates:**
-- Windows sandbox support split documentation
-- App-server protocol documentation for /clear SessionStart source
-
-**Chores:**
-- Rollout recording reliability improvements
-- Analytics schemas and metadata wiring for compaction and Guardian review
-- Guardian follow-up efficiency via transcript deltas
-- Stable Guardian review IDs
-
 ## Version 0.119.0 (April 10, 2026)
-
-**Install:** `npm install -g @openai/codex@0.119.0`
-
-**Major Features:**
 - Realtime voice sessions default to v2 WebRTC with configurable transport and voice selection
 - MCP Apps support: resource reads, tool-call metadata, custom-server tool search
-- Remote/app-server workflows with egress websocket transport and remote --cd forwarding
+- Remote/app-server workflows with egress websocket transport
 - TUI copy latest agent response with Ctrl+O
 - /resume command jumps directly to sessions by ID or name
 - Configurable TUI notifications with Warp OSC 9 support
-
-**Bug Fixes:**
-- Faster TUI startup via asynchronous rate limit fetching
-- Resume flow stability improvements
-- Composer and chat behavior refinements
-- Fast Mode toggle reliability in app-server sessions
-- MCP status and startup performance optimizations
-- Sandbox and platform edge case handling
-
-**Documentation:**
-- Updated README with current ChatGPT Business plan naming
-- Developer guidance for argument_comment_lint
-- Clearer codex exec help text
-
-**Architecture:**
-- Codex-core crate slimmed through major extractions (MCP, tools, config, auth, feedback, protocol)
-- Rust CI workspace guardrails simplified
-- Core compile times reduced via async-trait removal
-- Bazel diagnostics and dependency improvements
+- codex exec-server experimental subcommand
 
 ## Model Availability Update (April 7, 2026)
-- Older models (gpt-5.2-codex, gpt-5.1-codex-mini, gpt-5.1-codex-max, gpt-5.1-codex, gpt-5.1, gpt-5) removed from model picker
-- Complete removal on April 14, 2026
+- Older models removed from model picker (gpt-5.2-codex, gpt-5.1-codex-mini, etc)
 - Remaining models: gpt-5.4, gpt-5.4-mini, gpt-5.3-codex, gpt-5.2
 - ChatGPT Pro subscribers also get gpt-5.3-codex-spark
-- Older models still accessible via API key or custom model provider
 
 ## Version 0.118.0 (March 31, 2026)
-
-**New Features:**
 - Windows sandbox now enforces proxy-only networking with OS-level egress rules
 - App-server clients support device code flow for ChatGPT sign-in
-- codex exec enables prompt-plus-stdin workflow with piped input
-- Custom model providers can fetch and refresh short-lived bearer tokens dynamically
-
-**Bug Fixes:**
-- Project-local .codex files protected on first creation
-- Linux sandbox launches more reliable with trusted system bwrap
-- App-server TUI regained missing workflows: hook notifications, /copy, /resume, /agent, and skills picker pagination
-- MCP startup more robust with longer startup window and warning visibility
-- Windows apply_patch reduced redundant ACL changes
+- codex exec enables prompt-plus-stdin workflow
+- Custom model providers can fetch and refresh short-lived bearer tokens
 
 ## Version 0.117.0 (March 26, 2026)
-
-**New Features:**
 - Plugins are now a first-class workflow with startup sync and TUI browsing
-- Sub-agents use path-based addresses like /root/agent_a with structured messaging
-- /title terminal-title picker works in classic and app-server TUI
-- App-server clients support shell commands, filesystem watches, remote websocket with bearer-token auth
-- Image workflows: view_image returns URLs for code mode, reopenable generated images, persistent history
-- Prompt history recall works in app-server TUI across sessions
+- Sub-agents use path-based addresses
+- /title terminal-title picker
+- App-server clients support shell commands, filesystem watches, remote websocket
+- Image workflows: view_image returns URLs for code mode, reopenable generated images
 
-**Bug Fixes:**
-- tui_app_server eliminates reasoning summary duplication and /review output duplication
-- ChatGPT login opens local browser, cancels cleanly on Ctrl+C, handles logged-out state
-- Terminal state restoration reliable on early exit; tmux Shift+Left editing fixed
-- Linux sandboxing improved for older bubblewrap; Windows split-policy carveout layouts enhanced
-- Remote multi-agent sessions display agent names; stale turn-steering races resolved
-- Plugin mentions preserve context; product gating predictability improved
-
-**Chores:**
-- App-server TUI now enabled by default
-- Plugin/app rollout flags activated in normal builds
-- Legacy artifact tool removed; read_file and grep_files handlers retired
-
-## Key Infrastructure Updates
-- Bazel build improvements and CI stabilization
-- Windows gnullvm CI path enablement
-- Native Bazel aspect migration for linting
-- macOS SDK pin refresh
-- Rust 2024 edition adoption for multiple crates
-- Git utilities consolidated into dedicated crate
-
-Updated: 2026-04-12
+## Last Fetched
+2026-04-19 — New entries: CLI 0.121.0 (April 15), broader workspace capabilities (April 16), Apps SDK submission flow (April 18)

@@ -2,6 +2,12 @@
 
 ## Latest Releases
 
+**v2.32.0** (April 15, 2026)
+- Event handler implementation for WebSockets
+- Reconnection support in WebSockets
+- Added detail field to InputFileContent
+- OAuthErrorCode type addition
+
 **v2.31.0** (April 8, 2026)
 - Added phase field to conversations message
 - Added web_search_call.results to ResponseIncludable type
@@ -22,7 +28,6 @@
 - Added /v1/videos endpoint support for batch operations
 - Introduced defer_loading field to ToolFunction
 - Implemented "in" and "nin" operators for ComparisonFilter
-- Bug fixes: bumped minimum typing-extensions version, fixed Pydantic by_alias parameter handling
 
 **v2.28.0** (March 13, 2026)
 - Custom voices implementation for audio capabilities
@@ -40,14 +45,10 @@
 - Released GPT-5.4 model
 - Introduced tool search capability
 - Implemented new computer tool functionality
-- Removed prompt_cache_key parameter from responses
-- Updated phase field handling in message types
 
 **v2.24.0** (February 24, 2026)
 - Added phase field support
 - Enhanced descriptions for audio, chat, realtime, skills, uploads, and videos methods
-- Updated safety_identifier documentation
-- Added batch size limit specifications
 
 **v2.23.0** (February 24, 2026)
 - Added gpt-realtime-1.5 and gpt-audio-1.5 model options for realtime calls
@@ -58,14 +59,8 @@
 **v2.21.0** (February 13, 2026)
 - Container network_policy implementation
 - Skills integration
-- Resolved memory leak in structured outputs parse methods
-- Preserved method visibility in webhooks for compatibility
-
-## Repository Statistics
-- Issues: 176 open
-- Pull Requests: 198 open
 
 ## Build/Test Infrastructure
 - Transitioned testing framework from Prism to Steady
 
-Updated: 2026-04-12
+Updated: 2026-04-19 — New: v2.32.0 (Event handler for WebSockets, Reconnection support, OAuthErrorCode type)

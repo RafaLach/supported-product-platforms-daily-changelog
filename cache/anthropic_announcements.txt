@@ -2,81 +2,60 @@
 
 ## Featured Stories
 
-1. **Project Glasswing** (Apr 7, 2026)
+1. **Claude Design by Anthropic Labs** (Apr 17, 2026)
+   - New product for collaborating with Claude to create "designs, prototypes, slides, one-pagers, and more"
+
+2. **Claude Opus 4.7** (Apr 16, 2026)
+   - Latest model with "stronger performance across coding, agents, vision, and multi-step tasks"
+
+3. **Project Glasswing** (Apr 7, 2026)
    - "A new initiative that brings together Amazon Web Services, Anthropic, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks in an effort to secure the world's most critical software."
 
-2. **"What 81,000 people want from AI"** (Mar 18, 2026)
+4. **"What 81,000 people want from AI"** (Mar 18, 2026)
    - Largest multilingual qualitative study of Claude.ai users
 
-3. **Introducing Claude Sonnet 4.6** (Feb 17, 2026)
+5. **Introducing Claude Sonnet 4.6** (Feb 17, 2026)
    - "frontier performance across coding, agents, and professional work"
 
-4. **Introducing Claude Opus 4.6** (Feb 5, 2026)
+6. **Introducing Claude Opus 4.6** (Feb 5, 2026)
    - Industry-leading model for agentic coding, computer use, tool use
 
-5. **Claude is a space to think** (Feb 4, 2026)
+7. **Claude is a space to think** (Feb 4, 2026)
    - Commitment to ad-free service
-
-6. **Claude on Mars** (Jan 30, 2026)
-   - "first AI-assisted drive on another planet" with NASA's Perseverance rover
 
 ## Recent News
 
 | Date | Category | Title |
 |------|----------|-------|
-| Apr 7, 2026 | Announcements | Project Glasswing: Multi-company initiative to enhance global software security (AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorgan Chase, Linux Foundation, Microsoft, NVIDIA, Palo Alto Networks) |
-| Apr 6, 2026 | Announcements | Google & Broadcom partnership for multiple gigawatts of next-generation computing infrastructure |
-| Mar 31, 2026 | Announcements | Australian Government and Anthropic Sign MOU for AI Safety and Research |
+| Apr 17, 2026 | Product | Claude Design by Anthropic Labs |
+| Apr 16, 2026 | Model | Claude Opus 4.7 |
+| Apr 14, 2026 | Board | Vas Narasimhan joins Long-Term Benefit Trust Board |
+| Apr 7, 2026 | Announcements | Project Glasswing |
+| Apr 6, 2026 | Announcements | Google & Broadcom partnership for multi-gigawatt compute |
+| Mar 31, 2026 | Announcements | Australian Government MOU for AI Safety |
 | Mar 18, 2026 | Research | "What 81,000 people want from AI" |
-| Mar 12, 2026 | Announcements | Anthropic invests $100 million into Claude Partner Network |
-| Mar 11, 2026 | Announcements | Introducing The Anthropic Institute |
-| Mar 10, 2026 | Announcements | Sydney becomes Anthropic's fourth Asia-Pacific office |
-| Mar 6, 2026 | Policy | Partnering with Mozilla to improve Firefox security |
-| Mar 5, 2026 | Announcements | Where things stand with Department of War |
-| Feb 27, 2026 | Announcements | Statement on Secretary of War Pete Hegseth comments |
-| Feb 26, 2026 | Announcements | Dario Amodei statement on Department of War discussions |
+| Mar 12, 2026 | Announcements | $100 million investment in Claude Partner Network |
+| Mar 11, 2026 | Announcements | The Anthropic Institute launched |
+| Mar 10, 2026 | Announcements | Sydney office opens |
+| Mar 6, 2026 | Policy | Mozilla Firefox security partnership |
 | Feb 25, 2026 | Announcements | Anthropic acquires Vercept for computer use capabilities |
 | Feb 24, 2026 | Policy | Responsible Scaling Policy: Version 3.0 |
-| Feb 23, 2026 | Announcements | Detecting and preventing distillation attacks |
 | Feb 20, 2026 | Announcements | Claude Code Security cybersecurity capability preview |
-| Feb 17, 2026 | Announcements | Anthropic and Infosys collaborate on AI agents for telecoms |
-| Feb 17, 2026 | Announcements | Introducing Claude Sonnet 4.6 |
-| Feb 17, 2026 | Announcements | Rwanda government MOU for health and education |
-| Feb 16, 2026 | Announcements | Bengaluru office opens with partnerships across India |
-| Feb 13, 2026 | Announcements | CodePath partnership for US collegiate computer science |
-| Feb 13, 2026 | Announcements | Chris Liddell appointed to Anthropic board |
-| Feb 12, 2026 | Announcements | $30 billion Series G funding at $380 billion valuation |
-| Feb 12, 2026 | Policy | $20 million donation to Public First Action |
-| Feb 11, 2026 | Policy | Covering electricity cost increases from data centers |
-| Feb 5, 2026 | Announcements | Introducing Claude Opus 4.6 |
-| Feb 4, 2026 | Announcements | Claude is a space to think (ad-free commitment) |
-| Feb 2, 2026 | Announcements | Allen Institute and Howard Hughes Medical Institute partnership |
-| Jan 30, 2026 | Announcements | Claude on Mars (NASA Perseverance rover AI-assisted drive) |
+| Feb 17, 2026 | Announcements | Claude Sonnet 4.6 |
+| Feb 12, 2026 | Funding | $30 billion Series G at $380 billion valuation |
+| Feb 5, 2026 | Announcements | Claude Opus 4.6 |
+| Feb 4, 2026 | Announcements | Claude ad-free commitment |
+| Jan 30, 2026 | Announcements | Claude on Mars (NASA Perseverance rover) |
 | Jan 28, 2026 | Announcements | ServiceNow integration |
-| Jan 27, 2026 | Announcements | UK Government partnership for GOV.UK services |
 | Jan 22, 2026 | Announcements | Claude's new constitution |
-| Jan 21, 2026 | Announcements | Mariano-Florentino Cuéllar appointed to Long-Term Benefit Trust |
-| Jan 21, 2026 | Announcements | Teach For All partnership for global AI educator training |
-| Jan 16, 2026 | Announcements | Irina Ghose appointed Managing Director of India |
-| Jan 15, 2026 | Case Study | Scientists using Claude to accelerate research |
-| Jan 15, 2026 | Economic Research | Anthropic Economic Index report: economic primitives |
 | Jan 13, 2026 | Announcements | Introducing Labs |
-| Jan 11, 2026 | Announcements | Claude healthcare and life sciences advancements (HIPAA infrastructure) |
-| Dec 19, 2025 | Policy | Compliance framework for California's SB53 |
-| Dec 18, 2025 | Announcements | US Department of Energy partnership for scientific discovery |
-| Dec 9, 2025 | Announcements | Donated Model Context Protocol; Agentic AI Foundation |
-| Dec 9, 2025 | Announcements | Accenture multi-year partnership for AI production |
-| Dec 3, 2025 | Announcements | Snowflake-Anthropic $200M expanded partnership |
+| Dec 9, 2025 | Announcements | MCP donation; Agentic AI Foundation |
 
 ## Key Products & Services
 
-**Claude Models**: Opus 4.6, Sonnet 4.6, Haiku, Mythos preview
+**Claude Models**: Opus 4.7, Opus 4.6, Sonnet 4.6, Haiku, Mythos preview
+**Anthropic Labs Products**: Claude Design (NEW April 17, 2026)
 **Applications**: Claude.ai, Claude Code (with Security), Claude Cowork, Chrome extension, Excel/PowerPoint/Word/Slack integrations
 **Platform**: API access, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry, Marketplace
-**Pricing Plans**: Max, Team, Enterprise
 
-## Contact
-- Press: press@anthropic.com
-- Support: support@anthropic.com
-
-Updated: 2026-04-12
+Last Fetched: 2026-04-19 — New entries: Claude Design (Apr 17), Claude Opus 4.7 (Apr 16)

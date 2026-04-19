@@ -1,40 +1,43 @@
 # Windsurf Editor Changelog - Feature Announcements
 
+## Version 2.0.61 (April 17, 2026)
+- Bug fixes and performance improvements
+
+## Version 2.0.50 (April 16, 2026)
+- Auth experience enhancements and Windows terminal fixes
+
+## Version 2.0.44 (April 15, 2026) — Windsurf 2.0 Launch
+- **Devin cloud agent available directly inside Windsurf** — included with every self-serve plan
+- **Agent Command Center** — Kanban-style task organization for tracking/managing agent work
+- **Enhanced browser with toolbar integration**
+- Major version transition from 1.x to 2.0
+
 ## Version 1.9600.41 (April 7, 2026)
 - Fixed bug preventing model switching after first request in Adaptive mode
-- All affected users received quota resets and overage restoration
 
 ## Version 1.9600.40 (April 6, 2026)
-- Improved visibility of the adaptive model option within the model picker interface
+- Improved visibility of the adaptive model option within the model picker
 
 ## Version 1.9600.38 (April 6, 2026)
-- Introducing Adaptive: New model router that intelligently selects the best model for each task
-- Available to all self-serve users on Pro, Max, and Teams plans
-- Dynamically chooses the appropriate underlying model while maintaining fixed per-token quota consumption
-- Updated Model Picker with token pricing display showing input, output, and cache read rates per model
+- Introducing Adaptive: New model router that intelligently selects the best model per task
+- Updated Model Picker with token pricing display
 - New prompt cache timer integrated into context window indicator
-- Token counts included in response cards for cost transparency
-- Extra usage promo pricing: $0.50/M input tokens, $2.00/M output tokens, $0.10/M cache read tokens
+- Token counts included in response cards
 
 ## Version 1.9577.43 (March 19, 2026)
-- Introduced support for a new quota billing system
-- Daily and weekly quota usage metrics now visible directly in the IDE
-- Fixed Mac x64 build issues
+- New quota billing system with daily/weekly usage display
 
-## Version 1.9577.42 (March 19, 2026)
-- Various bug fixes and performance enhancements
-
-## Version 1.9577.27 (March 2026)
+## Version 1.9577.27 (March 17, 2026)
 - GPT-5.4 Mini model availability
 
-## Version 1.9577.24 (March 2026)
+## Version 1.9577.24 (March 9, 2026)
 - Cascade improvements including Jupyter Notebook support
 - SKILL.md file loading from `.windsurf/skills/` directory
 - System-level skill definitions via MDM for Enterprise
 
 ## Version 1.9552.24 (March 2026)
 - Plan Mode for task planning
-- Arena Mode with side-by-side model comparison and personal/global leaderboards
+- Arena Mode with side-by-side model comparison
 
 ## Version 1.9552.21 (February 2026)
 - Gemini 3.1 Pro and Claude Sonnet 4.6 model releases
@@ -45,137 +48,9 @@
 - Claude Opus 4.6 and fast mode variants
 
 ## Wave 13 / v1.13.X (January-February 2026)
-- Git worktree support
-- Multi-Cascade panes and tabs
-- Cascade dedicated terminal (beta)
-- Context window indicator
-- Cascade hooks
+- Git worktree support, Multi-Cascade panes and tabs
+- Cascade dedicated terminal (beta), Context window indicator, Cascade hooks
 - System-level rules and workflows
 
-## Version 1.13.9 (January 2026)
-- Enterprise Group Policy management for Windsurf restrictions
-
-## Version 1.13.8 (January 2026)
-- GPT-5.2-Codex with four reasoning effort options
-
-## Version 1.13.6 (January 2026)
-- Agent Skills support for Cascade
-
-## Version 1.13.5 (January 2026)
-- Gemini 3 Flash model with multimodal capabilities
-
-## Version 1.13.3 (December 2025)
-- SWE-1.5 Free availability
-- Git worktree and multi-Cascade pane support
-- Cascade dedicated terminal
-- Context window indicator
-
-## Version 1.12.47 (December 2025)
-- "Promo" label for newly available or discounted models
-
-## Version 1.12.43 (December 2025)
-- GPT-5.2 model release
-
-## Version 1.12.41 (December 2025)
-- Cascade hooks on user prompts for logging and policy enforcement
-- GitLab remote MCP
-- MCP prompt support
-- OAuth for GitHub remote MCP
-- MCP enable/disable toggles
-
-## Version 1.12.39 (December 2025)
-- GPT-5.1-Codex Max in three reasoning tiers
-
-## Version 1.12.36 (December 2025)
-- Claude Opus 4.5 model availability
-
-## Version 1.12.35 (December 2025)
-- Expanded Codemaps with chat, Mermaid diagrams, and Cascade suggestions
-- Improved Cascade summarization
-- MCP path and OAuth enhancements
-
-## Version 1.12.33 (November 2025)
-- Gemini 3 Pro preview model release
-
-## Version 1.12.32 (November 2025)
-- GPT-5.1 priority mode for guaranteed low-latency responses
-
-## Version 1.12.31 (November 2025)
-- GPT-5.1 and GPT-5.1-Codex models
-- MCP improvements (loading indicators, selective refresh, extended timeout, error state recovery)
-- Cascade hooks feature
-- SWE 1.5 image support
-
-## Version 1.12.28 (November 2025)
-- Expanded Codemaps with codebase chat, Mermaid diagram generation, and AI suggestions
-- Improved Cascade summarization
-
-## Version 1.12.27 (November 2025)
-- Falcon Alpha stealth model for agentic workflows
-
-## Version 1.12.25 (November 2025)
-- AGENTS.md support
-- Fast Context feature with auto-toggle via CMD/Ctrl+Enter
-- Auto-linting for Cascade
-- Jupyter Notebook tool fixes
-
-## Version 1.12.21 (November 2025)
-- Fast Context subagent powered by SWE-grep for rapid code context retrieval
-
-## Version 1.12.20 (November 2025)
-- Fast Context with SWE-grep enabling 20x faster context discovery
-
-## Version 1.12.18 (November 2025)
-- Codemaps beta feature for codebase understanding and navigation
-
-## Version 1.12.16 (November 2025)
-- Claude Sonnet 4.5 model availability
-
-## Version 1.12.12 (November 2025)
-- Grok Code Fast 1 model for Pro and Teams users
-
-## Version 1.12.8 (November 2025)
-- GPT-5-Codex availability at no cost for paid users (limited time)
-
-## Version 1.12.6 (November 2025)
-- Queued messages feature
-- Mermaid diagram rendering in Cascade
-- Windsurf Browser deprecation notice
-
-## Version 1.12.2 (October 2025)
-- Grok Code Fast 1 model release with promotional pricing
-
-## Version 1.11.5 (October 2025)
-- GPT-5 suite (low, medium, high reasoning variants) free for limited time
-
-## Version 1.12.1 (September 2025)
-- DeepWiki integration for code symbol documentation
-- Vibe and Replace AI find-replace functionality
-- Tab autocomplete system redesign
-- UI overhaul for Chat, Cascade, and home screens
-- Dev Container support via remote SSH
-
-## Version 1.12.0 (September 2025)
-- Claude 4 Sonnet and Opus models via BYOK (Bring Your Own Anthropic Key)
-
-## Version 1.11.1 (September 2025)
-- Kimi K2 model availability
-
-## Version 1.11.0 (September 2025)
-- Voice input for Cascade
-- Conversation @-mention feature
-- Browser integration with @-mentions
-- Planning Mode and Workflows for JetBrains
-- MCP server support with Streamable HTTP transport and authentication
-- Global `.codeiumignore` enforcement
-
-## Version 1.10.3 (August 2025)
-- Windsurf Browser with context sharing capabilities
-- Image upload, code block, text, and web element screenshot support
-
-## Version 1.10.1 (August 2025)
-- Planning Mode with editable plan.md files
-- Native terminal in Cascade panel
-
-## Updated
-2026-04-12
+## Last Fetched
+2026-04-19 — New entries: Windsurf 2.0 Launch with Devin cloud agent integration (Apr 15), Agent Command Center, v2.0.50 Auth enhancements (Apr 16), v2.0.61 (Apr 17)

@@ -40,4 +40,4 @@
 - Initial release (preview) - First release of Amazon Bedrock AgentCore Developer Guide
 
 ## Note
-Last fetched: 2026-04-12. NEW entry found this cycle: AWS Agent Registry (April 9, 2026).
+Last fetched: 2026-04-15. No new entries beyond April 9, 2026 (AWS Agent Registry). This entry was already captured in the previous scan on 2026-04-12.

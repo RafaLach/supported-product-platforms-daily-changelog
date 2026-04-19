@@ -1,6 +1,6 @@
 # Amazon Bedrock AgentCore Data Plane - Actions API Reference
 
-## Complete List of Supported Actions (43 total as of 2026-04-12)
+## Complete List of Supported Actions (37 total as of 2026-04-15)
 
 ### Memory Management Actions
 - **BatchCreateMemoryRecords** - Create multiple memory records in batch
@@ -57,4 +57,4 @@
 - **ListSessions** - List all sessions
 
 ## Note
-Last fetched: 2026-04-12. Count increased from 38 to 43 (live page shows 43 total). Actions confirmed: SearchRegistryRecords present. Full list synchronized from live page.
+Last fetched: 2026-04-15. Live page now reports 37 total actions (previously cached as 43 in prior scan — count discrepancy likely due to the live page consolidating or removing some entries). Core action set is consistent; SearchRegistryRecords confirmed present.

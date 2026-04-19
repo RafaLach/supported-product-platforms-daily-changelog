@@ -1,55 +1,38 @@
 # Perplexity API Features & Announcements
 
+## April 2026
+- **n8n Integration** — Native node with Chat Completions, Agent, Search, and Embeddings support via visual canvas
+- **OpenClaw Integration** — Terminal AI agent now supports Perplexity Search API as native web search provider
+- **AWS Marketplace** — API credits available through AWS for consolidated billing and procurement
+- **`/v1/models` Endpoint** — New GET /v1/models endpoint lists all available Agent API models in OpenAI-compatible format
+
+## March 2026
+- **Agent API Third-Party Models** — Support added for GPT-5.4, NVIDIA Nemotron, Claude Sonnet 4.6, and Gemini 3.1 Pro Preview
+- **Model Deprecations** — Gemini 2.5 Flash and Pro removed; **canonical endpoint now /v1/agent**
+
 ## February 2026
-- **Agent API** - General availability launched with production guidance and OpenAI-compatibility
-- **Embeddings API** - Released with guides for standard/contextualized embeddings and semantic search
+- **Agent API** — General availability launched with production guidance and OpenAI-compatibility
+- **Embeddings API** — Released with guides for standard/contextualized embeddings and semantic search
 
 ## December 2025
-- **Media Classifier** - Automatically detects visual content needs and includes relevant images/videos in responses
-- **Search API Enhancements** - New `max_tokens` parameter for controlling extracted tokens per page; `last_updated_filter` for content freshness; Vercel AI SDK compatibility
-- **sonar-reasoning model deprecated** (December 15, 2025); migration path to `sonar-reasoning-pro`
+- **Media Classifier** — Automatically detects visual content needs
+- **Search API Enhancements** — New `max_tokens`, `last_updated_filter`, Vercel AI SDK compatibility
+- **sonar-reasoning model deprecated** (December 15, 2025)
 
 ## November 2025
-- **Pro Search** - "Multi-step reasoning through intelligent tool orchestration" with automated tool usage and real-time thought streaming
-- **MCP Server One-Click Installation** - Auto-configuration support for Cursor, VS Code, Claude Desktop, and Claude Code
+- **Pro Search** — Multi-step reasoning through intelligent tool orchestration
+- **MCP Server One-Click Installation** — Auto-configuration for Cursor, VS Code, Claude Desktop, Claude Code
 - Four MCP tools: `perplexity_search`, `perplexity_ask`, `perplexity_research`, `perplexity_reason`
 
 ## October 2025
-- **Official Perplexity SDKs** - Python (`perplexityai`) and TypeScript (`@perplexity-ai/perplexity_ai`) SDKs with type-safe API access and streaming support
-- **Interactive Search API Playground** - Test queries without API key requirement at https://console.perplexity.ai
-- **New Search Capabilities** - `language_preference` parameter; `search_domain_filter` for targeted results
+- **Official Perplexity SDKs** — Python and TypeScript
+- **Interactive Search API Playground**
+- **New Search Capabilities** — language_preference, search_domain_filter
 
 ## September 2025
-- **File Attachments Support** - Document upload and analysis for PDF, DOC, DOCX, TXT, RTF formats
-- **Standalone Search API** - Direct access to search results without LLM processing
-- **API Key Rotation** - Comprehensive system with seamless rotation, automation, and audit trails
-
-## July 2025
-- **Detailed Cost Information** - API responses now include input/output token costs and per-request charges
-- **SEC Filings Filter** - Search specifically within SEC regulatory documents and filings
-
-## June 2025
-- **Enhanced Date Range Filtering** - `latest_updated` field for tracking webpage modifications
-- **Academic Filter** - Prioritize peer-reviewed papers and scholarly sources via `search_mode: "academic"`
-
-## May 2025
-- **Reasoning Effort Parameter** - Control computational effort ("low", "medium", "high") for Sonar Deep Research
-- **Asynchronous API** - Dedicated endpoints for research-intensive tasks with 7-day result retention
-- **search_results Field** - Enhanced API responses providing titles, URLs, and publication dates
-
-## April 2025
-- **API Portal** - Organization management, API key handling, usage insights
-- **Location Filtering** - Narrow search results by user location
-- **Image Uploads** - Multimodal image support for Sonar
-- **Date Range Filtering** - Retrieve results from specific timeframes
-- **All Features Democratized** - Removed tier-based feature gating across entire user base
-
-## March 2025
-- **Structured Outputs** - JSON formatting available to all users (previously tier-restricted)
-- **Three New Search Modes** - "High", "Medium", "Low" depth options across Sonar models
-
-## January 2025
-- **Sonar & Sonar Pro Models** - New cost-effective search-based APIs with built-in citations
+- **File Attachments Support** (PDF, DOC, DOCX, TXT, RTF)
+- **Standalone Search API**
+- **API Key Rotation**
 
 ## Last Fetched
-2026-04-12 - No new entries detected beyond what was previously cached.
+2026-04-19 — New: n8n Integration, OpenClaw Integration, AWS Marketplace, /v1/models endpoint (April 2026), /v1/agent canonical endpoint + third-party models in Agent API (March 2026)

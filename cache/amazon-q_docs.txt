@@ -43,4 +43,4 @@
 - IAM identity permissions for AWS apps/websites
 
 ## Note
-Last fetched: 2026-04-12. No changes detected from previous scan.
+Last fetched: 2026-04-15. No changes detected from previous scan.

@@ -51,10 +51,10 @@
 ## Repository Metrics
 - Stars: 10.8k
 - Forks: 1.5k
-- Open Issues: 114
-- Pull Requests: 75
+- Open Issues: 116
+- Pull Requests: 80
 
 ## Build/Test Infrastructure
 - Updated CI/testing infrastructure with steady v0.19.4-0.19.7 bumps
 
-Updated: 2026-04-10
+Updated: 2026-04-15

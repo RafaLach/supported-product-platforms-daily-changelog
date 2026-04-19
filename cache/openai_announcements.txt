@@ -6,7 +6,7 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 ## Featured Discussions & Topics
 
 **Recent Announcements:**
-- "Introducing New $100/month Pro Tier" (April 12, 2026) - "5x more Codex usage than Plus" — 14 replies, 2206 views
+- "Introducing New $100/month Pro Tier" (April 14, 2026) - "5x more Codex usage than Plus" — updated/confirmed on April 14
 - "Welcome to community.openai.com!" (August 25, 2023)
 - Codex for Students program offering "$100 in credits for US and Canada"
 
@@ -25,7 +25,7 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 
 ## New Models & Features (March-April 2026)
 - April 2026 Image Gallery & Generative Art Theme (tag: gpt-image-15) - 255 replies, 1938 views
-- "Introducing New $100/month Pro Tier" (April 12, 2026) - ChatGPT Pro tier with 5x Codex usage vs Plus
+- "Introducing New $100/month Pro Tier" (April 14, 2026) - ChatGPT Pro tier with 5x Codex usage vs Plus
 - ChatGPT in CarPlay for All Plans (April 4, 2026) - Apple CarPlay integration expanded to all ChatGPT subscription tiers
 - Codex Plugin for Claude Code (April 4, 2026) - New plugin bringing Codex capabilities to Claude Code environment
 - Codex Team Licensing Model (April 4, 2026) - "Bring Codex to your team without fixed seat costs" - flexible team deployment
@@ -45,28 +45,29 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - Playwright MCP integration requiring approval workflows in latest Codex update
 - Conversations API - Response compaction features for managing conversation length
 
-## Active Community Issues & Topics (April 12, 2026)
+## Active Community Issues & Topics (April 15, 2026)
+- Duplicate response strings in GPT-5.4
+- Fine-tuning job queue delays
+- App review process timelines
+- API billing issues - GPT-5.4-mini charged per 1M token group rather than 10M token group
+- Rate limiting concerns
+- Codex extension usability
+- Authentication/authorization errors (401 scope issues)
 - Vector Storage RAG - AI Agent Not Retrieving Data Beyond Midpoint of Uploaded CSV (tags: rag, vector-storage)
-- Intermittent 401 scope errors on key with 'All' permissions (tags: gpt-4, api, assistants-api)
-- All apps disappeared / 401 errors — multiple threads
-- Codex code review not happening (10 replies, 990 views)
-- Codex Rate Limits Discussion Thread (253 replies, 6377 views)
+- Codex code review not happening
+- Codex Rate Limits Discussion Thread
 - "Understanding the New Codex Limit System After the April 9 Update"
 - ChatGPT MCP Connector OAuth: 'OAuth state not found'
-- Organization Owner getting 'Missing scopes: api.apps.read' error
-- App removed during re-review with no notification
 - Custom App (MCP) not working with GPT 5.4 pro, only with regular GPT 5.4
-- AI in Game Development (66 replies, 1930 views)
-- Community Forum login fails on iPhone with OIDC authorization error
 
-## Models & Services Discussed (As of April 12, 2026)
-- GPT-5.4 reported as "too much sensitive" and incorrectly reporting knowledge cutoff as 2024-06
+## Models & Services Discussed (As of April 15, 2026)
+- GPT-5.4 reported as "too much sensitive"
 - GPT-5.4-mini - Billing charged per 1M token group rather than 10M token group
 - GPT-5.3-Codex - Subject of credit-wasting complaints
 - GPT-5.2 - LogProbs support reportedly removed
-- GPT-Realtime 1.5 - Voice expressiveness and accent quality regressions noted (March 31, 2026)
+- GPT-Realtime 1.5 - Voice expressiveness and accent quality regressions noted
 - Realtime API - WebSocket implementation lacking proper CLOSE frame handling
-- Costs API - Pagination issues with invalid page tokens (March 31, 2026)
+- Costs API - Pagination issues with invalid page tokens
 - Fine-tuning - Jobs stuck in queued state reported
 - MCP Connectors - Custom connectors showing disabled tools issue
 - ChatGPT Apps SDK - Widget URI versioning and app submission concerns
@@ -77,4 +78,4 @@ The OpenAI Developer Community serves as a discussion platform where developers 
 - User reputation system (Original Poster, Frequent Poster designations)
 - Discourse-powered infrastructure
 
-Updated: 2026-04-12
+Updated: 2026-04-15

@@ -72,4 +72,4 @@ This is the document history for the Amazon Q Developer User Guide, tracking all
 | **April 9, 2025** | Support for non-English languages in IDE and CLI chat |
 
 ## Note
-Last fetched: 2026-04-12. No new entries since March 19, 2026.
+Last fetched: 2026-04-15. No new entries since March 19, 2026.

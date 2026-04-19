@@ -24,5 +24,25 @@
 - **Claude Opus 4.5 support** (Nov 24, 2025): New Anthropic Claude Opus 4.5 model available
 - **Cross-account Guardrails sharing** (Nov 21, 2025): Share guardrails across AWS accounts
 
+### Additional Documented Changes (2025)
+- **BDA Synchronous Invocation** (Nov 21, 2025): Direct API invocation capability for Data Automation
+- **Guardrails Enhanced Coding Support** (Nov 19, 2025): Better code handling in Standard tier
+- **Priority/Flex Service Tiers** (Nov 18, 2025): New on-demand inference options
+- **Token Count Estimation** (Oct 31, 2025): Estimate tokens for some models
+- **Default Model Access** (Oct 15, 2025): All foundation models enabled by default with IAM
+- **Flows Enhancement** (Sep 26, 2025): Trace improvements and DoWhile loops
+- **OpenAI Batch API Support** (Aug 27, 2025): Native support for OpenAI batch API
+- **Token Counting** (Aug 21, 2025): Estimate token usage
+- **Automated Reasoning Checks** (Aug 5, 2025): Guardrails validation of response accuracy
+- **Custom Model On-Demand Inference** (Jul 16, 2025): Deploy custom models for pay-per-token
+- **API Keys** (Jul 7, 2025): Create API keys for authentication
+- **Guardrails Safeguard Tiers** (Jun 23, 2025): Performance and language options
+- **Flow Executions** (Jun 19, 2025): Run flows for longer durations (preview)
+- **Inline Code Nodes in Flows** (Jun 19, 2025): Run code directly in flows (preview)
+- **Guardrails Cross-Region** (May 13, 2025): Cross-region inference support
+- **Intelligent Prompt Routing GA** (Apr 25, 2025): General availability
+- **Flow Templates** (Mar 27, 2025): Pre-built flow templates
+- **Guardrails IAM Condition** (Mar 18, 2025): Enforce specific guardrails via IAM
+
 ## Note
-Last fetched: 2026-04-12. No new entries since February 27, 2026.
+Last fetched: 2026-04-15. No new entries since February 27, 2026.

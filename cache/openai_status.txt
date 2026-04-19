@@ -1,6 +1,6 @@
 # OpenAI Status - Incident History
 
-Page generated: Sun, 12 Apr 2026 05:31:22 GMT
+Page generated: Wed, 15 Apr 2026
 
 ## Services Monitored
 
@@ -71,6 +71,6 @@ Page generated: Sun, 12 Apr 2026 05:31:22 GMT
 - Sora video generation failing
 - Status: Resolved
 
-Date span of full history: January 26, 2026 - April 11, 2026.
+Date span of full history: January 26, 2026 - April 15, 2026.
 
-Updated: 2026-04-12
+Updated: 2026-04-15
