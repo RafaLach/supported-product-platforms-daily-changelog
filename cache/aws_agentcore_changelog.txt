@@ -2,6 +2,17 @@
 
 ## Documentation Releases Timeline
 
+### April 9, 2026 (NEW)
+- **AWS Agent Registry** — Added documentation for AWS Agent Registry, a centralized catalog for discovering and managing agents, MCP servers, tools, and skills.
+  - Registry provides governed workflows for publishing, reviewing, and approving resources
+  - Hybrid semantic and keyword search functionality
+  - Supports registration of MCP servers, agents, agent skills, tools, and custom resources
+  - Authorization via AWS IAM or JWT
+  - Approval workflows for governance
+  - MCP-native endpoint for MCP-compatible clients
+  - Integrates with EventBridge and CloudTrail
+  - URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html
+
 ### December 2, 2025
 - Policy in Amazon Bedrock AgentCore - Policy-based governance and control for agent interactions
 - Episodic memory strategy - AgentCore Memory feature
@@ -35,3 +46,6 @@
 
 ### July 16, 2025
 - Initial release (preview) - First release of Amazon Bedrock AgentCore Developer Guide
+
+## Last Fetched
+2026-04-21 — NEW: AWS Agent Registry (April 9, 2026) is a centralized catalog for agents, MCP servers, tools, skills, with hybrid semantic/keyword search, approval workflows, IAM/JWT authorization, and MCP-native access.

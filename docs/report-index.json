@@ -1,5 +1,54 @@
 [
   {
+    "date": "2026-04-21",
+    "scan_time": "2026-04-21 09:10",
+    "file": "report-2026-04-21.md",
+    "platforms": [
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "changed",
+        "details": [
+          "**AWS Agent Registry** (Apr 9, 2026) \u2014 New fully managed discovery service providing a centralized catalog for agents, MCP servers, tools, skills, and custom resources. Supports IAM or JWT authorization, approval workflows for governance, hybrid semantic and keyword search, and an MCP-native endpoint so MCP-compatible clients can query the registry directly. Exposes new entity types (Registries, Registry Records) and integrates with EventBridge and CloudTrail. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Cursor",
+        "status": "changed",
+        "details": [
+          "**Cursor CLI Debug Mode, /btw, /config, /statusline** (Apr 14, 2026) \u2014 Quality-of-life release for the Cursor CLI. `/debug` drives a hypothesis-generating debugging loop (agent plants log statements, uses runtime information to isolate root cause, then makes a targeted fix). `/btw` lets users ask side questions without derailing the agent's primary task. `/config` opens an interactive settings panel for model and runtime preferences. `/statusline` customizes session signals shown in the status bar. Source: https://cursor.com/docs/agent/debug-mode"
+        ],
+        "tier": "watching"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "AWS Agent Registry",
+        "description": "Entirely new AWS service (April 9, 2026) that acts as the organization-wide catalog for agents, MCP servers, tools, agent skills, and custom resources \u2014 deployed inside Amazon Bedrock AgentCore. Introduces multiple new inventory entities that Zenity must discover and map: **Registries** (the catalog itself, optionally scoped by resource type, stage, or business unit), **Registry Records** (individual agent / MCP / tool / skill entries with protocol-validated metadata), **publisher / curator / approval-workflow roles**, and registry-level authorization configuration (IAM or JWT from the customer's IdP). Because the registry exposes an **MCP-native endpoint**, any MCP-compatible agent (Claude, Cursor, Kiro, Amazon Q CLI, Bedrock AgentCore Runtime) can discover and invoke the listed tools \u2014 creating a new lateral-movement and shadow-tool risk surface where an overbroad approval setting or an unreviewed record effectively grants enterprise-wide agent access. AISPM should ingest registry contents via the Registry service APIs, correlate records against their downstream runtime deployments, flag records that bypass approval, and track `CloudTrail` events for record publication, approval, and deprecation",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AWS Agent Registry approval bypass and MCP discovery surface",
+        "description": "Because AWS Agent Registry is queryable over an MCP endpoint and supports \"custom resources\" with flexible metadata, AIRT red-teaming scenarios must cover (a) agents discovering and calling MCP tools they were never explicitly granted via a single MCP query against the registry, (b) poisoned record metadata (description, schema) used as a prompt-injection vector against AI consumers of the registry, and (c) unapproved/draft records that leak through misconfigured approval settings",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor CLI Debug Mode (autonomous hypothesis-driven debugging)",
+        "description": "Cursor CLI 0.122.x (April 14, 2026) introduces `/debug`, a self-directed debugging loop where the agent generates hypotheses, edits the codebase to add log statements, runs the program, and iterates until it pinpoints a root cause before issuing a fix. This is a new local-agent capability that writes to files and executes code repeatedly without per-step user approval. `/btw` also allows out-of-band side queries that may read unrelated project files mid-task. ENDPOINT monitoring must inventory CLI sessions that invoke `/debug` (potentially large diff surface from log insertions), track `/statusline` custom scripts as a potential code-exec surface, and flag `/config` changes that switch underlying model providers",
+        "source": "https://cursor.com/docs/agent/debug-mode",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-04-19",
     "scan_time": "2026-04-19 09:21",
     "file": "report-2026-04-19.md",
@@ -144,103 +193,6 @@
         "description": "Perplexity promoted `/v1/agent` to the canonical Agent API endpoint (March 2026) \u2014 replacing the previous `/v1/responses` path (still accepted as an OpenAI-compatible alias). New `GET /v1/models` endpoint (April 2026) lists all available Agent API models in OpenAI-compatible format. Added third-party models: GPT-5.4, NVIDIA Nemotron, Claude Sonnet 4.6, Gemini 3.1 Pro Preview \u2014 so a single Perplexity call can now invoke an OpenAI, Anthropic, Google, or NVIDIA model with built-in `web_search` and `fetch_url` tools. AIDR activity monitoring must recognize `/v1/agent`, attribute cross-provider model usage correctly, and inventory Perplexity as a new multi-provider inference gateway",
         "source": "https://docs.perplexity.ai/docs/agent-api/quickstart",
         "module": "AIDR",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-04-12",
-    "scan_time": "2026-04-12 08:39",
-    "file": "report-2026-04-12.md",
-    "platforms": [
-      {
-        "name": "Microsoft Copilot (M365)",
-        "status": "changed",
-        "details": [
-          "**Microsoft Graph API: New authentication protocol types added** \u2014 `nativeAuth`, `authenticationTransfer`, `samlOnBehalfOf`, `implicitAccessTokenAndGetResponseMode`, `authorizationCodeWithPkce`, `clientCredentials`, `refreshTokenGrant` now explicitly surfaced in the Graph API changelog. Source: https://developer.microsoft.com/graph/changelog/",
-          "**Microsoft Graph API: `microsoftRevokedSessions` risk detail member** \u2014 New enumeration member added to `riskDetail` for risk detection scenarios. Source: https://developer.microsoft.com/graph/changelog/",
-          "**Microsoft Graph API: `webCategory` resource type** \u2014 New resource for network filtering and compliance classification. Source: https://developer.microsoft.com/graph/changelog/",
-          "**Microsoft Graph API: `emailSettings` resource type** \u2014 New resource added to Lifecycle Workflows, with `emailSettings` property on `lifecycleManagementSettings`. Source: https://developer.microsoft.com/graph/changelog/",
-          "**Microsoft Graph API: eDiscovery resources surfaced** \u2014 `ediscoveryCase`, `reviewSet`, `reviewSetQuery` resources now explicitly listed in the compliance/Bicep section. Source: https://developer.microsoft.com/graph/changelog/"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "**AWS Agent Registry (April 9, 2026)** \u2014 New centralized catalog service for discovering and managing agents, MCP servers, tools, and skills. Provides governed workflows for publishing, reviewing, and approving resources with hybrid semantic and keyword search. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-          "**Google ADK (Google Agent Development Kit) framework support** \u2014 Added to AgentCore Runtime integrations alongside CrewAI, LangGraph, LlamaIndex, OpenAI Agents SDK, and Strands Agents. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
-          "**API surface expanded to 43 actions** (up from 38) \u2014 New API operations added consistent with the Registry and other services. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Operations.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Claude Enterprise (Anthropic)",
-        "status": "changed",
-        "details": [
-          "**Mythos preview model listed in product lineup** \u2014 New model added alongside Opus 4.6, Sonnet 4.6, and Haiku. Gated research preview for defensive cybersecurity work as part of Project Glasswing. Source: https://www.anthropic.com/claude-mythos-preview-risk-report",
-          "**Microsoft Foundry added as integration platform** \u2014 Claude now available through Microsoft Foundry in addition to Amazon Bedrock and Google Cloud Vertex AI. Source: https://www.anthropic.com/news/claude-in-microsoft-foundry",
-          "**Word add-in now available** \u2014 Microsoft Word extension added alongside existing Excel, PowerPoint, and Slack integrations. Source: https://support.claude.com/en/articles/14465370-use-claude-for-word"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "AWS Agent Registry in Bedrock AgentCore",
-        "description": "New centralized catalog service (launched April 9, 2026) for discovering and managing agents, MCP servers, tools, and skills within AgentCore. Features governed publishing/approval workflows and hybrid semantic+keyword search. Introduces new inventory entities: registry records, agent entries, MCP server entries, tool entries, skill entries, and approval workflows. AISPM must discover and catalog all resources published to the Registry, map their approval states, and flag ungoverned or unapproved agents",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Google ADK Framework Support in Bedrock AgentCore Runtime",
-        "description": "Google Agent Development Kit added as a supported framework for AgentCore Runtime, joining CrewAI, LangGraph, LlamaIndex, OpenAI Agents SDK, and Strands Agents. Agents built with Google ADK can now be deployed and executed on AgentCore infrastructure. AISPM framework detection must be updated to identify and inventory Google ADK-based agents running in AgentCore",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Anthropic Mythos Preview Model",
-        "description": "New \"Mythos preview\" model added to Anthropic's product lineup as a gated research preview for defensive cybersecurity work under Project Glasswing. Strikingly capable at computer security tasks \u2014 emerging capability not explicitly trained. AISPM should track Mythos model deployments and ensure governance policies cover this new model, particularly given its dual-use security capabilities",
-        "source": "https://www.anthropic.com/claude-mythos-preview-risk-report",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Anthropic Mythos Preview \u2014 Exploit Generation Capability",
-        "description": "Mythos Preview demonstrates a step-change in autonomous exploit generation. Anthropic reports it developed working JavaScript engine exploits 181 times vs. Opus 4.6's 2, with register control achieved 29 more times. This dramatically expands the automated red teaming attack surface \u2014 AIRT must update threat models to account for Mythos-class exploit capability across all monitored platforms",
-        "source": "https://red.anthropic.com/2026/mythos-preview/",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Claude Available via Microsoft Foundry",
-        "description": "Microsoft Foundry added as a new deployment platform for Claude models (Opus 4.6, Sonnet 4.6 in East US 2 and Sweden Central), alongside Amazon Bedrock and Google Cloud Vertex AI. This creates a new discovery surface \u2014 AISPM must now scan Microsoft Foundry for Claude model deployments in addition to existing platforms",
-        "source": "https://www.anthropic.com/news/claude-in-microsoft-foundry",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Claude Word Add-in",
-        "description": "Microsoft Word add-in now available for Claude, completing the Office integration surface (Excel, PowerPoint, Word, Slack). Enterprise users can draft, edit, and revise documents with Claude from a persistent sidebar, with edits appearing as tracked changes. Endpoint monitoring should track data flows between Word documents and Claude to detect sensitive document content exposure",
-        "source": "https://support.claude.com/en/articles/14465370-use-claude-for-word",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Microsoft Graph Auth Protocol and Risk Detection Expansion",
-        "description": "New authentication protocol types (`nativeAuth`, `authenticationTransfer`, `samlOnBehalfOf`) added to Microsoft Graph API, expanding authentication pathways for Copilot and M365 integrations. Additionally, `microsoftRevokedSessions` added as a new `riskDetail` enumeration member, and `webCategory` resource type added for network compliance. AISPM should update permission and authentication monitoring to cover these new auth flows and risk signals",
-        "source": "https://developer.microsoft.com/graph/changelog/",
-        "module": "AISPM",
         "action": "New Coverage Required"
       }
     ]

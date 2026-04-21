@@ -4,6 +4,14 @@
 - Interactive canvases with dashboards and custom interfaces using tables, boxes, diagrams, and charts
 - New artifact/workspace type for building visual dashboards from agent activity
 
+## Apr 14, 2026 — CLI Debug Mode and /btw Support (NEW)
+- **Debug Mode** — Accessible via `/debug`; agent generates hypotheses, adds log statements, and uses runtime information to pinpoint root cause before making a targeted fix
+- **/btw Support** — Ask side questions without interrupting the agent's main task
+- **Configuration Menu** — `/config` opens interactive settings panel for model choices, runtime preferences
+- **Custom Status Bars** — `/statusline` command customizes displayed session and runtime signals
+- Clipboard image pasting
+- Model switching without clearing prompts
+
 ## Apr 13, 2026 — Cursor 3.1
 - **Tiled Layout** — Split current view into panes to run and manage several agents in parallel
 - **Upgraded Voice Input** — Enhanced dictation with batch speech-to-text transcription and recording controls
@@ -39,12 +47,5 @@
 ## Mar 5, 2026
 - **Automations** — Always-on agents triggered by schedules or events from Slack, Linear, GitHub, PagerDuty, webhooks
 
-## Mar 4, 2026
-- **Cursor in JetBrains IDEs** — IntelliJ IDEA, PyCharm, WebStorm via Agent Client Protocol
-
-## Mar 3, 2026 (Version 2.6)
-- **MCP Apps** — Interactive UIs for charts, diagrams, whiteboards from Amplitude, Figma, tldraw
-- **Team Marketplaces** — Private plugin marketplaces with governance and access controls
-
 ## Last Fetched
-2026-04-19 — New entries: Canvases (Apr 15), Cursor 3.1 Tiled Layout/Voice/Branch Selection/Diff Nav/Search Filters (Apr 13)
+2026-04-21 — NEW: CLI Debug Mode (/debug), /btw side questions, /config menu, /statusline customization (Apr 14, 2026).
