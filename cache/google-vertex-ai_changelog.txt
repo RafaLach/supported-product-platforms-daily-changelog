@@ -1,10 +1,12 @@
 # Vertex AI Release Notes - Feature Announcements
 
-## April 12, 2026
-- No new entries detected beyond April 6 (page fetched 2026-04-12; summarized content covers April 2026 back to April 2025, no specific new dated entries since last fetch)
+## April 17, 2026 (NEW)
+- **RAG Cross Corpus Retrieval (public preview)** — Enables simultaneous retrieval from multiple RAG corpora in a single query, allowing agents to pull grounding context across multiple knowledge bases
+- **Claude Opus 4.7 in Model Garden** — Latest Anthropic model now available as managed API
 
-## April 8, 2026
-- (No new entries detected beyond April 6)
+## April 13-14, 2026
+- **Visualization cells and SQL cells** now generally available in Colab Enterprise
+- Metadata search for RAG Engine allows schema-based filtering during retrieval
 
 ## April 6, 2026
 - **Metadata Search for RAG Engine**: Schema-based metadata filtering capability added to Vertex AI RAG Engine. Users can define metadata schemas for corpora, attach metadata to files, and filter contexts during retrieval operations.
@@ -16,12 +18,16 @@
 - **Veo 3.1 Lite**: Released in public preview as the most cost-efficient Veo on Vertex AI model for video generation.
 - **Gemini 2.5 Model Retirement Update**: Retirement dates for Gemini 2.5 Pro, Flash-Lite, and Flash postponed to October 16, 2026.
 
+## March 30, 2026
+- Vertex AI Workbench M140 release with Gemini CLI updates
+- Workbench Image 26.03 introduces Debian 12, Python 3.12, Micromamba CLI
+
 ## March 25, 2026
 - **Lyria 3 Audio Generation**: Two new models released for music synthesis - `lyria-3-pro-preview` (184 seconds) and `lyria-3-clip-preview` (30 seconds)
 
 ## March 24, 2026
-- **Image Generation Endpoint Deprecations**: Multiple Imagen endpoints (versions 3.0 and 4.0) being discontinued June 30, 2026, with migration to `gemini-2.5-flash-image` recommended
-- **Video Generation Endpoint Deprecations**: Veo 3.0 and 2.0 models deprecated, with guidance to migrate to `veo-3.1-generate-001` and `veo-3.1-fast-generate-001`
+- **Image Generation Endpoint Deprecations**: Multiple Imagen endpoints (versions 3.0 and 4.0) being discontinued June 30, 2026
+- **Video Generation Endpoint Deprecations**: Veo 3.0 and 2.0 models deprecated
 
 ## March 16, 2026
 - Vertex Explainable AI marked as deprecated
@@ -34,7 +40,6 @@
 
 ## March 3, 2026
 - Gemini 3.1 Flash-Lite released as most cost-efficient Gemini model
-- Video generation endpoint deprecations announced (April 2, 2026 deadline)
 
 ## February 26, 2026
 - Gemini 3.1 Flash Image preview for improved image generation
@@ -87,7 +92,6 @@
 ## December 16, 2025
 - Vertex AI Agent Engine Sessions and Memory Bank generally available
 - Vertex AI Agent Engine Runtime pricing reduction
-- Virtual Try-On model improvements for latency and quality
 
 ## December 12, 2025
 - Gemini 2.5 Flash with Live API Native Audio generally available
@@ -98,7 +102,6 @@
 
 ## December 9, 2025
 - Ministral 3 and Mistral Large 3 models available in Model Garden
-- Vertex AI Workbench Confidential Computing support generally available
 
 ## December 8, 2025
 - Veo 3.1 video extension support in preview
@@ -130,77 +133,10 @@
 
 ## October 16, 2025
 - Mistral's Codestral 2 available in Model Garden
-- vLLM TPU through Model Garden for LLM serving optimization
+- vLLM TPU through Model Garden
 - Anthropic's Claude Haiku 4.5 available in Model Garden
-- Veo 3.1 in preview supporting advanced video controls
-- Veo 2 supporting object insertion and removal in preview
-
-## October 7, 2025
-- Qwen-Image, Qwen-Image-Edit, and Qwen-Image-Edit-2509 models available
-
-## October 3, 2025
-- Prompt management using Vertex AI SDK with versioning capabilities
-
-## October 2, 2025
-- Gemini 2.5 Flash Image generally available with aspect ratio controls and batch prediction support
-- Google Gen AI SDK in C# preview
-
-## October 1, 2025
-- Workforce Identity Federation support for Vertex AI Workbench generally available
-
-## September 23, 2025
-- Gemini 2.5 Flash with Live API Native Audio preview with improved barge-in and function calling
-
-## September 17, 2025
-- Vector Search storage-optimized indexes in preview for large-scale RAG
-
-## September 10, 2025
-- Vertex AI Agent Engine SDK refactored to client-based design
-- Agent Engine Code Execution in preview
-- Agent-to-Agent protocol support
-- Bidirectional streaming support
-- Memory Bank tab in Cloud Console
-
-## September 9, 2025
-- EmbeddingGemma and DeepSeek-V3.1 in Model Garden
-- AI Singapore's SEA-LION V4 models available
-
-## September 8, 2025
-- Veo 3 short-duration video support (4, 6, 8 seconds) generally available
-
-## August 21, 2025
-- Vertex AI Agent Engine Private Service Connect support
-- Customer-managed encryption keys support
-- HIPAA workload support
-
-## August 14, 2025
-- Imagen 4 generally available with Generate, Fast Generate, and Ultra variants
-
-## August 13, 2025
-- Qwen3 Coder and Qwen3 235B available as Model-as-Service options
-- OpenAI gpt-oss-120b and gpt-oss-20b available as Model-as-Service
-
-## August 8, 2025
-- Gemini 2.5 Flash-Lite and Gemini 2.5 Pro supervised fine-tuning support
-
-## August 7, 2025
-- Vertex AI prompt optimizer generally available
-- Zero-shot prompt optimizer
-
-## August 4, 2025
-- Data Science Agent in preview for Colab Enterprise
-
-## July 29, 2025
-- Veo 3 and Veo 3 Fast generally available
-
-## July 23, 2025
-- Grounding with Google Maps in preview across all regions except EEA
-
-## July 22, 2025
-- Gemini 2.5 Flash-Lite generally available with caching and batch prediction support
-
-## July 8, 2025
-- Vertex AI Agent Engine Memory Bank in preview for dynamic long-term memories
+- Veo 3.1 in preview
+- Veo 2 object insertion/removal in preview
 
 ## Last Fetched
-2026-04-12
+2026-04-23 — NEW: RAG Cross Corpus Retrieval in public preview, Claude Opus 4.7 in Model Garden (Apr 17, 2026); Visualization cells and SQL cells GA in Colab Enterprise (Apr 13-14, 2026).

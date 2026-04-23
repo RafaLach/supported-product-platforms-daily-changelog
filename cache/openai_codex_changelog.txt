@@ -1,5 +1,19 @@
 # OpenAI Codex Changelog
 
+## April 23, 2026 — Codex CLI 0.123.0 (NEW)
+- **Amazon Bedrock model provider support** with AWS profile configuration — Codex can now use AWS Bedrock-hosted models as an inference backend
+- Enhanced MCP diagnostics via `/mcp verbose` command — richer telemetry on MCP server calls
+- Improved realtime handoffs allowing background agents to receive transcript deltas
+
+## April 20, 2026 — Codex CLI 0.122.0
+- Standalone installs now work correctly on Windows and Intel Macs with improved "codex app" integration
+- TUI supports "/side" conversations and queued slash commands while work runs
+- Plan Mode can start fresh implementation with context usage visibility
+- Plugin workflows include tabbed browsing, inline toggles, and multi-source marketplace support
+- Filesystem permissions now support deny-read glob policies
+- Isolated sandbox enforcement added
+- Tool discovery and image generation enabled by default
+
 ## April 18, 2026 — Codex Apps SDK Submission Flow
 - Official roundup of enhancements to the ChatGPT Apps SDK submission process
 
@@ -38,23 +52,5 @@
 - Configurable TUI notifications with Warp OSC 9 support
 - codex exec-server experimental subcommand
 
-## Model Availability Update (April 7, 2026)
-- Older models removed from model picker (gpt-5.2-codex, gpt-5.1-codex-mini, etc)
-- Remaining models: gpt-5.4, gpt-5.4-mini, gpt-5.3-codex, gpt-5.2
-- ChatGPT Pro subscribers also get gpt-5.3-codex-spark
-
-## Version 0.118.0 (March 31, 2026)
-- Windows sandbox now enforces proxy-only networking with OS-level egress rules
-- App-server clients support device code flow for ChatGPT sign-in
-- codex exec enables prompt-plus-stdin workflow
-- Custom model providers can fetch and refresh short-lived bearer tokens
-
-## Version 0.117.0 (March 26, 2026)
-- Plugins are now a first-class workflow with startup sync and TUI browsing
-- Sub-agents use path-based addresses
-- /title terminal-title picker
-- App-server clients support shell commands, filesystem watches, remote websocket
-- Image workflows: view_image returns URLs for code mode, reopenable generated images
-
 ## Last Fetched
-2026-04-19 — New entries: CLI 0.121.0 (April 15), broader workspace capabilities (April 16), Apps SDK submission flow (April 18)
+2026-04-23 — NEW: CLI 0.123.0 with Amazon Bedrock model provider support, /mcp verbose diagnostics, realtime transcript handoffs.

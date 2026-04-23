@@ -1,5 +1,123 @@
 [
   {
+    "date": "2026-04-23",
+    "scan_time": "2026-04-23 09:37",
+    "file": "report-2026-04-23.md",
+    "platforms": [
+      {
+        "name": "OpenAI Codex",
+        "status": "changed",
+        "details": [
+          "**CLI 0.123.0 (April 23, 2026) \u2014 Amazon Bedrock model provider support**: Codex CLI can now route inference to Amazon Bedrock-hosted models with AWS profile configuration, making it a cross-cloud local coding agent. New entity: Bedrock-backed Codex session. Source: https://developers.openai.com/codex/cli/reference",
+          "**CLI 0.123.0 \u2014 `/mcp verbose` diagnostics**: Richer telemetry surface for MCP server calls inside Codex sessions. Source: https://developers.openai.com/codex/changelog",
+          "**CLI 0.123.0 \u2014 Realtime handoffs with transcript deltas**: Background agents receive ongoing transcript deltas during realtime handoffs, expanding the streaming activity surface. Source: https://developers.openai.com/codex/changelog"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Google Vertex AI",
+        "status": "changed",
+        "details": [
+          "**RAG Cross Corpus Retrieval (public preview, April 17, 2026)**: New retrieval capability enabling a single query to pull grounding context from multiple RAG corpora simultaneously via AsyncRetrieveContexts and AskContexts APIs. Uses an agentic orchestrator/planner/retriever/reasoner pipeline backed by corpus descriptions. Introduces new inventory entities: cross-corpus retrieval requests, planning-agent/reasoning-agent sub-components, and multi-corpus session state. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/cross-corpus-retrieval",
+          "**Claude Opus 4.7 in Model Garden (April 17, 2026)**: Anthropic's newest frontier model now available as a managed API on Vertex AI. Extends partner-model inventory. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude",
+          "**Colab Enterprise Visualization & SQL cells GA (April 13-14, 2026)**: Interactive cell types previously in preview are now generally available \u2014 broader surface for AI-assisted notebook data access. Source: https://docs.cloud.google.com/vertex-ai/docs/release-notes"
+        ],
+        "tier": "secondary"
+      },
+      {
+        "name": "Dia Browser",
+        "status": "changed",
+        "details": [
+          "**Release posted April 16, 2026**: New Dia Browser release surfaced in the changelog index, but the page shows only the headline with no feature detail. No new AI capabilities identifiable from the public notes; flagging for awareness only. Source: https://diabrowser.com/release-notes"
+        ],
+        "tier": "watching"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Codex \u2014 Amazon Bedrock model provider",
+        "description": "Codex CLI 0.123.0 adds Amazon Bedrock as an inference backend, so developers running Codex locally can now invoke Anthropic/Meta/Amazon-hosted models on AWS from an OpenAI-branded coding agent. This creates a new cross-cloud prompt-injection and exfiltration path where a Codex session running against Bedrock may execute code/tools with credentials scoped to AWS profiles. AIRT needs model-provider-aware test coverage (prompt injection, tool-execution abuse, guardrail bypass) for Bedrock-routed Codex sessions; ENDPOINT inventory must recognize Bedrock-configured Codex installs as a distinct endpoint class",
+        "source": "https://developers.openai.com/codex/cli/reference",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex \u2014 `/mcp verbose` diagnostics and realtime transcript handoffs",
+        "description": "Expands the observable MCP call surface inside Codex and introduces continuous transcript streaming to background agents. ENDPOINT monitoring should capture MCP diagnostic output and realtime-handoff transcript events to preserve provenance of tool calls made by Codex background agents",
+        "source": "https://developers.openai.com/codex/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Vertex AI RAG Cross Corpus Retrieval",
+        "description": "New agentic retrieval surface lets a single query fan out across multiple RAG corpora using planner/retriever/reasoner agents, with corpus descriptions driving routing. Introduces new inventory entities (cross-corpus retrieval sessions, planning-agent decisions, selected-corpus sets) and new toxic combinations (a single over-scoped agent query reaching corpora it should not combine \u2014 cross-tenant or cross-classification data leakage via agentic routing). AISPM must discover cross-corpus retrievers, map the corpora they can reach, and flag over-broad retrieval scope",
+        "source": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/cross-corpus-retrieval",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Vertex AI Model Garden \u2014 Claude Opus 4.7",
+        "description": "New model SKU added to managed API inventory; AISPM needs to recognize Opus-4.7-backed agent deployments on Vertex and align policy/usage metadata with the new model ID",
+        "source": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-22",
+    "scan_time": "2026-04-22 14:25",
+    "file": "report-2026-04-22.md",
+    "platforms": [
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Codex CLI 0.122.0** (Apr 20, 2026) \u2014 New CLI release introduces `/side` conversations (queued slash commands that run while primary work continues), Plan Mode with visible context-usage budget, tabbed browsing plus multi-source marketplace support in plugin workflows, **filesystem permissions with deny-read glob policies**, **isolated sandbox enforcement**, and tool discovery + image generation enabled by default. Also fixes standalone installs on Windows and Intel Macs with \"codex app\" integration. Source: https://developers.openai.com/codex/changelog"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Salesforce AgentForce",
+        "status": "changed",
+        "details": [
+          "**Agent topics renamed to \"subagents\"** (April 2026) \u2014 Terminology-only change across the AgentForce developer guide and API reference surface: what was called an agent \"topic\" is now a **subagent**. No functional change, but the rename propagates into API field names, docs, and Metadata API surfaces. Source: https://developer.salesforce.com/docs/ai/agentforce/guide"
+        ],
+        "tier": "secondary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Codex CLI 0.122.0 deny-read filesystem policies + isolated sandbox enforcement",
+        "description": "Codex CLI 0.122.0 (April 20, 2026) adds **deny-read glob policies** to the filesystem permission model \u2014 a new per-path control that prevents the local agent from reading files matching a pattern, even when the CLI otherwise has read access to the project. This is a governance-relevant control surface for endpoint monitoring: administrators can now express \"never let this agent read files matching `**/.env`, `**/secrets/**`\" etc., and **isolated sandbox enforcement** is now a distinct runtime mode. ENDPOINT must inventory which Codex CLI sessions run with deny-read policies configured (and which do not), treat absence or overly-permissive glob lists as a finding, and correlate sandbox vs. non-sandbox sessions with the blast radius of agent-initiated writes/exec",
+        "source": "https://developers.openai.com/codex/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Codex CLI 0.122.0 `/side` conversations and queued slash commands",
+        "description": "The `/side` feature lets the user (and in scripted flows, other tools) inject a concurrent conversation while the primary agent task is still running. Together with **queued slash commands**, this creates a new class of mid-session state manipulation: a `/side` injection can alter context, change models, or run tools while the main loop is paused between steps. AIRT red-teaming should cover (a) `/side` used to bypass permission prompts that the primary session had already consented to, (b) queued slash commands dropped in via automation that fire after a /clear or context change, and (c) race conditions between the queued command list and active tool execution. Tool discovery and image generation are now on by default, which widens the baseline capability surface of every new session",
+        "source": "https://developers.openai.com/codex/changelog",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Salesforce AgentForce \"subagents\" rename (topic \u2192 subagent)",
+        "description": "AgentForce renamed every \"agent topic\" to **subagent** across the Developer Guide, Agentforce DX, Agent Script, and API references as of April 2026. Although Salesforce states \"no changes to functionality,\" the rename touches metadata API field names, Apex types, and documentation URLs \u2014 so any Zenity AgentForce adapter that references the literal `topic` / `agentTopic` entity names needs to accept both forms during the transition, and the AISPM inventory schema should normalize on `subagent` as the canonical term while keeping a backward alias. New subagents surfaced through this rename should still be inventoried as the same underlying capability, but the relationship modeling (parent agent \u2192 child subagent) is now a first-class concept in the product UI, which AISPM should reflect",
+        "source": "https://developer.salesforce.com/docs/ai/agentforce/guide",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-04-21",
     "scan_time": "2026-04-21 09:10",
     "file": "report-2026-04-21.md",

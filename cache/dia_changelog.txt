@@ -2,6 +2,9 @@
 
 ## April 2026
 
+**April 16, 2026** (NEW)
+- Latest release posted; specific features not detailed in the changelog summary (page only listed the release headline)
+
 **v1.26.0** (April 9, 2026)
 - **Sync Feature Launch**: Cross-device browser synchronization with end-to-end encryption and local-first architecture
   - Recovery kit creation for account backup
@@ -10,32 +13,29 @@
   - No central server arbitration — conflict resolution handled locally
 
 **v1.25.0** (April 2, 2026)
-- Downloads with Visual Guidance: file downloads animate toward sidebar for clear placement feedback
-- Custom Tab Icons: replace any tab's favicon with an emoji for personalized navigation
-- Split-Screen Multitasking: drag any tab to screen edge for instant side-by-side view
-- Meeting Countdown Animations: smooth transition animations on meeting countdowns
-- Tab Group Naming Animation: rainbow shimmer effect when Dia auto-names tab groups
-- Spotify Integration Visual: animated musical notes around Spotify tab favicon; hover reveals current track
-- Navigation Button Feedback: fluid response animations on navigation buttons
+- Downloads with Visual Guidance
+- Custom Tab Icons with emojis
+- Split-Screen Multitasking
+- Meeting Countdown Animations
+- Tab Group Naming Animation
+- Spotify Integration Visual
+- Navigation Button Feedback
 
 ## March 2026
 
 **v1.24.0** (March 26, 2026)
-- Fixed memory leaks causing performance degradation over time
-- Optimized new tab page animations to reduce CPU/GPU usage
-- Accelerated command bar suggestion rendering with pre-warmed favicon/database caches
-- Improved system load handling by skipping unnecessary processing steps
-- Added Early Birds Program for early feature access and direct feedback
-- Built-in performance issue recording tool (Help > Record a Performance Issue)
+- Fixed memory leaks
+- Optimized new tab page animations
+- Accelerated command bar suggestion rendering
+- Improved system load handling
+- Added Early Birds Program
+- Built-in performance issue recording tool
 
 **v1.23.0** (March 19, 2026)
-- Features focused on review and merge workflows
+- Review and merge workflow features
 
 **v1.22.0** (March 11, 2026)
-- "Don't think about the next step. Take it"
-
 **v1.21.0** (March 5, 2026)
-- "Before you reach for it..."
 
 ## Last Fetched
-2026-04-12
+2026-04-23

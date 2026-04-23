@@ -1,26 +1,20 @@
-# Agentforce Developer Guide - Content Extraction
+# Salesforce AgentForce Developer Guide
 
-## Page Title & Main Topic
-"Get Started with Agentforce and AI Agents" - A comprehensive developer resource for deploying AI agents on the Salesforce Platform.
+## April 2026 — Terminology Change
+- Agent topics are now called **subagents**
+- No changes to underlying functionality
+- Both terms may appear in documentation during the transition period
 
-## Core Description
-Agentforce is described as "the agent-driven layer of the Salesforce Platform" that enables deployment of AI agents working alongside employees to extend workforce capabilities and provide 24/7 customer service. The platform includes a "Trust Layer" for securely connecting data with large language models.
+## Developer Guide Content
+- Agent Script
+- Agentforce DX
+- APIs/SDKs
+- Prompt Builder features
 
-## Overview Guides
-- **Agentforce APIs and SDKs** - Resources for building solutions using various APIs and software development kits
-- **Agentforce Actions** - Guidelines for constructing and improving Agentforce actions
-
-## Development Tools
-- **Agent Script** - Language for building agents in Agentforce Builder
-- **Agentforce DX** - Pro-code tools for Salesforce CLI and VS Code integration
-- **Models and Prompts** - Features for creating, managing, and deploying prompt templates (formerly "Prompt Builder")
-
-## Terminology Update (NEW — April 2026)
-- **Subagents** - Beginning April 2026, agent "topics" are now called "subagents" (no functional changes, terminology transition only)
-
-## External Resources
-- Salesforce Help articles on Agentforce and Generative AI
-- Salesforce Help articles on Agentforce Agents
-
-## Last Fetched
-2026-04-12 - No new features detected beyond previous fetch. Section previously labeled "Prompt Builder" now described as "Models and Prompts" (minor label change).
+## Reference APIs
+- Agent API (connected apps and tokens for agent communication)
+- Agentforce Python SDK (programmatic agent creation/management/deployment)
+- Agentforce Mobile SDK (native iOS and Android integration)
+- Models API (Apex classes and REST endpoints connecting to LLMs)
+- Testing API (Metadata API and Connect API endpoints for AI agent tests)
+- Citations API

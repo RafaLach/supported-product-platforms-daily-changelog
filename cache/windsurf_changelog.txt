@@ -1,5 +1,12 @@
 # Windsurf Editor Changelog - Feature Announcements
 
+## Version 2.0.67 (April 21, 2026)
+- Fixed OAuth authentication issues for some MCP servers
+
+## Version 2.0.63 (April 20, 2026)
+- Addressed OAuth integration problems affecting certain MCP servers
+- Enhanced reliability for Devin Cloud connections
+
 ## Version 2.0.61 (April 17, 2026)
 - Bug fixes and performance improvements
 
@@ -9,6 +16,7 @@
 ## Version 2.0.44 (April 15, 2026) — Windsurf 2.0 Launch
 - **Devin cloud agent available directly inside Windsurf** — included with every self-serve plan
 - **Agent Command Center** — Kanban-style task organization for tracking/managing agent work
+- **Spaces** — organizational unit grouping agent sessions, PRs, files, and context by task
 - **Enhanced browser with toolbar integration**
 - Major version transition from 1.x to 2.0
 
@@ -38,19 +46,3 @@
 ## Version 1.9552.24 (March 2026)
 - Plan Mode for task planning
 - Arena Mode with side-by-side model comparison
-
-## Version 1.9552.21 (February 2026)
-- Gemini 3.1 Pro and Claude Sonnet 4.6 model releases
-- GLM-5 and Minimax M2.5 model additions
-
-## Version 1.9544.35 (February 2026)
-- GPT-5.3-Codex-Spark in Arena Mode
-- Claude Opus 4.6 and fast mode variants
-
-## Wave 13 / v1.13.X (January-February 2026)
-- Git worktree support, Multi-Cascade panes and tabs
-- Cascade dedicated terminal (beta), Context window indicator, Cascade hooks
-- System-level rules and workflows
-
-## Last Fetched
-2026-04-19 — New entries: Windsurf 2.0 Launch with Devin cloud agent integration (Apr 15), Agent Command Center, v2.0.50 Auth enhancements (Apr 16), v2.0.61 (Apr 17)
