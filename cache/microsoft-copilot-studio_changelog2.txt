@@ -1,3 +1,6 @@
+Source: https://learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio
+Fetched: 2026-05-18
+
 # Microsoft Copilot Studio Release Notes
 
 Microsoft Copilot Studio is a tool for creating and maintaining copilots.
@@ -6,7 +9,7 @@ A copilot is an AI-powered conversational interface based on large language mode
 
 ## Release timelines
 
-Releases happen frequently, and the list is updated throughout the month as features reach worldwide availability.
+Releases happen frequently and the list is updated throughout the month as features reach worldwide availability.
 
 ## Version releases
 
@@ -21,6 +24,7 @@ Releases happen frequently, and the list is updated throughout the month as feat
 | September - 2024 |
 | August - 2024 |
 
-Note: Page updated 2026-04-09 (source updated_at). The released versions page shows limited recent entries; detailed release notes available per-month on the What's New page.
+Note: The released-versions page shows limited recent entries; detailed release notes for recent months are available on the What's New page.
 
-Updated: 2026-04-12
+Page last updated: 2026-04-09
+Updated: 2026-05-18

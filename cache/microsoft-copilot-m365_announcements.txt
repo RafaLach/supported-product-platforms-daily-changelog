@@ -1,3 +1,6 @@
+Source: https://learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview?view=o365-worldwide
+Fetched: 2026-05-18
+
 # What's new in the Microsoft 365 admin center
 
 ## November 2025
@@ -14,41 +17,41 @@
 
 ### Copilot Search admin experience
 
-The Microsoft 365 Admin center now includes the **Copilot Search Admin experience**, giving you powerful tools to manage and optimize search across your organization. This release introduces enhanced support for **Acronyms** and **Bookmarks**, enabling you to deliver more relevant and contextual search results to users.
-
-### Key Highlights
+The Microsoft 365 Admin center now includes the **Copilot Search Admin experience**, giving you powerful tools to manage and optimize search across your organization. This release introduces enhanced support for **Acronyms** and **Bookmarks**.
 
 - **Acronyms**
-    - Define and manage organization-specific acronyms to improve search clarity.
-    - Upload acronyms in bulk via CSV or add them individually.
-    - Acronyms are discoverable across Microsoft Search endpoints like SharePoint.
+    - Define and manage organization-specific acronyms.
+    - Upload acronyms in bulk via CSV or add individually.
+    - Acronyms discoverable across Microsoft Search endpoints like SharePoint.
 - **Bookmarks**
     - Create quick access links to frequently used resources.
-    - Boost visibility of important tools, sites, or documents in search results.
-    - Customize bookmark meta data including title, URL, description, and audience targeting.
+    - Boost visibility of important tools, sites, or documents.
+    - Customize bookmark metadata (title, URL, description, audience targeting).
 
 ## April 2025
 
 ### Microsoft 365 Copilot network connectivity test
 
-A new addition to the Microsoft 365 network connectivity test tool enables users to run diagnostics specifically for Microsoft 365 Copilot. The tool helps users evaluate the network performance between their device and Microsoft 365 endpoints, specifically for Microsoft 365 Copilot.
+A new addition to the Microsoft 365 network connectivity test tool enables users to run diagnostics specifically for Microsoft 365 Copilot. Includes Latency, Throughput, and Service reachability tests.
 
 ## March 2025
 
 ### Exchange Web Services usage report
 
-The Microsoft 365 admin center now includes a new Exchange Web Services (EWS) usage report that provides insights into the non-Microsoft (third-party) applications in your tenant that use EWS.
+New EWS usage report provides insights into the non-Microsoft (third-party) applications in your tenant that use EWS.
 
 ## February 2025
 
 ### Provide admin-initiated feedback for Microsoft 365 Copilot
 
-You can provide feedback about Microsoft 365 Copilot on behalf of your users within the Microsoft 365 admin center.
+Admin-initiated feedback for Copilot, with role expansion (AI Admin role added), chat log selection, date-range selection, product selection, and frequently occurring issues list.
 
 ## January 2025
 
 ### AI Administrator role in Microsoft 365 admin center
 
-The AI administrator role is designed to manage all settings related to Copilot within the Microsoft 365 admin center.
+The AI administrator role manages all Copilot settings within the Microsoft 365 admin center; manages AI-related services and extensibility, oversees app installs/configurations, accesses insights and support.
 
-Updated: 2026-04-12
+(Older entries from 2023, 2022 preserved in source: Sign up for Windows release health email notifications, Suggested training, Advanced deployment guides, NPS Sentiment per Topic, Date filter in NPS, Multi-tenant billing relationships, RBAC roles, Quick Assist, NPS Sentiment Insights, Admin center search.)
+
+Updated: 2026-05-18

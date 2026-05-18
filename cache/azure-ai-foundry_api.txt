@@ -1,44 +1,33 @@
-Azure OpenAI REST API Reference
+Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
+Fetched: 2026-05-18
 
-Page last updated: 2026-03-21
+# Azure OpenAI REST API Reference
 
-API Versions:
-- Control Plane Latest GA: 2025-06-01
-- Control Plane Latest Preview: 2025-07-01-preview
-- Data Plane GA: v1
-- Data Plane Preview: v1 preview
-- Inference (GA): 2024-10-21
+## API Versions (as of 2025-11-26)
 
-Core Endpoints:
-- Chat Completions: POST /openai/deployments/{deployment-id}/chat/completions (streaming, tool calling, parallel execution, log probs, JSON mode, structured outputs, vision)
-- Completions: POST /openai/deployments/{deployment-id}/completions
-- Embeddings: POST /openai/deployments/{deployment-id}/embeddings (configurable dimensions, float/base64 encoding)
-- Audio Transcriptions: POST /openai/deployments/{deployment-id}/audio/transcriptions (multiple formats: json, verbose_json, text, vtt, srt)
-- Audio Translations: POST /openai/deployments/{deployment-id}/audio/translations
-- Image Generation: POST /openai/deployments/{deployment-id}/images/generations (DALL-E, quality standard/hd, style vivid/natural)
+| API Surface | Latest Preview | Latest GA |
+| --- | --- | --- |
+| Control Plane | 2025-07-01-preview | 2025-06-01 |
+| Data Plane | v1 preview | v1 |
 
-Chat Extensions (On Your Data):
-- Azure Search (vector, semantic, hybrid query types, field mapping, strictness, top_n_documents)
-- Azure Cosmos DB (MongoDB vCore, vector search, embedding dependency)
+Documentation covers the GA release of the Azure OpenAI data plane inference specification: 2024-10-21.
 
-Authentication: API Key (api-key header), Microsoft Entra ID (Bearer token), system/user-assigned managed identities
+## Supported Operations
 
-Content Filtering: Sexual, Violence, Hate, Self-harm, Profanity, Jailbreak, Protected material (text/code with citations)
-- Severity levels: safe, low, medium, high
-- Custom blocklist support
+1. Completions - POST /openai/deployments/{deployment-id}/completions
+2. Chat Completions - POST /openai/deployments/{deployment-id}/chat/completions
+3. Embeddings - POST /openai/deployments/{deployment-id}/embeddings
+4. Audio Transcriptions - POST /openai/deployments/{deployment-id}/audio/transcriptions
+5. Audio Translations - POST /openai/deployments/{deployment-id}/audio/translations
+6. Image Generation - POST /openai/deployments/{deployment-id}/images/generations
 
-Advanced Features:
-- Parallel tool calls (up to 128 functions, enabled by default)
-- Structured outputs (JSON Schema) — compatible with GPT-4o, GPT-4o mini, GPT-4 Turbo, GPT-3.5 Turbo 1106+
-- Seed parameter (Beta) for deterministic outputs
-- Log probabilities (logprobs + top_logprobs)
-- Response streaming (SSE, data: [DONE] delimiter)
-- Vision support (image URL with detail: auto/low/high)
-- max_completion_tokens (replaces max_tokens for newer models)
-- system_fingerprint for backend reproducibility
-- logit_bias for token-level probability modification
+## Key Features and Updates
 
-Note: New preview inference API available — see API lifecycle guide for details.
-Note: Data Plane GA version now listed as "v1" (previously "2024-10-21" still listed for inference GA).
+- New Preview Inference API available — see API lifecycle guide.
+- Preview API Cadence — monthly preview releases.
+- Authentication:
+  - API Key (api-key header)
+  - Microsoft Entra ID (Authorization Bearer token)
 
-Updated: 2026-04-12
+Document updated: 2025-05-12
+Updated: 2026-05-18

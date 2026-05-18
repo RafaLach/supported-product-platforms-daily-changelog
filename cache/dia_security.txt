@@ -1,39 +1,10 @@
-# Dia Browser Security Page - Feature Announcements
+# Release Notes and Announcements
 
-## Bug Bounty Program
-- Responsible disclosure program through HackerOne
-- Security researchers invited to report vulnerabilities
-- "Your work helps us build a safer, more secure browsing experience for all"
+Based on the provided webpage content, **no release notes, new features, new APIs, new services, new entity types, new agent capabilities, new connectors, or dated announcements are visible on this page.**
 
-## Prompt Injection Defense System
-- "Dia won't open or follow LLM-generated URLs"
-- Prevention of unauthorized tool access without user review
-- Content preview before insertion into third-party sites
-- Draft-based irreversible actions (calendar events, etc.)
-- Restricted agentic mode context visibility
-- URL filtering to prevent instruction hiding
+The page is a security-focused informational document covering Dia Browser's security practices, bug bounty program, and FAQ. While it references that "SOC 2 Type II examination for Dia covering security, confidentiality, and privacy for calendar year 2025" with "final report issued in 2026," this is compliance documentation rather than a release or changelog item.
 
-## Chromium Patching Schedule
-- Weekly releases every Thursday with latest stable Chromium
-- Critical security fixes deployed within 48 hours
-
-## Built-in Ad Blocker
-- Controllable via "Dia > Settings > Privacy"
-
-## Data Handling
-- Local encrypted storage for conversations, history, bookmarks, and files
-- Minimal data transmission to AI partners (restricted from training/retention)
-- De-identified data retention limited to 30 days for improvement purposes
-- Incognito mode with no data storage
-- Selective data flagging for security/compliance purposes only
-
-## Security Infrastructure
-- Independent third-party security audits conducted annually
-- Full-scope assessments and point-in-time reviews for high-risk features
-- Disabled Chromium features including Google Accounts Integration and metrics reporting
-- Role-based production access restrictions
-- Data encrypted in transit and at rest
-- Regular data collection audits
+The navigation menu includes a link to "[What's New](/release-notes/latest)" but the actual release notes content is not included in the provided webpage excerpt.
 
 ## Last Fetched
-2026-03-29
+2026-05-18 - No new dated announcements detected.

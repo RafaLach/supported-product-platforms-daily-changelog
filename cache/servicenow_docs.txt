@@ -1,7 +1,25 @@
-# ServiceNow Documentation Portal
+# ServiceNow Release Notes and Updates
 
-## Note
-The ServiceNow documentation portal (servicenow.com/docs/) requires JavaScript rendering and does not return substantive content via static fetch. The page loads dynamically and could not be scraped.
+Based on the visible page content, the following items are accessible:
 
-## Last Fetch Attempt
-2026-04-12 - Page returned loading screen only (same behavior as previous fetches). No content extractable.
+## Main Release Categories
+- **New Features** - Summary of new features available
+- **Prepare for Upgrade** - Preparation guidance documentation
+- **Available Versions** - Current upgrade options
+
+## Release Notes by Version
+- **Family Release Notes** (general)
+- **Zurich** release notes
+- **Yokohama** release notes
+- **Xanadu** release notes
+- **Washington DC** release notes
+
+## Additional Release Information
+- **ServiceNow Store** release notes
+- **Mobile Apps** release notes
+- **Out-of-Box** (OOB) release notes and other updates
+
+**Note:** No specific dates, feature names, new APIs, new services, entity types, agent capabilities, or connectors are visible in the provided page content. The page appears to be a navigation hub linking to detailed release documentation rather than displaying the actual release details themselves.
+
+## Last Fetched
+2026-05-18 — Page is now returning navigation content (previously only loading screen). Versions visible: Zurich, Yokohama, Xanadu, Washington DC. Note: "Australia" is current latest version per the dedicated changelog page.

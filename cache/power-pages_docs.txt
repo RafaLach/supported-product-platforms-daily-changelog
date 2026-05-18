@@ -1,19 +1,76 @@
 Source: https://learn.microsoft.com/en-us/power-pages/
-Fetched: 2026-04-15
+Fetched: 2026-05-18
 
 # Microsoft Power Pages documentation
 
-Use Power Pages to create external-facing websites that allow users outside their organizations to sign in with a wide variety of identities, create and view data in Dataverse, or even browse content anonymously.
+Create external-facing websites that allow users outside their organizations to sign in with a wide variety of identities, create and view data in Dataverse, or browse content anonymously.
 
-## Key capabilities listed:
-- Getting started: What is Power Pages, capabilities, create and manage sites, security, architecture white papers
-- Tutorials: Design home page, set up brand kit, create page with list, create page with form, configure site authentication
-- Design and build: Design studio, Pages workspace, Styling workspace, templates, Portal Management app, VS Code and Power Platform CLI
-- AI and Copilot: AI-powered overview, AI-generated form using Copilot, AI-generated text using Copilot, enable agent in site, Bing webmaster indexing
-- Connect to Dataverse: Data workspace, lists, basic forms, multistep forms, table permissions
-- Customize and extend: Liquid, web templates, Portals web API, code components, Power Automate cloud flows integration, advanced configuration
-- Security: Authentication, web roles, table permissions
-- Go live: Checklist, licensing, ALM
-- Administer and monitor: Admin center, diagnostics, maintenance, consumption reports
+## Sections
 
-Page last updated: 2025-06-28
+### Getting started
+- Introducing Power Pages
+- Try Power Pages
+- Getting started videos
+- Power Pages training
+- What is Power Pages, capabilities, create and manage sites, security, architecture/security white papers, community
+
+### Tutorials
+- Tutorials and training videos overview
+- Design home page
+- Set up brand kit
+- Create page with list
+- Create page with simple form
+- Configure site authentication
+
+### Design and build
+- Use the new design studio
+- Pages workspace
+- Styling workspace
+- Templates
+- Portal Management app
+- Visual Studio Code and Power Platform CLI
+- Plan your Power Pages project
+
+### AI and Copilot
+- AI-powered and Copilot features overview
+- Create AI-generated form using Copilot
+- Add AI-generated text using Copilot
+- Enable agent in your site
+- Force Bing webmaster to index your site
+
+### Connect to Dataverse
+- What is Dataverse
+- Use the data workspace
+- Add lists to pages
+- Add basic forms / multistep forms
+- Secure data with table permissions
+- Create, update, view Dataverse information
+
+### Customize and extend
+- Use Liquid
+- Web templates
+- Portals web API
+- Code components
+- Configure Power Automate cloud flows in your site
+- Advanced configuration
+
+### Security
+- Power Pages security overview
+- Set up authentication
+- Configure web roles
+- Configure table permissions
+- Architecture/security white papers
+
+### Go live
+- Go live checklist
+- Assign licensing
+- Power Pages ALM overview
+
+### Administer and monitor
+- Portals admin center
+- Troubleshooting and diagnostics
+- Maintain and update
+- Review consumption
+
+Page last updated: 2026-04-28
+Updated: 2026-05-18

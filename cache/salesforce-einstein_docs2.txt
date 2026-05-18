@@ -1,27 +1,9 @@
-# Agentforce Developer Guide (Einstein GenAI Guide)
+# Release Notes and Updates
 
-## Main Title & Overview
-"Get Started with Agentforce and AI Agents"
+**Terminology Change (April 2026)**
+- Agent "topics" are now called "subagents" with no functionality changes
 
-The page introduces Agentforce as an agent-driven layer of the Salesforce Platform. It emphasizes deployment of AI agents working alongside employees to extend workforce capacity and provide 24/7 customer service. The Trust Layer securely integrates data with large language models.
-
-## Key Sections
-
-### Overview Guides
-1. **Agentforce APIs and SDKs** - Resources for building powerful Agentforce solutions using various APIs and SDKs
-2. **Agentforce Actions** - Documentation for building and enhancing Agentforce actions
-
-### Development Tools
-1. **Agent Script** - Language for building agents within Agentforce Builder
-2. **Agentforce DX** - Pro-code tools for Salesforce CLI and VS Code
-3. **Models and Prompts** - Features for creating, managing, and deploying prompt templates
-
-### Terminology Update (NEW — April 2026)
-- **Subagents** - Beginning April 2026, "topics" are now called "subagents" (no functional changes, terminology transition only)
-
-## Additional Resources
-- Salesforce Help: Agentforce and Generative AI
-- Salesforce Help: Agentforce Agents
+No other release notes, new features, new APIs, new services, new entity types, new agent capabilities, new connectors, or dated announcements are visible on this page.
 
 ## Last Fetched
-2026-04-12 - No new features detected beyond previous fetch. No changes from 2026-04-10.
+2026-05-18 - No new content beyond previous fetch.

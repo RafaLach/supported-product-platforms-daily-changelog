@@ -1,30 +1,18 @@
-# Windsurf IDE - Feature Announcements & New Capabilities
+# Release Notes, Features, and Announcements
 
-## New Features & Capabilities
+Based on the provided documentation page, there are **no specific release notes, dated announcements, or new feature listings** visible.
 
-1. **Cascade Agent** - "Your agentic chatbot that can collaborate with you like never before." An AI-powered assistant integrated into the IDE for code writing and project generation.
+The page primarily contains:
+- Installation and onboarding instructions
+- General feature descriptions (Cascade, Terminal, MCP, Memories, Context Awareness, Workflows, App Deploys)
+- Setup guidance
 
-2. **MCP (Model Context Protocol) Servers** - Extensibility feature allowing servers to "extend the agent's capabilities" beyond base functionality.
+**Notable mentions:**
+- A tip directing users to "See what's new with Windsurf in our [changelog](https://windsurf.com/changelog)" — but the actual changelog content is not included on this page
+- A note about "Windsurf Next" as a prerelease version for early access to unreleased features
+- A beta feature for "Custom App Icons" available to paying Mac OS users
 
-3. **Memories & Rules System** - Customization feature where "Memories and rules help customize behavior" of the AI assistant.
-
-4. **Context Awareness** - AI system that "instantly understands your codebase" for better code comprehension and suggestions.
-
-5. **Workflows** - Automation capability to "automate repetitive trajectories" for increased productivity.
-
-6. **App Deploys** - One-click deployment feature enabling users to "deploy applications in one click."
-
-7. **Terminal Enhancement** - "An upgraded Terminal experience" integrated into the IDE.
-
-8. **Custom App Icons (Beta)** - Available for Mac OS, allowing paid users to personalize Windsurf's dock appearance.
-
-9. **Windsurf Next** - Prerelease version providing early access to unreleased features and capabilities.
-
-10. **Import Functionality** - Settings and extensions migration from VS Code or Cursor into Windsurf.
-
-11. **Remote Development** - Support for SSH connections and local dev container integration.
-
-12. **Adaptive Model Router** - Intelligent model routing that selects the best model for each task.
+For actual release notes and new features, users are directed to consult the external changelog link rather than this welcome/setup documentation.
 
 ## Last Fetched
-2026-04-12 - No major new capabilities detected from previous fetch (docs overview page unchanged).
+2026-05-18 — No major new capabilities detected from previous fetch (docs overview page unchanged).

@@ -1,70 +1,8 @@
-# Microsoft Graph Changelog - Comprehensive Feature Extraction
+Source: https://developer.microsoft.com/graph/changelog/
+Fetched: 2026-05-18
 
-## Permission Changes (February 23, 2026)
-- **FileStorageContainerType.Manage.All**: No longer requires admin consent
-- **FileStorageContainerTypeReg.Manage.All**: No longer requires admin consent
-- **ThreatSubmission.Read**: Now requires admin consent
-- **ThreatSubmission.ReadWrite**: Now requires admin consent
+The fetched page returned only navigation/header chrome (menu links such as API reference, Quick start, SDKs). No changelog body content was retrievable through WebFetch for this URL.
 
-## Identity & Governance Features
+To obtain the actual Microsoft Graph changelog entries, the underlying RSS feed or the rendered changelog list (which is client-side rendered) would need a different fetch method.
 
-### Lifecycle Workflows Enhancements
-- **User Inactivity Trigger** (November 25, 2025): New resource for detecting inactive users
-- **Activation with Scope** (November 10, 2025): Added activateWithScope method
-- **Administration Scope Targets** (February 19, 2026): Relationship added to workflowBase resource
-- **Workflow Capacity Increase** (April 18, 2024): Support expanded from 50 to 100 workflows per tenant
-- **activationScope resources**: activateGroupScope, activateRunScope, activateUserScope, activateProcessingResultScope
-- **PATCH operation** for task updates in lifecycle workflows
-- **triggerAttribute** resource type
-- **attributeChangeTrigger** resource for attribute-based execution
-- **membershipChangeTrigger** and **membershipChangeType** enumeration
-- **groupBasedSubjectSet** for group-based workflow scope definition
-- **emailSettings** resource type and emailSettings property in lifecycleManagementSettings
-
-### Insights & Analytics
-- **Lifecycle Workflows Insights** (May 7, 2024): Aggregate health metrics
-- Four summary methods: topTasksProcessedSummary, topWorkflowsProcessedSummary, workflowsProcessedByCategory, workflowsProcessedSummary
-
-### Advanced Trigger Types (April 15, 2024)
-- attributeChangeTrigger, membershipChangeTrigger, groupBasedSubjectSet
-
-## Users & Groups - Bicep Template Support
-- User resource (January 30, 2025)
-- Application resources (May 21, 2024): application, federatedIdentityCredential, servicePrincipal, oAuth2PermissionGrant, appRoleAssignment
-- Group resource (May 21, 2024)
-- ediscoveryCase, reviewSet, reviewSetQuery resources (eDiscovery/Compliance)
-
-## Regional Availability
-- Microsoft Graph Activity Logs in China operated by 21Vianet (December 16, 2024)
-
-## Change Notifications
-- Event Hubs SAS authentication deprecation, Microsoft Entra ID RBAC recommended (September 19, 2024)
-
-## Reports & Sign-In Analytics
-- **agent** property with agentSignIn resource and agentType enumeration (May 13, 2025)
-- **samlSignInFailure** alert (July 31, 2025)
-- **conditionalAccessBlockedSignIn** alert (April 1, 2025)
-- New protocolType members: kerberos, seamlessSso, prtGrant, onBehalfOf, samlOnBehalfOf (and 12 more added March 23, 2025)
-- Authentication protocol types: implicitAccessTokenAndGetResponseMode, authorizationCodeWithPkce, clientCredentials, refreshTokenGrant, nativeAuth, authenticationTransfer, samlOnBehalfOf
-- Authentication event types: emailOtpSend, attributeCollectionStart, attributeCollectionSubmit
-- Self-Service Sign-Up Analytics (June 20, 2025): selfServiceSignUp, signUpIdentity, signUpStatus, signUpIdentifierType, signUpStage enumerations
-- Audit Log linkableIdentifiers and tokenDetails (March 26, 2025)
-- sessionId (November 13, 2024), appOwnerTenantId/resourceOwnerTenantId (January 28, 2025)
-- relyingPartyDetailedSummary resource and getRelyingPartyDetailedSummary method (April 1, 2024)
-- microsoftRevokedSessions member added to riskDetail enumeration
-
-## Agents
-- Agent Sign-In Tracking (November 17, 2025): Extended agentType enumeration with agentIdentityBlueprintPrincipal and agentIDuser
-- agentSubjectParentId and agentSubjectType properties on agentSignIn
-
-## Network & Security
-- New filteringPolicyAction and remoteNetworkStatus enumerations
-- webCategory resource (filtering/compliance)
-
-## Deletions
-- conditionalAccessAudience removed (December 11, 2025 - Beta)
-
-## Schema Extensions
-- Generally available in Microsoft Cloud for US Government
-
-Updated: 2026-04-12
+Updated: 2026-05-18

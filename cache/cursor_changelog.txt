@@ -1,51 +1,35 @@
-# Cursor Changelog - Feature Announcements
+# Cursor Changelog Summary
 
-## Apr 15, 2026 — Canvases
-- Interactive canvases with dashboards and custom interfaces using tables, boxes, diagrams, and charts
-- New artifact/workspace type for building visual dashboards from agent activity
+## Release Notes & Features
 
-## Apr 14, 2026 — CLI Debug Mode and /btw Support (NEW)
-- **Debug Mode** — Accessible via `/debug`; agent generates hypotheses, adds log statements, and uses runtime information to pinpoint root cause before making a targeted fix
-- **/btw Support** — Ask side questions without interrupting the agent's main task
-- **Configuration Menu** — `/config` opens interactive settings panel for model choices, runtime preferences
-- **Custom Status Bars** — `/statusline` command customizes displayed session and runtime signals
-- Clipboard image pasting
-- Model switching without clearing prompts
+**Version 3.4 (May 13, 2026)**
+- Development environments for cloud agents with multi-repo support
+- "Improved Dockerfile-based configuration" with build secrets for secure package registry access
+- Layer caching improvements reducing build times by 70%
+- Agent-led environment setup with credential validation
+- Environment version history, rollback controls, and audit logging
+- Egress and secrets scoped at environment level
 
-## Apr 13, 2026 — Cursor 3.1
-- **Tiled Layout** — Split current view into panes to run and manage several agents in parallel
-- **Upgraded Voice Input** — Enhanced dictation with batch speech-to-text transcription and recording controls
-- **Branch Selection** — Search and select git branches before launching cloud agents
-- **Diff to File Navigation** — Jump from diffs to exact file lines with full editor capabilities
-- **Search Filters** — Include/exclude filters for scoping code search to specific file sets
+**Microsoft Teams Integration (May 11, 2026)**
+- Cursor now available in Microsoft Teams
+- "@Cursor" mentions delegate tasks to cloud agents or retrieve information
+- Auto-selects repositories and models based on context
 
-## Apr 8, 2026 — Bugbot Enhancements
-- **Bugbot Learned Rules** — Self-improving code review; turns PR feedback signals into learned rules
-- **Bugbot MCP Support** — MCP server access for additional context during code reviews
-- **Bugbot Resolution Rate** — Improved to 78%
-- **Bugbot "Fix All" Action** — Apply multiple Bugbot fixes in one operation
+**Version 3.3 (May 7, 2026)**
+- New PR review experience with Reviews, Commits, and Changes tabs
+- "Build in Parallel" feature using async subagents for multitasking
+- Split changes into PRs quick action
+- Pin skills as quick-action pills
+- `/multitask` command for parallel requests
+- Improved MCP connection behavior and terminal interaction fixes
 
-## Apr 2, 2026 — Cursor 3.0 Launch
-- New Agents Window — parallel agent execution across local, worktrees, cloud, and remote SSH
-- Design Mode — annotate UI elements directly in browsers
-- Agent Tabs — side-by-side or grid view of multiple chats
-- /worktree command, /best-of-n command
-- MCP Apps support structured content
-- Team-level Admin setting restricting cloud agent secret management
-- Enterprise control to disable "Made with Cursor" attribution
+**Bugbot Effort Levels (May 11, 2026)**
+- Default, High, and Custom effort configurations for PR reviews
+- Metrics: 0.7 bugs/run (default), 0.95 bugs/run (high effort)
+- 79% bug resolution rate at merge time
 
-## Mar 25, 2026 — Self-hosted Cloud Agents
-- Run Cursor cloud agents entirely within your own network
-- Same capabilities as Cursor-hosted agents: isolated VMs, full dev environments, multi-model harnesses, plugins
-
-## Mar 19, 2026
-- **Composer 2** — frontier-level coding performance
-
-## Mar 11, 2026
-- **New Marketplace Plugins** — 30+ plugins from Atlassian, Datadog, GitLab, Glean, Hugging Face, monday.com, PlanetScale
-
-## Mar 5, 2026
-- **Automations** — Always-on agents triggered by schedules or events from Slack, Linear, GitHub, PagerDuty, webhooks
+**Version 3.3 (May 6, 2026)**
+- Context usage breakdown feature for diagnosing agent context issues
 
 ## Last Fetched
-2026-04-21 — NEW: CLI Debug Mode (/debug), /btw side questions, /config menu, /statusline customization (Apr 14, 2026).
+2026-05-18 — NEW: Cursor 3.4 with multi-repo cloud-agent dev environments (May 13); Microsoft Teams integration via @Cursor mentions (May 11); Cursor 3.3 with PR review tabs, "Build in Parallel" async subagents, /multitask command (May 7); Bugbot effort levels and context usage breakdown.

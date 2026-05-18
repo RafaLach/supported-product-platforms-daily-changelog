@@ -1,41 +1,7 @@
-# Claude Platform Documentation - API Getting Started
+# Release Notes/Changelog Items
 
-Note: Page rendered as Next.js server-side React components. Actual documentation content requires browser rendering.
+**No release notes, features, APIs, services, or announcements are visible on this page.**
 
-## Page Metadata
-- Title: "Documentation | Claude Platform"
-- Description: "Claude Platform Documentation"
-- Canonical URL: https://platform.claude.com
-- Current Path: /docs/api/getting-started
+The page displays only "Documentation | Claude Platform" and "Loading..." text. The actual documentation content has not finished loading. To get the information requested, the page would need to be rendered with JavaScript.
 
-## Technical Details
-- Framework: Next.js (App Router)
-- Backend API: https://api.anthropic.com
-- Console URL: https://platform.claude.com
-- Claude AI URL: https://claude.ai
-- User Content Renderer: https://www.claudeusercontent.com
-
-## MCP Infrastructure (newly identified)
-- Local MCP connector: https://www.claudemcpclient.com
-- MCP sandbox proxy: https://sandbox.claudemcpcontent.com
-- Imagine MCP: https://sandbox.claudemcpcontent.com/imagine_mcp
-
-## Third-Party Integrations
-- Stripe (payment processing, multiple regional keys: US, Ireland, Sandbox)
-- Google OAuth
-- Intercom (support)
-- Segment (analytics)
-- Sift (fraud detection)
-- Arkose (security/bot protection)
-- GrowthBook (feature flags)
-- StatsIG (experimentation)
-
-## Browser Extensions / Add-ins
-- Claude Browser Extension ID: fcoeoabgfenejglbffodgkkbkcdhcgfn
-- Ant-only Extension ID: dngcpimnedloihjnnfngkgjoidhnaolf
-- Excel Add-in Client ID: 966eba67-8b8c-4eae-bbb3-08361d1b9292
-
-## Note
-The page content is served as minified Next.js React Server Component payload data. Feature flags and experimental features are configured via GrowthBook and StatsIG. Various analytics and tracking services are integrated. Actual API documentation content requires browser-side rendering to access.
-
-Updated: 2026-04-15
+Updated: 2026-05-18 (still requires browser-side rendering, content not retrievable via WebFetch)

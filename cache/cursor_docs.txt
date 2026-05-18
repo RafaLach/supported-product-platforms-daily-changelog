@@ -1,62 +1,10 @@
-# Cursor Docs - Feature Announcements and New Capabilities
+Based on the web page content provided, I can only see the page title:
 
-## Core Features
-- **AI Editor and Coding Agent** - Described as built to make developers "extraordinarily productive"
-- **Code Understanding** - Ability to understand codebases and navigate large projects
-- **Feature Planning and Building** - Automated feature creation and development assistance
-- **Bug Fixing** - Automated bug detection and repair capabilities
-- **Code Review** - Integrated change review functionality
-- **Tool Integration** - Support for existing developer tools
-- **Rapid Prototyping** - Quick prototype creation and iteration
-- **Legacy Code Modernization** - AI-assisted modernization of legacy codebases
+**Cursor Docs — Agent, Rules, MCP, Skills & CLI**
 
-## AI Models Available
-Multiple Claude models including:
-- Claude 4.6 Sonnet
-- Claude 4.5 Sonnet and Haiku
-- Claude Opus variants (4.5, 4.6, 4.6 Fast)
-- Cursor Composer models (1, 1.5, 2)
-- Google Gemini support (3-series and 2.5 Flash)
-- OpenAI GPT-5 series models
-- Grok 4.20
-- Kimi K2.5
+No release notes, new features, new APIs, new services, new entity types, new agent capabilities, new connectors, or announcements are visible in the content shared. Only the documentation header/title is displayed, which appears to reference available documentation topics rather than changelog items.
 
-## Specialized Tools
-- **Bugbot** - Automated code review and bug detection
-- **Cloud Agent** - Remote execution capabilities with self-hosted and Kubernetes options
-- **Browser Tool** - Web browsing integration for agents
-- **Terminal Tool** - Command execution access
-- **MCP (Model Context Protocol)** - Extension and integration framework
-- **Slack Integration** - Team communication integration
-- **Subagents** - Specialized sub-agents for delegated tasks
-- **CLI (Command Line Interface)** - Command-line reference for Cursor operations
-
-## Enterprise & Admin Features
-- Admin API for team management
-- Analytics and AI code tracking APIs
-- SCIM provisioning support
-- Service accounts for enterprise deployments
-- Compliance and monitoring capabilities
-- Network configuration options
-
-## Integrations
-- GitHub, GitLab, Slack
-- Linear, JetBrains, Xcode
-- AWS Bedrock customization
-
-## Use Cases
-- Code understanding and navigation
-- Debugging and bug fixing
-- Test generation
-
-## Documentation Categories
-- Getting Started, Agent Features, Tools, Models, Integration
-- Account Management, Cloud Agent, Enterprise, CLI, Developer Resources
-- Use case guides for Designers, PMs, Sales Engineers, Support teams
-- Language guides: Web, JS/TS, Python, Java, C#, Data Science
-
-## Localization
-English, Chinese (Simplified & Traditional), Japanese, Spanish, French, Portuguese (Brazil), Korean, Russian, Turkish, Indonesian, German
+To identify actual release information, I would need the full page content including any changelog, release notes, or announcement sections.
 
 ## Last Fetched
-2026-04-12
+2026-05-18 — URL docs.cursor.com now redirects to cursor.com/docs. Title mentions Skills (new since previous fetch).

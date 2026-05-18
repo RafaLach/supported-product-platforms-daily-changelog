@@ -1,76 +1,13 @@
-# OpenAI Status - Incident History
+# OpenAI Status Page Analysis
 
-Page generated: Wed, 15 Apr 2026
+This RSS feed contains **incident reports only** — not release notes, feature announcements, or API updates.
 
-## Services Monitored
+The page documents resolved service incidents from February 18, 2026 through May 18, 2026, including:
 
-**ChatGPT Features:**
-- Conversations/Chat, Voice mode (dictation), File uploads/downloads, Pinned chats
-- Image generation, Search, Deep Research, Artifact generation (spreadsheets, slideshows)
-- Enterprise and Education workspaces, Free and Guest plans, ChatGPT Go
-- ChatGPT Pro (versions 5.2, 5.4), Custom GPTs
-- Connectors/Apps (Excel Plugin, third-party integrations), ChatGPT Atlas, Shopping Research
+- Performance degradations and error rate spikes across various services (GPT-5.5, Codex, ChatGPT, APIs)
+- Login and authentication issues
+- File upload and processing failures
+- Regional outages (Europe, LATAM)
+- Issues with specific features (voice mode, image generation, Sora video generation)
 
-**APIs & Platforms:**
-- Chat Completions API, Completions API (gpt-5-nano), Responses API
-- Realtime API (with SIP endpoints, EU region), Fine-tuning API
-- Embeddings (text-embedding-3-small), Images/DALL-E generation
-- Batch API, Moderations API, Compliance API, Agent API, Audio API
-
-**Video & Media:**
-- Sora (video generation, Sora 2)
-
-**Developer Tools:**
-- Codex Web/Cloud, API Platform, Audit logs
-
-## Recent Incidents
-
-### April 11, 2026: ChatGPT Access Issues
-- "Some users may experience issues accessing ChatGPT"
-- Status: Resolved — all impacted services recovered
-
-### April 10, 2026: API Platform Login and Account Creation Issues
-- API platform login and account creation experiencing instability
-- Status: Resolved
-
-### April 2: ChatGPT Dictation Elevated Error Rate
-- Voice mode/dictation experienced elevated error rates
-- Status: Resolved
-
-### April 2: High Error Rate for Completions API (gpt-5-nano)
-- Chat Completions service experienced high error rate specifically for gpt-5-nano model
-- Status: Resolved
-
-### March 31: ChatGPT Enterprise/Edu SSO Issues
-- Elevated failures for some users joining ChatGPT Enterprise and ChatGPT Edu workspaces via SSO
-- Status: Resolved
-
-### March 29: Account Creation and Login Instability
-- Account creation and login are unstable across all surfaces
-- Status: Resolved
-
-### March 26-27: Responses API and Sora Issues
-- Elevated error rates affecting Responses service and Sora video generation
-- Status: Resolved
-
-### March 25: File Management Disruption
-- Problems downloading and previewing project files
-- Status: Resolved
-
-### March 24: Multiple Service Issues
-- Realtime API SIP endpoints elevated error rates
-- Sync app creation and operation issues in Connectors/Apps
-- Project and File Upload Errors
-- Status: Resolved
-
-### March 21: Pinned Chats Not Loading
-- Pinned chats are not loading on web browsers for ChatGPT
-- Status: Resolved
-
-### March 18: Sora Video Generation Failing
-- Sora video generation failing
-- Status: Resolved
-
-Date span of full history: January 26, 2026 - April 15, 2026.
-
-Updated: 2026-04-15
+**No new features, APIs, services, or capabilities are announced on this status page.** It exclusively tracks operational incidents and their resolutions.

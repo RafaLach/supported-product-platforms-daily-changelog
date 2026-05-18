@@ -1,51 +1,11 @@
-# Perplexity AI API Features & Capabilities
+Based on the provided documentation page, there are **no release notes, announcements, or changelog items visible**.
 
-## APIs & Endpoints
-- **POST /v1/agent** - "Create Agent Response" endpoint for generating responses with optional web search and reasoning
+The page contains only:
+- A documentation index reference
+- API endpoint documentation for the `/v1/agent` endpoint
+- OpenAPI schema definitions for request/response structures
 
-## Core Capabilities
-- **Web Search Integration** - Ability to perform searches as part of agent responses
-- **Streaming Support** - Server-Sent Events (SSE) streaming via `stream` parameter
-- **Reasoning Configuration** - Effort levels (low, medium, high) for model reasoning
-- **Structured Output** - JSON schema validation for response formatting
-
-## Tools
-- **Web Search Tool** - Configurable search with domain/date filters and location personalization
-- **URL Fetch Tool** - Capability to fetch and extract content from URLs (max 10 per call)
-- **Function Calling** - Support for custom function definitions and execution
-
-## Advanced Features
-- **Model Fallback Chain** - Up to 5 models with automatic fallback on failure
-- **Preset Configurations** - Pre-configured options like "fast-search," "pro-search," "deep-research"
-- **Token Caching** - Cache creation and read tracking in usage metrics
-- **Multi-format Input** - Support for text, images, and structured input items
-- **Cost Tracking** - Detailed cost breakdown by operation type
-- **Max Steps** - Research loop iterations (1-10 maximum) for controlling agent depth
-- **Language Preference** - ISO 639-1 code for response language
-- **Max Output Tokens** - Token generation limit (minimum: 1)
-
-## Model Support
-- Supports third-party model IDs (e.g., "xai/grok-4-1", "openai/gpt-4o")
-- `models` parameter supports fallback chain of up to 5 models
-
-## Streaming Events (14 types)
-- response.created, response.in_progress, response.completed, response.failed
-- response.output_item.added, response.output_item.done
-- response.output_text.delta, response.output_text.done
-- response.reasoning.started, response.reasoning.stopped
-- response.reasoning.search_queries, response.reasoning.search_results
-- response.reasoning.fetch_url_queries, response.reasoning.fetch_url_results
-
-## Response Metadata
-- Unique response ID
-- Model used (reflects actual model from fallback chain)
-- Status (completed/failed/in_progress/requires_action)
-- Token usage with cache details
-- Cost breakdown (USD)
-- Timestamps (Unix format)
-
-## Authentication
-- Bearer token (HTTPBearer)
+There are no dates, version updates, feature announcements, new services, new entity types, or agent capability releases documented on this page.
 
 ## Last Fetched
-2026-04-12
+2026-05-18 - No new APIs detected; page is reference-only.

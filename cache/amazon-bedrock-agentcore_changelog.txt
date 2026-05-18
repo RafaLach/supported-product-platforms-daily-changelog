@@ -1,6 +1,6 @@
-# Amazon Bedrock AgentCore - Document History
+# Amazon Bedrock AgentCore - Document History (Fetched 2026-05-18)
 
-## Documentation Releases Timeline
+WebFetch could not retrieve the document history table from this URL on 2026-05-18 — the page returned only the title with no table content. Retaining the cached entries from previous scans:
 
 ### April 9, 2026
 - **AWS Agent Registry** - Added documentation for AWS Agent Registry: a centralized catalog for discovering and managing agents, MCP servers, tools, and skills. Provides governed workflows for publishing, reviewing, and approving resources with hybrid semantic and keyword search.
@@ -18,13 +18,13 @@
 - Direct code deployment - Python agents deployment via ZIP file archives
 
 ### October 31, 2025
-- Get started updates - Changes to prerequisites, files, and commands
+- Get started updates
 
 ### October 30, 2025
 - Web Bot Auth (Preview) - Browser Web Bot Auth feature, cryptographic HTTP request signing
 
 ### October 13, 2025
-- Runtime identity service-linked role - Manages workload identity access tokens and OAuth credentials
+- Runtime identity service-linked role
 - General release - Amazon Bedrock AgentCore now generally available (GA)
 
 ### October 10, 2025
@@ -37,7 +37,6 @@
 - Managed policy updates - BedrockAgentCoreNetworkServiceRolePolicy (new), BedrockAgentCoreFullAccess updated
 
 ### July 16, 2025
-- Initial release (preview) - First release of Amazon Bedrock AgentCore Developer Guide
+- Initial release (preview)
 
-## Note
-Last fetched: 2026-04-15. No new entries beyond April 9, 2026 (AWS Agent Registry). This entry was already captured in the previous scan on 2026-04-12.
+Updated: 2026-05-18 — Fetch returned no rendered table content. Latest entry still cached as April 9, 2026 (AWS Agent Registry). No new items confirmed.

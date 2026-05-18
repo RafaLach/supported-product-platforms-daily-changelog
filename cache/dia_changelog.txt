@@ -1,41 +1,20 @@
 # Dia Browser Release Notes
 
-## April 2026
+**Visible Release Items:**
 
-**April 16, 2026** (NEW)
-- Latest release posted; specific features not detailed in the changelog summary (page only listed the release headline)
+1. **May 14, 2026** - Current issue (No. 012345678901234567890123456789012345678901234567890123456789, App v01234567890123456789012345678901234567890123456789012345678901234567890123456789)
+   - Location: Brooklyn, USA
 
-**v1.26.0** (April 9, 2026)
-- **Sync Feature Launch**: Cross-device browser synchronization with end-to-end encryption and local-first architecture
-  - Recovery kit creation for account backup
-  - Connect multiple devices through 6-character codes
-  - Syncs favorites/bookmarks and other browser data across devices
-  - No central server arbitration — conflict resolution handled locally
+2. **May 7, 2026** - No. 024, App v1.30
+   - "Keeping Tabs Tidy"
 
-**v1.25.0** (April 2, 2026)
-- Downloads with Visual Guidance
-- Custom Tab Icons with emojis
-- Split-Screen Multitasking
-- Meeting Countdown Animations
-- Tab Group Naming Animation
-- Spotify Integration Visual
-- Navigation Button Feedback
+3. **April 30, 2026** - No. 023, App v1.29
+   - "Sync unpinned tabs"
 
-## March 2026
+4. **April 23, 2026** - No. 022, App v1.28.0
+   - "A closer look"
 
-**v1.24.0** (March 26, 2026)
-- Fixed memory leaks
-- Optimized new tab page animations
-- Accelerated command bar suggestion rendering
-- Improved system load handling
-- Added Early Birds Program
-- Built-in performance issue recording tool
-
-**v1.23.0** (March 19, 2026)
-- Review and merge workflow features
-
-**v1.22.0** (March 11, 2026)
-**v1.21.0** (March 5, 2026)
+**Note:** The page displays a "Dia Weekly" newsletter format with placeholder text and indicates more release notes are available via a "View All Release Notes +" link. The current featured release appears to be from May 14, 2026, though specific feature details are not provided in the visible content.
 
 ## Last Fetched
-2026-04-23
+2026-05-18 — NEW: Three new releases since prior fetch — v1.28.0 (Apr 23, "A closer look"), v1.29 (Apr 30, "Sync unpinned tabs"), v1.30 (May 7, "Keeping Tabs Tidy"), plus latest May 14 issue.

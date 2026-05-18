@@ -1,56 +1,46 @@
-# OpenAI Codex Changelog
+# Codex Changelog - Key Updates
 
-## April 23, 2026 — Codex CLI 0.123.0 (NEW)
-- **Amazon Bedrock model provider support** with AWS profile configuration — Codex can now use AWS Bedrock-hosted models as an inference backend
-- Enhanced MCP diagnostics via `/mcp verbose` command — richer telemetry on MCP server calls
-- Improved realtime handoffs allowing background agents to receive transcript deltas
+## May 2026
 
-## April 20, 2026 — Codex CLI 0.122.0
-- Standalone installs now work correctly on Windows and Intel Macs with improved "codex app" integration
-- TUI supports "/side" conversations and queued slash commands while work runs
-- Plan Mode can start fresh implementation with context usage visibility
-- Plugin workflows include tabbed browsing, inline toggles, and multi-source marketplace support
-- Filesystem permissions now support deny-read glob policies
-- Isolated sandbox enforcement added
-- Tool discovery and image generation enabled by default
+**May 14, 2026 - Remote Connections & Mobile Access**
+- Use Codex from ChatGPT mobile by connecting to a Mac running the Codex app
+- Features: "Hooks general availability, Codex access tokens for trusted automation, Enterprise admin setup guidance"
 
-## April 18, 2026 — Codex Apps SDK Submission Flow
-- Official roundup of enhancements to the ChatGPT Apps SDK submission process
+**May 11, 2026 - Auto-review Documentation**
+- Expanded documentation covering reviewer lifecycle, trigger conditions, and failure behavior
 
-## April 16, 2026 — Codex Major Update (beyond coding)
-"Codex is getting a major update. Already used by millions of developers, it is now expanding beyond coding to support a broader range of work."
-- In-app browser for local/public page previews (early-stage)
-- Computer use for macOS app operation (seeing, clicking, typing) for native app testing and GUI-only bug handling
-- Chats without project folders (projectless threads for research, writing, planning, analysis)
-- Thread automations — scheduled wake-ups preserving conversation context for monitoring and automated follow-up loops
-- Pull request workflow integration — inspect GitHub PRs, review diffs, inspect changed files, streamlined feedback
-- Task sidebar — dedicated sidebar tracking plans, sources, generated artifacts, and summaries
-- Artifact viewer — preview generated files (PDFs, spreadsheets, documents, presentations) in sidebar before commit
+**May 8, 2026 - CLI 0.130.0**
+- Plugin details now show bundled hooks and sharing metadata
+- Added `codex remote-control` for headless remote operation
+- App-server clients can page large threads with unloaded/summary/full views
+- Bedrock auth supports AWS console-login credentials
+- Multiple bug fixes for live threads, turn diffs, and Windows sandbox
 
-## April 15, 2026 — CLI 0.121.0
-- Marketplace installation from GitHub/git URLs
-- TUI history with Ctrl+R reverse search
-- Memory mode controls
-- MCP Apps tool calls
-- Parallel-call opt-in
-- Realtime/app-server APIs for output modality and transcript events
-- Secure devcontainer profile with bubblewrap
+**May 7, 2026 - Chrome Extension Launch**
+- "Codex is even better at working with apps and websites in your browser"
+- Works across tabs without taking over; user controls which websites Codex can access
 
-## Version 0.120.0 (April 11, 2026)
-- Realtime V2 background agent progress streaming with queued follow-up responses
-- Enhanced hook activity display in TUI
-- Custom TUI status lines supporting renamed thread titles
-- Code-mode tool declarations include MCP outputSchema details
-- SessionStart hooks distinguish sessions created by /clear from fresh startup
+**May 7, 2026 - CLI 0.129.0**
+- TUI Vim editing support in composer with `/vim` command
+- Redesigned resume/fork picker with raw scrollback mode
+- Status line theme-aware colors with optional PR/branch summaries
+- Plugin marketplace integration with workspace sharing and access controls
+- `/hooks` browser for lifecycle hooks with pre/post-compaction support
+- Experimental goals with discovery, persistence, and multi-day duration support
 
-## Version 0.119.0 (April 10, 2026)
-- Realtime voice sessions default to v2 WebRTC with configurable transport and voice selection
-- MCP Apps support: resource reads, tool-call metadata, custom-server tool search
-- Remote/app-server workflows with egress websocket transport
-- TUI copy latest agent response with Ctrl+O
-- /resume command jumps directly to sessions by ID or name
-- Configurable TUI notifications with Warp OSC 9 support
-- codex exec-server experimental subcommand
+**May 6, 2026 - Analytics Governance Documentation**
+- Updated enterprise governance guide with Analytics dashboard coverage and API endpoints
 
-## Last Fetched
-2026-04-23 — NEW: CLI 0.123.0 with Amazon Bedrock model provider support, /mcp verbose diagnostics, realtime transcript handoffs.
+**May 5, 2026 - Codex Access Tokens**
+- ChatGPT Enterprise workspace members can create access tokens for non-interactive workflows
+
+## April 2026
+
+**April 30, 2026 - CLI 0.128.0**
+- Added persisted `/goal` workflows with app-server APIs and TUI controls
+- `codex update` command added
+- Configurable TUI keymaps and plan-mode nudges
+- Expanded permission profiles with built-in defaults and sandbox selection
+- Plugin marketplace installation and remote bundle caching
+- External agent session import functionality
+- MultiAgentV2 configuration enhancements with thread caps and wait-time controls

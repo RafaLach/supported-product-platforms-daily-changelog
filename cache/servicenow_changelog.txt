@@ -1,7 +1,46 @@
-# ServiceNow Release Notes
+# Australia Release Notes - Visible Items
 
-## Note
-The ServiceNow documentation portal (servicenow.com/docs/) requires JavaScript rendering and does not return substantive content via static fetch. The release notes page at /docs/r/release-notes/family-release-notes.html loads dynamically and could not be scraped.
+## Release Version
+- **Australia** (Updated May 5, 2026)
 
-## Last Fetch Attempt
-2026-04-12 - Page returned loading screen only (same behavior as previous fetches). No content extractable.
+## Key Release Notes & Tools Available
+
+### Main Documentation
+- Australia release notes landing page
+- Using the release notes guide
+- Build your own release notes (configurable tool)
+- Learn about the Australia release
+
+### Upgrade Paths
+- Release notes for upgrading from Zurich
+- Release notes for upgrading from Yokohama
+- Release notes for upgrading from Xanadu
+- Combined product release notes for cross-family upgrades
+
+### Patches & Hotfixes
+- Australia Patch 2
+- Australia Patch 1
+- Australia EA Hotfix 1
+- Australia security and notable fixes
+- All other Australia fixes
+
+### Release Notes Summaries (by category)
+- Highlights for all Australia features
+- Upgrade information
+- New features and products
+- Changes to features
+- Removed features
+- Deprecation information
+- Activation information
+- Browser requirements
+- Accessibility information
+- Plugin information
+
+### Seven-Phase Upgrade Process
+Phases 1-7 covering planning through production instance upgrade, with validation checkpoints at each stage.
+
+### Release Timeline
+Future Australia patch/security release dates shown for 2026 (specific dates subject to change).
+
+## Last Fetched
+2026-05-18 — NEW: ServiceNow "Australia" release is the current version (Updated May 5, 2026), with Patch 1, Patch 2, and EA Hotfix 1 available. Previously the page returned only a loading screen.

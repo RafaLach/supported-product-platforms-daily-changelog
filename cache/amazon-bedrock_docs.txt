@@ -1,68 +1,36 @@
-# Amazon Bedrock Overview - Complete Content Extraction
+# Amazon Bedrock Overview (Fetched 2026-05-18)
 
 ## Service Definition
-**Amazon Bedrock** is a fully managed service providing secure, enterprise-grade access to high-performing foundation models from leading AI companies, enabling users to build and scale generative AI applications.
-
----
+Amazon Bedrock is a fully managed service providing secure, enterprise-grade access to high-performing foundation models from leading AI companies, enabling users to build and scale generative AI applications.
 
 ## Supported APIs
-
-### 1. Responses API (OpenAI Compatible)
-### 2. Chat Completions API (OpenAI Compatible)
-### 3. Invoke API (Boto3)
-### 4. Converse API (Boto3)
-
----
+1. Messages API (Anthropic)
+2. Responses API (OpenAI Compatible)
+3. Chat Completions API (OpenAI Compatible)
+4. Converse API (Boto3)
+5. Invoke API (Boto3)
 
 ## Supported Foundation Models (100+)
+Featured providers shown:
+- **Amazon Nova**
+- **Claude** (Anthropic)
+- **DeepSeek**
+- **Kimi** (Moonshot AI)
+- **MiniMax**
+- **OpenAI**
 
-### Featured Models (as of April 2026):
-- **Nova 2** (Amazon)
-- **Claude Opus 4.6** (Anthropic)
-- **Claude Sonnet 4.6** (Anthropic)
-- **DeepSeek V3.2** (DeepSeek)
-- **Kimi K2.5** (Moonshot AI)
-- **MiniMax M2.1** (MiniMax)
-- **GPT-OSS-20B** (OpenAI)
-- **GLM 4.7** (Zhipu)
-- **GLM 4.7 Flash** (Zhipu)
-- **Qwen3 Coder Next** (Alibaba)
+## What's New
 
-**Providers:** Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, OpenAI, Zhipu, and others
-
----
-
-## What's New / Recent Announcements
-
-### 1. Server-side Tools Support in Responses API (January 2026)
-- Responses API now supports server-side tools using OpenAI API-compatible service endpoints
-- AgentCore Gateway tools integration enabled
-- Server-side tool execution without requiring client-side orchestration
-
-### 2. OpenAI-compatible Projects API (February 2026)
-- Amazon Bedrock now supports OpenAI-compatible Projects API in the Mantle inference engine
-
-### 3. Anthropic Claude 4.6 Models (February 2026)
-- Claude Sonnet 4.6 now available
-- Claude Opus 4.6 now available
-
-### 4. Six New Open Weight Models (February 2026)
-- DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, Qwen3 Coder Next
-- Focus: frontier reasoning and agentic coding
-
----
+- **Claude Opus 4.7 now available in Amazon Bedrock**: Anthropic's most capable Opus model to date, with improvements across agentic coding, professional work, and long-running tasks.
+- **Claude Mythos Preview (Gated Research Preview)**: Anthropic's most advanced AI model with state-of-the-art capabilities across cybersecurity, software coding, and complex reasoning tasks. Available in gated preview in US East (N. Virginia).
+- **Cost allocation by IAM user and role**: Bedrock supports cost allocation by IAM principal in AWS Cost and Usage Report 2.0 and Cost Explorer, attributing inference costs across users, teams, projects.
+- **Claude Sonnet 4.6 and Claude Opus 4.6** now available on Amazon Bedrock.
 
 ## Key Capabilities
+1. Model Inference
+2. Model Customization
+3. Enterprise Security
+4. Flexible APIs (OpenAI-compatible, Boto3, native)
+5. Server-side Tools
 
-1. **Model Inference** - Submit prompts and generate responses
-2. **Model Customization** - Customize models to improve performance for specific use cases
-3. **Enterprise Security** - Secure, enterprise-grade access to foundation models
-4. **Flexible APIs** - Multiple API options (OpenAI-compatible, Boto3, custom)
-5. **Server-side Tools** - Execute tools without client orchestration
-
-## Deprecations
-- **Claude Opus 4**: Legacy (migrate by May 31, 2026)
-- **Claude 3.7 Sonnet**: Legacy (migrate by April 28, 2026)
-
-## Note
-Last fetched: 2026-04-15. Projects API removed from featured list (was listed in Feb 2026 scan but appears to be consolidated into Mantle engine description). No net-new items since last scan.
+Updated: 2026-05-18 — NEW since last scan: Claude Opus 4.7 availability, Claude Mythos Preview (gated research preview), Cost allocation by IAM principal.

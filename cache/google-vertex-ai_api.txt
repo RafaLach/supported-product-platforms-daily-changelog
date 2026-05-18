@@ -1,65 +1,8 @@
-# Vertex AI API Reference
+I don't see any release notes, new features, new APIs, new services, new entity types, new agent capabilities, new connectors, or announcements with dates on this page.
 
-## API Structure
-Reference index/navigation page for Vertex AI APIs. Contains no dated changelog entries.
+The content provided appears to be a navigation structure and API reference table of contents for Google Cloud's Vertex AI documentation. While it lists numerous REST resources, methods, and reference materials, it does not contain dated changelog entries or release information.
 
-## Key API Resources
-- REST API endpoints (v1 and v1beta1 versions)
-- SDK references (Python, Go, Node.js, Java, C#)
-- gcloud CLI references (ai and beta ai commands)
-- Resource categories: datasets, models, endpoints, training pipelines, feature stores
-- Model deployment and prediction services
-- Feature management (feature stores, online stores, feature groups)
-- Training and tuning jobs
-- Metadata stores and artifact management
-- RAG (Retrieval-Augmented Generation) operations
-- Reasoning Engines with Sandbox Environments
-
-## Additional Resources (refreshed 2026-04-12)
-- Batch Prediction Jobs
-- Cached Contents
-- Custom Jobs
-- Datasets & Data Items
-- Deployment Resource Pools
-- Endpoints (predict, explain, deploy models)
-- Feature Groups & Feature Online Stores
-- Hyperparameter Tuning Jobs
-- Index Endpoints & Indexes
-- Metadata Stores
-- Model Deployment Monitoring
-- Models & Model Evaluations
-- NAS Jobs and Trial Details
-- Notebook Execution & Runtime Management
-- Persistent Resources
-- Pipeline Jobs
-- RAG Corpora & RAG Files
-- Reasoning Engines
-- Schedules
-- Specialist Pools
-- Studies & Trials
-- Tensorboards
-- Training Pipelines
-- Tuning Jobs
-- Publisher Models (publishers.models with predict and embed methods)
-- serverStreamingPredict and streamRawPredict operations
-- directPredict, directRawPredict methods
-- embedContent for embedding generation
-- retrieveContexts and asyncRetrieveContexts for RAG
-- fetchFeatureValues for feature retrieval
-- searchNearestEntities for vector search
-- Long-running operations management
-- IAM policy controls (getIamPolicy, setIamPolicy, testIamPermissions)
-- Synthetic data generation
-- Context retrieval and augmentation
-- Token counting for language models
-
-## v1beta1 Emerging Capabilities
-- Example stores (fetchExamples, searchExamples, upsertExamples)
-- Extensions (import, execute, query)
-- Feature monitors with monitoring jobs
-- Model monitors with alert/stats search
-- Streaming feature value fetching
-- Chat completions endpoint
+To find Vertex AI release notes and announcements, you would need to visit the dedicated release notes or resources section of the documentation.
 
 ## Last Fetched
-2026-04-12
+2026-05-18 - URL redirected from cloud.google.com to docs.cloud.google.com. No dated changelog entries detected. No new APIs detected.

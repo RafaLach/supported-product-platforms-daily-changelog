@@ -1,4 +1,4 @@
-# Amazon Bedrock AgentCore - Overview
+# Amazon Bedrock AgentCore - Overview (Fetched 2026-05-18)
 
 ## Core Definition
 Amazon Bedrock AgentCore is an agentic platform for building, deploying, and operating highly effective agents securely at scale using any framework and foundation model, without infrastructure management.
@@ -7,19 +7,19 @@ Amazon Bedrock AgentCore is an agentic platform for building, deploying, and ope
 
 | Service | Description | Key Integrations |
 |---------|-------------|------------------|
-| **Runtime** | Secure, serverless runtime for deploying/scaling dynamic AI agents and tools. Features: fast cold starts, extended async support, session isolation, built-in identity, multi-modal/multi-agent support | CrewAI, LangGraph, LlamaIndex, Google ADK, OpenAI Agents SDK, Strands Agents; supports MCP and A2A protocols |
-| **Memory** | Context-aware agents with short-term (multi-turn) and long-term (cross-session) memory with sharing capabilities | LangGraph, LangChain, Strands, LlamaIndex |
-| **Gateway** | Converts APIs, Lambda functions, existing services into MCP-compatible tools. Connects to pre-existing MCP servers | Salesforce, Zoom, JIRA, Slack, any OpenAPI specs |
-| **Identity** | Secure agent identity/access/authentication management compatible with existing IdPs (Amazon Cognito, Okta, Microsoft Azure Entra ID, Auth0) | Cognito, Okta, Azure Entra ID, Auth0 |
-| **Code Interpreter** | Isolated sandbox for agents to execute code (Python, JavaScript, TypeScript) | Multiple language support |
-| **Browser** | Fast, secure cloud-based browser runtime for web interactions and form filling | Playwright, BrowserUse frameworks |
-| **Observability** | Unified tracing, debugging, monitoring via OpenTelemetry (OTEL)-compatible format | OpenTelemetry (OTEL), CloudWatch |
-| **Evaluations** | Automated agent assessment measuring execution quality, edge case handling, output reliability | LangGraph, Strands, OpenInference, CloudWatch |
+| **Runtime** | Secure, serverless runtime for deploying/scaling AI agents and tools. Fast cold starts, async support, session isolation, built-in identity, multi-modal/multi-agent support | CrewAI, LangGraph, LlamaIndex, Google ADK, OpenAI Agents SDK, Strands Agents; MCP and A2A protocols |
+| **Memory** | Context-aware agents with short-term and long-term memory with cross-agent sharing | LangGraph, LangChain, Strands, LlamaIndex |
+| **Gateway** | Converts APIs, Lambda functions, services into MCP-compatible tools | Salesforce, Zoom, JIRA, Slack, any OpenAPI specs |
+| **Identity** | Secure agent identity/access/authentication management compatible with existing IdPs | Cognito, Okta, Azure Entra ID, Auth0 |
+| **Code Interpreter** | Isolated sandbox for agents to execute code | Python, JavaScript, TypeScript |
+| **Browser** | Cloud-based browser runtime for web interactions and form filling | Playwright, BrowserUse |
+| **Observability** | Unified tracing, debugging, monitoring via OpenTelemetry | OpenTelemetry, CloudWatch |
+| **Payments** (NEW) | Fully managed service enabling microtransaction payments for AI agents to access paid APIs, MCP servers, and content using the x402 protocol. Wallet integration, configurable spending limits, end-to-end observability. | Coinbase CDP, Stripe (Privy), x402-compatible endpoints, AgentCore Gateway, Strands Agents |
+| **Evaluations** | Automated agent assessment | LangGraph, Strands, OpenInference, CloudWatch |
 | **Policy** | Deterministic control using natural language or Cedar policy language | Cedar policy language, Gateway integration |
-| **Registry** | Centralized catalog for agents, MCP servers, tools, and skills; governed workflows for publishing/reviewing/approving; hybrid semantic and keyword search | Agent Registry, AWS Agent Registry |
+| **Registry** | Centralized catalog for agents, MCP servers, tools, skills | Agent Registry |
 
 ## Use Cases
-
 1. **Agents** - Autonomous apps for customer support, workflow automation, data analysis, coding assistance
 2. **Tools & MCP Servers** - Transform existing APIs/services into agent-accessible tools
 3. **Agent Platforms** - Enterprise frameworks with centralized observability and governance
@@ -31,13 +31,12 @@ CrewAI, LangGraph, LlamaIndex, Strands Agents, LangChain, Google ADK, OpenAI Age
 Anthropic Claude, OpenAI, Google Gemini, Amazon Nova, Meta Llama, Mistral
 
 ## Protocols
-Model Context Protocol (MCP), A2A (Agent-to-Agent), OpenTelemetry (OTEL), OpenInference
+Model Context Protocol (MCP), A2A (Agent-to-Agent), OpenTelemetry (OTEL), OpenInference, x402
 
 ## Integrations
-Salesforce, Zoom, JIRA, Slack (via Gateway)
+Salesforce, Zoom, JIRA, Slack (via Gateway), Coinbase CDP, Stripe (via Payments)
 
 ## Pricing
 Consumption-based (no upfront commitments or minimum fees)
 
-## Note
-Last fetched: 2026-04-15. No changes detected from previous scan. Runtime integration list confirmed to include Google ADK and OpenAI Agents SDK (consistent with prior cache).
+Updated: 2026-05-18 — NEW since last scan: Payments service (x402 protocol, Coinbase CDP and Stripe/Privy wallet providers, microtransactions for agent access to paid APIs/MCP servers/content).

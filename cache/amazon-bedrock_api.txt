@@ -1,4 +1,4 @@
-# Amazon Bedrock API Reference
+# Amazon Bedrock API Reference (Fetched 2026-05-18)
 
 ## Service Endpoints
 
@@ -31,5 +31,4 @@ C++, Go, Java, JavaScript, Kotlin, .NET, PHP, Python (Boto3), Ruby, Rust, SAP AB
 - Amazon Bedrock Agents CLI commands
 - Amazon Bedrock Agents Runtime CLI commands
 
-## Note
-Last fetched: 2026-04-15. Static reference page, no changes detected.
+Updated: 2026-05-18 — Static reference page, no changes detected.

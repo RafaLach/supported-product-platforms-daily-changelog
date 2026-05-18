@@ -1,65 +1,32 @@
-# Dia Browser Security & Documentation
+# Dia Browser - Visible Release/Feature Information
 
-## Security Features
+Based on the provided webpage content, here are the visible release notes and features:
 
-**Prompt Injection Defenses:**
-- Dia won't open or follow LLM-generated URLs to prevent data exfiltration
-- Dia won't allow tools beyond what user intends to use; chat starts with no access to other tabs
-- Blocks insertion of data into third-party sites without user approval
-- Prevents irreversible actions; calendar events remain in draft until confirmed
-- Dia won't run agentic mode on unapproved context
-- Restricts agent navigation to other websites to limit blast radius
-- Hides sensitive form fields and irreversible action buttons from the agent
-- Filters URLs to prevent hidden instructions from influencing AI
-- Password fields invisible to agent
+## Features/Capabilities Listed:
 
-**Browser Security:**
-- Built on Chromium engine with inherited security patches
-- Weekly updates every Thursday with latest stable Chromium
-- Critical patches deployed within 48 hours of Google release
-- Disabled Google Accounts Integration (GAIA)
-- Disabled Google metrics (UMA) reporting
-- Disabled Profile settings upload after reset
-- Disabled Reporting Observers and Reporting API
-- Disabled Network logging to file
+1. **Morning Brief** - Displays calendar, inbox, and key links to start the day prepared
 
-**Data Protection:**
-- Conversations and files stored locally encrypted on device
-- Minimum necessary data briefly sent to trusted AI partners
-- De-identified content data retained maximum 30 days then deleted
-- Incognito mode stores nothing
-- AI partners prohibited from training on or retaining user data
-- Flagged content (moderation flags, misuse detection, prompt injection events) retained only for security/compliance
-- Synced data end-to-end encrypted; servers cannot read it
+2. **Proactive Suggestions** - System that "follows along as you work, surfacing" next steps
 
-**Infrastructure:**
-- Role-based production access restrictions
-- Data encrypted at rest and in transit
-- Regular independent security audits and assessments
-- Annual full-scope audits with independent firms; point-in-time reviews for new/high-risk features
-- Security Bulletins published for notable findings
-- SOC 2 Type II completed for calendar year 2025; report issued 2026
+3. **Reports** - Aggregates information from Slack, Notion, and Calendar into shareable reports
 
-**Enterprise Capabilities:**
-- Supports standard Chromium enterprise policies
-- Google Chrome Cloud Management integration
-- Dia-specific MDM policies for disabling AI features on specific sites
-- SAML-based SSO (Google, Okta, Microsoft Entra ID, others)
-- Email domain restrictions for employee-only access
-- Organization-wide content sharing disablement
+4. **Live Work** - Integrates GitHub and Notion in tab bar for direct access to PRs and documents
 
-**Ad Blocker:** Built-in, controllable via Dia > Settings > Privacy
+5. **Better Meetings** - Automatically opens meeting pages with agenda, notes, and related documents with countdown timer
 
-**Bug Bounty Program:** Operates through HackerOne (https://hackerone.com/bcny)
+6. **Profiles** - Separate work and personal browsing with custom tabs, logins, and color themes
 
-**Trust Center:** Available at trust.diabrowser.com
+7. **Splits** - Split-screen capability with saved layout preferences for recurring meetings
 
-**Atlassian Acquisition Note:** "Dia continues to operate under its own privacy policy and data handling commitments" despite The Browser Company becoming part of Atlassian.
+8. **Organized Tabs** - Tab grouping with custom naming conventions
 
-## AI Models Used
-- GPT (OpenAI Azure)
-- Claude (Anthropic, Vertex, AWS)
-- Gemini (Vertex)
+9. **Privacy Controls** - Tracker blocking, ad blocking, and encrypted syncing with user-controlled data sharing preferences
+
+10. **Dia for Work** - Enterprise version with SSO and admin tools
+
+**System Requirements:** macOS 14+ with M1 chips or later
+
+**Note:** No specific dates or version numbers are provided on this page.
 
 ## Last Fetched
-2026-04-12
+2026-05-18 — NOTABLE: Homepage is now feature-focused (Morning Brief, Proactive Suggestions, Reports, Live Work, Better Meetings, Profiles, Splits, Dia for Work) rather than the prior security-info layout. Many of these appear to be new agentic capabilities surfaced on the marketing page.

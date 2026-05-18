@@ -1,48 +1,47 @@
-# Windsurf Editor Changelog - Feature Announcements
+# Windsurf Editor Changelog Summary
 
-## Version 2.0.67 (April 21, 2026)
-- Fixed OAuth authentication issues for some MCP servers
+## Recent Major Releases
 
-## Version 2.0.63 (April 20, 2026)
-- Addressed OAuth integration problems affecting certain MCP servers
-- Enhanced reliability for Devin Cloud connections
+**May 12, 2026** - Claude Opus 4.7 (fast mode) launched with ~2.5x higher output speeds while maintaining full intelligence.
 
-## Version 2.0.61 (April 17, 2026)
-- Bug fixes and performance improvements
+**May 6, 2026 (v2.2.17)** - Devin Review and Quick Review integrated; Agent Command Center improved with list display and session filtering.
 
-## Version 2.0.50 (April 16, 2026)
-- Auth experience enhancements and Windows terminal fixes
+**April 29, 2026 (v2.1.32)** - Bug fixes for Cascade conversation switching and Devin Cloud authentication issues.
 
-## Version 2.0.44 (April 15, 2026) — Windsurf 2.0 Launch
-- **Devin cloud agent available directly inside Windsurf** — included with every self-serve plan
-- **Agent Command Center** — Kanban-style task organization for tracking/managing agent work
-- **Spaces** — organizational unit grouping agent sessions, PRs, files, and context by task
-- **Enhanced browser with toolbar integration**
-- Major version transition from 1.x to 2.0
+**April 28, 2026 (v2.1.29)** - Devin for Terminal released; Devin Local agent available in Windsurf, up to 30% more token-efficient than Cascade.
 
-## Version 1.9600.41 (April 7, 2026)
-- Fixed bug preventing model switching after first request in Adaptive mode
+**April 24, 2026** - GPT-5.5 model availability announced.
 
-## Version 1.9600.40 (April 6, 2026)
-- Improved visibility of the adaptive model option within the model picker
+**April 16, 2026 (v2.0.44)** - **Windsurf 2.0** launch featuring integrated Devin Cloud agent, Agent Command Center with Kanban view, and Spaces for task organization.
 
-## Version 1.9600.38 (April 6, 2026)
-- Introducing Adaptive: New model router that intelligently selects the best model per task
-- Updated Model Picker with token pricing display
-- New prompt cache timer integrated into context window indicator
-- Token counts included in response cards
+**April 6, 2026** - Adaptive model router introduced for intelligent per-task model selection; updated model picker with token pricing visibility.
 
-## Version 1.9577.43 (March 19, 2026)
-- New quota billing system with daily/weekly usage display
+## Key Features Added
 
-## Version 1.9577.27 (March 17, 2026)
-- GPT-5.4 Mini model availability
+- **Arena Mode** (Jan 30, 2026) - Side-by-side model comparison with hidden identities
+- **Plan Mode** - Task planning before code implementation
+- **Git Worktree Support** - Multiple parallel sessions without conflicts
+- **Multi-Cascade Panes & Tabs** - View multiple agent sessions simultaneously
+- **Cascade Dedicated Terminal** - Reliable zsh shell for agent command execution
+- **Fast Context** (Oct 16, 2025) - 20x faster code context finding via SWE-grep
+- **Codemaps** (Oct 10, 2025) - Beta codebase visualization and navigation
+- **MCP (Model Context Protocol)** - Custom tool integration framework
+- **Windsurf Previews** (Mar 5, 2025) - In-IDE website preview capability
+- **Web & Docs Search** (Jan 17, 2025) - Internet search and documentation access
+- **Auto-Generated Memories** - Context retention between conversations
 
-## Version 1.9577.24 (March 9, 2026)
-- Cascade improvements including Jupyter Notebook support
-- SKILL.md file loading from `.windsurf/skills/` directory
-- System-level skill definitions via MDM for Enterprise
+## Model Additions
 
-## Version 1.9552.24 (March 2026)
-- Plan Mode for task planning
-- Arena Mode with side-by-side model comparison
+Recent frontier models: Opus 4.7, GPT-5.5, GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6, Grok Code Fast, GPT-5.2-Codex, SWE-1.5, DeepSeek-R1, o3-mini, Gemini 2.5 Pro, and multiple others with promotional pricing periods.
+
+## Platform Improvements
+
+- Windows update fix for some users (May 2026)
+- Linux ARM64 full client support
+- Dev Container support expanded to Windows
+- WSL, SSH, and remote extension improvements
+- Vim extension typing lag resolution
+- Terminal rendering optimizations
+
+## Last Fetched
+2026-05-18 — NEW: Devin Review and Quick Review integration (May 6, 2026); Devin for Terminal + Devin Local agent in Windsurf (Apr 28, 2026); Claude Opus 4.7 fast mode (May 12, 2026); GPT-5.5 model (Apr 24, 2026).

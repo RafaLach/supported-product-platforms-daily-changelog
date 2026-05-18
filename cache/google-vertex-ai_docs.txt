@@ -1,52 +1,18 @@
-# Vertex AI Documentation
+# Vertex AI Documentation - Release Notes and Announcements
 
-## Overview
-"Vertex AI is a machine learning (ML) platform that lets you train and deploy ML models and AI applications"
+Based on the provided page content, I found **no visible release notes, new features, new APIs, new services, entity types, agent capabilities, connectors, or dated announcements**.
 
-## Core Capabilities
-- Gemini (multimodal generative AI model)
-- Generative AI access and Model Garden
-- Model training and MLOps tools
+The page is a documentation hub and navigation structure for Vertex AI services. It contains:
 
-## Major Product Categories
-- Vertex AI Training (serverless, clusters, Ray integration, Slurm orchestration)
-- AutoML for tabular and image data
-- Inference and deployment tools
-- Feature Store and Model Registry
-- Pipelines and experiments
+- **Product overview**: "Vertex AI is a machine learning (ML) platform that lets you train and deploy ML models and AI applications."
 
-## Additional Components (refreshed 2026-04-12)
-- Vector Search (versions 1.0 and 2.0)
-- Neural Architecture Search
-- Ray on Vertex AI
-- Dedicated/private endpoints
-- Private Service Connect (PSC)
-- Vertex AI Workbench
-- Colab Enterprise
-- Jupyter notebooks
-- BigQuery integration
-- Cloud Storage connectivity
-- Data labeling services
-- Model Monitoring
-- Explainable AI (interpretability — deprecated March 2026)
-- TensorBoard (performance tracking)
-- Vertex AI Experiments
-- Deep Learning Containers
-- Custom training pipelines
-- Hyperparameter tuning
-- Distributed training
-- Model co-hosting
-- Codey for code generation
-- Imagen for image generation
-- Extensions framework
-- Generative AI Evaluation Service
-- Vertex AI Studio interface
-- Flex Start VMs and Spot VMs for training
-- Cloud TPU VM support
-- Document AI and Healthcare APIs
-- Enterprise Knowledge Graph
-- Dialogflow for conversational AI
-- Contact Center solutions
+- **Deprecation notice**: "Vertex AI documentation is no longer being updated. Vertex AI's services are now part of Gemini Enterprise Agent Platform."
+
+- **Navigation links** to documentation sections covering training, inference, generative AI, and MLOps capabilities
+
+- **Product directory** listing Vertex AI and related Google Cloud ML/AI solutions
+
+To access actual release notes and feature announcements, users would need to visit the dedicated Release Notes page linked in the navigation or check the "Gemini Enterprise Agent Platform documentation" mentioned in the deprecation notice.
 
 ## Last Fetched
-2026-04-12
+2026-05-18 — NOTABLE: New deprecation notice — "Vertex AI documentation is no longer being updated. Vertex AI's services are now part of Gemini Enterprise Agent Platform." URL also redirects to docs.cloud.google.com now.

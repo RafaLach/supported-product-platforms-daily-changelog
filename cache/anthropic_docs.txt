@@ -1,15 +1,7 @@
-# Claude Platform Documentation - Build with Claude Overview
+# Release Notes/Changelog Items
 
-Note: Page returned 404 Not Found. The URL /docs/build-with-claude/overview may have been moved or restructured.
+**No release notes, features, APIs, services, or announcements are visible on this page.**
 
-## Page Metadata
-- Title: "Not Found - Claude API Docs"
-- Status: HTTP 404 (Not Found)
-- Canonical URL: https://platform.claude.com
+The page displays only "Not Found - Claude API Docs" and "Loading..." text, indicating the content failed to load or the page does not exist. There are no changelog items, feature announcements, or other documentation elements available to list.
 
-## Infrastructure details visible in page source
-- Conway Shell: https://conway.claudeusercontent.com
-- Published Artifacts hosted at: https://claude.ai and https://claude.site
-- Country Detected: US
-
-Updated: 2026-04-15
+Updated: 2026-05-18 (page returns 404 / fails to render via WebFetch).

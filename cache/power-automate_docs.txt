@@ -1,29 +1,35 @@
 Source: https://learn.microsoft.com/en-us/power-automate/
-Fetched: 2026-04-15
+Fetched: 2026-05-18
 
 # Microsoft Power Automate documentation
 
-Discover how to make the most of Power Automate with online training courses, docs, and videos covering product capabilities and how-to articles.
+Discover how to create automated workflows between apps and services to synchronize files, get notifications, collect data, and more.
 
-## Key capabilities listed:
-- Create automated flows
-- Create scheduled flows
-- Create desktop flows
-- AI copilot capabilities (Copilot in cloud flows, Process Mining, desktop flows)
-- Process mining capability
-- Use solutions to distribute flows
-- Integrate with Teams, SharePoint, Email
-- Use Dataverse (Add/Delete rows, Upload/Download files and images)
-- Use flows with Teams, SharePoint, Email, Forms, Approvals
-- Business process flows
+## Sections
+
+### Create and design
+- Try/Buy Power Automate
+- Get started with cloud flows
+- Create flows: Automated flows, Scheduled flows, Desktop flows
+- AI copilot capabilities: Copilot in cloud flows, Copilot in Process Mining, Copilot in desktop flows
+- Process mining: Understand processes and identify opportunities, Power Automate Process Mining, Task mining
+- Use solutions: Distribute flows, Create cloud flow in a solution, ALM
+- Integrate: Teams flows, SharePoint workflows, Email/meetings/contacts
+- Best practices: Plan a project, Automation Kit, Automation adoption
+
+### Administer and extend
+- Power Platform admin center
+- Administer environments and resources
+- Set up data loss prevention policies
 - Enterprise developer, ISV, and partner guide
-- Custom connectors
-- Desktop flow public APIs
-- Data loss prevention policies
+- Work with cloud flows using code
+- Work with desktop flows using code (developer/desktop-flow-public-apis)
+- Build and certify custom connectors
 
-## Sections:
-- Create and design
-- Administer and extend
-- Use
+### Use
+- Flows with Dataverse (Add a row, Delete a row, Upload/download files and images)
+- Flows with Teams, SharePoint, Email, Forms, Approvals
+- Business process flows (Understand, Create, Custom controls, Best practices for columns)
 
 Page last updated: 2025-07-11
+Updated: 2026-05-18

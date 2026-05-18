@@ -1,26 +1,6 @@
-# Agentforce and Generative AI Reference (Einstein GenAI References)
+Based on the provided webpage content, there are **no release notes, dates, or specific announcements** visible.
 
-## Main Heading
-"Agentforce and Generative AI Reference"
-
-## API and SDK References Listed
-
-1. **Agent API Reference** - Enables communication with AI agents in your org; supports subagents and actions (note: "topics" renamed to "subagents" as of April 2026)
-2. **Agentforce Python SDK Reference** - Programmatic agent and prompt template creation using Salesforce Metadata API; available on GitHub
-3. **Agent Script Reference** - Language combining natural language with programmatic expressions for agent workflows
-4. **Agentforce DX Reference** - Pro-code tools for agent creation and testing outside Builder UI
-5. **Agentforce Mobile SDK Reference** - Native iOS and Android integration for conversational AI
-6. **Lightning Types Reference** - Custom types for improving agent action interfaces
-7. **Models API** - Apex classes and REST endpoints connecting to large language models (two references: Apex and REST)
-8. **Testing API Reference** - Combines Metadata and Connect API endpoints for agent testing
-9. **Citations Reference** - Apex classes for programmatically adding citations to agent responses
-10. **Metadata Types** - Agentforce functionality via Metadata API
-11. **Tooling Objects** - Agentforce functionality via Tooling API
-
-## Developer Guides Referenced
-- Agentforce Developer Guide
-- Agent API Developer Guide
-- Models API Developer Guide
+The page is a reference documentation index for Agentforce and Generative AI developers. It lists available tools and APIs (Agent API, Python SDK, Agent Script, Agentforce DX, Mobile SDK, Models API, Testing API, Citations API, and Metadata/Tooling APIs) but contains no changelog items, feature release dates, or product announcements.
 
 ## Last Fetched
-2026-04-12 - No new APIs detected. No changes from 2026-04-10.
+2026-05-18 - No changes from previous fetch.

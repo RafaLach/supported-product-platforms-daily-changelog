@@ -1,61 +1,36 @@
-# Anthropic Newsroom - Comprehensive Content Extraction
+# Anthropic Newsroom - Release Notes & Announcements
 
-## Featured Stories
+**May 14, 2026** - PwC Partnership
+Deploying Claude for technology building and enterprise functions
 
-1. **Claude Design by Anthropic Labs** (Apr 17, 2026)
-   - New product for collaborating with Claude to create "designs, prototypes, slides, one-pagers, and more"
+**May 14, 2026** - Gates Foundation Partnership
+$200 million partnership announced
 
-2. **Claude Opus 4.7** (Apr 16, 2026)
-   - Latest model with "stronger performance across coding, agents, vision, and multi-step tasks"
+**May 13, 2026** - Claude for Small Business
+New offering for small business segment
 
-3. **Project Glasswing** (Apr 7, 2026)
-   - "A new initiative that brings together Amazon Web Services, Anthropic, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks in an effort to secure the world's most critical software."
+**May 6, 2026** - SpaceX Compute Deal
+Higher usage limits and compute partnership
 
-4. **"What 81,000 people want from AI"** (Mar 18, 2026)
-   - Largest multilingual qualitative study of Claude.ai users
+**May 5, 2026** - Financial Services Agents
+Agent capabilities for financial sector
 
-5. **Introducing Claude Sonnet 4.6** (Feb 17, 2026)
-   - "frontier performance across coding, agents, and professional work"
+**May 4, 2026** - Enterprise AI Services Company
+Partnership with Blackstone, Hellman & Friedman, Goldman Sachs
 
-6. **Introducing Claude Opus 4.6** (Feb 5, 2026)
-   - Industry-leading model for agentic coding, computer use, tool use
+**Apr 17, 2026** - Claude Design (Anthropic Labs)
+New product for creating designs, prototypes, slides, and visual materials
 
-7. **Claude is a space to think** (Feb 4, 2026)
-   - Commitment to ad-free service
+**Apr 16, 2026** - Claude Opus 4.7
+"stronger performance across coding, agents, vision, and multi-step tasks"
 
-## Recent News
+**Apr 7, 2026** - Project Glasswing
+Initiative with AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, Linux Foundation, Microsoft, NVIDIA, Palo Alto Networks for software security
 
-| Date | Category | Title |
-|------|----------|-------|
-| Apr 17, 2026 | Product | Claude Design by Anthropic Labs |
-| Apr 16, 2026 | Model | Claude Opus 4.7 |
-| Apr 14, 2026 | Board | Vas Narasimhan joins Long-Term Benefit Trust Board |
-| Apr 7, 2026 | Announcements | Project Glasswing |
-| Apr 6, 2026 | Announcements | Google & Broadcom partnership for multi-gigawatt compute |
-| Mar 31, 2026 | Announcements | Australian Government MOU for AI Safety |
-| Mar 18, 2026 | Research | "What 81,000 people want from AI" |
-| Mar 12, 2026 | Announcements | $100 million investment in Claude Partner Network |
-| Mar 11, 2026 | Announcements | The Anthropic Institute launched |
-| Mar 10, 2026 | Announcements | Sydney office opens |
-| Mar 6, 2026 | Policy | Mozilla Firefox security partnership |
-| Feb 25, 2026 | Announcements | Anthropic acquires Vercept for computer use capabilities |
-| Feb 24, 2026 | Policy | Responsible Scaling Policy: Version 3.0 |
-| Feb 20, 2026 | Announcements | Claude Code Security cybersecurity capability preview |
-| Feb 17, 2026 | Announcements | Claude Sonnet 4.6 |
-| Feb 12, 2026 | Funding | $30 billion Series G at $380 billion valuation |
-| Feb 5, 2026 | Announcements | Claude Opus 4.6 |
-| Feb 4, 2026 | Announcements | Claude ad-free commitment |
-| Jan 30, 2026 | Announcements | Claude on Mars (NASA Perseverance rover) |
-| Jan 28, 2026 | Announcements | ServiceNow integration |
-| Jan 22, 2026 | Announcements | Claude's new constitution |
-| Jan 13, 2026 | Announcements | Introducing Labs |
-| Dec 9, 2025 | Announcements | MCP donation; Agentic AI Foundation |
+**Mar 18, 2026** - 81,000 User Study
+Largest multilingual qualitative research on AI user expectations and concerns
 
-## Key Products & Services
+**Feb 4, 2026** - Ad-Free Commitment
+Claude remains advertisement-free to maintain user trust
 
-**Claude Models**: Opus 4.7, Opus 4.6, Sonnet 4.6, Haiku, Mythos preview
-**Anthropic Labs Products**: Claude Design (NEW April 17, 2026)
-**Applications**: Claude.ai, Claude Code (with Security), Claude Cowork, Chrome extension, Excel/PowerPoint/Word/Slack integrations
-**Platform**: API access, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry, Marketplace
-
-Last Fetched: 2026-04-19 — New entries: Claude Design (Apr 17), Claude Opus 4.7 (Apr 16)
+Updated: 2026-05-18 — NEW since last scan: PwC Partnership (May 14), Gates Foundation Partnership (May 14), Claude for Small Business (May 13), SpaceX Compute Deal (May 6), Financial Services Agents (May 5), Enterprise AI Services Company partnership (May 4).

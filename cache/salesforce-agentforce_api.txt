@@ -1,47 +1,6 @@
-# Agentforce and Generative AI Reference Documentation
+Based on the provided page content, there are **no release notes, dates, new feature announcements, or changelog items visible**.
 
-## Main Heading
-"Agentforce and Generative AI Reference" - Review documentation for Agentforce and Einstein Generative AI developers.
-
-## Key APIs and Tools
-
-**Agent API**
-- Enables communication with AI agents in organizational environments
-- Requires creating a connected app, generating a token, and sending messages to agents
-- Supports subagents and actions (terminology: "topics" renamed to "subagents" as of April 2026)
-
-**Agentforce Python SDK**
-- Allows programmatic agent creation, management, and deployment
-- Based on Salesforce Metadata API implementation
-- Available on GitHub
-
-**Agent Script**
-- Language for building agents within Agentforce Builder
-- Combines natural language with programmatic expressions for workflows and conversational logic
-
-**Agentforce DX**
-- Pro-code tools for agent creation and testing outside the Builder interface
-
-**Agentforce Mobile SDK**
-- Provides iOS and Android integration for embedding conversational AI in mobile applications
-
-**Lightning Types**
-- Custom types improving user interface for agent actions in Lightning Experience
-
-**Models API**
-- Apex classes and REST endpoints connecting applications to large language models
-
-**Testing API**
-- Combines Metadata API and Connect API endpoints for agent testing
-
-**Citations Reference**
-- Apex classes for programmatically adding citations to agent responses
-
-**Metadata and Tooling APIs**
-- Support for Agentforce functionality through existing Salesforce infrastructure
-
-## Related Developer Guides
-Comprehensive guides available for Agentforce, Agent API, and Models API implementations.
+This page is a reference documentation index for Agentforce and Generative AI developers. It lists existing documentation resources and APIs (Agent API, Python SDK, Agent Script, Agentforce DX, Mobile SDK, Models API, Testing API, Citations, and Metadata/Tooling APIs) without announcing any new releases or features with associated dates.
 
 ## Last Fetched
-2026-04-12 - No new APIs or SDKs detected beyond previous fetch. No changes from 2026-04-10.
+2026-05-18 - No changes detected from previous fetch.

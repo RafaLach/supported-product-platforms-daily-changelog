@@ -1,142 +1,34 @@
-# Vertex AI Release Notes - Feature Announcements
+# Vertex AI Release Notes Summary
 
-## April 17, 2026 (NEW)
-- **RAG Cross Corpus Retrieval (public preview)** — Enables simultaneous retrieval from multiple RAG corpora in a single query, allowing agents to pull grounding context across multiple knowledge bases
-- **Claude Opus 4.7 in Model Garden** — Latest Anthropic model now available as managed API
+## Latest Updates (April 2026)
 
-## April 13-14, 2026
-- **Visualization cells and SQL cells** now generally available in Colab Enterprise
-- Metadata search for RAG Engine allows schema-based filtering during retrieval
+**April 17, 2026** - RAG Cross Corpus Retrieval now in public preview, enabling retrieval from multiple corpora simultaneously
 
-## April 6, 2026
-- **Metadata Search for RAG Engine**: Schema-based metadata filtering capability added to Vertex AI RAG Engine. Users can define metadata schemas for corpora, attach metadata to files, and filter contexts during retrieval operations.
+**April 14, 2026** - Claude Opus 4.7 available in Model Garden
 
-## April 3, 2026
-- **Vertex AI RAG Engine Serverless Mode**: Public preview of fully managed database for storing RAG resources that abstracts away database provisioning and scaling. Supports seamless transition between Serverless and Spanner deployment modes.
+**April 13, 2026** - Visualization cells for Colab Enterprise generally available
 
-## April 2, 2026
-- **Veo 3.1 Lite**: Released in public preview as the most cost-efficient Veo on Vertex AI model for video generation.
-- **Gemini 2.5 Model Retirement Update**: Retirement dates for Gemini 2.5 Pro, Flash-Lite, and Flash postponed to October 16, 2026.
+**April 10, 2026** - SQL cells for Colab Enterprise generally available
 
-## March 30, 2026
-- Vertex AI Workbench M140 release with Gemini CLI updates
-- Workbench Image 26.03 introduces Debian 12, Python 3.12, Micromamba CLI
+**April 6, 2026** - Metadata search for RAG Engine using schema-based filtering
 
-## March 25, 2026
-- **Lyria 3 Audio Generation**: Two new models released for music synthesis - `lyria-3-pro-preview` (184 seconds) and `lyria-3-clip-preview` (30 seconds)
+**April 3, 2026** - Gemma 4 26B A4B IT experimental launch; RAG Engine Serverless mode in public preview
 
-## March 24, 2026
-- **Image Generation Endpoint Deprecations**: Multiple Imagen endpoints (versions 3.0 and 4.0) being discontinued June 30, 2026
-- **Video Generation Endpoint Deprecations**: Veo 3.0 and 2.0 models deprecated
+**April 2, 2026** - Veo 3.1 Lite released (cost-efficient option); Gemini 2.5 model retirement dates updated to October 16, 2026
 
-## March 16, 2026
-- Vertex Explainable AI marked as deprecated
+## Key Announcements
 
-## March 12, 2026
-- Partner model evaluation support for Anthropic and Llama models in Gen AI evaluation service
+- **Vector Search 2.0** (March 5, 2026) - Now generally available with collections, auto-embeddings, and hybrid search
+- **Vertex AI Agent Engine** (March 4, 2025) - Generally available with billing starting that date
+- **Gemini 2.5 Flash/Pro** (June 17, 2025) - Now generally available with updated pricing
+- Multiple **model deprecations** including Imagen endpoints, Video generation preview endpoints, and partner models
 
-## March 5, 2026
-- Vector Search 2.0 generally available with collections, auto-embeddings, and hybrid search capabilities
+## Major Feature Releases
 
-## March 3, 2026
-- Gemini 3.1 Flash-Lite released as most cost-efficient Gemini model
-
-## February 26, 2026
-- Gemini 3.1 Flash Image preview for improved image generation
-
-## February 19, 2026
-- Gemini 3.1 Pro preview with 1M token context window for complex reasoning tasks
-
-## February 18, 2026
-- Vertex AI Agent Engine Code Execution now generally available
-
-## February 17, 2026
-- Anthropic's Claude Sonnet 4.6 available in Model Garden
-
-## February 10, 2026
-- GLM 5 experimental launch for complex systems engineering and agentic tasks
-
-## February 4, 2026
-- Anthropic's Claude Opus 4.6 available in Model Garden
-
-## January 23, 2026
-- Virtual Try-On model promoted to GA with new `virtual-try-on-001` endpoint
-
-## January 21, 2026
-- Data Science Agent supporting BigFrames, BigQuery ML, and Apache Spark in Colab Enterprise
-
-## January 20, 2026
-- GLM 4.7 generally available as managed API in Model Garden
-
-## January 16, 2026
-- Gemini CLI available in preview for Vertex AI Workbench instances
-
-## January 13, 2026
-- Veo 3.1 preview supporting 9:16 aspect ratio and 1080p/4k upsampling
-
-## January 6, 2026
-- GLM 4.7 experimental launch for coding and complex reasoning tasks
-
-## December 19, 2025
-- Vertex AI Agent Builder Agent Designer low-code visual designer in preview
-- FunctionGemma and T5Gemma 2 models available in Model Garden
-
-## December 18, 2025
-- Prompt sharing in Vertex AI Studio no longer requires admin enablement
-- Cloud API Registry in preview for managing MCP servers and agent tools
-
-## December 17, 2025
-- Post-startup scripts generally available for Colab Enterprise
-- Gemini 3 Flash in public preview for multimodal understanding
-
-## December 16, 2025
-- Vertex AI Agent Engine Sessions and Memory Bank generally available
-- Vertex AI Agent Engine Runtime pricing reduction
-
-## December 12, 2025
-- Gemini 2.5 Flash with Live API Native Audio generally available
-- Agent identity credentials secured by default with Context-Aware Access
-
-## December 10, 2025
-- DeepSeek-V3.2 available in Model Garden as managed API
-
-## December 9, 2025
-- Ministral 3 and Mistral Large 3 models available in Model Garden
-
-## December 8, 2025
-- Veo 3.1 video extension support in preview
-
-## December 2, 2025
-- Model Garden vLLM container for multi-replica and multi-model serving
-
-## November 17, 2025
-- Veo 3.1 generally available with fast variant
-- LearnLM capabilities integrated into Gemini models
-
-## November 13, 2025
-- Kimi K2 Thinking available in Model Garden for complex problem-solving
-- Updated prompt caching for Anthropic Claude models with one-hour TTL
-
-## November 7, 2025
-- Vertex AI Agent Engine observability features, playground, agent evaluation, and memory revisions in preview
-- Express mode support and free tier for Vertex AI Agent Engine Runtime generally available
-
-## November 4, 2025
-- MiniMax M2 available in Model Garden for tool-calling tasks
-
-## October 23, 2025
-- DeepSeek-OCR, Qwen3-VL, and Earth AI models in Model Garden
-
-## October 20, 2025
-- Visualization cells in preview for Colab Enterprise
-- Computer Use tool available in preview
-
-## October 16, 2025
-- Mistral's Codestral 2 available in Model Garden
-- vLLM TPU through Model Garden
-- Anthropic's Claude Haiku 4.5 available in Model Garden
-- Veo 3.1 in preview
-- Veo 2 object insertion/removal in preview
+- Live API for Gemini (private GA, June 2025)
+- Veo 3 and 3.1 video generation (generally available, July 2025)
+- Agent Development Kit in preview (April 2025)
+- Agent Garden in preview (April 2025)
 
 ## Last Fetched
-2026-04-23 — NEW: RAG Cross Corpus Retrieval in public preview, Claude Opus 4.7 in Model Garden (Apr 17, 2026); Visualization cells and SQL cells GA in Colab Enterprise (Apr 13-14, 2026).
+2026-05-18 — NEW: Gemma 4 26B A4B IT experimental launch (Apr 3, 2026); SQL cells GA (Apr 10, 2026, now broken out separately from visualization cells). Note: URL now redirects to docs.cloud.google.com.

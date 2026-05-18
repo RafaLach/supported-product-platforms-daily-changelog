@@ -1,60 +1,90 @@
-# Amazon Bedrock AgentCore Data Plane - Actions API Reference
+# Amazon Bedrock AgentCore Data Plane - Actions API Reference (Fetched 2026-05-18)
 
-## Complete List of Supported Actions (37 total as of 2026-04-15)
+## Complete List of Supported Actions
 
 ### Memory Management Actions
-- **BatchCreateMemoryRecords** - Create multiple memory records in batch
-- **BatchDeleteMemoryRecords** - Delete multiple memory records in batch
-- **BatchUpdateMemoryRecords** - Update multiple memory records in batch
-- **DeleteMemoryRecord** - Delete a single memory record
-- **GetMemoryRecord** - Retrieve a specific memory record
-- **ListMemoryRecords** - List all memory records
-- **ListMemoryExtractionJobs** - List memory extraction jobs
-- **RetrieveMemoryRecords** - Retrieve memory records
-- **StartMemoryExtractionJob** - Start a memory extraction job
+- BatchCreateMemoryRecords - Create multiple memory records in batch
+- BatchDeleteMemoryRecords - Delete multiple memory records in batch
+- BatchUpdateMemoryRecords - Update multiple memory records in batch
+- DeleteMemoryRecord - Delete a single memory record
+- GetMemoryRecord - Retrieve a specific memory record
+- ListMemoryRecords - List all memory records
+- ListMemoryExtractionJobs - List memory extraction jobs
+- RetrieveMemoryRecords - Retrieve memory records
+- StartMemoryExtractionJob - Start a memory extraction job
 
 ### Authentication & Token Actions
-- **CompleteResourceTokenAuth** - Complete resource token authentication
-- **GetResourceApiKey** - Get resource API key
-- **GetResourceOauth2Token** - Get OAuth2 token for a resource
-- **GetWorkloadAccessToken** - Get workload access token
-- **GetWorkloadAccessTokenForJWT** - Get access token using JWT
-- **GetWorkloadAccessTokenForUserId** - Get access token for a user ID
+- CompleteResourceTokenAuth
+- GetResourceApiKey
+- GetResourceOauth2Token
+- GetResourcePaymentToken (NEW since prior scan)
+- GetWorkloadAccessToken
+- GetWorkloadAccessTokenForJWT
+- GetWorkloadAccessTokenForUserId
 
 ### Event Management Actions
-- **CreateEvent** - Create an event
-- **DeleteEvent** - Delete an event
-- **GetEvent** - Retrieve a specific event
-- **ListEvents** - List all events
+- CreateEvent
+- DeleteEvent
+- GetEvent
+- ListEvents
 
 ### Agent & Runtime Operations
-- **GetAgentCard** - Get agent card information
-- **InvokeAgentRuntime** - Invoke the agent runtime
-- **InvokeAgentRuntimeCommand** - Invoke agent runtime commands
-- **StopRuntimeSession** - Stop a runtime session
+- GetAgentCard
+- InvokeAgentRuntime
+- InvokeAgentRuntimeCommand
+- InvokeHarness (NEW since prior scan)
+- StopRuntimeSession
 
 ### Browser Session Actions
-- **GetBrowserSession** - Get browser session details
-- **ListBrowserSessions** - List all browser sessions
-- **SaveBrowserSessionProfile** - Save browser session profile
-- **StartBrowserSession** - Start a browser session
-- **StopBrowserSession** - Stop a browser session
-- **UpdateBrowserStream** - Update browser stream
+- GetBrowserSession
+- ListBrowserSessions
+- SaveBrowserSessionProfile
+- StartBrowserSession
+- StopBrowserSession
+- UpdateBrowserStream
+- InvokeBrowser
 
 ### Code Interpreter Actions
-- **GetCodeInterpreterSession** - Get code interpreter session details
-- **InvokeCodeInterpreter** - Invoke code interpreter
-- **ListCodeInterpreterSessions** - List all code interpreter sessions
-- **StartCodeInterpreterSession** - Start a code interpreter session
-- **StopCodeInterpreterSession** - Stop a code interpreter session
+- GetCodeInterpreterSession
+- InvokeCodeInterpreter
+- ListCodeInterpreterSessions
+- StartCodeInterpreterSession
+- StopCodeInterpreterSession
 
 ### Registry Actions
-- **SearchRegistryRecords** - Search registry records (agent registry catalog)
+- SearchRegistryRecords
+
+### A/B Testing & Recommendation Actions (NEW set since prior scan)
+- CreateABTest
+- DeleteABTest
+- GetABTest
+- ListABTests
+- UpdateABTest
+- DeleteBatchEvaluation
+- GetBatchEvaluation
+- ListBatchEvaluations
+- StartBatchEvaluation
+- StopBatchEvaluation
+- DeleteRecommendation
+- GetRecommendation
+- ListRecommendations
+- StartRecommendation
+
+### Payments Actions (NEW set since prior scan)
+- CreatePaymentInstrument
+- CreatePaymentSession
+- DeletePaymentInstrument
+- DeletePaymentSession
+- GetPaymentInstrument
+- GetPaymentInstrumentBalance
+- GetPaymentSession
+- ListPaymentInstruments
+- ListPaymentSessions
+- ProcessPayment
 
 ### Additional Operations
-- **Evaluate** - Evaluate an expression or condition
-- **ListActors** - List actors
-- **ListSessions** - List all sessions
+- Evaluate
+- ListActors
+- ListSessions
 
-## Note
-Last fetched: 2026-04-15. Live page now reports 37 total actions (previously cached as 43 in prior scan — count discrepancy likely due to the live page consolidating or removing some entries). Core action set is consistent; SearchRegistryRecords confirmed present.
+Updated: 2026-05-18 — NEW actions detected since previous scan: A/B Testing actions (CreateABTest/DeleteABTest/GetABTest/ListABTests/UpdateABTest), Batch Evaluation actions (Delete/Get/List/Start/StopBatchEvaluation), Recommendation actions (Delete/Get/List/StartRecommendation), Payments actions (CreatePaymentInstrument/Session, Delete/Get/ListPaymentInstrument/Session, GetPaymentInstrumentBalance, ProcessPayment, GetResourcePaymentToken), InvokeHarness, InvokeBrowser.
