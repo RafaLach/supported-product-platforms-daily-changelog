@@ -1,103 +1,22 @@
-Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/whats-new
-Fetched: 2026-05-18
-
-# What's new in Azure OpenAI in Microsoft Foundry Models (classic)
+# Azure OpenAI What's New — captured 2026-05-20
 
 ## May 2026
-
-### GPT Realtime Translate and GPT Realtime Whisper
-- GPT Realtime Translate — continuous stream-based audio translation for live multilingual events, customer support, voice assistants.
-- GPT Realtime Whisper — low-latency streaming transcription for live captions, monitoring, archival workflows.
+- GPT Realtime 2.0 (preview) overview — reasoning support, response phases (preamble and final answer), stricter instruction following.
+  URL: https://learn.microsoft.com/en-us/azure/foundry-classic/openai/concepts/realtime-2
+- GPT Realtime Translate concept article (May 2026)
+- GPT Realtime Whisper concept article (May 2026)
 
 ## February 2026
-
-### GPT-Realtime-1.5 and GPT-Audio-1.5 models released
-- Improvements in instruction following, multilingual support, and tool calling.
-- Available via chat completion APIs.
+- gpt-realtime-1.5, gpt-audio-1.5 models
 
 ## December 2025
-
-### GPT-image-1.5 model available (limited access)
-- Improved performance, quality, editing controls, face preservation.
-- Inpainting; high quality up to 1024x1536 / 1536x1024; high input_fidelity editing.
-
-### ASR model update — gpt-4o-mini-transcribe-2025-12-15
-- ~50% lower WER vs prior model; improved Japanese/Indic multilingual; reduced hallucinations on silence (up to 4x).
-
-### Realtime-mini speech-to-speech update — gpt-realtime-mini-2025-12-15
-- Feature parity with full gpt-realtime in instruction-following and function-calling.
-
-### Text-to-speech update — gpt-4o-mini-tts-2025-12-15
-- New benchmark for multilingual speech synthesis; more natural human-like speech.
+- gpt-image-1.5 (image generation with face preservation, up to 1024x1536 / 1536x1024)
+- gpt-4o-mini-transcribe-2025-12-15 (ASR update, 50% lower WER)
+- gpt-realtime-mini-2025-12-15
+- gpt-4o-mini-tts-2025-12-15
 
 ## October 2025
-
-- Realtime API support for SIP — telephony connections to realtimeapi.
-- GPT-4o audio model — gpt-4o-transcribe-diarize ASR with speaker diarization, 100+ languages, /audio and /realtime APIs.
-- GPT-image-1-mini — smaller version of gpt-image-1 for global deployments.
-- PII detection content filter — built-in filter for personally identifiable information.
-
-## September 2025
-
-- GPT-5-codex available (limited access) — designed for use with the Codex CLI and the VS Code Codex extension.
-- Sora video-to-video support — short input video to generate longer video.
-
-## August 2025
-
-- Sora image-to-video support — Sweden Central, East US 2.
-- Realtime API audio model GA — improved instruction following, new voices Marin and Cedar, image input, improved function calling (async), conversation mode (turn-taking with VAD).
-- Provisioned spillover GA.
-- GPT-5 models available — gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-chat; gpt-5 available for PTU (registration required for gpt-5/gpt-5-codex).
-- New version of model-router — supports GPT-5 series models.
-
-## July 2025
-
-- GPT-image-1 (preview) update — input_fidelity parameter; partial image streaming.
-
-## June 2025
-
-- codex-mini and o3-pro models released.
-
-## May 2025
-
-- Sora (2025-05-02) video generation (preview).
-- Spotlighting for prompt shields (preview) — tags input documents with special formatting for lower trust.
-- Model router (preview) — deployable AI chat model that auto-selects best underlying chat model.
-
-## April 2025
-
-- Realtime API (preview) support for WebRTC.
-- GPT-image-1 released (preview, limited access).
-- o4-mini and o3 reasoning models released.
-- GPT-4.1 and GPT-4.1-nano released — 1M token context.
-- gpt-4o-transcribe, gpt-4o-mini-transcribe (STT), gpt-4o-mini-tts (TTS) audio models.
-
-## March 2025
-
-- Responses API — new stateful API combining chat completions and assistants.
-- computer-use-preview model — powers Computer use capability (registration required).
-- Provisioned spillover (preview).
-- Specify content filtering configurations at request time.
-
-## February 2025
-
-- GPT-4.5 Preview.
-- Stored completions API.
-- o3-mini data zone standard deployments.
-- gpt-4o-mini-audio-preview and gpt-4o-mini-realtime-preview.
-
-## January 2025
-
-- o3-mini released.
-- GPT-4o audio completions — gpt-4o-audio-preview global deployments East US 2, Sweden Central.
-- GPT Realtime API 2024-12-17 — prompt caching support, new voices (alloy, ash, ballad, coral, echo, sage, shimmer, verse), RPM/TPM rate limiting.
-
-## December 2024
-
-- o1 reasoning model (limited access).
-- Preference fine-tuning DPO (preview).
-- Stored completions & distillation.
-- GPT-4o 2024-11-20 global standard deployment.
-- Data zone provisioned deployment type.
-
-Updated: 2026-05-18
+- Realtime API support for SIP
+- gpt-4o-transcribe-diarize model
+- gpt-image-1-mini
+- PII detection content filter (built-in)

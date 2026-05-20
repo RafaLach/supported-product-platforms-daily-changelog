@@ -1,35 +1,17 @@
-# Cursor Changelog Summary
+# Cursor Changelog — captured 2026-05-20
 
-## Release Notes & Features
+## May 19, 2026 — Cursor in Jira
+Cursor integrated with Jira. Users can assign work items directly to cloud agents or mention @Cursor in Jira comments. The system uses ticket context to scope tasks and generates pull requests upon completion.
 
-**Version 3.4 (May 13, 2026)**
-- Development environments for cloud agents with multi-repo support
-- "Improved Dockerfile-based configuration" with build secrets for secure package registry access
-- Layer caching improvements reducing build times by 70%
-- Agent-led environment setup with credential validation
-- Environment version history, rollback controls, and audit logging
-- Egress and secrets scoped at environment level
+## May 18, 2026 — Composer 2.5
+Upgraded Cursor model. Better long-running tasks, instruction following.
+- Standard tier: $0.50/M input, $2.50/M output tokens
+- Fast tier (default): $3.00/M input, $15.00/M output tokens
 
-**Microsoft Teams Integration (May 11, 2026)**
-- Cursor now available in Microsoft Teams
-- "@Cursor" mentions delegate tasks to cloud agents or retrieve information
-- Auto-selects repositories and models based on context
+## May 13, 2026 (Version 3.4) — Full-screen Tabs and Compact Chats
 
-**Version 3.3 (May 7, 2026)**
-- New PR review experience with Reviews, Commits, and Changes tabs
-- "Build in Parallel" feature using async subagents for multitasking
-- Split changes into PRs quick action
-- Pin skills as quick-action pills
-- `/multitask` command for parallel requests
-- Improved MCP connection behavior and terminal interaction fixes
+## May 13, 2026 — Development Environments for Cloud Agents (multi-repo)
 
-**Bugbot Effort Levels (May 11, 2026)**
-- Default, High, and Custom effort configurations for PR reviews
-- Metrics: 0.7 bugs/run (default), 0.95 bugs/run (high effort)
-- 79% bug resolution rate at merge time
+## May 11, 2026 — Cursor in Microsoft Teams (@Cursor mentions)
 
-**Version 3.3 (May 6, 2026)**
-- Context usage breakdown feature for diagnosing agent context issues
-
-## Last Fetched
-2026-05-18 — NEW: Cursor 3.4 with multi-repo cloud-agent dev environments (May 13); Microsoft Teams integration via @Cursor mentions (May 11); Cursor 3.3 with PR review tabs, "Build in Parallel" async subagents, /multitask command (May 7); Bugbot effort levels and context usage breakdown.
+## May 7, 2026 — Build in Parallel / /multitask

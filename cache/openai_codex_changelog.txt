@@ -1,46 +1,16 @@
-# Codex Changelog - Key Updates
+# OpenAI Codex Changelog — captured 2026-05-20
 
-## May 2026
+## May 20, 2026 — Codex CLI 0.132.0
+Python SDK authentication enhancements: API key login, ChatGPT browser flow, device-code flows.
+Text-based workflows accept plain strings.
+Resumed automations maintain session context with structured output support.
 
-**May 14, 2026 - Remote Connections & Mobile Access**
-- Use Codex from ChatGPT mobile by connecting to a Mac running the Codex app
-- Features: "Hooks general availability, Codex access tokens for trusted automation, Enterprise admin setup guidance"
+## May 18, 2026 — Codex CLI 0.131.0
+Unified `@` mentions across files, directories, plugins, and skills.
+Plugin marketplace CLI commands with version-aware sharing.
+Remote environments now support daemon-managed control with runtime enable/disable capabilities and registry-backed configuration.
 
-**May 11, 2026 - Auto-review Documentation**
-- Expanded documentation covering reviewer lifecycle, trigger conditions, and failure behavior
-
-**May 8, 2026 - CLI 0.130.0**
-- Plugin details now show bundled hooks and sharing metadata
-- Added `codex remote-control` for headless remote operation
-- App-server clients can page large threads with unloaded/summary/full views
-- Bedrock auth supports AWS console-login credentials
-- Multiple bug fixes for live threads, turn diffs, and Windows sandbox
-
-**May 7, 2026 - Chrome Extension Launch**
-- "Codex is even better at working with apps and websites in your browser"
-- Works across tabs without taking over; user controls which websites Codex can access
-
-**May 7, 2026 - CLI 0.129.0**
-- TUI Vim editing support in composer with `/vim` command
-- Redesigned resume/fork picker with raw scrollback mode
-- Status line theme-aware colors with optional PR/branch summaries
-- Plugin marketplace integration with workspace sharing and access controls
-- `/hooks` browser for lifecycle hooks with pre/post-compaction support
-- Experimental goals with discovery, persistence, and multi-day duration support
-
-**May 6, 2026 - Analytics Governance Documentation**
-- Updated enterprise governance guide with Analytics dashboard coverage and API endpoints
-
-**May 5, 2026 - Codex Access Tokens**
-- ChatGPT Enterprise workspace members can create access tokens for non-interactive workflows
-
-## April 2026
-
-**April 30, 2026 - CLI 0.128.0**
-- Added persisted `/goal` workflows with app-server APIs and TUI controls
-- `codex update` command added
-- Configurable TUI keymaps and plan-mode nudges
-- Expanded permission profiles with built-in defaults and sandbox selection
-- Plugin marketplace installation and remote bundle caching
-- External agent session import functionality
-- MultiAgentV2 configuration enhancements with thread caps and wait-time controls
+## May 14, 2026 — Remote Connection Launch (mobile/Mac handoff)
+## May 8, 2026 — Codex CLI 0.130.0 (codex remote-control entrypoint, thread pagination)
+## May 7, 2026 — Chrome Extension Launch
+## May 7, 2026 — Codex CLI 0.129.0 (Vim editing in composer)

@@ -1,36 +1,12 @@
-# Anthropic Newsroom - Release Notes & Announcements
+# Anthropic News — captured 2026-05-20
 
-**May 14, 2026** - PwC Partnership
-Deploying Claude for technology building and enterprise functions
-
-**May 14, 2026** - Gates Foundation Partnership
-$200 million partnership announced
-
-**May 13, 2026** - Claude for Small Business
-New offering for small business segment
-
-**May 6, 2026** - SpaceX Compute Deal
-Higher usage limits and compute partnership
-
-**May 5, 2026** - Financial Services Agents
-Agent capabilities for financial sector
-
-**May 4, 2026** - Enterprise AI Services Company
-Partnership with Blackstone, Hellman & Friedman, Goldman Sachs
-
-**Apr 17, 2026** - Claude Design (Anthropic Labs)
-New product for creating designs, prototypes, slides, and visual materials
-
-**Apr 16, 2026** - Claude Opus 4.7
-"stronger performance across coding, agents, vision, and multi-step tasks"
-
-**Apr 7, 2026** - Project Glasswing
-Initiative with AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, Linux Foundation, Microsoft, NVIDIA, Palo Alto Networks for software security
-
-**Mar 18, 2026** - 81,000 User Study
-Largest multilingual qualitative research on AI user expectations and concerns
-
-**Feb 4, 2026** - Ad-Free Commitment
-Claude remains advertisement-free to maintain user trust
-
-Updated: 2026-05-18 — NEW since last scan: PwC Partnership (May 14), Gates Foundation Partnership (May 14), Claude for Small Business (May 13), SpaceX Compute Deal (May 6), Financial Services Agents (May 5), Enterprise AI Services Company partnership (May 4).
+## May 19, 2026 — Widening the conversation on frontier AI (policy/dialogue)
+## May 19, 2026 — KPMG Strategic Alliance (276,000+ employees deploying Claude)
+## May 18, 2026 — Stainless Acquisition (SDK-generation developer tooling company)
+## May 14, 2026 — PwC Expanded Partnership
+## May 14, 2026 — Gates Foundation Partnership ($200M)
+## May 13, 2026 — Claude for Small Business
+## May 6, 2026 — SpaceX Compute Deal
+## May 5, 2026 — Financial Services Agents
+## May 4, 2026 — Enterprise AI Services Company JV
+## Apr 28, 2026 — Claude for Creative Work

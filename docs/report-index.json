@@ -1,5 +1,138 @@
 [
   {
+    "date": "2026-05-20",
+    "scan_time": "2026-05-20 08:42",
+    "file": "report-2026-05-20.md",
+    "platforms": [
+      {
+        "name": "Anthropic (Claude Enterprise)",
+        "status": "changed",
+        "details": [
+          "**Anthropic acquires Stainless (May 18, 2026)**: $300M+ acquisition of the SDK-generation startup whose tooling powers every official Anthropic SDK and is also used by OpenAI, Google, Cloudflare. Hosted Stainless products (including the SDK generator) will be wound down. Strategic intent is to control SDK and MCP-server tooling for the AI agent ecosystem. Source: https://www.anthropic.com/news/anthropic-acquires-stainless",
+          "**KPMG Strategic Alliance + KPMG Digital Gateway Powered by Claude (May 19, 2026)**: Global alliance deploying Claude to 276,000+ KPMG employees worldwide. Claude is embedded inside KPMG Digital Gateway \u2014 KPMG's client-delivery platform \u2014 starting with new tools for tax and legal clients. KPMG is also named Anthropic's preferred PE partner; joint Claude-powered products for PE portfolio companies are planned. Source: https://www.anthropic.com/news/anthropic-kpmg"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "OpenAI Codex",
+        "status": "changed",
+        "details": [
+          "**Codex CLI 0.132.0 (May 20, 2026)**: Python SDK authentication expansion \u2014 API key login, ChatGPT browser flow, device-code flows. Text-based workflows now accept plain string inputs; resumed automations retain session context with structured output. Source: https://github.com/openai/codex/releases/tag/rust-v0.132.0",
+          "**Codex CLI 0.131.0 (May 18, 2026)**: Unified `@` mentions across files, directories, plugins, and skills. Plugin marketplace CLI commands with version-aware sharing, share checkout, clearer shared-workspace buckets, and default-enabled plugin hooks. Remote environments now support a daemon-managed `codex remote-control`, with runtime enable/disable APIs, status reads, and registry-backed configuration. Source: https://github.com/openai/codex/releases/tag/rust-v0.131.0"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Cursor",
+        "status": "changed",
+        "details": [
+          "**Cursor in Jira (May 19, 2026)**: New integration. Jira work items can be assigned directly to cloud agents, or users can `@Cursor` mention in Jira comments. The system pulls ticket context to scope the task and opens a pull request when complete. Source: https://cursor.com/docs/integrations/jira",
+          "**Composer 2.5 (May 18, 2026)**: New Cursor in-house coding model built on the Kimi K2.5 base from Moonshot AI, with 85% of compute spent on Cursor's RL/post-training. Matches Claude Opus 4.7 on key coding benchmarks at ~1/10 the cost; trained on 25\u00d7 more synthetic coding tasks than Composer 2. Pricing: Standard $0.50/$2.50 per M input/output tokens; Fast (default) $3.00/$15.00. Source: https://cursor.com/blog/composer-2-5"
+        ],
+        "tier": "watching"
+      },
+      {
+        "name": "ServiceNow",
+        "status": "changed",
+        "details": [
+          "**AI Control Tower expansion (Australia release, GA expected Aug 2026; Innovation Lab in May 2026)**: AI Control Tower now operates across five areas \u2014 discovery, observation, governance, security, and measurement \u2014 and adds 30 new enterprise connectors that reach beyond ServiceNow into AWS, Google Cloud, Azure, SAP, Oracle, and Workday. Adds enforcement / agent kill-switch capabilities. Source: https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-expands-AI-Control-Tower-to-discover-observe-govern-secure-and-measure-AI-deployed-across-any-system-in-the-enterprise/default.aspx",
+          "**Project Arc \u2014 autonomous desktop agent (Australia release, May 2026)**: New ServiceNow autonomous desktop agent that resides on employee desktops and completes work autonomously. Secured by Nvidia OpenShell runtime; governed by ServiceNow AI Control Tower. Source: https://www.servicenow.com/products/ai-control-tower.html"
+        ],
+        "tier": "secondary"
+      },
+      {
+        "name": "Azure AI Foundry / Azure OpenAI",
+        "status": "changed",
+        "details": [
+          "**GPT Realtime 2.0 (preview, May 2026)**: New speech-to-speech model with built-in reasoning. Adjustable `reasoning.effort` (minimal/low/medium/high), response phases distinguishing preambles (\"commentary\") from final answers (\"final_answer\"), and an extended 256K-token context window. Same connection/usage patterns as earlier realtime models. Source: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/realtime-2"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Anthropic \u2014 Stainless acquisition + hosted-SDK-tooling shutdown",
+        "description": "Anthropic acquired the SDK-generation infrastructure used by every official Anthropic library \u2014 and also by OpenAI, Google, and Cloudflare. Hosted Stainless products (SDK generator, MCP-related tooling) will be wound down. This collapses three vendors' SDKs onto a single owner-controlled toolchain, and meaningfully shifts where MCP-server scaffolding is generated. AISPM must register that customer-side SDK regeneration workflows will move; for Claude-enterprise customers, the official SDK inventory class now derives from Anthropic-owned tooling end-to-end. Watch for surfacing of Anthropic-built MCP/SDK templates as new agent inventory primitives",
+        "source": "https://www.anthropic.com/news/anthropic-acquires-stainless",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Anthropic \u2014 KPMG Digital Gateway Powered by Claude",
+        "description": "New named product (Digital Gateway Powered by Claude) embedded into KPMG's client-delivery platform, rolled out to 276,000+ KPMG employees plus client-facing tax and legal workflows. Introduces a new deployment class \u2014 Claude inside a Big-4 consultancy's client-delivery product \u2014 where the consultancy mediates Claude access to client data. AISPM should treat Digital Gateway-Claude tenants as a distinct inventory class with consultancy-mediated identity and data flows, and recognize PE portfolio company sub-tenants as a downstream sharing surface",
+        "source": "https://www.anthropic.com/news/anthropic-kpmg",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Codex \u2014 daemon-managed remote-control + registry-backed remote environments (CLI 0.131)",
+        "description": "New class of Codex endpoint: a long-running, daemon-controlled `codex remote-control` server with runtime enable/disable APIs, status reads, and a backing registry for environment configuration. This creates a new persistent-daemon endpoint class distinct from the CLI/desktop/Chrome/mobile classes, callable headlessly across multiple environments via `view_image` and other multi-environment resolutions. ENDPOINT must enumerate hosts running the Codex daemon and discover registry-backed environments; AISPM should map per-environment policy state (enabled vs disabled, registry source)",
+        "source": "https://github.com/openai/codex/releases/tag/rust-v0.131.0",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex \u2014 plugin marketplace CLI commands",
+        "description": "First-class CLI tooling for installing, version-pinning, and sharing plugins through a marketplace, with default-enabled plugin hooks and shared-workspace bucket semantics. Extends the Codex plugin marketplace (already in the May 18 report) with a CLI-managed distribution path. ENDPOINT/AISPM inventory of installed plugins should now include CLI-installed plugins with version pins, share-checkout origin, and hook-enabled state",
+        "source": "https://github.com/openai/codex/releases/tag/rust-v0.131.0",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex \u2014 Python SDK expanded auth flows (API key, ChatGPT-browser, device-code)",
+        "description": "Codex CLI 0.132 expands authentication into Python SDK contexts with three new flows: API key login, ChatGPT browser auth flow, and device-code flow. Each opens new attack surface \u2014 device-code phishing, browser-flow session hijack, and SDK-resident API-key exfil. AIRT should add tests for device-code phishing into Codex sessions and for replay of SDK-resident auth artifacts",
+        "source": "https://github.com/openai/codex/releases/tag/rust-v0.132.0",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Cursor \u2014 Jira integration (Cursor in Jira)",
+        "description": "Cursor cloud agents are now invokable from Jira via direct work-item assignment or `@Cursor` mentions in comments; ticket context auto-scopes the agent's task and a PR is opened on completion. New embedded endpoint class \u2014 Jira-driven cloud agent \u2014 that bypasses the IDE and the Teams channel surface previously reported. ENDPOINT must recognize Jira-driven Cursor invocations as a distinct endpoint and capture the ticket \u2192 cloud-agent \u2192 PR data flow; AISPM should treat the Jira-Cursor binding as an authorization edge (any Jira user can drive a code change)",
+        "source": "https://cursor.com/docs/integrations/jira",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor \u2014 Composer 2.5 in-house model",
+        "description": "New Cursor-owned coding model derived from Kimi K2.5 (Moonshot AI), with claimed parity to Claude Opus 4.7 on coding benchmarks at ~1/10 the cost. Introduces a new model SKU served from Cursor's own infra (rather than routed to a third-party provider), with two pricing tiers (Standard / Fast). AISPM must add Composer 2.5 to the model inventory for Cursor agents and recognize the Cursor-served path as a distinct data-flow channel (no third-party LLM hop)",
+        "source": "https://cursor.com/blog/composer-2-5",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "ServiceNow \u2014 AI Control Tower cross-platform expansion (AWS/GCP/Azure/SAP/Oracle/Workday connectors)",
+        "description": "AI Control Tower expands from ServiceNow-only AI governance to a cross-platform discovery / observation / governance / security / measurement surface with 30 new enterprise connectors spanning the three hyperscalers and SAP/Oracle/Workday. Adds enforcement controls including agent kill switches. This makes AI Control Tower a direct competitor surface to Zenity AISPM \u2014 and a new inventory source if Zenity ever consumes its findings. AISPM should at minimum track tenants enabling AI Control Tower cross-platform mode and reconcile its inventory against Zenity's",
+        "source": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-expands-AI-Control-Tower-to-discover-observe-govern-secure-and-measure-AI-deployed-across-any-system-in-the-enterprise/default.aspx",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "ServiceNow \u2014 Project Arc autonomous desktop agent",
+        "description": "New ServiceNow autonomous desktop agent that resides on employee desktops and executes work autonomously, secured by Nvidia OpenShell runtime and governed by ServiceNow AI Control Tower. Introduces an entirely new local-AI endpoint class for ServiceNow (previously Now Assist was a hosted chat agent only). ENDPOINT must inventory Project Arc installs as a distinct endpoint class with desktop-execution scope and OpenShell-runtime containment; AISPM should map Project Arc agents to the AI Control Tower governance edge",
+        "source": "https://www.servicenow.com/products/ai-control-tower.html",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Azure OpenAI \u2014 GPT Realtime 2.0 (reasoning-in-realtime, 256K context)",
+        "description": "Speech-to-speech model with built-in reasoning, configurable `reasoning.effort` control (minimal/low/medium/high), response phases distinguishing preambles from final answers, and 256K-token context. Same realtime endpoint surface as earlier models. New AIDR signal types: preamble vs final_answer in the response stream, plus `reasoning.effort`-tagged sessions; new AISPM model SKU for Azure-OpenAI agent inventory. Voice-modality content can now carry multi-step reasoning chains that previously required text-pipeline routing",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/realtime-2",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-05-18",
     "scan_time": "2026-05-18 08:51",
     "file": "report-2026-05-18.md",
