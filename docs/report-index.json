@@ -1,5 +1,174 @@
 [
   {
+    "date": "2026-05-21",
+    "scan_time": "2026-05-21 09:40",
+    "file": "report-2026-05-21.md",
+    "platforms": [
+      {
+        "name": "Microsoft Agent 365 (new product surface)",
+        "status": "changed",
+        "details": [
+          "**Microsoft Agent 365 \u2014 GA May 1, 2026**: New per-user-licensed Microsoft product ($15/user/mo, Commercial segment) for observing, governing, and securing AI agents. Three pillars \u2014 **Observe** (Agent registry, Registry sync, Agent Map showing all agents in a single centralized registry in the M365 admin center), **Govern** (lifecycle management, access control, compliance through M365 admin center + Microsoft Entra + Microsoft Purview), **Secure** (Entra Conditional Access for agents, Purview DLP/info-protection, Defender real-time runtime protection). At launch, a set of **pre-integrated ecosystem partner agents** are deployable directly from the M365 admin center. Source: https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/",
+          "**Agent registry in the Microsoft 365 admin center**: New centralized agent inventory surface in the M365 admin center, with **Registry sync** to pull external agent inventory and **Agent Map** for visualization. Source: https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry",
+          "**Microsoft Defender \u2014 real-time agent protection during runtime**: New Defender feature blocks unsafe behaviors and malicious activity for agents at runtime. Source: https://learn.microsoft.com/en-us/defender-cloud-apps/real-time-agent-protection-during-runtime",
+          "**Microsoft Purview \u2014 AI agent governance for Agent 365**: New Purview surface for managing data security and compliance for Agent-365-registered agents. Source: https://learn.microsoft.com/en-us/purview/ai-agent-365"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "changed",
+        "details": [
+          "**AgentCore Payments (preview)**: New managed service enabling microtransaction payments for AI agents using the **x402 protocol**. Wallet integration with **Coinbase CDP** and **Stripe (Privy)**. Built-in budget controls per `PaymentSession` (configurable `maxSpendAmount`, currency, expiry). Pre-integrated **Coinbase x402 Bazaar MCP server** exposing 10,000+ pay-per-use x402 endpoints via AgentCore Gateway. New API surface: `CreatePaymentInstrument`, `CreatePaymentSession`, `ProcessPayment`, `GetPaymentInstrumentBalance`, `GetResourcePaymentToken`, plus a new `PaymentCredentialProvider` resource stored in AgentCore Identity. Available in us-east-1, us-west-2, eu-central-1, ap-southeast-2. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments.html",
+          "**AgentCore Harness (preview)**: New managed agent harness/loop powered by **Strands Agents** (AWS's open-source agent framework). Each session runs in **isolated microVM** with its own filesystem and shell. Persistent short-term and long-term memory across sessions; **mid-session model switching** (Bedrock, OpenAI, Google Gemini). BYO custom container environment. Harness config exports to Strands Agents code. Available in us-west-2, us-east-1, ap-southeast-2, eu-central-1. New API: `InvokeHarness`. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness.html",
+          "**AgentCore Registry**: New centralized catalog for agents, MCP servers, tools, skills, and custom resources across an organization. Provides governed publish/review/approve workflow with hybrid semantic + keyword search. New API: `SearchRegistryRecords`. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html",
+          "**AgentCore Policy**: Cedar-based deterministic policy controls (in addition to natural-language rules) that intercept every tool call in AgentCore Gateway before execution. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html",
+          "**AgentCore Evaluations \u2014 A/B testing APIs**: New `CreateABTest`/`GetABTest`/`UpdateABTest`/`DeleteABTest`/`ListABTests` APIs alongside `StartBatchEvaluation`/`GetBatchEvaluation` for purpose-built evaluations across sessions/traces/spans. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Azure AI Foundry / Azure OpenAI",
+        "status": "changed",
+        "details": [
+          "**GPT Realtime Translate (preview, May 2026)**: New realtime model for continuous stream-based audio translation for live multilingual events, customer support, and voice assistants. Same `/realtime` endpoint surface. Source: https://learn.microsoft.com/en-us/azure/foundry-classic/openai/concepts/gpt-realtime-translate",
+          "**GPT Realtime Whisper (preview, May 2026)**: New low-latency streaming transcription model for live captions, monitoring, and archival workflows. Same `/realtime` endpoint surface. Source: https://learn.microsoft.com/en-us/azure/foundry-classic/openai/concepts/gpt-realtime-whisper"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Cursor",
+        "status": "changed",
+        "details": [
+          "**Cursor Automations 2.0 (May 20, 2026)**: Major expansion. Automations now live in the **Agents Window** workspace (previously cursor.com/automations only). New **multi-repository support** \u2014 a single automation can attach multiple repos, allowing the cloud agent context to span codebases; Dockerfile-based environment configuration with build-secrets support for private package registries. New **no-repository automations** \u2014 automations can run without any repo attached, for operational/non-code tasks. Five new marketplace templates: **Slack digest agent**, **product analytics agent**, **product FAQ agent**, **product finance agent**, **customer health monitoring agent**. Source: https://forum.cursor.com/t/improvements-to-cursor-automations/161149"
+        ],
+        "tier": "watching"
+      },
+      {
+        "name": "Perplexity",
+        "status": "changed",
+        "details": [
+          "**finance_search tool in Agent API (May 2026)**: New tool added to the Perplexity `/v1/agent` endpoint for structured financial and market data \u2014 quotes, financials, earnings, analyst estimates, segment KPIs, ETF constituents, insider activity, market movers, ETF constituents, index details. Joins the existing tool set: `web_search`, `people_search`, `fetch_url`, function tools. Billed at $5 per 1,000 invocations (model tokens billed separately). Source: https://docs.perplexity.ai/docs/agent-api/finance-search"
+        ],
+        "tier": "watching"
+      },
+      {
+        "name": "Salesforce AgentForce",
+        "status": "changed",
+        "details": [
+          "**\"Topics\" renamed to \"Subagents\" (April 2026)**: AgentForce agent **topics** have been renamed to **subagents** organization-wide in the developer documentation to better reflect their role as specialized agents with specific expertise. No functional change, but documentation transitions both terms during migration. Source: https://developer.salesforce.com/blogs/2026/05/new-agentforce-metadata-and-development-lifecycle"
+        ],
+        "tier": "secondary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Microsoft Agent 365 \u2014 observe/govern/secure control plane GA",
+        "description": "New Microsoft product (GA May 1, 2026, $15/user/mo) that is a direct competitor surface to Zenity AISPM. Introduces a centralized **Agent registry** in the M365 admin center, **Registry sync** (pulls external agent inventories), and an **Agent Map** for visualization \u2014 plus tight integrations with Entra (agent identity, Conditional Access for agents), Purview (DLP, AI agent risk), and Defender (real-time runtime protection). Pre-integrated ecosystem partner agents deploy directly from the admin center. AISPM must track tenants enabling Agent 365 as a distinct governance class, reconcile Agent 365 inventory against Zenity's, and recognize Agent-365-registered agents as an inventory-source-of-truth signal. AIDR should detect when Defender's real-time-agent-protection blocks an action and treat it as a coverage handoff",
+        "source": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "AgentCore Payments \u2014 agent-driven microtransactions over x402 protocol",
+        "description": "Brand-new AgentCore service (preview) that lets agents autonomously spend money. Introduces multiple new inventory entities: `PaymentInstrument`, `PaymentSession` (with `maxSpendAmount`, currency, expiry), and `PaymentCredentialProvider` (wallet creds for Coinbase CDP and Stripe-Privy stored in AgentCore Identity). Wires in 10,000+ third-party paid endpoints via the pre-integrated **Coinbase x402 Bazaar MCP server** through AgentCore Gateway. AISPM must inventory each agent's payment instruments, sessions, and budget caps; new toxic-combination class: overprivileged agent + active PaymentSession + unrestricted Gateway target",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "AgentCore Payments \u2014 payment data flow + spending observability",
+        "description": "Each payment flow emits CloudWatch vended logs + X-Ray vended spans for every data-plane API call. AIDR gains an entirely new activity-type stream \u2014 payment requests, x402 challenge responses, wallet-signing events, budget-deduction events, failed-signing exceptions \u2014 and a new detection surface for runaway agent spending",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-how-it-works.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "AgentCore Payments \u2014 x402 + crypto-wallet attack surface",
+        "description": "Three distinct new attack surfaces: (a) `PaymentSession` budget bypass via session reuse or expiry races, (b) wallet credential exfil from `PaymentCredentialProvider` (Coinbase API keys, Stripe-Privy secrets) stored in AgentCore Identity, (c) malicious x402-Bazaar MCP endpoints draining agent budgets through inflated micro-charges or fee inflation. AIRT should add automated tests for x402 payment-required flow tampering, budget-cap evasion, and prompt-injection-driven payment authorization",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-concepts.html",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "AgentCore Harness \u2014 managed agent-loop runtime with microVM sessions",
+        "description": "New preview service replacing the bespoke agent harness with a managed loop powered by Strands Agents. Each session runs in an isolated microVM with filesystem and shell access, persistent short-term + long-term memory across sessions, and **mid-session model switching** (Bedrock, OpenAI, Gemini). New API `InvokeHarness` and a distinct session resource class. Harness config can be exported to Strands Agents code. AISPM must inventory Harness sessions per agent, capture the model-provider trail across mid-session swaps, and treat BYO container images as a custom-environment inventory class",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "AgentCore Registry \u2014 central agent/tool/MCP-server catalog",
+        "description": "New AgentCore service that catalogs every agent, MCP server, tool, skill, and custom resource across an organization with governed publish/review/approve workflows and hybrid semantic+keyword search. Functions as a customer-side AISPM signal source \u2014 Zenity can reconcile its inventory against Registry entries, and Registry's approval state becomes a new policy attribute (approved vs unapproved tool, deployed where). New API `SearchRegistryRecords`",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore Policy \u2014 Cedar-based pre-execution policy enforcement",
+        "description": "AgentCore Policy now exposes Cedar (AWS's open-source policy language) in addition to natural-language rules, and intercepts every tool call in AgentCore Gateway before execution. New policy resource class with deterministic rule semantics that AISPM should treat as authoritative for tool-execution authorization decisions",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore Evaluations \u2014 A/B testing APIs",
+        "description": "New `CreateABTest`/`UpdateABTest`/`DeleteABTest`/`ListABTests` plus `StartBatchEvaluation`/`StopBatchEvaluation` APIs extend evaluation from sessions/traces/spans into A/B test resources. New `ABTest` inventory class with associated batch evaluation runs; AISPM should map ABTest \u2192 agent variants \u2192 traffic-split signals",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Azure OpenAI \u2014 GPT Realtime Translate (live multilingual audio streaming)",
+        "description": "New realtime model dedicated to continuous stream-based audio translation. Same `/realtime` endpoint as other realtime models, but introduces a translation-specific data flow \u2014 source-language audio in, target-language audio out \u2014 for live multilingual events, customer support, and voice assistants. New AIDR signal class: cross-language audio-to-audio session, where source and target language attributes need separate tracking",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/concepts/gpt-realtime-translate",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Azure OpenAI \u2014 GPT Realtime Whisper (low-latency streaming transcription)",
+        "description": "New realtime ASR model for live captions, monitoring, and archival workflows on the `/realtime` endpoint. Distinct from prior `gpt-4o-transcribe-*` chains in that transcription is now a first-class realtime modality. AIDR gains a streaming-transcript activity type for archival and monitoring traffic categories",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/concepts/gpt-realtime-whisper",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Cursor \u2014 Automations 2.0 (multi-repo, no-repo, marketplace templates)",
+        "description": "Cursor Automations expand beyond the standalone web UI into the Agents Window. Three new endpoint sub-classes: (a) **multi-repo automations** \u2014 one automation spans multiple attached repos, breaking the 1:1 repo\u2194agent assumption; (b) **no-repository automations** \u2014 operational tasks (e.g. Slack digest, customer-health monitoring) without any code surface, which extends Cursor as a general-purpose autonomous agent platform rather than just a coding agent; (c) **marketplace templates** as a discoverable distribution channel for shared automation patterns (Slack digest, product analytics, FAQ, finance, customer-health agents). ENDPOINT must update the Cursor inventory model to treat automations as a distinct endpoint class with N-repo or zero-repo binding; AISPM should map automation \u2192 triggered cloud-agent runs \u2192 connected data sources",
+        "source": "https://forum.cursor.com/t/improvements-to-cursor-automations/161149",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Perplexity \u2014 finance_search tool in Agent API",
+        "description": "New `finance_search` tool added to the Perplexity Agent API (`POST /v1/agent`) for structured financial/market data \u2014 quotes, financials, earnings, analyst estimates, segment KPIs, ETF constituents, insider activity, market movers. Joins `web_search`, `people_search`, `fetch_url`, and function tools. Billed at $5 per 1,000 invocations. AISPM must add `finance_search` as a Perplexity-agent tool primitive and recognize it as a finance-data egress channel; this is a different sensitivity class than `web_search`",
+        "source": "https://docs.perplexity.ai/docs/agent-api/finance-search",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Salesforce AgentForce \u2014 \"Topics\" renamed to \"Subagents\"",
+        "description": "AgentForce agent **topics** were renamed to **subagents** in the developer documentation in April 2026 \u2014 no functional change, but the new noun signals a shift in inventory mental model (topic-as-scoped-instruction-block \u2192 subagent-as-named-actor) reflecting their specialized-expert positioning. AISPM should rename the AgentForce topic primitive to subagent across the Salesforce inventory schema and watch for downstream API renames that may follow",
+        "source": "https://developer.salesforce.com/blogs/2026/05/new-agentforce-metadata-and-development-lifecycle",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-05-20",
     "scan_time": "2026-05-20 08:42",
     "file": "report-2026-05-20.md",
