@@ -1,51 +1,29 @@
-# Amazon Bedrock AgentCore - Document History
+# Amazon Bedrock AgentCore - Document History (captured 2026-05-25)
 
-## Documentation Releases Timeline
+## AgentCore Services (Core list)
+- Runtime, Harness, Memory, Gateway, Identity, Code Interpreter, Browser, Observability, Payments, Evaluations, Policy, Registry
 
-### April 9, 2026 (NEW)
-- **AWS Agent Registry** — Added documentation for AWS Agent Registry, a centralized catalog for discovering and managing agents, MCP servers, tools, and skills.
-  - Registry provides governed workflows for publishing, reviewing, and approving resources
-  - Hybrid semantic and keyword search functionality
-  - Supports registration of MCP servers, agents, agent skills, tools, and custom resources
-  - Authorization via AWS IAM or JWT
-  - Approval workflows for governance
-  - MCP-native endpoint for MCP-compatible clients
-  - Integrates with EventBridge and CloudTrail
-  - URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html
+## New API operations (latest in list)
+- BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords
+- CompleteResourceTokenAuth
+- CreateABTest, GetABTest, DeleteABTest, UpdateABTest, ListABTests
+- CreatePaymentInstrument, CreatePaymentSession, ProcessPayment, GetPaymentInstrument, GetPaymentInstrumentBalance, GetPaymentSession, GetResourcePaymentToken, DeletePaymentInstrument, DeletePaymentSession, ListPaymentInstruments, ListPaymentSessions
+- DeleteRecommendation, GetRecommendation, ListRecommendations, StartRecommendation
+- StartBatchEvaluation, GetBatchEvaluation, StopBatchEvaluation, DeleteBatchEvaluation, ListBatchEvaluations
+- Evaluate
+- GetAgentCard
+- StartBrowserSession, GetBrowserSession, StopBrowserSession, InvokeBrowser, SaveBrowserSessionProfile, ListBrowserSessions, UpdateBrowserStream
+- InvokeAgentRuntime, InvokeAgentRuntimeCommand, StopRuntimeSession, ListSessions, ListActors
+- InvokeCodeInterpreter, StartCodeInterpreterSession, GetCodeInterpreterSession, StopCodeInterpreterSession, ListCodeInterpreterSessions
+- InvokeHarness
+- SearchRegistryRecords
+- GetResourceApiKey, GetResourceOauth2Token, GetWorkloadAccessToken, GetWorkloadAccessTokenForJWT, GetWorkloadAccessTokenForUserId
+- StartMemoryExtractionJob, GetMemoryRecord, RetrieveMemoryRecords, DeleteMemoryRecord, ListMemoryRecords, ListMemoryExtractionJobs
+- CreateEvent, GetEvent, DeleteEvent, ListEvents
 
-### December 2, 2025
-- Policy in Amazon Bedrock AgentCore - Policy-based governance and control for agent interactions
-- Episodic memory strategy - AgentCore Memory feature
-- Custom claims value support for AgentCore Gateway authentication
-- Bidirectional streaming - WebSocket protocol for real-time, full-duplex communication
-- Authentication token support for AgentCore Gateway - OAuth authorization setup
-- Amazon Bedrock AgentCore Evaluations - Performance, accuracy, and reliability measurement tools
-- API gateways as gateway targets - Amazon API Gateway REST API stages as targets
-
-### November 4, 2025
-- Direct code deployment - Python agents deployment via ZIP file archives
-
-### October 31, 2025
-- Get started updates - Changes to prerequisites, files, and commands
-
-### October 30, 2025
-- Web Bot Auth (Preview) - Browser Web Bot Auth feature, cryptographic HTTP request signing
-
-### October 13, 2025
-- Runtime identity service-linked role - Manages workload identity access tokens and OAuth credentials
-- General release - Amazon Bedrock AgentCore now generally available (GA)
-
-### October 10, 2025
-- Model Context Protocol (MCP) servers as Gateway targets
-
-### October 2, 2025
-- Model Context Protocol (MCP) server support - Compatible MCP clients: Kiro, Cursor, Claude Code, Amazon Q CLI
-
-### September 19, 2025
-- Managed policy updates - BedrockAgentCoreNetworkServiceRolePolicy (new), BedrockAgentCoreFullAccess updated
-
-### July 16, 2025
-- Initial release (preview) - First release of Amazon Bedrock AgentCore Developer Guide
-
-## Last Fetched
-2026-04-21 — NEW: AWS Agent Registry (April 9, 2026) is a centralized catalog for agents, MCP servers, tools, skills, with hybrid semantic/keyword search, approval workflows, IAM/JWT authorization, and MCP-native access.
+## Announcements (May 2026)
+- May 7, 2026: AgentCore Payments (preview) — Coinbase + Stripe wallet integration, x402 protocol
+- May 6, 2026: AgentCore Runtime bring-your-own file system — attach Amazon S3 Files / Amazon EFS access points directly to agent runtimes; mounted into every session at specified path; standard file operations; requires VPC config + access point ARN
+- May 5, 2026: AgentCore available in AWS GovCloud (US-West)
+- May 1, 2026: AgentCore available in South America (São Paulo) Region
+- April 30, 2026: AgentCore Optimization preview (Recommendations + Batch Evaluations + A/B Tests)

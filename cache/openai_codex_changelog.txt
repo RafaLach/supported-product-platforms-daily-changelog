@@ -1,16 +1,38 @@
-# OpenAI Codex Changelog — captured 2026-05-20
+# OpenAI Codex Changelog — captured 2026-05-25
+
+## May 21, 2026 — Version 26.519: Appshots, Goal Mode, and Remote Computer Use
+
+### Appshots (macOS only)
+Press both Command keys to send the frontmost app window to Codex with a screenshot.
+Injects screenshot of frontmost window plus any text the app exposes (including content outside the visible scroll area) into the current thread as an attachment.
+
+### Goal Mode (GA)
+Transitioned from experimental to standard feature.
+Enables extended multi-hour objective tracking across app, IDE extension, and CLI.
+Now live in Codex app, VS Code and JetBrains extensions, and CLI 0.128.0+.
+
+### Remote Computer Use
+Codex can access desktop applications after device lock.
+Remote operation via Codex Mobile possible even when Mac screen is off and locked.
+Safety: time-bound authorization, covered screen, relock at first local input, manual unlock fallback.
+
+### Plugin Sharing
+ChatGPT Business teams can distribute reusable plugin bundles through marketplace sources.
+
+### Browser Improvements
+Enhanced image asset extraction speed.
+Structured data retrieval with read-only JavaScript sandbox.
+
+### Chrome Extension Refinements
+Reduced tab clutter by removing tab group creation during task handoff.
+
+## Codex CLI 0.133.0
+- Goals function by default with dedicated storage and progress tracking across turns
+- `codex remote-control` operates as foreground command with improved readiness reporting
+- Permission profiles expanded with list APIs, inheritance support, and Windows sandbox integration
+- Plugin discovery enhanced with marketplace-aware output and remote collection support
+- Extensions gain additional lifecycle event visibility including subagent transitions and tool execution
 
 ## May 20, 2026 — Codex CLI 0.132.0
 Python SDK authentication enhancements: API key login, ChatGPT browser flow, device-code flows.
 Text-based workflows accept plain strings.
-Resumed automations maintain session context with structured output support.
-
-## May 18, 2026 — Codex CLI 0.131.0
-Unified `@` mentions across files, directories, plugins, and skills.
-Plugin marketplace CLI commands with version-aware sharing.
-Remote environments now support daemon-managed control with runtime enable/disable capabilities and registry-backed configuration.
-
-## May 14, 2026 — Remote Connection Launch (mobile/Mac handoff)
-## May 8, 2026 — Codex CLI 0.130.0 (codex remote-control entrypoint, thread pagination)
-## May 7, 2026 — Chrome Extension Launch
-## May 7, 2026 — Codex CLI 0.129.0 (Vim editing in composer)

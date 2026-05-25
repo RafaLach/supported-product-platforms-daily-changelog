@@ -1,25 +1,19 @@
-# Amazon Q Developer User Guide - Document History (Fetched 2026-05-18)
+# Amazon Q Developer User Guide - Document History (Fetched 2026-05-25)
 
 | Change | Description | Date |
 |--------|-------------|------|
-| Updated Builder ID unsubscribe instructions | Added guidance for unsubscribing a personal account (Builder ID) when the Amazon Q Developer Profile has been deleted, including steps to re-enable via the console and a link to create a Kiro Profile. | March 19, 2026 |
+| Updated managed policies: AmazonQFullAccess and AmazonQDeveloperAccess | Added q:CreateArtifact, q:GetArtifact, q:GetArtifactActionResult, and q:PerformArtifactAction permissions to enable Amazon Q artifacts (preview). | May 21, 2026 |
+| Updated Builder ID unsubscribe instructions | Added guidance for unsubscribing a personal account (Builder ID) when the Amazon Q Developer Profile has been deleted. | March 19, 2026 |
 | Updated account limit for subscriptions | You can now subscribe users in a maximum of 20 accounts per AWS Region, per organization, increased from 10. | February 18, 2026 |
-| Deprecated code transformation for GitLab | Code transformation capabilities for Java modernization have been deprecated for GitLab Duo with Amazon Q Developer. The /q transform quick action and CI/CD pipeline customization documentation have been removed. | January 16, 2026 |
-| Removed deprecated GitLab quick actions | Removed the /q dev (revise) bullet point and Unit test generation section with /q test command from GitLab quick actions documentation. | January 13, 2026 |
-| Updated GitHub feature development workflow | Updated GitHub feature development workflow to use conversation-based feedback with /q command instead of traditional GitHub review process. | December 29, 2025 |
-| Updated GitHub app installation registration steps | Updated topic to include steps for navigating the Kiro and Amazon Q Developer shared console. | December 18, 2025 |
-| Deprecated code transformation for GitHub | Code transformation capabilities for Java modernization have been deprecated for Amazon Q Developer for GitHub. | December 15, 2025 |
+| Deprecated code transformation for GitLab | Code transformation capabilities for Java modernization deprecated for GitLab Duo with Amazon Q Developer. | January 16, 2026 |
+| Updated GitHub feature development workflow | Now uses conversation-based feedback with the `/q` command. | December 29, 2025 |
+| Deprecated code transformation for GitHub | Code transformation capabilities deprecated for Amazon Q Developer for GitHub. | December 15, 2025 |
 | Q CLI becomes Kiro CLI | The Q CLI has become the Kiro CLI. | November 17, 2025 |
-| Updated managed policies | Additional permissions added to AmazonQFullAccess, AmazonQDeveloperAccess, and AWSServiceRoleForUserSubscriptions. | October 29, 2025 |
-| Removed IDE agent documentation | Agentic chat capabilities have replaced /dev, /doc, /test, /review agents in the IDE. | October 21, 2025 |
-| Added IDE memory bank documentation | Added documentation for generating a memory bank for Amazon Q chat. | October 21, 2025 |
-| Added Q CLI feature documentation | Creating agents with AI assistance, prompt management, responding to messages, project rules. | October 3, 2025 |
-| Enhanced context management documentation | Added guidance for choosing the right context approach with comparison table and decision flowchart. | September 23, 2025 |
-| Added Q CLI v1.16.0 feature documentation | Agent default behavior with priority-based selection, legacy MCP configuration support, new chat commands (/tangent tail, /changelog), and agent-related settings. | September 18, 2025 |
-| Context hooks deprecated | Context hooks are deprecated in favor of agent hooks. | September 17, 2025 |
-| Added remote MCP server support and built-in tools documentation | Remote MCP servers with OAuth authentication and built-in tools configuration. | September 17, 2025 |
-| Removed Amazon S3 buckets from allowlist table | No longer need to allowlist Amazon S3 buckets for software development or unit test generation in the IDE. | September 9, 2025 |
 
-(Older entries from 2025/2024 unchanged from previous cache.)
-
-Updated: 2026-05-18 — No new entries since previous scan (latest entry remains March 19, 2026).
+## Amazon Q artifacts (preview) — chat-artifacts.html
+- Q artifacts deliver responses enriched with table and chart visualizations
+- Can execute "cross-service jobs (preview)": provisioning infrastructure, connecting services, securing applications across AWS services
+- Example: "Connect EC2 instance to an S3 bucket" — Q artifact grants permissions to an S3 bucket in the EC2 instance profile and makes bucket policy changes
+- All data associated with Amazon Q visualizations saved in us-east-1
+- New IAM actions: q:CreateArtifact, q:GetArtifact, q:GetArtifactActionResult, q:PerformArtifactAction
+- Supported services include EC2, RDS, Lambda, S3, etc.

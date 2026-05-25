@@ -1,12 +1,21 @@
-# Anthropic News — captured 2026-05-20
+# Anthropic News — captured 2026-05-25
 
-## May 19, 2026 — Widening the conversation on frontier AI (policy/dialogue)
-## May 19, 2026 — KPMG Strategic Alliance (276,000+ employees deploying Claude)
-## May 18, 2026 — Stainless Acquisition (SDK-generation developer tooling company)
-## May 14, 2026 — PwC Expanded Partnership
-## May 14, 2026 — Gates Foundation Partnership ($200M)
-## May 13, 2026 — Claude for Small Business
-## May 6, 2026 — SpaceX Compute Deal
-## May 5, 2026 — Financial Services Agents
-## May 4, 2026 — Enterprise AI Services Company JV
-## Apr 28, 2026 — Claude for Creative Work
+## May 22, 2026 — Project Glasswing: An initial update
+- Initiative to secure the world's most critical software for the AI era
+- Originally introduced April 7, 2026, powered by Claude Mythos Preview
+- Has uncovered 10,000+ high-or-critical-severity vulnerabilities across widely used software
+- Cloudflare: ~2,000 bugs (400 H/C severity), fewer false positives than human-led testing
+- Mozilla: 271 vulnerabilities fixed in Firefox 150 — more effective than earlier runs with Claude Opus 4.6
+- Open-source scanning: 1,000+ projects, 6,202 H/C-severity vulnerabilities; 90.6% confirmed legitimate
+- Expansion plan: working with "critical partners" including U.S. and allied governments
+- Verizon joined Project Glasswing
+
+## May 19, 2026 — Widening the conversation on frontier AI
+Anthropic dialogues with scholars, philosophers, clergy, ethicists on AI character/values.
+Plans to engage more legal scholars, psychologists, writers, civic institutions.
+
+## May 19, 2026 — KPMG Strategic Alliance
+276,000+ employees integrating Claude.
+
+## May 18, 2026 — Stainless Acquisition
+SDK-generation developer tooling company.
