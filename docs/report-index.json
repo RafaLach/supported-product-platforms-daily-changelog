@@ -1,5 +1,39 @@
 [
   {
+    "date": "2026-05-26",
+    "scan_time": "2026-05-26 09:03",
+    "file": "report-2026-05-26.md",
+    "platforms": [
+      {
+        "name": "Cursor",
+        "status": "changed",
+        "details": [
+          "**Shared Canvases (Version 3.5, May 20, 2026)**: New external sharing surface for agent-produced interactive artifacts. Teams share dashboards and reports created by Cursor agents via browser links with read-only access \u2014 agent output now reaches users outside the IDE/Cursor account boundary for the first time. Source: https://cursor.com/docs/agent/tools/canvas",
+          "**Cursor Automations integration into Agents Window + multi-repo / standalone configurations (May 20, 2026)**: Automations now live inside the Agents Window. Supports multi-repository configurations and standalone setups (no repository required). Five new templates ship out of the box: Slack digest, analytics, FAQ, finance, customer health monitoring. Source: https://cursor.com/docs/cloud-agent/automations"
+        ],
+        "tier": "watching"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor \u2014 Shared Canvases (v3.5)",
+        "description": "Cursor agents can now produce interactive artifacts (dashboards, reports) that are externally shareable via browser links with read-only access. This creates a new outbound data-flow surface \u2014 agent output crosses the Cursor tenant boundary to non-Cursor recipients. Introduces new inventory entities: shared-canvas artifacts, share-link tokens, and external-reader identities. AISPM must discover Shared Canvas instances per workspace, map which agents are authorized to publish externally, and flag toxic combinations such as a canvas containing source-derived data being shared to an unauthenticated browser link",
+        "source": "https://cursor.com/docs/agent/tools/canvas",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor \u2014 Automations multi-repo / standalone & expanded template surface",
+        "description": "Cursor Automations are now first-class Agents Window citizens, can operate across multiple repositories in one automation, and can run standalone (no repo at all). Five new templates (Slack digest, analytics, FAQ, finance, customer health monitoring) expand the kinds of business workflows automations execute. AISPM should treat each Automation as an inventory entity with a defined repo-set scope, recognize standalone automations as a distinct class (no repo-bounded blast radius), and add the new template types to the catalog so any standardized template instance can be discovered and audited",
+        "source": "https://cursor.com/docs/cloud-agent/automations",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-05-25",
     "scan_time": "2026-05-25 08:32",
     "file": "report-2026-05-25.md",
@@ -422,373 +456,6 @@
         "description": "Speech-to-speech model with built-in reasoning, configurable `reasoning.effort` control (minimal/low/medium/high), response phases distinguishing preambles from final answers, and 256K-token context. Same realtime endpoint surface as earlier models. New AIDR signal types: preamble vs final_answer in the response stream, plus `reasoning.effort`-tagged sessions; new AISPM model SKU for Azure-OpenAI agent inventory. Voice-modality content can now carry multi-step reasoning chains that previously required text-pipeline routing",
         "source": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/realtime-2",
         "module": "AIDR",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-18",
-    "scan_time": "2026-05-18 08:51",
-    "file": "report-2026-05-18.md",
-    "platforms": [
-      {
-        "name": "Microsoft Copilot Studio",
-        "status": "changed",
-        "details": [
-          "**Agent-to-Agent (A2A) protocol GA (April 2026)**: Cross-agent invocation protocol promoted from preview to general availability. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-agent-to-agent",
-          "**REST API for automated agent evaluations (April 2026)**: New Power Platform API endpoint to trigger and retrieve agent evaluation runs programmatically. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-rest-api",
-          "**Real-time voice agents (preview, April 2026)**: New voice-first agent surface with NLU, multilingual support, and telephony publishing channel. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/voice-realtime-voice-agents",
-          "**Hold-and-resume voice agents (GA, April 2026)**: Voice agents can suspend a session and resume conversation state. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new",
-          "**Agent usage estimator (April 2026)**: Copilot credit forecasting tool for agents \u2014 new admin/governance surface. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new",
-          "**Custom analytics metrics (preview, April 2026)**: Operators can define and instrument new metrics on agents. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Azure AI Foundry / Azure OpenAI",
-        "status": "changed",
-        "details": [
-          "**GPT Realtime Translate (May 2026)**: New streaming audio-translation model with continuous bidirectional translation. Source: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/gpt-realtime-translate",
-          "**GPT Realtime Whisper (May 2026)**: New low-latency streaming transcription model. Source: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/gpt-realtime-whisper"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Microsoft 365 Copilot (extensibility)",
-        "status": "changed",
-        "details": [
-          "**Work IQ API (preview)**: New developer/API reference entry promoted to first-class link on the extensibility landing page; available as A2A, MCP, and REST. Source: https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq-api-overview",
-          "**\"Evaluate agents\" guidance**: New documentation section covering agent evaluation workflows. Source: https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "OpenAI (Python + Node SDKs)",
-        "status": "changed",
-        "details": [
-          "**Realtime 2 API implementation (v2.33+, v6.35+, April\u2013May 2026)**: Successor to the Realtime API; ships in both SDKs. Source: https://developers.openai.com/api/docs/models/gpt-realtime-2",
-          "**Admin API Keys scoped per endpoint (May 2026)**: New admin-key model with per-endpoint scoping; introduces new `external_key_id` field on projects (EKM). Source: https://help.openai.com/en/articles/20000953-ekm-external-keys-in-the-management-api",
-          "**`prompt_cache_retention` parameter (Node SDK)**: New per-request control over prompt cache lifetime. Source: https://github.com/openai/openai-node/releases",
-          "**WebSocket binary messages + automatic reconnection + browser WebSockets (Node SDK)**: Realtime API now supports browser-side WebSocket clients, expanding the realtime call surface. Source: https://github.com/openai/openai-node/releases",
-          "**`service_tier` request parameter (both SDKs)**: New routing knob for inference tiering. Source: https://github.com/openai/openai-python/releases",
-          "**`web_search_call.results` output option (Node SDK)**: Web search tool can now return full result lists alongside summaries. Source: https://github.com/openai/openai-node/releases"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "OpenAI Codex",
-        "status": "changed",
-        "details": [
-          "**Codex Chrome Extension (May 7, CLI 0.128+)**: New browser-based endpoint for Codex sessions on macOS and Windows. Source: https://developers.openai.com/codex/app/chrome-extension",
-          "**`codex access tokens` (headless automation / enterprise trust)**: New token type for unattended, machine-to-machine Codex invocation. Source: https://developers.openai.com/codex/enterprise/access-tokens",
-          "**Codex mobile access via Mac handoff**: Mobile clients can now drive Codex sessions through the user's Mac. Source: https://developers.openai.com/codex/app",
-          "**Codex plugin marketplace**: New extensibility/distribution surface for third-party Codex plugins (skills + apps + MCP servers). Source: https://developers.openai.com/codex/plugins",
-          "**`/hooks` browser**: In-session UI to inspect/manage Codex hooks. Source: https://developers.openai.com/codex/changelog",
-          "**Bedrock authentication via AWS console-login credentials**: Codex can now obtain Bedrock credentials through an AWS console-login flow. Source: https://developers.openai.com/codex/changelog"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Anthropic (Claude Enterprise)",
-        "status": "changed",
-        "details": [
-          "**Claude for Small Business (May 13, 2026)**: New SMB product tier with 15 agentic workflows, 15 reusable skills, and connectors to QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, Microsoft 365, Slack. Source: https://www.anthropic.com/news/claude-for-small-business",
-          "**Financial Services Agents (May 5, 2026)**: 10 vertical agent templates for FS workflows (pitch builder, financial model builder, earnings reviewer, GL reconciler, KYC screener, etc.) + Moody's data partnership + Microsoft 365 (Excel/PowerPoint/Word/Outlook) add-in integration. Source: https://www.anthropic.com/news/finance-agents",
-          "**Enterprise AI Services Company joint venture (May 4, 2026)**: $1.5B JV with Blackstone + Hellman & Friedman + Goldman Sachs (+ Apollo, General Atlantic, Leonard Green, GIC, Sequoia). Anthropic engineering embedded; targets mid-market. Source: https://www.anthropic.com/news/enterprise-ai-services-company",
-          "**PwC partnership and Gates Foundation $200M partnership (May 14, 2026)**: New large-scale deployment partnerships; relevant primarily as deployment-channel signals. Source: https://www.anthropic.com/news"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock",
-        "status": "changed",
-        "details": [
-          "**Claude Opus 4.7 available in Bedrock (April 2026)**: New foundation model SKU; available in us-east-1, ap-northeast-1, eu-west-1, eu-north-1, both Global and Regional endpoint variants. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-7.html",
-          "**Claude Mythos Preview (gated, us-east-1)**: New research-preview model focused on advanced cybersecurity, coding, and reasoning; 1M context, 128K output, 93.9% SWE-bench Verified. Allowlisted under Project Glasswing. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-mythos-preview.html",
-          "**Cost allocation by IAM user/role in Cost & Usage Report 2.0**: Per-principal cost attribution for Bedrock spend \u2014 new governance signal. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "**AgentCore Payments service (preview)**: New core service that lets agents execute microtransactions over the x402 protocol via Coinbase CDP or Stripe (Privy) wallets, with configurable spending limits and integration with Gateway/Identity/Observability. Resources: `PaymentManager`, `PaymentConnector`, payment instruments. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments.html",
-          "**AgentCore Payments API suite**: `CreatePaymentInstrument`, `CreatePaymentSession`, `ProcessPayment`, `GetPaymentInstrumentBalance`, `GetResourcePaymentToken`. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-process-payment.html",
-          "**AgentCore A/B Testing API suite (AgentCore Optimization)**: `CreateABTest`, `DeleteABTest`, `GetABTest`, `ListABTests`, `UpdateABTest`. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization.html",
-          "**AgentCore Batch Evaluations API suite**: `StartBatchEvaluation`, `StopBatchEvaluation`, `GetBatchEvaluation`, `ListBatchEvaluations`, `DeleteBatchEvaluation` \u2014 runs evaluators over CloudWatch-logged sessions. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/batch-evaluations.html",
-          "**AgentCore Recommendations API suite**: `StartRecommendation`, `GetRecommendation`, `ListRecommendations`, `DeleteRecommendation` \u2014 AI-generated prompt/tool-description optimizations from real agent traces. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization.html",
-          "**`InvokeBrowser` (OS-level browser action)**: New REST action giving agents mouse/keyboard/screenshot + dialog/right-click/JS-alert control beyond what CDP allows. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-invoke.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Google Vertex AI \u2192 Gemini Enterprise Agent Platform",
-        "status": "changed",
-        "details": [
-          "**Vertex AI rebranded as Gemini Enterprise Agent Platform (Cloud Next 26, April 22, 2026)**: Consolidates Vertex AI + Agentspace + Gemini Code Assist enterprise tiers into a single per-agent-priced platform with Agent Studio (low-code builder), Workspace Studio (no-code builder), agent simulation environment, agent registry, third-party agent marketplace, and a 200-model Model Garden. Existing Vertex deployments run unchanged. Source: https://cloud.google.com/products/gemini-enterprise-agent-platform",
-          "**Gemma 4 26B A4B IT experimental launch (April 3, 2026)**: New open-weight Gemma model SKU in Model Garden. Source: https://cloud.google.com/vertex-ai/docs/release-notes",
-          "**SQL cells GA for Colab Enterprise (April 10, 2026)**: Previously bundled with visualization cells, now broken out \u2014 new in-notebook AI-assisted data access surface. Source: https://cloud.google.com/vertex-ai/docs/release-notes"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Cursor",
-        "status": "changed",
-        "details": [
-          "**Multi-repo cloud-agent dev environments (May 13, 2026)**: Cloud-hosted agents can now operate across multiple repositories in a single environment, with Dockerfile-based config, build secrets, audit log, and rollback. Source: https://cursor.com/blog/cloud-agent-development-environments",
-          "**Microsoft Teams integration via \"@Cursor\" mentions (May 11, 2026)**: New embedded surface \u2014 Cursor agents can be invoked from Teams channels and open PRs autonomously. Source: https://cursor.com/changelog/microsoft-teams",
-          "**\"Build in Parallel\" async subagents and `/multitask` command (May 7, 2026)**: New parallel agent execution model with multiple async subagents per session. Source: https://cursor.com/changelog",
-          "**PR review tabs**: New surface for agent-driven PR review workflows. Source: https://cursor.com/changelog",
-          "**Bugbot effort levels (Default / High / Custom)**: New configuration tier for the Bugbot agent. Source: https://cursor.com/changelog",
-          "**\"Skills\" capability surfaced in docs nav**: New agent extensibility primitive visible in Cursor docs. Source: https://cursor.com/docs"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "Windsurf",
-        "status": "changed",
-        "details": [
-          "**Windsurf 2.0 \u2014 Devin family integrated (Devin Cloud, Devin Local, Devin Review, Devin for Terminal, April\u2013May 2026)**: Cognition's Devin agent now runs inside Windsurf, with Devin Cloud sessions on per-session VMs (desktop + browser + computer-use), plus Devin Local and a CLI variant. Devin sessions appear alongside Cascade in the new Agent Command Center. Source: https://docs.windsurf.com/windsurf/devin",
-          "**Claude Opus 4.7 fast mode (May 12, 2026)**: New model+latency-tier option in Windsurf. Source: https://windsurf.com/changelog"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "Perplexity",
-        "status": "changed",
-        "details": [
-          "**Finance Search Tool in Agent API (May 6, 2026)**: New built-in tool for structured financial data \u2014 real-time/historical quotes, financials, key ratios, earnings transcripts/filings, analyst estimates, insider activity, ETF constituents, index details. Billed at $5/1k invocations. Source: https://docs.perplexity.ai/docs/agent-api/finance-search",
-          "**Claude Opus 4.7, GPT-5.5, Grok 4.20 Reasoning added to Agent API (April 2026)**: New model SKUs in Perplexity's agent inference catalog. Source: https://docs.perplexity.ai/changelog",
-          "**API key one-time-reveal security model**: New key-issuance flow where the secret is shown once. Source: https://docs.perplexity.ai/changelog"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "Dia Browser",
-        "status": "changed",
-        "details": [
-          "**Productized agentic capabilities on the homepage (v1.28\u2013v1.30, April\u2013May 2026)**: Morning Brief, Proactive Suggestions, Reports (aggregating Slack/Notion/Calendar), Live Work (GitHub/Notion in tab bar), Better Meetings, Profiles, Splits. Source: https://diabrowser.com/release-notes",
-          "**Dia for Work (enterprise SSO + admin)**: New enterprise tier with SSO and an admin console. Source: https://www.diabrowser.com/"
-        ],
-        "tier": "watching"
-      },
-      {
-        "name": "ServiceNow",
-        "status": "changed",
-        "details": [
-          "**\"Australia\" family release (May 5, 2026)**: New top-level release family (Patch 1, Patch 2, EA Hotfix 1 already published). Underlying AI/agent feature details not yet enumerated on the index page. Source: https://www.servicenow.com/docs/r/release-notes/family-release-notes.html"
-        ],
-        "tier": "secondary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock AgentCore \u2014 Payments service (x402 protocol)",
-        "description": "AgentCore Payments is a brand-new service that allows agents to hold wallets and execute microtransactions through Coinbase CDP or Stripe (Privy), with configurable spending limits via `PaymentManager` and `PaymentConnector` resources. Introduces several new inventory entities (payment managers, payment connectors, payment instruments, payment sessions, agent wallet bindings, spending policies) and entirely new toxic combinations: an over-privileged agent with a funded payment instrument, weak spending limits, prompt-injection-driven payments, and a payment session bound to a tool that an attacker can drive. AISPM must discover payment instruments and their agent bindings, map spending limits, and flag combinations where untrusted-input pathways can reach `ProcessPayment` or `CreatePaymentSession`. AIDR must monitor payment-session activity as a high-signal data flow",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "AgentCore Payments \u2014 financial-action attack surface",
-        "description": "For the first time, prompt injection or guardrail bypass can translate to direct monetary loss inside an AWS-managed agent runtime. AIRT must add test coverage for prompt-injection-to-payment paths, spending-limit bypass, wallet-provider abuse (CDP/Stripe), x402 v1/v2 protocol-handling flaws, and `ProcessPayment` invocation through indirect-prompt channels",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-how-it-works.html",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "AgentCore A/B Testing, Batch Evaluations, Recommendations API suites (AgentCore Optimization)",
-        "description": "Three new API surfaces (`*ABTest`, `*BatchEvaluation`, `*Recommendation`) extend the AgentCore control plane under the new \"AgentCore Optimization\" umbrella. A/B Testing splits traffic between variants via Gateway with online evaluation scoring; Batch Evaluations run evaluators over CloudWatch-logged sessions; Recommendations auto-generates optimized prompts/tool descriptions. Each introduces new inventory entities and policy scope (who can run evaluations, who can ship A/B tests to prod). AISPM must enumerate these resources and map IAM bindings to them",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "AgentCore `InvokeHarness` and `InvokeBrowser` execution actions",
-        "description": "Two new agent execution surfaces \u2014 drive a test harness or a managed browser. `InvokeBrowser` operates at the OS level (mouse/keyboard/screenshot, dialogs, right-click context menus) beyond what CDP allows, making it a high-impact tool-execution path (SSRF, exfil, credential abuse risk) that AISPM should treat as a sensitive capability when bound to an agent. Sources: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-invoke.html, https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-get-started.html",
-        "source": "",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Microsoft Copilot Studio \u2014 A2A protocol GA",
-        "description": "Agent-to-agent invocation is now a supported production capability in Copilot Studio (April 2026 GA, alongside Fabric integration and Office agentic actions). Introduces new inventory entities: A2A connections between agents (first/second/third-party), cross-agent permission grants, transitive trust paths, and downstream agent invocations as a first-class data flow. AISPM must map A2A graphs, surface transitive-permission paths (Agent A can call Agent B which can read mailbox X), and flag cycles or unbounded delegation",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-agent-to-agent",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Copilot Studio \u2014 REST API for agent evaluations",
-        "description": "New Power Platform REST endpoint (`api.powerplatform.com/copilotstudio/environments/{EnvironmentId}/bots/{BotId}/api/makerevaluation/testsets/...`) that triggers and retrieves agent evaluation runs. AISPM should inventory evaluation test sets, the agents they target, and the principals authorized to trigger them; evaluation runs themselves can carry sensitive prompts/results worth tracking",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-rest-api",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Copilot Studio \u2014 Real-time voice agents (preview) with telephony publish",
-        "description": "Speech-to-speech real-time model with telephony publishing (Dynamics 365 Contact Center channel) introduces an entirely new activity stream (PSTN/voice channel) that AIDR has not previously had to monitor for Copilot Studio agents. New data-flow class: agent \u2194 caller audio, plus speech-to-text/translation intermediates",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/voice-realtime-voice-agents",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Azure OpenAI \u2014 GPT Realtime Translate and GPT Realtime Whisper",
-        "description": "Two new realtime models \u2014 Translate produces translated audio plus a target-language transcript; Whisper provides low-latency streaming transcription that can run in parallel for source-language captions/archival. AISPM must register the new model IDs and map deployments; AIDR should treat realtime-translate streams as a distinct data-flow type because translated text can cross language- or jurisdiction-scoped policy boundaries. Sources: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/gpt-realtime-translate, https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/gpt-realtime-whisper",
-        "source": "",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "M365 Copilot \u2014 Work IQ API (preview)",
-        "description": "Work IQ exposes Microsoft 365 work intelligence (emails, meetings, files, org knowledge) through three interfaces \u2014 A2A for agent collaboration, MCP for IDEs/tools, and REST for app integrations \u2014 plus a Work IQ CLI. Introduces new inventory entities: Work IQ\u2013derived insights/signals, Work IQ Gateway connections, MCP servers, and consumer apps spanning A2A/MCP/REST channels. AISPM must enumerate Work IQ\u2013enabled agents and the data sources Work IQ aggregates over",
-        "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq-api-overview",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI \u2014 Admin API Keys per endpoint + `external_key_id` (EKM)",
-        "description": "New External Key Management (EKM) model scopes admin keys per endpoint and adds an `external_key_id` field on projects, requiring `api.external_keys.read`/`write` scopes. AISPM should treat each scoped admin key as a distinct credential entity and surface over-scoped or external-id-bound keys",
-        "source": "https://help.openai.com/en/articles/20000953-ekm-external-keys-in-the-management-api",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Realtime 2 API (gpt-realtime-2)",
-        "description": "Successor realtime protocol with GPT-5-class reasoning, configurable `reasoning.effort`, preambles, and parallel tool calls; the original Realtime API Beta was deprecated and removed on May 12, 2026. AIDR must update realtime-session decoders to recognize Realtime 2 framing (WebRTC/WebSocket client+server event streams); ENDPOINT/AISPM should track which projects move to Realtime 2",
-        "source": "https://developers.openai.com/api/docs/models/gpt-realtime-2",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Codex \u2014 Chrome Extension",
-        "description": "A browser-resident Codex endpoint that operates inside the user's signed-in Chrome sessions (LinkedIn, Salesforce, Gmail, internal tools). Requests access to browsing history, tab groups, downloads, bookmarks, website data, debugger, and native messaging. ENDPOINT must recognize the Chrome extension as a distinct Codex install class (separate from CLI and IDE plugin), capture its activity, and flag installs that lack enterprise allowlist/blocklist policy",
-        "source": "https://developers.openai.com/codex/app/chrome-extension",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Codex \u2014 `codex access tokens` for headless automation",
-        "description": "New token class (stored in `CODEX_ACCESS_TOKEN`) enabling unattended, machine-to-machine Codex invocation from scripts, schedulers, and private CI runners under a ChatGPT workspace identity. Removes the human-in-the-loop assumption from many threat models. AIRT must cover token theft/replay, prompt injection in unattended sessions, and tool-execution abuse without an interactive operator",
-        "source": "https://developers.openai.com/codex/enterprise/access-tokens",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Codex \u2014 plugin marketplace",
-        "description": "New extensibility surface where third-party plugins (skills + apps + MCP servers) can be installed into Codex from a curated Plugin Directory, a repo-scoped marketplace, or a personal marketplace. Admin policy can set per-plugin states (`INSTALLED_BY_DEFAULT`, `AVAILABLE`, `NOT_AVAILABLE`). ENDPOINT/AISPM should inventory installed plugins per Codex install and flag plugins that grant elevated tool access",
-        "source": "https://developers.openai.com/codex/plugins",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Codex \u2014 mobile access via Mac handoff",
-        "description": "ChatGPT mobile app can now drive a Codex session running on a paired Mac, with files/credentials/permissions remaining on the Mac while the phone surfaces approvals, diffs, screenshots, and terminal output. ENDPOINT inventory should distinguish mobile-driven Codex sessions and capture the device pair (mobile + Mac)",
-        "source": "https://developers.openai.com/codex/app",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Anthropic \u2014 Financial Services Agents (10 templates)",
-        "description": "New vertical agent product line: pitch builder, comps/DCF financial model builder, earnings reviewer, meeting prep, general ledger reconciler, month-end closer, financial statement auditor, KYC screener, and more. Also includes a Moody's data partnership and full Microsoft 365 (Excel/PowerPoint/Word/Outlook) add-in integration with cross-app context. AISPM must add inventory mapping for FS Agents and flag toxic combinations involving financial-data access (e.g., KYC agent with outbound network egress, or a ledger reconciler with Excel write access plus tenant-wide email read)",
-        "source": "https://www.anthropic.com/news/finance-agents",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Anthropic \u2014 Claude for Small Business",
-        "description": "New SMB product tier with 15 agentic workflows, 15 reusable skills, and connectors to QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, Microsoft 365, Slack. AISPM should recognize SMB-tier tenants as a separate inventory class with possibly different default policies, and the QuickBooks/PayPal/HubSpot connectors as new tool entities in SMB-tier agents",
-        "source": "https://www.anthropic.com/news/claude-for-small-business",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Anthropic \u2014 Enterprise AI Services Company joint venture",
-        "description": "$1.5B JV with Blackstone, Hellman & Friedman, Goldman Sachs (+ Apollo, General Atlantic, Leonard Green, GIC, Sequoia) \u2014 a standalone AI services firm with Anthropic engineering/partnership resources embedded. New deployment channel that brings Claude into mid-sized companies as a managed service; AISPM should anticipate JV-tenanted Claude deployments as a distinct inventory class",
-        "source": "https://www.anthropic.com/news/enterprise-ai-services-company",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock \u2014 Claude Mythos Preview (gated cybersecurity/coding/reasoning model)",
-        "description": "Gated research-preview model (Project Glasswing) scored 93.9% on SWE-bench Verified; 1M-token context, 128K-output, adaptive reasoning. Available only in us-east-1 with an initial allowlist. AISPM must register the new model ID, and any agent bound to Mythos should be treated as a higher-capability (and higher-risk) instance \u2014 especially given the model's explicit cybersecurity-vulnerability-discovery capability",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-mythos-preview.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Bedrock \u2014 Claude Opus 4.7 model SKU",
-        "description": "New foundation model in Bedrock catalog (us-east-1, ap-northeast-1, eu-west-1, eu-north-1), with both Global and Regional endpoint variants; 10M TPM (bedrock-mantle) / 15M TPM (bedrock-runtime) default quotas. AISPM must include the new model ID in inventory + policy and recognize the two endpoint variants as distinct entities",
-        "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-opus-4-7.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Cursor \u2014 Multi-repo cloud-agent dev environments + async subagent parallelism",
-        "description": "Two distinct capability expansions in a watching-tier platform that meaningfully grow the local-AI agent surface: cloud-hosted agents now span multiple repos in one environment (with Dockerfile-based config, build secrets, audit log, rollback) and `/multitask`/Build in Parallel runs multiple async subagents per session. Introduces new entities (multi-repo agent envs, parallel subagent fan-outs, environment version history) and toxic combos (one prompt injection cascades across multiple repos / multiple subagents simultaneously; build-secret reachable from agent runtime). AISPM/ENDPOINT must inventory cloud-agent environments and subagent fan-out graphs",
-        "source": "https://cursor.com/blog/cloud-agent-development-environments",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Cursor \u2014 Microsoft Teams \"@Cursor\" integration",
-        "description": "Cursor cloud agents are now invokable from any Teams channel via `@Cursor` mentions, auto-selecting repo+model from context and opening PRs. New embedded endpoint class that ENDPOINT/AISPM must recognize alongside IDE-resident Cursor; introduces a Teams-channel \u2192 cloud-agent \u2192 PR data flow that bypasses the IDE entirely",
-        "source": "https://cursor.com/changelog/microsoft-teams",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Windsurf 2.0 \u2014 Devin family integration (Devin Cloud, Devin Local, Devin for Terminal, Devin Review)",
-        "description": "Windsurf now ships Cognition's Devin agent inside the IDE, terminal, and review surfaces, each Devin Cloud session running on its own VM with desktop+browser+computer-use. Devin sessions appear alongside Cascade in the Agent Command Center. ENDPOINT must recognize Devin-backed Windsurf sessions as a distinct endpoint class with its own tool/execution model; AISPM should flag Devin Local as a local-execution capability that needs containment policy, and Devin Cloud VMs as a separate agent-runtime inventory entity",
-        "source": "https://docs.windsurf.com/windsurf/devin",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Perplexity \u2014 Finance Search Tool in Agent API",
-        "description": "New built-in agent tool returning structured financial data (real-time/historical quotes, annual/quarterly statements, key ratios, earnings transcripts/filings, beat/miss histories, analyst estimates, insider activity, ETF constituents, index details), billed at $5 per 1k invocations. New tool entity for Perplexity agent inventory; relevant especially when combined with financial-services workflows",
-        "source": "https://docs.perplexity.ai/docs/agent-api/finance-search",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Google \u2014 Vertex AI consolidation into \"Gemini Enterprise Agent Platform\"",
-        "description": "Announced April 22, 2026 at Cloud Next 26 \u2014 consolidates Vertex AI, Agentspace, and Gemini Code Assist enterprise tiers into a single per-agent-priced platform with Workspace Studio (no-code builder), Agent Studio (low-code builder), an agent simulation environment, an agent registry, a third-party agent marketplace, and a 200-model Model Garden. Existing Vertex deployments run unchanged but the inventory schema gains new top-level entities (agents, workspaces, registry entries, marketplace third-party agents). AISPM must prepare to map existing Vertex inventory onto the new platform's resource model",
-        "source": "https://cloud.google.com/products/gemini-enterprise-agent-platform",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Dia Browser \u2014 Productized agent capabilities + Dia for Work (enterprise SSO)",
-        "description": "Dia has shipped agentic features (Morning Brief, Proactive Suggestions, Reports aggregating Slack/Notion/Calendar, Live Work pinning GitHub/Notion to the tab bar, Better Meetings, Profiles, Splits) and a Dia for Work enterprise tier with SSO and admin controls. AISPM should recognize Dia for Work tenants and the connector-aggregation pattern (Slack+Notion+Calendar in one agent) as a new inventory + toxic-combo signal \u2014 a browser-resident agent simultaneously bound to chat, docs, and calendar is a high-risk exfil shape",
-        "source": "https://www.diabrowser.com/",
-        "module": "AISPM",
         "action": "New Coverage Required"
       }
     ]

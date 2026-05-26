@@ -1,4 +1,10 @@
-# Cursor Changelog — captured 2026-05-20
+# Cursor Changelog — captured 2026-05-26
+
+## May 20, 2026 (Version 3.5) — Shared Canvases
+Teams can share interactive artifacts created by agents (dashboards, reports) via browser links with read-only access. New external/cross-team sharing surface for agent-produced artifacts.
+
+## May 20, 2026 — Improvements to Cursor Automations
+Automations integrated into the Agents Window. Supports multi-repository configurations and standalone setups without repositories. New templates: Slack digest, analytics, FAQ, finance, customer health monitoring agents.
 
 ## May 19, 2026 — Cursor in Jira
 Cursor integrated with Jira. Users can assign work items directly to cloud agents or mention @Cursor in Jira comments. The system uses ticket context to scope tasks and generates pull requests upon completion.
