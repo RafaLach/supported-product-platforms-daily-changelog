@@ -1,20 +1,14 @@
-# Dia Browser Release Notes
+# Dia Browser Release Notes — captured 2026-05-27
 
-**Visible Release Items:**
+**Visible Release Items (newsletter "Dia Weekly" format):**
 
-1. **May 14, 2026** - Current issue (No. 012345678901234567890123456789012345678901234567890123456789, App v01234567890123456789012345678901234567890123456789012345678901234567890123456789)
-   - Location: Brooklyn, USA
+1. **May 21, 2026** - latest issue (no feature details extractable from page)
+2. **May 14, 2026** - No. 025, App v1.31 — "Stop opening PRs blind" (title only; no substantive capability description)
+3. **May 7, 2026** - No. 024, App v1.30 — "Keeping Tabs Tidy"
+4. **April 30, 2026** - No. 023, App v1.29 — "Sync unpinned tabs"
+5. **April 23, 2026** - No. 022, App v1.28.0 — "A closer look"
 
-2. **May 7, 2026** - No. 024, App v1.30
-   - "Keeping Tabs Tidy"
-
-3. **April 30, 2026** - No. 023, App v1.29
-   - "Sync unpinned tabs"
-
-4. **April 23, 2026** - No. 022, App v1.28.0
-   - "A closer look"
-
-**Note:** The page displays a "Dia Weekly" newsletter format with placeholder text and indicates more release notes are available via a "View All Release Notes +" link. The current featured release appears to be from May 14, 2026, though specific feature details are not provided in the visible content.
+**Note:** The page displays a "Dia Weekly" newsletter format with placeholder text and a "View All Release Notes +" link. Titles only; no extractable capability detail.
 
 ## Last Fetched
-2026-05-18 — NEW: Three new releases since prior fetch — v1.28.0 (Apr 23, "A closer look"), v1.29 (Apr 30, "Sync unpinned tabs"), v1.30 (May 7, "Keeping Tabs Tidy"), plus latest May 14 issue.
+2026-05-27 — NEW newsletter issues v1.31 (May 14, "Stop opening PRs blind") and a May 21 issue. Newsletter format only; no extractable capability detail, so no coverage finding.

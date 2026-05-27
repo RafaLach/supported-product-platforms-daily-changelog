@@ -1,9 +1,10 @@
-# Amazon Bedrock User Guide - Document History (Fetched 2026-05-18)
+# Amazon Bedrock User Guide - Document History (Fetched 2026-05-27)
 
-**Latest documentation update:** November 26th, 2025
+**Latest documentation update:** May 26th, 2026
 
 | Change | Description | Date |
 |--------|-------------|------|
+| Token counting on the bedrock-mantle endpoint | Documented how to count input tokens through the Anthropic count_tokens path on the bedrock-mantle endpoint, including for Claude models not supported by CountTokens on bedrock-runtime. [Doc update to existing endpoint — not a new surface] | May 26, 2026 |
 | Converse API support for batch inference | Use Converse API format for batch inference input data with consistent request format across models. | February 27, 2026 |
 | Fine-tuning open-weight models with OpenAI-compatible APIs | Create, monitor, and manage reinforcement fine-tuning jobs for open-weight models through OpenAI SDK endpoints (Files API, fine-tuning jobs APIs, inference APIs). | February 17, 2026 |
 | Updated list of models supported for service tiers | Updated for priority and flex service tiers. | December 31, 2025 |
@@ -58,4 +59,4 @@
 
 (Older entries from 2024 unchanged from previous cache.)
 
-Updated: 2026-05-18 — No new entries since previous scan (latest remains February 27, 2026).
+Updated: 2026-05-27 — New top entry May 26, 2026 (token counting on bedrock-mantle endpoint — documentation update to an existing endpoint, not a new feature/API/entity; not reportable).

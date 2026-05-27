@@ -1,7 +1,10 @@
-# Cursor Changelog — captured 2026-05-26
+# Cursor Changelog — captured 2026-05-27
 
 ## May 20, 2026 (Version 3.5) — Shared Canvases
-Teams can share interactive artifacts created by agents (dashboards, reports) via browser links with read-only access. New external/cross-team sharing surface for agent-produced artifacts.
+Teams can share interactive artifacts created by agents (dashboards, reports, custom interfaces) via browser links with read-only access. New external/cross-team sharing surface for agent-produced artifacts. Across Pro, Teams, and Enterprise plans.
+
+## May 20, 2026 (Version 3.5) — /loop Skill
+New agent skill: enables agents to run a prompt repeatedly on a local schedule, until a certain outcome is achieved (e.g., monitoring deployment status checks). Recurring/unattended scheduled agent execution on the local machine.
 
 ## May 20, 2026 — Improvements to Cursor Automations
 Automations integrated into the Agents Window. Supports multi-repository configurations and standalone setups without repositories. New templates: Slack digest, analytics, FAQ, finance, customer health monitoring agents.

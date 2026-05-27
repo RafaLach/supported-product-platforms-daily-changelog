@@ -1,6 +1,12 @@
-# Vertex AI Release Notes Summary
+# Vertex AI Release Notes Summary — captured 2026-05-27
 
-## Latest Updates (April 2026)
+## Latest Updates (May 2026)
+
+**May 26, 2026** - Colab Enterprise: Data Science Agent now generally available. Automates exploratory data analysis, performs machine learning tasks, and delivers insights directly within Colab Enterprise notebooks.
+
+**May 26, 2026** - Vertex AI Extensions marked for deprecation (effective November 26, 2026); migrate to Agent Platform. [DEPRECATION — not coverage-relevant]
+
+## April 2026
 
 **April 17, 2026** - RAG Cross Corpus Retrieval now in public preview, enabling retrieval from multiple corpora simultaneously
 
@@ -21,7 +27,6 @@
 - **Vector Search 2.0** (March 5, 2026) - Now generally available with collections, auto-embeddings, and hybrid search
 - **Vertex AI Agent Engine** (March 4, 2025) - Generally available with billing starting that date
 - **Gemini 2.5 Flash/Pro** (June 17, 2025) - Now generally available with updated pricing
-- Multiple **model deprecations** including Imagen endpoints, Video generation preview endpoints, and partner models
 
 ## Major Feature Releases
 
@@ -31,4 +36,4 @@
 - Agent Garden in preview (April 2025)
 
 ## Last Fetched
-2026-05-18 — NEW: Gemma 4 26B A4B IT experimental launch (Apr 3, 2026); SQL cells GA (Apr 10, 2026, now broken out separately from visualization cells). Note: URL now redirects to docs.cloud.google.com.
+2026-05-27 — NEW: Colab Enterprise Data Science Agent GA (May 26, 2026). Vertex AI Extensions deprecation announced (May 26, 2026; not reportable). URL redirects to docs.cloud.google.com.

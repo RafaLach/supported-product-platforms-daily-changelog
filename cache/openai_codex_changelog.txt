@@ -1,4 +1,12 @@
-# OpenAI Codex Changelog — captured 2026-05-25
+# OpenAI Codex Changelog — captured 2026-05-27
+
+## May 26, 2026 — Codex CLI 0.134.0
+- Added search across local conversation history, including case-insensitive content matches with result previews
+- Profile selection now prioritizes `--profile` flag across CLI, permissions, and sandbox workflows
+- Enhanced MCP server setup with per-server environment targeting and OAuth capabilities
+- Improved connector tool schema reliability through local reference preservation and schema compaction
+- Read-only MCP tools can now execute concurrently when flagged appropriately
+- Extended context for extension tools and subagent identification in hook inputs
 
 ## May 21, 2026 — Version 26.519: Appshots, Goal Mode, and Remote Computer Use
 
