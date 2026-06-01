@@ -1,4 +1,11 @@
-# OpenAI Codex Changelog — captured 2026-05-27
+# OpenAI Codex Changelog — captured 2026-06-01
+
+## May 29, 2026 — Version 26.527: Computer Use & Mobile Access on Windows
+- Computer Use comes to Windows: the Codex app can see, click, and type in foreground Windows desktop apps (runs on the active desktop, takes over the foreground). Install the Computer Use plugin; invoke via @Computer or @AppName. (NEW since prior scan)
+- Remote control extended to Windows devices via ChatGPT app on iOS/Android.
+- Profile section added showing usage stats and token activity.
+- Thread coordination improvements for local projects and worktrees.
+- Limitations: cannot automate terminal apps or Codex itself; cannot authenticate as admin or approve OS security/privacy prompts.
 
 ## May 26, 2026 — Codex CLI 0.134.0
 - Added search across local conversation history, including case-insensitive content matches with result previews
@@ -9,30 +16,11 @@
 - Extended context for extension tools and subagent identification in hook inputs
 
 ## May 21, 2026 — Version 26.519: Appshots, Goal Mode, and Remote Computer Use
-
-### Appshots (macOS only)
-Press both Command keys to send the frontmost app window to Codex with a screenshot.
-Injects screenshot of frontmost window plus any text the app exposes (including content outside the visible scroll area) into the current thread as an attachment.
-
-### Goal Mode (GA)
-Transitioned from experimental to standard feature.
-Enables extended multi-hour objective tracking across app, IDE extension, and CLI.
-Now live in Codex app, VS Code and JetBrains extensions, and CLI 0.128.0+.
-
-### Remote Computer Use
-Codex can access desktop applications after device lock.
-Remote operation via Codex Mobile possible even when Mac screen is off and locked.
-Safety: time-bound authorization, covered screen, relock at first local input, manual unlock fallback.
-
-### Plugin Sharing
-ChatGPT Business teams can distribute reusable plugin bundles through marketplace sources.
-
-### Browser Improvements
-Enhanced image asset extraction speed.
-Structured data retrieval with read-only JavaScript sandbox.
-
-### Chrome Extension Refinements
-Reduced tab clutter by removing tab group creation during task handoff.
+- Appshots (macOS): press both Command keys to send frontmost app window + screenshot to Codex.
+- Goal Mode (GA): extended multi-hour objective tracking across app, IDE extension, CLI (0.128.0+).
+- Remote Computer Use: access desktop apps after device lock; remote operation via Codex Mobile even when Mac screen is off/locked (time-bound auth, relock on first local input).
+- Plugin Sharing: ChatGPT Business teams distribute reusable plugin bundles via marketplace sources.
+- Browser improvements; Chrome extension refinements.
 
 ## Codex CLI 0.133.0
 - Goals function by default with dedicated storage and progress tracking across turns
@@ -42,5 +30,5 @@ Reduced tab clutter by removing tab group creation during task handoff.
 - Extensions gain additional lifecycle event visibility including subagent transitions and tool execution
 
 ## May 20, 2026 — Codex CLI 0.132.0
-Python SDK authentication enhancements: API key login, ChatGPT browser flow, device-code flows.
-Text-based workflows accept plain strings.
+- Python SDK authentication enhancements: API key login, ChatGPT browser flow, device-code flows.
+- Text-based workflows accept plain strings.

@@ -1,4 +1,7 @@
-# Cursor Changelog — captured 2026-05-27
+# Cursor Changelog — captured 2026-06-01
+
+## May 29, 2026 (Version 3.6) — Auto-review Run Mode
+New run mode (Settings → Agents → Run Mode) allowing the agent to work longer with fewer approval prompts. Applies to Shell, MCP, and Fetch tool calls: allowlisted calls run immediately, sandboxable calls run in an isolated sandbox, and all other actions route to a classifier subagent that decides to allow, try a different approach, or request user approval. Classifier can be steered with custom instructions. (NEW since prior scan — reported 2026-06-01)
 
 ## May 20, 2026 (Version 3.5) — Shared Canvases
 Teams can share interactive artifacts created by agents (dashboards, reports, custom interfaces) via browser links with read-only access. New external/cross-team sharing surface for agent-produced artifacts. Across Pro, Teams, and Enterprise plans.

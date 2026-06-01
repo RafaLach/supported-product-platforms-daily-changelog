@@ -1,6 +1,10 @@
-# Windsurf Editor Changelog Summary
+# Windsurf Editor Changelog Summary — captured 2026-06-01
 
 ## Recent Major Releases
+
+**May 28, 2026 (v2.3.15)** - Claude Opus 4.8 available (Standard $5/$25; Fast Mode $10/$50 per M tokens — model bump). Devin Local: tracks files open in editor as context; session-level + permanent approval for MCP tools; permission grants persist across sessions; improved plan mode in OS sandbox; fixed prompt-blocking. Server startup timeout extended 2.5s→6s. [Incremental — below watching-tier major-capability bar; not reported.]
+
+**May 17, 2026 (v2.3.9)** - Fixed swe-check model availability; terminal processing efficiency; restored conversation sharing; fixed Devin local path resolution on WSL.
 
 **May 12, 2026** - Claude Opus 4.7 (fast mode) launched with ~2.5x higher output speeds while maintaining full intelligence.
 
@@ -32,16 +36,7 @@
 
 ## Model Additions
 
-Recent frontier models: Opus 4.7, GPT-5.5, GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6, Grok Code Fast, GPT-5.2-Codex, SWE-1.5, DeepSeek-R1, o3-mini, Gemini 2.5 Pro, and multiple others with promotional pricing periods.
-
-## Platform Improvements
-
-- Windows update fix for some users (May 2026)
-- Linux ARM64 full client support
-- Dev Container support expanded to Windows
-- WSL, SSH, and remote extension improvements
-- Vim extension typing lag resolution
-- Terminal rendering optimizations
+Recent frontier models: Opus 4.8, Opus 4.7, GPT-5.5, GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6, Grok Code Fast, GPT-5.2-Codex, SWE-1.5, DeepSeek-R1, o3-mini, Gemini 2.5 Pro, and multiple others with promotional pricing periods.
 
 ## Last Fetched
-2026-05-18 — NEW: Devin Review and Quick Review integration (May 6, 2026); Devin for Terminal + Devin Local agent in Windsurf (Apr 28, 2026); Claude Opus 4.7 fast mode (May 12, 2026); GPT-5.5 model (Apr 24, 2026).
+2026-06-01 — NEW since 2026-05-18 cache: v2.3.9 (May 17) stability fixes; v2.3.15 (May 28) Claude Opus 4.8 + Devin Local context/permission-persistence updates. All incremental — no watching-tier finding reported.
