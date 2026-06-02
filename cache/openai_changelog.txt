@@ -1,6 +1,17 @@
-# OpenAI Python SDK Releases
+# OpenAI Python SDK Releases — captured 2026-06-02
 
-## Latest Releases (May 2026 - March 2026)
+## Latest Releases (June 2026 - April 2026)
+
+**v2.40.0** (June 1, 2026)
+- Add Amazon Bedrock Responses support (point Responses API at bedrock-mantle OpenAI-compatible endpoint, AWS-managed auth). (NEW)
+
+**v2.39.0** (June 1, 2026)
+- Workload identity in audit logs
+- Additional tools in responses
+- Made ActionSearch.query optional
+
+**v2.38.0** (May 21, 2026)
+- General API updates and documentation improvements
 
 **v2.37.0** (May 15, 2026)
 - Added `service_tier` parameter to responses compact method
@@ -34,17 +45,3 @@
 - Added detail field to InputFileContent
 - Implemented websocket event handlers and reconnection support
 - Enhanced file parameter handling
-
-**v2.31.0** (April 8, 2026)
-- Added phase field to conversations message
-- Implemented short-lived tokens support
-- Added raw data transmission over websockets
-
-**v2.30.0** (March 25, 2026)
-- Added keys field to computer actions (Click, Drag, etc.)
-- Aligned response types with expanded schemas
-
-**v2.29.0** (March 17, 2026)
-- Added GPT-5.4 nano and mini model support
-- Added `/v1/videos` endpoint to batches
-- Implemented comparison filter operators (in, nin)

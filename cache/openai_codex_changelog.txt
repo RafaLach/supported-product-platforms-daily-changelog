@@ -1,7 +1,20 @@
-# OpenAI Codex Changelog — captured 2026-06-01
+# OpenAI Codex Changelog — captured 2026-06-02
+
+## June 1, 2026 — Codex CLI 0.136.0
+- Amazon Bedrock support for running Codex locally with AWS-managed authentication (Bedrock API key via AWS_BEARER_TOKEN_BEDROCK/AWS_REGION, or AWS SDK credential chain; SigV4 signing). (NEW since prior scan — underlying OpenAI-on-Bedrock GA since April 2026 / CLI v0.124.0)
+- Session archiving via `/archive` command to protect threads from resume/fork. (NEW)
+- Windows sandbox provisioning with elevated setup path. (NEW)
+- Enhanced TUI markdown rendering with clickable web links and readable table formatting.
+
+## May 28, 2026 — Codex CLI 0.135.0
+- Enhanced `codex doctor` command with richer environment and thread diagnostics
+- Vim mode text-object editing and configurable interrupt-turn binding
+- Named permission profiles in `/permissions` slash command
+- Bundled patched zsh helper for macOS and Linux
+- Python SDK sandbox presets for thread and turn APIs
 
 ## May 29, 2026 — Version 26.527: Computer Use & Mobile Access on Windows
-- Computer Use comes to Windows: the Codex app can see, click, and type in foreground Windows desktop apps (runs on the active desktop, takes over the foreground). Install the Computer Use plugin; invoke via @Computer or @AppName. (NEW since prior scan)
+- Computer Use comes to Windows: the Codex app can see, click, and type in foreground Windows desktop apps (runs on the active desktop, takes over the foreground). Install the Computer Use plugin; invoke via @Computer or @AppName.
 - Remote control extended to Windows devices via ChatGPT app on iOS/Android.
 - Profile section added showing usage stats and token activity.
 - Thread coordination improvements for local projects and worktrees.

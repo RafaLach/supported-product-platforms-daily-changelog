@@ -1,5 +1,31 @@
 [
   {
+    "date": "2026-06-02",
+    "scan_time": "2026-06-02 10:04",
+    "file": "report-2026-06-02.md",
+    "platforms": [
+      {
+        "name": "ChatGPT Enterprise (OpenAI) \u2014 Codex CLI & SDKs",
+        "status": "changed",
+        "details": [
+          "**Codex CLI 0.136.0 (June 1, 2026) \u2014 native Amazon Bedrock backend**: The local Codex agent can now run against Amazon Bedrock with AWS-managed authentication (Bedrock API key via `AWS_BEARER_TOKEN_BEDROCK`/`AWS_REGION`, or the standard AWS SDK credential chain \u2014 `AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY`/`AWS_SESSION_TOKEN`, shared config, or console creds \u2014 with SigV4 signing). Same release also adds session archiving via the `/archive` command and Windows sandbox provisioning with an elevated setup path. Source: https://developers.openai.com/codex/amazon-bedrock",
+          "**OpenAI Python v2.40.0 / Node v6.41.0 (June 1, 2026) \u2014 Amazon Bedrock Responses support**: The official SDKs add a first-class Bedrock client so the Responses API can be pointed at the `bedrock-mantle` OpenAI-compatible endpoint (`OPENAI_BASE_URL=https://bedrock-mantle.<region>.api.aws/v1`) authenticated with a Bedrock API key instead of an OpenAI key. The immediately prior releases (Python v2.39.0 / Node v6.40.0, also June 1) added workload identity in audit logs, additional tools in responses, and made `ActionSearch.query` optional. Source: https://developers.openai.com/api/docs/guides/amazon-bedrock"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI SDKs & Codex CLI add native Amazon Bedrock provider (cross-cloud inference routing)",
+        "description": "As of June 1, 2026, the official `openai-python` v2.40.0, `openai-node` v6.41.0, and Codex CLI 0.136.0 all ship turnkey \"Amazon Bedrock Responses support,\" letting OpenAI's standard client libraries and the local Codex agent send Responses/Chat traffic to AWS Bedrock's OpenAI-compatible `bedrock-mantle` endpoint authenticated with AWS credentials (Bedrock API key or IAM/SigV4) rather than an `OPENAI_API_KEY`. The underlying OpenAI-on-Bedrock integration has been GA since April 2026, but moving it into the default SDKs and CLI makes it the path of least resistance and breaks several monitoring assumptions: detection keyed on \"OpenAI SDK \u21d2 api.openai.com\" now misses inference that terminates at AWS Bedrock; a single OpenAI-shaped agent may straddle two monitored clouds; and a developer endpoint running Codex can hold AWS credentials and open a new egress path to `bedrock-mantle.*.api.aws`. AIDR should treat OpenAI-client / Codex traffic to the `bedrock-mantle` endpoint as a monitored cross-provider data flow (and attribute it to the OpenAI SDK rather than a generic AWS call), while ENDPOINT-side inventory should flag Codex installs configured with the `amazon-bedrock` model provider as holding AWS credentials with a Bedrock egress path. New toxic combination: a Codex endpoint with broad AWS IAM credentials plus the Bedrock provider can route prompt/response data \u2014 including injected instructions \u2014 into the customer's own AWS account, blending agent traffic with first-party AWS API activity",
+        "source": "https://developers.openai.com/codex/amazon-bedrock",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-06-01",
     "scan_time": "2026-06-01 08:56",
     "file": "report-2026-06-01.md",
@@ -127,131 +153,6 @@
         "description": "Cursor Automations are now first-class Agents Window citizens, can operate across multiple repositories in one automation, and can run standalone (no repo at all). Five new templates (Slack digest, analytics, FAQ, finance, customer health monitoring) expand the kinds of business workflows automations execute. AISPM should treat each Automation as an inventory entity with a defined repo-set scope, recognize standalone automations as a distinct class (no repo-bounded blast radius), and add the new template types to the catalog so any standardized template instance can be discovered and audited",
         "source": "https://cursor.com/docs/cloud-agent/automations",
         "module": "AISPM",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-25",
-    "scan_time": "2026-05-25 08:32",
-    "file": "report-2026-05-25.md",
-    "platforms": [
-      {
-        "name": "Amazon Q Developer",
-        "status": "changed",
-        "details": [
-          "**Amazon Q artifacts (preview) \u2014 May 21, 2026**: New Q Developer capability that delivers responses enriched with table and chart visualizations *and* executes cross-service jobs in the AWS Management Console. Example: \"Connect EC2 instance to an S3 bucket\" returns a Q artifact that **grants permissions on the EC2 instance profile** and **makes bucket policy changes**. Supported services include EC2, RDS, Lambda, S3. All visualization data is persisted in **us-east-1** regardless of the source region. AmazonQFullAccess and AmazonQDeveloperAccess managed policies updated with `q:CreateArtifact`, `q:GetArtifact`, `q:GetArtifactActionResult`, `q:PerformArtifactAction`. Source: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/chat-artifacts.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "OpenAI Codex",
-        "status": "changed",
-        "details": [
-          "**Codex 26.519 \u2014 Appshots (macOS), May 21, 2026**: New macOS-only capture mechanism \u2014 pressing both Command keys sends the frontmost application window to Codex with a screenshot. The capture pulls **text the app exposes including content outside the visible scroll area** into the thread as an attachment. Source: https://developers.openai.com/codex/changelog",
-          "**Codex 26.519 \u2014 Goal Mode GA, May 21, 2026**: Goal Mode promoted from experimental to GA. Codex now accepts a multi-hour objective and runs it autonomously **across session breaks, token-budget resets, and interruptions**. Live in the Codex app, VS Code and JetBrains extensions, and CLI 0.128.0+. Source: https://developers.openai.com/codex/changelog",
-          "**Codex 26.519 \u2014 Remote Computer Use, May 21, 2026**: New capability lets Codex drive desktop applications after the device is locked, via Codex Mobile from a smartphone. Safety controls include time-bound authorization, covered-screen behavior, automatic relock on first local input, and manual unlock fallback. Source: https://developers.openai.com/codex/changelog",
-          "**Codex Plugin Sharing \u2014 May 21, 2026**: ChatGPT Business teams can distribute **reusable plugin bundles** through marketplace sources. Discovery is \"marketplace-aware\" with remote collection support. Source: https://developers.openai.com/codex/changelog",
-          "**Codex CLI 0.133.0 \u2014 May 21, 2026**: Permission profiles expanded with **list APIs, inheritance support, and Windows sandbox integration**. `codex remote-control` operates as a foreground command. Extensions expose new lifecycle events including subagent transitions and tool execution. Source: https://developers.openai.com/codex/changelog"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "**AgentCore Runtime \u2014 bring-your-own file system, May 6, 2026**: New AgentCore Runtime capability that lets developers attach **Amazon S3 Files** and **Amazon EFS access points** directly to agent runtimes. The file system is **mounted into every session at a developer-specified path**, and agents read/write using standard POSIX-style file operations \u2014 \"no custom mount code, no privileged containers, no download orchestration before the agent can start working.\" Sub-millisecond latency for active data, NFS close-to-open consistency. Multiple sessions/agents can share the same file system simultaneously, persisting intermediate results across sessions. Requires VPC configuration + access point ARN. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Anthropic \u2014 Project Glasswing",
-        "status": "changed",
-        "details": [
-          "**Project Glasswing: Initial update \u2014 May 22, 2026**: Anthropic published its first results update for Project Glasswing (the cybersecurity initiative powered by Claude Mythos Preview, originally introduced April 7, 2026). Mythos Preview has now uncovered **10,000+ high/critical-severity vulnerabilities** across widely used software systems via a coalition of ~50 trusted partners. **Cloudflare** (~2,000 bugs, 400 H/C-severity \u2014 fewer false positives than human testers), **Mozilla** (271 vulnerabilities fixed in Firefox 150, 10\u00d7 more than older Claude models), and **Verizon** (joined May 2026) are confirmed partners. Open-source program scanned 1,000+ projects, found 6,202 H/C-severity vulnerabilities (90.6% confirmed legitimate true positives, 62.4% validated as H/C-severity). Expansion plan includes **U.S. and allied governments**. Anthropic states: \"no company \u2014 including itself \u2014 has yet developed safeguards reliable enough to prevent the malicious use of models with Mythos-level capabilities.\" Source: https://www.anthropic.com/research/glasswing-initial-update"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Amazon Q Developer artifacts (preview) \u2014 Q can perform cross-service AWS actions",
-        "description": "Brand-new capability that promotes Amazon Q from a chat surface to an **action-executing agent in the AWS Management Console**. Introduces three new inventory entities: **Q artifact** (the response payload), **Q artifact action** (the cross-service job, e.g., grant S3 bucket policy + modify EC2 instance profile), and **Q artifact action result**. New IAM actions `q:CreateArtifact`, `q:GetArtifact`, `q:GetArtifactActionResult`, `q:PerformArtifactAction` are now baked into the **AmazonQFullAccess** and **AmazonQDeveloperAccess** managed policies, so every principal granted these policies inherits artifact-action capability transitively. AISPM must inventory which IAM principals carry these permissions, treat Q artifacts as a new high-privilege agent-tool primitive (cross-service mutations on EC2/RDS/Lambda/S3 from a chat prompt), and surface us-east-1 visualization data as a new data-residency signal. New toxic combination: overprivileged IAM principal + Q artifact action permissions + sensitive workload (production, regulated)",
-        "source": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/chat-artifacts.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Amazon Q Developer artifacts \u2014 prompt-injection-driven AWS resource mutation",
-        "description": "New attack surface. A prompt-injection that reaches Amazon Q in the AWS console can trigger `q:PerformArtifactAction` to mutate live infrastructure (e.g., bucket policies, instance-profile permissions). AIRT should add automated tests for prompt-injection-to-artifact-action chains, artifact action authorization bypasses, and unexpected cross-service writes initiated through Q",
-        "source": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/chat-artifacts.html",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Codex \u2014 Appshots (macOS screen + non-visible text exfiltration vector)",
-        "description": "Codex now ingests the frontmost macOS window's screenshot **plus any text the app exposes, including content outside the visible scroll area**, via a double-Command-key shortcut. This is a new endpoint data-egress channel \u2014 a Codex agent prompt can now reference contents of any window the user surfaces (Slack threads, password managers, email drafts, CRM records). ENDPOINT must add Appshots as a Codex local data primitive, recognize Mac-windowed apps as a per-window inventory class, and flag double-Command captures in sensitive apps",
-        "source": "https://developers.openai.com/codex/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Codex \u2014 Goal Mode GA (multi-hour autonomous objective execution)",
-        "description": "Goal Mode promoted to GA. Codex now runs **multi-hour autonomous objectives** that persist across session breaks, token-budget resets, and interruptions, live in the app, VS Code, JetBrains, and CLI. ENDPOINT must treat each Goal as a distinct durable session resource (not a one-shot prompt), inventory active Goals per user, and track which IDE extension and CLI version is hosting each Goal. New telemetry class: Goal lifecycle events (start, pause, resume, complete) and the persistent objective text",
-        "source": "https://developers.openai.com/codex/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Codex \u2014 Remote Computer Use (locked-Mac control from Codex Mobile)",
-        "description": "First time Codex agency persists past the screen lock. From a smartphone via Codex Mobile, Codex can drive desktop apps **even when the Mac is locked and screen off**. ENDPOINT must add Remote Computer Use sessions as a new endpoint class with mobile-initiated authorization, treat the time-bound authorization window as a discrete inventory event, and capture every Remote Computer Use session boundary (relock, manual unlock, screen cover). This breaks the assumption \"if the device is locked, the agent is idle.\"",
-        "source": "https://developers.openai.com/codex/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Codex Plugin Sharing \u2014 marketplace plugin bundles for ChatGPT Business",
-        "description": "New distribution channel \u2014 ChatGPT Business teams can publish and share **plugin bundles** discoverable through marketplace sources. Plugin discovery is now \"marketplace-aware with remote collection support.\" ENDPOINT/AISPM must inventory plugins by source (first-party vs. marketplace bundle), track which teams have published vs. installed which bundles, and treat the plugin-bundle ID as a new resource type that propagates between users. New supply-chain inventory entity",
-        "source": "https://developers.openai.com/codex/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Codex CLI 0.133.0 \u2014 Windows sandbox integration + permission profile inheritance",
-        "description": "Codex CLI 0.133.0 adds **Windows sandbox integration** (previously macOS/Linux only) and **permission profile inheritance** with list APIs. ENDPOINT must extend the Codex CLI inventory to Windows hosts, treat Windows sandbox-bounded Codex sessions as a new class, and reconcile inherited permission profiles into the effective-permissions graph (a child profile may relax constraints set by its parent)",
-        "source": "https://developers.openai.com/codex/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "AgentCore Runtime \u2014 bring-your-own file system (S3 / EFS mounted into agent sessions)",
-        "description": "New AgentCore Runtime capability that mounts **Amazon S3 Files and Amazon EFS access points directly into every agent session at a developer-specified path**. Each agent now has POSIX-style read/write access to potentially large enterprise data stores without custom mount code or privileged containers. Multiple sessions/agents can share the same file system simultaneously. AISPM must inventory the access-point ARNs attached to each AgentCore Runtime, map the data-store blast radius per agent (which S3/EFS access points an agent can read or write), and treat the VPC + access-point ARN tuple as a new agent-environment inventory class. New toxic combination: overprivileged agent + writable EFS access point + cross-team data store",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "AgentCore Runtime \u2014 file-system data flows for S3 Files / EFS",
-        "description": "BYO file system adds an entirely new data-flow class to AgentCore agents \u2014 sustained POSIX file I/O against enterprise stores, distinct from API-call or Gateway-routed traffic. AIDR must add a file-system-IO activity stream per AgentCore session, with read/write attribution and access-point-scoped data-flow accounting (e.g., \"agent X wrote 4 GB to EFS access point Y during session Z\")",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Anthropic Project Glasswing \u2014 Mythos Preview expansion to OSS + critical infrastructure partners",
-        "description": "Project Glasswing partner expansion (Cloudflare, Mozilla, Verizon, US/allied governments) and OSS scanning at scale (1,000+ projects, 6,202 H/C-severity vulnerabilities found, 90.6% true-positive rate) confirm that **Claude Mythos Preview is now operating as a multi-partner vulnerability-discovery agent on critical software**. AIRT should add Mythos-Preview-class agents as a distinct adversarial test profile (Mythos has higher cybersecurity-vulnerability-discovery capability than other Claude variants), and track which Anthropic deployments are running under Project Glasswing allowlist. Public reporting of partner roster expands the set of attack scenarios Zenity should rehearse against",
-        "source": "https://www.anthropic.com/research/glasswing-initial-update",
-        "module": "AIRT",
         "action": "New Coverage Required"
       }
     ]
