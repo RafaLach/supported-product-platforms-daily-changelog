@@ -1,6 +1,9 @@
-# Windsurf Editor Changelog Summary — captured 2026-06-01
+# Windsurf Editor Changelog Summary — captured 2026-06-03
+# NOTE: windsurf.com/changelog now 308-redirects to docs.devin.ai/desktop/changelog.
 
 ## Recent Major Releases
+
+**June 2, 2026 (v3.0.12)** - "Windsurf is now Devin Desktop." Product rebrand/consolidation under the Devin product line; downloads for macOS/Windows/Linux. [Rebrand/identity change — not a new feature/API/capability; noted for monitoring-name tracking, not reported as a coverage finding.]
 
 **May 28, 2026 (v2.3.15)** - Claude Opus 4.8 available (Standard $5/$25; Fast Mode $10/$50 per M tokens — model bump). Devin Local: tracks files open in editor as context; session-level + permanent approval for MCP tools; permission grants persist across sessions; improved plan mode in OS sandbox; fixed prompt-blocking. Server startup timeout extended 2.5s→6s. [Incremental — below watching-tier major-capability bar; not reported.]
 
@@ -34,9 +37,5 @@
 - **Web & Docs Search** (Jan 17, 2025) - Internet search and documentation access
 - **Auto-Generated Memories** - Context retention between conversations
 
-## Model Additions
-
-Recent frontier models: Opus 4.8, Opus 4.7, GPT-5.5, GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6, Grok Code Fast, GPT-5.2-Codex, SWE-1.5, DeepSeek-R1, o3-mini, Gemini 2.5 Pro, and multiple others with promotional pricing periods.
-
 ## Last Fetched
-2026-06-01 — NEW since 2026-05-18 cache: v2.3.9 (May 17) stability fixes; v2.3.15 (May 28) Claude Opus 4.8 + Devin Local context/permission-persistence updates. All incremental — no watching-tier finding reported.
+2026-06-03 — NEW since 2026-06-01 cache: v3.0.12 (June 2) "Windsurf is now Devin Desktop" rebrand. Identity/name change only — not a watching-tier capability finding. All prior entries unchanged.

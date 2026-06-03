@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-06-03",
+    "scan_time": "2026-06-03 09:17",
+    "file": "report-2026-06-03.md",
+    "platforms": [
+      {
+        "name": "ChatGPT Enterprise (OpenAI) \u2014 Codex enterprise expansion (June 2, 2026)",
+        "status": "changed",
+        "details": [
+          "**Codex \"Sites\" (preview, Business/Enterprise) \u2014 agent-built, OpenAI-hosted web apps & dashboards**: The Codex app's new Sites plugin turns a prompt or compatible project into a deployed site hosted by OpenAI \u2014 websites, dashboards, internal tools, web apps, planners, review workspaces, project boards, galleries, and games. Sites hosts projects that build Cloudflare Worker\u2013compatible output as ES modules. Workflow: validate the build \u2192 save a deployable version for review \u2192 deploy the approved version. Each project has its own hosted environment variables and secrets (managed in the Sites panel), a deployment status, a workspace-shareable URL, and access controls the agent can change (\"change who can access a deployed site\"). Rolling out to Business and Enterprise plans first, with enterprise admin enablement via role-based access control. Source: https://developers.openai.com/codex/sites",
+          "**Codex on ChatGPT for iOS 1.2026.146 \u2014 SSH to Windows + biometric lock**: Adds SSH connection support so the mobile Codex app can connect to Windows machines, an optional Face ID/passcode lock for Codex, and a settings screen for follow-up behavior and code diff preferences. Source: https://developers.openai.com/codex/changelog"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Codex \"Sites\" \u2014 agent-deployed, OpenAI-hosted applications",
+        "description": "As of June 2, 2026 (preview, Business/Enterprise), the Codex app's Sites plugin lets a Codex agent create, save, deploy, and inspect full websites, dashboards, internal tools, web apps, and games **hosted by OpenAI** (Cloudflare Worker\u2013compatible ES-module output). Each Site is a new inventory entity carrying its own hosted environment variables and secrets, a deployment lifecycle (saved \u2192 approved \u2192 deployed), a workspace-shareable URL, and access controls the agent itself can modify. AISPM must discover and map these new entities \u2014 Codex Sites projects, their stored secrets/env vars, deployment status, and sharing/access scope \u2014 and flag toxic combinations such as an agent that both holds secrets and can deploy a publicly reachable app *and* widen its audience (an agent-controlled exposure/exfiltration path). This is an entirely new service surface, not an extension of an existing one",
+        "source": "https://developers.openai.com/codex/sites",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Codex Sites as a new agent-controlled deployment/exposure attack surface",
+        "description": "Because a Codex agent can deploy live, OpenAI-hosted endpoints and change who can access them, a prompt-injected or misdirected Codex session becomes a vector to stand up or repoint a public web app, embed/exfiltrate secrets via a Site's stored environment variables, or broaden a Site's audience without human review. AIRT should add Codex Sites deploy/share/secret-management actions to its red/purple-team surface for OpenAI agents \u2014 testing prompt-injection paths that result in unauthorized deployment, audience widening, or secret exposure",
+        "source": "https://developers.openai.com/codex/sites",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Codex (ChatGPT iOS 1.2026.146) adds SSH connections to Windows machines",
+        "description": "The June 2, 2026 ChatGPT iOS release adds SSH connection support so the mobile Codex app can connect to Windows machines (alongside an optional Face ID/passcode lock for Codex). This extends Codex's remote-execution reach \u2014 previously remote control / Computer Use on Windows \u2014 to direct SSH sessions into Windows hosts from a mobile device. ENDPOINT should treat a mobile Codex install with SSH access to Windows endpoints as a new remote-execution/credential surface on monitored machines",
+        "source": "https://developers.openai.com/codex/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-06-02",
     "scan_time": "2026-06-02 10:04",
     "file": "report-2026-06-02.md",
@@ -119,40 +161,6 @@
         "description": "Cursor v3.5 ships a bundled `/loop` skill that re-runs an agent prompt on a recurring local schedule until a target outcome is reached. This breaks the assumption that a Cursor agent only acts when a human is driving it: an agent can now persist and re-execute unattended on the endpoint. ENDPOINT (watching tier) should treat each active loop as a durable scheduled-task inventory entity (interval/cron, target prompt, terminating condition), attribute its repeated tool/command executions to the schedule rather than to a live user session, and flag loops that run privileged actions (deploys, external calls) without a human in the loop",
         "source": "https://cursor.com/docs/skills",
         "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-26",
-    "scan_time": "2026-05-26 09:03",
-    "file": "report-2026-05-26.md",
-    "platforms": [
-      {
-        "name": "Cursor",
-        "status": "changed",
-        "details": [
-          "**Shared Canvases (Version 3.5, May 20, 2026)**: New external sharing surface for agent-produced interactive artifacts. Teams share dashboards and reports created by Cursor agents via browser links with read-only access \u2014 agent output now reaches users outside the IDE/Cursor account boundary for the first time. Source: https://cursor.com/docs/agent/tools/canvas",
-          "**Cursor Automations integration into Agents Window + multi-repo / standalone configurations (May 20, 2026)**: Automations now live inside the Agents Window. Supports multi-repository configurations and standalone setups (no repository required). Five new templates ship out of the box: Slack digest, analytics, FAQ, finance, customer health monitoring. Source: https://cursor.com/docs/cloud-agent/automations"
-        ],
-        "tier": "watching"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "MEDIUM",
-        "title": "Cursor \u2014 Shared Canvases (v3.5)",
-        "description": "Cursor agents can now produce interactive artifacts (dashboards, reports) that are externally shareable via browser links with read-only access. This creates a new outbound data-flow surface \u2014 agent output crosses the Cursor tenant boundary to non-Cursor recipients. Introduces new inventory entities: shared-canvas artifacts, share-link tokens, and external-reader identities. AISPM must discover Shared Canvas instances per workspace, map which agents are authorized to publish externally, and flag toxic combinations such as a canvas containing source-derived data being shared to an unauthenticated browser link",
-        "source": "https://cursor.com/docs/agent/tools/canvas",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Cursor \u2014 Automations multi-repo / standalone & expanded template surface",
-        "description": "Cursor Automations are now first-class Agents Window citizens, can operate across multiple repositories in one automation, and can run standalone (no repo at all). Five new templates (Slack digest, analytics, FAQ, finance, customer health monitoring) expand the kinds of business workflows automations execute. AISPM should treat each Automation as an inventory entity with a defined repo-set scope, recognize standalone automations as a distinct class (no repo-bounded blast radius), and add the new template types to the catalog so any standardized template instance can be discovered and audited",
-        "source": "https://cursor.com/docs/cloud-agent/automations",
-        "module": "AISPM",
         "action": "New Coverage Required"
       }
     ]
