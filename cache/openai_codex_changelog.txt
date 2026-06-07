@@ -1,37 +1,34 @@
-# OpenAI Codex Changelog — captured 2026-06-03
+# OpenAI Codex Changelog — captured 2026-06-05
 
-## June 2, 2026 — Build and deploy websites with Sites (preview)
-- Sites is now available in preview in the Codex app. Use the Sites plugin to create, save, deploy, and inspect websites, dashboards, internal tools, web apps, and games hosted by OpenAI. (NEW since prior scan)
-- Sites hosts projects that build Cloudflare Worker–compatible output as ES modules. Deployment lifecycle: validate build → save a deployable version for review → deploy the approved saved version.
-- Open Sites in the app sidebar; per project, add/update/remove hosted environment variables and secrets in the Sites panel. Can inspect saved versions, check deployment status, and change who can access a deployed site.
-- Sites shareable with anyone in the workspace via URL. Rolling out to Business and Enterprise plans first; enterprise admin enablement via role-based access control. (Part of the June 2 Codex enterprise expansion that also added role-specific business plugins and annotations.)
+## June 4, 2026 — Codex CLI 0.137.0 (NEW since prior scan)
+- Hosted web and image tools available in code-mode flows, with parallel web search capability. (NEW autonomous web-egress/tool surface)
+- Multi-agent v2 enhancements with runtime choice persistence per thread. (NEW)
+- Remote-control clients can manage pairing and controller grants via app-server RPCs. (NEW remote-control authorization surface)
+- Enterprise/admin flows display monthly credit limits and cloud-managed config bundles.
+- Plugin workflows gained machine-readable JSON output and cached remote catalog suggestions.
+- F13-F24 keybindings and paste support in searchable menus.
 
-## June 2, 2026 — ChatGPT for iOS 1.2026.146
-- Optional Face ID/passcode lock for Codex. (NEW)
-- SSH connection support for Windows machines. (NEW)
-- New settings screen for follow-up behavior and code diff preferences.
+## June 4, 2026 — Codex App 26.602 (NEW)
+- Activity insights and share cards added to Profile section; shareable profile cards.
+- Expanded onboarding with additional role selections.
+- Enhanced Computer Use startup readiness and appshot error reporting; browser/review UI fixes.
 
-## June 1, 2026 — Codex CLI 0.136.0
-- Amazon Bedrock support for running Codex locally with AWS-managed authentication (Bedrock API key via AWS_BEARER_TOKEN_BEDROCK/AWS_REGION, or AWS SDK credential chain; SigV4 signing). (reported 2026-06-02)
-- Session archiving via `/archive` command to protect threads from resume/fork.
-- Windows sandbox provisioning with elevated setup path.
-- Enhanced TUI markdown rendering with clickable web links and readable table formatting.
+## June 2, 2026 — Build and deploy websites with Sites (preview) [reported 2026-06-03]
+- Sites plugin: create, save, deploy, inspect websites/dashboards/internal tools/web apps/games hosted by OpenAI.
+- Cloudflare Worker–compatible ES-module output; per-project hosted env vars/secrets; deployment lifecycle; shareable workspace URL; agent-changeable access controls. Business/Enterprise first.
+
+## June 2, 2026 — ChatGPT for iOS 1.2026.146 [reported 2026-06-03]
+- Optional Face ID/passcode lock for Codex; SSH connection support for Windows machines.
+
+## June 1, 2026 — Codex CLI 0.136.0 [reported 2026-06-02]
+- Amazon Bedrock support (AWS-managed auth via AWS_BEARER_TOKEN_BEDROCK/AWS_REGION or SDK credential chain; SigV4).
+- Session archiving via /archive; Windows sandbox provisioning; enhanced TUI markdown rendering.
 
 ## May 29, 2026 — Version 26.527: Computer Use & Mobile Access on Windows
-- Computer Use comes to Windows: the Codex app can see, click, and type in foreground Windows desktop apps. Install the Computer Use plugin; invoke via @Computer or @AppName.
-- Remote control extended to Windows devices via ChatGPT app on iOS/Android.
-- Profile section added showing usage stats and token activity.
-
 ## May 28, 2026 — Codex CLI 0.135.0
-- Enhanced `codex doctor`; Vim mode text-object editing; named permission profiles; bundled patched zsh helper; Python SDK sandbox presets.
-
 ## May 26, 2026 — Codex CLI 0.134.0
-- Search across local conversation history; `--profile` flag prioritization; enhanced MCP server setup with OAuth; concurrent read-only MCP tools.
-
-## May 21, 2026 — Version 26.519: Appshots, Goal Mode, and Remote Computer Use
-- Appshots (macOS); Goal Mode (GA); Remote Computer Use after device lock; Plugin Sharing via marketplace sources.
-
+## May 21, 2026 — Version 26.519: Appshots, Goal Mode, Remote Computer Use
 ## May 20, 2026 — Codex CLI 0.132.0
-- Python SDK authentication enhancements; text-based workflows accept plain strings.
+(see prior cache for details)
 
-Updated: 2026-06-03 — NEW since prior scan: Codex "Sites" hosted-app/deployment surface (June 2, preview, Business/Enterprise) and ChatGPT iOS 1.2026.146 (Face ID lock + SSH to Windows machines). Both reported 2026-06-03.
+Updated: 2026-06-05 — NEW since prior scan: Codex CLI 0.137.0 (June 4) hosted web/image tools in code-mode + parallel web search, Multi-agent v2 (per-thread runtime-choice persistence), remote-control pairing/controller-grant RPCs, cloud-managed config bundles; Codex App 26.602 (activity insights/share cards). Reported 2026-06-05.

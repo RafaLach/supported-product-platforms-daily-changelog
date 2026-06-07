@@ -1,5 +1,89 @@
 [
   {
+    "date": "2026-06-07",
+    "scan_time": "2026-06-07 09:13",
+    "file": "report-2026-06-07.md",
+    "platforms": [],
+    "findings": []
+  },
+  {
+    "date": "2026-06-05",
+    "scan_time": "2026-06-05 09:05",
+    "file": "report-2026-06-05.md",
+    "platforms": [
+      {
+        "name": "Microsoft Copilot Studio \u2014 May 2026 notable-changes wave (new vs. cached April 2026 baseline)",
+        "status": "changed",
+        "details": [
+          "**Agent inventory schema** \u2014 Discover and audit all Copilot Studio agents in the tenant from the admin center, the Power Platform API, or **Azure Resource Graph**. Per-agent metadata includes creator, last-published time, deployed channels, authentication method, and capabilities; covers draft and published agents (excludes V1/Classic bots), refreshed roughly every 20 minutes. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-agent-inventory",
+          "**Computer use is now generally available** + new **computer use standalone tools (preview)** \u2014 Computer Use (CUA-powered web/desktop UI automation on Windows) moved from preview to GA; standalone computer-use tools add modular, reusable UI-automation tools with built-in governance, model selection, and observability. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use",
+          "**New agent-flow / workflow nodes** \u2014 **Microsoft 365 Copilot node** sends prompts to Microsoft 365 Copilot or a specific agent from within a workflow (research/audit-drafting automation); **Prompt node** makes a single AI call with dynamic content and per-node model selection. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/microsoft-365-copilot-node-workflow",
+          "Also in the May wave (noted, not raised as findings): consent-based recording for voice agents, asynchronous (long-running) agent-flow responses, a consolidated agent readiness/issue-status page (preview), and **Mistral Medium 3.5** as an experimental primary model. Microsoft Entra agent identities (preview) also appears but was already cached as a Nov 2025 item. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI) \u2014 Codex CLI 0.137.0 (June 4, 2026)",
+        "status": "changed",
+        "details": [
+          "**Hosted web and image tools in code-mode flows** with parallel web search; **Multi-agent v2** with runtime-choice persistence per thread; **remote-control clients can manage pairing and controller grants via app-server RPCs**; enterprise/admin flows now surface monthly credit limits and **cloud-managed config bundles**; plugin workflows gained machine-readable JSON output and cached remote catalog suggestions. (Codex app 26.602, same day, added activity insights/share cards and Computer Use startup-readiness hardening.) Source: https://developers.openai.com/codex/changelog"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Cursor \u2014 3.7 + Enterprise Organizations (June 3\u20134, 2026) [watching tier]",
+        "status": "changed",
+        "details": [
+          "**Enterprise Organizations (GA)** \u2014 a new top-level **Organization** container above Teams, plus **Groups** (lightweight user cohorts that cut across/within teams). Each carries its own security, governance, budget, **model access**, spend limits, and **agent permissions**; org-level identity management and a spend/token rollup across teams; users move between teams via dashboard/API/CSV (\"most permissive setting wins\" on overlap). Source: https://cursor.com/changelog/enterprise-organizations",
+          "**3.7 (June 4)** Canvas Design Mode (annotate UI elements in canvases), interactive context-usage report, full-screen canvas sharing, and agent-embedded buttons that trigger specific prompts. Source: https://cursor.com/changelog"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Microsoft Copilot Studio Agent inventory schema",
+        "description": "A new tenant-wide agent inventory lets admins discover and audit every Copilot Studio / Agent Builder agent via the Power Platform admin center, the Power Platform API, and **Azure Resource Graph**, exposing per-agent metadata (creator, last-published time, deployed channels, authentication method, capabilities) for both draft and published agents. This is a first-class inventory/discovery surface that AISPM should ingest directly \u2014 it is effectively the platform's own agent inventory feed and the authoritative source for mapping Copilot Studio agents as entities, their owners, channels, and auth posture, and for flagging toxic combinations (e.g., unauthenticated/anonymous-channel agents, orphaned-owner agents, or agents with broad capabilities). AISPM must consume this schema to keep Copilot Studio agent coverage complete",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-agent-inventory",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Copilot Studio Computer Use GA + standalone computer-use tools",
+        "description": "Computer Use (CUA-powered automation that controls browsers and Windows desktop apps on a user's behalf) moved to general availability, and a new **standalone computer-use tool** type adds modular, reusable UI-automation tools with their own governance, model selection, and observability. This expands an existing capability into a discrete, reusable inventory entity: AISPM should map standalone computer-use tools (and the agents/flows that attach them) and treat a Computer-Use-enabled agent \u2014 which can click, type, and read any on-screen content with built-in credentials \u2014 as a high-privilege, GUI-level execution path subject to AIRT testing for prompt-injection-driven unintended actions",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Copilot Studio Microsoft 365 Copilot node + Prompt node (new agent-flow building blocks)",
+        "description": "Two new workflow/agent-flow nodes shipped in May. The **Microsoft 365 Copilot node** lets a workflow send prompts to Microsoft 365 Copilot (or a specific agent) and consume the result \u2014 a new agent-to-Copilot data flow that can pull tenant grounding data into automated processes. The **Prompt node** makes a single inline AI call with dynamic content and per-node model selection. AISPM should add these node types to its Copilot Studio flow inventory and map the M365 Copilot node as a new data-flow edge (workflow \u2192 M365 Copilot \u2192 grounded enterprise data), which AIDR should also treat as a new activity/data-flow surface",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/microsoft-365-copilot-node-workflow",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex CLI 0.137.0 \u2014 hosted web/image tools in code-mode, Multi-agent v2, remote-control grant management",
+        "description": "The June 4 Codex CLI release lets code-mode flows use hosted web and image tools with parallel web search (new autonomous web-egress/tool surface from inside code execution), adds Multi-agent v2 with per-thread runtime-choice persistence (expanded local multi-agent orchestration), and lets remote-control clients manage pairing and controller grants via app-server RPCs (a remote-control authorization surface), plus cloud-managed config bundles for enterprise/admin. ENDPOINT should track Codex CLI installs that can now reach the web and spawn persistent multi-agent runs locally, and treat remote-control pairing/controller grants as a new device-access surface on monitored machines",
+        "source": "https://developers.openai.com/codex/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cursor Enterprise Organizations (new org/group governance & identity entities)",
+        "description": "Cursor (watching tier) added a generally-available **Organization** layer above Teams plus cross-cutting **Groups**, each with its own security, governance, budget, **model access**, spend limits, and **agent permissions**, org-level identity management, and a spend/token rollup. These introduce new governance/identity entities for a monitored endpoint AI tool: AISPM should map Cursor organizations, teams, and groups \u2014 and especially per-group model access and agent permissions \u2014 since \"most permissive setting wins\" on overlapping membership can silently grant a user broader model/agent capability than their primary team allows (a privilege-aggregation toxic combination)",
+        "source": "https://cursor.com/changelog/enterprise-organizations",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-06-03",
     "scan_time": "2026-06-03 09:17",
     "file": "report-2026-06-03.md",
@@ -103,63 +187,6 @@
         "title": "Cursor \u2014 Auto-review Run Mode (reduced-approval Shell/MCP/Fetch execution)",
         "description": "Cursor 3.6 adds a run mode that lets the agent execute Shell, MCP, and Fetch tool calls without per-call human approval. Allowlisted calls run immediately, sandboxable calls run isolated, and the remainder are gated by an AI **classifier subagent** instead of a human. This removes the human from the loop for a large class of tool executions \u2014 including arbitrary shell commands and outbound fetches \u2014 on the developer endpoint. ENDPOINT (watching tier) should treat Auto-review as a distinct, higher-autonomy execution posture per Cursor install: record whether it is enabled, the configured allowlist of immediately-running Shell/MCP/Fetch operations, and any custom classifier instructions (which themselves become a prompt-injection / policy-weakening target). New toxic combination: a permissive allowlist plus a steerable classifier means an agent can run shell commands, reach MCP servers, and exfiltrate via Fetch with only an LLM \u2014 not a person \u2014 deciding what is safe",
         "source": "https://cursor.com/changelog/auto-review",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-05-27",
-    "scan_time": "2026-05-27 08:26",
-    "file": "report-2026-05-27.md",
-    "platforms": [
-      {
-        "name": "ChatGPT Enterprise (OpenAI) \u2014 Codex",
-        "status": "changed",
-        "details": [
-          "**Codex CLI 0.134.0 (May 26, 2026)**: Enhanced MCP server setup with **per-server environment targeting and OAuth capabilities**; **read-only MCP tools can now execute concurrently** when flagged; added search across local conversation history (case-insensitive content matches with previews); `--profile` flag now prioritized across CLI, permissions, and sandbox workflows; improved connector tool schema reliability; extended context for extension tools and subagent identification in hook inputs. Source: https://developers.openai.com/codex/mcp"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Google Vertex AI",
-        "status": "changed",
-        "details": [
-          "**Colab Enterprise \u2014 Data Science Agent, now generally available (May 26, 2026)**: A built-in agent inside Colab Enterprise notebooks that creates multi-step plans, generates and **executes code**, reasons about results, and presents findings. Spans exploratory data analysis through ML predictions/forecasts, and performs large-scale data processing using **BigQuery ML, BigQuery DataFrames, or Managed Service for Apache Spark**. Accesses data via uploaded CSV files or referenced BigQuery tables. Source: https://docs.cloud.google.com/colab/docs/use-data-science-agent"
-        ],
-        "tier": "secondary"
-      },
-      {
-        "name": "Cursor",
-        "status": "changed",
-        "details": [
-          "**/loop Skill (Version 3.5, May 20, 2026)**: New bundled agent skill that lets an agent **run a prompt repeatedly on a local schedule until a certain outcome is achieved** (e.g., monitoring deployment status). Introduces recurring, unattended scheduled agent execution on the endpoint. Source: https://cursor.com/docs/skills"
-        ],
-        "tier": "watching"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Codex CLI \u2014 OAuth-authenticated MCP servers + per-server environment targeting",
-        "description": "Codex CLI 0.134.0 adds OAuth login flows for MCP servers (server-advertised scopes, configurable callback port/URL) and **per-server environment variable targeting** (`--env KEY=VALUE`, `env_http_headers` pulling values from the environment). This is an extension of the Codex MCP connection surface: a Codex endpoint can now hold OAuth tokens for, and inject distinct secrets/environment into, each connected MCP server. ENDPOINT must inventory MCP servers configured per Codex install as distinct connection entities, capture each server's auth mode (OAuth vs. stdio `--env` secrets) and its scoped environment, and recognize that **read-only MCP tools now execute concurrently** \u2014 changing the per-server tool-execution timing model. New toxic combination: a Codex install with an OAuth-authenticated MCP server whose granted scopes exceed the task's need, or a per-server env carrying long-lived credentials",
-        "source": "https://developers.openai.com/codex/mcp",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Google Vertex AI \u2014 Colab Enterprise Data Science Agent (GA)",
-        "description": "A new code-executing agent entity now generally available inside Colab Enterprise notebooks. It autonomously plans, writes and **runs code**, and drives ML/forecasting and large-scale BigQuery ML / BigQuery DataFrames / Apache Spark jobs against uploaded CSVs or referenced BigQuery tables. AISPM (secondary tier) must add the Data Science Agent as a discoverable agent inventory entity per Colab Enterprise runtime, map its data reach (which BigQuery tables/datasets and uploaded files a given notebook agent can touch), and treat the notebook runtime + its IAM identity as the agent's blast-radius scope. Because the agent executes generated code with the notebook's data-access permissions, a prompt-injection or mis-scoped runtime identity becomes a path to autonomous reads/writes against connected BigQuery data \u2014 a new unmonitored data-flow for a secondary-tier platform",
-        "source": "https://docs.cloud.google.com/colab/docs/use-data-science-agent",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Cursor \u2014 /loop Skill (scheduled unattended agent execution)",
-        "description": "Cursor v3.5 ships a bundled `/loop` skill that re-runs an agent prompt on a recurring local schedule until a target outcome is reached. This breaks the assumption that a Cursor agent only acts when a human is driving it: an agent can now persist and re-execute unattended on the endpoint. ENDPOINT (watching tier) should treat each active loop as a durable scheduled-task inventory entity (interval/cron, target prompt, terminating condition), attribute its repeated tool/command executions to the schedule rather than to a live user session, and flag loops that run privileged actions (deploys, external calls) without a human in the loop",
-        "source": "https://cursor.com/docs/skills",
         "module": "ENDPOINT",
         "action": "New Coverage Required"
       }
