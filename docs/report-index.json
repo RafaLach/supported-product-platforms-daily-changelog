@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-06-08",
+    "scan_time": "2026-06-08 10:38",
+    "file": "report-2026-06-08.md",
+    "platforms": [],
+    "findings": []
+  },
+  {
     "date": "2026-06-07",
     "scan_time": "2026-06-07 09:13",
     "file": "report-2026-06-07.md",
