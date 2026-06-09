@@ -1,29 +1,35 @@
-# Cursor Changelog — captured 2026-06-01
+# Cursor Changelog — captured 2026-06-09
 
-## May 29, 2026 (Version 3.6) — Auto-review Run Mode
-New run mode (Settings → Agents → Run Mode) allowing the agent to work longer with fewer approval prompts. Applies to Shell, MCP, and Fetch tool calls: allowlisted calls run immediately, sandboxable calls run in an isolated sandbox, and all other actions route to a classifier subagent that decides to allow, try a different approach, or request user approval. Classifier can be steered with custom instructions. (NEW since prior scan — reported 2026-06-01)
+## June 5, 2026 (Version 3.7) — Design Mode Improvements + SDK enhancements [already reported]
+- Design Mode: multi-select elements in browser; voice input to narrate UI changes while agents run.
+- SDK (TS & Python): custom tools passed directly via local.customTools without separate MCP servers; auto-review routing of local tool calls through a classifier; JSONL/custom stores for agent persistence; nested subagents that can spawn subagents at any depth.
+- Canvas: Design Mode for canvases; interactive context-usage reports.
+- Enterprise Organizations: orgs as top-level containers with team/group management; multi-team roles; org-level usage analytics + IDP management.
+- Reliability: requestId run correlation; HTTP/1.1 cloud streaming; lighter SDK imports.
+(Below watching-tier major-capability bar; already reported in prior reports.)
+
+## May 29, 2026 (Version 3.6) — Auto-review Run Mode [reported 2026-06-01]
+New run mode allowing the agent to work longer with fewer approval prompts. Applies to Shell, MCP, and Fetch tool calls: allowlisted calls run immediately, sandboxable calls run in an isolated sandbox, others route to a classifier subagent.
 
 ## May 20, 2026 (Version 3.5) — Shared Canvases
-Teams can share interactive artifacts created by agents (dashboards, reports, custom interfaces) via browser links with read-only access. New external/cross-team sharing surface for agent-produced artifacts. Across Pro, Teams, and Enterprise plans.
+Teams share interactive agent artifacts via browser links (read-only). External/cross-team sharing surface.
 
 ## May 20, 2026 (Version 3.5) — /loop Skill
-New agent skill: enables agents to run a prompt repeatedly on a local schedule, until a certain outcome is achieved (e.g., monitoring deployment status checks). Recurring/unattended scheduled agent execution on the local machine.
+Agents run a prompt repeatedly on a local schedule until an outcome is achieved.
 
 ## May 20, 2026 — Improvements to Cursor Automations
-Automations integrated into the Agents Window. Supports multi-repository configurations and standalone setups without repositories. New templates: Slack digest, analytics, FAQ, finance, customer health monitoring agents.
+Automations in Agents Window; multi-repo + standalone configs; new templates.
 
 ## May 19, 2026 — Cursor in Jira
-Cursor integrated with Jira. Users can assign work items directly to cloud agents or mention @Cursor in Jira comments. The system uses ticket context to scope tasks and generates pull requests upon completion.
+Assign work items to cloud agents or @Cursor in Jira comments; generates PRs.
 
 ## May 18, 2026 — Composer 2.5
-Upgraded Cursor model. Better long-running tasks, instruction following.
-- Standard tier: $0.50/M input, $2.50/M output tokens
-- Fast tier (default): $3.00/M input, $15.00/M output tokens
+Upgraded Cursor model.
 
 ## May 13, 2026 (Version 3.4) — Full-screen Tabs and Compact Chats
-
 ## May 13, 2026 — Development Environments for Cloud Agents (multi-repo)
-
 ## May 11, 2026 — Cursor in Microsoft Teams (@Cursor mentions)
-
 ## May 7, 2026 — Build in Parallel / /multitask
+
+Updated: 2026-06-09 — Newest is 3.7 (June 5); already reported, below watching-tier bar. No net-new since prior scan.
+</content>

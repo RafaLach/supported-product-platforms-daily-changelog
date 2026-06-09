@@ -1,41 +1,27 @@
-# Windsurf Editor Changelog Summary — captured 2026-06-03
+# Windsurf Editor Changelog Summary — captured 2026-06-09
 # NOTE: windsurf.com/changelog now 308-redirects to docs.devin.ai/desktop/changelog.
 
 ## Recent Major Releases
 
-**June 2, 2026 (v3.0.12)** - "Windsurf is now Devin Desktop." Product rebrand/consolidation under the Devin product line; downloads for macOS/Windows/Linux. [Rebrand/identity change — not a new feature/API/capability; noted for monitoring-name tracking, not reported as a coverage finding.]
+**June 6, 2026 (v3.0.28)** [already reported] - Devin Local: enhanced file-context awareness (recognizes files open in editor); fixed stdio MCP server issues on Windows. Windows migration hardening (preserves app shortcut icons). Remote server startup timeout 2.5s→6s. Streamlined enterprise model picker. [Incremental — below watching-tier major-capability bar; not a coverage finding.]
 
-**May 28, 2026 (v2.3.15)** - Claude Opus 4.8 available (Standard $5/$25; Fast Mode $10/$50 per M tokens — model bump). Devin Local: tracks files open in editor as context; session-level + permanent approval for MCP tools; permission grants persist across sessions; improved plan mode in OS sandbox; fixed prompt-blocking. Server startup timeout extended 2.5s→6s. [Incremental — below watching-tier major-capability bar; not reported.]
+**June 2, 2026 (v3.0.12)** - "Windsurf is now Devin Desktop." Product rebrand/consolidation under the Devin product line. [Rebrand/identity change — not a coverage finding.]
 
-**May 17, 2026 (v2.3.9)** - Fixed swe-check model availability; terminal processing efficiency; restored conversation sharing; fixed Devin local path resolution on WSL.
+**May 28, 2026 (v2.3.15)** - Claude Opus 4.8 available (model bump). Devin Local: tracks open files as context; session-level + permanent approval for MCP tools; permission grants persist across sessions; improved plan mode in OS sandbox.
 
-**May 12, 2026** - Claude Opus 4.7 (fast mode) launched with ~2.5x higher output speeds while maintaining full intelligence.
+**May 17, 2026 (v2.3.9)** - Fixed swe-check model availability; terminal processing efficiency; restored conversation sharing.
 
-**May 6, 2026 (v2.2.17)** - Devin Review and Quick Review integrated; Agent Command Center improved with list display and session filtering.
+**May 12, 2026** - Claude Opus 4.7 (fast mode) launched.
 
-**April 29, 2026 (v2.1.32)** - Bug fixes for Cascade conversation switching and Devin Cloud authentication issues.
+**May 6, 2026 (v2.2.17)** - Devin Review and Quick Review integrated; Agent Command Center improved.
 
-**April 28, 2026 (v2.1.29)** - Devin for Terminal released; Devin Local agent available in Windsurf, up to 30% more token-efficient than Cascade.
+**April 28, 2026 (v2.1.29)** - Devin for Terminal released; Devin Local agent available in Windsurf.
 
-**April 24, 2026** - GPT-5.5 model availability announced.
+**April 16, 2026 (v2.0.44)** - **Windsurf 2.0** launch: integrated Devin Cloud agent, Agent Command Center with Kanban view, Spaces.
 
-**April 16, 2026 (v2.0.44)** - **Windsurf 2.0** launch featuring integrated Devin Cloud agent, Agent Command Center with Kanban view, and Spaces for task organization.
-
-**April 6, 2026** - Adaptive model router introduced for intelligent per-task model selection; updated model picker with token pricing visibility.
-
-## Key Features Added
-
-- **Arena Mode** (Jan 30, 2026) - Side-by-side model comparison with hidden identities
-- **Plan Mode** - Task planning before code implementation
-- **Git Worktree Support** - Multiple parallel sessions without conflicts
-- **Multi-Cascade Panes & Tabs** - View multiple agent sessions simultaneously
-- **Cascade Dedicated Terminal** - Reliable zsh shell for agent command execution
-- **Fast Context** (Oct 16, 2025) - 20x faster code context finding via SWE-grep
-- **Codemaps** (Oct 10, 2025) - Beta codebase visualization and navigation
-- **MCP (Model Context Protocol)** - Custom tool integration framework
-- **Windsurf Previews** (Mar 5, 2025) - In-IDE website preview capability
-- **Web & Docs Search** (Jan 17, 2025) - Internet search and documentation access
-- **Auto-Generated Memories** - Context retention between conversations
+## Key Features (historical)
+- Arena Mode, Plan Mode, Git Worktree Support, Multi-Cascade Panes/Tabs, Cascade Dedicated Terminal, Fast Context, Codemaps, MCP, Windsurf Previews, Web & Docs Search, Auto-Generated Memories.
 
 ## Last Fetched
-2026-06-03 — NEW since 2026-06-01 cache: v3.0.12 (June 2) "Windsurf is now Devin Desktop" rebrand. Identity/name change only — not a watching-tier capability finding. All prior entries unchanged.
+2026-06-09 — Newest is v3.0.28 (June 6); Windows migration hardening + stdio MCP fixes. Already reported; below watching-tier bar. No net-new since prior scan.
+</content>

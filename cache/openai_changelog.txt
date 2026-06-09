@@ -1,47 +1,24 @@
-# OpenAI Python SDK Releases — captured 2026-06-02
+# OpenAI Python SDK Releases — captured 2026-06-09
+# (Node SDK tracked in openai_node_changelog.txt — latest v6.42.0, June 3)
 
-## Latest Releases (June 2026 - April 2026)
+## Latest Releases
+
+**v2.41.0** (June 3, 2026)
+- responses.moderation and chat_completions.moderation capabilities. (matched by Node v6.42.0)
 
 **v2.40.0** (June 1, 2026)
-- Add Amazon Bedrock Responses support (point Responses API at bedrock-mantle OpenAI-compatible endpoint, AWS-managed auth). (NEW)
+- Add Amazon Bedrock Responses support (point Responses API at bedrock-mantle OpenAI-compatible endpoint, AWS-managed auth); set Bedrock API keys directly on client.
 
 **v2.39.0** (June 1, 2026)
-- Workload identity in audit logs
-- Additional tools in responses
-- Made ActionSearch.query optional
+- Workload identity in audit logs; additional tools in responses; made ActionSearch.query optional.
 
-**v2.38.0** (May 21, 2026)
-- General API updates and documentation improvements
+**v2.38.0** (May 21, 2026) - General API updates.
+**v2.37.0** (May 15, 2026) - service_tier on responses compact; eager pydantic iterator validation.
+**v2.36.0** (May 7, 2026) - Realtime 2 API implementation.
+**v2.35.0** (May 6, 2026) - Updated image generation API; removed legacy Python CLI.
+**v2.34.0** (May 4, 2026) - external_key_id on projects; Admin API Keys per endpoint; header config via env vars.
+**v2.33.0** (April 28, 2026) - API updates; fixed prompt_cache_retention enum.
+**v2.32.0** (April 15, 2026) - detail field on InputFileContent; websocket reconnection support.
 
-**v2.37.0** (May 15, 2026)
-- Added `service_tier` parameter to responses compact method
-- Supported eagerly validating pydantic iterators
-- Removed unnecessary `client_id` for workload identity provider authentication
-- Fixed missing f-string prefix in file type error message
-
-**v2.36.0** (May 7, 2026)
-- Manual API updates
-- Realtime 2 API implementation
-
-**v2.35.1** (May 6, 2026)
-- Fixed imagegen `size` enum regression
-
-**v2.35.0** (May 6, 2026)
-- Updated image generation API
-- Removed legacy Python CLI
-- Updated `top_logprobs` parameter documentation
-
-**v2.34.0** (May 4, 2026)
-- Added `external_key_id` to projects and email/metadata params to users
-- Implemented Admin API Keys per endpoint support
-- Added header configuration via environment variables
-- Multiple authentication and type fixes
-
-**v2.33.0** (April 28, 2026)
-- API updates
-- Fixed `prompt_cache_retention` enum value
-
-**v2.32.0** (April 15, 2026)
-- Added detail field to InputFileContent
-- Implemented websocket event handlers and reconnection support
-- Enhanced file parameter handling
+Updated: 2026-06-09 — Latest v2.41.0 (June 3, responses/chat_completions moderation). Unchanged since prior scan; already reported. No net-new coverage surface.
+</content>

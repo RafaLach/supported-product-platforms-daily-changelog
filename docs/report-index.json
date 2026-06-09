@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-06-09",
+    "scan_time": "2026-06-09 08:21",
+    "file": "report-2026-06-09.md",
+    "platforms": [
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Codex CLI 0.138.0** (June 8, 2026): adds **desktop handoff from the CLI to the Codex desktop app** on macOS and Windows, and **exposes local image file paths to the model** for follow-up edits. Also: enhanced reasoning-effort shortcuts, app-server integrations can read account token usage, and richer plugin automation with structured JSON output. Source: https://developers.openai.com/codex/changelog"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex CLI 0.138.0 \u2014 CLI\u2192desktop handoff + local image-file exposure to model",
+        "description": "Codex CLI 0.138.0 (June 8) lets the local CLI agent hand off an active session to the Codex desktop app across macOS/Windows, and exposes local image file paths directly to the model so it can read on-disk images during follow-up edits. Both expand the local AI-tool surface Zenity's ENDPOINT module tracks: a new cross-process handoff path (CLI session/context transferred to the desktop app) and a new local-file (image) read pathway feeding model context. ENDPOINT should account for the desktop-app handoff channel and the on-disk image read as additional data-egress/monitoring points for the Codex local agent",
+        "source": "https://developers.openai.com/codex/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-06-08",
     "scan_time": "2026-06-08 10:38",
     "file": "report-2026-06-08.md",
@@ -154,47 +179,6 @@
         "description": "As of June 1, 2026, the official `openai-python` v2.40.0, `openai-node` v6.41.0, and Codex CLI 0.136.0 all ship turnkey \"Amazon Bedrock Responses support,\" letting OpenAI's standard client libraries and the local Codex agent send Responses/Chat traffic to AWS Bedrock's OpenAI-compatible `bedrock-mantle` endpoint authenticated with AWS credentials (Bedrock API key or IAM/SigV4) rather than an `OPENAI_API_KEY`. The underlying OpenAI-on-Bedrock integration has been GA since April 2026, but moving it into the default SDKs and CLI makes it the path of least resistance and breaks several monitoring assumptions: detection keyed on \"OpenAI SDK \u21d2 api.openai.com\" now misses inference that terminates at AWS Bedrock; a single OpenAI-shaped agent may straddle two monitored clouds; and a developer endpoint running Codex can hold AWS credentials and open a new egress path to `bedrock-mantle.*.api.aws`. AIDR should treat OpenAI-client / Codex traffic to the `bedrock-mantle` endpoint as a monitored cross-provider data flow (and attribute it to the OpenAI SDK rather than a generic AWS call), while ENDPOINT-side inventory should flag Codex installs configured with the `amazon-bedrock` model provider as holding AWS credentials with a Bedrock egress path. New toxic combination: a Codex endpoint with broad AWS IAM credentials plus the Bedrock provider can route prompt/response data \u2014 including injected instructions \u2014 into the customer's own AWS account, blending agent traffic with first-party AWS API activity",
         "source": "https://developers.openai.com/codex/amazon-bedrock",
         "module": "AIDR",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-06-01",
-    "scan_time": "2026-06-01 08:56",
-    "file": "report-2026-06-01.md",
-    "platforms": [
-      {
-        "name": "ChatGPT Enterprise (OpenAI) \u2014 Codex",
-        "status": "changed",
-        "details": [
-          "**Codex 26.527 (May 29, 2026) \u2014 Computer Use on Windows**: The Codex app can now operate graphical desktop applications on Windows by seeing, clicking, and typing in the foreground (install the Computer Use plugin, then invoke with `@Computer` or `@AppName`). Remote control from the ChatGPT app on iOS/Android is extended to Windows devices, so a user can steer or send follow-up instructions to a Windows machine running Codex from their phone. Also added: a profile section surfacing usage stats and token activity, and thread-coordination improvements for local projects and worktrees. Source: https://developers.openai.com/codex/windows"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Cursor",
-        "status": "changed",
-        "details": [
-          "**Cursor 3.6 (May 29, 2026) \u2014 Auto-review Run Mode**: A new agent run mode (Settings \u2192 Agents \u2192 Run Mode) that allows the agent to work longer with fewer approval prompts. It applies to **Shell, MCP, and Fetch** tool calls: allowlisted calls run immediately, sandboxable calls execute in an isolated sandbox, and all other actions are routed to a **classifier subagent** that decides whether to allow the call, try a different approach, or ask the user for approval. The classifier can be steered with custom instructions. Source: https://cursor.com/changelog/auto-review"
-        ],
-        "tier": "watching"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Codex \u2014 Computer Use on Windows + mobile remote control",
-        "description": "Codex 26.527 extends agentic computer use (previously Mac-only) to Windows. The Codex app can now take over the active Windows desktop \u2014 moving the pointer, typing, and operating any foreground app the user allows \u2014 and can be steered remotely from the ChatGPT mobile app even while the user is away from the machine. This is a new endpoint attack surface on a new OS: a local AI agent that drives the GUI of arbitrary applications (browsers, app settings, data sources with no API) with the logged-in user's full desktop privileges. ENDPOINT must inventory Codex installs that have the Computer Use plugin enabled as distinct desktop-control capabilities per host, capture which apps are allow-listed (including \"Always allow\" grants that suppress future per-task prompts), and attribute GUI-level actions to the agent rather than the human. New toxic combinations: an \"Always allow\" grant on a sensitive app (email, finance, admin console) combined with mobile remote control means a prompt-injected or hijacked Codex session can act against that app's UI unattended, with no terminal/CLI trace \u2014 Codex's own docs note it can't automate terminal apps or itself, so GUI-driven actions are the bypass path",
-        "source": "https://developers.openai.com/codex/windows",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Cursor \u2014 Auto-review Run Mode (reduced-approval Shell/MCP/Fetch execution)",
-        "description": "Cursor 3.6 adds a run mode that lets the agent execute Shell, MCP, and Fetch tool calls without per-call human approval. Allowlisted calls run immediately, sandboxable calls run isolated, and the remainder are gated by an AI **classifier subagent** instead of a human. This removes the human from the loop for a large class of tool executions \u2014 including arbitrary shell commands and outbound fetches \u2014 on the developer endpoint. ENDPOINT (watching tier) should treat Auto-review as a distinct, higher-autonomy execution posture per Cursor install: record whether it is enabled, the configured allowlist of immediately-running Shell/MCP/Fetch operations, and any custom classifier instructions (which themselves become a prompt-injection / policy-weakening target). New toxic combination: a permissive allowlist plus a steerable classifier means an agent can run shell commands, reach MCP servers, and exfiltrate via Fetch with only an LLM \u2014 not a person \u2014 deciding what is safe",
-        "source": "https://cursor.com/changelog/auto-review",
-        "module": "ENDPOINT",
         "action": "New Coverage Required"
       }
     ]

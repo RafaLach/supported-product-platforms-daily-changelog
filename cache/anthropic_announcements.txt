@@ -1,22 +1,30 @@
-# Anthropic News — captured 2026-05-27
+# Anthropic News — captured 2026-06-09
 
-## May 26, 2026 — Anthropic appoints KiYoung Choi as Representative Director of Korea (ahead of Seoul office opening)
-Leadership/regional expansion announcement; no new product, API, model, or capability.
+## June 3, 2026 — Services Track and Partner Hub (Claude Partner Network expansion)
+Partner-program expansion; no new product, API, model, or capability surface.
+
+## June 1, 2026 — Confidential draft S-1 filing submitted to the SEC
+Corporate/financial; no product or capability.
+
+## May 28, 2026 — Series H: $65B raised at $965B post-money valuation
+Corporate/financial; no product or capability.
+
+## May 28, 2026 — Introducing Claude Opus 4.8
+Model release (stronger coding/agentic/professional performance; improved consistency for extended operations). Model version bump — not a coverage finding.
+
+## May 27, 2026 — Milan office opened
+Regional expansion; no product or capability.
+
+## May 26, 2026 — KiYoung Choi appointed Representative Director of Korea
+Leadership/regional; no product or capability.
 
 ## May 25, 2026 — Chris Olah remarks on Pope Leo XIV's encyclical
-Philosophical/cultural commentary; no new product or capability disclosure.
+Cultural commentary; no product or capability.
 
-## May 22, 2026 — Project Glasswing: An initial update
-- Originally introduced April 7, 2026, powered by Claude Mythos Preview
-- Has uncovered 10,000+ high/critical-severity vulnerabilities across widely used software
-- Partners: Cloudflare (~2,000 bugs, 400 H/C severity), Mozilla (271 vulnerabilities fixed in Firefox 150), open-source scanning (1,000+ projects, 6,202 H/C, 90.6% confirmed legitimate)
-- Verizon joined; expansion plan: U.S. and allied governments
+## May 22, 2026 — Project Glasswing: initial update
+Research initiative update (vulnerability discovery); no new product/API surface.
 
-## May 19, 2026 — Widening the conversation on frontier AI
-## May 19, 2026 — KPMG Strategic Alliance (276,000+ employees)
-## May 18, 2026 — Stainless Acquisition
-## May 14, 2026 — PwC Strategic Partnership
-## May 14, 2026 — Anthropic $200M partnership with Gates Foundation
-## May 13, 2026 — Claude for Small Business (already reported)
-## May 6, 2026 — Higher usage limits + SpaceX compute deal
-## May 5, 2026 — Agents for financial services (already reported)
+(Earlier: KPMG/PwC/Gates Foundation alliances, Stainless acquisition, Claude for Small Business, Agents for financial services — all already reported.)
+
+Updated: 2026-06-09 — Newsroom tops at June 3 (Services Track/Partner Hub). Only corporate/partner/funding/model items; no net-new product or API surface. No coverage finding.
+</content>

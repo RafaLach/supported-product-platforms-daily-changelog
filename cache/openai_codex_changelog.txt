@@ -1,14 +1,22 @@
-# OpenAI Codex Changelog — captured 2026-06-05
+# OpenAI Codex Changelog — captured 2026-06-09
 
-## June 4, 2026 — Codex CLI 0.137.0 (NEW since prior scan)
-- Hosted web and image tools available in code-mode flows, with parallel web search capability. (NEW autonomous web-egress/tool surface)
-- Multi-agent v2 enhancements with runtime choice persistence per thread. (NEW)
-- Remote-control clients can manage pairing and controller grants via app-server RPCs. (NEW remote-control authorization surface)
+## June 8, 2026 — Codex CLI 0.138.0 (NEW since prior scan)
+- Desktop handoff from CLI to Codex app on macOS and Windows. (NEW cross-process handoff — CLI session/context transferred to desktop app)
+- Local image paths exposed to models for better follow-up edits. (NEW local-file image read pathway feeding model context)
+- Enhanced reasoning-effort selection with flexible shortcuts.
+- App-server integrations can now access account token usage.
+- Richer plugin automation with structured JSON output.
+- (Reported 2026-06-09 — ENDPOINT MEDIUM: CLI→desktop handoff + local image-file exposure to model.)
+
+## June 4, 2026 — Codex CLI 0.137.0 [reported 2026-06-05/08]
+- Hosted web and image tools available in code-mode flows, with parallel web search capability.
+- Multi-agent v2 enhancements with runtime choice persistence per thread.
+- Remote-control clients can manage pairing and controller grants via app-server RPCs.
 - Enterprise/admin flows display monthly credit limits and cloud-managed config bundles.
 - Plugin workflows gained machine-readable JSON output and cached remote catalog suggestions.
 - F13-F24 keybindings and paste support in searchable menus.
 
-## June 4, 2026 — Codex App 26.602 (NEW)
+## June 4, 2026 — Codex App 26.602 [reported 2026-06-05]
 - Activity insights and share cards added to Profile section; shareable profile cards.
 - Expanded onboarding with additional role selections.
 - Enhanced Computer Use startup readiness and appshot error reporting; browser/review UI fixes.
@@ -31,4 +39,5 @@
 ## May 20, 2026 — Codex CLI 0.132.0
 (see prior cache for details)
 
-Updated: 2026-06-05 — NEW since prior scan: Codex CLI 0.137.0 (June 4) hosted web/image tools in code-mode + parallel web search, Multi-agent v2 (per-thread runtime-choice persistence), remote-control pairing/controller-grant RPCs, cloud-managed config bundles; Codex App 26.602 (activity insights/share cards). Reported 2026-06-05.
+Updated: 2026-06-09 — NEW since prior scan: Codex CLI 0.138.0 (June 8) — desktop handoff CLI→app (macOS/Windows), local image paths exposed to models, reasoning-effort shortcuts, app-server token-usage access, structured-JSON plugin automation. Reported 2026-06-09 (ENDPOINT MEDIUM).
+</content>
