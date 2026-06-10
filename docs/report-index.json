@@ -1,5 +1,46 @@
 [
   {
+    "date": "2026-06-10",
+    "scan_time": "2026-06-10 10:10",
+    "file": "report-2026-06-10.md",
+    "platforms": [
+      {
+        "name": "Claude Enterprise (Anthropic)",
+        "status": "changed",
+        "details": [
+          "**Claude Fable 5 and Claude Mythos 5** (June 9, 2026): Anthropic's first publicly available **Mythos-class** models. **Fable 5** is the safeguarded public release (state-of-the-art across software engineering, knowledge work, vision, and scientific research; conservatively tuned safeguards route ~<5% of high-risk sessions to Claude Opus 4.8). **Mythos 5** is the same underlying model with safeguards lifted in some areas, deployed to a small set of cyberdefenders/infrastructure providers via **Project Glasswing** (US government collaboration), described as having \"the strongest cybersecurity capabilities of any model in the world.\" Priced at $10/M input, $50/M output; also available on **AWS Bedrock**. Source: https://www.anthropic.com/news/claude-fable-5-mythos-5"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Codex worktree creation + automatic environment setup scripts** (June 9, 2026, ChatGPT for iOS 1.2026.153): Codex worktree creation can now optionally run a **local environment's setup scripts automatically** at the start of a new thread \u2014 \"run any command required to configure your environment\" (install dependencies, run a build). The new-thread flow lets the agent select a worktree, choose the local environment whose setup scripts run, and pick the Git branch to base the worktree on. Branch selection, the `/goal` objective-management command, and a usage-statistics profile screen also landed on the **iOS** client. Source: https://developers.openai.com/codex/app/worktrees"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Anthropic Claude Fable 5 / Mythos 5 (new Mythos-class model line)",
+        "description": "Anthropic released its first public Mythos-class models on June 9 \u2014 Fable 5 (safeguarded, public) and Mythos 5 (safeguards lifted, deployed via Project Glasswing), the latter described as having the strongest cybersecurity capabilities of any model in the world. These are entirely new model identities (not an Opus/Sonnet/Haiku version bump), introducing a new model attack surface for automated red/purple teaming: new capability ceilings to probe, a novel guardrail-fallback behavior (Fable 5 silently routing high-risk prompts to Opus 4.8) that AIRT can test for bypass/inconsistency, and frontier cyber capabilities that change the risk profile of any agent wired to these models. AISPM must also add `fable-5` / `mythos-5` as discoverable model entities \u2014 including on AWS Bedrock, where Fable 5 is now selectable",
+        "source": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex worktree setup-script execution + iOS client expansion",
+        "description": "Codex worktree creation now auto-runs a chosen local environment's setup scripts at thread start \u2014 arbitrary commands (\"anything required to configure your environment,\" e.g. dependency installs and builds) executed on the developer's machine as part of agent worktree provisioning. The same worktree/branch-selection workflow and the `/goal` command also reached the ChatGPT for iOS client (1.2026.153). This expands the local AI-tool execution surface Zenity's ENDPOINT module tracks: a new automatic command-execution pathway tied to worktree creation, plus a new mobile client through which Codex sessions and goals are driven. ENDPOINT should account for setup-script execution as a code-execution monitoring point and the iOS app as an additional Codex control surface",
+        "source": "https://developers.openai.com/codex/app/worktrees",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-06-09",
     "scan_time": "2026-06-09 08:21",
     "file": "report-2026-06-09.md",
@@ -153,32 +194,6 @@
         "description": "The June 2, 2026 ChatGPT iOS release adds SSH connection support so the mobile Codex app can connect to Windows machines (alongside an optional Face ID/passcode lock for Codex). This extends Codex's remote-execution reach \u2014 previously remote control / Computer Use on Windows \u2014 to direct SSH sessions into Windows hosts from a mobile device. ENDPOINT should treat a mobile Codex install with SSH access to Windows endpoints as a new remote-execution/credential surface on monitored machines",
         "source": "https://developers.openai.com/codex/changelog",
         "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-06-02",
-    "scan_time": "2026-06-02 10:04",
-    "file": "report-2026-06-02.md",
-    "platforms": [
-      {
-        "name": "ChatGPT Enterprise (OpenAI) \u2014 Codex CLI & SDKs",
-        "status": "changed",
-        "details": [
-          "**Codex CLI 0.136.0 (June 1, 2026) \u2014 native Amazon Bedrock backend**: The local Codex agent can now run against Amazon Bedrock with AWS-managed authentication (Bedrock API key via `AWS_BEARER_TOKEN_BEDROCK`/`AWS_REGION`, or the standard AWS SDK credential chain \u2014 `AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY`/`AWS_SESSION_TOKEN`, shared config, or console creds \u2014 with SigV4 signing). Same release also adds session archiving via the `/archive` command and Windows sandbox provisioning with an elevated setup path. Source: https://developers.openai.com/codex/amazon-bedrock",
-          "**OpenAI Python v2.40.0 / Node v6.41.0 (June 1, 2026) \u2014 Amazon Bedrock Responses support**: The official SDKs add a first-class Bedrock client so the Responses API can be pointed at the `bedrock-mantle` OpenAI-compatible endpoint (`OPENAI_BASE_URL=https://bedrock-mantle.<region>.api.aws/v1`) authenticated with a Bedrock API key instead of an OpenAI key. The immediately prior releases (Python v2.39.0 / Node v6.40.0, also June 1) added workload identity in audit logs, additional tools in responses, and made `ActionSearch.query` optional. Source: https://developers.openai.com/api/docs/guides/amazon-bedrock"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI SDKs & Codex CLI add native Amazon Bedrock provider (cross-cloud inference routing)",
-        "description": "As of June 1, 2026, the official `openai-python` v2.40.0, `openai-node` v6.41.0, and Codex CLI 0.136.0 all ship turnkey \"Amazon Bedrock Responses support,\" letting OpenAI's standard client libraries and the local Codex agent send Responses/Chat traffic to AWS Bedrock's OpenAI-compatible `bedrock-mantle` endpoint authenticated with AWS credentials (Bedrock API key or IAM/SigV4) rather than an `OPENAI_API_KEY`. The underlying OpenAI-on-Bedrock integration has been GA since April 2026, but moving it into the default SDKs and CLI makes it the path of least resistance and breaks several monitoring assumptions: detection keyed on \"OpenAI SDK \u21d2 api.openai.com\" now misses inference that terminates at AWS Bedrock; a single OpenAI-shaped agent may straddle two monitored clouds; and a developer endpoint running Codex can hold AWS credentials and open a new egress path to `bedrock-mantle.*.api.aws`. AIDR should treat OpenAI-client / Codex traffic to the `bedrock-mantle` endpoint as a monitored cross-provider data flow (and attribute it to the OpenAI SDK rather than a generic AWS call), while ENDPOINT-side inventory should flag Codex installs configured with the `amazon-bedrock` model provider as holding AWS credentials with a Bedrock egress path. New toxic combination: a Codex endpoint with broad AWS IAM credentials plus the Bedrock provider can route prompt/response data \u2014 including injected instructions \u2014 into the customer's own AWS account, blending agent traffic with first-party AWS API activity",
-        "source": "https://developers.openai.com/codex/amazon-bedrock",
-        "module": "AIDR",
         "action": "New Coverage Required"
       }
     ]

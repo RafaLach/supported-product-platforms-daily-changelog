@@ -1,7 +1,20 @@
-# Anthropic News — captured 2026-06-09
+# Anthropic News — captured 2026-06-10
+
+## June 9, 2026 — Claude Fable 5 and Claude Mythos 5 (NEW since prior scan — NEW MODEL CLASS)
+Anthropic launched **Claude Fable 5**, its first publicly available **Mythos-class** model — state-of-the-art on nearly all benchmarks (software engineering, knowledge work, vision, scientific research). Conservative safeguards cause ~<5% of sessions to fall back to Claude Opus 4.8 on high-risk topics.
+**Claude Mythos 5** = same underlying model with safeguards lifted in some areas; deployed to a small group of cyberdefenders/infrastructure providers via **Project Glasswing** (US gov collaboration). "Strongest cybersecurity capabilities of any model in the world."
+Pricing: $10/M input, $50/M output. Also available on **AWS Bedrock** (Anthropic Claude Fable 5 on AWS, Mythos-class capabilities).
+New model IDs (fable-5 / mythos-5) → new AISPM inventory entities + AIRT attack surface. (Reported 2026-06-10 — AIRT HIGH.)
+URL: https://www.anthropic.com/news/claude-fable-5-mythos-5
 
 ## June 3, 2026 — Services Track and Partner Hub (Claude Partner Network expansion)
 Partner-program expansion; no new product, API, model, or capability surface.
+
+## June 3, 2026 — Policy research: mapping AI-enabled cyber threats
+Research/policy; no product or capability surface.
+
+## June 2, 2026 — Project Glasswing expanded to ~150 new organizations across 15+ countries
+Research initiative update (vulnerability discovery); no new product/API surface.
 
 ## June 1, 2026 — Confidential draft S-1 filing submitted to the SEC
 Corporate/financial; no product or capability.
@@ -10,21 +23,11 @@ Corporate/financial; no product or capability.
 Corporate/financial; no product or capability.
 
 ## May 28, 2026 — Introducing Claude Opus 4.8
-Model release (stronger coding/agentic/professional performance; improved consistency for extended operations). Model version bump — not a coverage finding.
+Model version bump — not a coverage finding.
 
 ## May 27, 2026 — Milan office opened
 Regional expansion; no product or capability.
 
-## May 26, 2026 — KiYoung Choi appointed Representative Director of Korea
-Leadership/regional; no product or capability.
+(Earlier: KiYoung Choi Korea Representative Director (May 26), Olah encyclical remarks (May 25), Project Glasswing initial update (May 22), KPMG/PwC/Gates Foundation alliances, Stainless acquisition.)
 
-## May 25, 2026 — Chris Olah remarks on Pope Leo XIV's encyclical
-Cultural commentary; no product or capability.
-
-## May 22, 2026 — Project Glasswing: initial update
-Research initiative update (vulnerability discovery); no new product/API surface.
-
-(Earlier: KPMG/PwC/Gates Foundation alliances, Stainless acquisition, Claude for Small Business, Agents for financial services — all already reported.)
-
-Updated: 2026-06-09 — Newsroom tops at June 3 (Services Track/Partner Hub). Only corporate/partner/funding/model items; no net-new product or API surface. No coverage finding.
-</content>
+Updated: 2026-06-10 — Newsroom tops at June 9 Claude Fable 5 / Mythos 5 (new Mythos-class models). Reported 2026-06-10 (AIRT HIGH).
