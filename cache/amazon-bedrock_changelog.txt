@@ -1,10 +1,10 @@
-# Amazon Bedrock User Guide - Document History (Fetched 2026-06-01)
+# Amazon Bedrock User Guide - Document History (Fetched 2026-06-14)
 
 **Latest documentation update banner:** November 26th, 2025; newest dated rows May 27, 2026.
 
 | Change | Description | Date |
 |--------|-------------|------|
-| Removed requests-per-minute (RPM) quotas | RPM quotas no longer enforced on bedrock-runtime / bedrock-mantle; throttling now token-based. RPM rows removed from quotas terminology. [Quota change — not a new surface] | May 27, 2026 |
+| Updated requests-per-minute (RPM) quota guidance | Clarified RPM quota behavior across endpoints: bedrock-mantle exposes no per-model RPM quotas (token-based throttling); on bedrock-runtime, RPM is model-specific and some models (Claude Opus 4.7, Opus 4.8) have no RPM quota. [Quota doc change — not a new surface] | May 27, 2026 |
 | Quotas for the bedrock-runtime endpoint | New doc page describing per-model token quotas governing inference traffic; links to custom inference profiles, batch inference, Provisioned Throughput. [Doc page] | May 27, 2026 |
 | Quotas for the bedrock-mantle endpoint | New doc page documenting per-model input/output token quotas, defaults for Anthropic Claude Opus 4.7, request evaluation order, differences from bedrock-runtime, quota-increase process. [Doc page] | May 27, 2026 |
 | Token counting on the bedrock-mantle endpoint | Documented how to count input tokens through the Anthropic count_tokens path on the bedrock-mantle endpoint, including for Claude models not supported by CountTokens on bedrock-runtime. [Doc update to existing endpoint — not a new surface] | May 26, 2026 |
@@ -62,4 +62,4 @@
 
 (Older entries from 2024 unchanged from previous cache.)
 
-Updated: 2026-06-01 — New rows since prior scan are all May 27, 2026 quota/documentation changes (RPM removal + two new endpoint quota doc pages). Not new feature/API/entity surfaces; not reportable.
+Updated: 2026-06-14 — Topmost rows unchanged (all May 27, 2026 quota/doc changes; the RPM row was reworded to "Updated RPM quota guidance" and now references Opus 4.8). Not new feature/API/entity surfaces; not reportable. AgentCore API operations list re-verified byte-identical; Bedrock API reference still the same six operation groups.

@@ -1,40 +1,39 @@
-# OpenAI Codex Changelog — captured 2026-06-10
+# OpenAI Codex Changelog — captured 2026-06-14
 
-## June 9, 2026 — ChatGPT for iOS 1.2026.153 + Worktree/setup-script capability (NEW since prior scan)
-- iOS app added: branch selection, **worktree creation**, **environment setup scripts**, a Codex profile screen with usage statistics, and the `/goal` command for objective management.
-- Worktree creation now lets you optionally choose a local environment to **run setup scripts automatically** at the start of a new thread — "run any command required to configure your environment" (install dependencies, run a build). New thread view: select Worktree under composer, choose local environment for setup scripts, choose Git branch to base the worktree on.
-- Thread coordination for local projects/worktrees; thread search expanded to conversation content + Git branch names.
-- (Reported 2026-06-10 — ENDPOINT MEDIUM: worktree creation auto-runs environment setup scripts (arbitrary command execution); capability extended to iOS client.)
+## Codex CLI 0.139.0 (mid-June 2026) — minor, not reportable
+- Code mode can call standalone web search directly; tool input schemas now preserve `oneOf`/`allOf` structures; enhanced `codex doctor` (environment details); plugin marketplace automation gains JSON output.
+- (2026-06-14: incremental dev-tool refinements; no new entity/API/attack surface. Below the reporting bar.)
+
+## June 11, 2026 — Codex app 26.609
+- **Developer Mode for Browser Use**: controlled **Chrome DevTools Protocol (CDP)** access enabling performance profiling and deeper debugging of "network traffic, console output, runtime errors, and page state" in both Chrome and the in-app browser.
+- **`/init` command**: create project instructions using the same initialization workflow available in the CLI.
+- **Computer Use for Enterprise**: extended Computer Use to Enterprise users in regions outside the EEA, UK, and Switzerland (availability/geo expansion).
+- **Windows App Access Controls**: per-application access configuration for Computer Use on Windows devices (governance control).
+- **Rate-Limit Banking & Referrals**: Plus/Pro users can bank rate-limit resets; one complimentary reset at launch + referral credits.
+- **Unread Chats** section in the command menu.
+- Browser-use performance: "up to 2x faster" via CDP and DOM-snapshot optimizations reducing browser round trips.
+- (Reported 2026-06-12 — ENDPOINT/AIRT MEDIUM: Developer Mode browser CDP access = new agent browser-control & inspection surface.)
+- Docs: https://developers.openai.com/codex/app/chrome-extension
+
+## June 9, 2026 — ChatGPT for iOS 1.2026.153 + Worktree/setup-script capability [reported 2026-06-10]
+- iOS app added: branch selection, worktree creation, environment setup scripts, a Codex profile screen with usage statistics, and the `/goal` command.
+- Worktree creation can optionally run a local environment's setup scripts automatically at thread start (arbitrary command execution).
 - Docs: https://developers.openai.com/codex/app/worktrees ; https://developers.openai.com/codex/app/local-environments
 
 ## June 8, 2026 — Codex CLI 0.138.0 [reported 2026-06-09]
-- Desktop handoff from CLI to Codex app on macOS and Windows.
-- Local image paths exposed to models for follow-up edits.
-- Enhanced reasoning-effort shortcuts; app-server integrations can access account token usage; richer plugin automation with structured JSON output.
+- Desktop handoff from CLI to Codex app on macOS and Windows; local image paths exposed to models; enhanced reasoning-effort shortcuts.
 
 ## June 4, 2026 — Codex CLI 0.137.0 [reported 2026-06-05/08]
-- Hosted web and image tools in code-mode flows, parallel web search.
-- Multi-agent v2 enhancements; runtime choice persistence per thread.
-- Remote-control clients manage pairing/controller grants via app-server RPCs.
-- Enterprise/admin flows display monthly credit limits and cloud-managed config bundles.
-- Plugin workflows: machine-readable JSON output; cached remote catalog suggestions; F13-F24 keybindings.
+- Hosted web/image tools in code-mode flows, parallel web search; multi-agent v2; remote-control pairing/controller grants.
 
 ## June 4, 2026 — Codex App 26.602 [reported 2026-06-05]
 - Activity insights and share cards added to Profile section.
 
 ## June 2, 2026 — Sites plugin (preview) [reported 2026-06-03]
-- Create/save/deploy/inspect websites, dashboards, internal tools, web apps, games hosted by OpenAI.
-
 ## June 2, 2026 — ChatGPT for iOS 1.2026.146 [reported 2026-06-03]
-- Optional Face ID/passcode lock for Codex; SSH connection support for Windows machines.
-
-## June 1, 2026 — Codex CLI 0.136.0 [reported 2026-06-02]
-- Amazon Bedrock support (AWS-managed auth; SigV4); session archiving; Windows sandbox provisioning.
-
+## June 1, 2026 — Codex CLI 0.136.0 [reported 2026-06-02] — Amazon Bedrock support
 ## May 29, 2026 — Version 26.527: Computer Use & Mobile Access on Windows
-## May 28, 2026 — Codex CLI 0.135.0
-## May 26, 2026 — Codex CLI 0.134.0
 ## May 21, 2026 — Version 26.519: Appshots, Goal Mode, Remote Computer Use
 (see prior cache for details)
 
-Updated: 2026-06-10 — NEW since prior scan: iOS 1.2026.153 (June 9) — worktree creation + automatic environment setup scripts (arbitrary command execution), branch selection, /goal command, profile screen. Reported 2026-06-10 (ENDPOINT MEDIUM).
+Updated: 2026-06-14 — Since prior scan, only Codex CLI 0.139.0 (minor dev-tool refinements: web search in code mode, schema preservation, codex doctor, plugin marketplace JSON output). No new reportable surface. Topmost dated entry remains app 26.609 (June 11, reported 2026-06-12).

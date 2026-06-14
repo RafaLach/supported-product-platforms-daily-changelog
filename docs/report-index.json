@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-06-14",
+    "scan_time": "2026-06-14 08:22",
+    "file": "report-2026-06-14.md",
+    "platforms": [],
+    "findings": []
+  },
+  {
     "date": "2026-06-10",
     "scan_time": "2026-06-10 10:10",
     "file": "report-2026-06-10.md",
@@ -78,124 +85,5 @@
     "file": "report-2026-06-07.md",
     "platforms": [],
     "findings": []
-  },
-  {
-    "date": "2026-06-05",
-    "scan_time": "2026-06-05 09:05",
-    "file": "report-2026-06-05.md",
-    "platforms": [
-      {
-        "name": "Microsoft Copilot Studio \u2014 May 2026 notable-changes wave (new vs. cached April 2026 baseline)",
-        "status": "changed",
-        "details": [
-          "**Agent inventory schema** \u2014 Discover and audit all Copilot Studio agents in the tenant from the admin center, the Power Platform API, or **Azure Resource Graph**. Per-agent metadata includes creator, last-published time, deployed channels, authentication method, and capabilities; covers draft and published agents (excludes V1/Classic bots), refreshed roughly every 20 minutes. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-agent-inventory",
-          "**Computer use is now generally available** + new **computer use standalone tools (preview)** \u2014 Computer Use (CUA-powered web/desktop UI automation on Windows) moved from preview to GA; standalone computer-use tools add modular, reusable UI-automation tools with built-in governance, model selection, and observability. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use",
-          "**New agent-flow / workflow nodes** \u2014 **Microsoft 365 Copilot node** sends prompts to Microsoft 365 Copilot or a specific agent from within a workflow (research/audit-drafting automation); **Prompt node** makes a single AI call with dynamic content and per-node model selection. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/microsoft-365-copilot-node-workflow",
-          "Also in the May wave (noted, not raised as findings): consent-based recording for voice agents, asynchronous (long-running) agent-flow responses, a consolidated agent readiness/issue-status page (preview), and **Mistral Medium 3.5** as an experimental primary model. Microsoft Entra agent identities (preview) also appears but was already cached as a Nov 2025 item. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "ChatGPT Enterprise (OpenAI) \u2014 Codex CLI 0.137.0 (June 4, 2026)",
-        "status": "changed",
-        "details": [
-          "**Hosted web and image tools in code-mode flows** with parallel web search; **Multi-agent v2** with runtime-choice persistence per thread; **remote-control clients can manage pairing and controller grants via app-server RPCs**; enterprise/admin flows now surface monthly credit limits and **cloud-managed config bundles**; plugin workflows gained machine-readable JSON output and cached remote catalog suggestions. (Codex app 26.602, same day, added activity insights/share cards and Computer Use startup-readiness hardening.) Source: https://developers.openai.com/codex/changelog"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Cursor \u2014 3.7 + Enterprise Organizations (June 3\u20134, 2026) [watching tier]",
-        "status": "changed",
-        "details": [
-          "**Enterprise Organizations (GA)** \u2014 a new top-level **Organization** container above Teams, plus **Groups** (lightweight user cohorts that cut across/within teams). Each carries its own security, governance, budget, **model access**, spend limits, and **agent permissions**; org-level identity management and a spend/token rollup across teams; users move between teams via dashboard/API/CSV (\"most permissive setting wins\" on overlap). Source: https://cursor.com/changelog/enterprise-organizations",
-          "**3.7 (June 4)** Canvas Design Mode (annotate UI elements in canvases), interactive context-usage report, full-screen canvas sharing, and agent-embedded buttons that trigger specific prompts. Source: https://cursor.com/changelog"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Microsoft Copilot Studio Agent inventory schema",
-        "description": "A new tenant-wide agent inventory lets admins discover and audit every Copilot Studio / Agent Builder agent via the Power Platform admin center, the Power Platform API, and **Azure Resource Graph**, exposing per-agent metadata (creator, last-published time, deployed channels, authentication method, capabilities) for both draft and published agents. This is a first-class inventory/discovery surface that AISPM should ingest directly \u2014 it is effectively the platform's own agent inventory feed and the authoritative source for mapping Copilot Studio agents as entities, their owners, channels, and auth posture, and for flagging toxic combinations (e.g., unauthenticated/anonymous-channel agents, orphaned-owner agents, or agents with broad capabilities). AISPM must consume this schema to keep Copilot Studio agent coverage complete",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-agent-inventory",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Copilot Studio Computer Use GA + standalone computer-use tools",
-        "description": "Computer Use (CUA-powered automation that controls browsers and Windows desktop apps on a user's behalf) moved to general availability, and a new **standalone computer-use tool** type adds modular, reusable UI-automation tools with their own governance, model selection, and observability. This expands an existing capability into a discrete, reusable inventory entity: AISPM should map standalone computer-use tools (and the agents/flows that attach them) and treat a Computer-Use-enabled agent \u2014 which can click, type, and read any on-screen content with built-in credentials \u2014 as a high-privilege, GUI-level execution path subject to AIRT testing for prompt-injection-driven unintended actions",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Copilot Studio Microsoft 365 Copilot node + Prompt node (new agent-flow building blocks)",
-        "description": "Two new workflow/agent-flow nodes shipped in May. The **Microsoft 365 Copilot node** lets a workflow send prompts to Microsoft 365 Copilot (or a specific agent) and consume the result \u2014 a new agent-to-Copilot data flow that can pull tenant grounding data into automated processes. The **Prompt node** makes a single inline AI call with dynamic content and per-node model selection. AISPM should add these node types to its Copilot Studio flow inventory and map the M365 Copilot node as a new data-flow edge (workflow \u2192 M365 Copilot \u2192 grounded enterprise data), which AIDR should also treat as a new activity/data-flow surface",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/microsoft-365-copilot-node-workflow",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Codex CLI 0.137.0 \u2014 hosted web/image tools in code-mode, Multi-agent v2, remote-control grant management",
-        "description": "The June 4 Codex CLI release lets code-mode flows use hosted web and image tools with parallel web search (new autonomous web-egress/tool surface from inside code execution), adds Multi-agent v2 with per-thread runtime-choice persistence (expanded local multi-agent orchestration), and lets remote-control clients manage pairing and controller grants via app-server RPCs (a remote-control authorization surface), plus cloud-managed config bundles for enterprise/admin. ENDPOINT should track Codex CLI installs that can now reach the web and spawn persistent multi-agent runs locally, and treat remote-control pairing/controller grants as a new device-access surface on monitored machines",
-        "source": "https://developers.openai.com/codex/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Cursor Enterprise Organizations (new org/group governance & identity entities)",
-        "description": "Cursor (watching tier) added a generally-available **Organization** layer above Teams plus cross-cutting **Groups**, each with its own security, governance, budget, **model access**, spend limits, and **agent permissions**, org-level identity management, and a spend/token rollup. These introduce new governance/identity entities for a monitored endpoint AI tool: AISPM should map Cursor organizations, teams, and groups \u2014 and especially per-group model access and agent permissions \u2014 since \"most permissive setting wins\" on overlapping membership can silently grant a user broader model/agent capability than their primary team allows (a privilege-aggregation toxic combination)",
-        "source": "https://cursor.com/changelog/enterprise-organizations",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-06-03",
-    "scan_time": "2026-06-03 09:17",
-    "file": "report-2026-06-03.md",
-    "platforms": [
-      {
-        "name": "ChatGPT Enterprise (OpenAI) \u2014 Codex enterprise expansion (June 2, 2026)",
-        "status": "changed",
-        "details": [
-          "**Codex \"Sites\" (preview, Business/Enterprise) \u2014 agent-built, OpenAI-hosted web apps & dashboards**: The Codex app's new Sites plugin turns a prompt or compatible project into a deployed site hosted by OpenAI \u2014 websites, dashboards, internal tools, web apps, planners, review workspaces, project boards, galleries, and games. Sites hosts projects that build Cloudflare Worker\u2013compatible output as ES modules. Workflow: validate the build \u2192 save a deployable version for review \u2192 deploy the approved version. Each project has its own hosted environment variables and secrets (managed in the Sites panel), a deployment status, a workspace-shareable URL, and access controls the agent can change (\"change who can access a deployed site\"). Rolling out to Business and Enterprise plans first, with enterprise admin enablement via role-based access control. Source: https://developers.openai.com/codex/sites",
-          "**Codex on ChatGPT for iOS 1.2026.146 \u2014 SSH to Windows + biometric lock**: Adds SSH connection support so the mobile Codex app can connect to Windows machines, an optional Face ID/passcode lock for Codex, and a settings screen for follow-up behavior and code diff preferences. Source: https://developers.openai.com/codex/changelog"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Codex \"Sites\" \u2014 agent-deployed, OpenAI-hosted applications",
-        "description": "As of June 2, 2026 (preview, Business/Enterprise), the Codex app's Sites plugin lets a Codex agent create, save, deploy, and inspect full websites, dashboards, internal tools, web apps, and games **hosted by OpenAI** (Cloudflare Worker\u2013compatible ES-module output). Each Site is a new inventory entity carrying its own hosted environment variables and secrets, a deployment lifecycle (saved \u2192 approved \u2192 deployed), a workspace-shareable URL, and access controls the agent itself can modify. AISPM must discover and map these new entities \u2014 Codex Sites projects, their stored secrets/env vars, deployment status, and sharing/access scope \u2014 and flag toxic combinations such as an agent that both holds secrets and can deploy a publicly reachable app *and* widen its audience (an agent-controlled exposure/exfiltration path). This is an entirely new service surface, not an extension of an existing one",
-        "source": "https://developers.openai.com/codex/sites",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Codex Sites as a new agent-controlled deployment/exposure attack surface",
-        "description": "Because a Codex agent can deploy live, OpenAI-hosted endpoints and change who can access them, a prompt-injected or misdirected Codex session becomes a vector to stand up or repoint a public web app, embed/exfiltrate secrets via a Site's stored environment variables, or broaden a Site's audience without human review. AIRT should add Codex Sites deploy/share/secret-management actions to its red/purple-team surface for OpenAI agents \u2014 testing prompt-injection paths that result in unauthorized deployment, audience widening, or secret exposure",
-        "source": "https://developers.openai.com/codex/sites",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Codex (ChatGPT iOS 1.2026.146) adds SSH connections to Windows machines",
-        "description": "The June 2, 2026 ChatGPT iOS release adds SSH connection support so the mobile Codex app can connect to Windows machines (alongside an optional Face ID/passcode lock for Codex). This extends Codex's remote-execution reach \u2014 previously remote control / Computer Use on Windows \u2014 to direct SSH sessions into Windows hosts from a mobile device. ENDPOINT should treat a mobile Codex install with SSH access to Windows endpoints as a new remote-execution/credential surface on monitored machines",
-        "source": "https://developers.openai.com/codex/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      }
-    ]
   }
 ]

@@ -1,27 +1,18 @@
-# Windsurf Editor Changelog Summary — captured 2026-06-09
-# NOTE: windsurf.com/changelog now 308-redirects to docs.devin.ai/desktop/changelog.
+# Windsurf / Devin Desktop Changelog — captured 2026-06-12
+# NOTE: windsurf.com/changelog 308-redirects to docs.devin.ai/desktop/changelog.
 
-## Recent Major Releases
+Most recent version: v3.1.7 (June 10, 2026)
 
-**June 6, 2026 (v3.0.28)** [already reported] - Devin Local: enhanced file-context awareness (recognizes files open in editor); fixed stdio MCP server issues on Windows. Windows migration hardening (preserves app shortcut icons). Remote server startup timeout 2.5s→6s. Streamlined enterprise model picker. [Incremental — below watching-tier major-capability bar; not a coverage finding.]
+## v3.1.7 (June 10, 2026)
+- Agent/Editor switch added to collapsed-sidebar titlebar; unified search icon for agent search; smoother mode switching without closing auxiliary windows.
+- "Devin CLI" settings section renamed to "Devin Local"; notification for failed agent sign-in; bundled agent updated to v2026.5.26-8.
+- `.devinignore` support alongside `.windsurfignore` and `.codeiumignore`.
+- Settings/MCP marketplace pages scroll full panel width with centered content.
+[UI/workflow refinement of the Devin Desktop rebrand + a new ignore-file; no new agent or MCP capability. Below watching-tier bar.]
 
-**June 2, 2026 (v3.0.12)** - "Windsurf is now Devin Desktop." Product rebrand/consolidation under the Devin product line. [Rebrand/identity change — not a coverage finding.]
+## v3.0.28 (June 6, 2026) [already reported] — Windows migration hardening + stdio MCP fixes.
+## v3.0.12 (June 2, 2026) — "Windsurf is now Devin Desktop" rebrand.
+## v2.3.15 (May 28, 2026) — Claude Opus 4.8; Devin Local context tracking + MCP approval persistence.
+(see prior cache for earlier history: Windsurf 2.0, Devin for Terminal, Agent Command Center, etc.)
 
-**May 28, 2026 (v2.3.15)** - Claude Opus 4.8 available (model bump). Devin Local: tracks open files as context; session-level + permanent approval for MCP tools; permission grants persist across sessions; improved plan mode in OS sandbox.
-
-**May 17, 2026 (v2.3.9)** - Fixed swe-check model availability; terminal processing efficiency; restored conversation sharing.
-
-**May 12, 2026** - Claude Opus 4.7 (fast mode) launched.
-
-**May 6, 2026 (v2.2.17)** - Devin Review and Quick Review integrated; Agent Command Center improved.
-
-**April 28, 2026 (v2.1.29)** - Devin for Terminal released; Devin Local agent available in Windsurf.
-
-**April 16, 2026 (v2.0.44)** - **Windsurf 2.0** launch: integrated Devin Cloud agent, Agent Command Center with Kanban view, Spaces.
-
-## Key Features (historical)
-- Arena Mode, Plan Mode, Git Worktree Support, Multi-Cascade Panes/Tabs, Cascade Dedicated Terminal, Fast Context, Codemaps, MCP, Windsurf Previews, Web & Docs Search, Auto-Generated Memories.
-
-## Last Fetched
-2026-06-09 — Newest is v3.0.28 (June 6); Windows migration hardening + stdio MCP fixes. Already reported; below watching-tier bar. No net-new since prior scan.
-</content>
+Updated: 2026-06-12 — Watching tier. v3.1.7 is a UI/workflow refinement plus `.devinignore`; no new capability. Below the watching-tier reporting bar (version bump). No net-new since prior scan.

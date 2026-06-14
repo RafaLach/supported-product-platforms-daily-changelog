@@ -1,35 +1,20 @@
-# Cursor Changelog — captured 2026-06-09
+# Cursor Changelog — captured 2026-06-12
 
-## June 5, 2026 (Version 3.7) — Design Mode Improvements + SDK enhancements [already reported]
-- Design Mode: multi-select elements in browser; voice input to narrate UI changes while agents run.
-- SDK (TS & Python): custom tools passed directly via local.customTools without separate MCP servers; auto-review routing of local tool calls through a classifier; JSONL/custom stores for agent persistence; nested subagents that can spawn subagents at any depth.
-- Canvas: Design Mode for canvases; interactive context-usage reports.
-- Enterprise Organizations: orgs as top-level containers with team/group management; multi-team roles; org-level usage analytics + IDP management.
-- Reliability: requestId run correlation; HTTP/1.1 cloud streaming; lighter SDK imports.
-(Below watching-tier major-capability bar; already reported in prior reports.)
+Topmost entry: "Bugbot is now over 3x faster, 22% cheaper, and finds 10% more bugs" (June 10, 2026) — performance/cost improvement, not a new capability.
+
+## June 5, 2026 (Version 3.7) [already reported, below watching-tier bar]
+- Design Mode: multi-select elements in browser; voice input to narrate UI changes while agents run; Design Mode in canvases.
+- SDK (TS & Python): custom tools via `local.customTools` (no separate MCP server); auto-review routing of local tool calls through a classifier; JSONL/custom stores for agent persistence; nested subagents that can spawn subagents at any depth.
+- Canvas: interactive context-usage reports.
+- Enterprise: Organizations (top-level containers, multi-team roles, org-level analytics + IDP), Groups.
+- Bugbot `/review` pre-push validation on GitHub/GitLab; incremental reviews.
 
 ## May 29, 2026 (Version 3.6) — Auto-review Run Mode [reported 2026-06-01]
-New run mode allowing the agent to work longer with fewer approval prompts. Applies to Shell, MCP, and Fetch tool calls: allowlisted calls run immediately, sandboxable calls run in an isolated sandbox, others route to a classifier subagent.
-
-## May 20, 2026 (Version 3.5) — Shared Canvases
-Teams share interactive agent artifacts via browser links (read-only). External/cross-team sharing surface.
-
-## May 20, 2026 (Version 3.5) — /loop Skill
-Agents run a prompt repeatedly on a local schedule until an outcome is achieved.
-
-## May 20, 2026 — Improvements to Cursor Automations
-Automations in Agents Window; multi-repo + standalone configs; new templates.
-
+## May 20, 2026 (Version 3.5) — Shared Canvases; /loop Skill; Cursor Automations
 ## May 19, 2026 — Cursor in Jira
-Assign work items to cloud agents or @Cursor in Jira comments; generates PRs.
-
-## May 18, 2026 — Composer 2.5
-Upgraded Cursor model.
-
-## May 13, 2026 (Version 3.4) — Full-screen Tabs and Compact Chats
-## May 13, 2026 — Development Environments for Cloud Agents (multi-repo)
-## May 11, 2026 — Cursor in Microsoft Teams (@Cursor mentions)
+## May 13, 2026 (3.4) — Full-screen Tabs; Dev Environments for Cloud Agents (multi-repo)
+## May 11, 2026 — Cursor in Microsoft Teams
 ## May 7, 2026 — Build in Parallel / /multitask
+(see prior cache for details)
 
-Updated: 2026-06-09 — Newest is 3.7 (June 5); already reported, below watching-tier bar. No net-new since prior scan.
-</content>
+Updated: 2026-06-12 — Watching tier. Newest dated entry is a June 10 Bugbot performance/cost note (not reportable). The 3.7 agent features (nested subagents, custom tools) were June 5 and are below the watching-tier reporting bar. No new major capability since prior scan.
