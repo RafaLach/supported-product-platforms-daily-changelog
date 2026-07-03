@@ -1,39 +1,11 @@
-# Vertex AI Release Notes Summary — captured 2026-05-27
+# Vertex AI Release Notes — captured 2026-07-03
+# (cloud.google.com/vertex-ai/docs/release-notes 301-redirects to docs.cloud.google.com; followed)
 
-## Latest Updates (May 2026)
+## Newest entries
+- **June 30, 2026** — Agent Platform Workbench now supports Python 3.12 base containers for custom containers (alongside default Python 3.10). [Container runtime version — below secondary-tier reporting bar]
 
-**May 26, 2026** - Colab Enterprise: Data Science Agent now generally available. Automates exploratory data analysis, performs machine learning tasks, and delivers insights directly within Colab Enterprise notebooks.
+## May 2026 [already cached / prior scans]
+- May 26, 2026 — Colab Enterprise Data Science Agent GA (already reported). Vertex AI Extensions marked for deprecation (effective Nov 26, 2026; migrate to Agent Platform) [DEPRECATION].
+- April 2026 — RAG Cross Corpus Retrieval (preview); Claude Opus 4.7 in Model Garden; Colab visualization/SQL cells GA; RAG Engine metadata search.
 
-**May 26, 2026** - Vertex AI Extensions marked for deprecation (effective November 26, 2026); migrate to Agent Platform. [DEPRECATION — not coverage-relevant]
-
-## April 2026
-
-**April 17, 2026** - RAG Cross Corpus Retrieval now in public preview, enabling retrieval from multiple corpora simultaneously
-
-**April 14, 2026** - Claude Opus 4.7 available in Model Garden
-
-**April 13, 2026** - Visualization cells for Colab Enterprise generally available
-
-**April 10, 2026** - SQL cells for Colab Enterprise generally available
-
-**April 6, 2026** - Metadata search for RAG Engine using schema-based filtering
-
-**April 3, 2026** - Gemma 4 26B A4B IT experimental launch; RAG Engine Serverless mode in public preview
-
-**April 2, 2026** - Veo 3.1 Lite released (cost-efficient option); Gemini 2.5 model retirement dates updated to October 16, 2026
-
-## Key Announcements
-
-- **Vector Search 2.0** (March 5, 2026) - Now generally available with collections, auto-embeddings, and hybrid search
-- **Vertex AI Agent Engine** (March 4, 2025) - Generally available with billing starting that date
-- **Gemini 2.5 Flash/Pro** (June 17, 2025) - Now generally available with updated pricing
-
-## Major Feature Releases
-
-- Live API for Gemini (private GA, June 2025)
-- Veo 3 and 3.1 video generation (generally available, July 2025)
-- Agent Development Kit in preview (April 2025)
-- Agent Garden in preview (April 2025)
-
-## Last Fetched
-2026-05-27 — NEW: Colab Enterprise Data Science Agent GA (May 26, 2026). Vertex AI Extensions deprecation announced (May 26, 2026; not reportable). URL redirects to docs.cloud.google.com.
+Updated: 2026-07-03 — Secondary tier. Only new entry since prior scan is the June 30 Python 3.12 container-runtime option for Agent Platform Workbench — a runtime version bump, not a significant new capability. No reportable addition.

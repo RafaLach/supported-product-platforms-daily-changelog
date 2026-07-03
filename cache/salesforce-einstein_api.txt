@@ -1,6 +1,11 @@
-Based on the provided webpage content, there are **no release notes, dates, or specific announcements** visible.
+# Einstein GenAI Reference Index — captured 2026-07-03
 
-The page is a reference documentation index for Agentforce and Generative AI developers. It lists available tools and APIs (Agent API, Python SDK, Agent Script, Agentforce DX, Mobile SDK, Models API, Testing API, Citations API, and Metadata/Tooling APIs) but contains no changelog items, feature release dates, or product announcements.
+APIs: Agent API, Models API (Apex + REST), Testing API, Citations API, Metadata API, Tooling API.
+SDKs: Agentforce Python SDK, Agentforce Mobile SDK (iOS/Android).
+Other: Agent Script, Agentforce DX, Lightning Types Reference.
+
+No dated/new releases on this reference index page.
 
 ## Last Fetched
-2026-05-18 - No changes from previous fetch.
+2026-07-03 - No changes from previous fetch.
+2026-06-16 - No changes from previous fetch.

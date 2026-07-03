@@ -1,28 +1,6 @@
-Source: https://learn.microsoft.com/en-us/power-apps/whats-new
-Fetched: 2026-05-18
+# Power Apps What's New — captured 2026-07-03
+# (ms.date 2024-08-14; pointer page)
 
-# What's new in Power Apps
+The What's New page is a pointer to weekly released-versions notes and the Release Planner; it carries no dated feature entries itself.
 
-Resources to learn about new features recently released, features releasing over the next few months, and known limitations.
-
-## Weekly releases
-
-For new features, fixes, and improvements, see Released versions for Microsoft Power Apps.
-
-## Release plan
-
-See Release Planner (releaseplans.microsoft.com).
-
-## Monthly releases for model-driven apps
-
-| Channel | Frequency | Notes |
-| --- | --- | --- |
-| Semi-annual | Twice per year | Rollout starts early April and early October. Default. |
-| Monthly | Once per month | Rollout follows weekly release schedule starting with the first weekly release for the month. |
-
-## Known limitations
-
-See Common issues and resolutions.
-
-Page last updated: 2024-08-14
-Updated: 2026-05-18
+Updated: 2026-07-03 — No dated AI/agent feature additions on this page. No reportable addition. (Weekly released-versions tracked in power-apps_changelog2.txt.)

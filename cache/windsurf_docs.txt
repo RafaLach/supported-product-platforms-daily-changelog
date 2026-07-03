@@ -1,18 +1,8 @@
-# Release Notes, Features, and Announcements
+# Windsurf / Devin Desktop Docs — captured 2026-07-03
+# docs.windsurf.com 307-redirects to docs.devin.ai/desktop/*
 
-Based on the provided documentation page, there are **no specific release notes, dated announcements, or new feature listings** visible.
-
-The page primarily contains:
-- Installation and onboarding instructions
-- General feature descriptions (Cascade, Terminal, MCP, Memories, Context Awareness, Workflows, App Deploys)
-- Setup guidance
-
-**Notable mentions:**
-- A tip directing users to "See what's new with Windsurf in our [changelog](https://windsurf.com/changelog)" — but the actual changelog content is not included on this page
-- A note about "Windsurf Next" as a prerelease version for early access to unreleased features
-- A beta feature for "Custom App Icons" available to paying Mac OS users
-
-For actual release notes and new features, users are directed to consult the external changelog link rather than this welcome/setup documentation.
+Top doc sections: Devin Local ("next-generation agent harness", primary local agent), Terminal (IDE-integrated), MCP (servers extend agent capabilities), Memories & Rules, Context Awareness, Workflows (automate repetitive trajectories), App Deploys (one-click deploy).
+Config: VS Code/Cursor settings import, SSH/dev containers, Devin Desktop Next prerelease channel. New minor: Custom App Icons (beta, paying users, macOS).
 
 ## Last Fetched
-2026-05-18 — No major new capabilities detected from previous fetch (docs overview page unchanged).
+2026-07-03 — Docs reflect Devin Desktop rebrand set (Devin Local, Workflows, App Deploys). Only new item is Custom App Icons beta (cosmetic, below bar). No new capability beyond changelog.

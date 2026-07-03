@@ -1,10 +1,8 @@
-Based on the web page content provided, I can only see the page title:
+Cursor Docs (docs.cursor.com 308-redirects to cursor.com/docs).
 
-**Cursor Docs — Agent, Rules, MCP, Skills & CLI**
+Top doc categories: Agents, Rules, MCP (Model Context Protocol), Skills, CLI.
 
-No release notes, new features, new APIs, new services, new entity types, new agent capabilities, new connectors, or announcements are visible in the content shared. Only the documentation header/title is displayed, which appears to reference available documentation topics rather than changelog items.
-
-To identify actual release information, I would need the full page content including any changelog, release notes, or announcement sections.
+Page exposes only section headers/titles; no changelog or dated content on the index. (Mobile app, cloud subagents, and team MCP marketplace surfaced via changelog — see cursor_changelog.txt.)
 
 ## Last Fetched
-2026-05-18 — URL docs.cursor.com now redirects to cursor.com/docs. Title mentions Skills (new since previous fetch).
+2026-07-03 — Sections unchanged (Agents, Rules, MCP, Skills, CLI). No new capability visible on docs index itself; new capabilities tracked via changelog.

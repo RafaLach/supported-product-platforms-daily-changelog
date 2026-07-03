@@ -1,86 +1,19 @@
-# Perplexity API Changelog Summary
+# Perplexity API Changelog — captured 2026-07-03
 
-## May 2026
-- **Finance Search Tool**: Structured financial data including quotes, financials, earnings, analyst estimates, and ETFs now available in Agent API
+## May 2026 [top dated entry; cached — still newest]
+- Finance Search tool for Agent API: structured financial data (quotes, financials, earnings, analyst estimates, ETFs, OHLCV, pre/after-hours); model autonomously selects fields.
 
-## April 2026
-- **New Models**: Claude Opus 4.7, GPT-5.5, Grok 4.20 Reasoning added to Agent API
-- **API Key Security**: One-time reveal model implemented; keys only visible at creation
-- **n8n Integration**: Native Perplexity node with full API coverage
-- **OpenClaw Integration**: Terminal AI agent support for Perplexity Search
-- **AWS Marketplace**: API credits purchasable through AWS account
-- **GET /v1/models Endpoint**: Lists available Agent API models in OpenAI format
+## April 2026 [cached]
+- Agent API + third-party models: Claude Opus 4.7, GPT-5.5, Grok 4.20 Reasoning.
+- API key one-time-reveal security model.
+- n8n + OpenClaw integrations; AWS Marketplace; GET /v1/models endpoint.
 
-## March 2026
-- **New Models**: GPT-5.4, NVIDIA Nemotron, Claude Sonnet 4.6, Gemini 3.1 Pro added
-- **Model Deprecations**: Gemini 2.5 Flash/Pro and Gemini 3 Pro Preview removed
-- **Agent API Endpoint**: `/v1/agent` now canonical (previous `/v1/responses` alias maintained)
+## March 2026 [cached]
+- Models: GPT-5.4, NVIDIA Nemotron, Claude Sonnet 4.6, Gemini 3.1 Pro. Gemini 2.5 removed. /v1/agent canonical.
 
-## February 2026
-- **Agent API**: General availability announced with production guidance
-- **Embeddings API**: Launched with semantic search and retrieval guides
+## Feb 2026: Agent API + Embeddings API GA. Dec 2025: Media Classifier; Search API max_tokens/last_updated_filter/Vercel SDK. Nov 2025: Pro Search GA; MCP Server one-click install (Cursor/VS Code/Claude Desktop). (earlier history cached.)
 
-## December 2025
-- **Model Removal**: `sonar-reasoning` deprecated
-- **Media Classifier**: Auto-detects visual content needs for responses
-- **Search API**: `max_tokens` parameter, `last_updated_filter`, Vercel AI SDK support
-
-## November 2025
-- **Pro Search**: Multi-step reasoning with automated tool usage now GA
-- **MCP Server**: One-click installation for Cursor, VS Code, Claude Desktop
-
-## October 2025
-- **Official SDKs**: Python and TypeScript SDKs released
-- **Search Playground**: Interactive testing without API key requirement
-- **Search Capabilities**: `language_preference`, `search_domain_filter`, date/time filters
-
-## September 2025
-- **File Attachments**: PDF, DOC, DOCX, TXT, RTF document analysis
-- **Search-only API**: Standalone endpoint for raw search results
-- **API Key Rotation**: Comprehensive key management system
-
-## August 2025
-- **Model Deprecation**: R1-1776 removed; migration to Sonar Pro Reasoning recommended
-
-## July 2025
-- **Cost Tracking**: Detailed cost breakdown in API responses
-- **SEC Filings Filter**: Domain filtering for regulatory documents
-
-## June 2025
-- **Date Filtering**: `latest_updated` field for content freshness
-- **Academic Filter**: `search_mode: "academic"` for peer-reviewed sources
-
-## May 2025
-- **Reasoning Effort**: Control computational depth ("low/medium/high") for Sonar Deep Research
-- **Async API**: Asynchronous endpoints for extended research tasks
-- **Search Results Field**: New `search_results` field with title/URL/date; `citations` deprecated
-
-## April 2025
-- **API Portal**: Organization management at console.perplexity.ai
-- **Location Filtering**: Geography-based search result narrowing
-- **Image Uploads**: Multimodal image support for all users
-- **Date Range Filtering**: Temporal search constraints
-- **Citation Token Pricing**: Eliminated; citation tokens no longer charged
-- **Feature Access**: All capabilities available to all users regardless of tier
-- **Structured Outputs**: Removed Tier 3 requirement; available to everyone
-
-## March 2025
-- **Search Modes**: High/Medium/Low options across Sonar models
-- **Simplified Billing**: Transparent token pricing; no citation token charges (except Deep Research)
-
-## January 2025
-- **Model Deprecations**: Llama 3.1 Sonar models discontinued
-- **New APIs**: Sonar and Sonar Pro launched as primary offerings
-
-## November 2024
-- **Citations Release**: Public availability; default rate limits increased to 50 req/min
-
-## July 2024
-- **Llama 3.1 Sonar Models**: New online and chat variants
-- **Model Deprecations**: Multiple older models removed (8/12/2024)
-
-## April 2024
-- **Model Deprecations**: CodeLlama, Mistral, Mixtral variants removed (5/14/2024)
+API reference (/v1/agent) tools now surfaced: web search (domain/date/geo filters), Finance search, People search, URL fetch (≤10), Sandbox execution (isolated code), custom function tools (JSON schema), and **`mcp` tool — connect remote MCP servers for extended capabilities** [NEW in reference vs prior scan; NOT confirmed by any dated changelog entry]. Presets: fast-search, pro-search, deep-research. Reasoning effort low/med/high + now **xhigh/max** [new levels in reference]. research loop max_steps 1-10; SSE streaming.
 
 ## Last Fetched
-2026-05-18 — NEW: Finance Search Tool in Agent API (May 2026); Claude Opus 4.7, GPT-5.5, Grok 4.20 Reasoning models added (April 2026); API Key one-time-reveal security model (April 2026).
+2026-07-03 — Top dated changelog entry still May 2026 (Finance Search), already cached. No new dated changelog entry since prior scan. API reference now lists an `mcp` remote-server connector tool + xhigh/max reasoning not previously enumerated; not confirmed as a dated launch, so treated as reference detail to watch, not a reportable major launch.

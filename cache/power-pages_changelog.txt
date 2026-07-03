@@ -1,20 +1,6 @@
-Source: https://learn.microsoft.com/en-us/power-pages/release-updates
-Fetched: 2026-05-18
+# Power Pages Release Updates — captured 2026-07-03
+# (ms.date 2023-03-21; stale pointer page)
 
-# Power Pages release updates and new features
+The Release Updates page points to release-wave plans (2023 waves) and a privacy notice on Azure components; it carries no recent dated feature entries.
 
-## Power Pages release plans
-- 2023 release wave 2 plan
-- 2023 release wave 1 plan
-- 2022 release wave 2 plan
-
-## Privacy notice (Azure components used)
-- Azure Web Apps (hosting)
-- Azure Traffic Manager (high availability)
-- Azure Service Bus (cache invalidation)
-- Azure Key Vault (config storage)
-- Azure Storage (organization/tenant/website data)
-- Microsoft Entra ID (authentication)
-
-Page last updated: 2023-03-21 (source); updated_at 2025-05-12
-Updated: 2026-05-18
+Updated: 2026-07-03 — No dated AI/agent feature additions on this page. No reportable addition.

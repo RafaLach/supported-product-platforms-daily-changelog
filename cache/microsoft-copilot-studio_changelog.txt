@@ -1,85 +1,18 @@
-Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new
-Fetched: 2026-06-05
+# Copilot Studio What's New — captured 2026-07-03
+# (source ms.date 2026-06-25; page updated 2026-06-30)
 
-# What's new in Copilot Studio
+## June 2026 [NEW since prior scan — cache previously topped at May 2026] — REPORTABLE (primary tier)
+- **New agent experience (production-ready preview)** — enhanced orchestration runtime for improved response quality/reasoning, available alongside the classic experience. New agent build model/runtime entity. (AISPM)
+- **Microsoft IQ** in the new agent experience — connects an agent to organizational data: emails, calendar events, files, Teams messages, and people information. New knowledge/data-grounding connection surface. (AISPM/AIDR HIGH)
+- **Skills** in the new agent experience — modular, self-contained sets of instructions; create once, add to multiple agents, export as Markdown file or package to share. New reusable-capability entity + sharing/supply-chain surface. (AISPM)
+- **Memory** in the new agent experience — persistent per-user context; captures user preferences/patterns, stores them per user, applies over time. New per-user memory store (holds user data/PII). (AISPM)
 
-## May 2026 (NEW since prior scan — cache previously topped at April 2026)
+## May 2026 [already cached / prior scans]
+- Computer use GA (browser + desktop automation on behalf of users); prompt node; Microsoft 365 Copilot node in workflows; consent-based voice recording; agent inventory schema (admin discovery/audit); agent readiness/issue status page; async agent-flow responses; (preview) Microsoft Entra agent identities per agent; computer-use standalone tools; Mistral Medium 3.5 model option.
 
-- (General availability) Computer use is now generally available, letting agents automate web and desktop apps by controlling browsers and desktop applications on behalf of users.
-- Add a prompt node to an agent flow or workflow to make a single AI call with dynamic content and model selection (e.g., translation, structured data extraction).
-- Add a Microsoft 365 Copilot node to a workflow to send prompts to Microsoft 365 Copilot or a specific agent (research, audit drafting automation).
-- Configure consent-based recording on voice-enabled agents.
-- Use the agent inventory schema to discover and audit all Copilot Studio agents in your org from the admin center, API, or Azure Resource Graph.
-- (Preview) Review agent readiness and issue status from a consolidated status page (publishing errors, runtime issues, config blocks with severity).
-- Use asynchronous responses for agent flows to let long-running processes exceed the two-minute limit.
-- (Preview) Automatically create Microsoft Entra agent identities for each agent to scope connector permissions, Conditional Access, and DLP per agent. (also listed Nov 2025)
-- (Preview) Add computer use standalone tools to agents and agent flows for modular, reusable UI automation with governance, model selection, observability.
-- (Preview) Choose Mistral Medium 3.5 as the primary AI model (experimental, alongside Anthropic, xAI, etc.).
+## April 2026 [already cached]
+- Real-time voice agents (preview); agent-to-agent (A2A) protocol GA; agent evaluation REST API; GPT-5.5 Reasoning (Deep); Analytics Viewer role; hold/resume voice.
 
-## April 2026
+## Earlier (cached): Work IQ (Mar 2026), Bing Custom Search knowledge, MCP server support (Oct 2025), Client SDK, code interpreter, Entra agent identities (preview Nov 2025), Fabric data agents, tool groups.
 
-- Configure hold and resume for voice-enabled agents.
-- (Preview) Build and deploy real-time voice agents for Copilot Studio and Dynamics 365 Contact Center.
-- Trigger agent evaluations automatically using the Copilot Studio connector with Power Automate.
-- (Preview) Run automated agent evaluations from a REST API using the Power Platform API.
-- Use the agent usage estimator to forecast Copilot credit consumption.
-- (Preview) Analyze your agent with custom metrics.
-- (General availability) Connect agents to other agents using the agent-to-agent (A2A) protocol.
-- (Preview) Add a display name suffix to identify agents across environments.
-- (Preview) Use GPT-5.5 Reasoning (Deep) as an experimental model.
-- Share analytics access with the new Analytics Viewer role.
-
-## March 2026
-
-- (Preview) Use Work IQ tools to connect Microsoft 365 Copilot and agents to the Work IQ service.
-- View and filter detailed lists of user questions and reactions.
-- Session transcripts include session-level CSAT; download filtered questions/reactions to CSV.
-- Use the Prompt assistant in Prompt builder.
-- Add Bing Custom Search as a knowledge source.
-- Configure post-call action topics and reprompt messages for voice agents.
-- Agent evaluations GA; multi-turn conversation tests.
-- ChatGPT-5 GA globally (excl. GCC); Claude Sonnet 4.5/4.6 and Claude Opus GA globally (excl. GCC).
-- Use an agent node to call a Copilot Studio agent from an agent flow.
-
-## February 2026
-
-- Improved agent responses for ticket-based M365 Graph connectors (ServiceNow, Azure DevOps).
-- Select Claude Sonnet 4.5 (beta) for Computer Use agents.
-- Prompt builder: per-prompt content moderation sensitivity; Claude Opus 4.6 / Sonnet 4.5; inline prompt editing.
-
-## January 2026
-
-- (Preview) Agent evaluation enhancements (thumbs feedback, activity maps, CSV template).
-- (Preview) Expand computer use (new model support, built-in credentials, audit logging w/ session replay, Cloud PC pooling).
-- (GA) Copilot Studio extension for Visual Studio Code.
-
-## December 2025
-
-- Compare multiple agent versions side by side when evaluating with test sets.
-
-## November 2025
-
-- GPT-5 Chat GA for EU/US regions (Nov 24, 2025).
-- (Preview) Automatically create Microsoft Entra agent identities for agents.
-- Improved SharePoint knowledge retrieval via Work IQ; SharePoint metadata filters.
-- Orchestrate multiple agents; link to Microsoft Fabric data agents.
-- (Preview) Tool groups (Outlook, SharePoint).
-- Copy agents from Microsoft 365 Copilot to Copilot Studio.
-- (Preview) Request information action via Outlook.
-- New 'copilotstudio' Power Platform API namespace.
-- Component collections enhancements (child agents, MCP connector types).
-
-## October 2025
-
-- GPT-4o retired; GPT-4.1 default. Multiple AI models; (Preview) GPT-5.
-- Copilot Studio Kit; (Preview) themes; time/cost savings tracking.
-- Unified activity/transcript view; (Preview) express-mode flows.
-- Use the Model Context Protocol (MCP) server; (Preview) test sets.
-
-## September 2025
-
-- (Preview) Computer-Using Agents (CUA) on Windows; Client SDK for native apps; code interpreter in chat.
-
-(Older months unchanged; see prior cache.)
-
-Updated: 2026-06-05 — NEW: full May 2026 notable-changes section published (cache previously topped at April 2026). Coverage-relevant net-new: agent inventory schema; Computer Use GA + standalone computer-use tools; Microsoft 365 Copilot node + Prompt node (new agent-flow nodes). Reported 2026-06-05.
+Updated: 2026-07-03 — NET-NEW reportable: the June 2026 "new agent experience" rollout (new orchestration runtime) and its three new entity types — Microsoft IQ (org-data grounding), Skills (reusable/exportable capabilities), and Memory (per-user persistent store).

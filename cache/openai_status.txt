@@ -1,13 +1,15 @@
-# OpenAI Status Page Analysis
+# OpenAI Status Page (history.rss) — captured 2026-07-03
 
-This RSS feed contains **incident reports only** — not release notes, feature announcements, or API updates.
+Incident/maintenance feed only — no feature/API announcements.
 
-The page documents resolved service incidents from February 18, 2026 through May 18, 2026, including:
+## Recent incidents (all resolved unless noted)
+- Jun 29, 2026 — Codex usage limits depleting faster than expected (Resolved) — VS Code ext, Codex API, Web, CLI, App
+- Jun 29, 2026 — FedRAMP workspace issues (Investigating) — Codex, workspace analytics, conversation search, custom GPT search, invites, Compliance Logs download
+- Jun 28, 2026 — ChatGPT Windows Desktop app conversations issue (Resolved)
+- Jun 26, 2026 — FedRAMP & API org performance degradation (Resolved)
+- Jun 16, 2026 — Codex Cloud tasks issue (Resolved)
+- Jun 15, 2026 — FedRAMP workspaces & API orgs degraded performance
+- Jun 12, 2026 — Elevated 431 Errors across services (Resolved)
 
-- Performance degradations and error rate spikes across various services (GPT-5.5, Codex, ChatGPT, APIs)
-- Login and authentication issues
-- File upload and processing failures
-- Regional outages (Europe, LATAM)
-- Issues with specific features (voice mode, image generation, Sora video generation)
-
-**No new features, APIs, services, or capabilities are announced on this status page.** It exclusively tracks operational incidents and their resolutions.
+No new features, APIs, services, or capabilities. Operational incidents only.
+Updated: 2026-07-03.

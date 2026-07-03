@@ -1,7 +1,10 @@
-# OpenAI Developer Community - Release Notes and Announcements
+# OpenAI Developer Community — captured 2026-07-03
 
-Based on the visible page content, there are **no explicit release notes, new features, new APIs, or service announcements** displayed.
+Community forum listing; official announcements sparse. No new features/APIs/services posted.
 
-The page shows a community forum listing with discussion threads about existing products (ChatGPT, Codex, API platform) rather than announcements of new releases or features. Most posts are from May 2026 and relate to bug reports, feature requests, and user support questions regarding currently available services.
+## Notable
+- Jul 2, 2026 — Deprecation notice: Evals will be shut down Nov 30, 2026. (Deprecation — NOT reportable.)
 
-The only notable structural element is the "Announcements" category section, but no specific announcements are detailed on this view.
+Remaining page content is user-generated discussion (API issues, Codex, ChatGPT apps) rather than official release notes. No net-new reportable surface. For OpenAI product releases, SDK changelogs (openai_changelog.txt / openai_node_changelog.txt) and Codex changelog are the reliable proxies.
+
+Updated: 2026-07-03.

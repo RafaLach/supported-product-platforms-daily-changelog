@@ -1,30 +1,12 @@
-Source: https://learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio
-Fetched: 2026-05-18
+# Copilot Studio Released Versions — captured 2026-07-03
+# (page updated 2026-07-01, refreshed weekly on Tuesdays)
 
-# Microsoft Copilot Studio Release Notes
+## Latest platform versions
+- 2026.6.3 — first available June 30, 2026
+- 2026.6.2 — first available June 22, 2026
+- 2026.6.1 — first available June 14, 2026
+- 2026.5.5 — June 9, 2026 (worldwide June 30, 2026)
 
-Microsoft Copilot Studio is a tool for creating and maintaining copilots.
+Latest UX: 26.06.21-24 (June 30, 2026).
 
-A copilot is an AI-powered conversational interface based on large language models (LLMs) and additional sources of knowledge.
-
-## Release timelines
-
-Releases happen frequently and the list is updated throughout the month as features reach worldwide availability.
-
-## Version releases
-
-| Version |
-| --- |
-| 2507.1 |
-
-## Worldwide availability
-
-| Month |
-| --- |
-| September - 2024 |
-| August - 2024 |
-
-Note: The released-versions page shows limited recent entries; detailed release notes for recent months are available on the What's New page.
-
-Page last updated: 2026-04-09
-Updated: 2026-05-18
+Updated: 2026-07-03 — Weekly release trains only; no distinct new feature flags here beyond what the What's New page documents (see microsoft-copilot-studio_changelog.txt: June 2026 new agent experience, Microsoft IQ, Skills, Memory). Prior top was 2026.5.5 (June 9). No separate reportable addition on this page.

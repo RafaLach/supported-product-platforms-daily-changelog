@@ -1,6 +1,11 @@
-Based on the provided page content, there are **no release notes, dates, new feature announcements, or changelog items visible**.
+# Agentforce / GenAI Reference Index — captured 2026-07-03
 
-This page is a reference documentation index for Agentforce and Generative AI developers. It lists existing documentation resources and APIs (Agent API, Python SDK, Agent Script, Agentforce DX, Mobile SDK, Models API, Testing API, Citations, and Metadata/Tooling APIs) without announcing any new releases or features with associated dates.
+APIs: Agent API, Models API (Apex + REST), Testing API, Citations API, Metadata API, Tooling API.
+SDKs: Agentforce Python SDK, Agentforce Mobile SDK (iOS/Android).
+Other: Agent Script (agent-building language), Agentforce DX (pro-code), Lightning Types Reference (custom UI for agent actions).
+
+No dated/new releases on this reference index page.
 
 ## Last Fetched
-2026-05-18 - No changes detected from previous fetch.
+2026-07-03 - No changes detected from previous fetch.
+2026-06-16 - No changes detected from previous fetch.

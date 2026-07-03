@@ -1,38 +1,17 @@
-# OpenAI Node SDK Releases — captured 2026-06-02
+# OpenAI Node SDK Releases — captured 2026-07-03
 
-## Latest Releases (June 2026 - April 2026)
+## Latest Releases
 
-**v6.41.0** (June 1, 2026)
-- Add Amazon Bedrock Responses support. (NEW)
+**v6.45.0** (June 24, 2026) — Realtime API "sideband call_id connections"; Responses API input-items helper + stream accumulator helper; Tool runner afterCompletion hook. [REPORTABLE: new Realtime sideband connection surface + Responses/tool-runner helpers = new agent tool-orchestration surface.]
+**v6.44.0** (June 17, 2026) — OpenAPI spec updates only. Minor.
+**v6.43.0** (June 16, 2026) — Repo infra (pnpm migration, branch defaults). Not reportable.
+**v6.42.0** (June 3, 2026) — responses.moderation and chat_completions.moderation added.
+**v6.41.0** (June 1, 2026) — Amazon Bedrock Responses support.
+**v6.40.0** (June 1, 2026) — Workload identity in audit logs; additional_tools in responses; ActionSearch.query optional.
+**v6.39.1** (May 27, 2026) — undici dispatcher guidance; text/plain binary as raw uploads (fixes).
+**v6.39.0** (May 21, 2026) — realtime translate + image updates; runtime fetch options.
+**v6.38.0** (May 13, 2026) — service_tier on responses compact.
+**v6.37.0** (May 7, 2026) — quantity field in admin usage; realtime 2 + web search expanded.
+**v6.36.0** (May 1, 2026) — Admin API Keys per endpoint; group type/user metadata fields.
 
-**v6.40.0** (June 1, 2026)
-- Workload identity in audit logs
-- Additional_tools item in responses
-- Made ActionSearch.query optional
-
-**v6.39.1** (May 28, 2026)
-- Bug fixes only (no new features)
-
-**v6.39.0** (May 21, 2026)
-- Multiple API updates and manual enhancements
-
-**v6.38.0** (May 15, 2026)
-- Added `service_tier` parameter to responses compact method
-
-**v6.37.0** (May 7, 2026)
-- New `quantity` field in admin organization usage responses
-- Added `web_search_call.results` output option to responses
-- Launched realtime translate and image 2 updates
-- Fixed imagegen `size` enum regression
-- API key headers now redacted in debug logs
-
-**v6.36.0** (May 1, 2026)
-- Group type and user metadata fields across admin resources
-- Admin API Keys support per endpoint
-
-**v6.35.0** (April 28, 2026)
-- WebSocket binary message support
-- Path parameter support in WebSocket clients
-- Message queuing during connection establishment
-- Browser WebSocket support with simple auth
-- Automatic reconnection for WebSockets
+Updated: 2026-07-03 — New since prior scan: v6.45.0 (Realtime sideband call_id connections; Responses input-items + stream accumulator helpers; tool-runner afterCompletion hook). v6.44.0/v6.43.0 minor/infra.

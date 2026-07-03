@@ -1,39 +1,38 @@
-# OpenAI Codex Changelog — captured 2026-06-14
+# OpenAI Codex Changelog — captured 2026-07-03
 
-## Codex CLI 0.139.0 (mid-June 2026) — minor, not reportable
-- Code mode can call standalone web search directly; tool input schemas now preserve `oneOf`/`allOf` structures; enhanced `codex doctor` (environment details); plugin marketplace automation gains JSON output.
-- (2026-06-14: incremental dev-tool refinements; no new entity/API/attack surface. Below the reporting bar.)
+## June 22, 2026 — Codex CLI 0.142.0 [new]
+- `/usage` shows/redeems earned usage-limit reset credits; `/plugins` organizes remote plugins into curated/workspace/shared sections; configurable rollout token budgets tracked across agent threads.
+- **Multi-agent delegation modes**: disabled, explicit-request-only, or proactive — governs when the agent spawns sub-agents.
+- **Indexed web-search mode**: live searches while restricting direct page access; scheduled UTC reminders + current-time queries.
+- (AIRT MEDIUM: multi-agent delegation-mode controls + indexed web-search = new agent orchestration/egress surface worth tracking; rest below bar.)
 
-## June 11, 2026 — Codex app 26.609
-- **Developer Mode for Browser Use**: controlled **Chrome DevTools Protocol (CDP)** access enabling performance profiling and deeper debugging of "network traffic, console output, runtime errors, and page state" in both Chrome and the in-app browser.
-- **`/init` command**: create project instructions using the same initialization workflow available in the CLI.
-- **Computer Use for Enterprise**: extended Computer Use to Enterprise users in regions outside the EEA, UK, and Switzerland (availability/geo expansion).
-- **Windows App Access Controls**: per-application access configuration for Computer Use on Windows devices (governance control).
-- **Rate-Limit Banking & Referrals**: Plus/Pro users can bank rate-limit resets; one complimentary reset at launch + referral credits.
-- **Unread Chats** section in the command menu.
-- Browser-use performance: "up to 2x faster" via CDP and DOM-snapshot optimizations reducing browser round trips.
-- (Reported 2026-06-12 — ENDPOINT/AIRT MEDIUM: Developer Mode browser CDP access = new agent browser-control & inspection surface.)
-- Docs: https://developers.openai.com/codex/app/chrome-extension
+## June 18, 2026 — Codex app 26.616 [new]
+- **Record & Replay** (macOS): converts demonstrated workflows into reusable **skills** (not in EEA/UK/CH initially) — new skill-authoring/replay surface.
+- **Thread handoff**: move conversations between local and remote hosts with coordinated transfers; browser visible-tab routing + annotations persist across host moves.
+- Bulk actions for run-history management.
+- (ENDPOINT/AIRT MEDIUM: Record & Replay = user-demonstrated actions become reusable agent skills; Thread handoff = execution moves local↔remote. New agent capability + data/exec-boundary surface.)
 
-## June 9, 2026 — ChatGPT for iOS 1.2026.153 + Worktree/setup-script capability [reported 2026-06-10]
-- iOS app added: branch selection, worktree creation, environment setup scripts, a Codex profile screen with usage statistics, and the `/goal` command.
-- Worktree creation can optionally run a local environment's setup scripts automatically at thread start (arbitrary command execution).
-- Docs: https://developers.openai.com/codex/app/worktrees ; https://developers.openai.com/codex/app/local-environments
+## June 18, 2026 — Codex CLI 0.141.0 [new]
+- Remote execution over authenticated, end-to-end encrypted **Noise relay channels**; cross-platform executor-native working dirs/shells preserved.
+- **Plugin stdio MCP servers activate per-thread**; enhanced plugin discovery ("created-by-me marketplace").
+- Realtime clients can append speech and control response entry into conversations.
+- (ENDPOINT MEDIUM: per-thread stdio MCP server activation = per-conversation MCP tool surface; Noise-relay remote exec = new remote-control transport. Worth monitoring.)
 
-## June 8, 2026 — Codex CLI 0.138.0 [reported 2026-06-09]
-- Desktop handoff from CLI to Codex app on macOS and Windows; local image paths exposed to models; enhanced reasoning-effort shortcuts.
+## June 15, 2026 — Codex CLI 0.140.0 — minor, not reportable
+- `/usage` token tracking; `codex delete` session deletion; `/import` to migrate config from Claude Code. (dev conveniences, below bar.)
 
-## June 4, 2026 — Codex CLI 0.137.0 [reported 2026-06-05/08]
-- Hosted web/image tools in code-mode flows, parallel web search; multi-agent v2; remote-control pairing/controller grants.
+## June 11, 2026 — Codex app 26.609 [reported 2026-06-12]
+- **Developer Mode for Browser Use**: controlled **Chrome DevTools Protocol (CDP)** access (network, console, runtime errors, page state).
+- `/init`; Computer Use for Enterprise geo-expansion; Windows App Access Controls; Rate-Limit Banking & Referrals.
+- (ENDPOINT/AIRT MEDIUM: Developer Mode browser CDP access = new agent browser-control & inspection surface.)
 
-## June 4, 2026 — Codex App 26.602 [reported 2026-06-05]
-- Activity insights and share cards added to Profile section.
+## June 9, 2026 — Codex CLI 0.139.0 — minor
+- Code-mode standalone web search; MCP tool schemas preserve oneOf/allOf; plugin marketplace JSON output.
 
-## June 2, 2026 — Sites plugin (preview) [reported 2026-06-03]
-## June 2, 2026 — ChatGPT for iOS 1.2026.146 [reported 2026-06-03]
-## June 1, 2026 — Codex CLI 0.136.0 [reported 2026-06-02] — Amazon Bedrock support
-## May 29, 2026 — Version 26.527: Computer Use & Mobile Access on Windows
-## May 21, 2026 — Version 26.519: Appshots, Goal Mode, Remote Computer Use
-(see prior cache for details)
+## June 9, 2026 — ChatGPT for iOS 1.2026.153 + Worktree/setup-script [reported 2026-06-10]
+- Branch selection, worktree creation, environment setup scripts (arbitrary command execution at thread start), `/goal`.
 
-Updated: 2026-06-14 — Since prior scan, only Codex CLI 0.139.0 (minor dev-tool refinements: web search in code mode, schema preservation, codex doctor, plugin marketplace JSON output). No new reportable surface. Topmost dated entry remains app 26.609 (June 11, reported 2026-06-12).
+## June 8, 2026 — Codex CLI 0.138.0 — Desktop handoff macOS/Windows; local image paths exposed.
+## June 4, 2026 — Codex CLI 0.137.0 — Hosted web/image tools code-mode; parallel web search; multi-agent v2; remote-control pairing.
+
+Updated: 2026-07-03 — New since prior scan: CLI 0.141.0 (per-thread stdio MCP, Noise-relay remote exec), app 26.616 (Record & Replay skills + Thread handoff), CLI 0.142.0 (multi-agent delegation modes, indexed web search). Reportable items flagged above.

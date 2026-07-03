@@ -1,9 +1,10 @@
-# Release Notes and Updates
+# Einstein GenAI Guide — captured 2026-07-03
 
 **Terminology Change (April 2026)**
-- Agent "topics" are now called "subagents" with no functionality changes
+- Agent "topics" are now called "subagents" with no functionality changes.
 
-No other release notes, new features, new APIs, new services, new entity types, new agent capabilities, new connectors, or dated announcements are visible on this page.
+No other dated release notes, new features, APIs, services, entity types, or agent capabilities visible. Page directs to API/SDK/Actions/Agent Script/Agentforce DX guides.
 
 ## Last Fetched
-2026-05-18 - No new content beyond previous fetch.
+2026-07-03 - No new content beyond previous fetch.
+2026-06-16 - No new content beyond previous fetch.

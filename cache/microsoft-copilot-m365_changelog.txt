@@ -1,8 +1,8 @@
 Source: https://developer.microsoft.com/graph/changelog/
-Fetched: 2026-05-18
+Fetched: 2026-06-16
 
-The fetched page returned only navigation/header chrome (menu links such as API reference, Quick start, SDKs). No changelog body content was retrievable through WebFetch for this URL.
+The fetched page returned only navigation/header chrome (menu links such as API reference, Quick start, SDKs). No changelog body content was retrievable through WebFetch for this URL — the Graph changelog is client-side rendered.
 
-To obtain the actual Microsoft Graph changelog entries, the underlying RSS feed or the rendered changelog list (which is client-side rendered) would need a different fetch method.
+To obtain actual entries, the underlying RSS feed or rendered changelog list would need a different fetch method.
 
-Updated: 2026-05-18
+Updated: 2026-06-16 (still only chrome; recorded as fetch error)

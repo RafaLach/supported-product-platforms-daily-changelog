@@ -1,9 +1,10 @@
-# Release Notes and Announcements
+# Agentforce Developer Guide — captured 2026-07-03
 
 **Terminology Change (April 2026)**
-- Agent "topics" are now called "subagents" with no functionality changes. "Beginning in April 2026, agent **topics** are now called **subagents**."
+- Agent "topics" are now called "subagents" with no functionality changes.
 
-No other release notes, new features, new APIs, new services, new entity types, new agent capabilities, or new connectors with dates are visible on this page. The content primarily consists of navigation links and introductory material for the Agentforce Developer Guide.
+No new dated release notes, features, APIs, services, entity types, agent capabilities, or connectors visible. Page is primarily navigation + overview for the Agentforce Developer Guide (client-side rendered).
 
 ## Last Fetched
-2026-05-18 - No new content beyond previous fetch.
+2026-07-03 - No new content beyond previous fetch (only April 2026 topics→subagents rename present).
+2026-06-16 - No new content beyond previous fetch.

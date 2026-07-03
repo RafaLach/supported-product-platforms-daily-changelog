@@ -1,9 +1,9 @@
 Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
-Fetched: 2026-05-18
+Fetched: 2026-06-16
 
 # Azure OpenAI REST API Reference
 
-## API Versions (as of 2025-11-26)
+## API Versions
 
 | API Surface | Latest Preview | Latest GA |
 | --- | --- | --- |
@@ -22,12 +22,9 @@ Documentation covers the GA release of the Azure OpenAI data plane inference spe
 6. Image Generation - POST /openai/deployments/{deployment-id}/images/generations
 
 ## Key Features and Updates
-
 - New Preview Inference API available — see API lifecycle guide.
-- Preview API Cadence — monthly preview releases.
-- Authentication:
-  - API Key (api-key header)
-  - Microsoft Entra ID (Authorization Bearer token)
+- Chat extensions (RAG) data sources: Azure Search, Azure Cosmos DB (MongoDB vCore)
+- Structured Outputs (json_schema), tool/function calling (up to 128, parallel)
+- Authentication: API Key (api-key header), Microsoft Entra ID (Bearer token)
 
-Document updated: 2025-05-12
-Updated: 2026-05-18
+Updated: 2026-06-16

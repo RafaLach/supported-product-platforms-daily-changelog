@@ -1,57 +1,10 @@
-Source: https://learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview?view=o365-worldwide
-Fetched: 2026-05-18
+# Microsoft 365 Admin Center — What's New in Preview — captured 2026-07-03
+# (ms.date 2026-05-19; page updated 2026-06-23)
 
-# What's new in the Microsoft 365 admin center
+## Topmost entries [unchanged since prior scan]
+- November 2025 — Engineering direct portal renamed Enhanced Engagements; Design change requests (DCR).
+- June 2025 — Copilot Search admin experience (Acronyms, Bookmarks).
+- April 2025 — M365 Copilot network connectivity test.
+- Jan/Feb 2025 — AI Administrator role; admin-initiated Copilot feedback.
 
-## November 2025
-
-- The **Engineering direct** portal is now renamed to **Enhanced Engagements**.
-- Inside **Engagements** there are four new options:
-    - Service requests is now Engineering escalations
-    - Business Process Awareness (BPAs)
-    - Customer Advisory Board (CAB)
-    - Incident Analysis
-- (Preview) **History** tab is now renamed to **Design change requests (DCR)**.
-
-## June 2025
-
-### Copilot Search admin experience
-
-The Microsoft 365 Admin center now includes the **Copilot Search Admin experience**, giving you powerful tools to manage and optimize search across your organization. This release introduces enhanced support for **Acronyms** and **Bookmarks**.
-
-- **Acronyms**
-    - Define and manage organization-specific acronyms.
-    - Upload acronyms in bulk via CSV or add individually.
-    - Acronyms discoverable across Microsoft Search endpoints like SharePoint.
-- **Bookmarks**
-    - Create quick access links to frequently used resources.
-    - Boost visibility of important tools, sites, or documents.
-    - Customize bookmark metadata (title, URL, description, audience targeting).
-
-## April 2025
-
-### Microsoft 365 Copilot network connectivity test
-
-A new addition to the Microsoft 365 network connectivity test tool enables users to run diagnostics specifically for Microsoft 365 Copilot. Includes Latency, Throughput, and Service reachability tests.
-
-## March 2025
-
-### Exchange Web Services usage report
-
-New EWS usage report provides insights into the non-Microsoft (third-party) applications in your tenant that use EWS.
-
-## February 2025
-
-### Provide admin-initiated feedback for Microsoft 365 Copilot
-
-Admin-initiated feedback for Copilot, with role expansion (AI Admin role added), chat log selection, date-range selection, product selection, and frequently occurring issues list.
-
-## January 2025
-
-### AI Administrator role in Microsoft 365 admin center
-
-The AI administrator role manages all Copilot settings within the Microsoft 365 admin center; manages AI-related services and extensibility, oversees app installs/configurations, accesses insights and support.
-
-(Older entries from 2023, 2022 preserved in source: Sign up for Windows release health email notifications, Suggested training, Advanced deployment guides, NPS Sentiment per Topic, Date filter in NPS, Multi-tenant billing relationships, RBAC roles, Quick Assist, NPS Sentiment Insights, Admin center search.)
-
-Updated: 2026-05-18
+Updated: 2026-07-03 — No new Copilot/agent entries; admin "what's new" still tops at November 2025. No reportable addition.

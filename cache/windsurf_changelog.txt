@@ -1,18 +1,23 @@
-# Windsurf / Devin Desktop Changelog — captured 2026-06-12
+# Windsurf / Devin Desktop Changelog — captured 2026-07-03
 # NOTE: windsurf.com/changelog 308-redirects to docs.devin.ai/desktop/changelog.
 
-Most recent version: v3.1.7 (June 10, 2026)
+Most recent version: v3.3.18 (June 23, 2026) [cached]
 
-## v3.1.7 (June 10, 2026)
-- Agent/Editor switch added to collapsed-sidebar titlebar; unified search icon for agent search; smoother mode switching without closing auxiliary windows.
-- "Devin CLI" settings section renamed to "Devin Local"; notification for failed agent sign-in; bundled agent updated to v2026.5.26-8.
-- `.devinignore` support alongside `.windsurfignore` and `.codeiumignore`.
-- Settings/MCP marketplace pages scroll full panel width with centered content.
-[UI/workflow refinement of the Devin Desktop rebrand + a new ignore-file; no new agent or MCP capability. Below watching-tier bar.]
+## v3.3.18 / v3.2.x (June 16-23, 2026) [below watching-tier bar]
+- Devin ACU usage now displayed in client. Settings/extensions migration fixes for Windows system-wide installs.
+- On Windows, `bash` resolves to Git Bash instead of WSL launcher stub.
+- Subagents can now be configured with a default model.
+- Devin Local: improved MCP registry warming.
+[Config/UX + subagent default-model + Windows shell fixes; incremental. Below bar.]
 
-## v3.0.28 (June 6, 2026) [already reported] — Windows migration hardening + stdio MCP fixes.
-## v3.0.12 (June 2, 2026) — "Windsurf is now Devin Desktop" rebrand.
-## v2.3.15 (May 28, 2026) — Claude Opus 4.8; Devin Local context tracking + MCP approval persistence.
-(see prior cache for earlier history: Windsurf 2.0, Devin for Terminal, Agent Command Center, etc.)
+## v3.1.7 (June 10, 2026) [cached]
+- Agent/Editor mode switching improvements; unified agent search; `.devinignore` support; "Devin CLI" renamed "Devin Local".
 
-Updated: 2026-06-12 — Watching tier. v3.1.7 is a UI/workflow refinement plus `.devinignore`; no new capability. Below the watching-tier reporting bar (version bump). No net-new since prior scan.
+## v3.0.28 (June 6) Windows migration hardening + stdio MCP fixes.
+## v3.0.12 (June 2) "Windsurf is now Devin Desktop" rebrand.
+## v2.3.15 (May 27/28) Claude Opus 4.8; Devin Local context tracking + MCP approval persistence; MCP tool permissions UI.
+## Earlier (cached): v2.2.17 Devin Review/Quick Review; v2.1.29 Devin for Terminal CLI + Devin Local in Windsurf; v2.0.44 Windsurf 2.0 + Devin Cloud agent + Agent Command Center w/ Spaces; Arena Mode; Plan Mode; Adaptive Model Router; Agent Skills Framework; GPT-5.2-Codex.
+
+Docs (docs.devin.ai/desktop): Devin Local, Terminal, MCP, Memories & Rules, Context Awareness, Workflows, App Deploys. Plugin system for extending Devin Local noted as enterprise preview (watch — could become a new extension surface, but still preview/undocumented in detail).
+
+Updated: 2026-07-03 — Watching tier. v3.3.18 top; changes since 06-16 cache are incremental (ACU display, subagent default model, Windows shell fixes, MCP registry warming). No net-new major capability crossing the bar. Devin Local plugin system (enterprise preview) flagged to watch.

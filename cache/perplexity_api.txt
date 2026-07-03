@@ -1,11 +1,10 @@
-Based on the provided documentation page, there are **no release notes, announcements, or changelog items visible**.
+# Perplexity API Reference — captured 2026-07-03
 
-The page contains only:
-- A documentation index reference
-- API endpoint documentation for the `/v1/agent` endpoint
-- OpenAPI schema definitions for request/response structures
+Endpoint: POST /v1/agent — response generation with optional web search + reasoning.
+Models: fallback chains up to 5 (provider/model fmt, e.g. openai/gpt-5, anthropic/claude-sonnet-4-6). Presets: fast-search, pro-search, deep-research.
 
-There are no dates, version updates, feature announcements, new services, new entity types, or agent capability releases documented on this page.
+Tools: web_search (domain/date filter, geolocation), finance_search, people_search, fetch_url (≤10/call), sandbox (isolated code execution, stdout/stderr capture), function (custom, JSON schema), **mcp (connect remote MCP servers for extended capabilities) [NEW vs prior scan]**.
+Reasoning: effort low/medium/high/**xhigh/max** [xhigh/max new]. research loop max_steps 1-10. Streaming via SSE (search queries, fetch ops, thoughts, tool calls). Structured JSON schema output (strict). Cost/token accounting incl. cache_creation/read tokens; URL citations/annotations.
 
 ## Last Fetched
-2026-05-18 - No new APIs detected; page is reference-only.
+2026-07-03 — Reference now includes an `mcp` remote-server connector tool (agent can call arbitrary remote MCP servers) and xhigh/max reasoning effort. No dated changelog entry confirms these as net-new this scan; flagging the `mcp` tool as a potential emerging tool-execution surface to watch, but not a confirmed dated launch.

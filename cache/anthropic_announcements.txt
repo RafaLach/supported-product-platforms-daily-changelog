@@ -1,20 +1,15 @@
-# Anthropic News — captured 2026-06-14
+# Anthropic News — captured 2026-07-03
 
-Most recent post: Statement on the US government directive to suspend access to Fable 5 and Mythos 5 (June 12, 2026) — export-control suspension/shutdown of the Mythos-class models; NOT a new feature (deprecation/shutdown — not reportable).
+## June/July 2026 announcements
+- **Introducing Claude Tag (June 23, 2026)** — NEW PRODUCT [REPORTABLE, AISPM/AIDR HIGH]. A new way for teams to work with Claude, starting in **Slack** where Claude joins as a team member. Teams grant @Claude access to selected channels and connect it to chosen tools, data, and **codebases**; anyone in-channel can tag @Claude to delegate tasks. Admins control which tools/data @Claude can access per channel and can create **separate Claude identities** for different uses. Beta for Claude Enterprise & Team. (65% of Anthropic's own product-team code now created by internal Claude Tag.) Source: https://www.anthropic.com/news/introducing-claude-tag
+- **Claude Sonnet 5 (June 30, 2026)** — new agentic model [REPORTABLE, AIRT/ENDPOINT MEDIUM]. Model id `claude-sonnet-5`; makes plans, uses tools (browsers, terminals), runs autonomously near Opus 4.8 capability. Available via Claude API, AWS, Microsoft Foundry (Vertex soon); default for Free/Pro. New tokenizer (1.0–1.35x token counts). No net-new endpoint but expanded autonomous tool-use footprint. Source: https://www.anthropic.com/news/claude-sonnet-5
+- **Claude Science AI Workbench (June 30, 2026)** — new app [REPORTABLE, ENDPOINT/AIRT MEDIUM]. Single research environment integrating researcher tools/packages; builds environments and **manages compute on laptop, cluster, or on-demand GPUs**; asks before reaching new resources (reviewable/revocable); natively renders 3D protein structures, genome tracks, chemical structures; auditable, traceable artifacts. New agent capability with compute-provisioning + local-resource access surface. Source: https://www.anthropic.com/news/claude-science-ai-workbench
+- **Redeploying Fable 5 (June 30, 2026)** — Fable 5 returns globally July 1; proposes industry-wide jailbreak-severity scoring framework w/ Amazon, Microsoft, Google, Glasswing. (Re-deployment + policy; not a new feature.)
+- **Seoul office & Korean partnerships (June 17, 2026)** — biz dev, not reportable.
 
-## June 2026 announcements
-- US gov directive suspending access to Fable 5 / Mythos 5 (June 12) — shutdown, not reportable.
-- First Anthropic Public Record results (June 12) — research/policy.
-- TCS + Anthropic partnership to deploy Claude in regulated industries (June 12) — partnership, no new capability.
-- DXC integration partnership (June 11) — business development; no new capability surface.
-- Claude Corps fellowship program for early-career professionals (June 11) — program, not a platform feature.
-- Policy proposals addressing AI exponential advancement (June 10) — research/policy.
-- Claude Fable 5 and Claude Mythos 5 (June 9) — first public Mythos-class models. [reported 2026-06-10, AIRT HIGH; access subsequently suspended June 12]
-- Cyber threat mapping report with MITRE (June 3) — research.
-- Services Track and Partner Hub expansion for Claude Partner Network (June 3) — already prior.
-- Project Glasswing expansion to ~150 new orgs across 15+ countries (June 2) — already prior.
+## Prior (pre-2026-06-16)
+- US gov directive suspending Fable 5 / Mythos 5 (June 12) — shutdown.
+- Claude Fable 5 and Claude Mythos 5 (June 9) — first Mythos-class models [reported 2026-06-10, AIRT HIGH; suspended June 12, redeployed July 1].
+- TCS / DXC partnerships (June 11-12); Claude Corps fellowship (June 11); Public Record results (June 12).
 
-## Business/corporate
-- $65B Series H at $965B valuation (May 28); confidential S-1 SEC submission (June 1); Milan office (May 27); Claude Opus 4.8 (May 28, version bump).
-
-Updated: 2026-06-14 — Since prior scan: a US-gov export-control directive suspending Fable 5 / Mythos 5 (shutdown — not reportable), the first Anthropic Public Record results, and a TCS partnership. None are new platform features/APIs/models. No new reportable coverage additions.
+Updated: 2026-07-03 — New reportable: Claude Tag (June 23, agentic Slack teammate w/ admin-scoped identities + tool/data/codebase access), Claude Sonnet 5 (June 30, autonomous agentic model), Claude Science AI Workbench (June 30, compute-provisioning research agent app).

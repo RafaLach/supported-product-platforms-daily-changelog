@@ -1,8 +1,9 @@
-I don't see any specific release notes, new features, new APIs, new services, entity types, agent capabilities, connectors, or announcements with dates in the provided content. The page header only shows:
+# Einstein GenAI Overview — captured 2026-07-03
 
-**"Agentforce and Generative AI | Agentforce Developer Guide | Salesforce Developers"**
+Page returned only title/header/navigation ("Agentforce and Generative AI | Agentforce Developer Guide | Salesforce Developers"); client-side rendered, no substantive body content.
 
-This appears to be a page title/navigation element rather than changelog content. To provide the requested information about releases and new features, I would need the actual body content of the developer guide page.
+No dated release notes, new features, APIs, services, or entity types extractable.
 
 ## Last Fetched
-2026-05-18 - No substantive content; page still returns JS configuration/infrastructure only.
+2026-07-03 - No substantive content; page still returns JS/title only.
+2026-06-16 - No substantive content; page still returns JS/title only.

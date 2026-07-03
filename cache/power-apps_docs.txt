@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/power-apps/
-Fetched: 2026-05-18
+Fetched: 2026-06-16
 
 # Microsoft Power Apps documentation
 
@@ -28,4 +28,4 @@ Build low-code apps that modernize processes and solve tough business challenges
 - Teams (Canvas as tab, Canvas as personal app, Model-driven as tab, Model-driven as personal app)
 
 Page last updated: 2026-02-26
-Updated: 2026-05-18
+Updated: 2026-06-16

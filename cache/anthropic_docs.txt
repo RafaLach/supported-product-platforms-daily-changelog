@@ -1,7 +1,8 @@
-# Release Notes/Changelog Items
+# Claude Docs - Build with Claude — captured 2026-07-03
 
-**No release notes, features, APIs, services, or announcements are visible on this page.**
+FETCH ERROR: https://platform.claude.com/docs/build-with-claude/overview returns HTTP 404 via WebFetch (page moved or is JS-rendered; content not retrievable server-side).
 
-The page displays only "Not Found - Claude API Docs" and "Loading..." text, indicating the content failed to load or the page does not exist. There are no changelog items, feature announcements, or other documentation elements available to list.
+Use Anthropic News (anthropic_announcements.txt) as cross-reference for new Claude platform capabilities.
+Cross-reference this scan (2026-07-03): Claude Tag (agentic Slack teammate, admin-scoped tool/data/codebase access), Claude Sonnet 5 (`claude-sonnet-5`, autonomous tool use), Claude Science AI Workbench (compute-provisioning research agent).
 
-Updated: 2026-05-18 (page returns 404 / fails to render via WebFetch).
+Updated: 2026-07-03 (still 404 / not retrievable via WebFetch).

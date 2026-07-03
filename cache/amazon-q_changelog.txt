@@ -1,19 +1,9 @@
-# Amazon Q Developer User Guide - Document History (Fetched 2026-05-25)
+# Amazon Q Developer User Guide - Document History — captured 2026-07-03
 
-| Change | Description | Date |
-|--------|-------------|------|
-| Updated managed policies: AmazonQFullAccess and AmazonQDeveloperAccess | Added q:CreateArtifact, q:GetArtifact, q:GetArtifactActionResult, and q:PerformArtifactAction permissions to enable Amazon Q artifacts (preview). | May 21, 2026 |
-| Updated Builder ID unsubscribe instructions | Added guidance for unsubscribing a personal account (Builder ID) when the Amazon Q Developer Profile has been deleted. | March 19, 2026 |
-| Updated account limit for subscriptions | You can now subscribe users in a maximum of 20 accounts per AWS Region, per organization, increased from 10. | February 18, 2026 |
-| Deprecated code transformation for GitLab | Code transformation capabilities for Java modernization deprecated for GitLab Duo with Amazon Q Developer. | January 16, 2026 |
-| Updated GitHub feature development workflow | Now uses conversation-based feedback with the `/q` command. | December 29, 2025 |
-| Deprecated code transformation for GitHub | Code transformation capabilities deprecated for Amazon Q Developer for GitHub. | December 15, 2025 |
-| Q CLI becomes Kiro CLI | The Q CLI has become the Kiro CLI. | November 17, 2025 |
+## Topmost entries [unchanged since prior scan]
+- Updated managed policies AmazonQFullAccess/AmazonQDeveloperAccess — added q:CreateArtifact, q:GetArtifact, q:GetArtifactActionResult, q:PerformArtifactAction for Amazon Q artifacts (preview). (May 21, 2026)
+- Updated Builder ID unsubscribe instructions (March 19, 2026).
+- Account limit for subscriptions raised to 20/region/org (Feb 18, 2026).
+- Deprecated code transformation for GitLab (Jan 16, 2026).
 
-## Amazon Q artifacts (preview) — chat-artifacts.html
-- Q artifacts deliver responses enriched with table and chart visualizations
-- Can execute "cross-service jobs (preview)": provisioning infrastructure, connecting services, securing applications across AWS services
-- Example: "Connect EC2 instance to an S3 bucket" — Q artifact grants permissions to an S3 bucket in the EC2 instance profile and makes bucket policy changes
-- All data associated with Amazon Q visualizations saved in us-east-1
-- New IAM actions: q:CreateArtifact, q:GetArtifact, q:GetArtifactActionResult, q:PerformArtifactAction
-- Supported services include EC2, RDS, Lambda, S3, etc.
+Updated: 2026-07-03 — No new doc-history entries since prior scan; still tops at May 21, 2026 (Q artifacts permissions, already cached). No reportable addition.

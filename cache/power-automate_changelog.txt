@@ -1,15 +1,6 @@
-Source: https://learn.microsoft.com/en-us/power-automate/whats-new
-Fetched: 2026-05-18
+# Power Automate What's New — captured 2026-07-03
+# (ms.date 2025-07-10; pointer page)
 
-# What's new in Power Automate
+The What's New page is a pointer to weekly Service Updates (released-versions/power-automate) and the Release Planner; it carries no dated feature entries itself.
 
-Resources to learn about features released recently, features releasing soon, and known issues.
-
-## Weekly releases
-See Service Updates for Power Automate. Releases roll out over several days; new or updated functionality might not appear immediately.
-
-## Release plans
-Get familiar with upcoming features in the Power Automate release planner.
-
-Page last updated: 2025-07-10
-Updated: 2026-05-18
+Updated: 2026-07-03 — No dated AI/agent feature additions on this page. No reportable addition.

@@ -1,17 +1,9 @@
-# ServiceNow Release Notes — captured 2026-06-12
+# ServiceNow Release Notes — captured 2026-07-03
 
-## Australia release family (released May 5, 2026; release-notes page "Updated June 11, 2026")
-Built on the ServiceNow AI Platform. Latest incremental update: Australia Patch 2 Hotfix 1.
+## Australia release family (release-notes page "Updated June 16, 2026")
+Built on the ServiceNow AI Platform. Latest incremental update: **Australia Patch 3** (was Patch 2 Hotfix 1 in prior cache).
 
 ### Agentic AI features in Australia release [already cached, not net-new]:
-- AI Desktop Actions ("Agentic Desktop") — agent workflows performing actions on the user's desktop
-- AI Control Tower — managing/overseeing AI operations across the platform
-- Now Assist AI Agents — dedicated AI agent implementation (multiple per product: ITSM, FSM, CSM, etc.)
-- Now Assist Center
-- Agentic Contact Center for Banking — industry-specific agent solution
-- AI Agent Advisor — guidance system for agent optimization
-- AI Experiences
+- AI Desktop Actions ("Agentic Desktop"), AI Control Tower, Now Assist AI Agents (per product), Now Assist Center, Agentic Contact Center for Banking, AI Agent Advisor, AI Experiences, Document Intelligence, Knowledge Graph, Predictive Intelligence.
 
-Patches: Australia Patch 1, Patch 2, Patch 2 Hotfix 1, EA Hotfix 1.
-
-Updated: 2026-06-12 — Secondary tier. Still the Australia family; the June 11 update is Patch 2 Hotfix 1 (a patch). The listed AI agent features are the existing Australia portfolio (already cached). No confirmed net-new AI feature with a distinct new release date this scan. No reportable addition.
+Updated: 2026-07-03 — Secondary tier. Still the Australia family; the only movement is Patch 3 (a patch). The listed AI agent features are the existing Australia portfolio (already cached). No confirmed net-new AI feature with a distinct new release date this scan. No reportable addition.

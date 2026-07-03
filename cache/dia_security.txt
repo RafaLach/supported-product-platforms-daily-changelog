@@ -1,10 +1,11 @@
-# Release Notes and Announcements
+# Dia Browser Security — captured 2026-07-03
 
-Based on the provided webpage content, **no release notes, new features, new APIs, new services, new entity types, new agent capabilities, new connectors, or dated announcements are visible on this page.**
+Security as product feature: independent audits/pen-testing, Chromium engine, minimized data collection.
 
-The page is a security-focused informational document covering Dia Browser's security practices, bug bounty program, and FAQ. While it references that "SOC 2 Type II examination for Dia covering security, confidentiality, and privacy for calendar year 2025" with "final report issued in 2026," this is compliance documentation rather than a release or changelog item.
+Agent/automation safeguards: explicit user approval before tab access or write actions; blocks LLM-generated URL auto-opening (anti-exfiltration); URL sanitization (links filtered before reaching AI to prevent instruction injection); form-fill/email-draft content shown in Dia-controlled views before submit; calendar events stay draft until confirmed; agentic mode prevented from navigating to other sites; sensitive fields (passwords) + critical action buttons hidden from agent. FAQ acknowledges residual prompt-injection risk (tone shifts/misinformation) while claiming exfil/unapproved-action outcomes are blocked.
 
-The navigation menu includes a link to "[What's New](/release-notes/latest)" but the actual release notes content is not included in the provided webpage excerpt.
+Data: local encryption (chats/history/bookmarks), E2E-encrypted sync, AI partners contractually barred from training, no data selling, default ad-blocker.
+Compliance: SOC 2 Type II (CY2025 audit, 2026 report); critical Chromium patches <48h; weekly releases.
 
 ## Last Fetched
-2026-05-18 - No new dated announcements detected.
+2026-07-03 — Security page covers existing agentic safeguards (approval gates, exfil blocking, URL sanitization). No new dated announcement. Unchanged from prior.

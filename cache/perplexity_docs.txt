@@ -1,11 +1,7 @@
-Based on the page content provided, there are **no release notes, new features, new APIs, new services, new entity types, new agent capabilities, new connectors, or announcements with dates visible**.
+# Perplexity Docs Home — captured 2026-07-03
 
-The page is an overview/documentation homepage that introduces existing services:
-- Agent API
-- Search API
-- Embeddings API
-
-These are presented as current offerings, not new releases. No changelog items, version updates, or dated announcements appear on this page.
+Top sections: Agent API (third-party models + web search tools + presets), Search API (ranked web results, filtering, real-time), Embeddings API (semantic search/RAG), Quickstart.
+Highlights: search the web + filter sources (domain/recency), use any frontier model (e.g. GPT-5.5, GPT-5.2), structured JSON schema output, real-time web-wide research/Q&A.
 
 ## Last Fetched
-2026-05-18 - No changes detected from previous fetch.
+2026-07-03 — Overview homepage; no dated announcements. Unchanged from prior. No new capability.

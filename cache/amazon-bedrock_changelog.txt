@@ -1,65 +1,10 @@
-# Amazon Bedrock User Guide - Document History (Fetched 2026-06-14)
+# Amazon Bedrock User Guide - Document History — captured 2026-07-03
 
-**Latest documentation update banner:** November 26th, 2025; newest dated rows May 27, 2026.
+**Latest documentation update banner:** November 26th, 2025; newest dated rows June 30, 2026.
 
-| Change | Description | Date |
-|--------|-------------|------|
-| Updated requests-per-minute (RPM) quota guidance | Clarified RPM quota behavior across endpoints: bedrock-mantle exposes no per-model RPM quotas (token-based throttling); on bedrock-runtime, RPM is model-specific and some models (Claude Opus 4.7, Opus 4.8) have no RPM quota. [Quota doc change — not a new surface] | May 27, 2026 |
-| Quotas for the bedrock-runtime endpoint | New doc page describing per-model token quotas governing inference traffic; links to custom inference profiles, batch inference, Provisioned Throughput. [Doc page] | May 27, 2026 |
-| Quotas for the bedrock-mantle endpoint | New doc page documenting per-model input/output token quotas, defaults for Anthropic Claude Opus 4.7, request evaluation order, differences from bedrock-runtime, quota-increase process. [Doc page] | May 27, 2026 |
-| Token counting on the bedrock-mantle endpoint | Documented how to count input tokens through the Anthropic count_tokens path on the bedrock-mantle endpoint, including for Claude models not supported by CountTokens on bedrock-runtime. [Doc update to existing endpoint — not a new surface] | May 26, 2026 |
-| Converse API support for batch inference | Use Converse API format for batch inference input data with consistent request format across models. | February 27, 2026 |
-| Fine-tuning open-weight models with OpenAI-compatible APIs | Create, monitor, and manage reinforcement fine-tuning jobs for open-weight models through OpenAI SDK endpoints (Files API, fine-tuning jobs APIs, inference APIs). | February 17, 2026 |
-| Updated list of models supported for service tiers | Updated for priority and flex service tiers. | December 31, 2025 |
-| Blueprint instruction optimization | Amazon Bedrock Data Automation supports blueprint instruction optimization for documents with ground truth labels. | December 18, 2025 |
-| New managed policies | Added AmazonBedrockMantleFullAccess, AmazonBedrockMantleReadOnly, AmazonBedrockMantleInferenceAccess for Amazon Bedrock Mantle. | December 3, 2025 |
-| OpenAI compatible API endpoints | Amazon Bedrock Mantle supports OpenAI-compatible Responses API and Chat Completions API for asynchronous inference, stateful conversation management, simplified tool use. | December 3, 2025 |
-| Reinforcement fine-tuning | New reinforcement fine-tuning feature for foundation models through feedback signals. | December 3, 2025 |
-| Reserved service tier | New "Reserved" service tier for Bedrock inference. | November 26, 2025 |
-| Claude Opus 4.5 support | New Anthropic Claude Opus 4.5 model. | November 24, 2025 |
-| Cross-account Guardrails sharing | Share guardrails across accounts within an AWS organization. | November 21, 2025 |
-| BDA Synchronous Invocation | Direct API invocation for Data Automation. | November 20, 2025 |
-| Custom model import for GPT-OSS | Custom model import now supports OpenAI GPT-OSS models. | November 19, 2025 |
-| Guardrails Standard tier coding enhancements | Enhanced support for coding use cases. | November 19, 2025 |
-| Priority/Flex service tiers | New on-demand inference tiers. | November 18, 2025 |
-| Region expansion | Amazon Bedrock now supported in Africa (Cape Town), Asia Pacific (New Zealand), Canada West (Calgary), Mexico (Central), Middle East (Bahrain). | November 18, 2025 |
-| Claude 3.7 Sonnet legacy | Migrate to Claude Sonnet 4.5 before April 28, 2026. | October 30, 2025 |
-| Stability AI Image Services | Four new Stability AI Image Services (outpaint and upscale). | October 28, 2025 |
-| Custom model chaining | Use customized model as base for further customization. | October 16, 2025 |
-| Claude Haiku 4.5 | New Anthropic Claude Haiku 4.5 with Amazon Bedrock. | October 15, 2025 |
-| Default model access | All foundation models enabled by default with correct IAM permissions. | October 15, 2025 |
-| Guardrails cross-region region expansion | Asia Pacific (Bangkok, Kuala Lumpur, Taipei), Israel (Tel Aviv), Middle East (Dubai). | October 9, 2025 |
-| Batch inference new model support | DeepSeek V3.1, Qwen3 32B (dense), Qwen3 235B A22B 2507, Qwen3-Coder-30B-A3B-Instruct, Qwen3 Coder 480B A35B Instruct. | October 3, 2025 |
-| Cohere Embed v4 | New embedding model. | October 2, 2025 |
-| Qwen3 model import | Custom model import supports Qwen3. | September 30, 2025 |
-| Claude Sonnet 4.5 | New Anthropic Claude Sonnet 4.5 model. | September 29, 2025 |
-| Flow trace and DoWhile loop | Amazon Bedrock Flows trace enhancements and DoWhile loop node. | September 26, 2025 |
-| OpenAI batch API support | Native support for OpenAI batch API. | August 27, 2025 |
-| Token count estimation | Estimate token count for some models. | August 21, 2025 |
-| OpenAI gpt-oss models | gpt-oss-20b and gpt-oss-120b with Amazon Bedrock. | August 5, 2025 |
-| Automated Reasoning checks | Guardrails validate accuracy of foundation model responses. | August 5, 2025 |
-| Claude Opus 4.1 | New Anthropic Claude Opus 4.1 model. | July 31, 2025 |
-| Custom Model On-Demand Inference | Deploy custom models for pay-per-token. | July 16, 2025 |
-| Bedrock API keys | Create API keys for authentication. | July 7, 2025 |
-| AmazonBedrockLimitedAccess / AmazonBedrockMarketplaceAccess | New managed policies. | July 7, 2025 |
-| Guardrails Safeguard Tiers | Performance and language options. | June 23, 2025 |
-| Flow Executions (preview) | Run flows for longer durations. | June 19, 2025 |
-| Inline Code Nodes in Flows (preview) | Run code directly in flows. | June 19, 2025 |
-| Claude Sonnet 4 / Opus 4 | New Anthropic models. | May 22, 2025 |
-| Guardrails cross-region inference | Cross-region inference support. | May 13, 2025 |
-| Meta Llama 4 Scout/Maverick | New Meta models. | April 28, 2025 |
-| Intelligent Prompt Routing GA | General availability. | April 22, 2025 |
-| Flow Templates | Pre-built flow templates. | March 27, 2025 |
-| OpenSearch Managed Clusters as vector store | New vector store option for Knowledge Bases. | March 27, 2025 |
-| Guardrails IAM Condition | Enforce specific guardrails via IAM. | March 18, 2025 |
-| Configured prompt routers (preview) | Intelligent prompt routing preview. | March 13, 2025 |
-| DeepSeek-R1 model | New model. | March 10, 2025 |
-| Agents computer use tools | Configure Bedrock Agent to complete tasks with computer use tools. | March 10, 2025 |
-| GraphRAG GA | General availability with additional capabilities. | March 7, 2025 |
-| Bedrock Data Automation GA | Generally available with increased accuracy and CRIS. | March 3, 2025 |
-| Session management APIs | Manage state for generative AI applications. | February 27, 2025 |
-| Claude 3.7 Sonnet | New Anthropic model. | February 24, 2025 |
+## Newest entries
+- **Amazon Bedrock Agents Classic availability change** (June 30, 2026) — Bedrock Agents (launched Nov 2023) renamed "Amazon Bedrock Agents Classic"; closed to NEW customers starting July 30, 2026; existing customers continue. **[DEPRECATION / maintenance-mode — NOT reportable]**
+- **Updated requests-per-minute (RPM) quota guidance** (May 27, 2026) — quota doc clarification (bedrock-mantle token-based; bedrock-runtime model-specific; Claude Opus 4.7/4.8 no RPM quota). [Quota doc change — not a new surface]
+- **Quotas for the bedrock-runtime endpoint** (May 27, 2026) — new doc page on per-model token quotas. [Doc page]
 
-(Older entries from 2024 unchanged from previous cache.)
-
-Updated: 2026-06-14 — Topmost rows unchanged (all May 27, 2026 quota/doc changes; the RPM row was reworded to "Updated RPM quota guidance" and now references Opus 4.8). Not new feature/API/entity surfaces; not reportable. AgentCore API operations list re-verified byte-identical; Bedrock API reference still the same six operation groups.
+Updated: 2026-07-03 — The only net-new doc-history entry since the prior scan is the June 30 Agents Classic maintenance-mode notice, which is a deprecation and explicitly not reportable. No new feature/API/service surface. No reportable addition.

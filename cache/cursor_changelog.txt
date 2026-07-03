@@ -1,20 +1,28 @@
-# Cursor Changelog — captured 2026-06-12
+# Cursor Changelog — captured 2026-07-03
 
-Topmost entry: "Bugbot is now over 3x faster, 22% cheaper, and finds 10% more bugs" (June 10, 2026) — performance/cost improvement, not a new capability.
+## Jun 29-30, 2026 [NEW — crosses watching-tier bar]
+- **Cursor Mobile App for iOS (Jun 29)**: new agent surface. Launch and manage always-on/cloud agents from a phone, with voice input; "Remote Control" to direct desktop agents from the phone. Entirely new control plane for triggering agent runs off-device.
+- **MCPs and Organizations in Team Marketplaces (Jun 30)**: teams can distribute/install MCP servers across cloud agents, IDE, and CLI via marketplace configs, with Organization group access controls. New MCP distribution surface at org scale.
 
-## June 5, 2026 (Version 3.7) [already reported, below watching-tier bar]
-- Design Mode: multi-select elements in browser; voice input to narrate UI changes while agents run; Design Mode in canvases.
-- SDK (TS & Python): custom tools via `local.customTools` (no separate MCP server); auto-review routing of local tool calls through a classifier; JSONL/custom stores for agent persistence; nested subagents that can spawn subagents at any depth.
+## Jun 17-18, 2026 [NEW — crosses watching-tier bar]
+- **Cloud Environment Setup and Cloud Subagents in Agents Window (Jun 17)**: `/in-cloud` command spawns cloud subagents for isolated parallel work; automated cloud environment setup with reusable snapshots. New cloud agent-execution surface.
+- **Improvements to Cursor Automations (Jun 18)**: `/automate` skill to create automations inside an agent session; computer-use capability for automations (produce demos/artifacts); five new GitHub triggers (issue comments, PR review comments, workflow completion, etc.) and a Slack emoji-reaction trigger. New automation triggers + computer-use = expanded autonomous tool-execution surface.
+
+## Jun 22, 2026 [below bar]
+- "Customize Cursor" — personalization/UI. Not a new capability.
+
+## June 10, 2026 [cached, below bar]
+- Bugbot Performance Improvements — 3x faster (~90s), 10% more bugs, 22% cheaper. Perf/cost.
+
+## June 5, 2026 (Version 3.7) [cached]
+- Design Mode (multi-select in browser, voice narration, canvas Design Mode; agents embed interactive buttons in canvases).
+- SDK (TS & Python): custom tools via `local.customTools` (no separate MCP server); auto-review classifier gates tool execution via permissions.json; JSONL/custom stores; nested subagents at any depth.
 - Canvas: interactive context-usage reports.
-- Enterprise: Organizations (top-level containers, multi-team roles, org-level analytics + IDP), Groups.
-- Bugbot `/review` pre-push validation on GitHub/GitLab; incremental reviews.
+- Enterprise: Organizations (multi-team, separate security/budget), Groups.
+- Bugbot `/review` pre-push; incremental reviews.
 
-## May 29, 2026 (Version 3.6) — Auto-review Run Mode [reported 2026-06-01]
-## May 20, 2026 (Version 3.5) — Shared Canvases; /loop Skill; Cursor Automations
-## May 19, 2026 — Cursor in Jira
-## May 13, 2026 (3.4) — Full-screen Tabs; Dev Environments for Cloud Agents (multi-repo)
-## May 11, 2026 — Cursor in Microsoft Teams
-## May 7, 2026 — Build in Parallel / /multitask
-(see prior cache for details)
+## Earlier (cached): 3.6 Auto-review Run Mode; 3.5 Shared Canvases / /loop Skill / Cursor Automations; Cursor in Jira; 3.4 Dev Environments for Cloud Agents; Cursor in MS Teams; Build in Parallel /multitask.
 
-Updated: 2026-06-12 — Watching tier. Newest dated entry is a June 10 Bugbot performance/cost note (not reportable). The 3.7 agent features (nested subagents, custom tools) were June 5 and are below the watching-tier reporting bar. No new major capability since prior scan.
+Docs sections (cursor.com/docs): Agents, Rules, MCP, Skills, CLI.
+
+Updated: 2026-07-03 — Watching tier. NEW major surfaces since 06-16 cache: iOS mobile agent app + Remote Control (06-29), team/org MCP marketplace distribution (06-30), cloud subagents via /in-cloud (06-17), computer-use in Automations + new GitHub/Slack triggers (06-18). Reported.

@@ -1,14 +1,14 @@
-# Dia Browser Release Notes — captured 2026-05-27
+# Dia Browser Release Notes — captured 2026-07-03
 
-**Visible Release Items (newsletter "Dia Weekly" format):**
+**Visible items ("Dia Weekly" newsletter format — titles/dates only; Issue No. & App Version often render as placeholder/dummy text):**
 
-1. **May 21, 2026** - latest issue (no feature details extractable from page)
-2. **May 14, 2026** - No. 025, App v1.31 — "Stop opening PRs blind" (title only; no substantive capability description)
-3. **May 7, 2026** - No. 024, App v1.30 — "Keeping Tabs Tidy"
-4. **April 30, 2026** - No. 023, App v1.29 — "Sync unpinned tabs"
-5. **April 23, 2026** - No. 022, App v1.28.0 — "A closer look"
+1. July 2, 2026 — latest issue (placeholder app version/issue no. — dummy text; no extractable feature detail)
+2. Jun 25, '26 — No. 030, v1.37.0 — "What we're building, unfiltered"
+3. Jun 18, '26 — No. 029, v1.36 — "Stash your PiP out of the way" (Picture-in-Picture placement — minor UI)
+4. Jun 8, '26 — No. 028, v1.34.1 — "The week in Pittsburgh"
+5. May 28, 2026 — v1.33.00 — "Everything in Its Place"
 
-**Note:** The page displays a "Dia Weekly" newsletter format with placeholder text and a "View All Release Notes +" link. Titles only; no extractable capability detail.
+**Note:** Index exposes only titles/dates; feature text lives behind per-issue links. Recent named features (PiP placement) are minor UI. No agent/automation capability detail extractable.
 
 ## Last Fetched
-2026-05-27 — NEW newsletter issues v1.31 (May 14, "Stop opening PRs blind") and a May 21 issue. Newsletter format only; no extractable capability detail, so no coverage finding.
+2026-07-03 — NEW newsletter issues since 06-16 cache: Jun 18 (v1.36 PiP), Jun 25 (v1.37), Jul 2 (placeholder). Newsletter format; only extractable feature (PiP placement) is minor UI — below watching-tier bar. No coverage finding.
