@@ -1,68 +1,49 @@
-Source: https://learn.microsoft.com/en-us/azure/ai-studio/
-Fetched: 2026-06-16
+Source: https://learn.microsoft.com/en-us/azure/ai-studio/ (redirects to /azure/foundry/)
+Fetched: 2026-07-04
 
-# Microsoft Foundry documentation (formerly Azure AI Studio)
-
+# Microsoft Foundry documentation
+(ms.date 2026-06-16; page updated 2026-06-26)
 The AI app and agent factory - build, optimize, and govern AI apps and agents at scale.
 
-## Sections
-- Overview: What is Microsoft Foundry?
-- Overview: Looking for Foundry (classic) portal documentation?
-- Concept: Explore Foundry Models
-- Overview: Manage agents, models, and tools (control plane)
+## Overview / Quickstarts
+- What is Microsoft Foundry? / Choose how to build
+- Quickstart: Build with models and agents
+- Quickstart: Deploy a hosted agent [NEW vs prior cache — hosted agent deployment surface]
 
-## Categories
+## Develop and integrate [NEW section vs prior cache]
+- Microsoft Foundry SDKs
+- Develop agents with the Azure Developer CLI
+- Get started with the Foundry MCP Server [NEW — Model Context Protocol server for Foundry]
+- Use the Foundry Skill in coding agents [NEW — Foundry Skill for coding agents]
+- Work in Visual Studio Code
 
-### Create apps with code
-- Quickstart - Create Foundry resources
-- Quickstart - Chat with an agent
-- Start with an AI template
+## Foundry Models
+- Foundry Models sold by Azure / Deployment types / DeepSeek-R1 / fine-tune models
 
-### Foundry Models
-- Foundry Models sold by Azure
-- Deployment types
-- Get started with DeepSeek-R1
-- Learn how to fine-tune models
+## Foundry Agent Service
+- Orchestrate and host AI agents to automate business processes
+- Quickstart - Create a prompt agent [NEW — prompt agent entity]
+- Quickstart - Deploy a hosted agent [NEW — hosted agent]
+- Deploy and share agents [NEW — hosted-agent deploy/share]
 
-### Foundry Agent Service
-- Orchestrate and host AI agents to automate and execute business processes
-- Azure AI app template for agents
-- AI Red Teaming Agent (preview)
+## Foundry IQ
+- What is Foundry IQ? / FAQ / Connect knowledge base to agents
 
-### Foundry Control Plane
-- Trustworthy AI
-- What is Content Safety?
-- Trace your application with Microsoft Foundry project library
-- Evaluate agentic workflows
-- Monitor your generative AI applications
-
-### Foundry IQ
-- What is Foundry IQ?
-- Frequently asked questions
-- Connect knowledge base to agents
-
-### Foundry Tools
+## Foundry Tools
 - Speech, Translator, Language, Document Intelligence, Content Understanding, Face
 
-### Azure Machine Learning
-- Train models, Orchestrate pipelines, AutoML
+## Observability and evaluation
+- Trace your agents / Evaluate agentic workflows / Monitor generative AI apps / AI Red Teaming Agent (preview)
 
-### Foundry Local
-- Run LLMs on your device for free
-- Integrate your apps
-- Run HuggingFace models
-- SDK Documentation
+## Foundry Control Plane
+- What is the Foundry control plane?
+- Manage agents at scale [NEW vs prior cache — control-plane agent governance]
+- Enforce token limits for models [NEW — model token-limit governance]
+- Trustworthy AI / What is Content Safety?
 
-## SDKs
-Python, C#, JavaScript, Java
+## Azure Machine Learning; Foundry Local (run LLMs on device)
 
-## Resources
-- Microsoft Foundry portal (ai.azure.com)
-- Microsoft Foundry SDKs
-- Microsoft Foundry labs
-- GitHub Models
-- Visual Studio Code extension
-- Microsoft Agent Framework
+## SDKs: Python, C#, JavaScript, Java
+## Resources: Foundry portal (ai.azure.com), Foundry labs, GitHub Models, VS Code extension, Microsoft Agent Framework
 
-Page last updated: 2026-04-13
-Updated: 2026-06-16
+Updated: 2026-07-04 — Old /azure/ai-studio/ hub now the /azure/foundry/ hub. NET-NEW vs prior cache: (1) Foundry MCP Server; (2) Foundry Skill in coding agents; (3) Foundry Agent Service hosted-agent deploy/share + prompt-agent quickstart; (4) Foundry Control Plane "Manage agents at scale" and "Enforce token limits for models". Foundry IQ, AI Red Teaming Agent, Foundry Local, Foundry Tools already cached.

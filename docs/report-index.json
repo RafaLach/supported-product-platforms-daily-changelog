@@ -1,5 +1,116 @@
 [
   {
+    "date": "2026-07-04",
+    "scan_time": "2026-07-04 11:31",
+    "file": "report-2026-07-04.md",
+    "platforms": [
+      {
+        "name": "Azure AI Foundry",
+        "status": "changed",
+        "details": [
+          "**Foundry MCP Server** \u2014 a Model Context Protocol server for Foundry (no infra to deploy) that enforces Entra ID auth/authorization via On-Behalf-Of flow and exposes a growing set of read/write tools over Foundry models, deployments, evaluations, and agents to MCP clients and coding agents. Source: https://learn.microsoft.com/en-us/azure/foundry/mcp/get-started",
+          "**Foundry Skill in coding agents** \u2014 a reusable skill that plugs into coding agents to standardize Foundry workflows (deployment, evaluation, prompt optimization, dataset curation from traces, troubleshooting); bundled with the Azure Skills Plugin alongside the Foundry MCP Server. Source: https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/use-microsoft-foundry-skill",
+          "**Hosted agents (Foundry Agent Service) + prompt-agent quickstart** \u2014 containerized, own-code agents deployed to Microsoft-managed infra; each deployment is assigned a dedicated Microsoft Entra ID (agent identity) and dedicated endpoint, and published agents can be shared through M365 Copilot / Teams and the Entra Agent Registry. New agent deployment/sharing surface distinct from prompt-based agents. Source: https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents",
+          "**Foundry Control Plane** \u2014 a unified control plane to track/manage agents from supported platforms across projects in one view, with cross-project visibility, unified compliance enforcement, integrated security signals, and per-project TPM rate-limit / token-quota enforcement for model deployments. Source: https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Codex Remote \u2014 General Availability** \u2014 phone\u2192host agent control is now GA for all plans, secured by authenticated one-to-one QR pairing between each iOS/Android device and each connected Mac/Windows host. From a paired phone, users start threads in host projects, send follow-ups, answer agent questions, approve/deny commands, and review diffs/tests/terminal/screenshots. Source: https://developers.openai.com/codex/remote-connections",
+          "**Codex DigitalOcean provisioning plugin (public preview)** \u2014 connects a DigitalOcean account via OAuth and lets Codex provision and configure a Droplet (from the Codex Universal image, with CLI/tooling/SSH pre-wired) as an on-demand remote workspace, no doctl/API tokens required. Source: https://www.digitalocean.com/blog/run-codex-in-the-cloud",
+          "**Codex CLI 0.142.2** \u2014 MCP tools now use tool search by default where supported (new default MCP tool-discovery behavior), and remote stdio MCP servers accept absolute working directories in platform-native path formats; adds a PowerShell approval gate for unlowered-AST command regions. Source: https://developers.openai.com/codex/changelog"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Windsurf (Devin Desktop)",
+        "status": "changed",
+        "details": [
+          "**Devin Local autonomous mode (v3.4.22)** \u2014 Devin Local (the Rust-rewritten successor to Cascade, available on every tier including Free) gains an autonomous mode that runs the agent without step-by-step supervision and surfaces reviewable diffs before push, with subagent support for subtasks. New local unsupervised agent-execution surface. Source: https://docs.devin.ai/desktop/changelog",
+          "**`/mcp` command + live MCP server status dashboard (v3.4.22)** \u2014 a new in-session `/mcp` slash command with a live status dashboard for connected MCP servers, giving users a control/inspection surface over the agent's MCP tool connections. Source: https://docs.devin.ai/work-with-devin/devin-mcp"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Azure AI Foundry \u2014 Foundry MCP Server",
+        "description": "New Entra-authenticated MCP endpoint (no infra to deploy) that exposes read/write tools over Foundry models, deployments, evaluations, and agents to any MCP client or coding agent, operating within the authenticated user's permissions (On-Behalf-Of). A new tool-exposure/connector channel through which external agents reach Foundry resources \u2014 AISPM must inventory the MCP server, the tools it exposes, and which identities/agents can invoke it (a prime overprivileged-agent / data-reach toxic combination)",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/mcp/get-started",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Azure AI Foundry \u2014 Foundry Skill for coding agents",
+        "description": "New reusable skill entity that plugs into coding agents to drive Foundry workflows (deploy, evaluate, prompt-optimize, curate datasets from traces), bundled with the Azure Skills Plugin alongside the Foundry MCP Server. Introduces a shareable capability + supply-chain surface (an overbroad/malicious shared skill propagates Foundry access across coding agents); AISPM should inventory skills and their agent bindings",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/use-microsoft-foundry-skill",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Azure AI Foundry \u2014 hosted agents (Foundry Agent Service)",
+        "description": "New agent type \u2014 containerized, customer-code agents deployed to Microsoft-managed infra, each assigned a dedicated Microsoft Entra ID (agent identity) and endpoint, publishable/shareable via M365 Copilot, Teams, and the Entra Agent Registry (A2A protocol in preview). A distinct new agent runtime, identity class, and cross-tenant sharing/supply-chain surface Zenity must discover and govern separately from prompt-based agents",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Azure AI Foundry \u2014 Foundry Control Plane",
+        "description": "New unified control plane that tracks/manages agents from supported platforms across projects, with cross-project visibility, unified compliance enforcement, integrated security signals, and per-project TPM rate-limit / token-quota enforcement for model deployments. A new tenant-wide agent/model governance and inventory surface directly relevant to AISPM posture and policy-enforcement mapping",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Codex Remote \u2014 GA phone\u2192host agent control",
+        "description": "Codex Remote is now GA for all plans \u2014 an authenticated QR-paired channel that lets an iOS/Android device drive the Codex agent on a connected Mac/Windows host (start threads, send prompts, approve/deny commands, review diffs). A now-broadly-available off-device control plane for triggering and approving autonomous agent runs outside the monitored desktop \u2014 a new command-and-approval attack/abuse surface for red/purple teaming",
+        "source": "https://developers.openai.com/codex/remote-connections",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex \u2014 DigitalOcean provisioning plugin",
+        "description": "New Codex plugin that connects a DigitalOcean account via OAuth and provisions/configures a Droplet (Codex Universal image, CLI/tooling/SSH pre-wired) as an on-demand remote workspace. A new agent cloud-provisioning connector \u2014 the agent can stand up and configure external cloud compute it then executes on, expanding the tool-execution and resource-access surface",
+        "source": "https://www.digitalocean.com/blog/run-codex-in-the-cloud",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex CLI 0.142.2 \u2014 MCP tool-search default + native-path remote stdio MCP",
+        "description": "MCP tools now use tool search by default where supported (new default MCP tool-discovery behavior), and remote stdio MCP servers accept absolute working directories in platform-native path formats. New per-tool discovery and remote MCP working-directory surfaces on the local Codex endpoint that change which MCP tools an agent sees and where remote stdio servers operate",
+        "source": "https://developers.openai.com/codex/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Windsurf / Devin Desktop \u2014 Devin Local autonomous mode (v3.4.22)",
+        "description": "Devin Local (Rust-rewritten Cascade successor, on every tier incl. Free) gains an autonomous mode that runs the agent unsupervised and surfaces reviewable diffs before push, with subagents for subtasks. A new local unsupervised agent-execution surface acting on the codebase before human review \u2014 a new activity/data-flow detection surface for AIDR",
+        "source": "https://docs.devin.ai/desktop/changelog",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Windsurf / Devin Desktop \u2014 `/mcp` command + MCP status dashboard (v3.4.22)",
+        "description": "New in-session `/mcp` slash command with a live status dashboard over connected MCP servers. A new MCP tool-connection control/inspection surface on the endpoint that AISPM should account for when mapping which MCP servers/tools an agent can reach",
+        "source": "https://docs.devin.ai/work-with-devin/devin-mcp",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-07-03",
     "scan_time": "2026-07-03 13:36",
     "file": "report-2026-07-03.md",

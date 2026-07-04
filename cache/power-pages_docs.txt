@@ -1,5 +1,6 @@
 Source: https://learn.microsoft.com/en-us/power-pages/
-Fetched: 2026-05-18
+Fetched: 2026-07-04
+Page last updated: 2026-04-28
 
 # Microsoft Power Pages documentation
 
@@ -8,28 +9,13 @@ Create external-facing websites that allow users outside their organizations to 
 ## Sections
 
 ### Getting started
-- Introducing Power Pages
-- Try Power Pages
-- Getting started videos
-- Power Pages training
-- What is Power Pages, capabilities, create and manage sites, security, architecture/security white papers, community
+- Introducing Power Pages, capabilities, create and manage sites, security, architecture/security white papers, community
 
 ### Tutorials
-- Tutorials and training videos overview
-- Design home page
-- Set up brand kit
-- Create page with list
-- Create page with simple form
-- Configure site authentication
+- Tutorials/videos overview, Design home page, Set up brand kit, Create page with list, Create page with simple form, Configure site authentication
 
 ### Design and build
-- Use the new design studio
-- Pages workspace
-- Styling workspace
-- Templates
-- Portal Management app
-- Visual Studio Code and Power Platform CLI
-- Plan your Power Pages project
+- Use the new design studio, Pages workspace, Styling workspace, Templates, Portal Management app, Visual Studio Code and Power Platform CLI, Plan your project
 
 ### AI and Copilot
 - AI-powered and Copilot features overview
@@ -39,38 +25,18 @@ Create external-facing websites that allow users outside their organizations to 
 - Force Bing webmaster to index your site
 
 ### Connect to Dataverse
-- What is Dataverse
-- Use the data workspace
-- Add lists to pages
-- Add basic forms / multistep forms
-- Secure data with table permissions
-- Create, update, view Dataverse information
+- What is Dataverse, Use the data workspace, Add lists, Add basic/multistep forms, Secure data with table permissions, Create/update/view Dataverse information
 
 ### Customize and extend
-- Use Liquid
-- Web templates
-- Portals web API
-- Code components
-- Configure Power Automate cloud flows in your site
-- Advanced configuration
+- Use Liquid, Web templates, Portals web API, Code components, Configure Power Automate cloud flows in your site, Advanced configuration
 
 ### Security
-- Power Pages security overview
-- Set up authentication
-- Configure web roles
-- Configure table permissions
-- Architecture/security white papers
+- Security overview, Set up authentication, Configure web roles, Configure table permissions, Architecture/security white papers
 
 ### Go live
-- Go live checklist
-- Assign licensing
-- Power Pages ALM overview
+- Go live checklist, Assign licensing, ALM overview
 
 ### Administer and monitor
-- Portals admin center
-- Troubleshooting and diagnostics
-- Maintain and update
-- Review consumption
+- Portals admin center, Troubleshooting and diagnostics, Maintain and update, Review consumption
 
-Page last updated: 2026-04-28
-Updated: 2026-05-18
+Updated: 2026-07-04 — Page unchanged since cache (last updated 2026-04-28). AI/Copilot section (incl. "Enable agent in your site") identical. No reportable addition.

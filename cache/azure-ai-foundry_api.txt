@@ -1,19 +1,18 @@
-Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
-Fetched: 2026-06-16
+Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference (redirects to /azure/foundry/openai/reference)
+Fetched: 2026-07-04
 
-# Azure OpenAI REST API Reference
+# Azure OpenAI REST API Reference (image & audio, 2024-10-21 GA)
+# (ms.date 2026-05-19; page updated 2026-06-24)
 
 ## API Versions
-
 | API Surface | Latest Preview | Latest GA |
 | --- | --- | --- |
 | Control Plane | 2025-07-01-preview | 2025-06-01 |
 | Data Plane | v1 preview | v1 |
 
-Documentation covers the GA release of the Azure OpenAI data plane inference specification: 2024-10-21.
+GA data plane inference spec documented: 2024-10-21.
 
 ## Supported Operations
-
 1. Completions - POST /openai/deployments/{deployment-id}/completions
 2. Chat Completions - POST /openai/deployments/{deployment-id}/chat/completions
 3. Embeddings - POST /openai/deployments/{deployment-id}/embeddings
@@ -22,9 +21,9 @@ Documentation covers the GA release of the Azure OpenAI data plane inference spe
 6. Image Generation - POST /openai/deployments/{deployment-id}/images/generations
 
 ## Key Features and Updates
-- New Preview Inference API available — see API lifecycle guide.
+- New Preview Inference API available (v1 preview) — see API lifecycle guide.
 - Chat extensions (RAG) data sources: Azure Search, Azure Cosmos DB (MongoDB vCore)
 - Structured Outputs (json_schema), tool/function calling (up to 128, parallel)
 - Authentication: API Key (api-key header), Microsoft Entra ID (Bearer token)
 
-Updated: 2026-06-16
+Updated: 2026-07-04 — Same API version table as prior cache (Control plane 2025-07-01-preview / 2025-06-01 GA; Data plane v1 preview / v1 GA). No new endpoints or operations. No reportable addition.

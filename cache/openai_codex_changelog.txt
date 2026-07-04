@@ -1,38 +1,27 @@
-# OpenAI Codex Changelog — captured 2026-07-03
+# OpenAI Codex Changelog — captured 2026-07-04
 
-## June 22, 2026 — Codex CLI 0.142.0 [new]
-- `/usage` shows/redeems earned usage-limit reset credits; `/plugins` organizes remote plugins into curated/workspace/shared sections; configurable rollout token budgets tracked across agent threads.
-- **Multi-agent delegation modes**: disabled, explicit-request-only, or proactive — governs when the agent spawns sub-agents.
-- **Indexed web-search mode**: live searches while restricting direct page access; scheduled UTC reminders + current-time queries.
-- (AIRT MEDIUM: multi-agent delegation-mode controls + indexed web-search = new agent orchestration/egress surface worth tracking; rest below bar.)
+## June 25, 2026 — Codex Remote GA + CLI 0.142.1 / 0.142.2 [new]
+- **Codex Remote reaches General Availability**: mobile control of connected Mac/Windows hosts via authenticated QR pairing between iOS/Android devices and host machines. (Previously the remote-control/pairing surface was in beta; now GA.)
+- **New DigitalOcean plugin**: provisions and configures DigitalOcean Droplets as remote Codex workspaces — new cloud-provisioning integration/connector.
+- **CLI 0.142.2**: MCP tools use **tool search by default** when supported; macOS auth clients honor system proxy/PAC/WPAD; plugins support dark-mode logos via local manifests; remote stdio MCP servers accept absolute native-path working dirs; PowerShell commands with unlowered AST regions now require approval.
+- **CLI 0.142.1**: Windows system proxy support (PAC, WPAD, static proxies, bypass rules).
+- (AIRT/ENDPOINT MEDIUM: Codex Remote GA = phone-to-host agent remote control now broadly available; DigitalOcean plugin = new agent cloud-provisioning connector; MCP tool-search-by-default = new default MCP tool-discovery behavior. Reportable.)
 
-## June 18, 2026 — Codex app 26.616 [new]
-- **Record & Replay** (macOS): converts demonstrated workflows into reusable **skills** (not in EEA/UK/CH initially) — new skill-authoring/replay surface.
-- **Thread handoff**: move conversations between local and remote hosts with coordinated transfers; browser visible-tab routing + annotations persist across host moves.
-- Bulk actions for run-history management.
-- (ENDPOINT/AIRT MEDIUM: Record & Replay = user-demonstrated actions become reusable agent skills; Thread handoff = execution moves local↔remote. New agent capability + data/exec-boundary surface.)
+## June 22, 2026 — Codex CLI 0.142.0 + ChatGPT iOS 1.2026.167 [prior scan]
+- CLI: `/usage` credits; `/plugins` curated/workspace/shared sections; configurable rollout token budgets; **multi-agent delegation modes** (disabled/explicit-request-only/proactive); **indexed web-search mode** (server-approved URLs only); scheduled UTC reminders; exec-server survives disconnects w/ signed-URL refresh; parental agents receive terminal subagent errors.
+- iOS 1.2026.167: per-host personality settings; inline goal editing; fork tracking.
+- (AIRT MEDIUM: multi-agent delegation modes + indexed web-search — already reported prior scan.)
 
-## June 18, 2026 — Codex CLI 0.141.0 [new]
-- Remote execution over authenticated, end-to-end encrypted **Noise relay channels**; cross-platform executor-native working dirs/shells preserved.
-- **Plugin stdio MCP servers activate per-thread**; enhanced plugin discovery ("created-by-me marketplace").
-- Realtime clients can append speech and control response entry into conversations.
-- (ENDPOINT MEDIUM: per-thread stdio MCP server activation = per-conversation MCP tool surface; Noise-relay remote exec = new remote-control transport. Worth monitoring.)
+## June 18, 2026 — Codex app 26.616 [prior scan]
+- Record & Replay (macOS): demonstrated workflows → reusable skills. Thread handoff local↔remote. Bulk run-history actions.
 
-## June 15, 2026 — Codex CLI 0.140.0 — minor, not reportable
-- `/usage` token tracking; `codex delete` session deletion; `/import` to migrate config from Claude Code. (dev conveniences, below bar.)
+## June 18, 2026 — Codex CLI 0.141.0 [prior scan]
+- Noise-relay E2E-encrypted remote exec; per-thread plugin stdio MCP servers; realtime speech append/response control.
 
-## June 11, 2026 — Codex app 26.609 [reported 2026-06-12]
-- **Developer Mode for Browser Use**: controlled **Chrome DevTools Protocol (CDP)** access (network, console, runtime errors, page state).
-- `/init`; Computer Use for Enterprise geo-expansion; Windows App Access Controls; Rate-Limit Banking & Referrals.
-- (ENDPOINT/AIRT MEDIUM: Developer Mode browser CDP access = new agent browser-control & inspection surface.)
-
+## June 15, 2026 — Codex CLI 0.140.0 — minor
+## June 11, 2026 — Codex app 26.609 — Developer Mode Browser Use (CDP access) [reported 2026-06-12]
 ## June 9, 2026 — Codex CLI 0.139.0 — minor
-- Code-mode standalone web search; MCP tool schemas preserve oneOf/allOf; plugin marketplace JSON output.
+## June 9, 2026 — ChatGPT iOS 1.2026.153 + Worktree/setup-script [reported 2026-06-10]
+## June 8, 2026 — Codex CLI 0.138.0 — Desktop handoff. ## June 4, 2026 — Codex CLI 0.137.0 — hosted web/image code-mode, multi-agent v2, remote-control pairing.
 
-## June 9, 2026 — ChatGPT for iOS 1.2026.153 + Worktree/setup-script [reported 2026-06-10]
-- Branch selection, worktree creation, environment setup scripts (arbitrary command execution at thread start), `/goal`.
-
-## June 8, 2026 — Codex CLI 0.138.0 — Desktop handoff macOS/Windows; local image paths exposed.
-## June 4, 2026 — Codex CLI 0.137.0 — Hosted web/image tools code-mode; parallel web search; multi-agent v2; remote-control pairing.
-
-Updated: 2026-07-03 — New since prior scan: CLI 0.141.0 (per-thread stdio MCP, Noise-relay remote exec), app 26.616 (Record & Replay skills + Thread handoff), CLI 0.142.0 (multi-agent delegation modes, indexed web search). Reportable items flagged above.
+Updated: 2026-07-04 — New since prior scan: Codex Remote GA (mobile→host control now GA), DigitalOcean provisioning plugin, CLI 0.142.2 (MCP tool-search-by-default, proxy/PAC/WPAD, PowerShell approval), CLI 0.142.1 (Windows proxy). Reportable items flagged above.

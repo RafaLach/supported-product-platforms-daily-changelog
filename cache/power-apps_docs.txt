@@ -1,5 +1,6 @@
 Source: https://learn.microsoft.com/en-us/power-apps/
-Fetched: 2026-06-16
+Fetched: 2026-07-04
+Page last updated: 2026-02-26 (updated_at 2026-03-03)
 
 # Microsoft Power Apps documentation
 
@@ -10,7 +11,7 @@ Build low-code apps that modernize processes and solve tough business challenges
 ### Create and design
 - Try/Buy Power Apps
 - Create apps: Choose an app type, Plan designer, Canvas apps, Model-driven apps, Code apps
-- AI copilot capabilities: Get started with AI copilot, Plan designer, Overview of the new experience (preview), Build apps through conversation, Add a Copilot control to a canvas app (preview)
+- AI copilot capabilities: Get started with AI copilot, Plan designer, Overview of the new experience (preview) (vibe/overview), Build apps through conversation, Add a Copilot control to a canvas app (preview)
 - Create and manage data: Microsoft Dataverse, Tables and metadata, Business logic, Dataflows
 - Use solutions: Solutions overview, ALM, Pipelines
 - Integrate with other products: Power BI, Azure Synapse Link, Teams
@@ -27,5 +28,4 @@ Build low-code apps that modernize processes and solve tough business challenges
 - Web browsers (Navigation, Search, Reports)
 - Teams (Canvas as tab, Canvas as personal app, Model-driven as tab, Model-driven as personal app)
 
-Page last updated: 2026-02-26
-Updated: 2026-06-16
+Updated: 2026-07-04 — Page unchanged since cache (last updated 2026-02-26). AI/copilot section list identical. No reportable addition.

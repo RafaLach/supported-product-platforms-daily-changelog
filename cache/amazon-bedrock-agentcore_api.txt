@@ -1,90 +1,42 @@
-# Amazon Bedrock AgentCore Data Plane - Actions API Reference (Fetched 2026-05-18)
+# Amazon Bedrock AgentCore Data Plane - Actions API Reference — captured 2026-07-04
 
-## Complete List of Supported Actions
+## Complete List of Supported Actions (full list retrieved 2026-07-04)
 
-### Memory Management Actions
-- BatchCreateMemoryRecords - Create multiple memory records in batch
-- BatchDeleteMemoryRecords - Delete multiple memory records in batch
-- BatchUpdateMemoryRecords - Update multiple memory records in batch
-- DeleteMemoryRecord - Delete a single memory record
-- GetMemoryRecord - Retrieve a specific memory record
-- ListMemoryRecords - List all memory records
-- ListMemoryExtractionJobs - List memory extraction jobs
-- RetrieveMemoryRecords - Retrieve memory records
-- StartMemoryExtractionJob - Start a memory extraction job
+### Memory Management
+- BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords
+- DeleteMemoryRecord, GetMemoryRecord, ListMemoryRecords
+- ListMemoryExtractionJobs, RetrieveMemoryRecords, StartMemoryExtractionJob
 
-### Authentication & Token Actions
-- CompleteResourceTokenAuth
-- GetResourceApiKey
-- GetResourceOauth2Token
-- GetResourcePaymentToken (NEW since prior scan)
-- GetWorkloadAccessToken
-- GetWorkloadAccessTokenForJWT
-- GetWorkloadAccessTokenForUserId
+### Authentication & Token
+- CompleteResourceTokenAuth, GetResourceApiKey, GetResourceOauth2Token
+- GetResourcePaymentToken, GetWorkloadAccessToken, GetWorkloadAccessTokenForJWT, GetWorkloadAccessTokenForUserId
 
-### Event Management Actions
-- CreateEvent
-- DeleteEvent
-- GetEvent
-- ListEvents
+### Event Management
+- CreateEvent, DeleteEvent, GetEvent, ListEvents
 
 ### Agent & Runtime Operations
-- GetAgentCard
-- InvokeAgentRuntime
-- InvokeAgentRuntimeCommand
-- InvokeHarness (NEW since prior scan)
-- StopRuntimeSession
+- GetAgentCard, InvokeAgentRuntime, InvokeAgentRuntimeCommand, InvokeHarness, StopRuntimeSession
 
-### Browser Session Actions
-- GetBrowserSession
-- ListBrowserSessions
-- SaveBrowserSessionProfile
-- StartBrowserSession
-- StopBrowserSession
-- UpdateBrowserStream
-- InvokeBrowser
+### Browser Session
+- GetBrowserSession, ListBrowserSessions, SaveBrowserSessionProfile, StartBrowserSession, StopBrowserSession, UpdateBrowserStream, InvokeBrowser
 
-### Code Interpreter Actions
-- GetCodeInterpreterSession
-- InvokeCodeInterpreter
-- ListCodeInterpreterSessions
-- StartCodeInterpreterSession
-- StopCodeInterpreterSession
+### Code Interpreter
+- GetCodeInterpreterSession, InvokeCodeInterpreter, ListCodeInterpreterSessions, StartCodeInterpreterSession, StopCodeInterpreterSession
 
-### Registry Actions
+### Registry
 - SearchRegistryRecords
 
-### A/B Testing & Recommendation Actions (NEW set since prior scan)
-- CreateABTest
-- DeleteABTest
-- GetABTest
-- ListABTests
-- UpdateABTest
-- DeleteBatchEvaluation
-- GetBatchEvaluation
-- ListBatchEvaluations
-- StartBatchEvaluation
-- StopBatchEvaluation
-- DeleteRecommendation
-- GetRecommendation
-- ListRecommendations
-- StartRecommendation
+### A/B Testing, Batch Evaluation & Recommendation (Optimization)
+- CreateABTest, DeleteABTest, GetABTest, ListABTests, UpdateABTest
+- DeleteBatchEvaluation, GetBatchEvaluation, ListBatchEvaluations, StartBatchEvaluation, StopBatchEvaluation
+- DeleteRecommendation, GetRecommendation, ListRecommendations, StartRecommendation
 
-### Payments Actions (NEW set since prior scan)
-- CreatePaymentInstrument
-- CreatePaymentSession
-- DeletePaymentInstrument
-- DeletePaymentSession
-- GetPaymentInstrument
-- GetPaymentInstrumentBalance
-- GetPaymentSession
-- ListPaymentInstruments
-- ListPaymentSessions
-- ProcessPayment
+### Payments
+- CreatePaymentInstrument, CreatePaymentSession, DeletePaymentInstrument, DeletePaymentSession
+- GetPaymentInstrument, GetPaymentInstrumentBalance, GetPaymentSession
+- ListPaymentInstruments, ListPaymentSessions, ProcessPayment
 
-### Additional Operations
-- Evaluate
-- ListActors
-- ListSessions
+### Additional
+- Evaluate, ListActors, ListSessions
 
-Updated: 2026-05-18 — NEW actions detected since previous scan: A/B Testing actions (CreateABTest/DeleteABTest/GetABTest/ListABTests/UpdateABTest), Batch Evaluation actions (Delete/Get/List/Start/StopBatchEvaluation), Recommendation actions (Delete/Get/List/StartRecommendation), Payments actions (CreatePaymentInstrument/Session, Delete/Get/ListPaymentInstrument/Session, GetPaymentInstrumentBalance, ProcessPayment, GetResourcePaymentToken), InvokeHarness, InvokeBrowser.
+Updated: 2026-07-04 — Full operation list retrieved and diffed against 2026-05-18 cache: IDENTICAL set. No new data-plane operations this scan. (Harness/Optimization/Payments ops already present in prior cache.) No reportable API addition this scan.

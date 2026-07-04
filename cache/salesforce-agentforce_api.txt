@@ -1,11 +1,12 @@
-# Agentforce / GenAI Reference Index — captured 2026-07-03
+# Agentforce / GenAI Reference Index — captured 2026-07-04
 
 APIs: Agent API, Models API (Apex + REST), Testing API, Citations API, Metadata API, Tooling API.
 SDKs: Agentforce Python SDK, Agentforce Mobile SDK (iOS/Android).
-Other: Agent Script (agent-building language), Agentforce DX (pro-code), Lightning Types Reference (custom UI for agent actions).
+Other: Agent Script (agent-building language), Agentforce DX (pro-code), Lightning Types Reference (custom UI for agent actions), Metadata Types, Tooling Objects.
 
 No dated/new releases on this reference index page.
 
 ## Last Fetched
+2026-07-04 - No changes detected from previous fetch.
 2026-07-03 - No changes detected from previous fetch.
 2026-06-16 - No changes detected from previous fetch.

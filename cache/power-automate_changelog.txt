@@ -1,6 +1,6 @@
-# Power Automate What's New — captured 2026-07-03
-# (ms.date 2025-07-10; pointer page)
+# Power Automate What's New — captured 2026-07-04
+# (ms.date 2025-07-10; updated_at 2025-07-11; pointer page)
 
 The What's New page is a pointer to weekly Service Updates (released-versions/power-automate) and the Release Planner; it carries no dated feature entries itself.
 
-Updated: 2026-07-03 — No dated AI/agent feature additions on this page. No reportable addition.
+Updated: 2026-07-04 — No dated AI/agent feature additions on this page (unchanged since cache). No reportable addition.

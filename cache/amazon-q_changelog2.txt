@@ -1,59 +1,13 @@
-# Amazon Q Business Document History (Fetched 2026-05-18)
+# Amazon Q Business Document History — captured 2026-07-04
 
-**Latest documentation update:** August 14, 2025
+**Latest documentation-update banner:** August 14, 2025; newest dated row June 30, 2026.
 
-| Change | Description | Date |
-|--------|-------------|------|
-| New Agentic RAG feature | Enhance Amazon Q Business standard RAG capabilities with agentic workflows. | August 14, 2025 |
-| Clickable S3 Link Feature | Users access source documents from S3 through citation links in chat responses. | July 22, 2025 |
-| Relevancy tuning replaces metadata boosting | Admins can now control the search results in Amazon Q Business based on document creation/modification dates or storage location. | July 1, 2025 |
-| New response customization feature | Customize Amazon Q Business chat responses. | July 1, 2025 |
-| Amazon Q Business application environments for anonymous access | Create application environments for anonymous access. | April 29, 2025 |
-| New hallucination mitigation feature | Reduce response hallucinations during chat. | April 10, 2025 |
-| Private Amazon S3 buckets for web customization | Save web experience customizations in private S3 buckets. | March 18, 2025 |
-| Microsoft Word integration | Add-in for Microsoft Word. | February 27, 2025 |
-| Microsoft Outlook integration | Add-in for Microsoft Outlook. | February 27, 2025 |
-| New chat orchestration controls | Admin controls for chat orchestration settings. | February 4, 2025 |
-| Amazon Kendra GenAI Enterprise Edition indices support | Use Kendra GenAI Enterprise Edition index with Amazon Q Business. | December 4, 2024 |
-| Q Apps plugins support | Q Apps now supports all Amazon Q Business plugins with more supported actions. | December 3, 2024 |
-| QBusinessQuicksightPluginPolicy managed policy | New managed policy for Amazon Quick. | December 3, 2024 |
-| Quick plugin | Insights from structured data through Amazon Quick. | December 3, 2024 |
-| New Amazon Q Business plugins | Updated plugins experience with new plugins and more supported actions. | December 3, 2024 |
-| QuickSight-integrated application environment | Create Amazon Quick-integrated application environment. | December 3, 2024 |
-| Visual theme customization | Customize web experience interface visual elements. | December 3, 2024 |
-| Data accessors | Share enterprise data with verified ISVs using Amazon Q index. | December 3, 2024 |
-| Amazon Q index for software providers | ISVs can access and integrate company data. | December 3, 2024 |
-| Slack integration | Amazon Q Business in Slack. | December 1, 2024 |
-| Microsoft Teams integration | Amazon Q Business in Microsoft Teams. | December 1, 2024 |
-| Embedded visual content extraction | Extract semantic meaning from embedded visual content. | December 1, 2024 |
-| Data collection in Q Apps | Create data collection apps. | November 26, 2024 |
-| Browser extensions | Enhance web browsing experience. | November 22, 2024 |
-| Smartsheet connector | New data source connector. | November 21, 2024 |
-| Recent file support | Access recent files. | November 21, 2024 |
-| Cross-region inference | Process inference requests across geography. | November 19, 2024 |
-| Custom labels for Q Apps | Customize labels for published Q Apps. | November 7, 2024 |
-| Service-linked role support for Q Apps | IAM service-linked role for Q Apps. | October 22, 2024 |
-| Q App Analytics dashboard | Analytics on Q Apps usage. | October 22, 2024 |
-| QAppsServiceRolePolicy managed policy | New IAM managed policy for Q Apps. | October 22, 2024 |
-| CloudWatch Logs for conversations | Monitor user conversations with CloudWatch Logs. | October 22, 2024 |
-| CloudWatch metrics for Q Apps | Monitor Q Apps with CloudWatch metrics. | October 22, 2024 |
-| Amazon Q embedded | Embed assistant within trusted websites. | October 15, 2024 |
-| Admin verification for Q Apps | Admins can verify published Q Apps. | September 10, 2024 |
-| IAM Federation support | Use IAM Federation to manage end-user access. | August 22, 2024 |
-| Cross-region IAM Identity Center | Cross-region IAM Identity Center integrations. | July 25, 2024 |
-| New CloudWatch chat metrics | New chat metrics. | July 24, 2024 |
-| Q Apps GA | General availability of Q Apps. | July 10, 2024 |
-| Personalized chat responses | Personalized chat for end users. | July 5, 2024 |
-| Scanned PDF support | Upload scanned PDFs. | July 2, 2024 |
-| Service-linked role support | Service-linked role for creating application environments. | April 30, 2024 |
-| Q Apps preview release | Initial Q Apps preview. | April 30, 2024 |
-| IAM Identity Center migration | Migrate SAML 2.0 application environments to IAM Identity Center. | April 30, 2024 |
-| Custom plugins | Create custom plugins. | April 30, 2024 |
-| Streaming chat API | Real-time streaming chat API. | April 30, 2024 |
-| Amazon Q Business GA | Generally available. | April 30, 2024 |
-| IAM Identity Center integration | Initial Identity Center support. | April 16, 2024 |
-| Admin controls and guardrails update | New web experience chat modes. | April 16, 2024 |
-| Boosting using document attributes | Metadata boosting for chat results. | February 14, 2024 |
-| Initial preview release | First public preview. | November 28, 2023 |
+## Newest entries
+- **Amazon Q Business availability change** (June 30, 2026) — Q Business closed to NEW customers starting July 31, 2026; sign up before July 30; points to Amazon Quick for similar capabilities. **[DEPRECATION / availability-change — NOT reportable]**
+- New Agentic RAG feature — enhance standard RAG with agentic workflows. (August 14, 2025) [already cached; newest actual feature]
+- Clickable S3 Link Feature (July 22, 2025)
+- Relevancy tuning replaces metadata boosting (July 1, 2025)
+- New response customization feature (July 1, 2025)
+- (older entries unchanged: anonymous access, hallucination mitigation, MS Word/Outlook add-ins, data accessors, Q index for ISVs, Slack/Teams, Q Apps, connectors, etc.)
 
-Updated: 2026-05-18 — No new entries since previous scan (latest remains August 14, 2025).
+Updated: 2026-07-04 — Only net-new doc-history row since prior scan is the June 30, 2026 availability-change (deprecation), NOT reportable. Newest actual feature remains Agentic RAG (Aug 14, 2025), already cached. No reportable addition.

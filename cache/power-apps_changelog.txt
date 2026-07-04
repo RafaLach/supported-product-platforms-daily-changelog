@@ -1,6 +1,6 @@
-# Power Apps What's New — captured 2026-07-03
-# (ms.date 2024-08-14; pointer page)
+# Power Apps What's New — captured 2026-07-04
+# (ms.date 2024-08-14; updated_at 2025-05-07; pointer page)
 
-The What's New page is a pointer to weekly released-versions notes and the Release Planner; it carries no dated feature entries itself.
+The What's New page is a pointer to weekly released-versions notes and the Release Planner; it carries no dated feature entries itself. Content covers: weekly releases pointer, release plan pointer, monthly release channels for model-driven apps (semi-annual / monthly), known limitations.
 
-Updated: 2026-07-03 — No dated AI/agent feature additions on this page. No reportable addition. (Weekly released-versions tracked in power-apps_changelog2.txt.)
+Updated: 2026-07-04 — No dated AI/agent feature additions on this page (unchanged since cache). No reportable addition. (Weekly released-versions tracked in power-apps_changelog2.txt.)

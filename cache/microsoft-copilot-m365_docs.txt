@@ -1,8 +1,8 @@
 Source: https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/
-Fetched: 2026-06-16
+Fetched: 2026-07-04
 
 # Microsoft 365 Copilot extensibility documentation
-(ms.date 2026-05-06; page updated_at 2026-05-29)
+(ms.date 2026-05-06; page updated_at 2026-06-17)
 
 Build custom Copilot experiences using agents, connectors, and Copilot APIs.
 
@@ -20,7 +20,7 @@ Build custom Copilot experiences using agents, connectors, and Copilot APIs.
 - Microsoft 365 Agents SDK
 - Work IQ API (preview)
 - Microsoft 365 Copilot APIs
-- Interactive Demo (preview) — aka.ms/copilot.dev (new link this scan; demo only, not a new API)
+- Interactive Demo (aka.ms/copilot.dev — demo only, not a new API)
 - Microsoft Agent 365
 
-Updated: 2026-06-16 — only change vs prior cache is the "Interactive Demo (preview)" link (demo, not security-relevant). No new APIs/agent capabilities.
+Updated: 2026-07-04 — No change vs prior cache. Same sections/links (Work IQ API, Copilot APIs, Agents SDK/Toolkit, Interactive Demo, Agent 365). No new APIs/agent capabilities.

@@ -1,19 +1,17 @@
-# OpenAI Python SDK Releases — captured 2026-07-03
+# OpenAI Python SDK Releases — captured 2026-07-04
 # (Node SDK tracked in openai_node_changelog.txt — latest v6.45.0, June 24)
 
 ## Latest Releases
 
-**v2.44.0** (June 24, 2026) — Auth header handling fix ("prioritize first auth header"). Not reportable.
+**v2.44.0** (June 24, 2026) — Auth header handling fix ("prioritize first auth header"). Not reportable. [Still newest — no releases newer than v2.44.0 as of this scan.]
 **v2.43.0** (June 17, 2026) — OpenAPI spec / Stainless config update; no specific new endpoints detailed. Minor.
-**v2.42.0** (June 16, 2026) — Admin `spend_alerts` capability (Admin API); build-system CI improvements. [Minor admin/billing surface — below reporting bar (pricing/billing controls).]
+**v2.42.0** (June 16, 2026) — Admin `spend_alerts` capability (Admin API); build-system CI improvements. [Minor admin/billing surface — below reporting bar.]
 **v2.41.1** (June 10, 2026) — Build-system change only. Not reportable.
-**v2.41.0** (June 3, 2026) — responses.moderation and chat_completions.moderation capabilities (matched by Node v6.42.0).
+**v2.41.0** (June 3, 2026) — responses.moderation and chat_completions.moderation capabilities.
 **v2.40.0** (June 1, 2026) — Amazon Bedrock Responses support (Responses API → bedrock-mantle OpenAI-compatible endpoint, AWS-managed auth); Bedrock API keys on client.
 **v2.39.0** (June 1, 2026) — Workload identity in audit logs; additional tools in responses; ActionSearch.query optional.
 **v2.38.0** (May 21, 2026) — General API updates.
 **v2.37.0** (May 15, 2026) — service_tier on responses compact; eager pydantic iterator validation.
 **v2.36.0** (May 7, 2026) — Realtime 2 API implementation.
-**v2.35.0** (May 6, 2026) — Updated image generation API; removed legacy Python CLI.
-**v2.34.0** (May 4, 2026) — external_key_id on projects; Admin API Keys per endpoint.
 
-Updated: 2026-07-03 — New since prior scan: v2.44.0 (auth fix), v2.43.0 (spec update), v2.42.0 (admin spend_alerts — billing control, below bar). No net-new agent/API attack surface on the Python side (Node v6.45.0 carries the Realtime/Responses helper additions).
+Updated: 2026-07-04 — No new Python SDK releases since prior scan; v2.44.0 remains newest. Nothing reportable.

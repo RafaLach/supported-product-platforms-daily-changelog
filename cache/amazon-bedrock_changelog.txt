@@ -1,10 +1,16 @@
-# Amazon Bedrock User Guide - Document History — captured 2026-07-03
+# Amazon Bedrock User Guide - Document History — captured 2026-07-04
 
-**Latest documentation update banner:** November 26th, 2025; newest dated rows June 30, 2026.
+**Latest documentation-update banner:** November 26th, 2025; newest dated rows June 30, 2026.
 
 ## Newest entries
-- **Amazon Bedrock Agents Classic availability change** (June 30, 2026) — Bedrock Agents (launched Nov 2023) renamed "Amazon Bedrock Agents Classic"; closed to NEW customers starting July 30, 2026; existing customers continue. **[DEPRECATION / maintenance-mode — NOT reportable]**
-- **Updated requests-per-minute (RPM) quota guidance** (May 27, 2026) — quota doc clarification (bedrock-mantle token-based; bedrock-runtime model-specific; Claude Opus 4.7/4.8 no RPM quota). [Quota doc change — not a new surface]
-- **Quotas for the bedrock-runtime endpoint** (May 27, 2026) — new doc page on per-model token quotas. [Doc page]
+- **Amazon Bedrock Agents Classic availability change** (June 30, 2026) — Bedrock Agents (Nov 2023) renamed "Agents Classic"; closed to NEW customers from July 30, 2026; existing customers continue; points to AgentCore. **[DEPRECATION / maintenance-mode — NOT reportable]**
+- Updated requests-per-minute (RPM) quota guidance (May 27, 2026) — quota doc clarification. [Doc change]
+- Quotas for the bedrock-runtime endpoint (May 27, 2026) — new doc page, per-model token quotas. [Doc page]
+- Quotas for the bedrock-mantle endpoint (May 27, 2026) — per-model token quotas doc. [Doc page]
+- Token counting on the bedrock-mantle endpoint (May 26, 2026) — count_tokens path doc. [Doc change; already in earlier cache]
+- Fully managed knowledge bases with agentic retrieval + AgenticRetrieveStream API (March 2, 2026) — [captured in an earlier scan; NOT new since cache]
+- Converse API support for batch inference (Feb 27, 2026) — [earlier scan]
+- Fine-tuning open-weight models via OpenAI-compatible APIs (Feb 17, 2026) — [earlier scan]
+- (older: Bedrock Mantle OpenAI-compatible endpoints/managed policies Dec 3 2025, reinforcement fine-tuning, service tiers — earlier scans)
 
-Updated: 2026-07-03 — The only net-new doc-history entry since the prior scan is the June 30 Agents Classic maintenance-mode notice, which is a deprecation and explicitly not reportable. No new feature/API/service surface. No reportable addition.
+Updated: 2026-07-04 — No net-new doc-history row since the prior (2026-07-03) scan. Top remains June 30 Agents Classic maintenance-mode (deprecation, not reportable). Older feature rows (AgenticRetrieveStream KBs, Converse batch, OpenAI fine-tuning) were captured in earlier scans and are not new since cache. No reportable addition.

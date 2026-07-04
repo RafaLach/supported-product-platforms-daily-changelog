@@ -1,24 +1,19 @@
-# Amazon Q Business API Reference (Fetched 2026-05-18)
+# Amazon Q Business API Reference — captured 2026-07-04
 
 ## Service Endpoints
 
 ### QBusiness
 - Fully managed, generative-AI powered enterprise chat assistant
 - Key Capabilities: Question-answering, knowledge discovery, writing email messages, summarizing text, drafting document outlines, brainstorming ideas
+- Note on page: Q Business closes to new customers July 31, 2026 (availability change; not reportable).
 
 ### QApps
 - Web experience feature within Amazon Q Business
-- Allows creation of lightweight, purpose-built AI apps
-- Use cases: Marketing content generation, customer email writing, promotional content creation
+- Lightweight, purpose-built AI apps (marketing content, customer email, promotional content)
 
 ## Documentation Resources
-- Amazon Q Business User Guide
-- Overview of Amazon Q Business API operations
+- Amazon Q Business User Guide / API operations overview
 - IAM roles for Amazon Q Business
-- Setting up for Amazon Q Business
-- Amazon Q Business CLI Reference
-- Amazon Q Apps capabilities
-- Overview of Amazon Q Apps API operations
-- IAM role for Amazon Q Business web experience including Amazon Q Apps
+- Q Apps capabilities / API operations overview
 
-Updated: 2026-05-18 — Static reference page, no changes detected.
+Updated: 2026-07-04 — Welcome page unchanged (only new-customer availability note added). No new API operation groups. No reportable addition.

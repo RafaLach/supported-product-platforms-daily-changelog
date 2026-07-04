@@ -1,5 +1,6 @@
 Source: https://learn.microsoft.com/en-us/power-automate/
-Fetched: 2026-05-18
+Fetched: 2026-07-04
+Page last updated: 2025-07-11
 
 # Microsoft Power Automate documentation
 
@@ -31,5 +32,4 @@ Discover how to create automated workflows between apps and services to synchron
 - Flows with Teams, SharePoint, Email, Forms, Approvals
 - Business process flows (Understand, Create, Custom controls, Best practices for columns)
 
-Page last updated: 2025-07-11
-Updated: 2026-05-18
+Updated: 2026-07-04 — Page unchanged since cache (last updated 2025-07-11). AI/copilot section list identical. No reportable addition.

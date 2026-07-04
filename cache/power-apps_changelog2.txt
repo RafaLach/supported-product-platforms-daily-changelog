@@ -1,9 +1,9 @@
-# Power Apps Released Versions — captured 2026-07-03
+# Power Apps Released Versions — captured 2026-07-04
 Source: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps
 Source ms.date: 2026-06-19 / updated_at 2026-06-22
 
 ## Analyst note
-Weekly release-train version advancement only. Summary tables list version numbers + dates, with no per-version feature callouts. New rows since last capture (was Studio 3.26063 / Make 26061) do NOT surface any AI/agent/Copilot feature at the summary level, so they do not cross the reporting bar. Per-version detail pages not fetched (not in the assigned source list).
+Weekly release-train version advancement only. Summary tables list version numbers + dates, with no per-version feature callouts. Page has NOT advanced since last capture (still updated_at 2026-06-22; latest Studio 3.26064, Make 26062, UI 9.2 25084 Preview). No AI/agent/Copilot feature at the summary level. Below reporting bar. Per-version detail pages not fetched (not in the assigned source list).
 
 ## Latest version availability
 | Region | Unified Interface | Power Apps Studio/Mobile | Make.PowerApps.com |
@@ -16,26 +16,20 @@ Weekly release-train version advancement only. Summary tables list version numbe
 | US Government (GCC) | 9.2 25073 | 3.26062 | 26061 |
 
 ## Recent Power Apps Studio / Mobile versions
-- 3.26064 — Jun 22, 2026 (worldwide Jul 14, 2026)   <- NEW since last capture (version bump only)
+- 3.26064 — Jun 22, 2026 (worldwide Jul 14, 2026)   <- latest
 - 3.26063 — Jun 15, 2026 (worldwide Jul 06, 2026)
 - 3.26062 — Jun 08, 2026 (worldwide Jun 29, 2026)
 - 3.26061 — Jun 01, 2026 (worldwide Jun 22, 2026)
 - 3.26054 — May 26, 2026 (worldwide Jun 15, 2026)
-- 3.26053 — May 18, 2026
-- 3.26052 — May 11, 2026
-- 3.26051 — May 04, 2026
 
 ## Recent Make.PowerApps.com versions
-- 26062 — Jun 17, 2026 (worldwide Jul 01, 2026)      <- NEW since last capture (version bump only)
+- 26062 — Jun 17, 2026 (worldwide Jul 01, 2026)      <- latest
 - 26061 — Jun 10, 2026 (worldwide Jun 24, 2026)
 - 26055 — Jun 03, 2026 (worldwide Jun 17, 2026)
-- 26054 — May 27, 2026
-- 26053 — May 20, 2026
-- 26052 — May 13, 2026
-- 26051 — May 06, 2026
 
 ## Unified Interface
 - 9.2 26042 — First available April 17, 2026 (worldwide May 22, 2026)
 - 9.2 25084 — Aug 29, 2025 (current Preview US)
 
 Page last updated: 2026-06-22
+Updated: 2026-07-04 — No new versions or feature callouts since last capture. No reportable addition.

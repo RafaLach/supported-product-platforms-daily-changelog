@@ -1,28 +1,22 @@
-# Amazon Bedrock Overview — captured 2026-07-03
+# Amazon Bedrock Overview — captured 2026-07-04
 
 ## What's New (newest at top)
-
-- **OpenAI GPT-5.5 and GPT-5.4 now available in Amazon Bedrock** (NEW since 2026-06 cache): OpenAI's frontier models for complex professional work, agentic coding, reasoning, and long-running tasks, available through the Responses API on Amazon Bedrock. [Crosses bar — new models/agentic-coding capability on a governed inference surface. Model availability alone is borderline, but frontier agentic-coding models on Bedrock runtime are worth tracking. MEDIUM.]
-- **Claude Opus 4.7 now available in Amazon Bedrock** (in prior cache): Anthropic's most capable Opus model, improvements across agentic coding, professional work, long-running tasks.
-- **Claude Mythos Preview (Gated Research Preview)** (in prior cache): Anthropic's most advanced model, state-of-the-art cybersecurity, software coding, complex reasoning. Gated preview in US East (N. Virginia).
-- **Cost allocation by IAM user and role** (in prior cache): Cost allocation by IAM principal in CUR 2.0 and Cost Explorer; attributes inference costs across users/teams/projects.
-- Claude Sonnet 4.6 / Opus 4.6 (prior cache) — no longer surfaced in What's New but retained for context.
+- **OpenAI GPT-5.5 and GPT-5.4 now available in Amazon Bedrock** (in prior cache): frontier models for complex work, agentic coding, reasoning, long-running tasks; via Responses API.
+- **Claude Opus 4.7 now available** (in prior cache).
+- **Claude Mythos Preview (Gated Research Preview)** (in prior cache): state-of-the-art cybersecurity/coding/reasoning; gated preview US East (N. Virginia).
+- **Cost allocation by IAM user and role** (in prior cache): CUR 2.0 + Cost Explorer attribution across users/teams/projects.
 
 ## Supported APIs
-1. Messages API (Anthropic) — example now uses anthropic.claude-opus-4-7
-2. Responses API (OpenAI Compatible) — example now uses openai.gpt-oss-120b
+1. Messages API (Anthropic) — anthropic.claude-opus-4-7
+2. Responses API (OpenAI Compatible) — openai.gpt-oss-120b
 3. Chat Completions API (OpenAI Compatible)
 4. Converse API (Boto3)
 5. Invoke API (Boto3)
 
 ## Supported Foundation Models (100+)
-Featured providers shown: Amazon Nova, Claude (Anthropic), DeepSeek, Kimi (Moonshot AI), MiniMax, OpenAI
+Featured: Amazon Nova, Claude (Anthropic), DeepSeek, Kimi (Moonshot AI), MiniMax, OpenAI
 
 ## Key Capabilities
-1. Model Inference
-2. Model Customization
-3. Enterprise Security
-4. Flexible APIs (OpenAI-compatible, Boto3, native)
-5. Server-side Tools
+Model Inference; Model Customization; Enterprise Security; Flexible APIs; Server-side Tools
 
-Updated: 2026-07-03 — NEW since last scan: OpenAI GPT-5.5 and GPT-5.4 added to What's New (Responses API). Prior What's New entries (Opus 4.7, Mythos preview, IAM cost allocation) unchanged.
+Updated: 2026-07-04 — What's New list unchanged since prior (2026-07-03) scan (GPT-5.5/5.4, Opus 4.7, Mythos preview, IAM cost allocation all already cached). No reportable addition.

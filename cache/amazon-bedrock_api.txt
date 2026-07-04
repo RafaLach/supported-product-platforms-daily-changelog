@@ -1,34 +1,16 @@
-# Amazon Bedrock API Reference (Fetched 2026-05-18)
+# Amazon Bedrock API Reference — captured 2026-07-04
 
-## Service Endpoints
+## Service Endpoints / API operation groups (from Welcome page)
 
-### 1. bedrock (Control Plane)
-- Manages, trains, and deploys models
-- Actions: Amazon Bedrock Actions
-- Data Types: Amazon Bedrock Data Types
+1. **Amazon Bedrock** (control plane) — create/manage/fine-tune/evaluate models
+2. **Agents for Amazon Bedrock** — create/manage agents [now "Agents Classic"; maintenance-mode note]
+3. **Agents for Amazon Bedrock Runtime** — model invocation, knowledge-base querying [Agents Classic note]
+4. **Data Automation for Amazon Bedrock** — create/manage Data Automation resources, generate insights
+5. **Runtime for Amazon Bedrock Data Automation** — process data with a data automation project
+6. **Amazon Bedrock Runtime** — run inference using Bedrock models
 
-### 2. bedrock-runtime (Data Plane)
-- Makes inference requests for models hosted in Amazon Bedrock
-- Actions: Amazon Bedrock Runtime Actions
-- Data Types: Amazon Bedrock Runtime Data Types
+## Notes
+- Welcome page lists operation GROUPS, not the full per-operation list.
+- vs prior cache (2026-05-18): prior cache listed bedrock / bedrock-runtime / bedrock-agent / bedrock-agent-runtime. Page now also surfaces Data Automation (control) + Data Automation Runtime as distinct groups. Data Automation is an existing Bedrock capability; group listing on Welcome is a doc-surfacing change, not a new service. No new agent/governance API surface.
 
-### 3. bedrock-agent (Control Plane)
-- Creates and manages agents, knowledge bases, prompt management, and prompt flows
-- Actions: Amazon Bedrock Agents Actions
-- Data Types: Amazon Bedrock Agents Data Types
-
-### 4. bedrock-agent-runtime (Data Plane)
-- Invokes agents and flows; queries knowledge bases
-- Actions: Amazon Bedrock Agents Runtime Actions
-- Data Types: Amazon Bedrock Agents Runtime Data Types
-
-## Supported SDKs
-C++, Go, Java, JavaScript, Kotlin, .NET, PHP, Python (Boto3), Ruby, Rust, SAP ABAP, Swift
-
-## CLI References
-- Amazon Bedrock CLI commands
-- Amazon Bedrock Runtime CLI commands
-- Amazon Bedrock Agents CLI commands
-- Amazon Bedrock Agents Runtime CLI commands
-
-Updated: 2026-05-18 — Static reference page, no changes detected.
+Updated: 2026-07-04 — Operation-group listing refreshed (Data Automation groups now surfaced; Agents relabeled Classic). No full per-operation diff available from this page. No reportable addition.

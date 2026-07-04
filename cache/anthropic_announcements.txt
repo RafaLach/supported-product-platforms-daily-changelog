@@ -1,10 +1,11 @@
-# Anthropic News — captured 2026-07-03
+# Anthropic News — captured 2026-07-04
 
 ## June/July 2026 announcements
-- **Introducing Claude Tag (June 23, 2026)** — NEW PRODUCT [REPORTABLE, AISPM/AIDR HIGH]. A new way for teams to work with Claude, starting in **Slack** where Claude joins as a team member. Teams grant @Claude access to selected channels and connect it to chosen tools, data, and **codebases**; anyone in-channel can tag @Claude to delegate tasks. Admins control which tools/data @Claude can access per channel and can create **separate Claude identities** for different uses. Beta for Claude Enterprise & Team. (65% of Anthropic's own product-team code now created by internal Claude Tag.) Source: https://www.anthropic.com/news/introducing-claude-tag
-- **Claude Sonnet 5 (June 30, 2026)** — new agentic model [REPORTABLE, AIRT/ENDPOINT MEDIUM]. Model id `claude-sonnet-5`; makes plans, uses tools (browsers, terminals), runs autonomously near Opus 4.8 capability. Available via Claude API, AWS, Microsoft Foundry (Vertex soon); default for Free/Pro. New tokenizer (1.0–1.35x token counts). No net-new endpoint but expanded autonomous tool-use footprint. Source: https://www.anthropic.com/news/claude-sonnet-5
-- **Claude Science AI Workbench (June 30, 2026)** — new app [REPORTABLE, ENDPOINT/AIRT MEDIUM]. Single research environment integrating researcher tools/packages; builds environments and **manages compute on laptop, cluster, or on-demand GPUs**; asks before reaching new resources (reviewable/revocable); natively renders 3D protein structures, genome tracks, chemical structures; auditable, traceable artifacts. New agent capability with compute-provisioning + local-resource access surface. Source: https://www.anthropic.com/news/claude-science-ai-workbench
-- **Redeploying Fable 5 (June 30, 2026)** — Fable 5 returns globally July 1; proposes industry-wide jailbreak-severity scoring framework w/ Amazon, Microsoft, Google, Glasswing. (Re-deployment + policy; not a new feature.)
+- **More details on Fable 5's cyber safeguards + jailbreak framework (July 2, 2026)** — safety/policy, not reportable. Additional info on Fable 5 security measures; proposes industry-wide jailbreak-severity scoring framework w/ partners.
+- **Introducing Claude Tag (June 23, 2026)** — NEW PRODUCT [REPORTED 2026-07-03, AISPM/AIDR HIGH]. Agentic Slack teammate; teams grant @Claude access to selected channels + tools/data/codebases; admins scope per channel and create separate Claude identities. Beta for Enterprise & Team. Source: https://www.anthropic.com/news/introducing-claude-tag
+- **Claude Sonnet 5 (June 30, 2026)** — new agentic model [REPORTED 2026-07-03, AIRT/ENDPOINT MEDIUM]. Model id `claude-sonnet-5`; plans, uses tools (browsers, terminals), runs autonomously near Opus 4.8. Via Claude API, AWS, Microsoft Foundry (Vertex soon); default for Free/Pro. New tokenizer. Source: https://www.anthropic.com/news/claude-sonnet-5
+- **Claude Science AI Workbench (June 30, 2026)** — new app [REPORTED 2026-07-03, ENDPOINT/AIRT MEDIUM]. Research environment; builds environments, manages compute on laptop/cluster/on-demand GPUs; asks before reaching new resources; auditable artifacts. Source: https://www.anthropic.com/news/claude-science-ai-workbench
+- **Redeploying Fable 5 (June 30, 2026)** — re-deployment + policy; not a new feature.
 - **Seoul office & Korean partnerships (June 17, 2026)** — biz dev, not reportable.
 
 ## Prior (pre-2026-06-16)
@@ -12,4 +13,4 @@
 - Claude Fable 5 and Claude Mythos 5 (June 9) — first Mythos-class models [reported 2026-06-10, AIRT HIGH; suspended June 12, redeployed July 1].
 - TCS / DXC partnerships (June 11-12); Claude Corps fellowship (June 11); Public Record results (June 12).
 
-Updated: 2026-07-03 — New reportable: Claude Tag (June 23, agentic Slack teammate w/ admin-scoped identities + tool/data/codebase access), Claude Sonnet 5 (June 30, autonomous agentic model), Claude Science AI Workbench (June 30, compute-provisioning research agent app).
+Updated: 2026-07-04 — No NEW reportable items since 2026-07-03. Only new entry is July 2 Fable 5 cyber-safeguards / jailbreak framework (safety/policy, below bar). Claude Tag / Sonnet 5 / Claude Science already reported.

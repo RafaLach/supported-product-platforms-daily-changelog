@@ -1,11 +1,11 @@
-# Dia Browser Security — captured 2026-07-03
+# Dia Browser Security — captured 2026-07-04
 
-Security as product feature: independent audits/pen-testing, Chromium engine, minimized data collection.
+Security as product feature: independent audits/pen-testing (annual, findings in Security Bulletins), Chromium engine, minimized data collection.
 
-Agent/automation safeguards: explicit user approval before tab access or write actions; blocks LLM-generated URL auto-opening (anti-exfiltration); URL sanitization (links filtered before reaching AI to prevent instruction injection); form-fill/email-draft content shown in Dia-controlled views before submit; calendar events stay draft until confirmed; agentic mode prevented from navigating to other sites; sensitive fields (passwords) + critical action buttons hidden from agent. FAQ acknowledges residual prompt-injection risk (tone shifts/misinformation) while claiming exfil/unapproved-action outcomes are blocked.
+Agent/automation safeguards (8 core controls vs prompt injection): blocks auto-opening of AI-generated URLs; explicit user approval before tool access; content preview before insert into third-party sites; actions stay draft until user confirms; agent restricted to user-approved context only; agent prevented from navigating to unapproved sites; sensitive form fields hidden from agent; URL filtering to prevent instruction injection. Docs acknowledge residual risk (style shifts, misinformation nudges, unintended searches).
 
-Data: local encryption (chats/history/bookmarks), E2E-encrypted sync, AI partners contractually barred from training, no data selling, default ad-blocker.
+Data: local-first storage default, E2E encryption for synced data, AI partners contractually barred from training, no data selling, default ad-blocker.
 Compliance: SOC 2 Type II (CY2025 audit, 2026 report); critical Chromium patches <48h; weekly releases.
 
 ## Last Fetched
-2026-07-03 — Security page covers existing agentic safeguards (approval gates, exfil blocking, URL sanitization). No new dated announcement. Unchanged from prior.
+2026-07-04 — Security page covers existing agentic safeguards (approval gates, exfil blocking, URL sanitization). No new dated announcement. Unchanged from prior.

@@ -1,42 +1,24 @@
-# Amazon Bedrock AgentCore - Document History (Fetched 2026-05-18)
+# Amazon Bedrock AgentCore - Document History — captured 2026-07-04
 
-WebFetch could not retrieve the document history table from this URL on 2026-05-18 — the page returned only the title with no table content. Retaining the cached entries from previous scans:
+WebFetch again could not render the doc-history table on 2026-07-04 (page returned only the title). Retaining cached entries; supplemented with dated confirmations from AWS What's New / release pages (via WebSearch) for reportability timing:
+
+### June 2026 (confirmed via AWS What's New)
+- **AgentCore Harness — GA** (June 2026). Managed agent-loop service: define agent with CreateHarness, run with InvokeHarness; no orchestration code / no container. GA adds built-in memory, more model providers (LiteLLM, Bedrock Mantle), AWS-curated skills catalog, evaluations & optimization, unified observability, versioning/endpoints, export to Strands code. (Preview was April 2026.) **[REPORTABLE — new agent-capability/runtime service surfaced on docs]**
+- **AgentCore Optimization — new capabilities GA** (June 2026). Recommendations (optimized system prompts/tool descriptions from production traces) validated via Batch Evaluations and A/B Tests. Underlying API ops (Create/Get/List/Update/DeleteABTest, *BatchEvaluation, *Recommendation) were captured in the 2026-05-18 API cache; the Optimization *service* is newly surfaced on the docs overview. **[REPORTABLE — new agent-governance/optimization service on docs]**
 
 ### April 9, 2026
-- **AWS Agent Registry** - Added documentation for AWS Agent Registry: a centralized catalog for discovering and managing agents, MCP servers, tools, and skills. Provides governed workflows for publishing, reviewing, and approving resources with hybrid semantic and keyword search.
+- **AWS Agent Registry** — centralized catalog for agents, MCP servers, tools, skills; governed publish/review/approve; hybrid semantic+keyword search.
 
 ### December 2, 2025
-- Policy in Amazon Bedrock AgentCore - Policy-based governance and control for agent interactions
-- Episodic memory strategy - AgentCore Memory feature
-- Custom claims value support for AgentCore Gateway authentication
-- Bidirectional streaming - WebSocket protocol for real-time, full-duplex communication
-- Authentication token support for AgentCore Gateway - OAuth authorization setup
-- Amazon Bedrock AgentCore Evaluations - Performance, accuracy, and reliability measurement tools
-- API gateways as gateway targets - Amazon API Gateway REST API stages as targets
+- Policy in AgentCore; Episodic memory strategy; Custom claims for Gateway auth; Bidirectional streaming (WebSocket); Gateway OAuth token support; AgentCore Evaluations; API Gateway REST stages as gateway targets.
 
-### November 4, 2025
-- Direct code deployment - Python agents deployment via ZIP file archives
+### November 4, 2025 — Direct code deployment (Python ZIP)
+### October 31, 2025 — Get started updates
+### October 30, 2025 — Web Bot Auth (Preview)
+### October 13, 2025 — Runtime identity service-linked role; GA
+### October 10, 2025 — MCP servers as Gateway targets
+### October 2, 2025 — MCP server support (Kiro, Cursor, Claude Code, Amazon Q CLI)
+### September 19, 2025 — Managed policy updates
+### July 16, 2025 — Initial release (preview)
 
-### October 31, 2025
-- Get started updates
-
-### October 30, 2025
-- Web Bot Auth (Preview) - Browser Web Bot Auth feature, cryptographic HTTP request signing
-
-### October 13, 2025
-- Runtime identity service-linked role
-- General release - Amazon Bedrock AgentCore now generally available (GA)
-
-### October 10, 2025
-- Model Context Protocol (MCP) servers as Gateway targets
-
-### October 2, 2025
-- Model Context Protocol (MCP) server support - Compatible MCP clients: Kiro, Cursor, Claude Code, Amazon Q CLI
-
-### September 19, 2025
-- Managed policy updates - BedrockAgentCoreNetworkServiceRolePolicy (new), BedrockAgentCoreFullAccess updated
-
-### July 16, 2025
-- Initial release (preview)
-
-Updated: 2026-05-18 — Fetch returned no rendered table content. Latest entry still cached as April 9, 2026 (AWS Agent Registry). No new items confirmed.
+Updated: 2026-07-04 — Doc-history table did not render again; timing corroborated via AWS What's New. NEW since docs/changelog cache: AgentCore Harness (GA June 2026) and AgentCore Optimization capabilities (GA June 2026) — both reported this scan.

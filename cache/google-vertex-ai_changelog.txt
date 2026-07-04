@@ -1,4 +1,4 @@
-# Vertex AI Release Notes — captured 2026-07-03
+# Vertex AI Release Notes — captured 2026-07-04
 # (cloud.google.com/vertex-ai/docs/release-notes 301-redirects to docs.cloud.google.com; followed)
 
 ## Newest entries
@@ -8,4 +8,4 @@
 - May 26, 2026 — Colab Enterprise Data Science Agent GA (already reported). Vertex AI Extensions marked for deprecation (effective Nov 26, 2026; migrate to Agent Platform) [DEPRECATION].
 - April 2026 — RAG Cross Corpus Retrieval (preview); Claude Opus 4.7 in Model Garden; Colab visualization/SQL cells GA; RAG Engine metadata search.
 
-Updated: 2026-07-03 — Secondary tier. Only new entry since prior scan is the June 30 Python 3.12 container-runtime option for Agent Platform Workbench — a runtime version bump, not a significant new capability. No reportable addition.
+Updated: 2026-07-04 — Secondary tier. No change since prior scan; newest entry remains the June 30 Python 3.12 container-runtime option for Agent Platform Workbench (runtime version bump, below bar). No reportable addition.

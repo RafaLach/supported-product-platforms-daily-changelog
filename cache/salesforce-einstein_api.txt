@@ -1,11 +1,12 @@
-# Einstein GenAI Reference Index — captured 2026-07-03
+# Einstein GenAI Reference Index — captured 2026-07-04
 
 APIs: Agent API, Models API (Apex + REST), Testing API, Citations API, Metadata API, Tooling API.
 SDKs: Agentforce Python SDK, Agentforce Mobile SDK (iOS/Android).
-Other: Agent Script, Agentforce DX, Lightning Types Reference.
+Other: Agent Script, Agentforce DX, Lightning Types Reference, Metadata Types, Tooling Objects.
 
 No dated/new releases on this reference index page.
 
 ## Last Fetched
+2026-07-04 - No changes from previous fetch.
 2026-07-03 - No changes from previous fetch.
 2026-06-16 - No changes from previous fetch.

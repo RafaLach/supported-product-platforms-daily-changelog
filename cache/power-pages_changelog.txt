@@ -1,6 +1,6 @@
-# Power Pages Release Updates — captured 2026-07-03
-# (ms.date 2023-03-21; stale pointer page)
+# Power Pages Release Updates — captured 2026-07-04
+# (ms.date 2023-03-21; updated_at 2025-05-12; stale pointer page)
 
-The Release Updates page points to release-wave plans (2023 waves) and a privacy notice on Azure components; it carries no recent dated feature entries.
+The Release Updates page points to release-wave plans (2022/2023 waves) and a privacy notice on Azure components (Web Apps, Traffic Manager, Service Bus, Key Vault, Storage, Entra ID); it carries no recent dated feature entries.
 
-Updated: 2026-07-03 — No dated AI/agent feature additions on this page. No reportable addition.
+Updated: 2026-07-04 — No dated AI/agent feature additions on this page (unchanged since cache). No reportable addition.
