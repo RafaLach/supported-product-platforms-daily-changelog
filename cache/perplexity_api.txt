@@ -1,10 +1,10 @@
-# Perplexity API Reference — captured 2026-07-04
+# Perplexity API Reference — captured 2026-07-06
 
 Endpoint: POST /v1/agent — response generation with optional web search + reasoning.
-Models: fallback chains up to 5 (provider/model fmt, e.g. openai/gpt-5, anthropic/claude-sonnet-4-6). Presets: fast-search, pro-search, deep-research.
+Models: fallback chains up to 5 (provider/model fmt, e.g. openai/gpt-5.5, anthropic/claude-sonnet-4-6). Presets: fast-search, pro-search, deep-research.
 
-Tools: web_search (domain/date filter, geolocation), finance_search, people_search, fetch_url (≤10/call), sandbox (isolated code execution, stdout/stderr capture), function (custom, JSON schema), **mcp — connects user-supplied remote MCP server; Agent API discovers server tools at request start and auto-invokes them; requires HTTPS Streamable-HTTP endpoint; optional auth tokens/custom headers; allowed_tools allowlist; auto-executes all tool calls, approval workflow NOT supported**.
+Tools (7): web_search (domain/date filter, geolocation), finance_search, people_search, fetch_url (≤10/call), sandbox (isolated container code execution, stdout/stderr capture), function (custom, JSON schema), **mcp — connects user-supplied remote MCP server; Agent API discovers server tools at request start and auto-invokes them; requires HTTPS Streamable-HTTP endpoint; optional auth tokens/custom headers; allowed_tools allowlist; auto-executes all tool calls, approval workflow NOT supported ("every call auto-runs")**.
 Reasoning: effort low/medium/high/xhigh/max. research loop max_steps 1-10. Streaming via SSE. Structured JSON schema output (strict). Cost/token accounting incl. cache_creation/read tokens; URL citations/annotations.
 
 ## Last Fetched
-2026-07-04 — Reference unchanged from prior scan: `mcp` remote-server connector tool (agent calls arbitrary remote MCP servers, auto-executes, no approval) and xhigh/max reasoning present. Still no dated changelog entry confirming these as a launch; continuing to watch the `mcp` tool as an emerging tool-execution surface, not a confirmed dated launch. Nothing new to report.
+2026-07-06 — Reference unchanged from prior scan: 7 tools incl. `mcp` remote-server connector (agent calls arbitrary remote MCP servers, auto-executes, no approval) and xhigh/max reasoning present. Still no dated changelog entry confirming these as a launch; continuing to watch the `mcp` tool as an emerging tool-execution surface, not a confirmed dated launch. Nothing new to report.

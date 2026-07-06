@@ -1,10 +1,13 @@
-# Einstein GenAI Overview — captured 2026-07-04
+# Einstein GenAI Overview — captured 2026-07-06
 
-Page returned only title/header/navigation ("Agentforce and Generative AI | Agentforce Developer Guide | Salesforce Developers"); client-side rendered, no substantive body content.
+Page returned only title/header/navigation ("Agentforce and Generative AI | Agentforce
+Developer Guide | Salesforce Developers"); client-side rendered, no substantive body content.
 
-No dated release notes, new features, APIs, services, or entity types extractable.
+No dated release notes, new features, APIs, services, or entity types extractable from page.
+(Summer '26 GenAI/Agentforce features tracked in agentforce announcements cache.)
 
 ## Last Fetched
+2026-07-06 - No substantive content; page still returns JS/title only (client-side rendered).
 2026-07-04 - No substantive content; page still returns JS/title only (fetch blocked/client-side rendered).
 2026-07-03 - No substantive content; page still returns JS/title only.
 2026-06-16 - No substantive content; page still returns JS/title only.

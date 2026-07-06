@@ -1,5 +1,7 @@
-# Azure OpenAI in Microsoft Foundry — What's New (classic) — captured 2026-07-04
-# (ms.date 2025-12-30; page updated 2026-06-05)
+# Azure OpenAI in Microsoft Foundry — What's New (classic) — captured 2026-07-06
+# (ms.date 2025-12-30; page updated_at 2026-06-05)
+# Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/whats-new
+# (redirects to /azure/foundry-classic/openai/whats-new)
 
 ## Topmost entries [unchanged since prior scan]
 ## May 2026
@@ -8,6 +10,10 @@
 ## February 2026
 - gpt-realtime-1.5 and gpt-audio-1.5 models.
 ## December 2025
-- GPT-image-1.5; ASR gpt-4o-mini-transcribe update; realtime-mini update; TTS update.
+- GPT-image-1.5; ASR gpt-4o-mini-transcribe-2025-12-15; realtime-mini-2025-12-15; gpt-4o-mini-tts-2025-12-15.
+## October 2025
+- Realtime API SIP support; gpt-4o-transcribe-diarize; gpt-image-1-mini; PII detection content filter.
 
-Updated: 2026-07-04 — No new entries since prior scan; still tops at the May 2026 GPT Realtime 2.0 / Translate / Whisper concept articles. Note this is the Foundry (classic) portal What's New page. No reportable addition.
+Updated: 2026-07-06 — No new entries since prior scan (page updated_at still 2026-06-05).
+Still tops at the May 2026 GPT Realtime 2.0 / Translate / Whisper concept articles.
+Note this is the Foundry (classic) portal What's New page. No reportable addition.

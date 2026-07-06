@@ -1,11 +1,12 @@
-# Dia Browser Security — captured 2026-07-04
+# Dia Browser Security — captured 2026-07-06
 
 Security as product feature: independent audits/pen-testing (annual, findings in Security Bulletins), Chromium engine, minimized data collection.
 
-Agent/automation safeguards (8 core controls vs prompt injection): blocks auto-opening of AI-generated URLs; explicit user approval before tool access; content preview before insert into third-party sites; actions stay draft until user confirms; agent restricted to user-approved context only; agent prevented from navigating to unapproved sites; sensitive form fields hidden from agent; URL filtering to prevent instruction injection. Docs acknowledge residual risk (style shifts, misinformation nudges, unintended searches).
+Agent/automation safeguards (agentic mode): no autonomous navigation to other sites; sensitive elements (passwords, irreversible-action buttons) hidden from agent; explicit user approval before agent accesses other tabs / takes write actions; calendar events stay draft until confirmed; agent restricted to user-approved context only.
+Anti-prompt-injection (8 controls): won't auto-open AI-generated URLs; starts with zero tool access; shows exact content before insertion into third-party sites; won't pass URLs to LLM verbatim (blocks hidden instructions); won't extract sensitive data to attackers; reversibility checks before irreversible actions; context containment; sensitive form-field masking. Docs acknowledge residual risk (style/tone shifts, misinformation nudges).
 
-Data: local-first storage default, E2E encryption for synced data, AI partners contractually barred from training, no data selling, default ad-blocker.
-Compliance: SOC 2 Type II (CY2025 audit, 2026 report); critical Chromium patches <48h; weekly releases.
+Data: local-first storage default, E2E encryption for synced data, server-side memory summaries stored locally, AI partners contractually barred from training, no data selling, content-improvement data deleted after 30d, account deletion purges within 30d.
+Compliance: SOC 2 Type II (CY2025 audit, 2026 report); MDM controls, SAML SSO, Chromium enterprise policies; critical Chromium patches <48h; weekly releases.
 
 ## Last Fetched
-2026-07-04 — Security page covers existing agentic safeguards (approval gates, exfil blocking, URL sanitization). No new dated announcement. Unchanged from prior.
+2026-07-06 — Security page covers existing agentic safeguards (approval gates, exfil blocking, URL sanitization, sensitive-field masking) + enterprise MDM/SAML controls. No new dated announcement. Unchanged from prior.

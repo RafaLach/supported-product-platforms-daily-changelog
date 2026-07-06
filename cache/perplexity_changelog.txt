@@ -1,7 +1,7 @@
-# Perplexity API Changelog — captured 2026-07-04
+# Perplexity API Changelog — captured 2026-07-06
 
 ## May 2026 [top dated entry; cached — still newest]
-- Finance Search tool for Agent API: structured financial data (quotes, financials, earnings, analyst estimates, ETFs, OHLCV, pre/after-hours); model autonomously selects fields.
+- Finance Search tool for Agent API: structured financial data (quotes, financials, earnings, analyst estimates, segment KPIs, ETF constituents, OHLCV, pre/after-hours); model autonomously selects fields.
 
 ## April 2026 [cached]
 - Agent API + third-party models: Claude Opus 4.7, GPT-5.5, Grok 4.20 Reasoning.
@@ -13,7 +13,7 @@
 
 ## Feb 2026: Agent API + Embeddings API GA. Dec 2025: Media Classifier; Search API max_tokens/last_updated_filter/Vercel SDK. Nov 2025: Pro Search GA; MCP Server one-click install (Cursor/VS Code/Claude Desktop). (earlier history cached.)
 
-API reference (/v1/agent) tools: web search (domain/date/geo filters), Finance search, People search, URL fetch (≤10), Sandbox execution, custom function tools, and **`mcp` tool — connect user-supplied remote MCP servers (Streamable HTTP, HTTPS, optional auth tokens/headers, allowed_tools allowlist; auto-executes all tool calls, no approval workflow)**. Presets: fast-search, pro-search, deep-research. Reasoning effort low/med/high/xhigh/max. research loop max_steps 1-10; SSE streaming. [mcp tool + xhigh/max still in reference, still NOT confirmed by any dated changelog entry.]
+API reference (/v1/agent) tools: web search (domain/date/geo filters), Finance search, People search, URL fetch (≤10), Sandbox execution, custom function tools, and **`mcp` tool — connect user-supplied remote MCP servers (Streamable HTTP/HTTPS, optional auth tokens/headers, allowed_tools allowlist; auto-executes all tool calls, no approval workflow)**. Presets: fast-search, pro-search, deep-research. Reasoning effort low/med/high/xhigh/max. research loop max_steps 1-10; SSE streaming. [mcp tool + xhigh/max still in reference, still NOT confirmed by any dated changelog entry.]
 
 ## Last Fetched
-2026-07-04 — Top dated changelog entry still May 2026 (Finance Search), already cached. No new dated changelog entry since prior scan. `mcp` remote-connector tool + xhigh/max reasoning remain in API reference only (no dated launch) — still on watch, not reportable.
+2026-07-06 — Top dated changelog entry still May 2026 (Finance Search), already cached. No new dated changelog entry since prior scan. `mcp` remote-connector tool + xhigh/max reasoning remain in API reference only (no dated launch) — still on watch, not reportable.

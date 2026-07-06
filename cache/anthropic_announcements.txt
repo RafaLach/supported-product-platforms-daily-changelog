@@ -1,4 +1,4 @@
-# Anthropic News — captured 2026-07-04
+# Anthropic News — captured 2026-07-06
 
 ## June/July 2026 announcements
 - **More details on Fable 5's cyber safeguards + jailbreak framework (July 2, 2026)** — safety/policy, not reportable. Additional info on Fable 5 security measures; proposes industry-wide jailbreak-severity scoring framework w/ partners.
@@ -13,4 +13,4 @@
 - Claude Fable 5 and Claude Mythos 5 (June 9) — first Mythos-class models [reported 2026-06-10, AIRT HIGH; suspended June 12, redeployed July 1].
 - TCS / DXC partnerships (June 11-12); Claude Corps fellowship (June 11); Public Record results (June 12).
 
-Updated: 2026-07-04 — No NEW reportable items since 2026-07-03. Only new entry is July 2 Fable 5 cyber-safeguards / jailbreak framework (safety/policy, below bar). Claude Tag / Sonnet 5 / Claude Science already reported.
+Updated: 2026-07-06 — No NEW reportable items since prior scan. Latest entry remains July 2 Fable 5 cyber-safeguards / jailbreak framework (safety/policy, below bar). Claude Tag / Sonnet 5 / Claude Science already reported.

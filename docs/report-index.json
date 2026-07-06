@@ -1,5 +1,98 @@
 [
   {
+    "date": "2026-07-06",
+    "scan_time": "2026-07-06 08:24",
+    "file": "report-2026-07-06.md",
+    "platforms": [
+      {
+        "name": "Salesforce AgentForce",
+        "status": "changed",
+        "details": [
+          "**Multi-Agent Orchestration \u2014 GA (June 15, 2026)** \u2014 a primary Agentforce agent now coordinates a team of specialized subagents, holding shared context and dynamically routing each request to the best-fit specialist based on subagent descriptions/instructions/actions (no fixed decision trees). Powered by the new **Atlas Reasoning Engine 3.0**. Source: https://www.salesforce.com/agentforce/multi-agent-orchestration/",
+          "**Agent2Agent (A2A) protocol support** \u2014 open-protocol support letting a primary Agentforce agent securely delegate work to third-party agents on other platforms (Google Vertex, Microsoft Azure Agent Mesh, third-party frameworks) via a client/server model with capability-discovery \"Agent Cards.\" Shipped alongside Multi-Agent Orchestration GA. Source: https://www.salesforce.com/agentforce/ai-agents/agent2agent-protocol/",
+          "**Agent Script \u2014 GA (waves from June 13, 2026)** \u2014 a scripting language for the new Agentforce Builder that blends natural-language instructions with deterministic programmatic expressions/business rules; authorable in a \"Script view\" with syntax highlighting, autocompletion, and validation. Source: https://developer.salesforce.com/docs/ai/agentforce/guide/agent-script.html",
+          "**IT Service Domain Pack (50+ prebuilt agents)** \u2014 an out-of-the-box pack of 50+ specialized AI agents deployed in Slack, Teams, and the IT Service Desk to detect intent and resolve employee IT needs. Source: https://www.salesforce.com/news/stories/summer-2026-product-release-announcement/"
+        ],
+        "tier": "secondary"
+      },
+      {
+        "name": "Google Vertex AI",
+        "status": "changed",
+        "details": [
+          "**Rebrand to Gemini Enterprise Agent Platform + first-class Agents API** \u2014 Vertex AI now presents under the \"Gemini Enterprise Agent Platform\" framing and exposes a first-class **Agents API** (`projects.locations.agents`, v1beta1: create/list/get/patch/delete) plus a visual **Agent Studio** builder \u2014 agent resources distinct from generic model endpoints. Reasoning Engines were also extended with `streamQuery`/`asyncQuery`, stateful **Sessions**, and runtime revisions. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest",
+          "**Semantic Governance Policy (SGP) engine + Agent Gateway** \u2014 a new managed governance layer provisioned in the customer VPC that semantically evaluates each proposed agent tool call/skill invocation against the prompt, conversation history, and Natural Language Constraints (NLCs) before execution, and an **Agent Gateway** for governing agentic workloads. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview"
+        ],
+        "tier": "secondary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Codex Sites plugin \u2014 preview (June 2, 2026)** \u2014 a new plugin that lets Codex create, save, deploy, and inspect websites, web apps, dashboards, internal tools, and games hosted by OpenAI. Output runs as Cloudflare-Worker-compatible ES modules on OpenAI-operated hosting; every deployment URL is a production deployment. Available for ChatGPT Business/Enterprise (Enterprise gated behind admin RBAC). Source: https://developers.openai.com/codex/sites"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Salesforce Agentforce \u2014 Multi-Agent Orchestration (GA)",
+        "description": "A primary \"orchestrator\" agent now coordinates a team of specialized subagents with shared context and dynamic, description-driven routing (Atlas Reasoning Engine 3.0). Introduces new inventory entities Zenity must discover and map: orchestrator agents, their member subagents, the routing relationships between them, and the shared-context flows. Prime toxic-combination surface \u2014 an orchestrator that can route to an overprivileged subagent, or a subagent whose description lets it be recruited for out-of-scope tasks, is a direct privilege-escalation/data-exposure path",
+        "source": "https://www.salesforce.com/agentforce/multi-agent-orchestration/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Salesforce Agentforce \u2014 Agent2Agent (A2A) protocol",
+        "description": "Agentforce agents can now securely delegate work to third-party agents on other platforms (Vertex, Azure Agent Mesh, external frameworks) via A2A, using capability-discovery \"Agent Cards.\" A new cross-platform agent-interaction surface: AISPM must inventory which Agentforce agents expose or consume A2A, enumerate the remote/external agents they connect to, and treat each A2A edge as a trust boundary and data-egress path. AIDR should monitor A2A task/message flows as a new external-agent data-flow and indirect-prompt-injection channel (untrusted content arriving from a remote agent)",
+        "source": "https://www.salesforce.com/agentforce/ai-agents/agent2agent-protocol/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Salesforce Agentforce \u2014 Agent Script (GA)",
+        "description": "A new scripting language for the Agentforce Builder that mixes natural-language instructions with deterministic programmatic expressions to define agent behavior. A new agent-logic authoring surface AIRT should probe for prompt-injection into the natural-language segments, logic/guardrail bypass via crafted inputs, and unsafe action sequences expressible in script; AISPM should treat agent scripts as a governed configuration artifact whose actions/connections define the agent's real capability set",
+        "source": "https://developer.salesforce.com/docs/ai/agentforce/guide/agent-script.html",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Salesforce Agentforce \u2014 IT Service Domain Pack (50+ prebuilt agents)",
+        "description": "An out-of-the-box pack of 50+ specialized AI agents deployed into Slack, Teams, and the IT Service Desk. Introduces a large new prebuilt-agent inventory Zenity must enumerate and govern \u2014 each prebuilt agent carries its own actions, connections, and Slack/Teams reach, and out-of-the-box deployment means agents can appear in a tenant without deliberate per-agent review (shadow-agent and overprivilege risk)",
+        "source": "https://www.salesforce.com/news/stories/summer-2026-product-release-announcement/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Google Vertex AI \u2014 Gemini Enterprise Agent Platform (Agents API + Agent Studio)",
+        "description": "Vertex AI's rebrand to the Gemini Enterprise Agent Platform introduces a first-class Agents API (`projects.locations.agents`) and visual Agent Studio builder, plus stateful Reasoning-Engine Sessions and runtime revisions \u2014 agent resources distinct from the generic model endpoints Zenity previously mapped. AISPM must discover and inventory these new first-class agent entities, their Sessions, and runtime revisions as a distinct resource class on the Google surface",
+        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Google Vertex AI \u2014 Semantic Governance Policy (SGP) engine + Agent Gateway",
+        "description": "A new managed governance layer (provisioned in the customer VPC) that semantically evaluates each proposed agent tool call/skill invocation against the prompt, history, and Natural Language Constraints before execution, fronted by an Agent Gateway. This is both a control AISPM should map (which agents have SGP policies and Agent Gateway enforcement \u2014 gaps mean ungoverned agents) and a bypass target AIRT must probe: NLC evasion, context-poisoning to slip a malicious tool call past semantic analysis, and confirming that agent traffic is actually routed through the gateway rather than around it",
+        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Codex \u2014 Sites plugin (preview)",
+        "description": "A new Codex plugin (preview, June 2 2026) that lets the agent create, deploy, and host production websites, web apps, dashboards, internal tools, and games on OpenAI-operated infrastructure (Cloudflare-Worker-compatible ES modules; every deployment URL is live production). A new agent-driven code-deployment surface Zenity's endpoint coverage should track: the agent can push executable code to public production hosting from a single prompt, creating new hosted-app entities and a data-exfiltration/malicious-deploy path. AISPM should inventory which workspaces/members have the Sites plugin enabled (Enterprise gates it behind admin RBAC) and the sites they deploy",
+        "source": "https://developers.openai.com/codex/sites",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-07-05",
     "scan_time": "2026-07-05 08:46",
     "file": "report-2026-07-05.md",

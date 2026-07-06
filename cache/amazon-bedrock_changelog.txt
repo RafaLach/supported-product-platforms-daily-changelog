@@ -1,4 +1,4 @@
-# Amazon Bedrock User Guide - Document History — captured 2026-07-04
+# Amazon Bedrock User Guide - Document History — captured 2026-07-06
 
 **Latest documentation-update banner:** November 26th, 2025; newest dated rows June 30, 2026.
 
@@ -7,10 +7,10 @@
 - Updated requests-per-minute (RPM) quota guidance (May 27, 2026) — quota doc clarification. [Doc change]
 - Quotas for the bedrock-runtime endpoint (May 27, 2026) — new doc page, per-model token quotas. [Doc page]
 - Quotas for the bedrock-mantle endpoint (May 27, 2026) — per-model token quotas doc. [Doc page]
-- Token counting on the bedrock-mantle endpoint (May 26, 2026) — count_tokens path doc. [Doc change; already in earlier cache]
-- Fully managed knowledge bases with agentic retrieval + AgenticRetrieveStream API (March 2, 2026) — [captured in an earlier scan; NOT new since cache]
+- Token counting on the bedrock-mantle endpoint (May 26, 2026) — count_tokens path doc. [Doc change; already cached]
+- Fully managed knowledge bases with agentic retrieval + AgenticRetrieveStream API (March 2, 2026) — [earlier scan; NOT new]
 - Converse API support for batch inference (Feb 27, 2026) — [earlier scan]
 - Fine-tuning open-weight models via OpenAI-compatible APIs (Feb 17, 2026) — [earlier scan]
 - (older: Bedrock Mantle OpenAI-compatible endpoints/managed policies Dec 3 2025, reinforcement fine-tuning, service tiers — earlier scans)
 
-Updated: 2026-07-04 — No net-new doc-history row since the prior (2026-07-03) scan. Top remains June 30 Agents Classic maintenance-mode (deprecation, not reportable). Older feature rows (AgenticRetrieveStream KBs, Converse batch, OpenAI fine-tuning) were captured in earlier scans and are not new since cache. No reportable addition.
+Updated: 2026-07-06 — No net-new doc-history row since prior scan. Top remains June 30 Agents Classic maintenance-mode (deprecation, not reportable). Older feature rows already captured in earlier scans. No reportable addition.

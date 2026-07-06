@@ -1,25 +1,17 @@
-# ServiceNow Release Notes and Updates
-
-Based on the visible page content, the following items are accessible:
+# ServiceNow Release Notes and Updates — captured 2026-07-06
 
 ## Main Release Categories
-- **New Features** - Summary of new features available
-- **Prepare for Upgrade** - Preparation guidance documentation
-- **Available Versions** - Current upgrade options
+- New Features; Prepare for Upgrade; Available Versions.
 
-## Release Notes by Version
-- **Family Release Notes** (general)
-- **Zurich** release notes
-- **Yokohama** release notes
-- **Xanadu** release notes
-- **Washington DC** release notes
+## Release Notes by Version (docs hub navigation)
+- Family Release Notes (general); Zurich; Yokohama; Xanadu; Washington DC.
+- (Australia is current latest family per the dedicated family-release-notes page.)
 
 ## Additional Release Information
-- **ServiceNow Store** release notes
-- **Mobile Apps** release notes
-- **Out-of-Box** (OOB) release notes and other updates
+- ServiceNow Store release notes; Mobile Apps release notes; Out-of-Box (OOB) release notes.
 
-**Note:** No specific dates, feature names, new APIs, new services, entity types, agent capabilities, or connectors are visible in the provided page content. The page appears to be a navigation hub linking to detailed release documentation rather than displaying the actual release details themselves.
+## Note
+Docs homepage is a navigation hub — links to detailed release docs rather than displaying feature detail. No new features, AI agents, Now Assist skills, APIs, services, or entity types visible in the page content this scan.
 
 ## Last Fetched
-2026-05-18 — Page is now returning navigation content (previously only loading screen). Versions visible: Zurich, Yokohama, Xanadu, Washington DC. Note: "Australia" is current latest version per the dedicated changelog page.
+2026-07-06 — Navigation-only content, unchanged from prior scans (Zurich/Yokohama/Xanadu/Washington DC links visible; Australia latest per changelog page). No reportable addition.

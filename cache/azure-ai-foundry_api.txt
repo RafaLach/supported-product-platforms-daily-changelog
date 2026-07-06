@@ -1,8 +1,8 @@
 Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference (redirects to /azure/foundry/openai/reference)
-Fetched: 2026-07-04
+Fetched: 2026-07-06
+Page: ms.date 2026-05-19; updated_at 2026-06-24
 
 # Azure OpenAI REST API Reference (image & audio, 2024-10-21 GA)
-# (ms.date 2026-05-19; page updated 2026-06-24)
 
 ## API Versions
 | API Surface | Latest Preview | Latest GA |
@@ -12,18 +12,15 @@ Fetched: 2026-07-04
 
 GA data plane inference spec documented: 2024-10-21.
 
-## Supported Operations
-1. Completions - POST /openai/deployments/{deployment-id}/completions
-2. Chat Completions - POST /openai/deployments/{deployment-id}/chat/completions
-3. Embeddings - POST /openai/deployments/{deployment-id}/embeddings
-4. Audio Transcriptions - POST /openai/deployments/{deployment-id}/audio/transcriptions
-5. Audio Translations - POST /openai/deployments/{deployment-id}/audio/translations
-6. Image Generation - POST /openai/deployments/{deployment-id}/images/generations
+## Supported Operations (image & audio page)
+1. Transcriptions - POST /openai/deployments/{deployment-id}/audio/transcriptions
+2. Translations - POST /openai/deployments/{deployment-id}/audio/translations
+3. Image Generation - POST /openai/deployments/{deployment-id}/images/generations
+(Chat, completions, embeddings documented in the v1 REST API reference.)
 
-## Key Features and Updates
-- New Preview Inference API available (v1 preview) — see API lifecycle guide.
-- Chat extensions (RAG) data sources: Azure Search, Azure Cosmos DB (MongoDB vCore)
-- Structured Outputs (json_schema), tool/function calling (up to 128, parallel)
-- Authentication: API Key (api-key header), Microsoft Entra ID (Bearer token)
+## Key Features
+- New preview inference API (v1 preview) — see API lifecycle guide.
+- Authentication: API Key (api-key header), Microsoft Entra ID (Bearer token).
 
-Updated: 2026-07-04 — Same API version table as prior cache (Control plane 2025-07-01-preview / 2025-06-01 GA; Data plane v1 preview / v1 GA). No new endpoints or operations. No reportable addition.
+Updated: 2026-07-06 — Same API version table as prior cache (Control plane 2025-07-01-preview /
+2025-06-01 GA; Data plane v1 preview / v1 GA). No new endpoints or operations. No reportable addition.

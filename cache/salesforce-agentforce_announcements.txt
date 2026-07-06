@@ -1,12 +1,29 @@
-# Salesforce Releases Page — captured 2026-07-04
+# Salesforce Releases Page — captured 2026-07-06
 
 ## Note
-Fetch on 2026-07-04 returned HTTP 403 (consistent with 2026-07-03, 2026-06-16, 2026-05-18, 2026-04-06/08/10/12). Cache content preserved from 2026-03-25.
+Direct fetch of https://www.salesforce.com/releases/ returned HTTP 403 on 2026-07-06
+(consistent with 07-04, 07-03, 06-16, and earlier). Content below sourced via WebSearch
+fallback for Summer '26 release notes.
 
-## Content (from 2026-03-25 fetch)
-Spring '26 Release. "Agentic Enterprise" theme. Highlights: Agentforce Voice innovations, Field Service proactive ops, AI agents for field reps with voice commands; Sales (account prioritization, book mgmt, partner alignment); Service (early issue resolution, escalation reduction); Marketing (real-time AI engagement, human handoff); Commerce (personalized shopping); Platform (DevOps, security, Flow automation scaling). Industry solutions: Automotive, Communications, Consumer Goods, Education, Health, Nonprofit.
+## Content (Summer '26 — released ~June 2026, "Agentic Enterprise")
+- Multi-Agent Orchestration — GA Jun 15 2026. A primary agent coordinates a team of
+  specialized subagents, holds shared context, routes each request to best-fit specialist.
+  Powered by Atlas Reasoning Engine 3.0 (reads subagent descriptions/instructions/actions
+  to route, no fixed decision trees).
+- Agent2Agent (A2A) open protocol — primary agent can delegate to third-party agents on
+  other platforms.
+- Agent Script + new Agentforce Builder — now GA.
+- "Create Agent" element in Flow Builder — build/deploy agents directly on the flow canvas;
+  legacy AI Agent actions auto-convert.
+- IT Service Domain Pack — 50+ prebuilt AI agents for Slack, Teams, IT Service Desk.
+- Agentforce Sales in Slack — proactive prospecting/engagement agents; Momentum captures
+  calls/emails/meetings back to CRM.
+
+## Prior (Spring '26, from 2026-03-25 fetch)
+Agentforce Voice, Field Service proactive ops, Sales/Service/Marketing/Commerce/Platform.
 
 ## Last Fetched
+2026-07-06 - FAILED direct (403). Summer '26 features captured via WebSearch fallback.
 2026-07-04 - FAILED (403 error). Cache content preserved from 2026-03-25.
 2026-07-03 - FAILED (403 error). Cache content preserved from 2026-03-25.
 2026-06-16 - FAILED (403 error). Cache content preserved from 2026-03-25.

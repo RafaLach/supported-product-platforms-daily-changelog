@@ -1,10 +1,11 @@
-# OpenAI Developer Community — captured 2026-07-04
+# OpenAI Developer Community — captured 2026-07-06
 
 Community forum listing; official announcements sparse. No new features/APIs/services posted.
 
 ## Notable
-- Jul 3, 2026 — Deprecation notice (cboisen, official): Evals will be shut down Nov 30, 2026. (Deprecation — NOT reportable.)
+- Jul 5, 2026 — "OpenAI DevDay 2026 applications are now open!" (official). Event/conference announcement — not a feature/API/model. NOT reportable.
+- Jul 3, 2026 — Deprecation notice (official): Evals will be shut down Nov 30, 2026. (Deprecation — NOT reportable.)
 
 Remaining page content is user-generated discussion (API issues, Codex, ChatGPT apps) rather than official release notes. No net-new reportable surface. For OpenAI product releases, SDK changelogs and Codex changelog are the reliable proxies.
 
-Updated: 2026-07-04.
+Updated: 2026-07-06.

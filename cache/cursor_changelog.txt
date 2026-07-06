@@ -1,17 +1,18 @@
-# Cursor Changelog — captured 2026-07-04
+# Cursor Changelog — captured 2026-07-06
 
-## Jun 29-30, 2026 [top; already reported prior scan]
-- **MCPs and Organizations in Team Marketplaces (Jun 30)**: admins distribute Team MCP servers across cloud agents/IDE/CLI via marketplace configs, with Organization group access controls.
-- **Cursor Mobile App for iOS (Jun 29)**: launch/manage cloud agents from phone with voice input; "Remote Control" for desktop agents; live activity notifications + artifact management.
+## v3.9 — Jun 29-30, 2026 [top; already reported prior scan]
+- **MCPs and Organizations in Team Marketplaces (Jun 30)**: admins distribute Team MCP servers across cloud agents/agents window/IDE/CLI via marketplace configs; org groups + SCIM directory groups for access control.
+- **Cursor Mobile App for iOS (Jun 29)**: launch/manage cloud agents from phone with voice; "Remote Control" for desktop agents; agents run in isolated VMs w/ full dev envs; Live Activity notifications; artifact/SCM diff/PR merge from mobile.
+- **Customize Cursor (Jun 22)**: centralized page for plugins, skills, MCPs, subagents, rules, commands, hooks; marketplace leaderboard; shared plugin canvases. (below bar — personalization surface.)
 
-## Jun 17-22, 2026 [already reported / below bar]
-- Cloud Environment Setup + Cloud Subagents `/in-cloud` (Jun 17); Cursor Automations `/automate` skill + computer-use + new GitHub/Slack triggers (Jun 18); "Customize Cursor" personalization interface (Jun 22, below bar).
+## Jun 17-18, 2026 (v3.7-3.8) [already reported]
+- Cloud Environment Setup + Cloud Subagents `/in-cloud` (Jun 17); `/babysit` remote PR prep; Cursor Automations `/automate` skill + computer-use default + new GitHub/Slack triggers (Jun 18).
 
 ## June 5-10, 2026 (v3.7) [cached]
-- Design Mode; SDK custom tools via local.customTools + permissions.json auto-review; Canvas context reports; Enterprise Organizations/Groups; Bugbot /review pre-push. Bugbot perf (06-10, below bar).
+- Design Mode; SDK custom tools via local.customTools + permissions.json auto-review; Canvas context reports; Enterprise Organizations/Groups; Bugbot /review pre-push.
 
 ## Earlier (cached): 3.6 Auto-review Run Mode; 3.5 Shared Canvases / /loop Skill / Cursor Automations; Cursor in Jira; 3.4 Dev Environments for Cloud Agents; Cursor in MS Teams; Build in Parallel /multitask.
 
 Docs sections (cursor.com/docs): Agents, Rules, MCP, Skills, CLI.
 
-Updated: 2026-07-04 — Watching tier. Top entry still Jun 30 (Team MCP marketplace); no new dated entry since prior scan. Nothing new to report.
+Updated: 2026-07-06 — Watching tier. Top release now versioned v3.9 (Jun 29-30) but feature content (mobile cloud-agent control, Team MCP marketplace, Customize page) was all reported in prior scan. No NEW dated entry since 2026-07-04. Nothing new to report.

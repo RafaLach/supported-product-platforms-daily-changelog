@@ -1,17 +1,16 @@
-# Windsurf / Devin Desktop Changelog — captured 2026-07-04
+# Windsurf / Devin Desktop Changelog — captured 2026-07-06
 # NOTE: windsurf.com/changelog 308-redirects to docs.devin.ai/desktop/changelog.
 
-Most recent version: v3.4.22 (July 4, 2026) [NEW]
+Most recent version: v3.4.22 (July 4, 2026) [top — already reported prior scan]
 
-## v3.4.22 (July 4, 2026) [NEW — Devin Local autonomous mode crosses watching-tier bar]
-- **Devin Local autonomous mode with reviewable diffs [NEW]**: local agent harness can now run autonomously and surface reviewable diffs — expanded local autonomous agent-execution surface.
-- **`/mcp` slash command + live MCP server status dashboard [NEW]**: in-session command to manage/inspect connected MCP servers with live status.
-- Enterprise login policies now enforced in the CLI [enterprise control].
-- Sandbox config expanded: `sandbox.excluded` allow/ask/deny settings.
-- Devin Cloud sessions auto-reconnect on network return; "New session in space" menu item; agent mode default for fresh users; image handling in chat via context menu.
+## v3.4.22 (July 4, 2026) [reported 2026-07-05]
+- **Devin Local autonomous mode with reviewable diffs**: edits in autonomous mode produce reviewable diffs; local agent harness runs autonomously — expanded local autonomous agent-execution surface.
+- **`/mcp` slash command + live MCP server status panel**: in-session command to manage/inspect connected MCP servers with live status.
+- Skill `permissions:` frontmatter now applies to auto-approvals; agent sidebar visible when routing to Cascade in agent-window mode.
+- Enterprise CLI login policy; ACU usage in client; sandbox.excluded allow/ask/deny; orphaned ACP process cleanup; Devin Cloud auto-reconnect; "New session in space." [controls/reliability, below bar]
 
 ## v3.3.18 (June 23, 2026) [cached, below bar]
-- Devin ACU usage displayed in client; subagent default model; Windows bash → Git Bash; MCP registry cache warming; `attribution=false` to suppress Devin commit mentions.
+- Devin ACU usage in client; subagent default model; Windows bash → Git Bash; MCP registry cache warming; attribution=false.
 
 ## v3.1.7 (June 10, 2026) [cached]
 - Agent/Editor mode switching; unified agent search; `.devinignore`; "Devin CLI" → "Devin Local".
@@ -21,6 +20,6 @@ Most recent version: v3.4.22 (July 4, 2026) [NEW]
 ## v2.3.15 (May 27/28) Claude Opus 4.8; Devin Local context tracking + MCP approval persistence; MCP tool permissions UI.
 ## Earlier (cached): v2.2.17 Devin Review/Quick Review; v2.1.29 Devin for Terminal CLI + Devin Local in Windsurf; v2.0.44 Windsurf 2.0 + Devin Cloud agent + Agent Command Center w/ Spaces; Arena Mode; Plan Mode; Adaptive Model Router; Agent Skills Framework; GPT-5.2-Codex.
 
-Docs (docs.devin.ai/desktop): Devin Local, Terminal, MCP, Memories & Rules, Context Awareness, Workflows, App Deploys. Devin Local plugin system (enterprise preview) still flagged to watch.
+Docs (docs.devin.ai/desktop): Devin Local, Terminal, MCP, Memories & Rules, Context Awareness, Workflows, App Deploys, Recommended Plugins. Devin Local plugin system (enterprise preview) still flagged to watch.
 
-Updated: 2026-07-04 — Watching tier. NEW v3.4.22 (07-04): Devin Local autonomous mode with reviewable diffs (new local autonomous agent-execution surface) + `/mcp` command with live MCP server status dashboard — REPORTED. Enterprise CLI login policy + sandbox.excluded are controls, below bar.
+Updated: 2026-07-06 — Watching tier. Top entry still v3.4.22 (07-04); autonomous mode + /mcp dashboard already REPORTED 07-05. No new dated entry since. Nothing new to report.

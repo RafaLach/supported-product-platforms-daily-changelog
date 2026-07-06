@@ -1,31 +1,26 @@
 Source: https://learn.microsoft.com/en-us/power-apps/
-Fetched: 2026-07-04
+Fetched: 2026-07-06
 Page last updated: 2026-02-26 (updated_at 2026-03-03)
 
 # Microsoft Power Apps documentation
-
 Build low-code apps that modernize processes and solve tough business challenges.
 
-## Sections
-
-### Create and design
-- Try/Buy Power Apps
+## Create and design
 - Create apps: Choose an app type, Plan designer, Canvas apps, Model-driven apps, Code apps
-- AI copilot capabilities: Get started with AI copilot, Plan designer, Overview of the new experience (preview) (vibe/overview), Build apps through conversation, Add a Copilot control to a canvas app (preview)
+- AI copilot capabilities: Get started with AI copilot, Plan designer, Overview of the new experience
+  (preview) (vibe/overview), Build apps through conversation, Add a Copilot control to a canvas app (preview)
 - Create and manage data: Microsoft Dataverse, Tables and metadata, Business logic, Dataflows
 - Use solutions: Solutions overview, ALM, Pipelines
-- Integrate with other products: Power BI, Azure Synapse Link, Teams
+- Integrate: Power BI, Azure Synapse Link, Teams
 - Best practices: Coding guidelines, Collaborate and co-develop apps
 
-### Administer and extend
+## Administer and extend
 - Power Platform admin center, Licensing, Security and governance
-- Dataverse developer guide (Work with data, Apply business logic, Create client applications)
-- Model-driven apps developer guide (Client scripting, Code components)
-- Canvas apps developer guide (Custom connectors, Offline-capable apps, Canvas components)
+- Dataverse developer guide / Model-driven apps developer guide / Canvas apps developer guide
+  (Custom connectors, Offline-capable apps, Canvas components)
 
-### Use
-- Mobile devices (Power Apps mobile, Power Apps for Windows)
-- Web browsers (Navigation, Search, Reports)
-- Teams (Canvas as tab, Canvas as personal app, Model-driven as tab, Model-driven as personal app)
+## Use
+- Mobile devices / Web browsers / Teams (canvas & model-driven as tab / personal app)
 
-Updated: 2026-07-04 — Page unchanged since cache (last updated 2026-02-26). AI/copilot section list identical. No reportable addition.
+Updated: 2026-07-06 — Page unchanged since cache (last updated 2026-02-26; updated_at 2026-03-03).
+AI/copilot section list identical. No reportable addition.

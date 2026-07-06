@@ -1,20 +1,20 @@
 Source: https://learn.microsoft.com/en-us/azure/ai-studio/ (redirects to /azure/foundry/)
-Fetched: 2026-07-04
+Fetched: 2026-07-06
+Page: ms.date 2026-06-16; updated_at 2026-06-26
 
 # Microsoft Foundry documentation
-(ms.date 2026-06-16; page updated 2026-06-26)
 The AI app and agent factory - build, optimize, and govern AI apps and agents at scale.
 
 ## Overview / Quickstarts
 - What is Microsoft Foundry? / Choose how to build
 - Quickstart: Build with models and agents
-- Quickstart: Deploy a hosted agent [NEW vs prior cache — hosted agent deployment surface]
+- Quickstart: Deploy a hosted agent
 
-## Develop and integrate [NEW section vs prior cache]
+## Develop and integrate
 - Microsoft Foundry SDKs
 - Develop agents with the Azure Developer CLI
-- Get started with the Foundry MCP Server [NEW — Model Context Protocol server for Foundry]
-- Use the Foundry Skill in coding agents [NEW — Foundry Skill for coding agents]
+- Get started with the Foundry MCP Server
+- Use the Foundry Skill in coding agents
 - Work in Visual Studio Code
 
 ## Foundry Models
@@ -22,9 +22,9 @@ The AI app and agent factory - build, optimize, and govern AI apps and agents at
 
 ## Foundry Agent Service
 - Orchestrate and host AI agents to automate business processes
-- Quickstart - Create a prompt agent [NEW — prompt agent entity]
-- Quickstart - Deploy a hosted agent [NEW — hosted agent]
-- Deploy and share agents [NEW — hosted-agent deploy/share]
+- Quickstart - Create a prompt agent
+- Quickstart - Deploy a hosted agent
+- Deploy and share agents
 
 ## Foundry IQ
 - What is Foundry IQ? / FAQ / Connect knowledge base to agents
@@ -37,13 +37,14 @@ The AI app and agent factory - build, optimize, and govern AI apps and agents at
 
 ## Foundry Control Plane
 - What is the Foundry control plane?
-- Manage agents at scale [NEW vs prior cache — control-plane agent governance]
-- Enforce token limits for models [NEW — model token-limit governance]
+- Manage agents at scale
+- Enforce token limits for models
 - Trustworthy AI / What is Content Safety?
 
 ## Azure Machine Learning; Foundry Local (run LLMs on device)
-
 ## SDKs: Python, C#, JavaScript, Java
 ## Resources: Foundry portal (ai.azure.com), Foundry labs, GitHub Models, VS Code extension, Microsoft Agent Framework
 
-Updated: 2026-07-04 — Old /azure/ai-studio/ hub now the /azure/foundry/ hub. NET-NEW vs prior cache: (1) Foundry MCP Server; (2) Foundry Skill in coding agents; (3) Foundry Agent Service hosted-agent deploy/share + prompt-agent quickstart; (4) Foundry Control Plane "Manage agents at scale" and "Enforce token limits for models". Foundry IQ, AI Red Teaming Agent, Foundry Local, Foundry Tools already cached.
+Updated: 2026-07-06 — Page unchanged since prior cache (updated_at still 2026-06-26). Section list
+(Foundry MCP Server, Foundry Skill, hosted/prompt agents, Control Plane manage-agents/token-limits,
+Foundry IQ, AI Red Teaming Agent, Foundry Local) identical. No reportable addition.

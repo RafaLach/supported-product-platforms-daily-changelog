@@ -1,4 +1,4 @@
-# Amazon Bedrock AgentCore - Overview — captured 2026-07-04
+# Amazon Bedrock AgentCore - Overview — captured 2026-07-06
 
 ## Core Definition
 Agentic platform for building, deploying, and operating agents securely at scale using any framework and foundation model, without infrastructure management.
@@ -6,7 +6,7 @@ Agentic platform for building, deploying, and operating agents securely at scale
 ## Core Services
 | Service | Description | Key Integrations |
 |---------|-------------|------------------|
-| **Harness** (NEW on docs) | Managed agent loop: define & invoke an agent in one API call with model + system prompt + tools inline. Handles orchestration, tool execution, memory, response generation. Each session in an isolated microVM with filesystem + shell access (code gen, data analysis, deep research). BYO container image supported. | Bedrock, OpenAI, Google Gemini, any OpenAI-compatible provider; Memory, Gateway, Browser, Code Interpreter, Observability; remote MCP servers, inline functions, custom containers |
+| **Harness** | Managed agent loop: define & invoke an agent in one API call with model + system prompt + tools inline. Handles orchestration, tool execution, memory, response generation. Each session in an isolated microVM with filesystem + shell access. BYO container image supported. | Bedrock, OpenAI, Google Gemini, any OpenAI-compatible provider; Memory, Gateway, Browser, Code Interpreter, Observability; remote MCP servers, inline functions, custom containers |
 | **Runtime** | Secure serverless runtime; fast cold starts, async, session isolation, built-in identity, multi-modal/multi-agent | CrewAI, LangGraph, LlamaIndex, Google ADK, OpenAI Agents SDK, Strands; MCP, A2A |
 | **Memory** | Short-/long-term memory, cross-agent sharing | LangGraph, LangChain, Strands, LlamaIndex |
 | **Gateway** | Converts APIs/Lambda/services into MCP tools; connect existing MCP servers | Salesforce, Zoom, JIRA, Slack, OpenAPI |
@@ -16,7 +16,7 @@ Agentic platform for building, deploying, and operating agents securely at scale
 | **Observability** | Trace/debug/monitor via OpenTelemetry | OTEL, CloudWatch |
 | **Payments** | Microtransactions for agents to access paid APIs/MCP servers/content via x402; wallet, spend limits, observability | Coinbase CDP, Stripe (Privy), x402 endpoints, Gateway, Strands |
 | **Evaluations** | Automated agent assessment on sessions/traces/spans | Strands, LangGraph, OpenTelemetry, OpenInference, CloudWatch |
-| **Optimization** (NEW on docs) | Continuous improvement: AI-generated recommendations, versioned config bundles, A/B testing to improve agents from traces. Optimizes system prompts + tool descriptions; traffic splitting via Gateway. | Builds on Evaluations; OTEL via Observability; Gateway for A/B traffic split |
+| **Optimization** | Continuous improvement: AI-generated recommendations, versioned config bundles, A/B testing to improve agents from traces. Optimizes system prompts + tool descriptions; traffic splitting via Gateway. | Builds on Evaluations; OTEL via Observability; Gateway for A/B traffic split |
 | **Policy** | Deterministic control; NL or Cedar policy language; intercepts every tool call | Cedar, Gateway |
 | **Registry** | Centralized catalog for agents, MCP servers, tools, skills, custom resources; governed publish/review/approve; hybrid search | Any MCP server/agent/skill/custom resource, AWS/on-prem/other cloud |
 
@@ -29,4 +29,4 @@ Anthropic Claude, OpenAI, Google Gemini, Amazon Nova, Meta Llama, Mistral
 ## Pricing
 Consumption-based
 
-Updated: 2026-07-04 — NEW services newly listed on the overview vs prior docs cache (2026-05-18): **Harness** (managed agent loop, GA June 2026) and **Optimization** (recommendations + A/B testing + versioned config bundles, GA June 2026). Both reported this scan. Prior "Payments" entry now standard. All other services unchanged.
+Updated: 2026-07-06 — Overview services list unchanged since prior scan. All 12 services present (Harness, Runtime, Memory, Gateway, Identity, Code Interpreter, Browser, Observability, Payments, Evaluations, Optimization, Policy, Registry) — same as prior cache. No newly listed service or capability. No reportable addition this scan.

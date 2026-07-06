@@ -1,42 +1,40 @@
 Source: https://learn.microsoft.com/en-us/power-pages/
-Fetched: 2026-07-04
-Page last updated: 2026-04-28
+Fetched: 2026-07-06
+Page last updated: 2026-04-28 (updated_at 2026-04-28)
 
 # Microsoft Power Pages documentation
+Create external-facing websites; users sign in with a variety of identities, create/view Dataverse data,
+or browse anonymously.
 
-Create external-facing websites that allow users outside their organizations to sign in with a wide variety of identities, create and view data in Dataverse, or browse content anonymously.
+## Getting started
+- Introducing Power Pages, capabilities, create/manage sites, security, architecture/security papers, community
 
-## Sections
+## Tutorials
+- Overview, Design home page, Set up brand kit, Create page with list, Create page with simple form,
+  Configure site authentication
 
-### Getting started
-- Introducing Power Pages, capabilities, create and manage sites, security, architecture/security white papers, community
+## Design and build
+- Use the new design studio, Pages workspace, Styling workspace, Templates, Portal Management app,
+  VS Code and Power Platform CLI, Plan your project
 
-### Tutorials
-- Tutorials/videos overview, Design home page, Set up brand kit, Create page with list, Create page with simple form, Configure site authentication
-
-### Design and build
-- Use the new design studio, Pages workspace, Styling workspace, Templates, Portal Management app, Visual Studio Code and Power Platform CLI, Plan your project
-
-### AI and Copilot
+## AI and Copilot
 - AI-powered and Copilot features overview
 - Create AI-generated form using Copilot
 - Add AI-generated text using Copilot
 - Enable agent in your site
 - Force Bing webmaster to index your site
 
-### Connect to Dataverse
-- What is Dataverse, Use the data workspace, Add lists, Add basic/multistep forms, Secure data with table permissions, Create/update/view Dataverse information
+## Connect to Dataverse
+- What is Dataverse, Use the data workspace, Add lists, Add basic/multistep forms, Table permissions,
+  Create/update/view Dataverse information
 
-### Customize and extend
-- Use Liquid, Web templates, Portals web API, Code components, Configure Power Automate cloud flows in your site, Advanced configuration
+## Customize and extend
+- Liquid, Web templates, Portals web API, Code components, Configure Power Automate cloud flows, Advanced config
 
-### Security
-- Security overview, Set up authentication, Configure web roles, Configure table permissions, Architecture/security white papers
+## Security / Go live / Administer and monitor
+- Security overview, authentication, web roles, table permissions
+- Go live checklist, licensing, ALM
+- Portals admin center, troubleshooting/diagnostics, maintain/update, review consumption
 
-### Go live
-- Go live checklist, Assign licensing, ALM overview
-
-### Administer and monitor
-- Portals admin center, Troubleshooting and diagnostics, Maintain and update, Review consumption
-
-Updated: 2026-07-04 — Page unchanged since cache (last updated 2026-04-28). AI/Copilot section (incl. "Enable agent in your site") identical. No reportable addition.
+Updated: 2026-07-06 — Page unchanged since cache (last updated 2026-04-28). AI/Copilot section
+(incl. "Enable agent in your site") identical. No reportable addition.

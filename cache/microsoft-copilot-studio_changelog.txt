@@ -1,4 +1,4 @@
-# Copilot Studio What's New — captured 2026-07-04
+# Copilot Studio What's New — captured 2026-07-06
 # (source ms.date 2026-06-25; page updated 2026-06-30)
 
 ## June 2026 [already cached — REPORTED in prior scan]
@@ -11,8 +11,8 @@
 - Computer use GA; prompt node; Microsoft 365 Copilot node in workflows; consent-based voice recording; agent inventory schema (admin discovery/audit); agent readiness/issue status page; async agent-flow responses; (preview) Microsoft Entra agent identities per agent; computer-use standalone tools; Mistral Medium 3.5 model option.
 
 ## April 2026 [already cached]
-- Real-time voice agents (preview); agent-to-agent (A2A) protocol GA; agent evaluation REST API; GPT-5.5 Reasoning (Deep); Analytics Viewer role; hold/resume voice.
+- Real-time voice agents (preview); agent-to-agent (A2A) protocol GA; agent evaluation REST API; GPT-5.5 Reasoning (Deep); Analytics Viewer role; hold/resume voice; agent usage estimator; custom metrics.
 
 ## Earlier (cached): Work IQ (Mar 2026), Bing Custom Search knowledge, MCP server support (Oct 2025), Client SDK, code interpreter, Entra agent identities (preview Nov 2025), Fabric data agents, tool groups.
 
-Updated: 2026-07-04 — No net-new entries since prior scan; page still tops at June 2026 (new agent experience + Microsoft IQ, Skills, Memory), all already reported. No new reportable addition this scan.
+Updated: 2026-07-06 — No net-new entries since prior scan; page still tops at June 2026 (new agent experience + Microsoft IQ, Skills, Memory), all already reported. No new reportable addition this scan.

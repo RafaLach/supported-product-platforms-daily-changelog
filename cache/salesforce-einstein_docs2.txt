@@ -1,11 +1,15 @@
-# Einstein GenAI Guide — captured 2026-07-04
+# Einstein GenAI Guide — captured 2026-07-06
 
 **Terminology Change (April 2026)**
-- Agent "topics" are now called "subagents" with no functionality changes.
+- Agent "topics" are now called "subagents" (naming only, no functionality change).
 
-No other dated release notes, new features, APIs, services, entity types, or agent capabilities visible. Page directs to API/SDK/Actions/Agent Script/Agentforce DX guides.
+No other dated release notes on the page itself; it directs to API/SDK/Actions/Agent
+Script/Agentforce DX/Models & Prompts guides. Summer '26 substantive features
+(Multi-Agent Orchestration GA, Atlas 3.0, A2A, Agentforce Builder GA) tracked in the
+agentforce announcements cache.
 
 ## Last Fetched
+2026-07-06 - No new page content beyond April 2026 subagents rename.
 2026-07-04 - No new content beyond previous fetch.
 2026-07-03 - No new content beyond previous fetch.
 2026-06-16 - No new content beyond previous fetch.

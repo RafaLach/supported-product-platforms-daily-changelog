@@ -1,8 +1,28 @@
 Source: https://developer.microsoft.com/graph/changelog/
-Fetched: 2026-07-04
+Fetched: 2026-07-06 (via RSS fallback: https://developer.microsoft.com/en-us/graph/changelog/rss/)
 
-The fetched page returned only navigation/header chrome (menu links such as API reference, Quick start, SDKs). No changelog body content was retrievable through WebFetch for this URL — the Graph changelog is client-side rendered.
+NOTE: The HTML changelog page still returns only nav/header chrome (JS-rendered).
+The RSS feed rendered actual entries — using RSS as source of record.
 
-To obtain actual entries, the underlying RSS feed or rendered changelog list would need a different fetch method.
+## Recent entries (2026) — new API/resource/entity additions
 
-Updated: 2026-07-04 (still only chrome; recorded as fetch error — no diff possible)
+### June 19, 2026
+- Tenants: added `migrate` method to crossTenantMigrationJob resource.
+- Security: new `policyTipAction` resource; added `policyTip` member to dlpAction enum.
+- Tasks & Plans: new resources plannerTaskData, plannerTaskDetailsData, plannerHistoryItem; added historyEntityType/historyEventType enums; historyItems relationship on plannerPlan.
+- Teamwork & Communications: new cloudVideoInteropInfo resource; added cloudVideoInteropInfo, isRegistrationRequired, meetingType properties across meeting/virtual-event resources.
+
+### June 18, 2026
+- Identity & Access: new enumeration types and resources for access package suggestions; added filterByCurrentUser method.
+
+### June 17, 2026
+- Applications: new redirectUri configuration resources (domain- and scheme-based URI controls).
+- Security: new account and file action resources; new entity-mapping resources for detection; enhanced detectionRule properties.
+
+### June 16, 2026
+- Mail: new distributionList resource type; new distributionListMember resource; distribution-list management methods.
+
+### Earlier June 2026
+- Files container permission enhancements; identity governance workflow extensions; FIDO2 auth method improvements; application risk assessment resources; backup/restore session enhancements.
+
+Updated: 2026-07-06 — First scan with usable content (prior cache was nav-chrome only). Entries above captured via RSS.

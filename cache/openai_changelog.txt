@@ -1,4 +1,4 @@
-# OpenAI Python SDK Releases — captured 2026-07-04
+# OpenAI Python SDK Releases — captured 2026-07-06
 # (Node SDK tracked in openai_node_changelog.txt — latest v6.45.0, June 24)
 
 ## Latest Releases
@@ -14,4 +14,4 @@
 **v2.37.0** (May 15, 2026) — service_tier on responses compact; eager pydantic iterator validation.
 **v2.36.0** (May 7, 2026) — Realtime 2 API implementation.
 
-Updated: 2026-07-04 — No new Python SDK releases since prior scan; v2.44.0 remains newest. Nothing reportable.
+Updated: 2026-07-06 — No new Python SDK releases since prior scan; v2.44.0 remains newest. Nothing reportable.

@@ -1,27 +1,28 @@
-# OpenAI Codex Changelog — captured 2026-07-04
+# OpenAI Codex Changelog — captured 2026-07-06
 
-## June 25, 2026 — Codex Remote GA + CLI 0.142.1 / 0.142.2 [new]
-- **Codex Remote reaches General Availability**: mobile control of connected Mac/Windows hosts via authenticated QR pairing between iOS/Android devices and host machines. (Previously the remote-control/pairing surface was in beta; now GA.)
-- **New DigitalOcean plugin**: provisions and configures DigitalOcean Droplets as remote Codex workspaces — new cloud-provisioning integration/connector.
-- **CLI 0.142.2**: MCP tools use **tool search by default** when supported; macOS auth clients honor system proxy/PAC/WPAD; plugins support dark-mode logos via local manifests; remote stdio MCP servers accept absolute native-path working dirs; PowerShell commands with unlowered AST regions now require approval.
-- **CLI 0.142.1**: Windows system proxy support (PAC, WPAD, static proxies, bypass rules).
-- (AIRT/ENDPOINT MEDIUM: Codex Remote GA = phone-to-host agent remote control now broadly available; DigitalOcean plugin = new agent cloud-provisioning connector; MCP tool-search-by-default = new default MCP tool-discovery behavior. Reportable.)
+## June 25, 2026 — Codex Remote GA + CLI 0.142.1 / 0.142.2 [reported prior scan]
+- Codex Remote GA: mobile control of connected Mac/Windows hosts via authenticated one-to-one QR pairing (iOS/Android ↔ host).
+- New DigitalOcean plugin: provisions a Droplet, configures SSH, connects it as a remote Codex workspace — cloud-provisioning connector.
+- CLI 0.142.2: MCP tools use tool search by default; macOS auth honors system proxy/PAC/WPAD; dark-mode plugin logos; remote stdio MCP servers accept absolute native paths; PowerShell unlowered-AST commands require approval.
+- CLI 0.142.1: Windows system proxy support (PAC, WPAD, static, bypass rules).
+
+## June 18, 2026 — Record & Replay (macOS) + CLI 0.141.0 [prior scan]
+- Record & Replay: demonstrated workflow → reusable skill (not in EEA/UK/CH at launch). Thread handoff local↔remote; bulk run-history actions.
+- CLI 0.141.0: Noise-relay E2E-encrypted remote exec; per-thread plugin stdio MCP servers; realtime speech append/response control.
+
+## June 16, 2026 — EEA/UK/CH regional expansion [prior scan]
+- Computer Use, Codex Chrome extension, Memories, and Chronicle became available in EEA/UK/Switzerland.
+
+## June 11, 2026 — Developer Mode Browser Use (CDP access) [reported 2026-06-12]
+- Controlled Chrome DevTools Protocol access in Chrome + in-app browser; rate-limit reset banking + referral earning.
+
+## June 2, 2026 — Sites plugin (preview) [NEW to cache this scan]
+- Sites plugin entered preview: create, save, deploy, and inspect websites, dashboards, internal tools, web apps, and games hosted by OpenAI. New agent build/deploy surface + OpenAI-hosted deployment target. (Dated June 2 but not previously captured; surfaced this scan.)
 
 ## June 22, 2026 — Codex CLI 0.142.0 + ChatGPT iOS 1.2026.167 [prior scan]
-- CLI: `/usage` credits; `/plugins` curated/workspace/shared sections; configurable rollout token budgets; **multi-agent delegation modes** (disabled/explicit-request-only/proactive); **indexed web-search mode** (server-approved URLs only); scheduled UTC reminders; exec-server survives disconnects w/ signed-URL refresh; parental agents receive terminal subagent errors.
-- iOS 1.2026.167: per-host personality settings; inline goal editing; fork tracking.
-- (AIRT MEDIUM: multi-agent delegation modes + indexed web-search — already reported prior scan.)
+- CLI: /usage credits; /plugins sections; configurable rollout token budgets; multi-agent delegation modes; indexed web-search mode; scheduled UTC reminders; exec-server survives disconnects; parental agents receive subagent errors.
 
-## June 18, 2026 — Codex app 26.616 [prior scan]
-- Record & Replay (macOS): demonstrated workflows → reusable skills. Thread handoff local↔remote. Bulk run-history actions.
+## Older [prior scan]
+- Jun 15 CLI 0.140.0 (minor); Jun 11 app 26.609 CDP browser use; Jun 9 CLI 0.139.0 (minor); Jun 9 iOS 1.2026.153 worktree/setup-script; Jun 8 CLI 0.138.0 desktop handoff; Jun 4 CLI 0.137.0 hosted web/image code-mode, multi-agent v2, remote-control pairing; Jun 1 Amazon Bedrock model provider.
 
-## June 18, 2026 — Codex CLI 0.141.0 [prior scan]
-- Noise-relay E2E-encrypted remote exec; per-thread plugin stdio MCP servers; realtime speech append/response control.
-
-## June 15, 2026 — Codex CLI 0.140.0 — minor
-## June 11, 2026 — Codex app 26.609 — Developer Mode Browser Use (CDP access) [reported 2026-06-12]
-## June 9, 2026 — Codex CLI 0.139.0 — minor
-## June 9, 2026 — ChatGPT iOS 1.2026.153 + Worktree/setup-script [reported 2026-06-10]
-## June 8, 2026 — Codex CLI 0.138.0 — Desktop handoff. ## June 4, 2026 — Codex CLI 0.137.0 — hosted web/image code-mode, multi-agent v2, remote-control pairing.
-
-Updated: 2026-07-04 — New since prior scan: Codex Remote GA (mobile→host control now GA), DigitalOcean provisioning plugin, CLI 0.142.2 (MCP tool-search-by-default, proxy/PAC/WPAD, PowerShell approval), CLI 0.142.1 (Windows proxy). Reportable items flagged above.
+Updated: 2026-07-06 — New since prior scan: Sites plugin (June 2 preview; OpenAI-hosted deploy of sites/apps/tools) newly surfaced. No changelog entries dated after June 25. Reportable item flagged.

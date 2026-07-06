@@ -1,6 +1,6 @@
-# Amazon Bedrock AgentCore Data Plane - Actions API Reference — captured 2026-07-04
+# Amazon Bedrock AgentCore Data Plane - Actions API Reference — captured 2026-07-06
 
-## Complete List of Supported Actions (full list retrieved 2026-07-04)
+## Complete List of Supported Actions (full list retrieved 2026-07-06)
 
 ### Memory Management
 - BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords
@@ -39,4 +39,4 @@
 ### Additional
 - Evaluate, ListActors, ListSessions
 
-Updated: 2026-07-04 — Full operation list retrieved and diffed against 2026-05-18 cache: IDENTICAL set. No new data-plane operations this scan. (Harness/Optimization/Payments ops already present in prior cache.) No reportable API addition this scan.
+Updated: 2026-07-06 — Full operation list retrieved and diffed against prior cache: IDENTICAL set. No new data-plane operations this scan. (New June KB/WebSearch/Guardrails/gateway-target/Interactive-Shell features are gateway-config/target-type surfaces, not data-plane ops.) No reportable API addition this scan.

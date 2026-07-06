@@ -1,33 +1,31 @@
-# Amazon Bedrock AgentCore — Release Notes — captured 2026-07-05
+# Amazon Bedrock AgentCore — Release Notes — captured 2026-07-06
 # SOURCE FIX: configured source .../devguide/doc-history.html has failed to render for months
 # (recurring error since 2026-05-18). This scan used .../devguide/release-notes.html, which
 # renders fully. RECOMMEND updating sources.json AgentCore changelog URL to release-notes.html.
-# Baseline below rewritten from release-notes.html full content.
+# release-notes.html still tops out at June 2026 this scan (no July 2026 section yet).
 
 ## June 2026
-- Runtime: Increased default service quotas (5,000 active sessions us-east-1/us-west-2; 200 TPS InvokeAgentRuntime; 400 TPM container sessions). [limit bump — NOT reportable; quota increase posted July 1, 2026 per AWS What's New]
-- **Web Search Tool — GA** [NEW, REPORTED 2026-07-05, AISPM HIGH]. Managed tool grounding agents in live web with zero data egress; built-in MCP connector target on Gateway. Announced AWS Summit NY June 17, 2026. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/web-search.html
-- **Managed Knowledge Base — GA** [NEW, REPORTED 2026-07-05, AISPM HIGH]. Fully managed RAG KB queryable via Gateway (pre-built target type); six native connectors (S3, SharePoint, Confluence, Google Drive, OneDrive, Web Crawler); managed vector storage; hybrid + multimodal retrieval. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/knowledge-base.html
-- **AgentCore Policy — Bedrock Guardrails support** [NEW, REPORTED 2026-07-05, AIRT MEDIUM]. Guardrails evaluate agent-action outputs + gateway-target inputs (prompt injection, harmful content, sensitive data) at the gateway layer, outside agent code. Distinct from prior Cedar Policy. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-guardrails.html
-- **Gateway: HTTP passthrough targets / Inference targets / Runtime-agent targets (GA)** [NEW, REPORTED 2026-07-05, AISPM MEDIUM]. New connector/target classes: passthrough (front APIs, external MCP servers, A2A agents, custom inference endpoints); inference (model providers, per-model token limits); runtime-agent targets GA (direct to runtime agent). Sources: gateway-target-http-passthrough.html, gateway-target-inference-connector.html, gateway-target-http-runtime.html
-- **Runtime: Interactive Shells (Terminals)** [NEW, REPORTED 2026-07-05, AIRT MEDIUM]. Persistent stateful shell sessions (env/cwd/processes persist; up to 10 per runtime session). Distinct from one-shot InvokeAgentRuntimeCommand. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-command-shell.html
-- AgentCore Harness — GA [already reported 05-21; GA confirmed 07-04]. Built-in memory, LiteLLM/Bedrock Mantle providers, AWS skills catalog, evals+optimization, versioning/endpoints, Strands export.
-- Recommendations / Batch Evaluations / A-B Testing — GA (Optimization) [already reported 05-18/05-21].
+- Runtime: Increased default service quotas (5,000 active sessions us-east-1/us-west-2; 200 TPS InvokeAgentRuntime; 400 TPM container sessions). [limit bump — NOT reportable]
+- **Web Search Tool — GA** [reported 2026-07-05, AISPM HIGH]. Managed tool grounding agents in live web with zero data egress; built-in MCP connector target on Gateway. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/web-search.html
+- **Managed Knowledge Base — GA** [reported 2026-07-05, AISPM HIGH]. Fully managed RAG KB queryable via Gateway (pre-built target type); six native connectors (S3, SharePoint, Confluence, Google Drive, OneDrive, Web Crawler); managed vector storage; hybrid + multimodal retrieval. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/knowledge-base.html
+- **AgentCore Policy — Bedrock Guardrails support** [reported 2026-07-05, AIRT MEDIUM]. Guardrails evaluate agent-action outputs + gateway-target inputs at the gateway layer, outside agent code. Distinct from prior Cedar Policy. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-guardrails.html
+- **Gateway: HTTP passthrough / Inference / Runtime-agent targets (GA)** [reported 2026-07-05, AISPM MEDIUM]. New connector/target classes: passthrough (front APIs, external MCP servers, A2A agents, custom inference endpoints); inference (model providers, per-model token limits); runtime-agent targets GA. Sources: gateway-target-http-passthrough.html, gateway-target-inference-connector.html, gateway-target-http-runtime.html
+- **Runtime: Interactive Shells (Terminals)** [reported 2026-07-05, AIRT MEDIUM]. Persistent stateful shell sessions (env/cwd/processes persist; up to 10 per runtime session). Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-command-shell.html
+- AgentCore Harness — GA [reported 05-21; GA confirmed 07-04]. Built-in memory, LiteLLM/Bedrock Mantle providers, AWS skills catalog, evals+optimization, versioning/endpoints, Strands export.
+- Recommendations / Batch Evaluations / A-B Testing — GA (Optimization) [reported 05-18/05-21].
 - Gateway: Enforce inbound traffic from the gateway (SourceArn / allowedWorkloadConfiguration) [security control, below bar].
-- Failure Insights — public preview [below bar; AWS-side observability mining agent traces for failure patterns]. optimization-insights.html
-- Step Functions ↔ AgentCore harness native integration [below bar; new orchestration/invocation path]. harness-step-functions.html
+- Failure Insights — public preview [below bar]. optimization-insights.html
+- Step Functions <-> AgentCore harness native integration [below bar]. harness-step-functions.html
 - AgentCore achieves SOC 1/2/3 compliance [compliance, not reportable].
 - Identity: reference existing AWS Secrets Manager secret ARNs in Credential Providers [below bar].
-- AgentCore CLI (v0.19.0) + CDK: Payments support [Payments SERVICE already reported 05-18/05-21; this is CLI/CDK GA tooling — not new].
+- AgentCore CLI (v0.19.0) + CDK: Payments support [Payments SERVICE already reported 05-18/05-21; CLI/CDK GA tooling — not new].
 
-## May 2026 [captured via release-notes this scan; predate the 05-18/05-21 scans' coverage of Payments/Harness/Registry/Policy — noted for baseline]
-- CDK AgentCore L2 constructs graduate to stable; Gateway MCP Sessions; Gateway Response Streaming (SSE); Gateway Elicitation Pass-Through; Gateway Sampling Messages; Gateway Progress/Logging Notifications; Harness + Runtime BYO filesystem (S3 Files / EFS); Agent Performance Loop (Optimization/Batch Eval/User Simulation); GovCloud (US-West) GA; AgentCore Payments (preview) [reported 05-18/05-21]; Runtime Custom Header Passthrough.
+## May 2026 [baseline via release-notes]
+- CDK AgentCore L2 constructs stable; Gateway MCP Sessions; Gateway Response Streaming (SSE); Gateway Elicitation Pass-Through; Gateway Sampling Messages; Gateway Progress/Logging Notifications; Harness + Runtime BYO filesystem (S3 Files / EFS); Agent Performance Loop (Optimization/Batch Eval/User Simulation); GovCloud (US-West) GA; AgentCore Payments (preview); Runtime Custom Header Passthrough. [reported 05-18/05-21]
 
-## April 2026 [reported in prior scans where applicable]
-- VPC egress (Identity/Gateway/Runtime); Node.js direct code deploy; Optimization loop preview; Identity OBO token exchange; São Paulo/Canada region expansion; Memory metadata filtering; Harness preview; AgentCore MCP Server in awslabs/mcp; CLI Agent Inspector; AgentCore Registry preview [reported 05-21]; cross-account observability; Browser OS-level interaction (InvokeBrowser, reported 05-18); Gateway 3LO GA; LangChain Deep Agents + AG-UI/CopilotKit partnerships.
+## April 2026 [reported in prior scans]
+- VPC egress (Identity/Gateway/Runtime); Node.js direct code deploy; Optimization loop preview; Identity OBO token exchange; São Paulo/Canada region expansion; Memory metadata filtering; Harness preview; AgentCore MCP Server in awslabs/mcp; CLI Agent Inspector; AgentCore Registry preview; cross-account observability; Browser OS-level interaction (InvokeBrowser); Gateway 3LO GA; LangChain Deep Agents + AG-UI/CopilotKit partnerships.
 
 ## March–Jul 2025 [older, cached]: Evaluations GA; Policy GA (Cedar); CLI GA; PrivateLink; Stateful MCP in Runtime; AG-UI protocol; Payments concepts; Web Bot Auth; MCP servers as Gateway targets; GA (Oct 2025); initial preview (Jul 2025).
 
-# API reference (data-plane, API_Operations.html) — byte-identical to cache: Memory (Batch*/Get/List/Delete/Retrieve/StartMemoryExtractionJob), ABTest (Create/Get/List/Update/Delete), BatchEvaluation, Recommendation, Payment (Instrument/Session/ProcessPayment/GetResourcePaymentToken), Browser/CodeInterpreter sessions, InvokeAgentRuntime(+Command), InvokeBrowser, InvokeHarness, SearchRegistryRecords, workload tokens. No new data-plane ops (new KB/WebSearch/Guardrails/gateway-target features are gateway-config/target-type surfaces, not data-plane ops).
-
-Updated: 2026-07-05 — Switched to release-notes.html (renders fully). NEW-to-cache June 2026 items reported: Managed Knowledge Base GA, Web Search Tool GA, Policy+Bedrock Guardrails, new Gateway target types, Runtime Interactive Shells. Harness/Optimization/Payments already reported. Doc-history.html still not rendering — recommend sources.json switch.
+Updated: 2026-07-06 — release-notes.html still tops at June 2026; NO new entries since the 2026-07-05 scan (all June 2026 items already captured/reported). No July 2026 section published yet. API_Operations.html byte-identical to cache (no new data-plane ops). Doc-history.html still not rendering — recommend sources.json switch. No reportable addition this scan.

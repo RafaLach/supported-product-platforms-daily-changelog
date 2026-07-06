@@ -1,61 +1,25 @@
-# Vertex AI API Reference
+# Vertex AI API Reference — captured 2026-07-06
+# NOTE: cloud.google.com/vertex-ai/docs/reference 301-redirects to docs.cloud.google.com/...
+# Reference now presents under "Gemini Enterprise Agent Platform" branding.
 
-## API Structure
-Reference index/navigation page for Vertex AI APIs. Contains no dated changelog entries.
+## NEW this scan (vs. 2026-04-06 cache) — first-class agent + governance surfaces:
+- **Agents API** (v1beta1): projects.locations.agents with create/list/get/patch/delete — first-class agent resource beyond generic model endpoints. [SIGNIFICANT]
+- **Agent Studio** — visual agent builder (docs component).
+- **Semantic Governance Policies + Policy Engines** — AI safety/compliance policy resources. [SIGNIFICANT]
+- **Reasoning Engines** now expose query, asyncQuery, streamQuery + Sessions (stateful interactions) + runtime revisions.
 
-## Key API Resources
-- REST API endpoints (v1 and v1beta1 versions)
-- SDK references (Python, Go, Node.js, Java, C#)
-- gcloud CLI references (ai and beta ai commands)
-- Resource categories: datasets, models, endpoints, training pipelines, feature stores
-- Model deployment and prediction services
-- Feature management (feature stores, online stores, feature groups)
-- Training and tuning jobs
-- Metadata stores and artifact management
-- RAG (Retrieval-Augmented Generation) operations
-- Reasoning Engines with Sandbox Environments
-- Example Stores for retrieval
-- Extensions for custom functionality
-- Specialist pools for annotation work
-- Synthetic data generation
-
-## Additional Resources (refreshed 2026-04-06)
-- Batch Prediction Jobs
-- Cached Contents
-- Custom Jobs
-- Datasets & Data Items
-- Deployment Resource Pools
-- Endpoints (predict, explain, deploy models)
-- Feature Groups & Feature Online Stores
-- Hyperparameter Tuning Jobs
-- Index Endpoints & Indexes
-- Metadata Stores
-- Model Deployment Monitoring
-- Models & Model Evaluations
-- NAS Jobs and Trial Details
-- Notebook Execution & Runtime Management
-- Persistent Resources
-- Pipeline Jobs
-- RAG Corpora & RAG Files
-- Reasoning Engines
-- Schedules
-- Specialist Pools
-- Studies & Trials
-- Tensorboards
-- Training Pipelines
-- Tuning Jobs
-- Publisher Models (publishers.models with predict and embed methods)
-- serverStreamingPredict and streamRawPredict operations
-- directPredict, directRawPredict methods
-- embedContent for embedding generation
-- retrieveContexts and asyncRetrieveContexts for RAG
-- fetchFeatureValues for feature retrieval
-- searchNearestEntities for vector search
-- Long-running operations management
-- Media upload functionality
-- Prompt augmentation and corroboration
-- Instance evaluation
-- Dataset assessment and assembly
+## Core API Resources (cached, still present)
+- REST v1 / v1beta1; SDK refs (Python, Go, Node.js, Java, C#); gcloud ai / beta ai.
+- Publishers.models (generateContent, countTokens, embed, predict, streaming).
+- Endpoints (generateContent, predict, explain, deploy, streaming).
+- RAG Corpora & RAG Files; retrieveContexts / asyncRetrieveContexts; RAG Engine Config.
+- Cached Contents; Feature Stores / Groups / Online Stores; fetchFeatureValues.
+- Metadata Stores (artifacts, contexts, executions).
+- Pipeline Jobs, Custom Jobs, Training Pipelines, Tuning Jobs, Batch Prediction Jobs, Hyperparameter Tuning Jobs.
+- Datasets & Data Items; Index Endpoints & Indexes; searchNearestEntities (vector search).
+- Deployment Resource Pools; Persistent Resources; Schedules; Specialist Pools; Studies & Trials; Tensorboards.
+- Notebook Execution & Runtime Management; Model Deployment Monitoring; Model Evaluations.
+- Long-running operations; media upload; prompt augmentation & corroboration; instance evaluation.
 
 ## Last Fetched
-2026-04-06
+2026-07-06 — Agents API, Agent Studio, and Semantic Governance Policy Engines are new API surfaces vs. the April cache (SIGNIFICANT, reported).

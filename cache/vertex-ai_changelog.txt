@@ -1,18 +1,17 @@
-# Vertex AI Release Notes — captured 2026-07-05
+# Vertex AI Release Notes — captured 2026-07-06
 # NOTE: cloud.google.com/vertex-ai/docs/release-notes 301-redirects to
-# docs.cloud.google.com/vertex-ai/docs/release-notes. Prior cache was stale (April 2026);
-# refreshed this scan. Secondary tier — report significant new additions only.
+# docs.cloud.google.com/vertex-ai/docs/release-notes. Secondary tier — report significant new additions only.
 
-## June 30, 2026 [top dated entry]
-- Agent Platform Workbench — Python 3.12 base containers for custom containers (standard + slim URIs). [version bump — below bar]
+## June 30, 2026 [top dated entry — unchanged since last scan]
+- Agent Platform Workbench — Python 3.12 base containers for custom containers (alongside 3.10). [version bump — below bar]
 
 ## May 26, 2026
-- Colab Enterprise — Data Science Agent reached GA (automates EDA, ML tasks, insights). [PRE-EXISTING: present before the last several scans; not new this cycle — NOT reported]
+- Colab Enterprise — Data Science Agent GA (automates EDA, ML tasks). [PRE-EXISTING; not new this cycle]
 - Vertex AI Extensions deprecation announced; shutdown Nov 26, 2026; migrate to Agent Platform. [deprecation — not reportable]
 
 ## April 2026 [cached]
-- RAG Cross Corpus Retrieval (public preview); Claude Opus 4.7 in Model Garden; Visualization cells GA; SQL cells GA; Schema-based metadata filtering (RAG Engine); Gemma 4 26B; RAG Engine Serverless Mode (preview); Veo 3.1 Lite; Virtual Try-On GA.
+- RAG Cross Corpus Retrieval (public preview, Apr 17); Claude Opus 4.7 in Model Garden (Apr 14); Visualization cells GA (Apr 13); SQL cells GA (Apr 10); RAG Engine schema-based metadata filtering (Apr 6).
 
-## Earlier (cached): Lyria 3 audio; Vector Search 2.0 GA; Gemini 3.1 Pro/Flash/Flash-Lite; Vertex AI Agent Engine Code Execution GA (Feb 18); Claude Sonnet 4.6 / Opus 4.6 partner models; GLM 5.
+## Earlier (cached): Lyria 3 audio; Vector Search 2.0 GA; Gemini 3.1 Pro/Flash/Flash-Lite; Agent Engine Code Execution GA (Feb 18); Claude Sonnet 4.6 / Opus 4.6; GLM 5; Gemma 4 26B; Veo 3.1 Lite; Virtual Try-On GA; RAG Engine Serverless Mode (preview).
 
-Updated: 2026-07-05 — Secondary tier. Top release-note entry is June 30 (Python 3.12 base containers, version bump — below bar). Data Science Agent GA (May 26) and Vertex AI Extensions deprecation (May 26) predate the last several scans; not new this cycle. No reportable addition. (Refreshed stale April cache.)
+Updated: 2026-07-06 — Secondary tier. Top release-note entry still June 30 (Python 3.12 base containers, version bump — below bar). No new dated entries since last scan. No reportable addition from changelog. (NOTE: the API/docs reference pages this scan reveal a new "Gemini Enterprise Agent Platform" branding with first-class Agents API + Agent Studio + Semantic Governance — see vertex-ai_api.txt; these are surfaced from the reference, not the changelog.)

@@ -1,9 +1,10 @@
-# ServiceNow Release Notes — captured 2026-07-04
+# ServiceNow Release Notes — captured 2026-07-06
 
 ## Australia release family (release-notes page "Updated June 16, 2026")
-Built on the ServiceNow AI Platform. Latest incremental update: **Australia Patch 3**.
+Built on the ServiceNow AI Platform. Latest incremental update: Australia Patch 3 (unchanged this scan).
 
 ### Agentic AI features in Australia release [already cached, not net-new]:
 - AI Desktop Actions ("Agentic Desktop"), AI Control Tower, Now Assist AI Agents (per product), Now Assist Center, Agentic Contact Center for Banking, Agentic Contact Center for Insurance, AI Agent Advisor, AI Experiences, Document Intelligence, Knowledge Graph, Predictive Intelligence.
+- Now Assist across App Engine, Creator, FSM, ITSM, LSD, Employee Center Pro.
 
-Updated: 2026-07-04 — Secondary tier. Still the Australia family; latest is Patch 3 (a patch). This scan the family-release-notes page also surfaced "Agentic Contact Center for Insurance" alongside the already-cached "for Banking" — a sibling industry variant of an existing agentic product, no distinct new release date, treated as part of the existing Australia portfolio (below bar). No confirmed net-new AI feature this scan.
+Updated: 2026-07-06 — Secondary tier. Still Australia family, still "Updated June 16, 2026", latest = Patch 3 (a patch). All listed agentic features (incl. Agentic Contact Center for Insurance, previously noted) are already cached; page shows no distinct new dated AI feature. No confirmed net-new AI feature this scan.

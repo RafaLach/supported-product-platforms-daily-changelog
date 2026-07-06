@@ -1,9 +1,12 @@
-# Power Apps Released Versions — captured 2026-07-04
+# Power Apps Released Versions — captured 2026-07-06
 Source: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps
 Source ms.date: 2026-06-19 / updated_at 2026-06-22
 
 ## Analyst note
-Weekly release-train version advancement only. Summary tables list version numbers + dates, with no per-version feature callouts. Page has NOT advanced since last capture (still updated_at 2026-06-22; latest Studio 3.26064, Make 26062, UI 9.2 25084 Preview). No AI/agent/Copilot feature at the summary level. Below reporting bar. Per-version detail pages not fetched (not in the assigned source list).
+Weekly release-train version advancement only. Summary tables list version numbers + dates, with no
+per-version feature callouts. Page has NOT advanced since last capture (still updated_at 2026-06-22;
+latest Studio 3.26064, Make 26062, UI 9.2 25084 Preview). No AI/agent/Copilot feature at the summary
+level. Below reporting bar. Per-version detail pages not fetched (not in the assigned source list).
 
 ## Latest version availability
 | Region | Unified Interface | Power Apps Studio/Mobile | Make.PowerApps.com |
@@ -20,7 +23,6 @@ Weekly release-train version advancement only. Summary tables list version numbe
 - 3.26063 — Jun 15, 2026 (worldwide Jul 06, 2026)
 - 3.26062 — Jun 08, 2026 (worldwide Jun 29, 2026)
 - 3.26061 — Jun 01, 2026 (worldwide Jun 22, 2026)
-- 3.26054 — May 26, 2026 (worldwide Jun 15, 2026)
 
 ## Recent Make.PowerApps.com versions
 - 26062 — Jun 17, 2026 (worldwide Jul 01, 2026)      <- latest
@@ -32,4 +34,4 @@ Weekly release-train version advancement only. Summary tables list version numbe
 - 9.2 25084 — Aug 29, 2025 (current Preview US)
 
 Page last updated: 2026-06-22
-Updated: 2026-07-04 — No new versions or feature callouts since last capture. No reportable addition.
+Updated: 2026-07-06 — No new versions or feature callouts since last capture. No reportable addition.

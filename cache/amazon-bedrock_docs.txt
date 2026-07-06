@@ -1,10 +1,10 @@
-# Amazon Bedrock Overview — captured 2026-07-04
+# Amazon Bedrock Overview — captured 2026-07-06
 
 ## What's New (newest at top)
-- **OpenAI GPT-5.5 and GPT-5.4 now available in Amazon Bedrock** (in prior cache): frontier models for complex work, agentic coding, reasoning, long-running tasks; via Responses API.
-- **Claude Opus 4.7 now available** (in prior cache).
-- **Claude Mythos Preview (Gated Research Preview)** (in prior cache): state-of-the-art cybersecurity/coding/reasoning; gated preview US East (N. Virginia).
-- **Cost allocation by IAM user and role** (in prior cache): CUR 2.0 + Cost Explorer attribution across users/teams/projects.
+- **OpenAI GPT-5.5 and GPT-5.4 now available in Amazon Bedrock** (cached): frontier models for complex work, agentic coding, reasoning, long-running tasks; via Responses API.
+- **Claude Opus 4.7 now available** (cached).
+- **Claude Mythos Preview (Gated Research Preview)** (cached): state-of-the-art cybersecurity/coding/reasoning; gated preview US East (N. Virginia).
+- **Cost allocation by IAM user and role** (cached): CUR 2.0 + Cost Explorer attribution across users/teams/projects.
 
 ## Supported APIs
 1. Messages API (Anthropic) — anthropic.claude-opus-4-7
@@ -19,4 +19,4 @@ Featured: Amazon Nova, Claude (Anthropic), DeepSeek, Kimi (Moonshot AI), MiniMax
 ## Key Capabilities
 Model Inference; Model Customization; Enterprise Security; Flexible APIs; Server-side Tools
 
-Updated: 2026-07-04 — What's New list unchanged since prior (2026-07-03) scan (GPT-5.5/5.4, Opus 4.7, Mythos preview, IAM cost allocation all already cached). No reportable addition.
+Updated: 2026-07-06 — What's New list unchanged since prior scan (GPT-5.5/5.4, Opus 4.7, Mythos preview, IAM cost allocation all already cached). No reportable addition.

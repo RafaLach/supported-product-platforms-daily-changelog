@@ -1,4 +1,4 @@
-# Amazon Q Developer User Guide - Document History — captured 2026-07-04
+# Amazon Q Developer User Guide - Document History — captured 2026-07-06
 
 ## Topmost entries [unchanged since prior scan]
 - Updated managed policies AmazonQFullAccess/AmazonQDeveloperAccess — added q:CreateArtifact, q:GetArtifact, q:GetArtifactActionResult, q:PerformArtifactAction for Amazon Q artifacts (preview). (May 21, 2026)
@@ -6,4 +6,4 @@
 - Account limit for subscriptions raised to 20/region/org (Feb 18, 2026).
 - Deprecated code transformation for GitLab (Jan 16, 2026).
 
-Updated: 2026-07-04 — No new doc-history entries since prior scan; still tops at May 21, 2026 (Q artifacts permissions, already cached). No reportable addition.
+Updated: 2026-07-06 — No new doc-history entries since prior scan; still tops at May 21, 2026 (Q artifacts permissions, already cached). No reportable addition.

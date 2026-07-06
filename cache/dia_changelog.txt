@@ -1,8 +1,8 @@
-# Dia Browser Release Notes — captured 2026-07-04
+# Dia Browser Release Notes — captured 2026-07-06
 
-**Visible items ("Dia Weekly" newsletter format — titles/dates only; Issue No. & App Version often render as placeholder/dummy text):**
+**Visible items ("Dia Weekly" newsletter format — titles/dates only; Issue No. & App Version render as placeholder/dummy digit-string text):**
 
-1. July 2, 2026 — "Closing out the week with Dia" (placeholder app version/issue no. — dummy text; no extractable feature detail)
+1. July 2, 2026 — "Closing out the week with Dia" (Issue No. / App Version = dummy digit placeholder; no extractable feature detail)
 2. Jun 25, '26 — No. 030, v1.37.0 — "What we're building, unfiltered"
 3. Jun 18, '26 — No. 029, v1.36 — "Stash your PiP out of the way" (Picture-in-Picture placement — minor UI)
 4. Jun 8, '26 — No. 028, v1.34.1 — "The week in Pittsburgh"
@@ -11,4 +11,4 @@
 **Note:** Index exposes only titles/dates; feature text lives behind per-issue links. Recent named features (PiP placement) are minor UI. No agent/automation capability detail extractable.
 
 ## Last Fetched
-2026-07-04 — Jul 2 issue title now resolves ("Closing out the week with Dia") but app version/issue no. still placeholder text; no extractable feature detail. Newsletter format only; no agent/automation capability. Below watching-tier bar. No coverage finding.
+2026-07-06 — No new issue since prior scan (top still Jul 2). App version/issue no. still placeholder text; no extractable feature detail. Newsletter format only; no agent/automation capability. Below watching-tier bar. No coverage finding.

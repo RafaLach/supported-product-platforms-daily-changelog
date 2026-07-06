@@ -1,8 +1,8 @@
-# OpenAI Node SDK Releases — captured 2026-07-04
+# OpenAI Node SDK Releases — captured 2026-07-06
 
 ## Latest Releases
 
-**v6.45.0** (June 24, 2026) — Realtime API "sideband call_id connections"; Responses API input-items helper + stream accumulator helper; Tool runner afterCompletion hook. [Reported prior scan: new Realtime sideband connection surface + Responses/tool-runner helpers. Still newest — no releases newer than v6.45.0 as of this scan.]
+**v6.45.0** (June 24, 2026) — Realtime API "sideband call_id connections"; Responses API input-items helper + stream accumulator helper; Tool runner afterCompletion hook. [Reported prior scan. Still newest — no releases newer than v6.45.0 as of this scan.]
 **v6.44.0** (June 17, 2026) — OpenAPI spec updates only. Minor.
 **v6.43.0** (June 16, 2026) — Repo infra (pnpm migration, branch defaults). Not reportable.
 **v6.42.0** (June 3, 2026) — responses.moderation and chat_completions.moderation added.
@@ -13,4 +13,4 @@
 **v6.38.0** (May 13, 2026) — service_tier on responses compact.
 **v6.37.0** (May 7, 2026) — quantity field in admin usage; realtime 2 + web search expanded.
 
-Updated: 2026-07-04 — No new Node SDK releases since prior scan; v6.45.0 remains newest. Nothing reportable.
+Updated: 2026-07-06 — No new Node SDK releases since prior scan; v6.45.0 remains newest. Nothing reportable.

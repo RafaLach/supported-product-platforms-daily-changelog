@@ -1,12 +1,16 @@
-# Agentforce / GenAI Reference Index — captured 2026-07-04
+# Agentforce / GenAI Reference Index — captured 2026-07-06
 
 APIs: Agent API, Models API (Apex + REST), Testing API, Citations API, Metadata API, Tooling API.
 SDKs: Agentforce Python SDK, Agentforce Mobile SDK (iOS/Android).
-Other: Agent Script (agent-building language), Agentforce DX (pro-code), Lightning Types Reference (custom UI for agent actions), Metadata Types, Tooling Objects.
+Other: Agent Script (agent-building language, now GA), Agentforce DX (pro-code),
+Lightning Types Reference (custom UI for agent actions), Metadata Types, Tooling Objects.
 
-No dated/new releases on this reference index page.
+No dated/new APIs on the reference index page itself. Summer '26 (via WebSearch):
+Agent2Agent (A2A) open-protocol support for delegating to third-party agents;
+API v67.0 defaults SOQL/SOSL/DML to user mode + Apex "with sharing".
 
 ## Last Fetched
+2026-07-06 - No new API/reference types on page. A2A protocol + v67.0 noted via search.
 2026-07-04 - No changes detected from previous fetch.
 2026-07-03 - No changes detected from previous fetch.
 2026-06-16 - No changes detected from previous fetch.
