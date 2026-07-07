@@ -1,4 +1,4 @@
-# Power Pages Release Updates — captured 2026-07-06
+# Power Pages Release Updates — captured 2026-07-07
 # (ms.date 2023-03-21; updated_at 2025-05-12; stale pointer page)
 # Source: https://learn.microsoft.com/en-us/power-pages/release-updates
 
@@ -6,5 +6,5 @@ The Release Updates page points to release-wave plans (2022/2023 waves) and a pr
 components (Web Apps, Traffic Manager, Service Bus, Key Vault, Storage, Entra ID); it carries no recent
 dated feature entries.
 
-Updated: 2026-07-06 — No dated AI/agent feature additions on this page (unchanged since cache;
+Updated: 2026-07-07 — No dated AI/agent feature additions on this page (unchanged since cache;
 updated_at still 2025-05-12). No reportable addition.

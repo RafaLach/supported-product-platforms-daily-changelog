@@ -5,4 +5,4 @@ Top doc categories: Agent, Rules, MCP (Model Context Protocol), Skills, CLI.
 Page exposes only section headers/titles; no changelog or dated content on the index. (Mobile app, cloud subagents, team MCP marketplace, Customize page surfaced via changelog — see cursor_changelog.txt.)
 
 ## Last Fetched
-2026-07-06 — Sections unchanged (Agent, Rules, MCP, Skills, CLI). No new capability visible on docs index itself; new capabilities tracked via changelog.
+2026-07-07 — Sections unchanged (Agent, Rules, MCP, Skills, CLI). No new capability visible on docs index itself; new capabilities tracked via changelog.

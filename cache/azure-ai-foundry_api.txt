@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference (redirects to /azure/foundry/openai/reference)
-Fetched: 2026-07-06
+Fetched: 2026-07-07
 Page: ms.date 2026-05-19; updated_at 2026-06-24
 
 # Azure OpenAI REST API Reference (image & audio, 2024-10-21 GA)
@@ -22,5 +22,6 @@ GA data plane inference spec documented: 2024-10-21.
 - New preview inference API (v1 preview) — see API lifecycle guide.
 - Authentication: API Key (api-key header), Microsoft Entra ID (Bearer token).
 
-Updated: 2026-07-06 — Same API version table as prior cache (Control plane 2025-07-01-preview /
-2025-06-01 GA; Data plane v1 preview / v1 GA). No new endpoints or operations. No reportable addition.
+Updated: 2026-07-07 — Same API version table as prior cache (Control plane 2025-07-01-preview /
+2025-06-01 GA; Data plane v1 preview / v1 GA; updated_at still 2026-06-24). No new endpoints or
+operations. No reportable addition.

@@ -1,4 +1,4 @@
-# Amazon Bedrock User Guide - Document History — captured 2026-07-06
+# Amazon Bedrock User Guide - Document History — captured 2026-07-07
 
 **Latest documentation-update banner:** November 26th, 2025; newest dated rows June 30, 2026.
 
@@ -13,4 +13,4 @@
 - Fine-tuning open-weight models via OpenAI-compatible APIs (Feb 17, 2026) — [earlier scan]
 - (older: Bedrock Mantle OpenAI-compatible endpoints/managed policies Dec 3 2025, reinforcement fine-tuning, service tiers — earlier scans)
 
-Updated: 2026-07-06 — No net-new doc-history row since prior scan. Top remains June 30 Agents Classic maintenance-mode (deprecation, not reportable). Older feature rows already captured in earlier scans. No reportable addition.
+Updated: 2026-07-07 — No net-new doc-history row since prior scan. Top remains June 30 Agents Classic maintenance-mode (deprecation, not reportable). Older feature rows already captured in earlier scans. No reportable addition.

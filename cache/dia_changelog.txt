@@ -1,4 +1,4 @@
-# Dia Browser Release Notes — captured 2026-07-06
+# Dia Browser Release Notes — captured 2026-07-07
 
 **Visible items ("Dia Weekly" newsletter format — titles/dates only; Issue No. & App Version render as placeholder/dummy digit-string text):**
 
@@ -11,4 +11,4 @@
 **Note:** Index exposes only titles/dates; feature text lives behind per-issue links. Recent named features (PiP placement) are minor UI. No agent/automation capability detail extractable.
 
 ## Last Fetched
-2026-07-06 — No new issue since prior scan (top still Jul 2). App version/issue no. still placeholder text; no extractable feature detail. Newsletter format only; no agent/automation capability. Below watching-tier bar. No coverage finding.
+2026-07-07 — No new issue since prior scan (top still Jul 2). App version/issue no. still placeholder text; no extractable feature detail. Newsletter format only; no agent/automation capability. Below watching-tier bar. No coverage finding.

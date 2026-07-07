@@ -1,15 +1,21 @@
-# Agentforce Developer Guide — captured 2026-07-06
+# Agentforce Developer Guide — captured 2026-07-07
 
 **Terminology Change (April 2026)**
 - Agent "topics" are now called "subagents" (naming only, no functionality change).
 
 Page is primarily navigation + overview (client-side rendered); no dated release
 notes surfaced directly on the page. Substantive Summer '26 content confirmed via
-WebSearch (see announcements cache): Multi-Agent Orchestration GA (Jun 15 2026),
+WebSearch (announcements cache): Multi-Agent Orchestration GA (Jun 15 2026),
 Atlas Reasoning Engine 3.0, Agent2Agent (A2A) protocol support, Agentforce Builder
-+ Agent Script now GA, "Create Agent" element in Flow Builder.
++ Agent Script now GA, "Create Agent" element in Flow Builder. [REPORTED 2026-07-06]
+
+New since 2026-07-06 (via announcements; not on this page body):
+- Agentforce Commerce GA (Shopper/Buyer/Merchant agents) + ChatGPT/Google/Gemini
+  native integration. [REPORTED 2026-07-07]
+- Agentforce Help Agent + Customer Service Portal GA. [REPORTED 2026-07-07]
 
 ## Last Fetched
+2026-07-07 - Page body unchanged (only April 2026 subagents rename). New GA items tracked in announcements cache.
 2026-07-06 - Page body unchanged (only April 2026 subagents rename). Summer '26 features tracked in announcements cache.
 2026-07-04 - No new content beyond previous fetch (only April 2026 topics→subagents rename present).
 2026-07-03 - No new content beyond previous fetch.

@@ -1,13 +1,18 @@
-# Einstein GenAI Reference Index — captured 2026-07-06
+# Einstein GenAI Reference Index — captured 2026-07-07
 
 APIs: Agent API, Models API (Apex + REST), Testing API, Citations API, Metadata API, Tooling API.
 SDKs: Agentforce Python SDK, Agentforce Mobile SDK (iOS/Android).
 Other: Agent Script, Agentforce DX, Lightning Types Reference, Metadata Types, Tooling Objects.
 
 No dated/new APIs on this reference index page. (Same reference surface as Agentforce
-references index.) Summer '26 additions (via search): A2A protocol support, API v67.0.
+references index.) Summer '26 additions (via search): A2A protocol support, API v67.0,
+Named Query API GA, Agent Builder API, Salesforce-hosted MCP servers GA. [REPORTED 2026-07-06]
+
+New since 2026-07-06: Agentforce Commerce agents GA with ChatGPT catalog sync + Google/Gemini
+integration (via announcements, not on this page). [REPORTED 2026-07-07]
 
 ## Last Fetched
+2026-07-07 - No changes from previous fetch on page.
 2026-07-06 - No changes from previous fetch on page.
 2026-07-04 - No changes from previous fetch.
 2026-07-03 - No changes from previous fetch.

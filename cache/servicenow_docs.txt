@@ -1,4 +1,4 @@
-# ServiceNow Release Notes and Updates — captured 2026-07-06
+# ServiceNow Release Notes and Updates — captured 2026-07-07
 
 ## Main Release Categories
 - New Features; Prepare for Upgrade; Available Versions.
@@ -7,6 +7,9 @@
 - Family Release Notes (general); Zurich; Yokohama; Xanadu; Washington DC.
 - (Australia is current latest family per the dedicated family-release-notes page.)
 
+## AI feature links visible in docs hub (all PRE-EXISTING / already cached):
+- ServiceNow AI Lens (predates Australia — Yokohama/Zurich), Generative AI Controller, AI Control Tower, AI Agent Advisor, AI Experiences, AI Desktop Actions, Document Intelligence, Knowledge Graph. Docs page links to these RNs but shows no feature detail and no net-new item.
+
 ## Additional Release Information
 - ServiceNow Store release notes; Mobile Apps release notes; Out-of-Box (OOB) release notes.
 
@@ -14,4 +17,4 @@
 Docs homepage is a navigation hub — links to detailed release docs rather than displaying feature detail. No new features, AI agents, Now Assist skills, APIs, services, or entity types visible in the page content this scan.
 
 ## Last Fetched
-2026-07-06 — Navigation-only content, unchanged from prior scans (Zurich/Yokohama/Xanadu/Washington DC links visible; Australia latest per changelog page). No reportable addition.
+2026-07-07 — Navigation-only content, unchanged from prior scans (Zurich/Yokohama/Xanadu/Washington DC links visible; Australia latest per changelog page). No reportable addition.

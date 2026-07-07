@@ -1,13 +1,14 @@
-# Vertex AI Documentation — captured 2026-07-06
+# Vertex AI Documentation — captured 2026-07-07
 # NOTE: cloud.google.com/vertex-ai/docs 301-redirects to docs.cloud.google.com/vertex-ai/docs
-# Docs now organized under "Gemini Enterprise Agent Platform" framing.
+# Docs organized under "Gemini Enterprise Agent Platform" framing.
+# (gemini-enterprise-agent-platform/docs path returns 404 direct; content served via /vertex-ai/docs.)
 
-## NEW this scan (vs. 2026-04-06 cache) — agent-centric components:
+## Agent-centric components [REPORTED 2026-07-06 — still present, no new components this scan]:
 - **Agent Studio** (visual agent builder).
-- **Agents** (autonomous agent capabilities as a first-class component).
+- **Agents** (autonomous agent capabilities, first-class component); Agent Platform SDK (Python/Go/Java/Node.js/C#).
 - **Reasoning Engines** with session management + bidirectional streaming / async query.
-- **Semantic Governance policy engines** (AI safety/compliance).
-- RAG configuration with file-transformation pipelines; content corroboration + prompt augmentation.
+- **Semantic Governance Policy Engine** (SemanticGovernancePolicyEngine — policy-based control over agent behavior).
+- RAG Engine Config with file-transformation pipelines; content corroboration + prompt augmentation.
 
 ## Core Capabilities (cached)
 - Gemini (multimodal generative AI); Generative AI access + Model Garden; training + MLOps.
@@ -19,4 +20,4 @@
 - Vector Search (1.0 / 2.0); Neural Architecture Search; Ray on Vertex AI; dedicated/private endpoints; PSC; Workbench; Colab Enterprise; Jupyter; BigQuery + Cloud Storage integration; data labeling; Model Monitoring; TensorBoard; Deep Learning Containers; custom/distributed training; hyperparameter tuning; model co-hosting; Flex-Start VMs; Cloud TPU VM training; SLURM orchestration.
 
 ## Last Fetched
-2026-07-06 — Agent Studio + Agents + Semantic Governance policy engines are new components vs. April cache (consistent with API reference; SIGNIFICANT).
+2026-07-07 — Secondary tier. Agent Studio + Agents + Semantic Governance policy engine components unchanged vs. 2026-07-06 (all already reported). No new components this scan.

@@ -1,4 +1,4 @@
-# Amazon Bedrock AgentCore — Release Notes — captured 2026-07-06
+# Amazon Bedrock AgentCore — Release Notes — captured 2026-07-07
 # SOURCE FIX: configured source .../devguide/doc-history.html has failed to render for months
 # (recurring error since 2026-05-18). This scan used .../devguide/release-notes.html, which
 # renders fully. RECOMMEND updating sources.json AgentCore changelog URL to release-notes.html.
@@ -28,4 +28,4 @@
 
 ## March–Jul 2025 [older, cached]: Evaluations GA; Policy GA (Cedar); CLI GA; PrivateLink; Stateful MCP in Runtime; AG-UI protocol; Payments concepts; Web Bot Auth; MCP servers as Gateway targets; GA (Oct 2025); initial preview (Jul 2025).
 
-Updated: 2026-07-06 — release-notes.html still tops at June 2026; NO new entries since the 2026-07-05 scan (all June 2026 items already captured/reported). No July 2026 section published yet. API_Operations.html byte-identical to cache (no new data-plane ops). Doc-history.html still not rendering — recommend sources.json switch. No reportable addition this scan.
+Updated: 2026-07-07 — release-notes.html still tops at June 2026; NO new entries since the 2026-07-05 scan (all June 2026 items already captured/reported). No July 2026 section published yet. API_Operations.html byte-identical to cache (no new data-plane ops). Doc-history.html still not rendering — recommend sources.json switch. No reportable addition this scan.

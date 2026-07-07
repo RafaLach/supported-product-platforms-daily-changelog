@@ -1,4 +1,4 @@
-# Perplexity API Reference — captured 2026-07-06
+# Perplexity API Reference — captured 2026-07-07
 
 Endpoint: POST /v1/agent — response generation with optional web search + reasoning.
 Models: fallback chains up to 5 (provider/model fmt, e.g. openai/gpt-5.5, anthropic/claude-sonnet-4-6). Presets: fast-search, pro-search, deep-research.
@@ -7,4 +7,4 @@ Tools (7): web_search (domain/date filter, geolocation), finance_search, people_
 Reasoning: effort low/medium/high/xhigh/max. research loop max_steps 1-10. Streaming via SSE. Structured JSON schema output (strict). Cost/token accounting incl. cache_creation/read tokens; URL citations/annotations.
 
 ## Last Fetched
-2026-07-06 — Reference unchanged from prior scan: 7 tools incl. `mcp` remote-server connector (agent calls arbitrary remote MCP servers, auto-executes, no approval) and xhigh/max reasoning present. Still no dated changelog entry confirming these as a launch; continuing to watch the `mcp` tool as an emerging tool-execution surface, not a confirmed dated launch. Nothing new to report.
+2026-07-07 — Reference unchanged from prior scan: 7 tools incl. `mcp` remote-server connector (agent calls arbitrary remote MCP servers, auto-executes, no approval) and xhigh/max reasoning present. Still no dated changelog entry confirming these as a launch; continuing to watch the `mcp` tool as an emerging tool-execution surface, not a confirmed dated launch. Nothing new to report.

@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/power-apps/
-Fetched: 2026-07-06
+Fetched: 2026-07-07
 Page last updated: 2026-02-26 (updated_at 2026-03-03)
 
 # Microsoft Power Apps documentation
@@ -22,5 +22,5 @@ Build low-code apps that modernize processes and solve tough business challenges
 ## Use
 - Mobile devices / Web browsers / Teams (canvas & model-driven as tab / personal app)
 
-Updated: 2026-07-06 — Page unchanged since cache (last updated 2026-02-26; updated_at 2026-03-03).
+Updated: 2026-07-07 — Page unchanged since cache (last updated 2026-02-26; updated_at 2026-03-03).
 AI/copilot section list identical. No reportable addition.

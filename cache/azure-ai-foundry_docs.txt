@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/azure/ai-studio/ (redirects to /azure/foundry/)
-Fetched: 2026-07-06
+Fetched: 2026-07-07
 Page: ms.date 2026-06-16; updated_at 2026-06-26
 
 # Microsoft Foundry documentation
@@ -7,24 +7,17 @@ The AI app and agent factory - build, optimize, and govern AI apps and agents at
 
 ## Overview / Quickstarts
 - What is Microsoft Foundry? / Choose how to build
-- Quickstart: Build with models and agents
-- Quickstart: Deploy a hosted agent
+- Quickstart: Build with models and agents / Deploy a hosted agent
 
 ## Develop and integrate
-- Microsoft Foundry SDKs
-- Develop agents with the Azure Developer CLI
-- Get started with the Foundry MCP Server
-- Use the Foundry Skill in coding agents
-- Work in Visual Studio Code
+- Microsoft Foundry SDKs / Develop agents with Azure Developer CLI
+- Get started with the Foundry MCP Server / Use the Foundry Skill in coding agents / Work in VS Code
 
 ## Foundry Models
 - Foundry Models sold by Azure / Deployment types / DeepSeek-R1 / fine-tune models
 
 ## Foundry Agent Service
-- Orchestrate and host AI agents to automate business processes
-- Quickstart - Create a prompt agent
-- Quickstart - Deploy a hosted agent
-- Deploy and share agents
+- Orchestrate and host AI agents / Quickstart - prompt agent / Deploy a hosted agent / Deploy and share agents
 
 ## Foundry IQ
 - What is Foundry IQ? / FAQ / Connect knowledge base to agents
@@ -36,15 +29,12 @@ The AI app and agent factory - build, optimize, and govern AI apps and agents at
 - Trace your agents / Evaluate agentic workflows / Monitor generative AI apps / AI Red Teaming Agent (preview)
 
 ## Foundry Control Plane
-- What is the Foundry control plane?
-- Manage agents at scale
-- Enforce token limits for models
-- Trustworthy AI / What is Content Safety?
+- What is the Foundry control plane? / Manage agents at scale / Enforce token limits for models / Trustworthy AI / Content Safety
 
 ## Azure Machine Learning; Foundry Local (run LLMs on device)
 ## SDKs: Python, C#, JavaScript, Java
 ## Resources: Foundry portal (ai.azure.com), Foundry labs, GitHub Models, VS Code extension, Microsoft Agent Framework
 
-Updated: 2026-07-06 — Page unchanged since prior cache (updated_at still 2026-06-26). Section list
+Updated: 2026-07-07 — Page unchanged since prior cache (updated_at still 2026-06-26). Section list
 (Foundry MCP Server, Foundry Skill, hosted/prompt agents, Control Plane manage-agents/token-limits,
 Foundry IQ, AI Red Teaming Agent, Foundry Local) identical. No reportable addition.

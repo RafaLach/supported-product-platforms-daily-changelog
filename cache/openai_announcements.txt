@@ -1,11 +1,12 @@
-# OpenAI Developer Community — captured 2026-07-06
+# OpenAI Developer Community — captured 2026-07-07
 
-Community forum listing; official announcements sparse. No new features/APIs/services posted.
+Community forum listing; official announcements sparse. Forum posts usually NOT reportable, but one official model release surfaced this scan.
 
 ## Notable
+- Jul 6, 2026 — OFFICIAL (staff "sps"): "New Realtime Models Release" — two new Realtime models `gpt-realtime-2.1` and `gpt-realtime-2.1-mini` for low-latency voice + multimodal experiences; >=25% reduction in p95 latency. NEW model IDs / Realtime agent-voice surface. [NEW this scan — flagged reportable: new agent-capable model IDs.]
 - Jul 5, 2026 — "OpenAI DevDay 2026 applications are now open!" (official). Event/conference announcement — not a feature/API/model. NOT reportable.
 - Jul 3, 2026 — Deprecation notice (official): Evals will be shut down Nov 30, 2026. (Deprecation — NOT reportable.)
 
-Remaining page content is user-generated discussion (API issues, Codex, ChatGPT apps) rather than official release notes. No net-new reportable surface. For OpenAI product releases, SDK changelogs and Codex changelog are the reliable proxies.
+Remaining page content is user-generated discussion (API issues, Codex, ChatGPT apps) rather than official release notes. For OpenAI product releases, SDK changelogs and Codex changelog remain the reliable proxies.
 
-Updated: 2026-07-06.
+Updated: 2026-07-07.

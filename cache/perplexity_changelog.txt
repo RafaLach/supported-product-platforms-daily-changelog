@@ -1,4 +1,4 @@
-# Perplexity API Changelog — captured 2026-07-06
+# Perplexity API Changelog — captured 2026-07-07
 
 ## May 2026 [top dated entry; cached — still newest]
 - Finance Search tool for Agent API: structured financial data (quotes, financials, earnings, analyst estimates, segment KPIs, ETF constituents, OHLCV, pre/after-hours); model autonomously selects fields.
@@ -16,4 +16,4 @@
 API reference (/v1/agent) tools: web search (domain/date/geo filters), Finance search, People search, URL fetch (≤10), Sandbox execution, custom function tools, and **`mcp` tool — connect user-supplied remote MCP servers (Streamable HTTP/HTTPS, optional auth tokens/headers, allowed_tools allowlist; auto-executes all tool calls, no approval workflow)**. Presets: fast-search, pro-search, deep-research. Reasoning effort low/med/high/xhigh/max. research loop max_steps 1-10; SSE streaming. [mcp tool + xhigh/max still in reference, still NOT confirmed by any dated changelog entry.]
 
 ## Last Fetched
-2026-07-06 — Top dated changelog entry still May 2026 (Finance Search), already cached. No new dated changelog entry since prior scan. `mcp` remote-connector tool + xhigh/max reasoning remain in API reference only (no dated launch) — still on watch, not reportable.
+2026-07-07 — Top dated changelog entry still May 2026 (Finance Search), already cached. No new dated changelog entry since prior scan. `mcp` remote-connector tool + xhigh/max reasoning remain in API reference only (no dated launch) — still on watch, not reportable.

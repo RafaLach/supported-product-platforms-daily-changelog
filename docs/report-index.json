@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-07-07",
+    "scan_time": "2026-07-07 09:51",
+    "file": "report-2026-07-07.md",
+    "platforms": [
+      {
+        "name": "Salesforce AgentForce",
+        "status": "changed",
+        "details": [
+          "**Agentforce Commerce \u2014 GA (July 6, 2026)** \u2014 the Shopper Agent (B2C storefront, discovery\u2192checkout\u2192service), Buyer Agent (autonomous B2B purchasing/reordering with pre-negotiated pricing over WhatsApp and SMS, no portal login), and Merchant Agent (back-office catalog/promotions in natural language) went generally available. Each is wired natively into catalog, inventory, and orders \u2014 and, critically, exposed into **external agentic surfaces**: ChatGPT (catalog sync from Business Manager), Google Search including AI Mode, and the Gemini app. Source: https://help.salesforce.com/s/articleView?id=cc.b2c_agent_guided_shopping.htm&type=5",
+          "**Agentforce Help Agent + Customer Service Portal \u2014 GA (July '26)** \u2014 a prepackaged autonomous service agent that resolves customer issues end-to-end across voice, web, portal, and messaging from a single setup screen, grounded automatically on Salesforce Knowledge, with a library of actions that run real workflows (manage cases, schedule appointments, update orders). Pay-per-resolution pricing. The Customer Service Portal is redesigned around a single conversation bar with dynamic real-time cards. Source: https://help.salesforce.com/s/articleView?id=service.service_agent_overview.htm&type=5"
+        ],
+        "tier": "secondary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Salesforce Agentforce Commerce \u2014 Shopper/Buyer/Merchant agents (GA)",
+        "description": "Three new production commerce agent types went GA July 6, 2026, each natively wired into catalog, inventory, and orders. Introduces new inventory entities Zenity must discover and map: Shopper agents, Buyer agents, and Merchant agents, plus their catalog/inventory/order data connections and the actions each can take (place/reorder purchases, edit catalogs, run promotions). Toxic-combination surface \u2014 an autonomous Buyer Agent that can transact (checkout, reorder at pre-negotiated pricing) is a high-value overprivileged-agent target, and the Merchant Agent's plain-language catalog control is a business-logic manipulation path. AISPM should inventory these agents, their permissions, and their order/catalog reach",
+        "source": "https://help.salesforce.com/s/articleView?id=cc.b2c_agent_guided_shopping.htm&type=5",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Salesforce Agentforce Commerce \u2014 external agentic surfaces (ChatGPT / Google / Gemini + WhatsApp/SMS)",
+        "description": "Agentforce commerce agents and product catalogs now integrate natively into third-party agentic surfaces \u2014 ChatGPT (via catalog sync and agentic MCP shopper tools), Google Search/AI Mode, and the Gemini app \u2014 and the Buyer Agent transacts autonomously over WhatsApp and SMS with no portal login. This creates new cross-platform agent-to-external-LLM data flows and autonomous purchase/checkout actions that cross the Salesforce org boundary. AIDR should monitor these as new external data-egress and indirect-prompt-injection channels (untrusted shopper input arriving from ChatGPT/Gemini/messaging), and track catalog/inventory data leaving the org to external LLM providers",
+        "source": "https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/agentic-mcp-shopper-tools-quick-start.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Salesforce Agentforce Help Agent + Customer Service Portal (GA)",
+        "description": "A new prepackaged autonomous service agent, deployable from one screen across voice/web/portal/messaging, grounded on Salesforce Knowledge, with an action library that manages cases, schedules appointments, and updates orders. Introduces a new autonomous-service-agent entity Zenity must inventory \u2014 its enabled actions, Knowledge grounding sources, and cross-channel reach define its real capability and data-access surface, and out-of-the-box \"deployable in minutes\" provisioning means such agents can appear in a tenant without deliberate per-agent review (shadow-agent / overprivilege risk)",
+        "source": "https://help.salesforce.com/s/articleView?id=service.service_agent_overview.htm&type=5",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-07-06",
     "scan_time": "2026-07-06 08:24",
     "file": "report-2026-07-06.md",

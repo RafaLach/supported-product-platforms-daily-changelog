@@ -1,4 +1,4 @@
-# Amazon Bedrock AgentCore - Overview — captured 2026-07-06
+# Amazon Bedrock AgentCore - Overview — captured 2026-07-07
 
 ## Core Definition
 Agentic platform for building, deploying, and operating agents securely at scale using any framework and foundation model, without infrastructure management.
@@ -29,4 +29,4 @@ Anthropic Claude, OpenAI, Google Gemini, Amazon Nova, Meta Llama, Mistral
 ## Pricing
 Consumption-based
 
-Updated: 2026-07-06 — Overview services list unchanged since prior scan. All 12 services present (Harness, Runtime, Memory, Gateway, Identity, Code Interpreter, Browser, Observability, Payments, Evaluations, Optimization, Policy, Registry) — same as prior cache. No newly listed service or capability. No reportable addition this scan.
+Updated: 2026-07-07 — Overview services list unchanged since prior scan. All services present (Harness, Runtime, Memory, Gateway, Identity, Code Interpreter, Browser, Observability, Payments, Evaluations, Optimization, Policy, Registry) — same as prior cache. No newly listed service or capability. No reportable addition this scan.

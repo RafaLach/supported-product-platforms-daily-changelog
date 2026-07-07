@@ -1,4 +1,4 @@
-# Amazon Q Developer - What is Amazon Q Developer? — captured 2026-07-06
+# Amazon Q Developer - What is Amazon Q Developer? — captured 2026-07-07
 
 ## Core Capabilities
 - Generative AI-powered conversational assistant; understand/build/extend/operate AWS apps
@@ -21,4 +21,4 @@
 ## Authentication
 - AWS Builder ID (no AWS account for IDE) / IAM identity permissions
 
-Updated: 2026-07-06 — No changes detected from previous scan. No reportable addition.
+Updated: 2026-07-07 — No changes detected from previous scan. No reportable addition.

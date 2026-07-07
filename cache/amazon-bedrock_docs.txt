@@ -1,4 +1,4 @@
-# Amazon Bedrock Overview — captured 2026-07-06
+# Amazon Bedrock Overview — captured 2026-07-07
 
 ## What's New (newest at top)
 - **OpenAI GPT-5.5 and GPT-5.4 now available in Amazon Bedrock** (cached): frontier models for complex work, agentic coding, reasoning, long-running tasks; via Responses API.
@@ -19,4 +19,4 @@ Featured: Amazon Nova, Claude (Anthropic), DeepSeek, Kimi (Moonshot AI), MiniMax
 ## Key Capabilities
 Model Inference; Model Customization; Enterprise Security; Flexible APIs; Server-side Tools
 
-Updated: 2026-07-06 — What's New list unchanged since prior scan (GPT-5.5/5.4, Opus 4.7, Mythos preview, IAM cost allocation all already cached). No reportable addition.
+Updated: 2026-07-07 — What's New list unchanged since prior scan (GPT-5.5/5.4, Opus 4.7, Mythos preview, IAM cost allocation all already cached). No reportable addition.

@@ -1,10 +1,12 @@
-# ServiceNow Release Notes — captured 2026-07-06
+# ServiceNow Release Notes — captured 2026-07-07
 
 ## Australia release family (release-notes page "Updated June 16, 2026")
 Built on the ServiceNow AI Platform. Latest incremental update: Australia Patch 3 (unchanged this scan).
 
-### Agentic AI features in Australia release [already cached, not net-new]:
-- AI Desktop Actions ("Agentic Desktop"), AI Control Tower, Now Assist AI Agents (per product), Now Assist Center, Agentic Contact Center for Banking, Agentic Contact Center for Insurance, AI Agent Advisor, AI Experiences, Document Intelligence, Knowledge Graph, Predictive Intelligence.
+### Agentic / AI features in Australia release [already cached, not net-new]:
+- AI Desktop Actions ("Agentic Desktop"), AI Control Tower, Now Assist AI Agents (per product), Now Assist Center, Agentic Contact Center for Banking, Agentic Contact Center for Insurance, AI Agent Advisor, AI Experiences, Document Intelligence, Knowledge Graph, Predictive Intelligence, Generative AI Controller.
 - Now Assist across App Engine, Creator, FSM, ITSM, LSD, Employee Center Pro.
+- ServiceNow AI Lens (vision-language-model app: scan images/docs/attachments, "Lens Actions", role-based governance/auditability). NOTE: PRE-EXISTING — AI Lens appears in Yokohama & Zurich release notes; not net-new to Australia. [not reportable]
+- AI Control Tower expansion (press release May 5, 2026): discover/observe/govern/secure/measure incl. third-party AI beyond ServiceNow (AWS/GCP/Azure/SAP/Oracle/Workday), new AI Gateway for agentic workloads, Traceloop-acquired observability, NIST/EU AI Act risk. Rolling out Apr 2026; GA expected Aug 2026. Part of Australia release. NOTE: dated May 5, below the 2026-07-06 cutoff and already within Australia family. [already known — not net-new this scan]
 
-Updated: 2026-07-06 — Secondary tier. Still Australia family, still "Updated June 16, 2026", latest = Patch 3 (a patch). All listed agentic features (incl. Agentic Contact Center for Insurance, previously noted) are already cached; page shows no distinct new dated AI feature. No confirmed net-new AI feature this scan.
+Updated: 2026-07-07 — Secondary tier. Still Australia family, still "Updated June 16, 2026", latest = Patch 3. No release family newer than Australia. All AI/agentic features listed are already cached or predate Australia. No confirmed net-new AI feature this scan.

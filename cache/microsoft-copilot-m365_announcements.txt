@@ -1,5 +1,5 @@
-# Microsoft 365 Admin Center — What's New in Preview — captured 2026-07-06
-# (ms.date 2026-05-19; page updated 2026-06-23)
+# Microsoft 365 Admin Center — What's New in Preview — captured 2026-07-07
+# (ms.date 2026-05-19; page updated_at 2026-06-23)
 
 ## Topmost entries [unchanged since prior scan]
 - November 2025 — Engineering direct portal renamed Enhanced Engagements; Design change requests (DCR).
@@ -7,4 +7,5 @@
 - April 2025 — M365 Copilot network connectivity test.
 - Jan/Feb 2025 — AI Administrator role; admin-initiated Copilot feedback.
 
-Updated: 2026-07-06 — No new Copilot/agent entries; admin "what's new" still tops at November 2025 (page updated 2026-06-23). No reportable addition.
+Updated: 2026-07-07 — No new Copilot/agent entries; admin "what's new" still tops at November 2025
+(page updated_at still 2026-06-23). Unchanged vs prior cache. No reportable addition.

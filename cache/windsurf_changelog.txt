@@ -1,13 +1,15 @@
-# Windsurf / Devin Desktop Changelog — captured 2026-07-06
+# Windsurf / Devin Desktop Changelog — captured 2026-07-07
 # NOTE: windsurf.com/changelog 308-redirects to docs.devin.ai/desktop/changelog.
 
-Most recent version: v3.4.22 (July 4, 2026) [top — already reported prior scan]
+Most recent version: v3.4.27 (July 7, 2026) [top — bug fix only, below bar]
+
+## v3.4.27 (July 7, 2026) [NEW since prior scan — below watching-tier bar]
+- Fixed diff viewing issues in autonomous mode. (bug fix only; no new capability.)
 
 ## v3.4.22 (July 4, 2026) [reported 2026-07-05]
 - **Devin Local autonomous mode with reviewable diffs**: edits in autonomous mode produce reviewable diffs; local agent harness runs autonomously — expanded local autonomous agent-execution surface.
 - **`/mcp` slash command + live MCP server status panel**: in-session command to manage/inspect connected MCP servers with live status.
-- Skill `permissions:` frontmatter now applies to auto-approvals; agent sidebar visible when routing to Cascade in agent-window mode.
-- Enterprise CLI login policy; ACU usage in client; sandbox.excluded allow/ask/deny; orphaned ACP process cleanup; Devin Cloud auto-reconnect; "New session in space." [controls/reliability, below bar]
+- Skill `permissions:` frontmatter now applies to auto-approvals; agent sidebar visible when routing to Cascade in agent-window mode; "New session in space"; Cloud sessions auto-reconnect; images copyable from chat; new users default to agent mode. [controls/reliability, below bar]
 
 ## v3.3.18 (June 23, 2026) [cached, below bar]
 - Devin ACU usage in client; subagent default model; Windows bash → Git Bash; MCP registry cache warming; attribution=false.
@@ -22,4 +24,4 @@ Most recent version: v3.4.22 (July 4, 2026) [top — already reported prior scan
 
 Docs (docs.devin.ai/desktop): Devin Local, Terminal, MCP, Memories & Rules, Context Awareness, Workflows, App Deploys, Recommended Plugins. Devin Local plugin system (enterprise preview) still flagged to watch.
 
-Updated: 2026-07-06 — Watching tier. Top entry still v3.4.22 (07-04); autonomous mode + /mcp dashboard already REPORTED 07-05. No new dated entry since. Nothing new to report.
+Updated: 2026-07-07 — Watching tier. New top entry v3.4.27 (07-07) is a diff-viewer bug fix only. Autonomous mode + /mcp dashboard (v3.4.22) already REPORTED 07-05. No new dated entry with new capability. Nothing new to report.

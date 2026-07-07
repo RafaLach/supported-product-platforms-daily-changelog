@@ -1,7 +1,7 @@
-# Perplexity Docs Home — captured 2026-07-06
+# Perplexity Docs Home — captured 2026-07-07
 
 Top sections: Agent API (third-party models + web search tools + presets), Search API (ranked web results, filtering, real-time, batch queries), Embeddings API (semantic search/RAG), Quickstart.
 Highlights: search the web + filter sources (domain/recency), use any frontier model (e.g. GPT-5.5), structured JSON schema output, real-time web-wide research/Q&A. API key via console.perplexity.ai.
 
 ## Last Fetched
-2026-07-06 — Overview homepage; no dated announcements. Unchanged from prior. No new capability.
+2026-07-07 — Overview homepage; no dated announcements. Unchanged from prior. No new capability.

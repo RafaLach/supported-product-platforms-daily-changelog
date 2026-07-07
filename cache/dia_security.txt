@@ -1,12 +1,12 @@
-# Dia Browser Security — captured 2026-07-06
+# Dia Browser Security — captured 2026-07-07
 
 Security as product feature: independent audits/pen-testing (annual, findings in Security Bulletins), Chromium engine, minimized data collection.
 
-Agent/automation safeguards (agentic mode): no autonomous navigation to other sites; sensitive elements (passwords, irreversible-action buttons) hidden from agent; explicit user approval before agent accesses other tabs / takes write actions; calendar events stay draft until confirmed; agent restricted to user-approved context only.
+Agent/automation safeguards (agentic mode): no autonomous navigation to other sites; sensitive elements (passwords, irreversible-action buttons) hidden from agent; explicit user approval before agent accesses other tabs / takes write actions; calendar events stay draft until confirmed; agent restricted to user-approved context only; chat sessions start with zero tool access (permissions must be granted).
 Anti-prompt-injection (8 controls): won't auto-open AI-generated URLs; starts with zero tool access; shows exact content before insertion into third-party sites; won't pass URLs to LLM verbatim (blocks hidden instructions); won't extract sensitive data to attackers; reversibility checks before irreversible actions; context containment; sensitive form-field masking. Docs acknowledge residual risk (style/tone shifts, misinformation nudges).
 
 Data: local-first storage default, E2E encryption for synced data, server-side memory summaries stored locally, AI partners contractually barred from training, no data selling, content-improvement data deleted after 30d, account deletion purges within 30d.
-Compliance: SOC 2 Type II (CY2025 audit, 2026 report); MDM controls, SAML SSO, Chromium enterprise policies; critical Chromium patches <48h; weekly releases.
+Compliance: SOC 2 Type II (CY2025 audit, 2026 report); MDM controls, SAML SSO, Chromium enterprise policies; critical Chromium patches <48h; weekly releases (Thursdays).
 
 ## Last Fetched
-2026-07-06 — Security page covers existing agentic safeguards (approval gates, exfil blocking, URL sanitization, sensitive-field masking) + enterprise MDM/SAML controls. No new dated announcement. Unchanged from prior.
+2026-07-07 — Security page covers existing agentic safeguards (approval gates, exfil blocking, URL sanitization, sensitive-field masking) + enterprise MDM/SAML controls. No new dated announcement. Unchanged from prior.

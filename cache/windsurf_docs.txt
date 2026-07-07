@@ -1,8 +1,8 @@
-# Windsurf / Devin Desktop Docs — captured 2026-07-06
+# Windsurf / Devin Desktop Docs — captured 2026-07-07
 # docs.windsurf.com 307-redirects to docs.devin.ai/desktop/*
 
-Top doc sections: Devin Local (next-gen agent harness, shared w/ Devin CLI), Usage (credits/tracking), Terminal (IDE-integrated), MCP (servers extend agent capabilities), Memories & Rules, Context Awareness, Workflows (automate repetitive trajectories), App Deploys (one-click deploy), Advanced Settings, Recommended Plugins.
+Top doc sections: Devin Local (next-gen agent harness, shared w/ Devin CLI; primary local agent), Usage (credits/tracking), Terminal (IDE-integrated), MCP (servers extend agent capabilities), Memories & Rules, Context Awareness, Workflows (automate repetitive trajectories), App Deploys (one-click deploy), Advanced Settings, Recommended Plugins.
 Config: VS Code/Cursor settings import, SSH/dev containers, Devin Desktop Next prerelease channel, Custom App Icons (beta, paying users, macOS).
 
 ## Last Fetched
-2026-07-06 — Docs index unchanged (Devin Local, Terminal, MCP, Memories, Context Awareness, Workflows, App Deploys, Recommended Plugins). No new capability on docs index itself; autonomous mode + /mcp tracked via changelog (see windsurf_changelog.txt).
+2026-07-07 — Docs index unchanged (Devin Local, Terminal, MCP, Memories, Context Awareness, Workflows, App Deploys, Recommended Plugins). No new capability on docs index itself; autonomous mode + /mcp tracked via changelog (see windsurf_changelog.txt).

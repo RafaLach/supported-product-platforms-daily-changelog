@@ -1,4 +1,4 @@
-# Agentforce / GenAI Reference Index — captured 2026-07-06
+# Agentforce / GenAI Reference Index — captured 2026-07-07
 
 APIs: Agent API, Models API (Apex + REST), Testing API, Citations API, Metadata API, Tooling API.
 SDKs: Agentforce Python SDK, Agentforce Mobile SDK (iOS/Android).
@@ -7,9 +7,16 @@ Lightning Types Reference (custom UI for agent actions), Metadata Types, Tooling
 
 No dated/new APIs on the reference index page itself. Summer '26 (via WebSearch):
 Agent2Agent (A2A) open-protocol support for delegating to third-party agents;
-API v67.0 defaults SOQL/SOSL/DML to user mode + Apex "with sharing".
+API v67.0 defaults SOQL/SOSL/DML to user mode + Apex "with sharing";
+Named Query API GA; Agent Builder API; Salesforce-hosted MCP servers GA. [REPORTED 2026-07-06]
+
+New since 2026-07-06:
+- Agentforce Commerce agents (Shopper/Buyer/Merchant) GA with catalog sync to ChatGPT
+  (via Business Manager) and Google Search/AI Mode + Gemini app integration (coming
+  summer 2026). [REPORTED 2026-07-07]
 
 ## Last Fetched
+2026-07-07 - No new API/reference types on page. Commerce agent GA + ChatGPT/Google/Gemini integration noted via search.
 2026-07-06 - No new API/reference types on page. A2A protocol + v67.0 noted via search.
 2026-07-04 - No changes detected from previous fetch.
 2026-07-03 - No changes detected from previous fetch.

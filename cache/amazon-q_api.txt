@@ -1,4 +1,4 @@
-# Amazon Q Business API Reference — captured 2026-07-06
+# Amazon Q Business API Reference — captured 2026-07-07
 
 ## Service Endpoints
 
@@ -16,4 +16,4 @@
 - IAM roles for Amazon Q Business
 - Q Apps capabilities / API operations overview
 
-Updated: 2026-07-06 — Welcome page unchanged (still only QBusiness + QApps groups; new-customer availability note present). No new API operation groups. No reportable addition.
+Updated: 2026-07-07 — Welcome page unchanged (still only QBusiness + QApps groups; new-customer availability note present). No new API operation groups. No reportable addition.

@@ -1,4 +1,4 @@
-# OpenAI Node SDK Releases — captured 2026-07-06
+# OpenAI Node SDK Releases — captured 2026-07-07
 
 ## Latest Releases
 
@@ -13,4 +13,4 @@
 **v6.38.0** (May 13, 2026) — service_tier on responses compact.
 **v6.37.0** (May 7, 2026) — quantity field in admin usage; realtime 2 + web search expanded.
 
-Updated: 2026-07-06 — No new Node SDK releases since prior scan; v6.45.0 remains newest. Nothing reportable.
+Updated: 2026-07-07 — No new Node SDK releases since prior scan; v6.45.0 remains newest. Nothing reportable.

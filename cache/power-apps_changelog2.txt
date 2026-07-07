@@ -1,37 +1,38 @@
-# Power Apps Released Versions — captured 2026-07-06
+# Power Apps Released Versions — captured 2026-07-07
 Source: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps
-Source ms.date: 2026-06-19 / updated_at 2026-06-22
+Source ms.date: 2026-07-06 / updated_at 2026-07-06
 
 ## Analyst note
 Weekly release-train version advancement only. Summary tables list version numbers + dates, with no
-per-version feature callouts. Page has NOT advanced since last capture (still updated_at 2026-06-22;
-latest Studio 3.26064, Make 26062, UI 9.2 25084 Preview). No AI/agent/Copilot feature at the summary
-level. Below reporting bar. Per-version detail pages not fetched (not in the assigned source list).
+per-version feature callouts. Page advanced since last capture (was updated_at 2026-06-22, now
+2026-07-06) — pure version-train movement, no AI/agent/Copilot feature at summary level. Below
+reporting bar. Per-version detail pages not fetched (not in the assigned source list).
 
 ## Latest version availability
 | Region | Unified Interface | Power Apps Studio/Mobile | Make.PowerApps.com |
 | --- | --- | --- | --- |
-| Preview (US) | 9.2 25084 | 3.26064 | 26062 |
-| Canada / India / South America | 9.2 25083 | 3.26063 | 26061 |
-| Japan / Asia Pacific / Australia / UK | 9.2 25082 | 3.26063 | 26061 |
-| Europe | 9.2 25081 | 3.26063 | 26061 |
-| United States | 9.2 25074 | 3.26062 | 26061 |
-| US Government (GCC) | 9.2 25073 | 3.26062 | 26061 |
+| Preview (US) | 9.2 25084 | 3.26071 | 26064 |
+| Canada / India / South America | 9.2 25083 | 3.26065 | 26063 |
+| Japan / Asia Pacific / Australia / UK | 9.2 25082 | 3.26065 | 26063 |
+| Europe | 9.2 25081 | 3.26065 | 26063 |
+| United States | 9.2 25074 | 3.26064 | 26063 |
+| US Government (GCC) | 9.2 25073 | 3.26064 | 26063 |
 
 ## Recent Power Apps Studio / Mobile versions
-- 3.26064 — Jun 22, 2026 (worldwide Jul 14, 2026)   <- latest
+- 3.26071 — Jul 06, 2026 (worldwide Jul 27, 2026)   <- latest (new since prior cache; was 3.26064)
+- 3.26065 — Jun 29, 2026 (worldwide Jul 20, 2026)
+- 3.26064 — Jun 22, 2026 (worldwide Jul 14, 2026)
 - 3.26063 — Jun 15, 2026 (worldwide Jul 06, 2026)
-- 3.26062 — Jun 08, 2026 (worldwide Jun 29, 2026)
-- 3.26061 — Jun 01, 2026 (worldwide Jun 22, 2026)
 
 ## Recent Make.PowerApps.com versions
-- 26062 — Jun 17, 2026 (worldwide Jul 01, 2026)      <- latest
-- 26061 — Jun 10, 2026 (worldwide Jun 24, 2026)
-- 26055 — Jun 03, 2026 (worldwide Jun 17, 2026)
+- 26064 — Jul 01, 2026 (worldwide Jul 15, 2026)      <- latest (new since prior cache; was 26062)
+- 26063 — Jun 24, 2026 (worldwide Jul 08, 2026)
+- 26062 — Jun 17, 2026 (worldwide Jul 01, 2026)
 
 ## Unified Interface
 - 9.2 26042 — First available April 17, 2026 (worldwide May 22, 2026)
 - 9.2 25084 — Aug 29, 2025 (current Preview US)
 
-Page last updated: 2026-06-22
-Updated: 2026-07-06 — No new versions or feature callouts since last capture. No reportable addition.
+Page last updated: 2026-07-06
+Updated: 2026-07-07 — Version trains advanced (Studio 3.26071, Make 26064) but no feature callouts.
+Version-bump only. No reportable addition.

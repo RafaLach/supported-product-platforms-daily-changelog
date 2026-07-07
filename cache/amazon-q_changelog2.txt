@@ -1,4 +1,4 @@
-# Amazon Q Business Document History — captured 2026-07-06
+# Amazon Q Business Document History — captured 2026-07-07
 
 **Latest documentation-update banner:** August 14, 2025; newest dated row June 30, 2026.
 
@@ -10,4 +10,4 @@
 - New response customization feature (July 1, 2025)
 - (older entries unchanged: anonymous access, hallucination mitigation, MS Word/Outlook add-ins, data accessors, Q index for ISVs, Slack/Teams, Q Apps, connectors, etc.)
 
-Updated: 2026-07-06 — No net-new doc-history row since prior scan. Top remains June 30, 2026 availability-change (deprecation), NOT reportable. Newest actual feature remains Agentic RAG (Aug 14, 2025), already cached. No reportable addition.
+Updated: 2026-07-07 — No net-new doc-history row since prior scan. Top remains June 30, 2026 availability-change (deprecation), NOT reportable. Newest actual feature remains Agentic RAG (Aug 14, 2025), already cached. No reportable addition.

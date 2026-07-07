@@ -1,12 +1,14 @@
-# Copilot Studio Released Versions — captured 2026-07-06
-# (page updated 2026-07-01, refreshed weekly on Tuesdays)
+# Copilot Studio Released Versions — captured 2026-07-07
+# (page updated_at 2026-07-01, refreshed weekly on Tuesdays)
 
 ## Latest platform versions
-- 2026.6.3 — first available June 30, 2026
+- 2026.6.3 — first available June 30, 2026  <- latest
 - 2026.6.2 — first available June 22, 2026
 - 2026.6.1 — first available June 14, 2026
 - 2026.5.5 — June 9, 2026 (worldwide June 30, 2026)
 
 Latest UX: 26.06.21-24 (June 30, 2026).
 
-Updated: 2026-07-06 — Weekly release trains only; no distinct new feature flags here beyond the What's New page (see microsoft-copilot-studio_changelog.txt: June 2026 new agent experience, Microsoft IQ, Skills, Memory). Unchanged since prior scan (still tops at 2026.6.3). No separate reportable addition on this page.
+Updated: 2026-07-07 — Weekly release trains only; no distinct new feature flags here beyond the What's
+New page (see microsoft-copilot-studio_changelog.txt). Unchanged since prior scan (still tops at
+2026.6.3; page updated_at still 2026-07-01). No separate reportable addition on this page.

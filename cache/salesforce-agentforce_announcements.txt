@@ -1,28 +1,41 @@
-# Salesforce Releases Page — captured 2026-07-06
+# Salesforce Releases Page — captured 2026-07-07
 
 ## Note
-Direct fetch of https://www.salesforce.com/releases/ returned HTTP 403 on 2026-07-06
-(consistent with 07-04, 07-03, 06-16, and earlier). Content below sourced via WebSearch
-fallback for Summer '26 release notes.
+Direct fetch of https://www.salesforce.com/releases/ returned HTTP 403 on 2026-07-07
+(consistent with 07-06, 07-04, 07-03, 06-16, and earlier). salesforce.com/news/* also
+403s. Content below sourced via WebSearch fallback.
 
-## Content (Summer '26 — released ~June 2026, "Agentic Enterprise")
-- Multi-Agent Orchestration — GA Jun 15 2026. A primary agent coordinates a team of
-  specialized subagents, holds shared context, routes each request to best-fit specialist.
-  Powered by Atlas Reasoning Engine 3.0 (reads subagent descriptions/instructions/actions
-  to route, no fixed decision trees).
-- Agent2Agent (A2A) open protocol — primary agent can delegate to third-party agents on
-  other platforms.
-- Agent Script + new Agentforce Builder — now GA.
-- "Create Agent" element in Flow Builder — build/deploy agents directly on the flow canvas;
-  legacy AI Agent actions auto-convert.
+## NEW (announced ~2026-07-06, since last cache) [REPORTED 2026-07-07]
+- Agentforce Commerce — GENERALLY AVAILABLE (July 6 2026). Three production agents:
+  * Shopper Agent (B2C): carries customer from discovery through checkout into service
+    on the storefront, in the brand's voice.
+  * Buyer Agent (B2B): orchestrates B2B orders over WhatsApp / SMS, no portal login.
+  * Merchant Agent: back-office — catalog organization, product sorting, promotions,
+    responds to trends in plain language.
+  * Native integration into ChatGPT (OpenAI, GA July 2026 — sync product catalog to
+    ChatGPT from Business Manager, no custom dev), and Google Search incl. AI Mode +
+    Gemini app (arriving summer 2026). Spans B2C, B2B, Order Management, Point of Sale.
+- Agentforce Help Agent — GA July '26. Autonomous service agent, guided setup,
+  deployable in minutes across voice, web, portal, messaging from a single screen.
+  Pay-per-resolution pricing (charged only on autonomous end-to-end resolution).
+- Agentforce Customer Service Portal — GA July '26. Reimagined self-service experience;
+  adapts in real time, dynamic cards, individualized responses.
+
+## Prior (Summer '26 — "Agentic Enterprise", ~June 2026) [REPORTED 2026-07-06]
+- Multi-Agent Orchestration — GA Jun 15 2026. Primary agent coordinates specialized
+  subagents, shared context, routes to best-fit specialist. Atlas Reasoning Engine 3.0.
+- Agent2Agent (A2A) open protocol — delegate to third-party agents on other platforms.
+- Agent Script + new Agentforce Builder — GA.
+- "Create Agent" element in Flow Builder — build/deploy on flow canvas; legacy actions auto-convert.
 - IT Service Domain Pack — 50+ prebuilt AI agents for Slack, Teams, IT Service Desk.
-- Agentforce Sales in Slack — proactive prospecting/engagement agents; Momentum captures
-  calls/emails/meetings back to CRM.
+- Agentforce Sales in Slack — proactive prospecting/engagement; Momentum captures calls/emails/meetings to CRM.
+- Named Query API GA; Agent Builder API; Salesforce-hosted MCP servers GA; v67.0 security defaults.
 
 ## Prior (Spring '26, from 2026-03-25 fetch)
 Agentforce Voice, Field Service proactive ops, Sales/Service/Marketing/Commerce/Platform.
 
 ## Last Fetched
+2026-07-07 - FAILED direct (403). NEW: Agentforce Commerce GA + Help Agent GA captured via WebSearch fallback.
 2026-07-06 - FAILED direct (403). Summer '26 features captured via WebSearch fallback.
 2026-07-04 - FAILED (403 error). Cache content preserved from 2026-03-25.
 2026-07-03 - FAILED (403 error). Cache content preserved from 2026-03-25.

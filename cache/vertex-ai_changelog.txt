@@ -1,4 +1,4 @@
-# Vertex AI Release Notes — captured 2026-07-06
+# Vertex AI Release Notes — captured 2026-07-07
 # NOTE: cloud.google.com/vertex-ai/docs/release-notes 301-redirects to
 # docs.cloud.google.com/vertex-ai/docs/release-notes. Secondary tier — report significant new additions only.
 
@@ -14,4 +14,4 @@
 
 ## Earlier (cached): Lyria 3 audio; Vector Search 2.0 GA; Gemini 3.1 Pro/Flash/Flash-Lite; Agent Engine Code Execution GA (Feb 18); Claude Sonnet 4.6 / Opus 4.6; GLM 5; Gemma 4 26B; Veo 3.1 Lite; Virtual Try-On GA; RAG Engine Serverless Mode (preview).
 
-Updated: 2026-07-06 — Secondary tier. Top release-note entry still June 30 (Python 3.12 base containers, version bump — below bar). No new dated entries since last scan. No reportable addition from changelog. (NOTE: the API/docs reference pages this scan reveal a new "Gemini Enterprise Agent Platform" branding with first-class Agents API + Agent Studio + Semantic Governance — see vertex-ai_api.txt; these are surfaced from the reference, not the changelog.)
+Updated: 2026-07-07 — Secondary tier. Top release-note entry still June 30 (Python 3.12 base containers, version bump — below bar). No new dated entries since 2026-07-06 scan. No reportable addition from changelog. [REPORTED 2026-07-06: Gemini Enterprise Agent Platform rebrand + Agents API + Agent Studio + Semantic Governance + Reasoning Engines/Sessions — surfaced from API/docs reference, not the changelog.]

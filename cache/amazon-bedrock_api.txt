@@ -1,4 +1,4 @@
-# Amazon Bedrock API Reference — captured 2026-07-06
+# Amazon Bedrock API Reference — captured 2026-07-07
 
 ## Service Endpoints / API operation groups (from Welcome page)
 
@@ -13,4 +13,4 @@
 - Welcome page lists operation GROUPS, not the full per-operation list.
 - Data Automation (control) + Data Automation Runtime surfaced as distinct groups (existing capability; doc-surfacing change). Agents relabeled Classic. No new agent/governance API surface.
 
-Updated: 2026-07-06 — Welcome page operation-group listing unchanged since prior scan. No new API operation groups. No reportable addition.
+Updated: 2026-07-07 — Welcome page operation-group listing unchanged since prior scan. No new API operation groups. No reportable addition.
