@@ -1,11 +1,33 @@
-# Vertex AI Release Notes — captured 2026-07-04
-# (cloud.google.com/vertex-ai/docs/release-notes 301-redirects to docs.cloud.google.com; followed)
+# Vertex AI / Gemini Enterprise Agent Platform Release Notes — captured 2026-07-08
+# Vertex AI docs deprecated; now Gemini Enterprise Agent Platform.
+# Canonical RN: docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes
+# NOTE: that RN page renders as a nav-index via WebFetch (recurring render failure);
+#        dated content only reliably retrievable via WebSearch index of the page.
+# Vertex RN (docs.cloud.google.com/vertex-ai/docs/release-notes) now stale: newest = June 30 Python 3.12 container bump (below bar).
 
-## Newest entries
-- **June 30, 2026** — Agent Platform Workbench now supports Python 3.12 base containers for custom containers (alongside default Python 3.10). [Container runtime version — below secondary-tier reporting bar]
+## Gemini Enterprise Agent Platform RN — page last updated ~June 29, 2026
+### GOVERNANCE/SECURITY (net-new surfaces beyond 2026-07-06 report):
+- AI security findings + posture-management summaries — GA. Security tab/dashboard:
+  "Top security findings" widget, AI risks by severity (vuln/misconfig/toxic combos,
+  attack-exposure score), AI threats (real-time), Agents with excessive permissions
+  (least-privilege), Compliance widget. Security Command Center findings surfaced in tab.
+  Docs: /gemini-enterprise-agent-platform/govern/view-security-findings
+- Model Armor on Agent Gateway — GA. Content-security guardrails on prompts/responses
+  through the gateway; blocks/redacts or inspect+log; mitigates prompt injection,
+  jailbreak, harmful content, data leakage. Docs: /govern/configure-model-armor
+- Agent Observability — GA. Perf/behavior/health visibility for deployed agents + MCP
+  servers in mgmt workflow; OpenTelemetry tracing ON by default for new ADK agents on Agent Engine.
 
-## May 2026 [already cached / prior scans]
-- May 26, 2026 — Colab Enterprise Data Science Agent GA (already reported). Vertex AI Extensions marked for deprecation (effective Nov 26, 2026; migrate to Agent Platform) [DEPRECATION].
-- April 2026 — RAG Cross Corpus Retrieval (preview); Claude Opus 4.7 in Model Garden; Colab visualization/SQL cells GA; RAG Engine metadata search.
+### Preview / already reported (NOT net-new):
+- Semantic Governance Policies (SGP) + SGP engine — Preview (reported 2026-07-06).
+- Agents API / Managed Agents, Agent Gateway, Agent Registry, Agent Identity (reported 2026-07-06).
+- Supervised fine-tuning for gemini-3.1-flash-lite / gemini-3.5-flash — Preview [model, below bar].
+- Multiple pending orders GA (up to 7) [quota, below bar].
 
-Updated: 2026-07-04 — Secondary tier. No change since prior scan; newest entry remains the June 30 Python 3.12 container-runtime option for Agent Platform Workbench (runtime version bump, below bar). No reportable addition.
+### Below-bar / deprecations:
+- June 30, 2026 — Agent Platform Workbench Python 3.12 base containers [runtime bump].
+- Gemini 3.1 Flash Image Preview / 3 Pro Image Preview deprecated (migrate before Jul 17, 2026) [DEPRECATION].
+- Vertex AI Extensions deprecated, shutdown Nov 26, 2026 [DEPRECATION].
+
+Updated: 2026-07-08 — Secondary tier. REPORTING net-new GA governance/security surfaces:
+Security dashboard/posture findings, Model Armor on Agent Gateway, Agent Observability.

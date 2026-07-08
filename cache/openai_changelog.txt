@@ -1,4 +1,4 @@
-# OpenAI Python SDK Releases — captured 2026-07-07
+# OpenAI Python SDK Releases — captured 2026-07-08
 # (Node SDK tracked in openai_node_changelog.txt — latest v6.45.0, June 24)
 
 ## Latest Releases
@@ -14,4 +14,4 @@
 **v2.37.0** (May 15, 2026) — service_tier on responses compact; eager pydantic iterator validation.
 **v2.36.0** (May 7, 2026) — Realtime 2 API implementation.
 
-Updated: 2026-07-07 — No new Python SDK releases since prior scan; v2.44.0 remains newest. Nothing reportable.
+Updated: 2026-07-08 — No new Python SDK releases since prior scan; v2.44.0 remains newest. Nothing reportable. WATCH: GPT-5.6 (Sol/Terra/Luna) announced on forum for Jul 9 public launch — expect new model IDs to land in SDK next scan; gpt-realtime-2.1/-mini still not in SDK.

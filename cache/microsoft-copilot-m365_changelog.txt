@@ -1,9 +1,9 @@
 Source: https://developer.microsoft.com/graph/changelog/
-Fetched: 2026-07-07 (via RSS fallback: https://developer.microsoft.com/en-us/graph/changelog/rss/)
+Fetched: 2026-07-08 (via RSS fallback: https://developer.microsoft.com/en-us/graph/changelog/rss/)
 
 NOTE: The HTML changelog page still returns only nav/header chrome (JS-rendered).
 The RSS feed rendered actual entries — using RSS as source of record.
-RSS lastBuildDate 2026-07-07, but newest dated entries are still June 19, 2026.
+RSS lastBuildDate 2026-07-08, but newest dated entries are still June 19, 2026.
 
 ## Recent entries (2026) — new API/resource/entity additions [ALL REPORTED in prior scan]
 
@@ -18,8 +18,10 @@ RSS lastBuildDate 2026-07-07, but newest dated entries are still June 19, 2026.
 - Applications: new redirectUri configuration resources.
 - Security: new account/file action resources; entity-mapping detection resources.
 
-### June 16 & earlier June 2026
-- Mail: distributionList / distributionListMember resources. Files container permissions; identity governance workflow extensions; FIDO2 improvements; app risk assessment resources; backup/restore session enhancements.
+### June 15 & earlier June 2026
+- Security (v1.0): microsoftSecurityForAI member added to serviceSource enum; People: profileCardProperty isVisible.
+- Mail: distributionList / distributionListMember resources. Files container permissions; identity governance workflow extensions; FIDO2/WebAuthn improvements; app risk assessment (applicationRiskFactors/applicationSecurityCompliance) resources; sensor migration + manualAlert resources.
 
-Updated: 2026-07-07 — No net-new entries since prior scan (2026-07-06). RSS still tops at June 19, 2026;
-all entries generic API churn, none AI/agent/Copilot-specific. No reportable addition.
+Updated: 2026-07-08 — No net-new entries since prior scan (2026-07-07). RSS lastBuildDate advanced to
+2026-07-08 but newest dated entries still top at June 19, 2026; June 2-15 granular entries all generic
+API churn (security/identity/mail/apps), none AI/agent/Copilot-specific. No reportable addition.

@@ -1,8 +1,8 @@
-# Claude Docs - Build with Claude — captured 2026-07-07
+# Claude Docs - Build with Claude — captured 2026-07-08
 
 FETCH ERROR: https://platform.claude.com/docs/build-with-claude/overview returns HTTP 404 via WebFetch (page moved or is JS-rendered; content not retrievable server-side). Cache retained; not overwritten with empty fetch.
 
 Use Anthropic News (anthropic_announcements.txt) as cross-reference for new Claude platform capabilities.
 Cross-reference (last known, 2026-07-03): Claude Tag (agentic Slack teammate, admin-scoped tool/data/codebase access), Claude Sonnet 5 (`claude-sonnet-5`, autonomous tool use), Claude Science AI Workbench (compute-provisioning research agent).
 
-Updated: 2026-07-07 (still 404 / not retrievable via WebFetch; no new capabilities observed via News this scan).
+Updated: 2026-07-08 (still 404 / not retrievable via WebFetch; no new capabilities observed via News this scan).

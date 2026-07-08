@@ -1,12 +1,22 @@
-# ServiceNow Release Notes — captured 2026-07-07
+# ServiceNow Release Notes — captured 2026-07-08
 
 ## Australia release family (release-notes page "Updated June 16, 2026")
-Built on the ServiceNow AI Platform. Latest incremental update: Australia Patch 3 (unchanged this scan).
+Built on ServiceNow AI Platform. Latest incremental: Australia Patch 3 (unchanged).
 
-### Agentic / AI features in Australia release [already cached, not net-new]:
-- AI Desktop Actions ("Agentic Desktop"), AI Control Tower, Now Assist AI Agents (per product), Now Assist Center, Agentic Contact Center for Banking, Agentic Contact Center for Insurance, AI Agent Advisor, AI Experiences, Document Intelligence, Knowledge Graph, Predictive Intelligence, Generative AI Controller.
+### Agentic / AI features [already cached, not net-new]:
+- AI Desktop Actions ("Agentic Desktop"), AI Control Tower, Now Assist AI Agents (per product),
+  Now Assist Center, Agentic Contact Center (Banking/Insurance), AI Agent Advisor, AI Experiences,
+  Document Intelligence, Knowledge Graph, Predictive Intelligence, Generative AI Controller.
 - Now Assist across App Engine, Creator, FSM, ITSM, LSD, Employee Center Pro.
-- ServiceNow AI Lens (vision-language-model app: scan images/docs/attachments, "Lens Actions", role-based governance/auditability). NOTE: PRE-EXISTING — AI Lens appears in Yokohama & Zurich release notes; not net-new to Australia. [not reportable]
-- AI Control Tower expansion (press release May 5, 2026): discover/observe/govern/secure/measure incl. third-party AI beyond ServiceNow (AWS/GCP/Azure/SAP/Oracle/Workday), new AI Gateway for agentic workloads, Traceloop-acquired observability, NIST/EU AI Act risk. Rolling out Apr 2026; GA expected Aug 2026. Part of Australia release. NOTE: dated May 5, below the 2026-07-06 cutoff and already within Australia family. [already known — not net-new this scan]
+- ServiceNow AI Lens (VLM app). PRE-EXISTING (Yokohama/Zurich). [not reportable]
 
-Updated: 2026-07-07 — Secondary tier. Still Australia family, still "Updated June 16, 2026", latest = Patch 3. No release family newer than Australia. All AI/agentic features listed are already cached or predate Australia. No confirmed net-new AI feature this scan.
+### Forward-watch (NOT yet reportable):
+- AI Control Tower EXPANSION (press release May 5, 2026): discover/observe/govern/secure/measure
+  incl. third-party AI (AWS/GCP/Azure/SAP/Oracle/Workday), NIST/EU AI Act risk, Traceloop observability.
+  Entered Innovation Lab May 2026; GA STILL EXPECTED AUG 2026 (no GA/date change this scan). HOLD.
+- AI Gateway for agentic/MCP workloads: initial release Dec 2025, Q1/Mar 2026 release GA.
+  Real-time controls for MCP transactions. Part of prior releases — not net-new this scan.
+
+Updated: 2026-07-08 — Secondary tier. Still Australia family, "Updated June 16, 2026", Patch 3.
+No newer family. AI Control Tower expansion GA still Aug 2026 (unchanged) — continue to hold.
+No net-new AI feature this scan.

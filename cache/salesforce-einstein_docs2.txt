@@ -1,19 +1,22 @@
-# Einstein GenAI Guide — captured 2026-07-07
+# Einstein GenAI Guide — captured 2026-07-08
 
 **Terminology Change (April 2026)**
 - Agent "topics" are now called "subagents" (naming only, no functionality change).
 
 No other dated release notes on the page itself; it directs to API/SDK/Actions/Agent
-Script/Agentforce DX/Models & Prompts guides. Summer '26 substantive features
-(Multi-Agent Orchestration GA, Atlas 3.0, A2A, Agentforce Builder GA) tracked in the
-agentforce announcements cache. [REPORTED 2026-07-06]
+Script/Agentforce DX/Models & Prompts guides. Substantive Summer '26 features tracked in
+agentforce announcements + api caches.
 
-New since 2026-07-06 (not on this page body; via announcements): Agentforce Commerce GA,
-Agentforce Help Agent GA. [REPORTED 2026-07-07]
+Previously reported: Multi-Agent Orchestration GA, Atlas 3.0, A2A, Builder GA [2026-07-06];
+Agentforce Commerce GA, Help Agent GA [2026-07-07].
+
+NEW this scan 2026-07-08 (tracked in api/announcements caches): Headless 360 (platform as
+API/MCP/CLI + Hosted MCP Servers), Agent Skills open format, Agent Fabric, AgentExchange,
+Agentforce Vibes 2.0.
 
 ## Last Fetched
+2026-07-08 - No new page content beyond April 2026 subagents rename. New Summer '26 dev items in api/announcements caches.
 2026-07-07 - No new page content beyond April 2026 subagents rename.
 2026-07-06 - No new page content beyond April 2026 subagents rename.
 2026-07-04 - No new content beyond previous fetch.
 2026-07-03 - No new content beyond previous fetch.
-2026-06-16 - No new content beyond previous fetch.

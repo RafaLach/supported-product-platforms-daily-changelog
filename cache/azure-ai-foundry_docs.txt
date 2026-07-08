@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/azure/ai-studio/ (redirects to /azure/foundry/)
-Fetched: 2026-07-07
+Fetched: 2026-07-08
 Page: ms.date 2026-06-16; updated_at 2026-06-26
 
 # Microsoft Foundry documentation
@@ -35,6 +35,6 @@ The AI app and agent factory - build, optimize, and govern AI apps and agents at
 ## SDKs: Python, C#, JavaScript, Java
 ## Resources: Foundry portal (ai.azure.com), Foundry labs, GitHub Models, VS Code extension, Microsoft Agent Framework
 
-Updated: 2026-07-07 — Page unchanged since prior cache (updated_at still 2026-06-26). Section list
+Updated: 2026-07-08 — Page unchanged since prior cache (updated_at still 2026-06-26). Section list
 (Foundry MCP Server, Foundry Skill, hosted/prompt agents, Control Plane manage-agents/token-limits,
 Foundry IQ, AI Red Teaming Agent, Foundry Local) identical. No reportable addition.

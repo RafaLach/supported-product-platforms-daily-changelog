@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/power-pages/
-Fetched: 2026-07-07
+Fetched: 2026-07-08
 Page last updated: 2026-04-28 (updated_at 2026-04-28)
 
 # Microsoft Power Pages documentation
@@ -36,5 +36,5 @@ or browse anonymously.
 - Go live checklist, licensing, ALM
 - Portals admin center, troubleshooting/diagnostics, maintain/update, review consumption
 
-Updated: 2026-07-07 — Page unchanged since cache (last updated 2026-04-28). AI/Copilot section
+Updated: 2026-07-08 — Page unchanged since cache (last updated 2026-04-28). AI/Copilot section
 (incl. "Enable agent in your site") identical. No reportable addition.

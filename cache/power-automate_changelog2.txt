@@ -1,5 +1,5 @@
 Source: https://learn.microsoft.com/en-us/power-platform/released-versions/power-automate
-Fetched: 2026-07-07
+Fetched: 2026-07-08
 Page updated_at: 2025-09-02
 
 # Released versions for Power Automate
@@ -7,7 +7,7 @@ Page updated_at: 2025-09-02
 ## Analyst note
 Service Update history table, version numbers + dates only, no per-version feature callouts. Page has
 NOT advanced since last capture — still shows latest 2508.2 (Aug 28, 2025) as most recent entry.
-No AI/agent/Copilot feature at summary level. Below reporting bar. (Page appears stale/frozen.)
+No AI/agent/Copilot feature at summary level. Below reporting bar. (Page appears stale/frozen for ~10 months.)
 
 ## Latest Update: Power Automate 2508.2 — August 28, 2025
 
@@ -20,4 +20,5 @@ Recent Service Update History:
 - 2506.5 — July 12, 2025
 - 2506.1 — June 19, 2025
 
-Updated: 2026-07-07 — No new service updates or feature callouts since last capture. No reportable addition.
+Updated: 2026-07-08 — No new service updates or feature callouts since last capture. Still frozen at
+2508.2. No reportable addition.

@@ -1,23 +1,33 @@
-# Agentforce / GenAI Reference Index — captured 2026-07-07
+# Agentforce / GenAI Reference Index — captured 2026-07-08
 
 APIs: Agent API, Models API (Apex + REST), Testing API, Citations API, Metadata API, Tooling API.
 SDKs: Agentforce Python SDK, Agentforce Mobile SDK (iOS/Android).
-Other: Agent Script (agent-building language, now GA), Agentforce DX (pro-code),
-Lightning Types Reference (custom UI for agent actions), Metadata Types, Tooling Objects.
+Other: Agent Script (agent-building language, GA), Agentforce DX (pro-code),
+Lightning Types Reference, Metadata Types, Tooling Objects.
 
-No dated/new APIs on the reference index page itself. Summer '26 (via WebSearch):
-Agent2Agent (A2A) open-protocol support for delegating to third-party agents;
-API v67.0 defaults SOQL/SOSL/DML to user mode + Apex "with sharing";
-Named Query API GA; Agent Builder API; Salesforce-hosted MCP servers GA. [REPORTED 2026-07-06]
+Reference index page body UNCHANGED (same surface as prior fetches). Items below via WebSearch.
 
-New since 2026-07-06:
-- Agentforce Commerce agents (Shopper/Buyer/Merchant) GA with catalog sync to ChatGPT
-  (via Business Manager) and Google Search/AI Mode + Gemini app integration (coming
-  summer 2026). [REPORTED 2026-07-07]
+Summer '26 (via WebSearch) [REPORTED 2026-07-06]: A2A open-protocol support;
+API v67.0 defaults SOQL/SOSL/DML to user mode + Apex "with sharing"; Named Query API GA;
+Agent Builder API; Salesforce-hosted MCP servers GA.
+
+Commerce agents (Shopper/Buyer/Merchant) GA + ChatGPT catalog sync + Google/Gemini [REPORTED 2026-07-07].
+
+NEW this scan 2026-07-08 (Summer '26 dev release, previously MISSED by scans):
+- Headless 360 — every major Salesforce capability exposed as API / MCP tool / CLI command
+  to any authenticated caller (app, human, or autonomous agent). 60+ NEW MCP tools, 30+
+  coding skills. Salesforce Hosted MCP Servers (standard + custom) connect external MCP
+  clients (Claude/ChatGPT/Cursor/custom agents) to org data. Custom servers buildable from
+  Apex Actions, Flows, Apex REST, AuraEnabled methods, Named Query API, Prompt Builder,
+  Agentforce agents, API Catalog. [MAJOR new access/API surface]
+- Agent Skills — lightweight open format to extend agents w/ specialized knowledge/workflows;
+  open-sourced dev skill library (npx skills add forcedotcom/sf-skills), Claude Code compatible.
+- New MCP servers: Salesforce DX MCP (Beta), Metadata API Context MCP (Beta),
+  Data 360 MCP (Dev Preview), Omnistudio MCP (Beta), B2C DX MCP, Marketing Cloud Engagement MCP (GA).
 
 ## Last Fetched
+2026-07-08 - Page body unchanged. NEW via search: Headless 360 (API/MCP/CLI surface), Agent Skills open format, multiple new MCP servers. (Summer '26 items previously missed.)
 2026-07-07 - No new API/reference types on page. Commerce agent GA + ChatGPT/Google/Gemini integration noted via search.
 2026-07-06 - No new API/reference types on page. A2A protocol + v67.0 noted via search.
 2026-07-04 - No changes detected from previous fetch.
 2026-07-03 - No changes detected from previous fetch.
-2026-06-16 - No changes detected from previous fetch.

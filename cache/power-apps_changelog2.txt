@@ -1,12 +1,12 @@
-# Power Apps Released Versions — captured 2026-07-07
+# Power Apps Released Versions — captured 2026-07-08
 Source: https://learn.microsoft.com/en-us/power-platform/released-versions/powerapps
 Source ms.date: 2026-07-06 / updated_at 2026-07-06
 
 ## Analyst note
 Weekly release-train version advancement only. Summary tables list version numbers + dates, with no
-per-version feature callouts. Page advanced since last capture (was updated_at 2026-06-22, now
-2026-07-06) — pure version-train movement, no AI/agent/Copilot feature at summary level. Below
-reporting bar. Per-version detail pages not fetched (not in the assigned source list).
+per-version feature callouts. Page unchanged since 2026-07-07 capture (updated_at still 2026-07-06;
+latest Studio 3.26071, Make 26064) — pure version-train movement, no AI/agent/Copilot feature at
+summary level. Below reporting bar. Per-version detail pages not fetched (not in the assigned source list).
 
 ## Latest version availability
 | Region | Unified Interface | Power Apps Studio/Mobile | Make.PowerApps.com |
@@ -19,13 +19,13 @@ reporting bar. Per-version detail pages not fetched (not in the assigned source 
 | US Government (GCC) | 9.2 25073 | 3.26064 | 26063 |
 
 ## Recent Power Apps Studio / Mobile versions
-- 3.26071 — Jul 06, 2026 (worldwide Jul 27, 2026)   <- latest (new since prior cache; was 3.26064)
+- 3.26071 — Jul 06, 2026 (worldwide Jul 27, 2026)   <- latest
 - 3.26065 — Jun 29, 2026 (worldwide Jul 20, 2026)
 - 3.26064 — Jun 22, 2026 (worldwide Jul 14, 2026)
 - 3.26063 — Jun 15, 2026 (worldwide Jul 06, 2026)
 
 ## Recent Make.PowerApps.com versions
-- 26064 — Jul 01, 2026 (worldwide Jul 15, 2026)      <- latest (new since prior cache; was 26062)
+- 26064 — Jul 01, 2026 (worldwide Jul 15, 2026)      <- latest
 - 26063 — Jun 24, 2026 (worldwide Jul 08, 2026)
 - 26062 — Jun 17, 2026 (worldwide Jul 01, 2026)
 
@@ -34,5 +34,5 @@ reporting bar. Per-version detail pages not fetched (not in the assigned source 
 - 9.2 25084 — Aug 29, 2025 (current Preview US)
 
 Page last updated: 2026-07-06
-Updated: 2026-07-07 — Version trains advanced (Studio 3.26071, Make 26064) but no feature callouts.
-Version-bump only. No reportable addition.
+Updated: 2026-07-08 — No movement since 2026-07-07 (Studio 3.26071, Make 26064 unchanged); no
+feature callouts. Version-train only. No reportable addition.

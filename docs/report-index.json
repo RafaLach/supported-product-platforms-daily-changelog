@@ -1,5 +1,57 @@
 [
   {
+    "date": "2026-07-08",
+    "scan_time": "2026-07-08 08:25",
+    "file": "report-2026-07-08.md",
+    "platforms": [
+      {
+        "name": "Google Gemini Enterprise Agent Platform (formerly Vertex AI)",
+        "status": "changed",
+        "details": [
+          "**AI Security Findings & posture dashboard \u2014 GA (June 24, 2026)** \u2014 a new Security tab in the Agent Platform console surfaces AI security posture management: a \"Top security findings\" widget, AI risks by severity (vulnerabilities, misconfigurations, **toxic combinations**, an attack-exposure score), real-time AI threats against control planes/runtimes, an **\"Agents with excessive permissions\"** least-privilege widget that lists specific agent identities and their unused permissions, and a Compliance widget. Security Command Center AI-risk findings are surfaced directly in the tab. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings",
+          "**Model Armor on Agent Gateway \u2014 GA (June 24, 2026)** \u2014 Model Armor can now be enabled on an Agent Gateway resource to apply content-security guardrails to all prompts and responses passing through the gateway (block/redact or inspect+log), mitigating prompt injection, jailbreaks, harmful content, and sensitive-data leakage at the agent-to-tool communication layer. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor",
+          "**Agent Observability + default OpenTelemetry tracing \u2014 GA (June 18, 2026)** \u2014 a new observability surface giving visibility into the performance, behavior, and health of deployed agents **and MCP servers**, collecting traces, logs, and metrics (via OpenTelemetry GenAI semantic conventions) from Agent Platform, Agent Gateway, and Model Armor. OpenTelemetry tracing is now **enabled by default** for newly deployed ADK agents on Agent Engine. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview",
+          "**Agent Registry \u2014 GA (June 18, 2026)** \u2014 a central governance/inventory hub: a queryable catalog that stores, discovers, and manages **AI agents, MCP servers, and tools** across the org (own, Google, and third-party), capturing metadata such as versions, frameworks (e.g. ADK), and MCP tool names/annotations, with allow/deny egress policies enforced via Agent Gateway. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Gemini Enterprise Agent Platform \u2014 Agent Registry (GA)",
+        "description": "Google shipped a native central inventory/governance catalog of AI agents, MCP servers, and tools (own, Google, and third-party) with per-entity metadata (versions, frameworks, MCP tool names/annotations) and Agent-Gateway-enforced allow/deny egress policies. This is a first-class new inventory-entity surface on a platform Zenity monitors: registered-agent objects, registered MCP-server objects, registered tool objects, and their egress policy bindings. AISPM must discover and map these registry entities and reconcile them against actual deployed/running agents (registry-vs-reality drift, unregistered shadow agents, and over-broad egress allow-lists are the toxic-combination surfaces)",
+        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Gemini Enterprise Agent Platform \u2014 AI Security Findings & posture dashboard (GA)",
+        "description": "A native AISPM surface now GA in the console \u2014 security findings, AI risks by severity (vulnerabilities, misconfigurations, toxic combinations, attack-exposure score), real-time AI threats, an \"Agents with excessive permissions\" least-privilege widget naming specific agent identities and their unused permissions, and a Compliance widget, fed by Security Command Center. This introduces new inventory/finding entity types (security findings, excessive-permission agent identities, compliance status) that AISPM should ingest and correlate; it is also a direct native analogue of Zenity's own posture/least-privilege detection on a monitored platform, worth mapping for coverage parity and to avoid blind reliance on the platform's own scoring",
+        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Gemini Enterprise Agent Platform \u2014 Model Armor on Agent Gateway (GA)",
+        "description": "Content-security guardrails (prompt-injection, jailbreak, harmful-content, and sensitive-data-leakage detection, with block/redact or inspect+log actions) can now be enabled on the previously-reported Agent Gateway, inspecting every prompt and response that transits the gateway. This is a new runtime enforcement/detection chokepoint at the agent-to-tool data-flow layer. AIDR should treat Model-Armor-on-gateway as a new detectable data-flow control point \u2014 track which gateways have it enabled, what its templates block vs. only log, and the prompts/responses it inspects \u2014 since gaps or \"inspect-only\" templates define where injected/exfiltrating traffic can still pass",
+        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Gemini Enterprise Agent Platform \u2014 Agent Observability + default OpenTelemetry tracing (GA)",
+        "description": "A new observability surface exposing traces, logs, and metrics for deployed agents and MCP servers (OpenTelemetry GenAI semantic conventions), with tracing now on by default for newly deployed ADK agents on Agent Engine, aggregating telemetry from Agent Platform, Agent Gateway, and Model Armor. This is a new activity/telemetry surface AIDR can consume as a detection source \u2014 per-agent sessions, tool executions, retrieval steps, token usage, latency, and error rates \u2014 for monitoring agent behavior and spotting anomalous tool-call/data-access patterns",
+        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-07-07",
     "scan_time": "2026-07-07 09:51",
     "file": "report-2026-07-07.md",
