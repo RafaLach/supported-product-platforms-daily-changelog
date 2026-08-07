@@ -1,23 +1,18 @@
-# Einstein GenAI Reference Index — captured 2026-07-08
+# Einstein GenAI Reference Index — captured 2026-08-07
 
 APIs: Agent API, Models API (Apex + REST), Testing API, Citations API, Metadata API, Tooling API.
 SDKs: Agentforce Python SDK, Agentforce Mobile SDK (iOS/Android).
 Other: Agent Script, Agentforce DX, Lightning Types Reference, Metadata Types, Tooling Objects.
 
-No dated/new APIs on this reference index page (same surface as Agentforce references index).
+No dated or new APIs on this reference index. Identical surface to the 2026-07-08 capture.
 
-Summer '26 (via search) [REPORTED 2026-07-06]: A2A protocol, API v67.0, Named Query API GA,
-Agent Builder API, Salesforce-hosted MCP servers GA.
-Commerce agents GA + ChatGPT/Google/Gemini [REPORTED 2026-07-07].
-
-NEW this scan 2026-07-08 (tracked in agentforce api cache): Headless 360 — platform as
-API/MCP tool/CLI, 60+ new MCP tools, Salesforce Hosted MCP Servers connecting external MCP
-clients to org data; Agent Skills open extensibility format; new MCP servers (DX, Metadata
-Context, Data 360, Omnistudio, B2C DX, Marketing Cloud Engagement).
+Previously reported and still current: Summer '26 A2A protocol, API v67.0, Named Query API GA,
+Agent Builder API, Salesforce-hosted MCP servers GA (2026-07-06); Commerce agents GA + ChatGPT/Gemini
+(2026-07-07); Headless 360, 60+ MCP tools, Agent Skills, DX/Metadata Context/Data 360/Omnistudio/
+B2C DX/Marketing Cloud Engagement MCP servers (2026-07-08).
 
 ## Last Fetched
+2026-08-07 - No changes. Winter '27 sandbox upgrade ~Aug 29, 2026 — forward-watch, no detail yet.
 2026-07-08 - Page unchanged. NEW via search: Headless 360 API/MCP/CLI surface + Agent Skills + new MCP servers.
 2026-07-07 - No changes from previous fetch on page.
 2026-07-06 - No changes from previous fetch on page.
-2026-07-04 - No changes from previous fetch.
-2026-07-03 - No changes from previous fetch.

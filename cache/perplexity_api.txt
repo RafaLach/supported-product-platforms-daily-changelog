@@ -1,10 +1,22 @@
-# Perplexity API Reference — captured 2026-07-07
+# Perplexity API Reference — captured 2026-08-07
 
-Endpoint: POST /v1/agent — response generation with optional web search + reasoning.
-Models: fallback chains up to 5 (provider/model fmt, e.g. openai/gpt-5.5, anthropic/claude-sonnet-4-6). Presets: fast-search, pro-search, deep-research.
+Primary endpoint: POST /v1/agent — response generation with optional web search and reasoning.
 
-Tools (7): web_search (domain/date filter, geolocation), finance_search, people_search, fetch_url (≤10/call), sandbox (isolated container code execution, stdout/stderr capture), function (custom, JSON schema), **mcp — connects user-supplied remote MCP server; Agent API discovers server tools at request start and auto-invokes them; requires HTTPS Streamable-HTTP endpoint; optional auth tokens/custom headers; allowed_tools allowlist; auto-executes all tool calls, approval workflow NOT supported ("every call auto-runs")**.
-Reasoning: effort low/medium/high/xhigh/max. research loop max_steps 1-10. Streaming via SSE. Structured JSON schema output (strict). Cost/token accounting incl. cache_creation/read tokens; URL citations/annotations.
+Capabilities: web search with domain/date/recency filters; `fetch_url` tool; finance search; people
+search; SANDBOX CODE EXECUTION; function calling with custom tools; multi-turn via
+`previous_response_id`; SSE streaming and non-streaming; asynchronous background processing with
+polling.
 
-## Last Fetched
-2026-07-07 — Reference unchanged from prior scan: 7 tools incl. `mcp` remote-server connector (agent calls arbitrary remote MCP servers, auto-executes, no approval) and xhigh/max reasoning present. Still no dated changelog entry confirming these as a launch; continuing to watch the `mcp` tool as an emerging tool-execution surface, not a confirmed dated launch. Nothing new to report.
+Advanced: **MCP integration** connecting external remote servers with tool discovery;
+**Skills system** — built-in Office document creation (docx, pdf, pptx, xlsx) plus custom inline
+skills; reasoning effort levels (minimal..max); JSON-schema structured output; token/cache accounting;
+per-operation cost tracking.
+
+Model selection: single model or fallback chain of up to 5; provider/model format
+(e.g. openai/gpt-5, anthropic/claude-sonnet-4-6); presets fast/low/medium/high/xhigh.
+
+Streaming: 14+ event types with intermediate tool output visibility (search, fetch, finance, people,
+sandbox, MCP).
+
+Updated: 2026-08-07 — Endpoint surface unchanged vs the 2026-07-07 cache; the new Gateway API and the
+hosted remote MCP server are tracked in perplexity_changelog.txt.

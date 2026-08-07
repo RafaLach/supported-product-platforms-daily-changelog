@@ -1,21 +1,28 @@
-# OpenAI Codex Changelog — captured 2026-07-08
+# OpenAI Codex / ChatGPT changelog — captured 2026-08-07
+# NOTE: developers.openai.com/codex/changelog now 308-redirects to learn.chatgpt.com/docs/changelog
 
-No new entries since prior scan (latest fetch surfaced entries only up to June 25 GA / July 1 CLI 0.142.5). Nothing new/reportable this scan.
+## August 2026 [NEW]
+- Aug 7 — Codex CLI 0.147.0: **Agent Plugins installation with multi-catalog search**; persistent thread
+  sections; automatic approval reviews via `--approve-for-me`; Cursor skill migration and Claude
+  conversation synchronization; **MCP protocol 2026-07-28 support with paginated discovery**;
+  web search + compaction for Amazon Bedrock. [REPORTED]
+- Aug 5 — Codex CLI 0.146.1: safer automatic-review defaults for cyber-capable models; clearer
+  permission-change transparency. [REPORTED alongside --approve-for-me]
 
-## July 1, 2026 — Codex CLI 0.142.5 [prior scan]
-- Bug fix: prevents full Responses WebSocket request payloads from being written to trace logs. Not reportable.
+## July 2026 [NEW]
+- Jul 31 — GPT-5.4 / GPT-5.4 mini retiring from Codex Aug 31; migrate to **GPT-5.6-Terra** and
+  **GPT-5.6-Luna**. (First appearance of GPT-5.6 model IDs on an official OpenAI docs surface —
+  clears the reporting bar set on 2026-07-08.) [REPORTED]
+- Jul 30 — Desktop 26.727: browser history search, multi-repository code review, refined image
+  editing, new "Activity view" sidebar.
+- Jul 29 — **Sign in with ChatGPT (beta)** rolling out with Airtable, GitLab, HubSpot, Notion,
+  Supabase, Vercel. Live beta Aug 2. [REPORTED]
+- Jul 29 — Codex CLI 0.146.0: session naming/pinning, **Agent Plugins support**, paginated thread
+  history, **remote WebSocket code-mode connections**, **executor-provided skills discovery**. [REPORTED]
 
-## June 29, 2026 — Codex CLI 0.142.4 [prior scan] — maintenance only.
-## June 26, 2026 — Codex CLI 0.142.3 [prior scan] — maintenance only.
+Plugin model (per developers.openai.com/codex/plugins): a plugin is an installable workflow bundle
+packaging SKILLS + optional APP INTEGRATIONS + MCP SERVER CONFIG. Catalogs: official Plugin Directory,
+repo marketplace at $REPO_ROOT/.agents/plugins/marketplace.json, personal marketplace at
+~/.agents/plugins/marketplace.json. Shared catalog with ChatGPT.
 
-## June 25, 2026 — Codex Remote GA + CLI 0.142.1 / 0.142.2 [reported prior scan]
-- Codex Remote GA: mobile control of connected Mac/Windows hosts via authenticated one-to-one QR pairing (iOS/Android <-> host).
-- New DigitalOcean plugin: provisions a Droplet, configures SSH, connects it as a remote Codex workspace.
-- CLI 0.142.2: MCP tools use tool search by default; macOS auth honors system proxy/PAC/WPAD; remote stdio MCP servers accept absolute native paths; PowerShell unlowered-AST commands require approval.
-
-## June 18, 2026 — Record & Replay (macOS) + CLI 0.141.0 [prior scan]
-## June 16, 2026 — EEA/UK/CH regional expansion [prior scan]
-## June 11, 2026 — Developer Mode Browser Use (CDP access) [reported 2026-06-12]
-## June 2, 2026 — Sites plugin (preview) [reported 2026-07-06]
-
-Updated: 2026-07-08 — No new Codex changelog entries since prior scan. Nothing reportable.
+Updated: 2026-08-07 — Prior cache had no July/August entries. Four reportable items.

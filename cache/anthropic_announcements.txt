@@ -1,16 +1,23 @@
-# Anthropic News — captured 2026-07-08
+# Anthropic News — captured 2026-08-07
+Source: https://www.anthropic.com/news
 
-## June/July 2026 announcements
-- **The Making of Claude Code (July 6, 2026)** — Features category. Inside-story feature article on how Claude Code became Anthropic's coding agent. Not reportable (editorial feature, not a new capability).
-- **Government of Alberta case study (July 6, 2026)** — customer case study. Not reportable.
-- **More details on Fable 5's cyber safeguards + jailbreak framework (July 2, 2026)** — safety/policy, not reportable.
-- **Introducing Claude Tag (June 23, 2026)** — NEW PRODUCT [REPORTED 2026-07-03, AISPM/AIDR HIGH]. Agentic Slack teammate; @Claude access to selected channels + tools/data/codebases; admin per-channel scoping + separate Claude identities. Beta for Enterprise & Team. https://www.anthropic.com/news/introducing-claude-tag
-- **Claude Sonnet 5 (June 30, 2026)** — new agentic model [REPORTED 2026-07-03, AIRT/ENDPOINT MEDIUM]. Model id `claude-sonnet-5`; autonomous tool use near Opus 4.8. Claude API, AWS, Microsoft Foundry (Vertex soon). New tokenizer. https://www.anthropic.com/news/claude-sonnet-5
-- **Claude Science AI Workbench (June 30, 2026)** — new app [REPORTED 2026-07-03, ENDPOINT/AIRT MEDIUM]. Compute-provisioning research agent. https://www.anthropic.com/news/claude-science-ai-workbench
-- **Redeploying Fable 5 (June 30, 2026)** — re-deployment + policy; not a new feature.
+## August 2026
+- Aug 7 — Product: Improving Fable 5's biology safeguards. [safety, not a new surface]
+- Aug 4 — Mariano-Florentino Cuéllar joins as Chief Global Affairs Officer. [corporate]
 
-## Prior (pre-2026-06-16)
-- US gov directive suspending Fable 5 / Mythos 5 (June 12) — shutdown.
-- Claude Fable 5 and Claude Mythos 5 (June 9) — first Mythos-class models [reported 2026-06-10, AIRT HIGH; suspended June 12, redeployed July 1].
+## July 2026
+- Jul 30 — Investigating three real-world incidents in our cybersecurity evaluations. [research]
+- Jul 27 — Position statement on open-weights models; Cognizant enterprise partnership expansion.
+- **Jul 24 — Product: Claude Opus 5** — "a step change improvement for the Opus tier powering
+  long-running agents while delivering improvements in coding and professional work." [REPORTED]
+- Jul 22 — Economic Futures Research Fund agenda; Anthropic Economic Index connector. [research data]
+- Jul 21 — $20M donation to Public First Action. [corporate]
+- Jul 20 — Rare disease research grants program. [corporate]
+- Jul 9 — Public commitment to address hard AI questions.
+- Jul 6 — The Making of Claude Code. [editorial]
 
-Updated: 2026-07-08 — No NEW reportable items since prior scan. New entry: July 6 "The Making of Claude Code" (editorial feature, below bar). Latest feature-bearing entries (Claude Tag / Sonnet 5 / Claude Science) already reported.
+## June 2026 [already cached]
+- Jun 30 — Claude Sonnet 5 (reported 2026-07-03).
+
+Updated: 2026-08-07 — One product launch above the bar (Claude Opus 5); the rest is research,
+corporate or editorial. Detailed platform deltas are tracked in anthropic_api.txt.

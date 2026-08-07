@@ -1,27 +1,24 @@
 Source: https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/
-Fetched: 2026-07-08
+Fetched: 2026-08-07
+Page: ms.date 2026-05-06; updated_at 2026-07-29 (was 2026-06-17)
 
 # Microsoft 365 Copilot extensibility documentation
-(ms.date 2026-05-06; page updated_at 2026-06-17)
-
-Build custom Copilot experiences using agents, connectors, and Copilot APIs.
 
 ## Get started
 - Overview / Planning guide / Licensing and cost considerations / Choose your development tool
 
 ## Create and manage agents
-- Agents overview / Build a declarative agent / Build a custom engine agent / Evaluate agents / Manage agents in the M365 admin center
+- Agents overview / Build a declarative agent / Build a custom engine agent / Evaluate agents
+- **Use Insights Agent (preview)**  <-- NEW this scan (not in 2026-07-08 capture)
+- Manage agents in the M365 admin center
 
 ## Extend with plugins and connectors
 - Add plugins to declarative agents / Use Copilot connectors / Build a custom Copilot connector
 
 ## Use developer tools and APIs
-- Microsoft 365 Agents Toolkit
-- Microsoft 365 Agents SDK
-- Work IQ API
-- Microsoft 365 Copilot APIs
-- Interactive Demo (aka.ms/copilot.dev — demo only, not a new API)
-- Microsoft Agent 365
+- Microsoft 365 Agents Toolkit / Microsoft 365 Agents SDK / Work IQ API / Microsoft 365 Copilot APIs
+- Interactive Demo (aka.ms/copilot.dev) / Microsoft Agent 365
 
-Updated: 2026-07-08 — No change vs prior cache (updated_at still 2026-06-17). Same sections/links
-(Work IQ API, Copilot APIs, Agents SDK/Toolkit, Interactive Demo, Agent 365). No new APIs/agent capabilities.
+Updated: 2026-08-07 — updated_at advanced 2026-06-17 -> 2026-07-29. One net-new entry:
+**Insights Agent (preview)** under "Create and manage agents". [REPORTED 2026-08-07]
+All other sections/links unchanged.

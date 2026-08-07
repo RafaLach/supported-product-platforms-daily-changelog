@@ -1,16 +1,14 @@
-# OpenAI Status Page (history.rss) — captured 2026-07-08
+# OpenAI Status & Incidents (RSS) — captured 2026-08-07
+Source: https://status.openai.com/history.rss
 
-Incident/maintenance feed only — no feature/API announcements.
+Recent incidents (Jul 27 - Aug 5, 2026): image generation errors (Aug 5, Jul 28, Jul 27), Custom GPT
+actions (Aug 5), ChatGPT conversation errors with files (Aug 5), Plus/Pro/Business/Edu conversation
+errors (Aug 4), Enterprise & Education chat errors (Jul 31), conversation errors (Jul 30),
+invalid_prompt error-code spike on Chat Completions (Jul 29), latency/timeouts/interrupted streaming
+on gpt 5.1 mini and gpt 4.1 mini (Jul 27).
 
-## Recent incidents (all resolved unless noted)
-- Jul 7, 2026 — Elevated errors with image generation in ChatGPT (Resolved)
-- Jun 29, 2026 — Codex usage limits depleting faster than expected (Resolved) — VS Code ext, Codex API, Web, CLI, App
-- Jun 29, 2026 — FedRAMP workspace issues (Investigating/degraded) — Codex, workspace analytics, conversation search, custom GPT search, invites, Compliance Logs Platform download
-- Jun 28, 2026 — ChatGPT Windows Desktop app conversations issue (Resolved)
-- Jun 26, 2026 — FedRAMP & API org performance degradation (Resolved)
+Components tracked: Conversations, Chat Completions, Image Generation, Images, Files, Voice mode,
+GPTs, Codex (Web, API, CLI, Desktop), Fine-tuning, Realtime API, Compliance API.
 
-## Service/feature names referenced in feed
-- Codex (Web, API, Cloud tasks, CLI, App, VS Code ext), FedRAMP workspaces, Compliance Logs Platform, Image Generation/Sora, Voice mode, Deep Research, ChatGPT Atlas, Responses API. (All pre-existing; none new.)
-
-Operational incidents only; no confirmed new feature/API surface.
-Updated: 2026-07-08.
+Updated: 2026-08-07 — Incidents only. No new service or endpoint names appear in the component list.
+Nothing reportable.

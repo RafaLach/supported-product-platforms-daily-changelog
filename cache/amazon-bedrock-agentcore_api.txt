@@ -1,42 +1,35 @@
-# Amazon Bedrock AgentCore Data Plane - Actions API Reference — captured 2026-07-07
+# Amazon Bedrock AgentCore Data Plane - Actions API Reference — captured 2026-08-07
 
-## Complete List of Supported Actions (full list retrieved 2026-07-07)
+Full operation list diffed against the 2026-07-07 cache.
 
-### Memory Management
-- BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords
-- DeleteMemoryRecord, GetMemoryRecord, ListMemoryRecords
-- ListMemoryExtractionJobs, RetrieveMemoryRecords, StartMemoryExtractionJob
+### NEW since 2026-07-07
+- DeleteCapacityProviderSession   (matches the new August Runtime "Instances" compute type)
 
-### Authentication & Token
-- CompleteResourceTokenAuth, GetResourceApiKey, GetResourceOauth2Token
-- GetResourcePaymentToken, GetWorkloadAccessToken, GetWorkloadAccessTokenForJWT, GetWorkloadAccessTokenForUserId
+### Unchanged groups
+Memory: BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords,
+  DeleteMemoryRecord, GetMemoryRecord, ListMemoryRecords, ListMemoryExtractionJobs,
+  RetrieveMemoryRecords, StartMemoryExtractionJob
+Auth/Token: CompleteResourceTokenAuth, GetResourceApiKey, GetResourceOauth2Token,
+  GetResourcePaymentToken, GetWorkloadAccessToken, GetWorkloadAccessTokenForJWT,
+  GetWorkloadAccessTokenForUserId
+Events: CreateEvent, DeleteEvent, GetEvent, ListEvents
+Agent/Runtime: GetAgentCard, InvokeAgentRuntime, InvokeAgentRuntimeCommand, InvokeHarness,
+  StopRuntimeSession
+Browser: GetBrowserSession, ListBrowserSessions, SaveBrowserSessionProfile, StartBrowserSession,
+  StopBrowserSession, UpdateBrowserStream, InvokeBrowser
+Code Interpreter: GetCodeInterpreterSession, InvokeCodeInterpreter, ListCodeInterpreterSessions,
+  StartCodeInterpreterSession, StopCodeInterpreterSession
+Registry: SearchRegistryRecords
+  (NOTE: the August release notes add ListDiscoverableRegistryRecords and
+   BatchGetDiscoverableRegistryRecord under the new `agent-registry` namespace — they are NOT on this
+   AgentCore data-plane Actions page, they live in the separate AWS Agent Registry API surface.)
+A/B Testing + Batch Evaluation + Recommendation: CreateABTest, DeleteABTest, GetABTest, ListABTests,
+  UpdateABTest, DeleteBatchEvaluation, GetBatchEvaluation, ListBatchEvaluations, StartBatchEvaluation,
+  StopBatchEvaluation, DeleteRecommendation, GetRecommendation, ListRecommendations, StartRecommendation
+Payments: CreatePaymentInstrument, CreatePaymentSession, DeletePaymentInstrument, DeletePaymentSession,
+  GetPaymentInstrument, GetPaymentInstrumentBalance, GetPaymentSession, ListPaymentInstruments,
+  ListPaymentSessions, ProcessPayment
+Additional: Evaluate, ListActors, ListSessions
 
-### Event Management
-- CreateEvent, DeleteEvent, GetEvent, ListEvents
-
-### Agent & Runtime Operations
-- GetAgentCard, InvokeAgentRuntime, InvokeAgentRuntimeCommand, InvokeHarness, StopRuntimeSession
-
-### Browser Session
-- GetBrowserSession, ListBrowserSessions, SaveBrowserSessionProfile, StartBrowserSession, StopBrowserSession, UpdateBrowserStream, InvokeBrowser
-
-### Code Interpreter
-- GetCodeInterpreterSession, InvokeCodeInterpreter, ListCodeInterpreterSessions, StartCodeInterpreterSession, StopCodeInterpreterSession
-
-### Registry
-- SearchRegistryRecords
-
-### A/B Testing, Batch Evaluation & Recommendation (Optimization)
-- CreateABTest, DeleteABTest, GetABTest, ListABTests, UpdateABTest
-- DeleteBatchEvaluation, GetBatchEvaluation, ListBatchEvaluations, StartBatchEvaluation, StopBatchEvaluation
-- DeleteRecommendation, GetRecommendation, ListRecommendations, StartRecommendation
-
-### Payments
-- CreatePaymentInstrument, CreatePaymentSession, DeletePaymentInstrument, DeletePaymentSession
-- GetPaymentInstrument, GetPaymentInstrumentBalance, GetPaymentSession
-- ListPaymentInstruments, ListPaymentSessions, ProcessPayment
-
-### Additional
-- Evaluate, ListActors, ListSessions
-
-Updated: 2026-07-07 — Full operation list retrieved and diffed against prior cache: IDENTICAL set. No new data-plane operations this scan. (June KB/WebSearch/Guardrails/gateway-target/Interactive-Shell features are gateway-config/target-type surfaces, not data-plane ops.) No reportable API addition this scan.
+Updated: 2026-08-07 — One net-new data-plane operation (DeleteCapacityProviderSession).
+Gateway rate-limit ops (CreateRateLimit et al.) are control-plane and not listed on this page.

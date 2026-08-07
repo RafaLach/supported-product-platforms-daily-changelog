@@ -1,13 +1,10 @@
-# Amazon Q Business Document History — captured 2026-07-07
+# Amazon Q Developer Doc History — captured 2026-08-07
+Source: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/doc-history.html
 
-**Latest documentation-update banner:** August 14, 2025; newest dated row June 30, 2026.
+Top row still May 21, 2026 — AmazonQFullAccess / AmazonQDeveloperAccess managed policies gained
+q:CreateArtifact, q:GetArtifact, q:GetArtifactActionResult, q:PerformArtifactAction for Amazon Q
+artifacts (preview). Below that: Mar 19, 2026 Builder ID unsubscribe guidance; Feb 18, 2026 account
+subscription limit 10 -> 20; Jan 16, 2026 GitLab code-transformation deprecation.
 
-## Newest entries
-- **Amazon Q Business availability change** (June 30, 2026) — Q Business closed to NEW customers starting July 31, 2026; sign up before July 30; points to Amazon Quick for similar capabilities. **[DEPRECATION / availability-change — NOT reportable]**
-- New Agentic RAG feature — enhance standard RAG with agentic workflows. (August 14, 2025) [already cached; newest actual feature]
-- Clickable S3 Link Feature (July 22, 2025)
-- Relevancy tuning replaces metadata boosting (July 1, 2025)
-- New response customization feature (July 1, 2025)
-- (older entries unchanged: anonymous access, hallucination mitigation, MS Word/Outlook add-ins, data accessors, Q index for ISVs, Slack/Teams, Q Apps, connectors, etc.)
-
-Updated: 2026-07-07 — No net-new doc-history row since prior scan. Top remains June 30, 2026 availability-change (deprecation), NOT reportable. Newest actual feature remains Agentic RAG (Aug 14, 2025), already cached. No reportable addition.
+Updated: 2026-08-07 — No July or August 2026 entries. Page unchanged vs the 2026-07-07 capture.
+Nothing reportable.

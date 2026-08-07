@@ -1,20 +1,21 @@
-# Cursor Changelog — captured 2026-07-07
+# Cursor Changelog — captured 2026-08-07
+Prior cache: v3.10 Team MCP marketplace (reported 2026-07-04).
 
-## v3.10 — Jun 30, 2026 [top; version relabel — feature content already REPORTED 07-04]
-- **MCPs and Organizations in Team Marketplaces (Jun 30)**: admins distribute Team MCP servers across cloud agents/agents window/IDE/CLI via marketplace configs; org groups + SCIM directory groups for access control. [Top entry relabeled v3.10 (was v3.9 in 07-06 cache); same feature content — no new capability.]
+## August 2026 [NEW — REPORTED]
+- Aug 3 — **Google Workspace Plugins**: agents get direct read/write/act access to Gmail, Google Drive,
+  Calendar, Docs and Sheets via Google's remote MCP servers. Drive: search, read, create, share, manage
+  files. Gmail: search, read, draft, label, manage email. Calendar: list calendars, search events.
+  Installed from the Cursor Marketplace / Customize page (~5 clicks).
+  https://cursor.com/changelog/google-workspace-plugins
 
-## v3.9 — Jun 29, 2026 [already reported]
-- **Cursor Mobile App for iOS (Jun 29)**: launch/manage cloud agents from phone with voice; "Remote Control" for desktop agents; agents run in isolated VMs w/ full dev envs; Live Activity notifications; artifact/SCM diff/PR merge from mobile.
-- **Customize Cursor (Jun 22)**: centralized page for plugins, skills, MCPs, subagents, rules, commands; user/team/workspace levels; marketplace leaderboard; plugin canvases (Hex, Atlassian); GitLab/BitBucket/Azure DevOps imports. (personalization surface, below bar.)
+## July 2026 [below the watching-tier bar]
+- Jul 29 — Cursor on iPad (all paid plans); inbox; expanded PR review; split-screen; Apple Pencil markup.
+- Jul 28 — Cursor Start plan for India (Grok 4.5 + Composer, cloud agents, iOS remote control, UPI).
+- Jul 22 — **Cursor Router**: model router behind Auto mode with Cost / Balance / Intelligence modes;
+  admins control enablement, restrict modes, and manage model access per team or group.
+  (Governance-relevant but a routing/config feature, not a new capability surface — held below bar.)
+- Jul 17 — Cursor in Slack: task plans before execution, multi-repo with mid-task repo switching,
+  cross-channel message reading and posting.
 
-## Jun 17-18, 2026 (v3.7-3.8) [already reported]
-- Cloud Environment Setup + Cloud Subagents `/in-cloud` (Jun 17); `/babysit` remote PR prep; Cursor Automations `/automate` skill + computer-use default + new GitHub/Slack triggers (Jun 18).
-
-## June 5-10, 2026 (v3.7) [cached]
-- Design Mode; SDK custom tools via local.customTools + permissions.json auto-review; Canvas context reports; Enterprise Organizations/Groups; Bugbot /review pre-push.
-
-## Earlier (cached): 3.6 Auto-review Run Mode; 3.5 Shared Canvases / /loop Skill / Cursor Automations; Cursor in Jira; 3.4 Dev Environments for Cloud Agents; Cursor in MS Teams; Build in Parallel /multitask.
-
-Docs sections (cursor.com/docs): Agent, Rules, MCP, Skills, CLI.
-
-Updated: 2026-07-07 — Watching tier. Top release relabeled v3.10 (Jun 30) but feature content (Team MCP marketplace) already REPORTED 07-04; mobile cloud-agent control + Customize page reported prior. No NEW dated entry with new capability since. Nothing new to report.
+Updated: 2026-08-07 — Watching tier. One item clears the "major new capability" bar: Google Workspace
+plugins put corporate mail/file/calendar data inside a coding agent.

@@ -1,13 +1,30 @@
-# OpenAI Developer Community — captured 2026-07-08
+# OpenAI announcements / model surface — captured 2026-08-07
 
-Community forum listing; official (staff "sps") announcements. Forum posts NOT reportable on their own — treat as LEADS ONLY until confirmed in SDK changelog/docs/API.
+## GPT-5.6 family — GA July 9, 2026 [REPORTED 2026-08-07]
+Model IDs: `gpt-5.6-sol` (frontier reasoning / long-horizon agentic), `gpt-5.6-terra` (balanced),
+`gpt-5.6-luna` (fast/low-cost). Bare alias `gpt-5.6` routes to Sol.
+1.05M-token context, 128K max output, text+image in, streaming, structured outputs, function calling,
+file search, web search, prompt caching. Reasoning effort ladder: none/low/medium/high/xhigh/max.
+Available via the Responses API and OpenAI client SDKs — self-serve, no waitlist.
+Pricing per 1M tokens: Sol $5/$30, Terra $2.50/$15, Luna $1/$6 (Luna -80% / Terra -20% on Jul 30).
+Official: https://openai.com/index/gpt-5-6/ , https://developers.openai.com/api/docs/models
+This closes the 2026-07-08 forward-watch on the Sol/Terra/Luna family.
 
-## Notable — official staff posts
-- Jul 8, 2026 — OFFICIAL (sps): "Introducing GPT-5.6 series: Sol, Terra and Luna, launching publicly July 9". NEW major model family. Sol = frontier reasoning + long-horizon agentic work; Terra = balanced everyday; Luna = (small/fast, excerpt cut). LAUNCH DATE JULY 9 — forum-only so far, NOT yet in SDK changelog/docs/API. STRONG LEAD — flag for next scan; expect model IDs in openai-python/node once live. New frontier + agentic model IDs highly material to Zenity.
-- Jul 8, 2026 — OFFICIAL (sps): "New Realtime models on the API: gpt-realtime-2.1 and gpt-realtime-2.1-mini"; p95 latency reduced >=25%. (First surfaced Jul 6 as staff post.) Still forum-only; Python SDK still v2.44.0 / Node v6.45.0 — no SDK/doc surface yet. Below strict bar (forum-only), awaiting SDK.
-- Jul 5, 2026 — "OpenAI DevDay 2026 applications open" — event, NOT reportable.
-- Jul 3, 2026 — Deprecation: Evals shut down Nov 30, 2026. NOT reportable.
+## Sign in with ChatGPT — live beta Aug 2, 2026 [REPORTED]
+OpenAI's first cross-platform identity system. Named launch partners: Airtable, GitLab, HubSpot,
+Notion, Supabase, Vercel. Also on OpenAI Academy and Codex Sites. Relying party receives name, email
+address, profile picture. Available globally to authenticated ChatGPT users INCLUDING Enterprise
+org members, subject to org admin settings.
+https://help.openai.com/en/articles/20001410-sign-in-with-chatgpt
 
-Remaining content is user discussion. For confirmed releases, SDK + Codex changelogs remain the reliable proxies.
+## Content provenance [REPORTED]
+C2PA Content Credentials + Google SynthID watermarking across images (and, since July 2026, audio)
+generated via ChatGPT, Codex, and the OpenAI API. API access for verification now shipped in the
+SDKs as "content provenance checks"; public verification tool in preview.
+https://openai.com/index/advancing-content-provenance/
 
-Updated: 2026-07-08. NEW this scan: GPT-5.6 (Sol/Terra/Luna) staff announcement — held as lead (forum-only, launches Jul 9). realtime-2.1 still forum-only.
+## Still watching
+- `gpt-realtime-2.1` / `-mini`: forum-only since ~Jul 6; still absent from SDK/docs. Continue watch.
+
+Updated: 2026-08-07 — Community forum itself contributed nothing above the bar this scan; the GPT-5.6
+family is now reported on the strength of official docs/SDK/Codex sources.

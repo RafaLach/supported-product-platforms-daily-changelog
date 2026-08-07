@@ -1,16 +1,15 @@
-# Amazon Bedrock User Guide - Document History — captured 2026-07-07
+# Amazon Bedrock Doc History — captured 2026-08-07
+Source: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
 
-**Latest documentation-update banner:** November 26th, 2025; newest dated rows June 30, 2026.
+Top rows:
+- Jul 30, 2026 — Amazon Bedrock Agents Classic is no longer open to new customers. Existing customers
+  continue as normal; AWS points new work at Amazon Bedrock AgentCore. [DEPRECATION — not reportable]
+- Jun 30, 2026 — Advance notice of the same Agents Classic availability change. [already cached]
 
-## Newest entries
-- **Amazon Bedrock Agents Classic availability change** (June 30, 2026) — Bedrock Agents (Nov 2023) renamed "Agents Classic"; closed to NEW customers from July 30, 2026; existing customers continue; points to AgentCore. **[DEPRECATION / maintenance-mode — NOT reportable]**
-- Updated requests-per-minute (RPM) quota guidance (May 27, 2026) — quota doc clarification. [Doc change]
-- Quotas for the bedrock-runtime endpoint (May 27, 2026) — new doc page, per-model token quotas. [Doc page]
-- Quotas for the bedrock-mantle endpoint (May 27, 2026) — per-model token quotas doc. [Doc page]
-- Token counting on the bedrock-mantle endpoint (May 26, 2026) — count_tokens path doc. [Doc change; already cached]
-- Fully managed knowledge bases with agentic retrieval + AgenticRetrieveStream API (March 2, 2026) — [earlier scan; NOT new]
-- Converse API support for batch inference (Feb 27, 2026) — [earlier scan]
-- Fine-tuning open-weight models via OpenAI-compatible APIs (Feb 17, 2026) — [earlier scan]
-- (older: Bedrock Mantle OpenAI-compatible endpoints/managed policies Dec 3 2025, reinforcement fine-tuning, service tiers — earlier scans)
+API Reference welcome page groups unchanged: Amazon Bedrock, Agents for Amazon Bedrock (now "Classic",
+carrying the maintenance-mode note), Agents for Amazon Bedrock Runtime, Data Automation for Amazon
+Bedrock, Runtime for Amazon Bedrock Data Automation, Amazon Bedrock Runtime.
 
-Updated: 2026-07-07 — No net-new doc-history row since prior scan. Top remains June 30 Agents Classic maintenance-mode (deprecation, not reportable). Older feature rows already captured in earlier scans. No reportable addition.
+Updated: 2026-08-07 — Only deprecations. No new services, APIs or entity types. Nothing reportable.
+Coverage note: the Agents Classic closure means net-new AWS agent surface will land in AgentCore —
+see amazon-bedrock-agentcore_changelog.txt, which had a large delta this scan.

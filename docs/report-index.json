@@ -1,376 +1,53 @@
 [
   {
-    "date": "2026-07-08",
-    "scan_time": "2026-07-08 08:25",
-    "file": "report-2026-07-08.md",
-    "platforms": [
-      {
-        "name": "Google Gemini Enterprise Agent Platform (formerly Vertex AI)",
-        "status": "changed",
-        "details": [
-          "**AI Security Findings & posture dashboard \u2014 GA (June 24, 2026)** \u2014 a new Security tab in the Agent Platform console surfaces AI security posture management: a \"Top security findings\" widget, AI risks by severity (vulnerabilities, misconfigurations, **toxic combinations**, an attack-exposure score), real-time AI threats against control planes/runtimes, an **\"Agents with excessive permissions\"** least-privilege widget that lists specific agent identities and their unused permissions, and a Compliance widget. Security Command Center AI-risk findings are surfaced directly in the tab. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings",
-          "**Model Armor on Agent Gateway \u2014 GA (June 24, 2026)** \u2014 Model Armor can now be enabled on an Agent Gateway resource to apply content-security guardrails to all prompts and responses passing through the gateway (block/redact or inspect+log), mitigating prompt injection, jailbreaks, harmful content, and sensitive-data leakage at the agent-to-tool communication layer. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor",
-          "**Agent Observability + default OpenTelemetry tracing \u2014 GA (June 18, 2026)** \u2014 a new observability surface giving visibility into the performance, behavior, and health of deployed agents **and MCP servers**, collecting traces, logs, and metrics (via OpenTelemetry GenAI semantic conventions) from Agent Platform, Agent Gateway, and Model Armor. OpenTelemetry tracing is now **enabled by default** for newly deployed ADK agents on Agent Engine. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview",
-          "**Agent Registry \u2014 GA (June 18, 2026)** \u2014 a central governance/inventory hub: a queryable catalog that stores, discovers, and manages **AI agents, MCP servers, and tools** across the org (own, Google, and third-party), capturing metadata such as versions, frameworks (e.g. ADK), and MCP tool names/annotations, with allow/deny egress policies enforced via Agent Gateway. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Gemini Enterprise Agent Platform \u2014 Agent Registry (GA)",
-        "description": "Google shipped a native central inventory/governance catalog of AI agents, MCP servers, and tools (own, Google, and third-party) with per-entity metadata (versions, frameworks, MCP tool names/annotations) and Agent-Gateway-enforced allow/deny egress policies. This is a first-class new inventory-entity surface on a platform Zenity monitors: registered-agent objects, registered MCP-server objects, registered tool objects, and their egress policy bindings. AISPM must discover and map these registry entities and reconcile them against actual deployed/running agents (registry-vs-reality drift, unregistered shadow agents, and over-broad egress allow-lists are the toxic-combination surfaces)",
-        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Gemini Enterprise Agent Platform \u2014 AI Security Findings & posture dashboard (GA)",
-        "description": "A native AISPM surface now GA in the console \u2014 security findings, AI risks by severity (vulnerabilities, misconfigurations, toxic combinations, attack-exposure score), real-time AI threats, an \"Agents with excessive permissions\" least-privilege widget naming specific agent identities and their unused permissions, and a Compliance widget, fed by Security Command Center. This introduces new inventory/finding entity types (security findings, excessive-permission agent identities, compliance status) that AISPM should ingest and correlate; it is also a direct native analogue of Zenity's own posture/least-privilege detection on a monitored platform, worth mapping for coverage parity and to avoid blind reliance on the platform's own scoring",
-        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Gemini Enterprise Agent Platform \u2014 Model Armor on Agent Gateway (GA)",
-        "description": "Content-security guardrails (prompt-injection, jailbreak, harmful-content, and sensitive-data-leakage detection, with block/redact or inspect+log actions) can now be enabled on the previously-reported Agent Gateway, inspecting every prompt and response that transits the gateway. This is a new runtime enforcement/detection chokepoint at the agent-to-tool data-flow layer. AIDR should treat Model-Armor-on-gateway as a new detectable data-flow control point \u2014 track which gateways have it enabled, what its templates block vs. only log, and the prompts/responses it inspects \u2014 since gaps or \"inspect-only\" templates define where injected/exfiltrating traffic can still pass",
-        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Gemini Enterprise Agent Platform \u2014 Agent Observability + default OpenTelemetry tracing (GA)",
-        "description": "A new observability surface exposing traces, logs, and metrics for deployed agents and MCP servers (OpenTelemetry GenAI semantic conventions), with tracing now on by default for newly deployed ADK agents on Agent Engine, aggregating telemetry from Agent Platform, Agent Gateway, and Model Armor. This is a new activity/telemetry surface AIDR can consume as a detection source \u2014 per-agent sessions, tool executions, retrieval steps, token usage, latency, and error rates \u2014 for monitoring agent behavior and spotting anomalous tool-call/data-access patterns",
-        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-07-07",
-    "scan_time": "2026-07-07 09:51",
-    "file": "report-2026-07-07.md",
-    "platforms": [
-      {
-        "name": "Salesforce AgentForce",
-        "status": "changed",
-        "details": [
-          "**Agentforce Commerce \u2014 GA (July 6, 2026)** \u2014 the Shopper Agent (B2C storefront, discovery\u2192checkout\u2192service), Buyer Agent (autonomous B2B purchasing/reordering with pre-negotiated pricing over WhatsApp and SMS, no portal login), and Merchant Agent (back-office catalog/promotions in natural language) went generally available. Each is wired natively into catalog, inventory, and orders \u2014 and, critically, exposed into **external agentic surfaces**: ChatGPT (catalog sync from Business Manager), Google Search including AI Mode, and the Gemini app. Source: https://help.salesforce.com/s/articleView?id=cc.b2c_agent_guided_shopping.htm&type=5",
-          "**Agentforce Help Agent + Customer Service Portal \u2014 GA (July '26)** \u2014 a prepackaged autonomous service agent that resolves customer issues end-to-end across voice, web, portal, and messaging from a single setup screen, grounded automatically on Salesforce Knowledge, with a library of actions that run real workflows (manage cases, schedule appointments, update orders). Pay-per-resolution pricing. The Customer Service Portal is redesigned around a single conversation bar with dynamic real-time cards. Source: https://help.salesforce.com/s/articleView?id=service.service_agent_overview.htm&type=5"
-        ],
-        "tier": "secondary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Salesforce Agentforce Commerce \u2014 Shopper/Buyer/Merchant agents (GA)",
-        "description": "Three new production commerce agent types went GA July 6, 2026, each natively wired into catalog, inventory, and orders. Introduces new inventory entities Zenity must discover and map: Shopper agents, Buyer agents, and Merchant agents, plus their catalog/inventory/order data connections and the actions each can take (place/reorder purchases, edit catalogs, run promotions). Toxic-combination surface \u2014 an autonomous Buyer Agent that can transact (checkout, reorder at pre-negotiated pricing) is a high-value overprivileged-agent target, and the Merchant Agent's plain-language catalog control is a business-logic manipulation path. AISPM should inventory these agents, their permissions, and their order/catalog reach",
-        "source": "https://help.salesforce.com/s/articleView?id=cc.b2c_agent_guided_shopping.htm&type=5",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Salesforce Agentforce Commerce \u2014 external agentic surfaces (ChatGPT / Google / Gemini + WhatsApp/SMS)",
-        "description": "Agentforce commerce agents and product catalogs now integrate natively into third-party agentic surfaces \u2014 ChatGPT (via catalog sync and agentic MCP shopper tools), Google Search/AI Mode, and the Gemini app \u2014 and the Buyer Agent transacts autonomously over WhatsApp and SMS with no portal login. This creates new cross-platform agent-to-external-LLM data flows and autonomous purchase/checkout actions that cross the Salesforce org boundary. AIDR should monitor these as new external data-egress and indirect-prompt-injection channels (untrusted shopper input arriving from ChatGPT/Gemini/messaging), and track catalog/inventory data leaving the org to external LLM providers",
-        "source": "https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/agentic-mcp-shopper-tools-quick-start.html",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Salesforce Agentforce Help Agent + Customer Service Portal (GA)",
-        "description": "A new prepackaged autonomous service agent, deployable from one screen across voice/web/portal/messaging, grounded on Salesforce Knowledge, with an action library that manages cases, schedules appointments, and updates orders. Introduces a new autonomous-service-agent entity Zenity must inventory \u2014 its enabled actions, Knowledge grounding sources, and cross-channel reach define its real capability and data-access surface, and out-of-the-box \"deployable in minutes\" provisioning means such agents can appear in a tenant without deliberate per-agent review (shadow-agent / overprivilege risk)",
-        "source": "https://help.salesforce.com/s/articleView?id=service.service_agent_overview.htm&type=5",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-07-06",
-    "scan_time": "2026-07-06 08:24",
-    "file": "report-2026-07-06.md",
-    "platforms": [
-      {
-        "name": "Salesforce AgentForce",
-        "status": "changed",
-        "details": [
-          "**Multi-Agent Orchestration \u2014 GA (June 15, 2026)** \u2014 a primary Agentforce agent now coordinates a team of specialized subagents, holding shared context and dynamically routing each request to the best-fit specialist based on subagent descriptions/instructions/actions (no fixed decision trees). Powered by the new **Atlas Reasoning Engine 3.0**. Source: https://www.salesforce.com/agentforce/multi-agent-orchestration/",
-          "**Agent2Agent (A2A) protocol support** \u2014 open-protocol support letting a primary Agentforce agent securely delegate work to third-party agents on other platforms (Google Vertex, Microsoft Azure Agent Mesh, third-party frameworks) via a client/server model with capability-discovery \"Agent Cards.\" Shipped alongside Multi-Agent Orchestration GA. Source: https://www.salesforce.com/agentforce/ai-agents/agent2agent-protocol/",
-          "**Agent Script \u2014 GA (waves from June 13, 2026)** \u2014 a scripting language for the new Agentforce Builder that blends natural-language instructions with deterministic programmatic expressions/business rules; authorable in a \"Script view\" with syntax highlighting, autocompletion, and validation. Source: https://developer.salesforce.com/docs/ai/agentforce/guide/agent-script.html",
-          "**IT Service Domain Pack (50+ prebuilt agents)** \u2014 an out-of-the-box pack of 50+ specialized AI agents deployed in Slack, Teams, and the IT Service Desk to detect intent and resolve employee IT needs. Source: https://www.salesforce.com/news/stories/summer-2026-product-release-announcement/"
-        ],
-        "tier": "secondary"
-      },
-      {
-        "name": "Google Vertex AI",
-        "status": "changed",
-        "details": [
-          "**Rebrand to Gemini Enterprise Agent Platform + first-class Agents API** \u2014 Vertex AI now presents under the \"Gemini Enterprise Agent Platform\" framing and exposes a first-class **Agents API** (`projects.locations.agents`, v1beta1: create/list/get/patch/delete) plus a visual **Agent Studio** builder \u2014 agent resources distinct from generic model endpoints. Reasoning Engines were also extended with `streamQuery`/`asyncQuery`, stateful **Sessions**, and runtime revisions. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest",
-          "**Semantic Governance Policy (SGP) engine + Agent Gateway** \u2014 a new managed governance layer provisioned in the customer VPC that semantically evaluates each proposed agent tool call/skill invocation against the prompt, conversation history, and Natural Language Constraints (NLCs) before execution, and an **Agent Gateway** for governing agentic workloads. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview"
-        ],
-        "tier": "secondary"
-      },
-      {
-        "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "changed",
-        "details": [
-          "**Codex Sites plugin \u2014 preview (June 2, 2026)** \u2014 a new plugin that lets Codex create, save, deploy, and inspect websites, web apps, dashboards, internal tools, and games hosted by OpenAI. Output runs as Cloudflare-Worker-compatible ES modules on OpenAI-operated hosting; every deployment URL is a production deployment. Available for ChatGPT Business/Enterprise (Enterprise gated behind admin RBAC). Source: https://developers.openai.com/codex/sites"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Salesforce Agentforce \u2014 Multi-Agent Orchestration (GA)",
-        "description": "A primary \"orchestrator\" agent now coordinates a team of specialized subagents with shared context and dynamic, description-driven routing (Atlas Reasoning Engine 3.0). Introduces new inventory entities Zenity must discover and map: orchestrator agents, their member subagents, the routing relationships between them, and the shared-context flows. Prime toxic-combination surface \u2014 an orchestrator that can route to an overprivileged subagent, or a subagent whose description lets it be recruited for out-of-scope tasks, is a direct privilege-escalation/data-exposure path",
-        "source": "https://www.salesforce.com/agentforce/multi-agent-orchestration/",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Salesforce Agentforce \u2014 Agent2Agent (A2A) protocol",
-        "description": "Agentforce agents can now securely delegate work to third-party agents on other platforms (Vertex, Azure Agent Mesh, external frameworks) via A2A, using capability-discovery \"Agent Cards.\" A new cross-platform agent-interaction surface: AISPM must inventory which Agentforce agents expose or consume A2A, enumerate the remote/external agents they connect to, and treat each A2A edge as a trust boundary and data-egress path. AIDR should monitor A2A task/message flows as a new external-agent data-flow and indirect-prompt-injection channel (untrusted content arriving from a remote agent)",
-        "source": "https://www.salesforce.com/agentforce/ai-agents/agent2agent-protocol/",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Salesforce Agentforce \u2014 Agent Script (GA)",
-        "description": "A new scripting language for the Agentforce Builder that mixes natural-language instructions with deterministic programmatic expressions to define agent behavior. A new agent-logic authoring surface AIRT should probe for prompt-injection into the natural-language segments, logic/guardrail bypass via crafted inputs, and unsafe action sequences expressible in script; AISPM should treat agent scripts as a governed configuration artifact whose actions/connections define the agent's real capability set",
-        "source": "https://developer.salesforce.com/docs/ai/agentforce/guide/agent-script.html",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Salesforce Agentforce \u2014 IT Service Domain Pack (50+ prebuilt agents)",
-        "description": "An out-of-the-box pack of 50+ specialized AI agents deployed into Slack, Teams, and the IT Service Desk. Introduces a large new prebuilt-agent inventory Zenity must enumerate and govern \u2014 each prebuilt agent carries its own actions, connections, and Slack/Teams reach, and out-of-the-box deployment means agents can appear in a tenant without deliberate per-agent review (shadow-agent and overprivilege risk)",
-        "source": "https://www.salesforce.com/news/stories/summer-2026-product-release-announcement/",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Google Vertex AI \u2014 Gemini Enterprise Agent Platform (Agents API + Agent Studio)",
-        "description": "Vertex AI's rebrand to the Gemini Enterprise Agent Platform introduces a first-class Agents API (`projects.locations.agents`) and visual Agent Studio builder, plus stateful Reasoning-Engine Sessions and runtime revisions \u2014 agent resources distinct from the generic model endpoints Zenity previously mapped. AISPM must discover and inventory these new first-class agent entities, their Sessions, and runtime revisions as a distinct resource class on the Google surface",
-        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Google Vertex AI \u2014 Semantic Governance Policy (SGP) engine + Agent Gateway",
-        "description": "A new managed governance layer (provisioned in the customer VPC) that semantically evaluates each proposed agent tool call/skill invocation against the prompt, history, and Natural Language Constraints before execution, fronted by an Agent Gateway. This is both a control AISPM should map (which agents have SGP policies and Agent Gateway enforcement \u2014 gaps mean ungoverned agents) and a bypass target AIRT must probe: NLC evasion, context-poisoning to slip a malicious tool call past semantic analysis, and confirming that agent traffic is actually routed through the gateway rather than around it",
-        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Codex \u2014 Sites plugin (preview)",
-        "description": "A new Codex plugin (preview, June 2 2026) that lets the agent create, deploy, and host production websites, web apps, dashboards, internal tools, and games on OpenAI-operated infrastructure (Cloudflare-Worker-compatible ES modules; every deployment URL is live production). A new agent-driven code-deployment surface Zenity's endpoint coverage should track: the agent can push executable code to public production hosting from a single prompt, creating new hosted-app entities and a data-exfiltration/malicious-deploy path. AISPM should inventory which workspaces/members have the Sites plugin enabled (Enterprise gates it behind admin RBAC) and the sites they deploy",
-        "source": "https://developers.openai.com/codex/sites",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-07-05",
-    "scan_time": "2026-07-05 08:46",
-    "file": "report-2026-07-05.md",
-    "platforms": [
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "**Managed Knowledge Base \u2014 GA** \u2014 a fully managed retrieval-augmented-generation (RAG) knowledge base that agents query through the Gateway as a pre-built target type. Six native connectors (Amazon S3, SharePoint, Confluence, Google Drive, OneDrive, Web Crawler) ingest data with automatic syncing and managed vector storage; supports hybrid search, document ranking, advanced retrieval orchestration, and text/video/audio/image content; auto-generates role-based permissions with observability/eval metrics. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/knowledge-base.html",
-          "**Web Search Tool \u2014 GA** (announced AWS Summit New York, June 17, 2026) \u2014 a fully managed tool that grounds agent responses in current web knowledge with zero data egress from the customer's AWS environment, built on Amazon's web index + knowledge-graph data. Exposed as a built-in connector target on the AgentCore Gateway via MCP; returns ranked results with snippets, source URLs, titles, and publication dates. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/web-search.html",
-          "**AgentCore Policy \u2014 Bedrock Guardrails support** \u2014 Policy now supports Bedrock Guardrails, evaluating outputs of authorized agent actions and inputs to gateway targets for prompt-injection attempts, harmful content, and sensitive-data exposure. Checks run at the gateway layer, outside agent code, so every tool/context source routed through the gateway is automatically governed. Policies authored via natural language or policy-as-code. Distinct from the previously reported Cedar-based Policy. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-guardrails.html",
-          "**Gateway \u2014 new target types** \u2014 three new/GA gateway target classes: **HTTP passthrough targets** (route to any HTTP endpoint without protocol translation \u2014 front agent URLs, external APIs, A2A agents, external MCP servers, custom inference endpoints, with unified auth/policy/observability and optional session stickiness); **Inference targets** (front model providers with model discovery, model-ID translation, path rewriting, and per-model token limits); and **AgentCore Runtime-agent targets \u2014 GA** (send gateway traffic directly to a runtime agent, with API-schema-driven guardrails and request/response interceptor Lambdas). Sources: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-http-passthrough.html , https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-inference-connector.html , https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-http-runtime.html",
-          "**Runtime \u2014 Interactive Shells (Terminals)** \u2014 AgentCore Runtime now supports interactive shell sessions giving agents persistent terminal access to their sandboxed environment; env vars, working directories, and running processes persist across commands for the session lifetime, with up to 10 concurrent shell sessions per runtime session. Distinct from one-shot command execution (`InvokeAgentRuntimeCommand`). Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-command-shell.html"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock AgentCore \u2014 Managed Knowledge Base (GA)",
-        "description": "New fully managed RAG knowledge base queryable by agents through the Gateway as a pre-built target type, with six native ingestion connectors (Amazon S3, SharePoint, Confluence, Google Drive, OneDrive, Web Crawler), automatic syncing, managed vector storage, hybrid/multimodal retrieval, and auto-generated role-based permissions. Introduces inventory entities Zenity does not yet monitor: managed knowledge bases, their six data-source connectors (each a distinct enterprise-data flow into agents), KB-as-gateway-target bindings, and the generated IAM permissions. Prime toxic-combination surface \u2014 an overbroad connector (e.g. a whole SharePoint/Drive) wired to a broadly-reachable agent is a direct data-exposure path AISPM must discover and map",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/knowledge-base.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Amazon Bedrock AgentCore \u2014 Web Search Tool (GA)",
-        "description": "New fully managed built-in tool (AWS Summit NY, June 17, 2026) that grounds agents in live web content, exposed as a built-in MCP connector target on the AgentCore Gateway. A new tool/connector entity that gives agents outward web reach \u2014 AISPM must inventory which gateways/agents expose the Web Search target and treat it as a sensitive external-reach capability. It is also an inbound untrusted-content channel: AIDR should monitor returned snippets/source URLs as an indirect-prompt-injection and data-provenance surface",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/web-search.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Amazon Bedrock AgentCore \u2014 Policy + Bedrock Guardrails",
-        "description": "AgentCore Policy now integrates Bedrock Guardrails to evaluate agent-action outputs and gateway-target inputs for prompt injection, harmful content, and sensitive-data exposure, enforced at the gateway layer outside the agent's code (distinct from the previously reported Cedar-based Policy). This is both a governance control AISPM should map (which gateways/targets are guarded, and gaps where they are not) and a bypass target AIRT must probe \u2014 guardrail evasion at the gateway boundary, and confirming every new tool/context source is actually routed through the guarded gateway",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-guardrails.html",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Amazon Bedrock AgentCore \u2014 new Gateway target types (HTTP passthrough, Inference, Runtime-agent)",
-        "description": "Three new gateway target/connector classes greatly expand an agent's reachable surface through a single gateway: HTTP passthrough targets front arbitrary APIs, external MCP servers, A2A agents, and custom inference endpoints; Inference targets front model providers with per-model token limits and model-ID translation; Runtime-agent targets (GA) route directly to runtime agents. Each is a new connector entity Zenity must enumerate and govern \u2014 external-MCP-server and A2A-agent passthroughs in particular are notable toxic-combination sources (an agent reaching an unvetted external MCP server or peer agent through the gateway)",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-http-passthrough.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Amazon Bedrock AgentCore \u2014 Runtime Interactive Shells (Terminals)",
-        "description": "AgentCore Runtime now grants agents persistent interactive shell sessions \u2014 environment variables, working directories, and running processes persist across commands for the session lifetime, with up to 10 concurrent shells per runtime session. A new stateful command-execution surface distinct from one-shot `InvokeAgentRuntimeCommand`, broadening tool-execution and post-exploitation risk (persistent process/state, lateral movement within the sandbox). AIRT should add coverage for agent shell-session abuse and command-injection-to-shell paths; AISPM should treat interactive-shell access as a sensitive capability binding on an agent runtime",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-command-shell.html",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-07-04",
-    "scan_time": "2026-07-04 11:31",
-    "file": "report-2026-07-04.md",
-    "platforms": [
-      {
-        "name": "Azure AI Foundry",
-        "status": "changed",
-        "details": [
-          "**Foundry MCP Server** \u2014 a Model Context Protocol server for Foundry (no infra to deploy) that enforces Entra ID auth/authorization via On-Behalf-Of flow and exposes a growing set of read/write tools over Foundry models, deployments, evaluations, and agents to MCP clients and coding agents. Source: https://learn.microsoft.com/en-us/azure/foundry/mcp/get-started",
-          "**Foundry Skill in coding agents** \u2014 a reusable skill that plugs into coding agents to standardize Foundry workflows (deployment, evaluation, prompt optimization, dataset curation from traces, troubleshooting); bundled with the Azure Skills Plugin alongside the Foundry MCP Server. Source: https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/use-microsoft-foundry-skill",
-          "**Hosted agents (Foundry Agent Service) + prompt-agent quickstart** \u2014 containerized, own-code agents deployed to Microsoft-managed infra; each deployment is assigned a dedicated Microsoft Entra ID (agent identity) and dedicated endpoint, and published agents can be shared through M365 Copilot / Teams and the Entra Agent Registry. New agent deployment/sharing surface distinct from prompt-based agents. Source: https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents",
-          "**Foundry Control Plane** \u2014 a unified control plane to track/manage agents from supported platforms across projects in one view, with cross-project visibility, unified compliance enforcement, integrated security signals, and per-project TPM rate-limit / token-quota enforcement for model deployments. Source: https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "changed",
-        "details": [
-          "**Codex Remote \u2014 General Availability** \u2014 phone\u2192host agent control is now GA for all plans, secured by authenticated one-to-one QR pairing between each iOS/Android device and each connected Mac/Windows host. From a paired phone, users start threads in host projects, send follow-ups, answer agent questions, approve/deny commands, and review diffs/tests/terminal/screenshots. Source: https://developers.openai.com/codex/remote-connections",
-          "**Codex DigitalOcean provisioning plugin (public preview)** \u2014 connects a DigitalOcean account via OAuth and lets Codex provision and configure a Droplet (from the Codex Universal image, with CLI/tooling/SSH pre-wired) as an on-demand remote workspace, no doctl/API tokens required. Source: https://www.digitalocean.com/blog/run-codex-in-the-cloud",
-          "**Codex CLI 0.142.2** \u2014 MCP tools now use tool search by default where supported (new default MCP tool-discovery behavior), and remote stdio MCP servers accept absolute working directories in platform-native path formats; adds a PowerShell approval gate for unlowered-AST command regions. Source: https://developers.openai.com/codex/changelog"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Windsurf (Devin Desktop)",
-        "status": "changed",
-        "details": [
-          "**Devin Local autonomous mode (v3.4.22)** \u2014 Devin Local (the Rust-rewritten successor to Cascade, available on every tier including Free) gains an autonomous mode that runs the agent without step-by-step supervision and surfaces reviewable diffs before push, with subagent support for subtasks. New local unsupervised agent-execution surface. Source: https://docs.devin.ai/desktop/changelog",
-          "**`/mcp` command + live MCP server status dashboard (v3.4.22)** \u2014 a new in-session `/mcp` slash command with a live status dashboard for connected MCP servers, giving users a control/inspection surface over the agent's MCP tool connections. Source: https://docs.devin.ai/work-with-devin/devin-mcp"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Azure AI Foundry \u2014 Foundry MCP Server",
-        "description": "New Entra-authenticated MCP endpoint (no infra to deploy) that exposes read/write tools over Foundry models, deployments, evaluations, and agents to any MCP client or coding agent, operating within the authenticated user's permissions (On-Behalf-Of). A new tool-exposure/connector channel through which external agents reach Foundry resources \u2014 AISPM must inventory the MCP server, the tools it exposes, and which identities/agents can invoke it (a prime overprivileged-agent / data-reach toxic combination)",
-        "source": "https://learn.microsoft.com/en-us/azure/foundry/mcp/get-started",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Azure AI Foundry \u2014 Foundry Skill for coding agents",
-        "description": "New reusable skill entity that plugs into coding agents to drive Foundry workflows (deploy, evaluate, prompt-optimize, curate datasets from traces), bundled with the Azure Skills Plugin alongside the Foundry MCP Server. Introduces a shareable capability + supply-chain surface (an overbroad/malicious shared skill propagates Foundry access across coding agents); AISPM should inventory skills and their agent bindings",
-        "source": "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/use-microsoft-foundry-skill",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Azure AI Foundry \u2014 hosted agents (Foundry Agent Service)",
-        "description": "New agent type \u2014 containerized, customer-code agents deployed to Microsoft-managed infra, each assigned a dedicated Microsoft Entra ID (agent identity) and endpoint, publishable/shareable via M365 Copilot, Teams, and the Entra Agent Registry (A2A protocol in preview). A distinct new agent runtime, identity class, and cross-tenant sharing/supply-chain surface Zenity must discover and govern separately from prompt-based agents",
-        "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Azure AI Foundry \u2014 Foundry Control Plane",
-        "description": "New unified control plane that tracks/manages agents from supported platforms across projects, with cross-project visibility, unified compliance enforcement, integrated security signals, and per-project TPM rate-limit / token-quota enforcement for model deployments. A new tenant-wide agent/model governance and inventory surface directly relevant to AISPM posture and policy-enforcement mapping",
-        "source": "https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Codex Remote \u2014 GA phone\u2192host agent control",
-        "description": "Codex Remote is now GA for all plans \u2014 an authenticated QR-paired channel that lets an iOS/Android device drive the Codex agent on a connected Mac/Windows host (start threads, send prompts, approve/deny commands, review diffs). A now-broadly-available off-device control plane for triggering and approving autonomous agent runs outside the monitored desktop \u2014 a new command-and-approval attack/abuse surface for red/purple teaming",
-        "source": "https://developers.openai.com/codex/remote-connections",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Codex \u2014 DigitalOcean provisioning plugin",
-        "description": "New Codex plugin that connects a DigitalOcean account via OAuth and provisions/configures a Droplet (Codex Universal image, CLI/tooling/SSH pre-wired) as an on-demand remote workspace. A new agent cloud-provisioning connector \u2014 the agent can stand up and configure external cloud compute it then executes on, expanding the tool-execution and resource-access surface",
-        "source": "https://www.digitalocean.com/blog/run-codex-in-the-cloud",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Codex CLI 0.142.2 \u2014 MCP tool-search default + native-path remote stdio MCP",
-        "description": "MCP tools now use tool search by default where supported (new default MCP tool-discovery behavior), and remote stdio MCP servers accept absolute working directories in platform-native path formats. New per-tool discovery and remote MCP working-directory surfaces on the local Codex endpoint that change which MCP tools an agent sees and where remote stdio servers operate",
-        "source": "https://developers.openai.com/codex/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Windsurf / Devin Desktop \u2014 Devin Local autonomous mode (v3.4.22)",
-        "description": "Devin Local (Rust-rewritten Cascade successor, on every tier incl. Free) gains an autonomous mode that runs the agent unsupervised and surfaces reviewable diffs before push, with subagents for subtasks. A new local unsupervised agent-execution surface acting on the codebase before human review \u2014 a new activity/data-flow detection surface for AIDR",
-        "source": "https://docs.devin.ai/desktop/changelog",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Windsurf / Devin Desktop \u2014 `/mcp` command + MCP status dashboard (v3.4.22)",
-        "description": "New in-session `/mcp` slash command with a live status dashboard over connected MCP servers. A new MCP tool-connection control/inspection surface on the endpoint that AISPM should account for when mapping which MCP servers/tools an agent can reach",
-        "source": "https://docs.devin.ai/work-with-devin/devin-mcp",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-07-03",
-    "scan_time": "2026-07-03 13:36",
-    "file": "report-2026-07-03.md",
+    "date": "2026-08-07",
+    "scan_time": "2026-08-07 08:31",
+    "file": "report-2026-08-07.md",
     "platforms": [
       {
         "name": "Microsoft Copilot Studio",
         "status": "changed",
         "details": [
-          "**New agent experience (production-ready preview, June 2026)** \u2014 an enhanced orchestration runtime for improved response quality and reasoning, available alongside the classic experience. New agent build model/runtime. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/overview",
-          "**Microsoft IQ (June 2026)** \u2014 connects an agent to organizational data: emails, calendar events, files, Teams messages, and people information. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/use-microsoft-iq",
-          "**Skills (June 2026)** \u2014 modular, self-contained sets of instructions; created once, added to multiple agents, and exportable as a Markdown file or package to share. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-overview",
-          "**Memory (June 2026)** \u2014 persistent per-user context that captures user preferences/patterns, stores them per user, and applies them over time. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/memory-overview"
+          "**Windows 365 for Agents MCP server \u2014 GA (June 2026, backfilled after our 2026-07-08 capture)** \u2014 an MCP server giving an agent full operational control of a Windows 365 Cloud PC: mouse (click/double/right/five-button), pixel-precise drag-and-drop, scrolling, keyboard typing and multi-key shortcuts, full-screen or cropped PNG screenshots, OCR with per-region confidence and bounding boxes, browser automation via Microsoft Edge, and semantic UI inspection via Windows UI Automation. Sessions allocate a Cloud PC resource and return a `sessionId`; an MCP request is required at least every 30 minutes to avoid idle eviction. File-input setting is restricted to Documents, Downloads, Desktop and `%TEMP%`. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-windows-365-agents-work-iq",
+          "**Foundry IQ knowledge connection (preview)** \u2014 agents in the new agent experience can be grounded in a knowledge base already built and tuned in Azure AI Foundry. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect",
+          "**Agent-to-agent delegation in the new agent experience (preview)** \u2014 connect other agents so a single front-door agent routes requests to specialist agents. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-add-other-agents",
+          "**Voice agents with Teams Phone Agent (preview)** \u2014 handoff between Teams Phone Agent and a custom voice agent for specialised call workflows (billing, prescription refills, order status). Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/voice-teams-phone-agent",
+          "**Claude Sonnet 5 and GPT-5.5 Chat selectable as an agent's primary AI model (GA)**. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model",
+          "*(Held below bar: condition groups in Message/Question/prompt nodes \u2014 an authoring convenience.)*"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Microsoft 365 Copilot",
+        "status": "changed",
+        "details": [
+          "**Insights Agent (preview)** \u2014 a new first-party agent listed under \"Create and manage agents\" in the extensibility documentation; not present in the 2026-07-08 capture (page `updated_at` advanced 2026-06-17 \u2192 2026-07-29). Source: https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/insights-agent-overview"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "error",
+        "details": [
+          "**Runtime: Instances compute type with capacity providers (August 2026)** \u2014 agents run on AWS-managed EC2 infrastructure in the customer's own AWS account. A capacity provider specifies OS, allowed instance types, networking and storage; AgentCore handles provisioning, scaling and teardown. Persistent sessions up to **14 days**, GPU-accelerated instance types, and **multiple agents collaborating on a shared instance**. Linux `x86_64`/`arm64` at launch. New data-plane operation observed: `DeleteCapacityProviderSession`. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.html",
+          "**AWS Agent Registry launches on the `agent-registry` namespace (August 6, 2026)** \u2014 out of preview and off `bedrock-agentcore`. A private, governed catalog of agents, tools, skills, MCP servers and custom resources, exposed through the console, control-plane and data-plane APIs, and the registry's own **MCP endpoint**. Adds `ListDiscoverableRegistryRecords`, `BatchGetDiscoverableRegistryRecord`, record tagging, a required `recordType`, and a unified Record directory console page. Definitions are validated against the MCP and A2A schemas. Each registry carries an authorization config and an approval config controlling whether records need manual review before becoming discoverable. Nine AWS Regions. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-key-capabilities.html",
+          "**Gateway: configurable rate limits (August 2026)** \u2014 customer-defined limits replacing service-managed-only defaults. Limits declare `dimensionKeys` and `entries` over JWT claims (`$.context.jwt.sub`), IAM principals (`iam.sourceIdentity`), target names, tool names and qualified model IDs. Three enforcement metrics: requests (RPS/RPM), tokens (TPM, with pre-check estimation and post-response reconciliation), and new connections/sec. Wildcard catch-alls, most-specific-match-wins, AND semantics across limits, effective rate `min(service, customer)`, and `rate=0` as an explicit block. Config propagates in ~30 seconds and the system **fails open** on transient enforcement errors. Six new operations: `CreateRateLimit`, `GetRateLimit`, `UpdateRateLimit`, `DeleteRateLimit`, `ListRateLimits`, `BatchPutRateLimitEntries`. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-rate-limits.html",
+          "**Identity: Private Key JWT client authentication (July 2026)** \u2014 agents authenticate to a downstream IdP's token endpoint with a signed JWT client assertion instead of a shared OAuth client secret. The public key is registered with the IdP; the private key stays in AWS KMS and every signing operation is recorded in CloudTrail. Works across M2M, on-behalf-of and user-delegated flows; RS256, PS256, ES256. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/private-key-jwt.html",
+          "**Evaluations: expanded agent framework support (July 2026)** \u2014 now evaluates agents built with **OpenAI Agents, LlamaIndex, Google ADK and the Claude Agent SDK** in addition to Strands and LangGraph, each via its OpenTelemetry or OpenInference instrumentation. Adds generic framework support for any agent emitting OTel GenAI or OpenInference semantic conventions. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/supported-frameworks.html",
+          "**Runtime: unified span destination (July 2026)** \u2014 agents deliver spans to their own CloudWatch log group (`/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`, `spans` stream) instead of the shared `aws/spans` group. Controlled by `UNIFIED_TRACES_DESTINATION_ENABLED`; **default for agents created on or after July 20, 2026**. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**GPT-5.6 model family \u2014 GA July 9, 2026** \u2014 `gpt-5.6-sol` (frontier reasoning / long-horizon agentic), `gpt-5.6-terra` (balanced), `gpt-5.6-luna` (fast/low-cost); bare `gpt-5.6` routes to Sol. 1.05M-token context, 128K max output, text+image input, streaming, structured outputs, function calling, file search, web search, prompt caching; reasoning effort ladder `none`/`low`/`medium`/`high`/`xhigh`/`max`. Self-serve on the Responses API and client SDKs, no waitlist. This closes the forward-watch opened 2026-07-08. Source: https://openai.com/index/gpt-5-6/",
+          "**Codex Agent Plugins with multi-catalog search (CLI 0.146.0 July 29 / 0.147.0 August 7)** \u2014 a plugin is an installable workflow bundle packaging **skills, optional app integrations and MCP server configuration**. Installable from the official Plugin Directory (shared with ChatGPT), a repo marketplace at `$REPO_ROOT/.agents/plugins/marketplace.json`, or a personal marketplace at `~/.agents/plugins/marketplace.json`. Source: https://developers.openai.com/codex/plugins",
+          "**Sign in with ChatGPT \u2014 live beta August 2, 2026** \u2014 OpenAI's first cross-platform identity system, with Airtable, GitLab, HubSpot, Notion, Supabase and Vercel as named launch partners, plus OpenAI Academy and Codex Sites. Relying parties receive name, email address and profile picture. Available globally to authenticated ChatGPT users **including Enterprise organisation members**, subject to org admin settings. Source: https://help.openai.com/en/articles/20001410-sign-in-with-chatgpt",
+          "**Content provenance checks API (SDK v2.52.0 / v7.3.0, July 31, 2026)** \u2014 programmatic verification of C2PA Content Credentials and Google SynthID watermarks on images and (since July) audio generated via ChatGPT, Codex and the OpenAI API. Source: https://openai.com/index/advancing-content-provenance/",
+          "**Codex MCP protocol 2026-07-28 support with paginated discovery, executor-provided skills discovery, and remote WebSocket code-mode connections**; plus Cursor skill migration and Claude conversation synchronisation. Source: https://learn.chatgpt.com/docs/changelog",
+          "**Codex automatic approval reviews** \u2014 `--approve-for-me` (0.147.0) with \"safer automatic-review defaults for cyber-capable models\" shipped as a patch two days earlier (0.146.1). Source: https://learn.chatgpt.com/docs/changelog"
         ],
         "tier": "primary"
       },
@@ -378,19 +55,23 @@
         "name": "Claude Enterprise (Anthropic)",
         "status": "changed",
         "details": [
-          "**Claude Tag (June 23, 2026)** \u2014 a new way for teams to work with Claude, starting in Slack where Claude joins as a team member. Teams grant @Claude channel access and connect it to chosen tools, data, and codebases; admins scope access per channel and can create separate Claude identities per use. Beta for Enterprise & Team. Source: https://www.anthropic.com/news/introducing-claude-tag",
-          "**Claude Sonnet 5 (June 30, 2026)** \u2014 new agentic model (`claude-sonnet-5`) that plans, uses browsers/terminals, and runs autonomously near Opus 4.8 capability; available via Claude API, AWS, and Microsoft Foundry; default for Free/Pro. New tokenizer. Source: https://www.anthropic.com/news/claude-sonnet-5",
-          "**Claude Science AI Workbench (June 30, 2026)** \u2014 a research environment that builds environments and manages compute on the user's laptop, cluster, or on-demand GPUs (asks before reaching new resources; reviewable/revocable), integrates researcher tools/packages, and renders scientific artifacts. Source: https://www.anthropic.com/news/claude-science-ai-workbench"
+          "**Inference hooks \u2014 beta for Claude Enterprise (August 5, 2026)** \u2014 point Claude at your organisation's AI security server; each governed prompt across **claude.ai, Cowork and Claude Code** is held for that server's allow/deny verdict before inference proceeds. Requests are signed, failure handling is configurable, and every denial is recorded in the compliance Activity Feed. Source: https://platform.claude.com/docs/en/manage-claude/inference-hooks",
+          "**Claude Opus 5 (`claude-opus-5`) \u2014 July 24, 2026** \u2014 1M-token context (both default and maximum), 128k max output, thinking on by default, $5/$25 per MTok. Available on the Claude API, **Claude in Amazon Bedrock, Claude on Google Cloud (Vertex), and Claude in Microsoft Foundry**. Effort is the primary steering control across `low`/`medium`/`high`/`xhigh`/`max`. Source: https://platform.claude.com/docs/en/about-claude/models/whats-new-opus-5",
+          "**Claude Enterprise user management via the Admin API \u2014 beta (July 14, 2026)** \u2014 list members and look them up by email, change roles, remove members, send and withdraw invites, manage groups and group membership, and read custom roles. Groups and custom roles require the `ce-user-management-2026-07-13` beta header; an Admin API key with `read:org_audit` can call every user-management `GET`. Source: https://platform.claude.com/docs/en/manage-claude/user-management",
+          "**Mid-conversation tool changes \u2014 beta (July 24, 2026)** \u2014 add or remove tools between turns of a conversation while preserving the prompt cache, on Fable 5, Mythos 5, Opus 4.8 and Opus 5. Header `mid-conversation-tool-changes-2026-07-01`. Source: https://platform.claude.com/docs/en/release-notes/api",
+          "**Managed Agents lifecycle webhooks extended to environments and memory stores (July 22, 2026)** \u2014 four `environment.*` and three `memory_store.*` event types, on top of the agent/deployment/deployment-run events added June 30. Sessions can also now be seeded with `initial_events` (up to 50 `user.message` / `user.define_outcome` events, starting the agent loop in the same call), and session **thread** streams support event deltas that preview a subagent's text as it is generated. Source: https://platform.claude.com/docs/en/managed-agents/webhooks",
+          "**Dreams \u2014 research preview (backlog recovery; live since ~April 2026)** \u2014 `POST /v1/dreams` runs an asynchronous job over one memory store plus 1\u2013100 past session transcripts and emits a **new derived memory store** with duplicates merged, stale entries replaced and new insights surfaced. Resources carry `drm_01\u2026` IDs and `pending`/`running`/`completed`/`failed`/`canceled` states, with list, cancel and archive endpoints; gated by the `dreaming-2026-04-21` beta header. Source: https://platform.claude.com/docs/en/managed-agents/dreams"
         ],
         "tier": "primary"
       },
       {
-        "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "changed",
+        "name": "Google Gemini Enterprise Agent Platform (formerly Vertex AI)",
+        "status": "initial",
         "details": [
-          "**Codex app 26.616 \u2014 Record & Replay + Thread handoff (June 18, 2026)** \u2014 Record & Replay (macOS) turns user-demonstrated workflows into reusable agent skills; Thread handoff moves conversations (with browser tab routing/annotations) between local and remote hosts. Source: https://developers.openai.com/codex/record-and-replay",
-          "**Codex CLI 0.141/0.142 (June 2026)** \u2014 per-thread stdio MCP servers (per-conversation MCP tool surface), Noise-relay E2E-encrypted remote execution, configurable multi-agent delegation modes (disabled / explicit-request-only / proactive), and indexed web-search mode. Source: https://developers.openai.com/codex/changelog",
-          "**OpenAI Node SDK v6.45.0 (June 24, 2026)** \u2014 Realtime API \"sideband call_id connections,\" Responses input-items + stream-accumulator helpers, and a tool-runner `afterCompletion` hook. Source: https://github.com/openai/openai-node/releases/tag/v6.45.0"
+          "**AlphaEvolve optimization service \u2014 GA (August 2026)** \u2014 a code optimization and discovery agent built on Gemini. From a baseline seed algorithm it generates mutated candidate programs server-side, while the **customer's evaluator runs client-side on their own infrastructure** and submits scores back, iterating until convergence on optimized, human-readable code. Source: https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/developer-guide/overview",
+          "**Memory Bank \u2014 Memory Profiles GA (July 2026)** \u2014 structured profiles are data structures with fixed, user-defined schemas that LLMs populate and update, generated through the same `GenerateMemories` and `IngestEvents` paths as natural-language memories, giving agents low-latency in-session access without search. Memory Bank and Sessions multi-regional and global endpoints also reached GA. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles",
+          "**Feedback service \u2014 Preview, and `user.id` in agent logs (July 2026)** \u2014 the Feedback service collects, analyses and manages end-user qualitative feedback (thumbs up/down sentiment and feedback labels) from agent\u2013user interactions; separately, prompt-input and response-output agent logs now include a `user.id` field when that logging is enabled. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes",
+          "*(Not reported: the July SSRF fix in the Agent Studio `/api-proxy` endpoint is a security fix, not a new capability. Gemini 3.5 Flash removal and the Grok 4.1 shutdown are deprecations.)*"
         ],
         "tier": "primary"
       },
@@ -398,125 +79,276 @@
         "name": "Cursor",
         "status": "changed",
         "details": [
-          "**iOS mobile app + Remote Control (June 29, 2026)** \u2014 native iPhone app (public beta) to launch/manage cloud and local agents with voice input, and to remotely direct a desktop agent (agent loop moves to cloud while tools keep running on the user's machine). Source: https://cursor.com/docs/cloud-agent/mobile",
-          "**Team/organization MCP marketplace distribution (June 30, 2026)** \u2014 admins configure Team MCP servers once and distribute them across cloud agents, IDE, and CLI via marketplace configs, gated by organization group access controls. Source: https://cursor.com/docs/mcp",
-          "**Automations: computer-use + new GitHub/Slack triggers (June 18, 2026)** \u2014 Automations can perform computer-use and be triggered by five new GitHub events plus a Slack emoji-reaction trigger; authorable in-session via `/automate`. Source: https://cursor.com/changelog",
-          "**Cloud subagents via `/in-cloud` (June 17, 2026)** \u2014 spawns isolated cloud subagents for parallel work with automated environment setup and reusable snapshots. Source: https://cursor.com/changelog"
+          "**Google Workspace Plugins (August 3, 2026)** \u2014 agents get direct read/write/act access to **Gmail, Google Drive, Calendar, Docs and Sheets** through Google's remote MCP servers. Drive: search, read, create, share and manage files. Gmail: search, read, draft, label and manage email. Calendar: list calendars and search events. Installed from the Cursor Marketplace or the Customize page in roughly five clicks. Source: https://cursor.com/changelog/google-workspace-plugins"
         ],
         "tier": "watching"
+      },
+      {
+        "name": "Perplexity",
+        "status": "changed",
+        "details": [
+          "**Gateway API (July 2026)** \u2014 a unified API gateway with **OpenAI Chat Completions and Anthropic Messages compatibility** and automatic health-based routing across model deployments, priced purely per token with no per-request fee. Source: https://docs.perplexity.ai/changelog",
+          "**Hosted remote MCP server at `https://api.perplexity.ai/mcp` (July 2026)** \u2014 cloud-hosted, no local installation, connected over Streamable HTTP with a Bearer API key. Exposes three tools: direct web search via the Search API, conversational AI backed by the Agent API `fast` preset, and deep research backed by the `high` preset. This resolves the \"reference-only, no dated launch\" watch item carried since 2026-07-07. Source: https://docs.perplexity.ai/docs/getting-started/integrations/mcp-server",
+          "*(Context, below bar: Agent API added Claude Opus 5, the full GPT-5.6 family, Gemini 3.6 Flash, Grok 4.5 and Kimi K3; Sonar Chat Completions consolidated into the Agent API.)*"
+        ],
+        "tier": "watching"
+      },
+      {
+        "name": "Windsurf / Devin Desktop",
+        "status": "changed",
+        "details": [
+          "**Browser Preview (ACP) and MCP OAuth authentication \u2014 v3.6.21 (July 29, 2026)** \u2014 remote agents can now reach **local development servers** through the built-in preview pane, and MCP servers requiring OAuth get a dedicated \"Authenticate\" button. The same release adds Plan Mode in Devin Local (explicit approval before implementation) and editable approvals that let a user modify a command before approving it or accept an AI-suggested rewrite. Source: https://docs.devin.ai/desktop/changelog"
+        ],
+        "tier": "primary"
       }
     ],
     "findings": [
       {
         "severity": "HIGH",
-        "title": "Microsoft IQ (Copilot Studio)",
-        "description": "New organizational-data grounding connection that gives an agent access to emails, calendar events, files, Teams messages, and people information. Introduces a new knowledge-source / data-flow entity per agent \u2014 AISPM must discover IQ connections and map which agents can reach which org data (a prime overprivileged-agent / data-exposure toxic combination)",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/use-microsoft-iq",
+        "title": "AWS Agent Registry \u2014 GA on the `agent-registry` namespace",
+        "description": "AWS moved Agent Registry out of preview onto its own namespace on August 6, 2026, as a private governed catalog of agents, tools, skills, MCP servers and custom resources, reachable through the console, control-plane and data-plane APIs, and the registry's own MCP endpoint. This introduces a full set of new inventory entities \u2014 registry objects, registry records typed by the required `recordType`, record tags, per-registry authorization configs, and approval configs that gate whether a record becomes discoverable \u2014 plus new discovery APIs (`ListDiscoverableRegistryRecords`, `BatchGetDiscoverableRegistryRecord`) that AISPM can consume directly. Because record definitions are validated against the MCP and A2A schemas, the registry is also the authoritative map of which agents can talk to which tools. AISPM must discover these records, reconcile them against actually-deployed runtimes (registry-vs-reality drift and unregistered shadow agents are the toxic combination), and flag registries whose approval config allows records to become discoverable without review. Anyone still calling the old `bedrock-agentcore` endpoints must migrate IAM policies, SDK clients and registry data",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-key-capabilities.html",
         "module": "AISPM",
         "action": "New Coverage Required"
       },
       {
         "severity": "HIGH",
-        "title": "Copilot Studio \"new agent experience\" (orchestration runtime)",
-        "description": "New production-ready agent build model with an enhanced orchestration runtime, running alongside the classic experience. A new agent type/runtime Zenity must inventory and govern distinctly from classic Copilot Studio agents",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/overview",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Copilot Studio Skills",
-        "description": "New reusable, modular capability entity \u2014 a set of instructions created once, attached to multiple agents, and exportable/importable as a Markdown file or package. Introduces a shareable capability + supply-chain surface (a malicious or overbroad shared skill propagates across agents). AISPM must inventory skills and their agent bindings",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-overview",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Copilot Studio Memory",
-        "description": "New per-user persistent memory store that captures and retains user preferences/patterns across interactions. A new data-at-rest entity holding user data/PII that must be inventoried, access-scoped, and monitored for sensitive-data retention",
-        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/memory-overview",
+        "title": "AgentCore Runtime \"Instances\" compute type with capacity providers",
+        "description": "A new AgentCore Runtime compute type that runs agents on AWS-managed EC2 inside the customer's own account, defined by a new **capacity provider** resource (operating system, allowed instance types, networking, storage). It introduces persistent agent sessions of up to **14 days**, GPU-accelerated instance types, and \u2014 most significantly \u2014 **multiple agents collaborating on a single shared instance**. That combination creates genuinely new posture questions Zenity does not model today: long-lived agent state that outlives any single task, cross-agent contamination on shared compute, and agent workloads sitting on customer-account EC2 with customer networking and IAM rather than on AWS-managed isolation. AISPM must inventory capacity providers, instance-backed runtimes and their session lifetimes, and map which agents co-tenant on which instance. New data-plane operation: `DeleteCapacityProviderSession`",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.html",
         "module": "AISPM",
         "action": "New Coverage Required"
       },
       {
         "severity": "HIGH",
-        "title": "Claude Tag \u2014 agentic Slack teammate with admin-scoped identities",
-        "description": "New Anthropic product (beta, Enterprise/Team) where Claude joins Slack as a member; teams grant @Claude per-channel access to arbitrary tools, data, and codebases, and admins can mint separate Claude identities per use. A new autonomous agent-identity + tool/data/codebase access surface inside a collaboration platform \u2014 Zenity must monitor agent identity governance, per-channel data exposure, and codebase reach",
-        "source": "https://www.anthropic.com/news/introducing-claude-tag",
+        "title": "Anthropic inference hooks for Claude Enterprise (beta)",
+        "description": "Anthropic now lets an enterprise point Claude at its own AI security server, and every governed prompt across **claude.ai, Cowork and Claude Code** is held for that server's allow/deny verdict before inference proceeds. Requests are signed, failure handling is configurable, and every denial lands in the compliance Activity Feed. This is a new real-time enforcement chokepoint sitting in front of the model on a platform Zenity covers, and it is directly actionable in two ways: as a detection and enforcement integration point Zenity can occupy, and as a control whose configuration must itself be inventoried \u2014 which surfaces are actually governed, what the failure-handling mode does when the hook server is unreachable (fail-open versus fail-closed decides whether an outage is a bypass), and whether the Activity Feed denial stream is being ingested",
+        "source": "https://platform.claude.com/docs/en/manage-claude/inference-hooks",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Microsoft Copilot Studio \u2014 Windows 365 for Agents MCP server (GA)",
+        "description": "A generally-available MCP server that gives a Copilot Studio agent full operational control of a Windows 365 Cloud PC: mouse and keyboard input, pixel-precise drag-and-drop, screen capture, OCR with bounding boxes, arbitrary command execution, browser automation through Microsoft Edge, and semantic UI inspection via Windows UI Automation. This is a new entity class for inventory \u2014 Windows 365 for Agents MCP server connections, the Cloud PC resources they allocate, and their `sessionId`-scoped sessions \u2014 and a materially larger blast radius than tool-calling: an agent driving a real Windows desktop inherits whatever that Cloud PC's signed-in identity can reach, including apps with no API. AISPM must discover which agents have this MCP server attached, which Cloud PCs they can allocate, and what the Cloud PC identity is entitled to. Note the file-input restriction to Documents, Downloads, Desktop and `%TEMP%` is the only documented filesystem boundary",
+        "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-windows-365-agents-work-iq",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI GPT-5.6 model family \u2014 Sol, Terra, Luna (GA)",
+        "description": "OpenAI shipped a three-tier frontier/agentic model family on July 9, 2026 with model IDs `gpt-5.6-sol`, `gpt-5.6-terra` and `gpt-5.6-luna` (bare `gpt-5.6` routes to Sol), all with a 1.05M-token context window, 128K max output, and a reasoning effort ladder up to `max`. Access is self-serve on the Responses API with no waitlist or gating, so these IDs will appear in customer environments without any procurement signal. Sol is explicitly positioned for long-horizon agentic work. AISPM must add the three model IDs as inventory entities and treat the ungated, self-serve availability as the reason model-usage discovery cannot rely on approval workflows. This closes the forward-watch opened on the 2026-07-08 scan",
+        "source": "https://openai.com/index/gpt-5-6/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Codex Agent Plugins and multi-catalog marketplace",
+        "description": "Codex CLI 0.146.0/0.147.0 introduce Agent Plugins \u2014 installable workflow bundles that each package **skills, optional app integrations and MCP server configuration** in one unit \u2014 installed from the official Plugin Directory (shared with ChatGPT), from a repo-level marketplace at `$REPO_ROOT/.agents/plugins/marketplace.json`, or from a personal marketplace at `~/.agents/plugins/marketplace.json`. This is a new local-extension entity type on a developer endpoint, and the repo-level marketplace is the sharp edge: cloning a repository can present plugins that carry MCP server configuration, meaning a plugin install is effectively a tool-and-connection grant sourced from version control. ENDPOINT must enumerate installed plugins per developer machine, resolve which marketplace each came from, and extract the MCP servers and app integrations each one wires up",
+        "source": "https://developers.openai.com/codex/plugins",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "\"Sign in with ChatGPT\" identity provider (beta)",
+        "description": "OpenAI launched its first cross-platform identity system on August 2, 2026, with Airtable, GitLab, HubSpot, Notion, Supabase and Vercel as named partners plus OpenAI Academy and Codex Sites. It is available globally to authenticated ChatGPT users **including members of Enterprise organisations**, subject to org admin settings, and relying parties receive name, email address and profile picture. This makes ChatGPT an identity broker into third-party SaaS, which is a new class of entity for AISPM: ChatGPT-brokered account links, the relying parties consuming them, and the org admin setting that governs whether Enterprise members may use it at all. The risk to model is corporate identity sprawl created outside the IdP \u2014 accounts on GitLab or Notion provisioned via ChatGPT rather than the sanctioned SSO path, and therefore invisible to normal identity governance",
+        "source": "https://help.openai.com/en/articles/20001410-sign-in-with-chatgpt",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Claude Opus 5 across four hosting platforms",
+        "description": "Anthropic launched `claude-opus-5` on July 24, 2026 with a 1M-token context window as both default and maximum, 128k max output, thinking on by default, and an effort ladder through `xhigh` and `max`, explicitly positioned for long-running agents. It is simultaneously available on the Claude API, **Claude in Amazon Bedrock, Claude on Google Cloud (Vertex), and Claude in Microsoft Foundry** \u2014 four platforms Zenity already monitors separately. AISPM must add the model ID as an inventory entity on all four, and the 1M default context is worth modelling on its own: a default-maximum context materially raises how much organisational data a single agent turn can hold",
+        "source": "https://platform.claude.com/docs/en/about-claude/models/whats-new-opus-5",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Claude Enterprise user management via the Admin API (beta)",
+        "description": "Anthropic opened programmatic management of a Claude Enterprise organisation \u2014 list members and look them up by email, change roles, remove members, send and withdraw invites, manage groups and their membership, and read custom roles (groups and custom roles behind the `ce-user-management-2026-07-13` header). This gives AISPM its first API-level read of Claude Enterprise identity: members, roles, groups, group membership and custom roles all become discoverable inventory entities rather than console-only state, enabling least-privilege analysis and orphaned-member detection on a primary platform. It cuts both ways \u2014 an Admin API key with `read:org_audit` can call every user-management `GET`, so these keys are now high-value credentials whose scope and holders need tracking",
+        "source": "https://platform.claude.com/docs/en/manage-claude/user-management",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Cursor Google Workspace plugins \u2014 agent access to Gmail, Drive and Calendar",
+        "description": "Cursor agents can now read, write and act across Gmail, Google Drive, Calendar, Docs and Sheets through Google's remote MCP servers, installed from the Cursor Marketplace in about five clicks. Drive access covers search, read, create, share and manage; Gmail covers search, read, draft, label and manage. This is the watching-tier finding that most clearly crosses into Zenity's core concern: a coding agent on a developer laptop now holds a direct path to corporate mail and file storage, with **share** permissions on Drive, and the install path requires no admin involvement. AISPM should treat Cursor-installed Workspace plugins as a discoverable connector entity and model the toxic combination of an IDE agent holding both source-code context and mail/file-exfiltration capability",
+        "source": "https://cursor.com/changelog/google-workspace-plugins",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Google Gemini Enterprise Agent Platform \u2014 AlphaEvolve optimization service (GA)",
+        "description": "A code optimization and discovery agent, now GA, that iteratively generates mutated candidate programs server-side from a customer's baseline algorithm while **the customer's evaluation function runs client-side on their own infrastructure** and submits scores back. This is a new agent service to inventory on a secondary-tier platform, and its split-execution architecture is unusual enough to model explicitly: LLM-generated code is executed inside the customer's environment on every iteration, so the AlphaEvolve evaluator harness is an unmonitored code-execution path between a Google service and customer infrastructure. AISPM should discover AlphaEvolve jobs, their seed algorithms and their evaluator deployment locations",
+        "source": "https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/developer-guide/overview",
         "module": "AISPM",
         "action": "New Coverage Required"
       },
       {
         "severity": "MEDIUM",
-        "title": "Claude Sonnet 5 \u2014 autonomous agentic model",
-        "description": "New `claude-sonnet-5` model that plans, drives browsers/terminals, and runs autonomously near Opus 4.8 capability; distributed via Claude API, AWS, and Microsoft Foundry and set as the default for Free/Pro (new tokenizer). Cheaper autonomous tool-use drives broader agent deployment \u2014 a new model surface for red/purple-team coverage",
-        "source": "https://www.anthropic.com/news/claude-sonnet-5",
+        "title": "AgentCore Gateway configurable rate limits",
+        "description": "AgentCore Gateway moved from service-managed rate limiting to customer-configurable limits scoped along JWT claims, IAM principals, target names, tool names and qualified model IDs, with request, token and connection metrics, wildcard catch-alls, most-specific-match-wins evaluation and `rate=0` as an explicit block. Six new operations create the limits as first-class configuration objects (`CreateRateLimit`, `GetRateLimit`, `UpdateRateLimit`, `DeleteRateLimit`, `ListRateLimits`, `BatchPutRateLimitEntries`). AISPM should inventory rate-limit objects as a per-gateway control and evaluate their coverage \u2014 a gateway with no caller-scoped entry has no multi-tenant isolation. Two properties deserve rules of their own: the system **fails open** on transient enforcement errors, and `rate=0` is the documented emergency caller-isolation mechanism, which makes its presence or absence a meaningful posture signal",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-rate-limits.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore Identity \u2014 Private Key JWT client authentication",
+        "description": "Agents can now authenticate to a downstream identity provider's token endpoint with a KMS-signed JWT client assertion instead of a shared OAuth client secret, across machine-to-machine, on-behalf-of and user-delegated flows (RS256, PS256, ES256). This introduces a new credential entity type for inventory \u2014 the registered public key, the KMS key backing it, and the OAuth client configured for Private Key JWT \u2014 replacing a secret Zenity would previously have tracked as a stored credential. It is also a posture improvement worth detecting: agents still using shared client secrets where Private Key JWT is available are now the weaker configuration, and because every signing operation is recorded in CloudTrail, KMS signing activity becomes a usable per-agent authentication signal",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/private-key-jwt.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore Evaluations \u2014 OpenAI Agents, LlamaIndex, Google ADK and Claude Agent SDK support",
+        "description": "AgentCore Evaluations now ingests telemetry from agents built on OpenAI Agents, LlamaIndex, Google ADK and the Claude Agent SDK alongside Strands and LangGraph, plus a generic path for any agent emitting OpenTelemetry GenAI or OpenInference semantic conventions. The security-relevant consequence is that AgentCore is now an observability plane for **third-party-framework agents that do not run on AgentCore Runtime** \u2014 meaning agent activity from four more frameworks becomes visible in an AWS-side telemetry surface. AIDR should treat these framework-tagged span streams as a new detection source and use the documented scope names and identifying attributes to attribute activity back to a specific agent and framework",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/supported-frameworks.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore Runtime unified span destination",
+        "description": "Agent spans now land in each agent's own CloudWatch log group (`/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`, `spans` stream) rather than the shared `aws/spans` group, and this is the **default for every agent created on or after July 20, 2026**. This is a breaking change for any collection that reads the shared group: agents created after that date will silently produce no spans there, creating a monitoring blind spot exactly on the newest agents. AIDR must switch to per-agent log groups, enumerate them by agent ID and endpoint name, and detect agents whose `UNIFIED_TRACES_DESTINATION_ENABLED` setting leaves them outside the expected collection path. The upside is that access control and encryption can now be scoped per agent",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore Harness streams MCP tool result metadata",
+        "description": "`InvokeHarness` previously dropped metadata attached to MCP tool results before it reached the client; it now streams on a dedicated `toolResultMetadata` delta channel, automatically split into ordered fragments for large payloads. This is a new data channel between MCP tools and agent clients that carries arbitrary tool-controlled JSON and was, until now, simply discarded. AIDR should capture and reassemble this channel \u2014 both because it is new agent-activity telemetry and because tool-controlled content flowing into an agent's context is a plausible injection carrier that no existing detection inspects",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore Gateway Web Search connector v1.2.0 \u2014 domain include lists and request-level filters",
+        "description": "The Web Search Tool connector adds a target-level domain **include** list alongside the existing exclude list (both raised from 20 to 100 domains) and per-request `filters` on each `tools/call`, covering `domainFilter.include`/`exclude` and a `publishedDateFilter`. These are new egress-scoping configuration entities on a tool Zenity already tracks: an include list is an allow-list boundary on where an agent may retrieve web content from, and its presence or absence is a posture signal. AISPM should inventory per-target include/exclude lists and flag Web Search targets with neither, since request-level filters are agent-supplied and cannot be relied on as a control",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-web-search-tool.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Anthropic mid-conversation tool changes (beta)",
+        "description": "Tools can now be added or removed between turns of a conversation while preserving the prompt cache, on Fable 5, Mythos 5, Opus 4.8 and Opus 5, via the `mid-conversation-tool-changes-2026-07-01` header. An agent's tool set is no longer a fixed property established at conversation start \u2014 it becomes mutable state, so a point-in-time inventory of \"which tools does this agent have\" is no longer sufficient. AIRT should test whether a tool introduced mid-conversation inherits trust established earlier in the session, and whether cache preservation across a tool-set change lets earlier context influence a tool added afterwards. AISPM correspondingly needs per-turn rather than per-agent tool attribution",
+        "source": "https://platform.claude.com/docs/en/release-notes/api",
         "module": "AIRT",
         "action": "New Coverage Required"
       },
       {
         "severity": "MEDIUM",
-        "title": "Claude Science AI Workbench \u2014 compute-provisioning research agent",
-        "description": "New app that builds environments and manages compute on the user's laptop, cluster, or on-demand GPUs (asks before reaching new resources; reviewable/revocable) and integrates researcher tools/packages. A new agent capability that provisions and executes on local/remote compute \u2014 an endpoint execution and resource-access surface",
-        "source": "https://www.anthropic.com/news/claude-science-ai-workbench",
-        "module": "ENDPOINT",
+        "title": "Claude Managed Agents environment and memory-store lifecycle webhooks",
+        "description": "Managed Agents webhooks now cover four `environment.*` and three `memory_store.*` event types, on top of the agent, deployment and deployment-run events added June 30. Sessions can additionally be seeded with `initial_events` (up to 50 events, starting the agent loop in the same call) and session thread streams now support event deltas. These are new activity types AIDR can consume push-style rather than by polling \u2014 environment creation and teardown, and memory-store lifecycle changes, are exactly the events that reveal an agent gaining new execution context or a new persistent data store. Session seeding also matters for provenance: with `initial_events` the first turn of an agent loop can originate from an API caller rather than an interactive user, so event attribution must distinguish the two",
+        "source": "https://platform.claude.com/docs/en/managed-agents/webhooks",
+        "module": "AIDR",
         "action": "New Coverage Required"
       },
       {
         "severity": "MEDIUM",
-        "title": "Codex app 26.616 \u2014 Record & Replay + Thread handoff",
-        "description": "Record & Replay (macOS) converts user-demonstrated workflows into reusable agent skills; Thread handoff moves conversations (with browser tab routing/annotations) between local and remote hosts. New agent skill-authoring surface plus a local\u2194remote execution-boundary movement to monitor",
-        "source": "https://developers.openai.com/codex/record-and-replay",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Codex CLI 0.141/0.142 \u2014 per-thread MCP servers, Noise-relay remote exec, delegation modes, indexed web search",
-        "description": "Plugin stdio MCP servers now activate per-conversation; remote execution runs over authenticated E2E-encrypted Noise relay channels; configurable multi-agent delegation modes govern sub-agent spawning; indexed web-search mode permits live search while restricting direct page access. New per-conversation tool-connection, remote-control transport, orchestration, and egress surfaces",
-        "source": "https://developers.openai.com/codex/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Node SDK v6.45.0 \u2014 Realtime sideband + tool-runner hooks",
-        "description": "Adds Realtime API \"sideband call_id connections,\" Responses input-items and stream-accumulator helpers, and a tool-runner `afterCompletion` hook. New agent tool-orchestration and Realtime-connection surface in the primary SDK proxy for the OpenAI API",
-        "source": "https://github.com/openai/openai-node/releases/tag/v6.45.0",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Cursor iOS app + Remote Control",
-        "description": "New native iPhone app (public beta) to launch/manage cloud and local agents (voice input) and to remotely direct a desktop agent \u2014 the agent loop moves to the cloud while tools keep executing on the user's machine. A new off-device control plane for triggering autonomous agent runs outside the monitored desktop/IDE",
-        "source": "https://cursor.com/docs/cloud-agent/mobile",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Cursor team/organization MCP marketplace distribution",
-        "description": "Admins configure Team MCP servers once and push them across cloud agents, IDE, and CLI via marketplace configs, gated by organization group access controls. A new org-scale MCP supply/governance surface (which MCP tools reach whom) directly relevant to AI tool-connectivity posture",
-        "source": "https://cursor.com/docs/mcp",
+        "title": "Claude Dreams \u2014 derived memory stores (backlog recovery)",
+        "description": "`POST /v1/dreams` runs an asynchronous job over one memory store plus up to 100 past session transcripts and produces a **new derived memory store** with duplicates merged, contradictions resolved and fresh insights surfaced. Dreams are first-class resources (`drm_01\u2026` IDs, `pending`/`running`/`completed`/`failed`/`canceled` states, list/cancel/archive endpoints) gated behind the `dreaming-2026-04-21` beta header. The inventory consequence is data lineage: a dream reads session transcripts and writes their distilled content into a *different* store, so classification and access controls applied to the input store do not automatically hold on the output, and organisational content can propagate into a store nobody explicitly created. AISPM should discover dream jobs, map input stores and sessions to output stores, and flag derived stores whose access scope is broader than their inputs. Flagged as a coverage gap \u2014 Dreams has been live since roughly April 2026 and has never been reported by this monitor",
+        "source": "https://platform.claude.com/docs/en/managed-agents/dreams",
         "module": "AISPM",
         "action": "New Coverage Required"
       },
       {
         "severity": "MEDIUM",
-        "title": "Cursor Automations \u2014 computer-use + GitHub/Slack triggers",
-        "description": "Automations can now perform computer-use and be triggered by five new GitHub events plus a Slack emoji-reaction trigger, authorable in-session via `/automate`. Expanded autonomous tool-execution + event-trigger surface widens the agent-runtime attack/abuse surface",
-        "source": "https://cursor.com/changelog",
+        "title": "Claude Cowork \u2014 autonomous local-file desktop agent (backlog recovery)",
+        "description": "Cowork is an autonomous desktop agent built on the same agentic architecture as Claude Code that reads and writes **local files** in user-designated folders and plans and executes multi-step task sequences without a prompt at every turn, now on macOS, web and mobile with cloud task execution in beta. It is aimed squarely at non-technical staff \u2014 operations, project management, department heads \u2014 which means an agent with local filesystem write access is being deployed to populations with no developer-endpoint controls and outside whatever coverage exists for Claude Code. ENDPOINT must detect Cowork installations, enumerate the folders it has been pointed at, and distinguish local from cloud execution. Note that Cowork is one of the three surfaces governed by the new inference hooks, so hook coverage and Cowork inventory should be reconciled. Flagged as a coverage gap \u2014 Cowork launched January 2026 and has never been reported by this monitor",
+        "source": "https://claude.com/docs/cowork/overview",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex \u2014 MCP 2026-07-28, executor-provided skills discovery and remote WebSocket code mode",
+        "description": "Codex CLI added support for MCP protocol revision 2026-07-28 with paginated tool discovery, executor-provided skills discovery, remote WebSocket code-mode connections, and migration paths that import Cursor skills and synchronise Claude conversations. Each is a distinct endpoint surface: paginated discovery means a server's full tool list is no longer visible in a single response and must be walked to enumerate completely; executor-provided skills are capabilities injected by the execution environment rather than declared in local configuration; and remote WebSocket code mode is a persistent outbound channel from the developer machine. The cross-tool migrations mean skills and conversation history now move between vendor agents, so provenance does not stop at the tool boundary",
+        "source": "https://learn.chatgpt.com/docs/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Codex automatic approval reviews (`--approve-for-me`)",
+        "description": "Codex CLI 0.147.0 adds a flag that delegates approval decisions to the model itself, shipped two days after 0.146.1 patched in \"safer automatic-review defaults for cyber-capable models\" \u2014 the sequencing indicates OpenAI treats automated approval as security-sensitive. Removing the human from the approval loop turns every approval prompt into a model decision that an attacker can attempt to influence, making this a direct prompt-injection escalation path: content injected into a repository, a tool result or a web page reaches the same model that decides whether the next command runs. AIRT should build cases that attempt to steer auto-approval into executing commands a human would have rejected, and specifically probe whether the cyber-capable-model defaults hold under injected content",
+        "source": "https://learn.chatgpt.com/docs/changelog",
         "module": "AIRT",
         "action": "New Coverage Required"
       },
       {
         "severity": "MEDIUM",
-        "title": "Cursor cloud subagents (`/in-cloud`)",
-        "description": "New command spawns isolated cloud subagents for parallel work with automated cloud environment setup and reusable snapshots. A new cloud-side agent-execution surface (beyond the local IDE) to inventory and govern",
-        "source": "https://cursor.com/changelog",
+        "title": "OpenAI content provenance checks API",
+        "description": "The Python (v2.52.0) and Node (v7.3.0) SDKs added programmatic content-provenance verification, checking C2PA Content Credentials and Google SynthID watermarks on images and, since July 2026, audio generated through ChatGPT, Codex and the OpenAI API. This is a new API surface to inventory, and a usable detection primitive: provenance checks let an organisation determine whether a given asset originated from OpenAI tooling, which is directly relevant to establishing whether AI-generated content entered a workflow. AISPM should track which applications call it and treat provenance-verification results as an attribute on discovered content artefacts",
+        "source": "https://openai.com/index/advancing-content-provenance/",
         "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI admin spend-limit and organisational service-account key management APIs",
+        "description": "Recent SDK releases expose admin APIs for organisational spend limits and, more importantly for security, **service-account key management endpoints**. Service-account keys are non-human credentials that authenticate automated workloads against OpenAI, and an API to create and manage them means they can now be provisioned programmatically and at scale. AISPM should enumerate service accounts and their keys as inventory entities, attribute API usage to them, and detect keys that are unused, over-permissioned or created outside a sanctioned process \u2014 a service-account key is the most likely credential to outlive the person who created it",
+        "source": "https://github.com/openai/openai-python/releases",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Microsoft Copilot Studio \u2014 Foundry IQ knowledge connection and agent-to-agent delegation in the new agent experience",
+        "description": "Two preview capabilities extend the Copilot Studio agent graph across a boundary. Agents can now be grounded in an **Azure AI Foundry** knowledge base via Foundry IQ, and a front-door agent in the new agent experience can delegate to specialist agents. Together they mean a Copilot Studio agent's effective data reach and effective capability set are no longer determined by its own configuration: knowledge flows in from a different Microsoft product with its own permission model, and capability flows in from other agents. AISPM must resolve Foundry IQ knowledge-base bindings as cross-product data-access edges and build the full delegation graph, since a front-door agent inherits the reach of every specialist beneath it \u2014 the classic transitive over-privilege case",
+        "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Microsoft 365 Copilot \u2014 Insights Agent (preview)",
+        "description": "A new first-party agent has appeared under \"Create and manage agents\" in the Microsoft 365 Copilot extensibility documentation, absent from the previous capture. First-party agents are enabled tenant-side rather than built by a maker, so they arrive in customer tenants without appearing in any maker-created agent inventory. AISPM should add Insights Agent to the first-party agent inventory for M365 Copilot, determine what organisational data it is grounded in, and confirm it is covered by the same discovery path used for declarative and custom-engine agents",
+        "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/insights-agent-overview",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Gemini Enterprise Agent Platform \u2014 Memory Bank Memory Profiles (GA)",
+        "description": "Memory profiles are structured data objects with fixed, user-defined schemas that LLMs populate and update, generated through the same `GenerateMemories` and `IngestEvents` paths as natural-language memories and held for low-latency in-session access. This is a distinct new memory entity type from free-text memories: a profile has a declared schema, which means the organisation has explicitly specified what categories of information about a user or entity get extracted and persisted. AISPM should inventory profile schemas alongside memory stores, since the schema itself is the disclosure \u2014 a schema field naming a sensitive attribute is a standing instruction to extract that attribute from every session. Memory Bank and Sessions multi-regional and global endpoints also went GA, which affects where this data resides",
+        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Gemini Enterprise Agent Platform \u2014 Feedback service (preview) and `user.id` in agent logs",
+        "description": "The Feedback service collects, analyses and manages end-user qualitative feedback (thumbs up/down sentiment, feedback labels) from agent\u2013user interactions, and separately, prompt-input and response-output agent logs now carry a `user.id` field when that logging is enabled. The logging change is the operationally significant one: agent prompt and response logs become **user-attributable**, turning an anonymous content stream into a per-identity activity trail that AIDR can use to attribute prompts and data access to specific people. The feedback corpus is a second new activity surface, and it stores end-user free text \u2014 worth treating as a data store in its own right rather than as metrics",
+        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Perplexity Gateway API and hosted remote MCP server",
+        "description": "Perplexity shipped a unified API gateway that is **wire-compatible with both OpenAI Chat Completions and Anthropic Messages**, with automatic health-based routing across model deployments, and made its MCP server available cloud-hosted at `https://api.perplexity.ai/mcp` over Streamable HTTP with a Bearer key. The gateway is the finding that matters beyond the watching tier: OpenAI- and Anthropic-shaped traffic can now be pointed at Perplexity by changing a base URL, so traffic that looks like sanctioned OpenAI or Anthropic API usage may not be reaching those vendors at all. AISPM and AIDR should treat base-URL/endpoint attribution as part of model-usage discovery rather than inferring the provider from request shape. The hosted MCP server removes the local-install signal that previously made Perplexity MCP usage detectable on endpoints, and resolves the reference-only watch item carried since 2026-07-07",
+        "source": "https://docs.perplexity.ai/docs/getting-started/integrations/mcp-server",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Windsurf / Devin Desktop \u2014 remote-agent access to local dev servers and MCP OAuth authentication",
+        "description": "v3.6.21 lets **remote agents reach local development servers** through the built-in Browser Preview (ACP) pane, and adds a dedicated \"Authenticate\" button for MCP servers requiring OAuth. The browser preview creates a path from a cloud-hosted agent into services bound to the developer's local machine \u2014 typically unauthenticated dev servers holding real data and credentials, sitting behind no network control because they were never expected to be reachable from outside. MCP OAuth authentication means MCP server connections now carry delegated user authorisation, so an MCP connection on this endpoint can hold real access tokens to third-party services. ENDPOINT should enumerate MCP servers configured in Devin Desktop along with their OAuth grants, and treat remote-agent-to-localhost as a distinct data-flow to monitor",
+        "source": "https://docs.devin.ai/desktop/changelog",
+        "module": "ENDPOINT",
         "action": "New Coverage Required"
       }
     ]

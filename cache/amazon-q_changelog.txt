@@ -1,9 +1,9 @@
-# Amazon Q Developer User Guide - Document History — captured 2026-07-07
+# Amazon Q Business Doc History — captured 2026-08-07
+Source: https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-history.html
 
-## Topmost entries [unchanged since prior scan]
-- Updated managed policies AmazonQFullAccess/AmazonQDeveloperAccess — added q:CreateArtifact, q:GetArtifact, q:GetArtifactActionResult, q:PerformArtifactAction for Amazon Q artifacts (preview). (May 21, 2026)
-- Updated Builder ID unsubscribe instructions (March 19, 2026).
-- Account limit for subscriptions raised to 20/region/org (Feb 18, 2026).
-- Deprecated code transformation for GitLab (Jan 16, 2026).
+- Jul 31, 2026 — Amazon Q Business is no longer open to new customers; AWS points similar capability
+  at Amazon Quick. [DEPRECATION — not reportable]
+- Jun 30, 2026 — Advance notice of the same change. [already cached]
+- Latest actual feature entry remains Agentic RAG, August 14, 2025.
 
-Updated: 2026-07-07 — No new doc-history entries since prior scan; still tops at May 21, 2026 (Q artifacts permissions, already cached). No reportable addition.
+Updated: 2026-08-07 — Only the availability closure. No new features, APIs or entity types.

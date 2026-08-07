@@ -1,14 +1,14 @@
-# Dia Browser Release Notes — captured 2026-07-07
+# Dia Browser Release Notes — captured 2026-08-07
+Source: https://diabrowser.com/release-notes
 
-**Visible items ("Dia Weekly" newsletter format — titles/dates only; Issue No. & App Version render as placeholder/dummy digit-string text):**
+Index entries visible:
+- Jul 30, 2026 | Issue No. 035 | App v1.42.0 — "Notes from the roadmap"
+- Jul 23, 2026 | Issue No. 034 | App v1.41.0 — "Notes from the roadmap"
+- Jul 16, 2026 | Issue No. 033 | App v1.40.1 — "Notes from the roadmap"
 
-1. July 2, 2026 — "Closing out the week with Dia" (Issue No. / App Version = dummy digit placeholder; no extractable feature detail)
-2. Jun 25, '26 — No. 030, v1.37.0 — "What we're building, unfiltered"
-3. Jun 18, '26 — No. 029, v1.36 — "Stash your PiP out of the way" (Picture-in-Picture placement — minor UI)
-4. Jun 8, '26 — No. 028, v1.34.1 — "The week in Pittsburgh"
-5. May 28, 2026 — v1.33.00 — "Everything in Its Place"
+Recurring limitation: the index exposes dates, issue numbers and version strings only. Per-issue
+feature detail lives behind individual newsletter pages and is not extractable from the index, so
+no AI feature, agent capability, or integration can be confirmed from this source.
 
-**Note:** Index exposes only titles/dates; feature text lives behind per-issue links. Recent named features (PiP placement) are minor UI. No agent/automation capability detail extractable.
-
-## Last Fetched
-2026-07-07 — No new issue since prior scan (top still Jul 2). App version/issue no. still placeholder text; no extractable feature detail. Newsletter format only; no agent/automation capability. Below watching-tier bar. No coverage finding.
+Updated: 2026-08-07 — Watching tier. Version numbers advanced (1.40.1 -> 1.42.0) but no describable
+capability. Nothing reportable. Logged again under Errors.

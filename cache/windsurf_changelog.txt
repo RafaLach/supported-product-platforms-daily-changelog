@@ -1,27 +1,23 @@
-# Windsurf / Devin Desktop Changelog — captured 2026-07-07
-# NOTE: windsurf.com/changelog 308-redirects to docs.devin.ai/desktop/changelog.
+# Windsurf / Devin Desktop Changelog — captured 2026-08-07
+# NOTE: windsurf.com/changelog 308-redirects to docs.devin.ai/desktop/changelog
+Prior cache: v3.4.27 (2026-07-07, diff-viewer bug fix, below bar).
 
-Most recent version: v3.4.27 (July 7, 2026) [top — bug fix only, below bar]
+## August 2026
+- v3.6.27 (Aug 1) — Windows certificate handling behind corporate proxies; symlink protection added to
+  edit tools (prevents unintended file redirects). [fixes]
 
-## v3.4.27 (July 7, 2026) [NEW since prior scan — below watching-tier bar]
-- Fixed diff viewing issues in autonomous mode. (bug fix only; no new capability.)
+## July 2026
+- v3.6.22 (Jul 29) — analytics startup timing respects privacy preferences.
+- v3.6.21 (Jul 29) — **Browser Preview (ACP): remote agents can reach local dev servers through the
+  built-in preview pane** [REPORTED]; **MCP "Authenticate" button for OAuth-requiring servers**
+  [REPORTED]; native OS notifications on session completion/input; Codemaps tab-based editing in agent
+  mode with @-mention in Devin Local; keyboard shortcuts for approval requests; agent sidebar context
+  menus / rename / workspace filtering; worktree session merge button; Plan Mode in Devin Local
+  (explicit approval before implementation); editable approvals (modify commands pre-approval or
+  accept AI-suggested rewrites).
+- v3.5.17 (Jul 17) — @-mention type icons; Devin Cloud session performance; network policy
+  configuration directly in the chat interface; Devin Local multi-workspace customization awareness,
+  hooks visibility and migration, Fast Context support.
 
-## v3.4.22 (July 4, 2026) [reported 2026-07-05]
-- **Devin Local autonomous mode with reviewable diffs**: edits in autonomous mode produce reviewable diffs; local agent harness runs autonomously — expanded local autonomous agent-execution surface.
-- **`/mcp` slash command + live MCP server status panel**: in-session command to manage/inspect connected MCP servers with live status.
-- Skill `permissions:` frontmatter now applies to auto-approvals; agent sidebar visible when routing to Cascade in agent-window mode; "New session in space"; Cloud sessions auto-reconnect; images copyable from chat; new users default to agent mode. [controls/reliability, below bar]
-
-## v3.3.18 (June 23, 2026) [cached, below bar]
-- Devin ACU usage in client; subagent default model; Windows bash → Git Bash; MCP registry cache warming; attribution=false.
-
-## v3.1.7 (June 10, 2026) [cached]
-- Agent/Editor mode switching; unified agent search; `.devinignore`; "Devin CLI" → "Devin Local".
-
-## v3.0.28 (June 6) Windows migration hardening + stdio MCP fixes.
-## v3.0.12 (June 2) "Windsurf is now Devin Desktop" rebrand.
-## v2.3.15 (May 27/28) Claude Opus 4.8; Devin Local context tracking + MCP approval persistence; MCP tool permissions UI.
-## Earlier (cached): v2.2.17 Devin Review/Quick Review; v2.1.29 Devin for Terminal CLI + Devin Local in Windsurf; v2.0.44 Windsurf 2.0 + Devin Cloud agent + Agent Command Center w/ Spaces; Arena Mode; Plan Mode; Adaptive Model Router; Agent Skills Framework; GPT-5.2-Codex.
-
-Docs (docs.devin.ai/desktop): Devin Local, Terminal, MCP, Memories & Rules, Context Awareness, Workflows, App Deploys, Recommended Plugins. Devin Local plugin system (enterprise preview) still flagged to watch.
-
-Updated: 2026-07-07 — Watching tier. New top entry v3.4.27 (07-07) is a diff-viewer bug fix only. Autonomous mode + /mcp dashboard (v3.4.22) already REPORTED 07-05. No new dated entry with new capability. Nothing new to report.
+Updated: 2026-08-07 — Watching tier. One consolidated finding (remote-agent -> local dev server
+browser preview + MCP OAuth authentication).

@@ -1,21 +1,36 @@
-# Copilot Studio What's New — captured 2026-07-08
-# (source ms.date 2026-06-25; page updated_at 2026-07-08)
+# Copilot Studio What's New — captured 2026-08-07
+# (source ms.date 2026-07-15; page updated_at 2026-08-03)
 
-## June 2026 [already cached — REPORTED in prior scan]
-- New agent experience (production-ready preview) — enhanced orchestration runtime.
+## June 2026 [EXPANDED — 6 entries added to this section since the 2026-07-08 capture]
+Previously cached (already reported):
+- New agent experience (production-ready preview) — GitHub Copilot harness, enhanced orchestration runtime.
 - Microsoft IQ — connects an agent to org data: emails, calendar, files, Teams messages, people.
-- Skills — modular reusable instruction sets; export as Markdown/package to share.
+- Skills — modular reusable instruction sets; export as Markdown/package.
 - Memory — persistent per-user context store.
 
+NEW on the page this scan (backfilled into the June section after 2026-07-08):
+- (GA) Windows 365 for Agents MCP server — full operational control of a Windows 365 Cloud PC:
+  desktop interaction (mouse/keyboard/screen capture/command execution), browser automation via
+  Microsoft Edge, semantic UI inspection via Windows UI Automation. sessionId-based sessions,
+  30-min idle eviction. [REPORTED 2026-08-07]
+- (Preview) Connect your agent to Foundry IQ — ground responses in an Azure AI Foundry knowledge
+  base from the new agent experience. [REPORTED 2026-08-07]
+- (Preview) Voice agents with Teams Phone Agent — handoff between Teams Phone Agent and a custom
+  voice agent for billing / prescription refill / order-status call workflows. [REPORTED 2026-08-07]
+- (Preview) Connect other agents in the new agent experience — front-door agent delegates to
+  specialist agents. [REPORTED 2026-08-07]
+- (GA) Claude Sonnet 5 or GPT-5.5 Chat selectable as an agent's primary AI model. [REPORTED 2026-08-07]
+- Condition groups in Message/Question/prompt nodes (authoring convenience — below bar).
+
 ## May 2026 [already cached]
-- Computer use GA; prompt node; Microsoft 365 Copilot node in workflows; consent-based voice recording; agent inventory schema (admin discovery/audit); agent readiness/issue status page; async agent-flow responses; (preview) Microsoft Entra agent identities per agent; computer-use standalone tools; Mistral Medium 3.5 model option.
+- Computer use GA; prompt node; M365 Copilot node in workflows; consent-based voice recording;
+  agent inventory schema; agent readiness/issue status; async agent-flow responses;
+  (preview) Entra Agent IDs per agent; computer-use standalone tools; Mistral Medium 3.5.
 
-## April 2026 [already cached]
-- Real-time voice agents (preview); agent-to-agent (A2A) protocol GA; agent evaluation REST API; GPT-5.5 Reasoning (Deep); Analytics Viewer role; hold/resume voice; agent usage estimator; custom metrics.
+## April 2026 and earlier [already cached]
+- Real-time voice agents; A2A GA; agent evaluation REST API; GPT-5.5 Reasoning (Deep); Analytics
+  Viewer role; Work IQ (Mar); Bing Custom Search knowledge; MCP server support (Oct 2025);
+  Client SDK; code interpreter; Fabric data agents; tool groups.
 
-## Earlier (cached): Work IQ (Mar 2026), Bing Custom Search knowledge, MCP server support (Oct 2025), Client SDK, code interpreter, Entra agent identities (preview Nov 2025), Fabric data agents, tool groups.
-
-Updated: 2026-07-08 — No net-new entries since prior scan; page still tops at June 2026 (new agent
-experience + Microsoft IQ, Skills, Memory), all already reported. Page updated_at bumped to 2026-07-08
-(doc refresh only; ms.date still 2026-06-25) with no new dated feature entries above June 2026.
-No new reportable addition this scan.
+Updated: 2026-08-07 — Page still tops at June 2026, but the June section itself gained 6 entries
+since the 2026-07-08 capture. Five are reportable; condition groups held below bar.

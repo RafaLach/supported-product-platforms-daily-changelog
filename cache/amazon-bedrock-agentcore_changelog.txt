@@ -1,31 +1,49 @@
-# Amazon Bedrock AgentCore — Release Notes — captured 2026-07-07
-# SOURCE FIX: configured source .../devguide/doc-history.html has failed to render for months
-# (recurring error since 2026-05-18). This scan used .../devguide/release-notes.html, which
-# renders fully. RECOMMEND updating sources.json AgentCore changelog URL to release-notes.html.
-# release-notes.html still tops out at June 2026 this scan (no July 2026 section yet).
+# Amazon Bedrock AgentCore Release Notes — captured 2026-08-07
+# Source used: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
+# (doc-history.html still renders title/nav only — recurring since 2026-05-18)
 
-## June 2026
-- Runtime: Increased default service quotas (5,000 active sessions us-east-1/us-west-2; 200 TPS InvokeAgentRuntime; 400 TPM container sessions). [limit bump — NOT reportable]
-- **Web Search Tool — GA** [reported 2026-07-05, AISPM HIGH]. Managed tool grounding agents in live web with zero data egress; built-in MCP connector target on Gateway. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/web-search.html
-- **Managed Knowledge Base — GA** [reported 2026-07-05, AISPM HIGH]. Fully managed RAG KB queryable via Gateway (pre-built target type); six native connectors (S3, SharePoint, Confluence, Google Drive, OneDrive, Web Crawler); managed vector storage; hybrid + multimodal retrieval. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/knowledge-base.html
-- **AgentCore Policy — Bedrock Guardrails support** [reported 2026-07-05, AIRT MEDIUM]. Guardrails evaluate agent-action outputs + gateway-target inputs at the gateway layer, outside agent code. Distinct from prior Cedar Policy. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-guardrails.html
-- **Gateway: HTTP passthrough / Inference / Runtime-agent targets (GA)** [reported 2026-07-05, AISPM MEDIUM]. New connector/target classes: passthrough (front APIs, external MCP servers, A2A agents, custom inference endpoints); inference (model providers, per-model token limits); runtime-agent targets GA. Sources: gateway-target-http-passthrough.html, gateway-target-inference-connector.html, gateway-target-http-runtime.html
-- **Runtime: Interactive Shells (Terminals)** [reported 2026-07-05, AIRT MEDIUM]. Persistent stateful shell sessions (env/cwd/processes persist; up to 10 per runtime session). Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-command-shell.html
-- AgentCore Harness — GA [reported 05-21; GA confirmed 07-04]. Built-in memory, LiteLLM/Bedrock Mantle providers, AWS skills catalog, evals+optimization, versioning/endpoints, Strands export.
-- Recommendations / Batch Evaluations / A-B Testing — GA (Optimization) [reported 05-18/05-21].
-- Gateway: Enforce inbound traffic from the gateway (SourceArn / allowedWorkloadConfiguration) [security control, below bar].
-- Failure Insights — public preview [below bar]. optimization-insights.html
-- Step Functions <-> AgentCore harness native integration [below bar]. harness-step-functions.html
-- AgentCore achieves SOC 1/2/3 compliance [compliance, not reportable].
-- Identity: reference existing AWS Secrets Manager secret ARNs in Credential Providers [below bar].
-- AgentCore CLI (v0.19.0) + CDK: Payments support [Payments SERVICE already reported 05-18/05-21; CLI/CDK GA tooling — not new].
+## August 2026 [ALL NEW THIS SCAN — REPORTED 2026-08-07]
+- **Runtime: Instances compute type with capacity providers** — agents run on AWS-managed EC2 in the
+  customer's own account. Capacity provider defines OS, allowed instance types, networking, storage.
+  Persistent sessions up to 14 days; GPU instance types; MULTIPLE AGENTS CAN SHARE ONE INSTANCE.
+  Linux x86_64/arm64 at launch. Savings Plans / ODCR apply.
+  -> new data-plane op observed: DeleteCapacityProviderSession
+- **AWS Agent Registry launches under the new `agent-registry` namespace** (was preview under
+  bedrock-agentcore; namespace move effective Aug 6, 2026). Private governed catalog of agents,
+  tools, skills, MCP servers, custom resources. Exposed via console, control-plane + data-plane APIs,
+  and the registry's own MCP endpoint. New: ListDiscoverableRegistryRecords,
+  BatchGetDiscoverableRegistryRecord, record tagging, required `recordType`, Record directory console
+  page. Validates definitions against MCP and A2A schemas. Per-registry authorization config +
+  approval config (manual review before a record becomes discoverable). Nine AWS Regions.
+- **Gateway: Configurable rate limits** — customer-defined limits scoped by dimensionKeys/entries over
+  JWT claims ($.context.jwt.sub), IAM principals (iam.sourceIdentity), target names, tool names,
+  qualified model IDs. Metrics: Requests (RPS/RPM), Tokens (TPM), Connections. Wildcard catch-all;
+  most-specific-match-wins; AND semantics across limits; effective = min(service, customer);
+  rate=0 = explicit block. Fails OPEN on transient errors. Propagates in ~30s.
+  Six new ops: CreateRateLimit, GetRateLimit, UpdateRateLimit, DeleteRateLimit, ListRateLimits,
+  BatchPutRateLimitEntries.
 
-## May 2026 [baseline via release-notes]
-- CDK AgentCore L2 constructs stable; Gateway MCP Sessions; Gateway Response Streaming (SSE); Gateway Elicitation Pass-Through; Gateway Sampling Messages; Gateway Progress/Logging Notifications; Harness + Runtime BYO filesystem (S3 Files / EFS); Agent Performance Loop (Optimization/Batch Eval/User Simulation); GovCloud (US-West) GA; AgentCore Payments (preview); Runtime Custom Header Passthrough. [reported 05-18/05-21]
+## July 2026 [ALL NEW THIS SCAN]
+- **Gateway Web Search connector v1.2.0** — target-level domain INCLUDE list added alongside exclude;
+  both raised 20 -> 100 domains. Request-level `filters` on tools/call: domainFilter.include/exclude
+  (100 each) and publishedDateFilter from/to. [REPORTED]
+- **Identity: Private Key JWT client authentication** — signed JWT client assertion instead of a shared
+  OAuth client secret; private key stays in AWS KMS, every signing op in CloudTrail. Works across M2M,
+  OBO, and user-delegated flows; RS256/PS256/ES256. [REPORTED]
+- **Harness: InvokeHarness streams MCP tool result metadata** — new `toolResultMetadata` delta channel;
+  large metadata auto-split into ordered fragments. [REPORTED]
+- **Runtime: Unified span destination** — spans go to the agent's own CloudWatch log group
+  (/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>, `spans` stream) instead of shared
+  aws/spans. UNIFIED_TRACES_DESTINATION_ENABLED; DEFAULT for agents created on/after Jul 20, 2026. [REPORTED]
+- **Evaluations: expanded agent framework support** — OpenAI Agents, LlamaIndex, Google ADK, Claude
+  Agent SDK (plus existing Strands, LangGraph) + generic OTel GenAI / OpenInference framework support. [REPORTED]
+- Evaluations and Optimizations: AWS PrivateLink support (com.amazonaws.region.bedrock-agentcore). [below bar]
+- Runtime and Built-in Tools: ActiveSessionCount CloudWatch metric, AWS/Bedrock-AgentCore namespace,
+  Service dimension = AgentCore.Runtime | CodeInterpreter | Browser. [below bar]
 
-## April 2026 [reported in prior scans]
-- VPC egress (Identity/Gateway/Runtime); Node.js direct code deploy; Optimization loop preview; Identity OBO token exchange; São Paulo/Canada region expansion; Memory metadata filtering; Harness preview; AgentCore MCP Server in awslabs/mcp; CLI Agent Inspector; AgentCore Registry preview; cross-account observability; Browser OS-level interaction (InvokeBrowser); Gateway 3LO GA; LangChain Deep Agents + AG-UI/CopilotKit partnerships.
+## June 2026 [already cached — reported 2026-07-05]
+- Runtime increased default service quotas; Web Search Tool GA; AgentCore Policy + Bedrock Guardrails;
+  Managed Knowledge Base; new Gateway target types; Runtime Interactive Shells.
 
-## March–Jul 2025 [older, cached]: Evaluations GA; Policy GA (Cedar); CLI GA; PrivateLink; Stateful MCP in Runtime; AG-UI protocol; Payments concepts; Web Bot Auth; MCP servers as Gateway targets; GA (Oct 2025); initial preview (Jul 2025).
-
-Updated: 2026-07-07 — release-notes.html still tops at June 2026; NO new entries since the 2026-07-05 scan (all June 2026 items already captured/reported). No July 2026 section published yet. API_Operations.html byte-identical to cache (no new data-plane ops). Doc-history.html still not rendering — recommend sources.json switch. No reportable addition this scan.
+Updated: 2026-08-07 — First July AND August sections since the page was adopted. Eight reportable items.
+NOTE: sources.json still points the AgentCore changelog at the broken doc-history.html.
