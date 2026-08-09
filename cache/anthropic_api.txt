@@ -1,77 +1,39 @@
-# Claude Platform release notes — captured 2026-08-07
-# Source used: https://platform.claude.com/docs/en/release-notes/api
-# (platform.claude.com/docs/api/getting-started and /docs/build-with-claude/overview both still 404)
+# Claude Platform release notes — captured 2026-08-09
+# Source: https://platform.claude.com/docs/en/release-notes/api
+# (the two sources.json Anthropic URLs still 404 — see errors table)
 
-## August 5, 2026 [NEW — REPORTED]
-- **Inference hooks (beta, Claude Enterprise)** — point Claude at your org's AI security server; each
-  governed prompt across claude.ai, **Cowork**, and **Claude Code** is HELD for the server's allow/deny
-  verdict before inference proceeds. Requests are signed; failure handling configurable; every denial
-  recorded in the compliance Activity Feed.
-- Claude Opus 4.1 (claude-opus-4-1-20250805) retired. [deprecation — not reportable]
+### August 7, 2026  [NEW since 2026-08-07 capture]
+- Session budgets for Claude Managed Agents: a hard cap on a session's spend at public list
+  rates. A session that reaches its budget pauses with the `budget_reached` stop reason instead of
+  starting new model requests; changing or removing the budget resumes it. Deployments accept the
+  same budget and apply it to each session they start.  /docs/en/managed-agents/budgets
+- Session advisor: a model at least as capable as the agent's own that the session's primary thread
+  can consult mid-turn for strategic guidance. Configured as a `{"type": "advisor"}` entry in the
+  agent's multiagent roster, naming the `model` to consult.
+  /docs/en/managed-agents/multiagent-orchestration#give-the-session-an-advisor
+- `inference_geo`: control where model inference runs for a Managed Agents agent. Set inside the
+  `model` object at agent creation, or override per session.  /docs/en/manage-claude/data-residency
+- Skills from GitHub: when a Managed Agents session mounts a repository, any skills in its root
+  `.claude/skills` directory are discovered automatically at session start and are available to the
+  agent for that session.  /docs/en/managed-agents/skills#load-skills-from-a-github-repository
 
-## August 1, 2026 [NEW]
-- Dreams (research preview) now supports Claude Opus 5.
+### August 5, 2026  (reported 2026-08-07)
+- Inference hooks beta for Claude Enterprise.
+- Claude Opus 4.1 retired.
 
-## July 24, 2026 [NEW — REPORTED]
-- **Claude Opus 5** (`claude-opus-5`) — 1M token context (default AND max), 128k max output, thinking on
-  by default, $5/$25 per MTok. Available on Claude API, Claude in Amazon Bedrock, Claude on Google Cloud
-  (Vertex), and Claude in Microsoft Foundry. Effort ladder low/medium/high/xhigh/max.
-- **Mid-conversation tool changes (beta)** on Fable 5, Mythos 5, Opus 4.8, Opus 5 — add or remove tools
-  between turns while preserving the prompt cache. Header: mid-conversation-tool-changes-2026-07-01.
-- `fallbacks` parameter gains a `"default"` mode (Anthropic-recommended fallback models by refusal
-  category). Server-side fallback beta; header server-side-fallback-2026-07-01.
-- Fast mode removed for Claude Opus 4.7. [deprecation]
+### August 1, 2026
+- Dreams (research preview) now supports Claude Opus 5.  [below reporting bar — model support add]
 
-## July 22, 2026 [NEW — REPORTED]
-- Claude Managed Agents: `effort` settable on an agent's model config.
-- **Managed Agents webhooks extended to environment and memory-store lifecycle** — four `environment.*`
-  and three `memory_store.*` event types.
-- Sessions can be seeded with `initial_events` on POST /v1/sessions (up to 50 user.message /
-  user.define_outcome events); a non-empty list starts the agent loop in the same call.
-- `version` now optional when updating an agent (optimistic concurrency).
-- Session THREAD event streams support event deltas (subagent text previewed as generated).
+### July 2026 and earlier
+Unchanged vs the 2026-08-07 capture: Opus 5 (Jul 24), mid-conversation tool changes, `fallbacks`
+"default" mode, Opus 4.7 fast-mode removal, Managed Agents `effort` + environment/memory-store
+webhooks + `initial_events` + thread event deltas (Jul 22), Workbench sunset (Jul 17),
+mid-conversation system messages (Jul 15), Claude Enterprise Admin API user management (Jul 14),
+Dreams model adds + Access Transparency `cmek_preserve` detail (Jul 10), API key expiration (Jul 8),
+`agent-memory-2026-07-22` header (Jul 2), Fable 5 / Mythos 5 restored (Jul 1).
 
-## July 17, 2026
-- Legacy Workbench sunset Aug 17, 2026; experimental prompt tools APIs
-  (/v1/experimental/{generate,improve,templatize}_prompt) retired with it. [deprecation]
+Anthropic News (https://www.anthropic.com/news): newest is Aug 7 "Improving Fable 5's biology
+safeguards" (safeguard change, not a new capability) and Aug 4 Chief Global Affairs Officer
+appointment. No new product surface.
 
-## July 15, 2026
-- Mid-conversation system messages available on Fable 5, Mythos 5, Opus 4.8 (API, Bedrock, Vertex);
-  no beta header. (availability correction)
-
-## July 14, 2026 [NEW — REPORTED]
-- **Claude Enterprise user management via the Admin API (beta)** — list members, look up by email,
-  change roles, remove members, send/withdraw invites, manage groups and membership, read custom roles.
-  Groups + custom roles need header ce-user-management-2026-07-13. Admin API key with `read:org_audit`
-  can call every user-management GET.
-
-## July 10, 2026
-- Dreams supports Fable 5 and Sonnet 5. Access Transparency `cmek_preserve` docs expanded with two
-  preservation reason codes (policy_violation_investigation, csae_report).
-
-## July 8, 2026
-- API key / Admin API key EXPIRATION at creation; Admin API reports `expires_at`. [below bar this scan]
-
-## July 2, 2026
-- New `agent-memory-2026-07-22` beta header changes memory-store list semantics; SDKs updated.
-
-## July 1, 2026
-- Access restored to Claude Fable 5 and Claude Mythos 5.
-
-## June 30 and earlier [pre-window; Sonnet 5 already reported 2026-07-03]
-- Claude Sonnet 5 launch; Managed Agents event deltas / backward pagination / per-session agent
-  overrides / vault credential `injection_location`; agent+deployment webhooks; MCP tunnels moved to
-  /v1/tunnels (mcp-tunnels-2026-06-22).
-
-## COVERAGE-GAP RECOVERY (pre-existing, never reported by this monitor)
-- **Dreams** (research preview, beta header dreaming-2026-04-21, live since ~Apr 2026):
-  POST /v1/dreams — async job over 1 memory store + 1..100 session transcripts producing a NEW
-  derived memory store. Resource IDs drm_01...; statuses pending/running/completed/failed/canceled;
-  list/cancel/archive endpoints; runnable on claude-opus-5, fable-5, opus-4-8, opus-4-7, sonnet-5,
-  sonnet-4-6. [REPORTED 2026-08-07 as backlog recovery]
-- **Claude Cowork** (launched Jan 12, 2026 on macOS; web + mobile since July 2026): autonomous
-  desktop agent that reads/writes LOCAL files in user-designated folders; same agentic architecture as
-  Claude Code; cloud task execution in beta. [REPORTED 2026-08-07 as backlog recovery]
-
-Updated: 2026-08-07 — Large delta vs the 2026-07-08 cache (30-day gap). Seven reportable items plus
-two backlog recoveries.
+Updated: 2026-08-09 — four net-new Managed Agents items dated August 7.

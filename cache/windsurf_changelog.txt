@@ -1,23 +1,16 @@
-# Windsurf / Devin Desktop Changelog — captured 2026-08-07
-# NOTE: windsurf.com/changelog 308-redirects to docs.devin.ai/desktop/changelog
-Prior cache: v3.4.27 (2026-07-07, diff-viewer bug fix, below bar).
+# Windsurf / Devin Desktop changelog — captured 2026-08-09
+# https://docs.devin.ai/desktop/changelog
+# (sources.json still points at windsurf.com/changelog, a 308 cross-host redirect)
 
-## August 2026
-- v3.6.27 (Aug 1) — Windows certificate handling behind corporate proxies; symlink protection added to
-  edit tools (prevents unintended file redirects). [fixes]
+Newest entry: **v3.6.27, August 1, 2026** — [NEW since the 2026-08-07 capture but HELD BELOW BAR:
+security/robustness fixes, not new capability]
+  - Fixed Windows certificate store loading for HTTPS requests behind TLS-inspecting proxies.
+  - Edit/write tools now refuse symlink writes, preventing unintended file redirection.
 
-## July 2026
-- v3.6.22 (Jul 29) — analytics startup timing respects privacy preferences.
-- v3.6.21 (Jul 29) — **Browser Preview (ACP): remote agents can reach local dev servers through the
-  built-in preview pane** [REPORTED]; **MCP "Authenticate" button for OAuth-requiring servers**
-  [REPORTED]; native OS notifications on session completion/input; Codemaps tab-based editing in agent
-  mode with @-mention in Devin Local; keyboard shortcuts for approval requests; agent sidebar context
-  menus / rename / workspace filtering; worktree session merge button; Plan Mode in Devin Local
-  (explicit approval before implementation); editable approvals (modify commands pre-approval or
-  accept AI-suggested rewrites).
-- v3.5.17 (Jul 17) — @-mention type icons; Devin Cloud session performance; network policy
-  configuration directly in the chat interface; Devin Local multi-workspace customization awareness,
-  hooks visibility and migration, Fast Context support.
+v3.6.22 (Jul 29): deferred analytics startup until account status resolves.  [below bar]
+v3.6.21 (Jul 29, reported 2026-08-07): Browser Preview (ACP) letting remote agents reach local dev
+servers; MCP OAuth "Authenticate" button; Plan Mode in Devin Local; editable command approvals;
+Cascade Migration Wizard (hooks→skills→memories); worktree sessions; custom subagent config in flat
+files; subagent default model.
 
-Updated: 2026-08-07 — Watching tier. One consolidated finding (remote-agent -> local dev server
-browser preview + MCP OAuth authentication).
+Updated: 2026-08-09 — one new version, no new capability.

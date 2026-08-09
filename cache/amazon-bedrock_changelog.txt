@@ -1,15 +1,16 @@
-# Amazon Bedrock Doc History — captured 2026-08-07
-Source: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
+# Amazon Bedrock doc-history — captured 2026-08-09
+# https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
 
-Top rows:
-- Jul 30, 2026 — Amazon Bedrock Agents Classic is no longer open to new customers. Existing customers
-  continue as normal; AWS points new work at Amazon Bedrock AgentCore. [DEPRECATION — not reportable]
-- Jun 30, 2026 — Advance notice of the same Agents Classic availability change. [already cached]
+Newest entries:
+- July 30, 2026 — Amazon Bedrock Agents Classic is no longer open to new customers. Existing
+  customers unaffected; AWS points new users at Amazon Bedrock AgentCore.  [DEPRECATION — not
+  reported]
+- June 30, 2026 — advance notice of the same availability change.  [deprecation]
 
-API Reference welcome page groups unchanged: Amazon Bedrock, Agents for Amazon Bedrock (now "Classic",
-carrying the maintenance-mode note), Agents for Amazon Bedrock Runtime, Data Automation for Amazon
-Bedrock, Runtime for Amazon Bedrock Data Automation, Amazon Bedrock Runtime.
+No August 2026 entries. No new Bedrock feature, API or resource type this scan.
 
-Updated: 2026-08-07 — Only deprecations. No new services, APIs or entity types. Nothing reportable.
-Coverage note: the Agents Classic closure means net-new AWS agent surface will land in AgentCore —
-see amazon-bedrock-agentcore_changelog.txt, which had a large delta this scan.
+API reference (APIReference/welcome.html) unchanged: Amazon Bedrock; Agents for Amazon Bedrock (now
+Classic); Agents for Amazon Bedrock Runtime (Classic); Data Automation for Amazon Bedrock; Runtime
+for Amazon Bedrock Data Automation; Amazon Bedrock Runtime.
+
+Updated: 2026-08-09 — no change.

@@ -1,10 +1,9 @@
-# Power Pages Release Updates — captured 2026-07-08
-# (ms.date 2023-03-21; updated_at 2025-05-12; stale pointer page)
-# Source: https://learn.microsoft.com/en-us/power-pages/release-updates
+# Power Pages — captured 2026-08-09
 
-The Release Updates page points to release-wave plans (2022/2023 waves) and a privacy notice on Azure
-components (Web Apps, Traffic Manager, Service Bus, Key Vault, Storage, Entra ID); it carries no recent
-dated feature entries.
+Release updates (learn.microsoft.com/en-us/power-pages/release-updates): ms.date 2023-03-21,
+updated_at 2025-05-12 — content is 2022/2023 release-wave links plus an Azure-components privacy
+notice. No change signal available from this source; unchanged for over a year.
 
-Updated: 2026-07-08 — No dated AI/agent feature additions on this page (unchanged since cache;
-updated_at still 2025-05-12). No reportable addition.
+No new Power Pages feature, entity type or agent capability this scan.
+
+Updated: 2026-08-09 — no change.

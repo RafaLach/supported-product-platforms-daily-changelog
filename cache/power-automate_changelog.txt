@@ -1,9 +1,14 @@
-# Power Automate What's New — captured 2026-07-08
-# (ms.date 2025-07-10; updated_at 2025-07-11; pointer page)
-# Source: https://learn.microsoft.com/en-us/power-automate/whats-new
+# Power Automate — captured 2026-08-09
 
-The What's New page is a pointer to weekly Service Updates (released-versions/power-automate) and the
-Release Planner; it carries no dated feature entries itself.
+What's New (learn.microsoft.com/en-us/power-automate/whats-new): pointer page only
+(ms.date 2025-07-10, updated_at 2025-07-11) — links to Service Updates and the release planner.
+No feature content. Unchanged.
 
-Updated: 2026-07-08 — No dated AI/agent feature additions on this page (unchanged since cache;
-updated_at still 2025-07-11). No reportable addition.
+Released versions (power-platform/released-versions/power-automate): carried forward as unreliable —
+frozen at 2508.2 (August 28, 2025), ms.date 2021-11-19, now ~11.5 months stale. Confirmed on prior
+scans; not re-fetched this scan.
+
+Power Automate change detection currently rests entirely on a pointer page. No new feature, entity
+type or agent capability this scan.
+
+Updated: 2026-08-09 — no change.

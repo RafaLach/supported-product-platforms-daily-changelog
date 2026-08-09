@@ -1,49 +1,36 @@
-# Amazon Bedrock AgentCore Release Notes — captured 2026-08-07
+# Amazon Bedrock AgentCore release notes — captured 2026-08-09
 # Source used: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
-# (doc-history.html still renders title/nav only — recurring since 2026-05-18)
+# (sources.json still points at doc-history.html, which renders title/nav only — recurring since
+#  2026-05-18 and still unfixed)
 
-## August 2026 [ALL NEW THIS SCAN — REPORTED 2026-08-07]
-- **Runtime: Instances compute type with capacity providers** — agents run on AWS-managed EC2 in the
-  customer's own account. Capacity provider defines OS, allowed instance types, networking, storage.
-  Persistent sessions up to 14 days; GPU instance types; MULTIPLE AGENTS CAN SHARE ONE INSTANCE.
-  Linux x86_64/arm64 at launch. Savings Plans / ODCR apply.
-  -> new data-plane op observed: DeleteCapacityProviderSession
-- **AWS Agent Registry launches under the new `agent-registry` namespace** (was preview under
-  bedrock-agentcore; namespace move effective Aug 6, 2026). Private governed catalog of agents,
-  tools, skills, MCP servers, custom resources. Exposed via console, control-plane + data-plane APIs,
-  and the registry's own MCP endpoint. New: ListDiscoverableRegistryRecords,
-  BatchGetDiscoverableRegistryRecord, record tagging, required `recordType`, Record directory console
-  page. Validates definitions against MCP and A2A schemas. Per-registry authorization config +
-  approval config (manual review before a record becomes discoverable). Nine AWS Regions.
-- **Gateway: Configurable rate limits** — customer-defined limits scoped by dimensionKeys/entries over
-  JWT claims ($.context.jwt.sub), IAM principals (iam.sourceIdentity), target names, tool names,
-  qualified model IDs. Metrics: Requests (RPS/RPM), Tokens (TPM), Connections. Wildcard catch-all;
-  most-specific-match-wins; AND semantics across limits; effective = min(service, customer);
-  rate=0 = explicit block. Fails OPEN on transient errors. Propagates in ~30s.
-  Six new ops: CreateRateLimit, GetRateLimit, UpdateRateLimit, DeleteRateLimit, ListRateLimits,
-  BatchPutRateLimitEntries.
+## August 2026
+- Memory, policy, and harness are now available in AWS GovCloud (US-West) `us-gov-west-1`.  [NEW
+  since the 2026-08-07 capture — REGION EXPANSION, held below the reporting bar: no new entity type,
+  API or capability. Runtime, gateway, identity, built-in tools, observability and evaluations were
+  already available in the Region.]
+- Runtime: Instances compute type with capacity providers.        [reported 2026-08-07]
+- AWS Agent Registry launches under the `agent-registry` namespace. [reported 2026-08-07]
+- Gateway: Configurable rate limits.                              [reported 2026-08-07]
 
-## July 2026 [ALL NEW THIS SCAN]
-- **Gateway Web Search connector v1.2.0** — target-level domain INCLUDE list added alongside exclude;
-  both raised 20 -> 100 domains. Request-level `filters` on tools/call: domainFilter.include/exclude
-  (100 each) and publishedDateFilter from/to. [REPORTED]
-- **Identity: Private Key JWT client authentication** — signed JWT client assertion instead of a shared
-  OAuth client secret; private key stays in AWS KMS, every signing op in CloudTrail. Works across M2M,
-  OBO, and user-delegated flows; RS256/PS256/ES256. [REPORTED]
-- **Harness: InvokeHarness streams MCP tool result metadata** — new `toolResultMetadata` delta channel;
-  large metadata auto-split into ordered fragments. [REPORTED]
-- **Runtime: Unified span destination** — spans go to the agent's own CloudWatch log group
-  (/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>, `spans` stream) instead of shared
-  aws/spans. UNIFIED_TRACES_DESTINATION_ENABLED; DEFAULT for agents created on/after Jul 20, 2026. [REPORTED]
-- **Evaluations: expanded agent framework support** — OpenAI Agents, LlamaIndex, Google ADK, Claude
-  Agent SDK (plus existing Strands, LangGraph) + generic OTel GenAI / OpenInference framework support. [REPORTED]
-- Evaluations and Optimizations: AWS PrivateLink support (com.amazonaws.region.bedrock-agentcore). [below bar]
-- Runtime and Built-in Tools: ActiveSessionCount CloudWatch metric, AWS/Bedrock-AgentCore namespace,
-  Service dimension = AgentCore.Runtime | CodeInterpreter | Browser. [below bar]
+## July 2026 — all reported 2026-08-07
+Gateway Web Search connector v1.2.0; Identity Private Key JWT; Harness InvokeHarness streams MCP
+tool result metadata; Runtime unified span destination; Evaluations/Optimizations PrivateLink;
+Evaluations expanded framework support; ActiveSessionCount metric; Runtime default quota increase.
 
-## June 2026 [already cached — reported 2026-07-05]
-- Runtime increased default service quotas; Web Search Tool GA; AgentCore Policy + Bedrock Guardrails;
-  Managed Knowledge Base; new Gateway target types; Runtime Interactive Shells.
+## June 2026 and earlier — previously reported
+Web Search Tool GA; Policy + Bedrock Guardrails; Harness GA; Recommendations GA; Batch Evaluations
+GA; A/B Testing GA; Managed Knowledge Base GA; Failure Insights preview; Gateway Runtime targets GA,
+HTTP passthrough targets, inference targets, inbound traffic enforcement; SOC compliance; Identity
+Secrets Manager references; CLI/CDK payments support; Runtime Interactive Shells; Step Functions
+integration.
 
-Updated: 2026-08-07 — First July AND August sections since the page was adopted. Eight reportable items.
-NOTE: sources.json still points the AgentCore changelog at the broken doc-history.html.
+## Data-plane Actions list (API_Operations.html) — IDENTICAL to the 2026-08-07 capture
+Still the only registry op on this page is SearchRegistryRecords; DeleteCapacityProviderSession
+remains the newest addition. Payments, A/B testing, Recommendation, Memory, Browser, Code
+Interpreter, Auth/Token, Events groups all unchanged.
+
+## Developer guide overview (what-is-bedrock-agentcore.html) — unchanged
+Core services: Harness, Runtime, Memory, Gateway, Identity, Code Interpreter, Browser,
+Observability, Payments (x402), Evaluations, Optimization, Policy, Registry. All previously reported.
+
+Updated: 2026-08-09 — one new August entry (GovCloud region expansion), held below bar.

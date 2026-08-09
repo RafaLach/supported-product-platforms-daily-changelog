@@ -1,23 +1,16 @@
-# ServiceNow Release Notes — captured 2026-08-07
+# ServiceNow release notes — captured 2026-08-09
+# https://www.servicenow.com/docs/r/release-notes/family-release-notes.html
 
-## Australia release family (release-notes page "Updated August 7, 2026")
-Built on the ServiceNow AI Platform. Still the Australia family — no newer family this scan.
+Still the **Australia** family (upgrade paths from Zurich / Yokohama / Xanadu; patches 1–5 incl. 4m).
+Page date-refreshed but no new content vs the 2026-08-07 capture.
 
-### Agentic / AI applications listed [all pre-existing / already cached]
-AI Agent Studio, AI Desktop Actions ("Agentic Desktop"), AI Agent Advisor (GA May 2026),
-AI Admin Center / Now Assist Center, AI Control Tower, Otto (OT Service Mgmt, Strategic Portfolio
-Mgmt, Contract Management Pro), Agentic Contact Center, Document Intelligence, Generative AI
-Controller, Knowledge Graph, Predictive Intelligence, AI Lens, Now Assist per-product.
-Australia features ship on a rolling basis from April 2026; AI Agent Advisor + Intelligent Approvals
-went GA in May 2026 — both predate the monitoring window and were already cached.
+HELD ITEM — **AI Control Tower + AI Gateway GA**: forecast for August 2026 (Innovation Lab since
+May 2026). Checked again this scan: the family release-notes index lists AI Control Tower, AI Agent
+Studio and AI Desktop Actions as release-note *topics*, but **asserts no GA date**, and no vendor
+page states one. Not reported. Re-check on the September 2026 scan, including the Now Assist landing
+page (servicenow.com/docs/r/release-notes/now-assist-rn-landing.html) and newsroom.servicenow.com.
 
-### AUGUST-SCAN CHECK on the held item (per prior guidance)
-- **AI Control Tower expansion + AI Gateway for agentic/MCP workloads — GA STILL NOT CONFIRMED.**
-  The May 5, 2026 press release said the expansion entered Innovation Lab in May with GA "expected
-  August 2026". As of this scan the Now Assist / agentic-AI release-notes landing page carries NO
-  separate AI Control Tower or AI Gateway GA entry, and no vendor page states a GA date.
-  Decision: still HOLD (reporting a GA that the docs do not assert would be wrong).
-  Re-check on the September 2026 scan.
+Already GA and cached (not reportable): AI Agent Advisor, Intelligent Approvals (GA May 2026),
+AI Admin Center / Now Assist Center, AI Desktop Actions, AI Agent Studio.
 
-Updated: 2026-08-07 — Secondary tier. Landing page date-refreshed to Aug 7 but no net-new AI/agent
-capability. No reportable addition.
+Updated: 2026-08-09 — no change; held item still held.

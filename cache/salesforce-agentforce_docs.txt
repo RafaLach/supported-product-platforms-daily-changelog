@@ -1,22 +1,16 @@
-# Agentforce Developer Guide — captured 2026-07-08
+# Salesforce Agentforce + Einstein — captured 2026-08-09
 
-**Terminology Change (April 2026)**
-- Agent "topics" are now called "subagents" (naming only, no functionality change).
+Agentforce Developer Guide (developer.salesforce.com/docs/ai/agentforce/guide) fetched successfully
+(no 503 this scan). Content IDENTICAL to cache: agent development; development tools (Agent Script,
+Agentforce DX, Headless 360); models and prompts; setup, Trust Layer and error handling. Still
+carries only the April 2026 "topics are now subagents" terminology note. No Winter '27 labelling.
 
-Page is primarily navigation + overview (client-side rendered); no dated release notes
-on the page body. Substantive Summer '26 / July '26 content tracked in announcements cache.
+Agentforce / Einstein GenAI API references (developer.salesforce.com/docs/einstein/genai/references):
+unchanged list — Agent API, Agentforce Python SDK, Agent Script, Agentforce DX, Agentforce Mobile
+SDK, Lightning Types, Models API, Testing API, Citations, Metadata and Tooling APIs. No new API.
 
-Previously reported: Multi-Agent Orchestration GA, Atlas 3.0, A2A, Agent Script + Builder GA
-[2026-07-06]; Agentforce Commerce GA, Help Agent + Customer Service Portal GA [2026-07-07].
+www.salesforce.com/releases/ — not re-attempted (HTTP 403 on every prior attempt). Forward-watch
+carried from 2026-08-07: Winter '27 sandbox upgrades begin ~Aug 29, 2026 with no feature detail
+published yet. Re-check late August / September.
 
-NEW this scan 2026-07-08 (Summer '26 dev release, previously missed; tracked in api/announcements caches):
-- Headless 360 (platform as API/MCP/CLI, 60+ MCP tools, Hosted MCP Servers for external AI clients),
-  Agent Skills (open extensibility format), Agent Fabric (agent governance), AgentExchange
-  (agent/skill marketplace), Agentforce Vibes 2.0 (multi-model coding agent, org-aware).
-
-## Last Fetched
-2026-07-08 - Page body unchanged (April 2026 subagents rename only). New Summer '26 dev items tracked in api/announcements caches.
-2026-07-07 - Page body unchanged. New GA items tracked in announcements cache.
-2026-07-06 - Page body unchanged. Summer '26 features tracked in announcements cache.
-2026-07-04 - No new content beyond previous fetch.
-2026-07-03 - No new content beyond previous fetch.
+Updated: 2026-08-09 — no change.

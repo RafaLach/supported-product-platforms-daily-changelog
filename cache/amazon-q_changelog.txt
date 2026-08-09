@@ -1,9 +1,16 @@
-# Amazon Q Business Doc History — captured 2026-08-07
-Source: https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-history.html
+# Amazon Q — captured 2026-08-09
 
-- Jul 31, 2026 — Amazon Q Business is no longer open to new customers; AWS points similar capability
-  at Amazon Quick. [DEPRECATION — not reportable]
-- Jun 30, 2026 — Advance notice of the same change. [already cached]
-- Latest actual feature entry remains Agentic RAG, August 14, 2025.
+Q Developer doc-history (qdeveloper-ug/doc-history.html): newest entry is still **May 21, 2026**
+(AmazonQFullAccess / AmazonQDeveloperAccess gain q:CreateArtifact, q:GetArtifact,
+q:GetArtifactActionResult, q:PerformArtifactAction for Amazon Q artifacts preview). No change.
 
-Updated: 2026-08-07 — Only the availability closure. No new features, APIs or entity types.
+Q Business doc-history (qbusiness-ug/doc-history.html): newest entry **July 31, 2026 — Amazon Q
+Business is no longer open to new customers**; AWS points new users at Amazon Quick. Latest actual
+feature entry remains Agentic RAG, August 14, 2025.  [DEPRECATION — not reported]
+
+API reference (amazonq/latest/api-reference/Welcome.html): namespaces QBusiness and QApps, both
+unchanged; the QBusiness section now carries the closed-to-new-customers note.
+
+Q Developer docs (qdeveloper-ug/what-is.html): unchanged.
+
+Updated: 2026-08-09 — no change (one deprecation).

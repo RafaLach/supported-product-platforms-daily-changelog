@@ -1,14 +1,17 @@
-# Dia Browser Release Notes — captured 2026-08-07
-Source: https://diabrowser.com/release-notes
+# Dia Browser release notes — captured 2026-08-09
+# https://diabrowser.com/release-notes  (and /release-notes/latest)
 
-Index entries visible:
-- Jul 30, 2026 | Issue No. 035 | App v1.42.0 — "Notes from the roadmap"
-- Jul 23, 2026 | Issue No. 034 | App v1.41.0 — "Notes from the roadmap"
-- Jul 16, 2026 | Issue No. 033 | App v1.40.1 — "Notes from the roadmap"
+Index exposes dates, issue numbers and version strings only; the per-release feature bodies are not
+present in the fetched HTML (recurring limitation, unchanged since 2026-07-07).
 
-Recurring limitation: the index exposes dates, issue numbers and version strings only. Per-issue
-feature detail lives behind individual newsletter pages and is not extractable from the index, so
-no AI feature, agent capability, or integration can be confirmed from this source.
+Visible entries: **August 6, 2026 — App v1.43.1 (Issue No. 036)** [NEW version string since the
+2026-08-07 capture, but no extractable feature detail]; Jul 30 v1.42.0; Jul 23 v1.41.0;
+Jul 16 v1.40.1.
 
-Updated: 2026-08-07 — Watching tier. Version numbers advanced (1.40.1 -> 1.42.0) but no describable
-capability. Nothing reportable. Logged again under Errors.
+WebSearch confirmed the v1.43.1 / Aug 6 release exists but returned no feature description either —
+the release-notes body is rendered client-side per newsletter page. **No capability could be
+confirmed, so nothing is reported.** Watching tier; only major new capabilities would qualify.
+
+Dia security page (diabrowser.com/security): unchanged.
+
+Updated: 2026-08-09 — version bump only, content not extractable.

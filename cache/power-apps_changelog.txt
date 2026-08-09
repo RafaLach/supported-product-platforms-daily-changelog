@@ -1,10 +1,14 @@
-# Power Apps What's New — captured 2026-07-08
-# (ms.date 2024-08-14; updated_at 2025-05-07; pointer page)
-# Source: https://learn.microsoft.com/en-us/power-apps/whats-new
+# Power Apps — captured 2026-08-09
 
-The What's New page is a pointer to weekly released-versions notes and the Release Planner; it carries
-no dated feature entries itself. Content: weekly releases pointer, release plan pointer, monthly release
-channels for model-driven apps (semi-annual / monthly), known limitations.
+What's New (learn.microsoft.com/en-us/power-apps/whats-new): still a pointer page only
+(ms.date 2024-08-14, updated_at 2025-05-07) — links to weekly released versions and the Release
+Planner. No feature content. Unchanged.
 
-Updated: 2026-07-08 — No dated AI/agent feature additions on this page (unchanged since cache;
-updated_at still 2025-05-07). No reportable addition. (Weekly versions tracked in power-apps_changelog2.txt.)
+Released versions (power-platform/released-versions/powerapps, updated_at 2026-07-31): version
+tables advanced (Studio/Mobile 3.26081 first available Aug 3, 2026; Make.PowerApps.com 26074 first
+available Jul 29, 2026) but these are build-train rows with no feature descriptions. Unified
+Interface table still tops at 9.2 26042 (April 17, 2026).  [VERSION BUMPS — not reported]
+
+No new Power Apps feature, entity type or agent capability this scan.
+
+Updated: 2026-08-09 — no change.

@@ -1,19 +1,61 @@
-# Azure OpenAI (Foundry classic) What's New — captured 2026-08-07
-Source: https://learn.microsoft.com/en-us/azure/ai-services/openai/whats-new
-(canonical now /azure/foundry-classic/openai/whats-new; ms.date 2025-12-30, updated_at 2026-06-05)
+# Azure AI Foundry / Microsoft Foundry — captured 2026-08-09
 
-Page still tops at **May 2026** — GPT Realtime 2.0 (preview) overview, GPT Realtime Translate,
-GPT Realtime Whisper concept articles. No June, July or August 2026 sections.
-Below that: Feb 2026 gpt-realtime-1.5 / gpt-audio-1.5; Dec 2025 GPT-image-1.5, ASR/realtime-mini/TTS
-updates; Oct 2025 Realtime SIP, gpt-4o-transcribe-diarize, gpt-image-1-mini, PII detection filter.
+## SOURCE DRIFT — IMPORTANT
+The sources.json changelog URL (learn.microsoft.com/en-us/azure/ai-services/openai/whats-new) now
+canonically resolves to **learn.microsoft.com/en-us/azure/foundry-classic/openai/whats-new** — the
+*classic* Azure OpenAI page. Its newest section is **May 2026** (GPT Realtime 2.0 / Translate /
+Whisper concept articles) and it carries **no agent-platform content at all**.
 
-Foundry docs hub (/azure/foundry/, ms.date 2026-06-16, updated_at 2026-06-26) unchanged: Foundry
-Models, Foundry Agent Service, Foundry IQ, Foundry Tools, Observability & evaluation (incl. AI Red
-Teaming Agent preview), Foundry Control Plane, Foundry Local, Foundry MCP Server, Foundry Skill.
+The live docs changelog for the new portal is
+**https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry** (redirected from
+/azure/ai-foundry/whats-new-azure-ai-foundry). Newest published month: **June 2026**
+(ms.date 2026-07-08, updated_at 2026-07-15). Because sources.json points at the classic page, this
+whole stream has been invisible to the monitor — the June 2026 wave below had never been reported.
 
-API reference: control plane latest preview 2025-07-01-preview / GA 2025-06-01; data plane v1 preview
-and v1 GA. Unchanged.
+## June 2026 wave (backlog recovery — reported 2026-08-09)
+- Toolboxes + tool search: a versioned, first-class toolbox resource exposing tools to hosted agents
+  through a single managed MCP consumer endpoint. Tool types: MCP, web search, Azure AI Search, code
+  interpreter, file search, OpenAPI, agent-to-agent (A2A), browser automation, Fabric IQ, Work IQ,
+  tool search, skills. Per-tool `require_approval` (incl. "never"); guardrail (RAI policy) attachable
+  per toolbox; RBAC over developer, agent and end-user identities.
+  agents/how-to/tools/toolbox , agents/how-to/tools/tool-search , agents/concepts/toolbox-overview
+- Routines (preview): trigger→agent automation native to a Foundry project. Trigger types timer,
+  recurring (cron), and event (`github_issue`, via a Foundry-provisioned GitHub connector connection
+  in the account's connector namespace). Carries input, lifecycle state and run history. A hosted
+  agent can also schedule ITSELF via a built-in reminder tool exposed through a toolbox.
+  agents/concepts/routines , agents/how-to/use-routines
+- Fabric IQ tool (preview): agents delegate natural-language questions to the Microsoft Fabric IQ
+  workload — ontology (entity types, properties, relationships, OneLake bindings), Fabric data
+  agents, and Power BI semantic models, with an NL2Ontology layer. Delegated user auth via BYO Entra
+  app or managed OAuth connection. Docs warn data may leave the Azure compliance boundary.
+  agents/how-to/tools/fabric-iq
+- Work IQ tool (preview): connects Foundry agents to Microsoft 365 (mail, calendar, files, chats).
+  agents/how-to/tools/work-iq
+- Memory in Foundry Agent Service (preview) + Memory Store API: managed long-term memory stores.
+  Three extracted types — user profile, chat summary, procedural — all enabled by default. Item-level
+  CRUD, store-level default TTL, direct remember/forget commands, scope model (max 100 scopes/store,
+  10,000 memories/scope). Docs call out prompt injection and memory corruption as explicit risks.
+  No VNet support for memory stores.
+  agents/concepts/what-is-memory , agents/how-to/memory-usage
+- Agent optimizer (preview): closed-loop evaluate→mutate→rank service that rewrites instructions,
+  skills (SKILL.md), tool/parameter descriptions and model selection, then promotes a winning
+  candidate to a new agent version. Warning in docs: during optimization the agent is invoked against
+  every task in the dataset, so external tool calls really execute.
+  agents/concepts/agent-optimizer-overview
+- Observability: Trace Replay (preview) and convert-agent-traces-to-evaluation-datasets (preview).
+  observability/how-to/trace-agent-replay , observability/how-to/traces-to-dataset
+- Publish agents to Microsoft 365 Copilot and Microsoft Teams, including from inside a virtual
+  network.  agents/how-to/publish-copilot , agents/how-to/publish-copilot-virtual-network
+- Deploy and use Claude models in Microsoft Foundry.
+- Voice Live 2026-06-01-preview API reference.
 
-Updated: 2026-08-07 — Azure AI Foundry itself contributed nothing new this scan. NOTE the cross-
-platform movement instead: Copilot Studio agents can now attach a **Foundry IQ** knowledge base
-(reported this scan), and **Claude Opus 5** is now available in Microsoft Foundry (reported this scan).
+## Docs hub (learn.microsoft.com/en-us/azure/foundry/, updated_at 2026-06-26) — unchanged
+Sections: Foundry Agent Service, Foundry IQ, Foundry Models, Foundry Tools, Observability and
+evaluation (incl. AI Red Teaming Agent preview), Foundry Control Plane, Foundry Local, Foundry MCP
+Server, Microsoft Agent 365.
+
+## API reference (foundry/openai/reference, updated_at 2026-06-24) — unchanged
+Control plane latest preview 2025-07-01-preview / GA 2025-06-01; data plane v1 preview / v1.
+
+Updated: 2026-08-09 — no NEW August activity; the June 2026 wave is a backlog recovery caused by the
+sources.json URL pointing at the classic page.
