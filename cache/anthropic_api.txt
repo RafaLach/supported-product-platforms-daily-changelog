@@ -1,9 +1,9 @@
-# Claude Platform release notes — captured 2026-08-09
+# Claude Platform release notes — captured 2026-08-10
 # Source: https://platform.claude.com/docs/en/release-notes/api
 # (the two sources.json Anthropic URLs still 404 — see errors table)
 
-### August 7, 2026  [NEW since 2026-08-07 capture]
-- Session budgets for Claude Managed Agents: a hard cap on a session's spend at public list
+### August 7, 2026  — newest dated entry; all four reported 2026-08-09
+- Session budgets for Claude Managed Agents: a hard cap on a session's spend, priced at public list
   rates. A session that reaches its budget pauses with the `budget_reached` stop reason instead of
   starting new model requests; changing or removing the budget resumes it. Deployments accept the
   same budget and apply it to each session they start.  /docs/en/managed-agents/budgets
@@ -25,15 +25,19 @@
 - Dreams (research preview) now supports Claude Opus 5.  [below reporting bar — model support add]
 
 ### July 2026 and earlier
-Unchanged vs the 2026-08-07 capture: Opus 5 (Jul 24), mid-conversation tool changes, `fallbacks`
-"default" mode, Opus 4.7 fast-mode removal, Managed Agents `effort` + environment/memory-store
-webhooks + `initial_events` + thread event deltas (Jul 22), Workbench sunset (Jul 17),
-mid-conversation system messages (Jul 15), Claude Enterprise Admin API user management (Jul 14),
-Dreams model adds + Access Transparency `cmek_preserve` detail (Jul 10), API key expiration (Jul 8),
-`agent-memory-2026-07-22` header (Jul 2), Fable 5 / Mythos 5 restored (Jul 1).
+Unchanged: Opus 5 (Jul 24), mid-conversation tool changes, `fallbacks` "default" mode, Opus 4.7
+fast-mode removal, Managed Agents `effort` + environment/memory-store webhooks + `initial_events` +
+thread event deltas (Jul 22), Workbench sunset (Jul 17), mid-conversation system messages (Jul 15),
+Claude Enterprise Admin API user management (Jul 14), Dreams model adds + Access Transparency
+`cmek_preserve` detail (Jul 10), API key expiration (Jul 8), `agent-memory-2026-07-22` header
+(Jul 2), Fable 5 / Mythos 5 restored (Jul 1).
 
-Anthropic News (https://www.anthropic.com/news): newest is Aug 7 "Improving Fable 5's biology
-safeguards" (safeguard change, not a new capability) and Aug 4 Chief Global Affairs Officer
-appointment. No new product surface.
+Anthropic News (https://www.anthropic.com/news): unchanged — newest is Aug 7 "Improving Fable 5's
+biology safeguards" (safeguard change, not a new capability) and Aug 4 Chief Global Affairs Officer
+appointment. Then Jul 30 cybersecurity-evaluation incidents post, Jul 27 open-weights position, Jul
+27 Cognizant partnership expansion. No new product surface.
 
-Updated: 2026-08-09 — four net-new Managed Agents items dated August 7.
+Standing coverage note: keep watching /docs/en/managed-agents/* (agents, sessions, memory stores,
+environments, vaults, webhooks, tunnels) — fast-moving and under-covered here.
+
+Updated: 2026-08-10 — no change. Newest release note is still August 7; no August 8, 9 or 10 entries.

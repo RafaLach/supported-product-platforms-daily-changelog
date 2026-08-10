@@ -1,16 +1,83 @@
-# ServiceNow release notes — captured 2026-08-09
+# ServiceNow release notes — captured 2026-08-10
 # https://www.servicenow.com/docs/r/release-notes/family-release-notes.html
 
-Still the **Australia** family (upgrade paths from Zurich / Yokohama / Xanadu; patches 1–5 incl. 4m).
-Page date-refreshed but no new content vs the 2026-08-07 capture.
+Still the **Australia** family. Page "Updated August 7, 2026". The family index itself carries no
+GA-date assertions, as before.
 
-HELD ITEM — **AI Control Tower + AI Gateway GA**: forecast for August 2026 (Innovation Lab since
-May 2026). Checked again this scan: the family release-notes index lists AI Control Tower, AI Agent
-Studio and AI Desktop Actions as release-note *topics*, but **asserts no GA date**, and no vendor
-page states one. Not reported. Re-check on the September 2026 scan, including the Now Assist landing
-page (servicenow.com/docs/r/release-notes/now-assist-rn-landing.html) and newsroom.servicenow.com.
+## HELD ITEM RESOLVED THIS SCAN — AI Control Tower / AI Gateway
+Carried since 2026-05-05 (press release) and held on the 2026-08-07 and 2026-08-09 scans because the
+forecast "GA expected August 2026" was never asserted in the docs. Resolved 2026-08-10 by reading
+the per-application release notes instead of the family index:
 
-Already GA and cached (not reportable): AI Agent Advisor, Intelligent Approvals (GA May 2026),
-AI Admin Center / Now Assist Center, AI Desktop Actions, AI Agent Studio.
+**AI Control Tower** — servicenow.com/docs/r/release-notes/ai-control-tower-rn.html
+Available in the **Australia release**, distributed via the **ServiceNow Store** (request to
+install). Described as "enhanced and updated in the Australia release" — i.e. shipping, not
+Innovation Lab. The forecast is effectively met, though the docs never use the words "generally
+available" with a date. Redesigned, with these NEW Australia capabilities:
+  - **Activity Center** — unified workspace for governance tasks, security items and AI
+    recommendations.
+  - **Quality & Safety monitoring** — automated scoring and trend analysis of AI interactions, with
+    configurable metrics across portfolios.
+  - **Agent lifecycle management** — **deactivate / reinstate agents in AWS Bedrock, GCP Vertex AI
+    and ServiceNow** from Control Tower. Cross-cloud control-plane action on third-party agents.
+  - **Risk & compliance integration** — regulatory classifications and compliance posture tracked
+    directly on asset records.
+  - **Customizable security scoring** with weighted LLM guardrail categories; threat-detection
+    metrics for **system prompt leakage, sensitive data disclosure and injection attacks**;
+    compliance scoring against configured regulatory frameworks; **risk heat mapping** of inherent
+    vs residual risk across portfolios.
+  - **AI Service Graph Connectors** — discovery of AI assets from **AWS** (automatic key rotation,
+    multi-account), **Microsoft** (Azure ML, Copilot; certificate-based auth), **GCP Vertex AI**,
+    **Anthropic**, **OpenAI**, **Databricks** and others.
+  - MCP: **global MCP clients** usable across multiple servers; **MCP Catalog** integration for
+    server selection; monitoring charts for MCP server access; agent publishing via an **"External
+    Registry" integration with Microsoft**.
 
-Updated: 2026-08-09 — no change; held item still held.
+**AI Gateway — DEPRECATED in the Australia release and no longer supported.** Legacy MCP
+client-server interactions remain visible through AI Gateway. [DEPRECATION — not reported as a
+finding, but it retires the surface the May 2026 press release promised, so the original
+"AI Gateway GA" watch is closed as superseded rather than fulfilled.]
+
+## NEW APPLICATION THIS SCAN — MCP Server Console
+servicenow.com/docs/r/release-notes/mcp-server-console-rn.html
+**New application in the Australia release.** Plugin **Model Context Protocol Server
+(`sn_mcp_server`)**, version 1.3. Enables secure, governed access to ServiceNow instance
+functionality for AI applications via MCP servers. Capabilities:
+  - Unified MCP server creation with **embedded OAuth client registration**.
+  - **Tool creation from Subflows, Actions, REST APIs, Knowledge Graphs and Now Assist skills.**
+  - Preconfigured **Quickstart Server** for incident and case record operations.
+  - Administrator **annotation configuration** across all supported tool types.
+  - **Third-party identity provider (IDP)** integration for user authentication; OAuth 2.0 client
+    connectivity.
+  - **MCP app creation** for interactive tool interfaces with client-side display, aligned to the
+    MCP spec.
+Integrates with **AI Control Tower** (observability/governance) and **Machine Identity Console**
+(OAuth inbound integrations). Requires a Now Assist application deployment; Foundation, Advanced or
+Prime tier.
+Corroborating vendor/partner coverage: the **Action Fabric MCP Server** is GA in every Now Assist
+and AI Native SKU; any MCP-compatible AI agent can discover and execute governed ServiceNow
+actions; **Anthropic Claude integration is live** (Claude can trigger workflows, catalog actions and
+approvals through the MCP Server).
+
+## Context, not reported
+**Machine Identity Console** — introduced in the **Zurich** release (prior family), enhanced in
+Australia; manages machine identities / OAuth inbound integrations. Not new in Australia, so held
+below the bar, but it is the identity surface the MCP Server Console depends on and is not in
+Zenity's coverage.
+
+Australia "Generative AI offerings" release-note topics (fuller list than prior captures):
+AI Experiences, AI Desktop Actions, AI Control Tower, Content Understanding, Document Intelligence,
+Generative AI Controller, Knowledge Graph, **MCP Server Console**, Predictive Intelligence,
+ServiceNow AI Lens. Standalone AI topics: AI Search, AI Agent Advisor, AI Agent Studio,
+AI Admin Center, Now Assist in Document Intelligence. Now Assist (ServiceNow Otto) variants across
+~17 product lines.
+
+Already GA and previously cached (not reportable): AI Agent Advisor, Intelligent Approvals (GA May
+2026), AI Admin Center / Now Assist Center, AI Desktop Actions, AI Agent Studio.
+
+servicenow.com/docs/ landing page: renders navigation chrome only (release-family links: Zurich,
+Yokohama, Xanadu). No extractable AI content — recurring limitation.
+
+Updated: 2026-08-10 — held AI Control Tower item RESOLVED; new MCP Server Console application
+found. Both reported 2026-08-10. Lesson: read the per-application `*-rn.html` release notes, not
+the family index — the family index asserts nothing.

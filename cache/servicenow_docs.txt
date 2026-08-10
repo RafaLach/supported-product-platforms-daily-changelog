@@ -1,20 +1,18 @@
-# ServiceNow Release Notes and Updates — captured 2026-07-07
+# ServiceNow documentation — captured 2026-08-10
+# https://www.servicenow.com/docs/
 
-## Main Release Categories
-- New Features; Prepare for Upgrade; Available Versions.
+The docs landing page renders navigation chrome only (New Features / Prepare for Upgrade / Available
+Versions, plus release-family links for Zurich, Yokohama, Xanadu, and Store / Mobile Apps release
+notes). No descriptive AI content is extractable from this page — recurring limitation, unchanged.
 
-## Release Notes by Version (docs hub navigation)
-- Family Release Notes (general); Zurich; Yokohama; Xanadu; Washington DC.
-- (Australia is current latest family per the dedicated family-release-notes page.)
+KEY LESSON RECORDED 2026-08-10: the family release-notes index
+(release-notes/family-release-notes.html) lists AI applications as *topics* but asserts no version,
+GA status or feature content. The productive surfaces are the **per-application release notes**:
+  - release-notes/ai-control-tower-rn.html   (AI Control Tower — resolved the long-held GA question)
+  - release-notes/mcp-server-console-rn.html (MCP Server Console — new Australia application)
+  - release-notes/identity-rn.html           (Identity / Machine Identity Console)
+  - release-notes/now-assist-rn-landing.html (Now Assist landing)
+  - delta-zurich-australia/*                 (combined upgrade-delta release notes)
+Read those directly on future ServiceNow scans rather than relying on the family index.
 
-## AI feature links visible in docs hub (all PRE-EXISTING / already cached):
-- ServiceNow AI Lens (predates Australia — Yokohama/Zurich), Generative AI Controller, AI Control Tower, AI Agent Advisor, AI Experiences, AI Desktop Actions, Document Intelligence, Knowledge Graph. Docs page links to these RNs but shows no feature detail and no net-new item.
-
-## Additional Release Information
-- ServiceNow Store release notes; Mobile Apps release notes; Out-of-Box (OOB) release notes.
-
-## Note
-Docs homepage is a navigation hub — links to detailed release docs rather than displaying feature detail. No new features, AI agents, Now Assist skills, APIs, services, or entity types visible in the page content this scan.
-
-## Last Fetched
-2026-07-07 — Navigation-only content, unchanged from prior scans (Zurich/Yokohama/Xanadu/Washington DC links visible; Australia latest per changelog page). No reportable addition.
+Updated: 2026-08-10 — no change to this page; navigation-only as before.

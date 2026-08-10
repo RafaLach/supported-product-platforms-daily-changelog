@@ -1,16 +1,21 @@
-# Salesforce Agentforce + Einstein — captured 2026-08-09
+# Salesforce Agentforce + Einstein — captured 2026-08-10
 
-Agentforce Developer Guide (developer.salesforce.com/docs/ai/agentforce/guide) fetched successfully
-(no 503 this scan). Content IDENTICAL to cache: agent development; development tools (Agent Script,
-Agentforce DX, Headless 360); models and prompts; setup, Trust Layer and error handling. Still
-carries only the April 2026 "topics are now subagents" terminology note. No Winter '27 labelling.
+Agentforce Developer Guide (developer.salesforce.com/docs/ai/agentforce/guide) fetched successfully.
+Content IDENTICAL to cache: agent development; development tools (Agent Script, Agentforce DX,
+Headless 360); models and prompts; setup, Trust Layer and error handling. Still carries only the
+April 2026 "topics are now subagents" terminology note. No Winter '27 labelling.
 
 Agentforce / Einstein GenAI API references (developer.salesforce.com/docs/einstein/genai/references):
 unchanged list — Agent API, Agentforce Python SDK, Agent Script, Agentforce DX, Agentforce Mobile
 SDK, Lightning Types, Models API, Testing API, Citations, Metadata and Tooling APIs. No new API.
+(The Agentforce Python SDK entry links to GitHub rather than internal docs, as before.)
+
+Einstein GenAI overview (developer.salesforce.com/docs/einstein/genai/overview): unchanged —
+integrated workflows across Agentforce, Prompt Builder and AI Models; models from Anthropic, Google
+and OpenAI; Trusted AI with data masking and toxicity scoring. No new APIs and no Winter '27 content.
 
 www.salesforce.com/releases/ — not re-attempted (HTTP 403 on every prior attempt). Forward-watch
-carried from 2026-08-07: Winter '27 sandbox upgrades begin ~Aug 29, 2026 with no feature detail
-published yet. Re-check late August / September.
+carried: Winter '27 sandbox upgrades begin ~Aug 29, 2026 with no feature detail published yet.
+Re-check late August / September.
 
-Updated: 2026-08-09 — no change.
+Updated: 2026-08-10 — no change.

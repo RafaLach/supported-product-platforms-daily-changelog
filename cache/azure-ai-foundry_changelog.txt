@@ -1,61 +1,187 @@
-# Azure AI Foundry / Microsoft Foundry — captured 2026-08-09
+# Azure AI Foundry / Microsoft Foundry — captured 2026-08-10
 
-## SOURCE DRIFT — IMPORTANT
-The sources.json changelog URL (learn.microsoft.com/en-us/azure/ai-services/openai/whats-new) now
-canonically resolves to **learn.microsoft.com/en-us/azure/foundry-classic/openai/whats-new** — the
-*classic* Azure OpenAI page. Its newest section is **May 2026** (GPT Realtime 2.0 / Translate /
-Whisper concept articles) and it carries **no agent-platform content at all**.
+## SOURCE DRIFT — IMPORTANT (unchanged, still unfixed in sources.json)
+The sources.json changelog URL (learn.microsoft.com/en-us/azure/ai-services/openai/whats-new)
+canonically resolves to **learn.microsoft.com/en-us/azure/foundry-classic/openai/whats-new** —
+the *classic* Azure OpenAI page. Confirmed again 2026-08-10: ms.date 2025-12-30, updated_at
+2026-06-05, newest section **May 2026** (GPT Realtime 2.0 / Translate / Whisper concept articles).
+No agent-platform content at all.
 
-The live docs changelog for the new portal is
-**https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry** (redirected from
-/azure/ai-foundry/whats-new-azure-ai-foundry). Newest published month: **June 2026**
-(ms.date 2026-07-08, updated_at 2026-07-15). Because sources.json points at the classic page, this
-whole stream has been invisible to the monitor — the June 2026 wave below had never been reported.
+Live docs changelog: **https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry**
+Confirmed 2026-08-10: still titled "What's new for **June 2026**", ms.date 2026-07-08,
+updated_at 2026-07-15. **No July or August 2026 roll-up has been published.** The roll-up lags the
+product — individual doc pages carry much newer ms.date values (see below).
 
-## June 2026 wave (backlog recovery — reported 2026-08-09)
-- Toolboxes + tool search: a versioned, first-class toolbox resource exposing tools to hosted agents
-  through a single managed MCP consumer endpoint. Tool types: MCP, web search, Azure AI Search, code
-  interpreter, file search, OpenAPI, agent-to-agent (A2A), browser automation, Fabric IQ, Work IQ,
-  tool search, skills. Per-tool `require_approval` (incl. "never"); guardrail (RAI policy) attachable
-  per toolbox; RBAC over developer, agent and end-user identities.
-  agents/how-to/tools/toolbox , agents/how-to/tools/tool-search , agents/concepts/toolbox-overview
-- Routines (preview): trigger→agent automation native to a Foundry project. Trigger types timer,
-  recurring (cron), and event (`github_issue`, via a Foundry-provisioned GitHub connector connection
-  in the account's connector namespace). Carries input, lifecycle state and run history. A hosted
-  agent can also schedule ITSELF via a built-in reminder tool exposed through a toolbox.
-  agents/concepts/routines , agents/how-to/use-routines
-- Fabric IQ tool (preview): agents delegate natural-language questions to the Microsoft Fabric IQ
-  workload — ontology (entity types, properties, relationships, OneLake bindings), Fabric data
-  agents, and Power BI semantic models, with an NL2Ontology layer. Delegated user auth via BYO Entra
-  app or managed OAuth connection. Docs warn data may leave the Azure compliance boundary.
-  agents/how-to/tools/fabric-iq
-- Work IQ tool (preview): connects Foundry agents to Microsoft 365 (mail, calendar, files, chats).
-  agents/how-to/tools/work-iq
-- Memory in Foundry Agent Service (preview) + Memory Store API: managed long-term memory stores.
-  Three extracted types — user profile, chat summary, procedural — all enabled by default. Item-level
-  CRUD, store-level default TTL, direct remember/forget commands, scope model (max 100 scopes/store,
-  10,000 memories/scope). Docs call out prompt injection and memory corruption as explicit risks.
-  No VNet support for memory stores.
-  agents/concepts/what-is-memory , agents/how-to/memory-usage
-- Agent optimizer (preview): closed-loop evaluate→mutate→rank service that rewrites instructions,
-  skills (SKILL.md), tool/parameter descriptions and model selection, then promotes a winning
-  candidate to a new agent version. Warning in docs: during optimization the agent is invoked against
-  every task in the dataset, so external tool calls really execute.
-  agents/concepts/agent-optimizer-overview
-- Observability: Trace Replay (preview) and convert-agent-traces-to-evaluation-datasets (preview).
-  observability/how-to/trace-agent-replay , observability/how-to/traces-to-dataset
-- Publish agents to Microsoft 365 Copilot and Microsoft Teams, including from inside a virtual
-  network.  agents/how-to/publish-copilot , agents/how-to/publish-copilot-virtual-network
-- Deploy and use Claude models in Microsoft Foundry.
-- Voice Live 2026-06-01-preview API reference.
+## June 2026 wave — reported 2026-08-09 (backlog recovery), unchanged this scan
+Toolboxes + tool search; Routines (timer/recurring/`github_issue` event triggers + agent
+self-scheduling reminder tool); Fabric IQ tool; Work IQ tool; Memory + Memory Store API (user
+profile / chat summary / procedural, all on by default, no VNet); Agent optimizer; Trace Replay +
+traces-to-evaluation-datasets; Publish agents to M365 Copilot and Teams; Claude models in Foundry;
+Voice Live 2026-06-01-preview.
 
-## Docs hub (learn.microsoft.com/en-us/azure/foundry/, updated_at 2026-06-26) — unchanged
-Sections: Foundry Agent Service, Foundry IQ, Foundry Models, Foundry Tools, Observability and
-evaluation (incl. AI Red Teaming Agent preview), Foundry Control Plane, Foundry Local, Foundry MCP
-Server, Microsoft Agent 365.
+## NEW THIS SCAN (2026-08-10) — Agent 365 + agent identity/publishing layer
+Found by reading the Foundry BLOG (devblogs.microsoft.com/foundry), which names features the
+whats-new roll-up omits, then following into the docs. **None of this has ever appeared in any
+report from this monitor.** It is a second backlog recovery on the same primary-tier platform.
 
-## API reference (foundry/openai/reference, updated_at 2026-06-24) — unchanged
-Control plane latest preview 2025-07-01-preview / GA 2025-06-01; data plane v1 preview / v1.
+### Microsoft Agent 365 — GENERALLY AVAILABLE since May 1, 2026
+learn.microsoft.com/en-us/microsoft-agent-365/overview  (ms.date 2026-06-02, updated_at 2026-06-30)
+Microsoft's enterprise **control plane for AI agents**. Treats agents as first-class Entra
+identities via Entra Agent ID. GA for the Commercial segment on a per-user basis. Needs Microsoft
+E5 (best) + at least one qualifying Agent 365 / M365 Copilot license.
+Three pillars observe / govern / secure; five capabilities:
+  - **Registry** — complete tenant inventory of ALL agents: Foundry agents, Copilot Studio agents,
+    admin-registered agents, and **shadow agents discovered in the tenant**. Tracks ownership for
+    governance + attestation. Companion surfaces: Agent registry, Registry sync, **Agent Map**.
+  - **Access control** — Entra identity-based authorization, RBAC + ABAC, risk-based Conditional
+    Access.
+  - **Visualization** — explore connections between agents, people and data; real-time behavior
+    monitoring.
+  - **Interoperability** — gives agents access to M365 apps + org data; can connect to Work IQ.
+  - **Security** — Microsoft Defender threat detection / behavior monitoring; Microsoft Purview
+    information protection, DLP and compliance controls on agent activity and data.
+Also: a set of **pre-integrated ecosystem partner agents** deployable straight from the M365 admin
+center (third-party-agents).
+Governance workflows: periodic access reviews, provisioning/deprovisioning lifecycle policies,
+owner attestation for high-impact agents.
 
-Updated: 2026-08-09 — no NEW August activity; the June 2026 wave is a backlog recovery caused by the
-sources.json URL pointing at the classic page.
+### Foundry ↔ Agent 365 integration
+learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-365-integration
+(ms.date 2026-06-05, updated_at 2026-07-11)
+Two connection paths:
+  - **Automatic registry sync** — published Foundry agents appear in the Agent 365 registry when
+    subscribed.
+  - **Autopilot publishing** — a Foundry **Hosted** agent can be published as an *autopilot*: an
+    agent that acts autonomously on behalf of a user and **receives its own Entra Agent ID**. After
+    publish + admin approval it lands in the Agent 365 registry and can be wired to Teams and other
+    M365 surfaces.
+Support matrix: Prompt agent = registry sync ✅ / autopilot ✅ / activity data ✅.
+Hosted agent = registry sync ✅ / autopilot ✅ / activity data via A365 SDK (needs explicit config
++ Entra permissions for the Agent 365 observability service — how-to/grant-agent-365-permissions).
+Enablement gates: (1) tenant needs >=1 M365 Copilot license AND enrollment in the **Frontier preview
+program**; (2) a global admin enables Agent 365 in the M365 admin center, picks users/groups, and
+accepts terms of service. Per-Foundry-resource logging is controlled by the **`agent365Config`
+resource provider configuration**; no data flows without license + accepted ToS even if the ARM
+property is enabled.
+**Data residency**: Foundry follows the **Azure region** of the resource; Agent 365 follows the
+**Entra tenant** storage location. Activity data crossing Foundry -> A365 moves between the two
+residency models. Individual Foundry resources can opt out.
+
+### Autopilot agents (from the Foundry blog + samples)
+devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-june-2026/
+A new agent *category*, public preview. Each autopilot gets its own **Entra Agent ID user account
+with a productivity license, email, calendar, OneDrive and Teams presence**. Built for shared
+spaces (Teams group chats), not 1:1 chat. Interaction model shifts from prompt->response to
+**goal -> ongoing execution -> checkpoints -> collaboration**: it surfaces progress, requests
+approvals and escalates to a human, natively inside Teams/M365. Reference implementation is the
+**Workstream Manager** sample (tracks tasks, summarizes conversations into action items, chases
+overdue work, surfaces risks; includes manager onboarding flows and access controls).
+
+### Publishing an autopilot — provisioning footprint
+learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-365
+(ms.date 2026-06-05, updated_at 2026-06-30). "Microsoft Agent 365 is generally available."
+Creates: Foundry account + project, model deployment, hosted agent + agent version, Azure Container
+Registry, **Azure Bot Service resource**, Application Insights + Log Analytics workspace. Submits an
+autopilot request that creates an **agent blueprint** in the M365 admin center for approval.
+Permissions: Azure **Owner** at subscription/RG scope; **Foundry User** or **Foundry Project
+Manager** at project scope; **Owner/Contributor** at RG scope for Bot Service (Foundry-scoped roles
+do NOT include `Microsoft.BotService/*`); **AI Administrator or Global Administrator** in the M365
+admin center to approve. Requires `Microsoft.BotService` RP registration. Approval flow lands in
+admin.cloud.microsoft -> agents -> requested; then Teams Developer Portal verification; then users
+create an *instance* of the autopilot in Teams (Apps -> Agents for your team).
+
+### NEW agent object model (replaces Agent Applications)
+learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate-agent-applications
+(ms.date 2026-07-21, updated_at 2026-07-21)
+Collapses **Agent Application** and **Agent Deployment** into the **Agent** object itself.
+  - Before: Agent (data plane) + Agent Application (control plane) + Deployment (control plane) as
+    separate objects. Unpublished agents SHARED the project's Entra agent identity + blueprint; a
+    unique identity was only minted at publish.
+  - After: only Agent objects. New properties: `id`, `name`, `versions`, **`agent_endpoint`**
+    (stable endpoint), **`protocol_configuration`**, **`authorization_schemes`**,
+    **`version_selector`**, **`blueprint`**, **`instance_identity`**, and **`agent_card`**
+    (surfaces agent details + capabilities to consumers and to **A2A**).
+  - Every newly created agent gets a unique **Entra Agent Blueprint + Entra Agent Identity BY
+    DEFAULT, at creation**. BYO blueprint supported but not default.
+  - Creating an agent is now the ONLY step needed to get a stable endpoint and unique identity.
+    "Publishing" now means only distribution to M365/Teams channels.
+Three agent types during transition, distinguished by `agent.identity` / `instance_identity`:
+  **new** (non-null), **legacy** (null — shares project identity, backfilled with new properties but
+  cannot be published to Teams/M365 via stable endpoint), and **published agents aka Agent
+  Applications** (separate legacy resource).
+No in-place upgrade for legacy agents — you must recreate the agent to get a unique identity.
+Endpoint URL change: `/applications/{app}/protocols/openai` -> `/agents/{agent}/endpoint/protocols/openai/responses`.
+Timeline: new model available; legacy Agent Applications still supported; legacy identity upgrade
+gesture "coming soon"; Agent Application deprecation **planned**, end of support TBD.
+Role assignments do NOT transfer from Agent Application identities to the new agent object.
+
+### Agent Applications (legacy) — ARM resource detail
+learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-applications
+(ms.date 2026-06-19, updated_at 2026-07-17)
+ARM types: **`Microsoft.CognitiveServices/accounts/projects/applications`** and
+**`.../applications/agentDeployments`**.
+Application properties: `displayName`, `baseUrl` (read-only dedicated endpoint), `agents`,
+**`agentIdentityBlueprint`** (read-only), **`defaultInstanceIdentity`** (read-only),
+**`authorizationPolicy`**, **`trafficRoutingPolicy`**, `provisioningState`, `isEnabled`.
+Deployment properties: `displayName`, `deploymentId`, `state` (Starting/Running/Stopping/Failed/
+Deleting/Deleted/Updating), `protocols`, `agents`, `provisioningState`, **`deploymentType`**
+(`Hosted` | `Managed`), `minReplicas`, `maxReplicas`. Explicit start/stop APIs.
+Protocols: **Responses** (OpenAI-compatible; stateless `POST /responses` only — `/conversations`,
+`/files`, `/vector_stores`, `/containers` inaccessible) or **Activity Protocol** (Azure Bot
+Service). Only one protocol at a time. Auth: Default (Azure RBAC, needs **Foundry User** or
+`Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action`) or **Channels (Azure
+Bot Service)** — used automatically for M365/Teams/A365 autopilot publishing. **API key auth is NOT
+supported.** Note: the **Foundry Agent Consumer** role does NOT grant Agent Application invoke.
+>>> **"Foundry Agent Applications are not registered in the Microsoft Entra agent registry."** <<<
+An explicit, documented discovery blind spot.
+Publisher-pays cost model (publisher pays for deployed infra, not per call).
+
+### Agent identity framework
+learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-identity
+(ms.date 2026-04-13, updated_at 2026-07-31)
+  - **Agent identity** = a special **service principal** in Entra ID representing the agent at
+    runtime. **Agent identity blueprint** = an Entra object governing a *class* of agent identities,
+    used for lifecycle ops. `agentIdentityId` is the assignee for permissions.
+  - Four-stage runtime OAuth 2.0 token exchange, fully automatic: blueprint authentication ->
+    agent identity token issuance -> scoped token request against the downstream **audience** ->
+    authenticated tool call. Audiences: storage.azure.com, logic.azure.com, cosmos.azure.com,
+    graph.microsoft.com, vault.azure.net.
+  - Blueprint credential types: **client secret**, **certificate**, or **federated credential
+    (managed identity)** — the last is what Foundry provisions (trust to the project's managed
+    identity, no stored secret). Blueprints can carry Graph permissions / delegated scopes.
+  - Auth modes: **attended** (OAuth 2.0 on-behalf-of; agent limited to what the user consented to)
+    and **unattended** (client credentials / app-only; governed only by the agent's own RBAC and
+    Graph app permissions — no human involved).
+  - Blueprint = type classification, enabling Conditional Access per agent *class*, bulk
+    disable/revoke, and audit at scale.
+  - Shared project identity for unpublished agents vs distinct identity once published.
+    **Permissions do NOT transfer when you publish** — role assignments must be redone or tool
+    calls fail with authorization errors.
+  - Tenant-wide inventory: **Entra admin center -> Entra ID -> Agent ID -> All agent identities**,
+    covering Foundry agents, **Copilot Studio agents** and others. Built-in controls there:
+    Conditional Access, identity protection, network access, governance (expiration, owners,
+    sponsors).
+  - Tools currently supporting agent-identity auth: **MCP** (connection auth type
+    `AgenticIdentityToken`, category `RemoteTool`) and **A2A** (`AgenticIdentityToken`, category
+    `RemoteA2A`).
+  - Identity lifecycle is tied to the project / agent application resource; deleting removes them.
+
+### Foundry RBAC ROLE RENAME (carried on several pages)
+**Azure AI User -> Foundry User; Azure AI Owner -> Foundry Owner; Azure AI Account Owner -> Foundry
+Account Owner; Azure AI Project Manager -> Foundry Project Manager.** Role IDs and core permissions
+unchanged; old names still visible in places while the rename rolls out. Any discovery or policy
+keyed on role *names* will silently miss the renamed roles.
+
+## Docs hub (learn.microsoft.com/en-us/azure/foundry/) — ms.date 2026-06-16, updated_at 2026-06-26
+UNCHANGED vs the 2026-08-09 capture. Sections: Foundry Agent Service, Foundry IQ, Foundry Models,
+Foundry Tools, Observability and evaluation (incl. AI Red Teaming Agent preview), Foundry Control
+Plane, Azure Machine Learning, Foundry Local, plus Foundry MCP Server, Foundry Skill in coding
+agents, Microsoft Agent 365 link.
+
+## API reference (foundry/openai/reference) — ms.date 2026-05-19, updated_at 2026-06-24 — unchanged
+Control plane latest preview 2025-07-01-preview / GA 2025-06-01. Data plane v1 preview / v1.
+Note "There is now a new preview inference API" (api-version-lifecycle#api-evolution).
+
+Updated: 2026-08-10 — no new dated changelog entry, but a large NEW backlog recovery on the
+Agent 365 integration, autopilot agents, the new agent object model, Agent Application ARM
+resources, and the agent identity/blueprint framework. All reported 2026-08-10.

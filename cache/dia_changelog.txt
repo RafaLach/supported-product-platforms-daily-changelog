@@ -1,17 +1,29 @@
-# Dia Browser release notes — captured 2026-08-09
+# Dia Browser release notes — captured 2026-08-10
 # https://diabrowser.com/release-notes  (and /release-notes/latest)
 
 Index exposes dates, issue numbers and version strings only; the per-release feature bodies are not
 present in the fetched HTML (recurring limitation, unchanged since 2026-07-07).
 
-Visible entries: **August 6, 2026 — App v1.43.1 (Issue No. 036)** [NEW version string since the
-2026-08-07 capture, but no extractable feature detail]; Jul 30 v1.42.0; Jul 23 v1.41.0;
-Jul 16 v1.40.1.
+This scan the index shows three rows dated **August 6, 2026 2:30 PM ET** whose "Issue No." and "App
+Version" fields contain only repeated digits with no real version or feature content — they read as
+placeholder/dummy rows rather than a published release. Past issues, newest first:
+  Jul 30, '26 — Issue No. 035 — App v1.42.0 — "Notes from the roadmap"
+  Jul 23, '26 — Issue No. 034 — App v1.41.0 — "Notes from the roadmap"
+  Jul 16, '26 — Issue No. 033 — App v1.40.1 — "Notes from the roadmap"
 
-WebSearch confirmed the v1.43.1 / Aug 6 release exists but returned no feature description either —
-the release-notes body is rendered client-side per newsletter page. **No capability could be
-confirmed, so nothing is reported.** Watching tier; only major new capabilities would qualify.
+The v1.43.1 / Issue No. 036 string that appeared on the 2026-08-09 capture is no longer cleanly
+rendered. WebSearch again returned **no feature description** for any August release — the bodies are
+rendered client-side per newsletter page ("DiaWeeklyUnfiltered"). **No capability could be confirmed,
+so nothing is reported.** Watching tier; only major new capabilities would qualify.
 
-Dia security page (diabrowser.com/security): unchanged.
+Dia security page (diabrowser.com/security): unchanged. Chromium base with aggressive patching,
+weekly Thursday updates, critical patches within 48h of Google's release; GAIA, UMA and the Reporting
+Observers/Reporting API disabled; annual full-scope external assessments, SOC 2 Type II completed for
+2025; local encryption by default for conversations, history and bookmarks; AI partners
+contractually barred from retaining data for model training; 30-day retention on optional
+content-improvement data; built-in ad blocker. Enterprise: Chromium/Chrome Cloud Management policies,
+Dia-specific MDM policies to disable AI on sensitive websites, SAML SSO, org-wide disable of content
+sharing. Prompt-injection defenses: no automatic URL opening, no form-filling without approval,
+restricted agent navigation to prevent exfiltration.
 
-Updated: 2026-08-09 — version bump only, content not extractable.
+Updated: 2026-08-10 — no change, content still not extractable.

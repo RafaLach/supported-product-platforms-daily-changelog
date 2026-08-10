@@ -1,13 +1,12 @@
-# Amazon Bedrock AgentCore release notes — captured 2026-08-09
+# Amazon Bedrock AgentCore release notes — captured 2026-08-10
 # Source used: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
 # (sources.json still points at doc-history.html, which renders title/nav only — recurring since
 #  2026-05-18 and still unfixed)
 
-## August 2026
-- Memory, policy, and harness are now available in AWS GovCloud (US-West) `us-gov-west-1`.  [NEW
-  since the 2026-08-07 capture — REGION EXPANSION, held below the reporting bar: no new entity type,
-  API or capability. Runtime, gateway, identity, built-in tools, observability and evaluations were
-  already available in the Region.]
+## August 2026 — exactly four entries, unchanged vs the 2026-08-09 capture
+- Memory, policy, and harness are now available in AWS GovCloud (US-West) `us-gov-west-1`.
+  [REGION EXPANSION, held below the reporting bar: no new entity type, API or capability. Runtime,
+  gateway, identity, built-in tools, observability and evaluations were already available there.]
 - Runtime: Instances compute type with capacity providers.        [reported 2026-08-07]
 - AWS Agent Registry launches under the `agent-registry` namespace. [reported 2026-08-07]
 - Gateway: Configurable rate limits.                              [reported 2026-08-07]
@@ -24,13 +23,27 @@ HTTP passthrough targets, inference targets, inbound traffic enforcement; SOC co
 Secrets Manager references; CLI/CDK payments support; Runtime Interactive Shells; Step Functions
 integration.
 
-## Data-plane Actions list (API_Operations.html) — IDENTICAL to the 2026-08-07 capture
-Still the only registry op on this page is SearchRegistryRecords; DeleteCapacityProviderSession
-remains the newest addition. Payments, A/B testing, Recommendation, Memory, Browser, Code
-Interpreter, Auth/Token, Events groups all unchanged.
+## Data-plane Actions list (API_Operations.html) — re-fetched 2026-08-10, IDENTICAL to cache
+Memory: BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords,
+  DeleteMemoryRecord, GetMemoryRecord, ListMemoryRecords, ListMemoryExtractionJobs,
+  RetrieveMemoryRecords, StartMemoryExtractionJob
+Auth/Token: CompleteResourceTokenAuth, GetResourceApiKey, GetResourceOauth2Token,
+  GetResourcePaymentToken, GetWorkloadAccessToken, GetWorkloadAccessTokenForJWT,
+  GetWorkloadAccessTokenForUserId
+Events: CreateEvent, DeleteEvent, GetEvent, ListEvents
+Agent/Runtime: GetAgentCard, InvokeAgentRuntime, InvokeAgentRuntimeCommand, InvokeHarness,
+  StopRuntimeSession
+Browser: GetBrowserSession, ListBrowserSessions, SaveBrowserSessionProfile, StartBrowserSession,
+  StopBrowserSession, UpdateBrowserStream, InvokeBrowser
+Code Interpreter: GetCodeInterpreterSession, InvokeCodeInterpreter, ListCodeInterpreterSessions,
+  StartCodeInterpreterSession, StopCodeInterpreterSession
+Registry: SearchRegistryRecords  (still the ONLY registry op on this page; the AWS Agent Registry
+  ops live on a separate API surface)
+A/B Testing + Batch Evaluation + Recommendation + Payments: unchanged.
+Additional: Evaluate, ListActors, ListSessions, DeleteCapacityProviderSession.
 
 ## Developer guide overview (what-is-bedrock-agentcore.html) — unchanged
 Core services: Harness, Runtime, Memory, Gateway, Identity, Code Interpreter, Browser,
 Observability, Payments (x402), Evaluations, Optimization, Policy, Registry. All previously reported.
 
-Updated: 2026-08-09 — one new August entry (GovCloud region expansion), held below bar.
+Updated: 2026-08-10 — no change.

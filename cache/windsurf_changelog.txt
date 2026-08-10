@@ -1,16 +1,24 @@
-# Windsurf / Devin Desktop changelog — captured 2026-08-09
+# Windsurf / Devin Desktop changelog — captured 2026-08-10
 # https://docs.devin.ai/desktop/changelog
 # (sources.json still points at windsurf.com/changelog, a 308 cross-host redirect)
 
-Newest entry: **v3.6.27, August 1, 2026** — [NEW since the 2026-08-07 capture but HELD BELOW BAR:
-security/robustness fixes, not new capability]
+Newest entry is still **v3.6.27, August 1, 2026** — unchanged vs the 2026-08-09 capture, and still
+HELD BELOW BAR (security/robustness fixes, not new capability):
   - Fixed Windows certificate store loading for HTTPS requests behind TLS-inspecting proxies.
-  - Edit/write tools now refuse symlink writes, preventing unintended file redirection.
+  - The `edit`, `write`, `apply_patch` and `notebook_edit` tools now refuse to write through
+    symlinks, preventing unintended file redirection.
 
-v3.6.22 (Jul 29): deferred analytics startup until account status resolves.  [below bar]
+v3.6.22 (Jul 29): deferred product analytics until account status resolves.  [below bar]
 v3.6.21 (Jul 29, reported 2026-08-07): Browser Preview (ACP) letting remote agents reach local dev
 servers; MCP OAuth "Authenticate" button; Plan Mode in Devin Local; editable command approvals;
-Cascade Migration Wizard (hooks→skills→memories); worktree sessions; custom subagent config in flat
-files; subagent default model.
+Cascade Migration Wizard (hooks->skills->memories); worktree sessions; custom subagent config in flat
+files; subagent default model; unified agent-session notifications; codemaps in editor tabs; base IDE
+updated to VS Code 1.126.
 
-Updated: 2026-08-09 — one new version, no new capability.
+## NEW SOURCE DRIFT (2026-08-10)
+The sources.json Windsurf **docs** URL `https://docs.windsurf.com` now **307-redirects cross-host to
+`https://docs.devin.ai/desktop/getting-started`**. This is in addition to the already-known
+`windsurf.com/changelog` -> `docs.devin.ai/desktop/changelog` 308. **BOTH Windsurf URLs in
+sources.json now need updating.**
+
+Updated: 2026-08-10 — no change (one additional source redirect recorded).

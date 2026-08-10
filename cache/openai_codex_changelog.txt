@@ -1,31 +1,38 @@
-# OpenAI / ChatGPT + Codex changelog — captured 2026-08-09
+# OpenAI / ChatGPT + Codex changelog — captured 2026-08-10
 # https://learn.chatgpt.com/docs/changelog
 # (sources.json still points at developers.openai.com/codex/changelog, a 308 cross-host redirect)
 
-Newest entry is still **Codex CLI 0.147.0, August 7, 2026** — IDENTICAL to the 2026-08-07 capture.
-No entries dated August 8 or 9.
+Newest entry is still **Codex CLI 0.147.0, August 7, 2026** — IDENTICAL to the 2026-08-07 and
+2026-08-09 captures. No entries dated August 8, 9 or 10.
 
 0.147.0 (Aug 7, reported 2026-08-07): portable Agent Plugins with search across local, personal,
 workspace and remote plugin catalogs; conversation sections and incremental transcript browsing;
 `--approve-for-me` automatic approvals; import Cursor-managed skills and sync Claude/Cursor
 conversations; MCP protocol 2026-07-28 (paginated discovery, multi-round requests, non-blocking
-server startup); cached web search; remote conversation compaction for Amazon Bedrock.
+server startup); cached web search; remote conversation compaction for Amazon Bedrock. Fixes include
+secret redaction in commands/history and plugin isolation hardening.
 0.146.1 (Aug 5, reported 2026-08-07): safer automatic-review defaults for cyber-capable models.
 
-SDK releases — unchanged:
+SDK releases — unchanged, no releases between Aug 4 and Aug 10:
   openai-python v2.53.0 (Aug 3) "GPT-5.5 model support" + tool name/namespace fields on Response
-  types; v2.52.x (Jul 31) content provenance checks, Retry-After handling, mTLS docs.
+  types; v2.52.1 (Aug 3) CI pin; v2.52.0 (Jul 31) content provenance checks, Retry-After handling,
+  mTLS docs.
   openai-node v7.4.0 (Aug 3) same model/tool-metadata adds + mTLS transport examples; v7.3.0
   (Jul 31) content provenance checks; v7.2.0 (Jul 30) fast tier.
   NOTE (carried): SDK release-note wording mislabels model families — 5.6 shipped Jul 9 but the
   Aug 3 SDK entry says "GPT-5.5". Corroborate model launches against openai.com/index/*.
 
-Status RSS (status.openai.com/history.rss): newest incidents Aug 4–5, 2026 (ChatGPT conversation
-errors, Custom GPT actions, image generation). Incidents only — no new service or endpoint.
+Status RSS (status.openai.com/history.rss): newest incidents still **Aug 5, 2026** — elevated errors
+with image generation (Files, Image Generation), issues with Custom GPT actions (GPTs), elevated
+errors in ChatGPT conversations with files (Conversations). All resolved. No new service or component
+names.
 
-Community forum: Aug 9 threads on the completed GPT-5.6 rollout (billing/token-count anomalies),
-Codex rate-limit resets, MCP tools being disabled mid-run, and **gpt-realtime-2.1** language drift
-and WebRTC support. `gpt-realtime-2.1` / `-mini` remain **forum-only** — still absent from SDK
+Community forum (Aug 9-10): background-mode requests stuck in progress via the Responses API; Codex
+VS Code renderer crashing during concurrent agent streaming; Custom GPT image generation returning
+file paths; GPT-5.6 Sol capacity issues in Codex Desktop; Codex rate-limit resets on paid plans;
+phone verification for enterprise Codex accounts; Cloudflare/API compatibility; feature requests for
+Codex on Linux. **No new model, endpoint or agent-feature announcements.**
+**`gpt-realtime-2.1` / `-mini` did not appear at all this scan** and remain absent from SDK
 changelogs and platform docs. WATCH CONTINUES (open since ~2026-07-06).
 
-Updated: 2026-08-09 — no change.
+Updated: 2026-08-10 — no change.

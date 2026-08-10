@@ -1,4 +1,4 @@
-# Power Pages — captured 2026-08-09
+# Power Pages — captured 2026-08-10
 
 Release updates (learn.microsoft.com/en-us/power-pages/release-updates): ms.date 2023-03-21,
 updated_at 2025-05-12 — content is 2022/2023 release-wave links plus an Azure-components privacy
@@ -6,4 +6,4 @@ notice. No change signal available from this source; unchanged for over a year.
 
 No new Power Pages feature, entity type or agent capability this scan.
 
-Updated: 2026-08-09 — no change.
+Updated: 2026-08-10 — no change.

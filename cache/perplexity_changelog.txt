@@ -1,16 +1,23 @@
-# Perplexity changelog + API reference — captured 2026-08-09
+# Perplexity changelog + API reference — captured 2026-08-10
 # https://docs.perplexity.ai/changelog , https://docs.perplexity.ai/api-reference
 
 Changelog: **no August 2026 entries.** Newest remains the July 2026 batch, all reported 2026-08-07:
-Gateway API (OpenAI Chat Completions + Anthropic Messages wire compatibility, health-based routing);
-hosted remote MCP server at https://api.perplexity.ai/mcp; MCP Server 1.0 moving from Sonar models
-to Agent API presets; Agent API model adds (Claude Opus 5, GPT-5.6 Sol/Terra/Luna, Gemini 3.6 Flash
-and 3.5 Lite, Grok 4.5, Kimi K3); inline and source-typed citations; Gemini 3.1 Flash Lite retired.
+GPT-5.6 price cuts (Luna $0.20/$1.20, Terra $2/$12 per 1M) and Sol Fast mode at 2x pricing via
+`service_tier: "priority"`; Gateway API (OpenAI Chat Completions + Anthropic Messages wire
+compatibility, health-based routing); hosted remote MCP server at https://api.perplexity.ai/mcp;
+MCP Server 1.0 moving from Sonar models to Agent API presets; Sonar Chat Completions renamed to
+Agent API with a migration guide; Agent API model adds (Claude Opus 5, GPT-5.6 Sol/Terra/Luna,
+Gemini 3.6 Flash and 3.5 Lite, Grok 4.5, Kimi K3); inline and source-typed citations; Gemini 3.1
+Flash Lite retired.
 
-API reference: endpoint surface IDENTICAL to the 2026-08-07 capture. POST /v1/agent (plus
-GET /v1/responses/{id} for background polling); web / finance / people search; fetch_url; sandbox
-code execution; function calling; remote MCP tool discovery; skills (built-in Office generation plus
-inline custom skills); reasoning effort minimal..max; model fallback chains up to 5; JSON-schema
-structured output; per-operation cost tracking.
+API reference: endpoint surface IDENTICAL to the 2026-08-07 and 2026-08-09 captures.
+POST /v1/agent (plus GET /v1/responses/{id} for background polling). Tools: web_search (domain/date
+filters, location personalization), fetch_url (up to 10 URLs/call), finance_search, people_search,
+sandbox code execution, function (custom, JSON-schema validated), mcp (remote MCP tool servers over
+HTTPS). Features: reasoning effort minimal..max; skills (built-in Office docx/pdf/pptx/xlsx plus
+inline custom skills); SSE streaming with granular event types; response chaining via
+`previous_response_id`; JSON-schema structured output with strict mode; model fallback chains up to
+5; background/async execution with polling; per-operation cost tracking.
+**No new endpoints, tools or agent features.**
 
-Updated: 2026-08-09 — no change.
+Updated: 2026-08-10 — no change.

@@ -1,6 +1,6 @@
-# Microsoft 365 Copilot extensibility docs — captured 2026-08-09
+# Microsoft 365 Copilot extensibility docs — captured 2026-08-10
 # https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/
-# ms.date 2026-05-06, updated_at 2026-07-29 — UNCHANGED vs the 2026-08-07 capture
+# ms.date 2026-05-06, updated_at 2026-07-29 — UNCHANGED vs the 2026-08-09 capture
 
 Create and manage agents: Agents overview; Build a declarative agent; Build a custom engine agent;
 Evaluate agents; **Use Insights Agent (preview)** (reported 2026-08-07); Manage agents in the
@@ -11,10 +11,21 @@ Developer tools and APIs: M365 Agents Toolkit; M365 Agents SDK; Work IQ API; Mic
 APIs; Microsoft Agent 365.
 
 Graph changelog: the HTML page is still JS-rendered (nav only). The RSS feed
-https://developer.microsoft.com/en-us/graph/changelog/rss/ renders, but its newest item is still
-"Tenants" (June 19, 2026) — no Copilot / AI / declarative-agent entries.
+https://developer.microsoft.com/en-us/graph/changelog/rss/ renders and **DID advance this scan**:
+newest item is now **Mon, 10 Aug 2026 — Tenants** (crossTenantMigrationJob gains a `migrate` method;
+`validate` method behavior changed; displayName, completeAfterDateTime, sourceTenantId,
+exchangeSettings, workloads, resourceType and resources parameters removed). This is generic Graph
+tenant-migration churn, NOT AI/agent related, so it is **held below the reporting bar**. Prior items
+are all still June 17-19, 2026 (Security DLP policyTip, Tasks and Plans history resources, Teamwork
+cloudVideoInteropInfo, Identity accessPackageSuggestion framework, Applications redirectUris). Still
+no Copilot / AI / declarative-agent / Agent 365 entries anywhere in the feed.
 
-M365 admin What's New in preview (whats-new-in-preview, updated_at 2026-06-23): newest section is
-November 2025. No change.
+M365 admin What's New in preview (whats-new-in-preview, ms.date 2026-05-19, updated_at 2026-06-23):
+newest section is still **November 2025**. No change.
 
-Updated: 2026-08-09 — no change.
+NOTE (cross-reference, 2026-08-10): the "Microsoft Agent 365" link in this nav is the entry point to
+a GA agent control plane that this monitor had never covered — see azure-ai-foundry_changelog.txt and
+the 2026-08-10 report. Agent 365's registry includes M365/Copilot-surfaced agents and discovers
+**shadow agents** in the tenant.
+
+Updated: 2026-08-10 — no change.

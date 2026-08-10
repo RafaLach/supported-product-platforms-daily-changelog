@@ -1,4 +1,4 @@
-# Amazon Bedrock doc-history — captured 2026-08-09
+# Amazon Bedrock doc-history — captured 2026-08-10
 # https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
 
 Newest entries:
@@ -11,6 +11,7 @@ No August 2026 entries. No new Bedrock feature, API or resource type this scan.
 
 API reference (APIReference/welcome.html) unchanged: Amazon Bedrock; Agents for Amazon Bedrock (now
 Classic); Agents for Amazon Bedrock Runtime (Classic); Data Automation for Amazon Bedrock; Runtime
-for Amazon Bedrock Data Automation; Amazon Bedrock Runtime.
+for Amazon Bedrock Data Automation; Amazon Bedrock Runtime. Both Agents sections now carry the
+closed-to-new-customers note.
 
-Updated: 2026-08-09 — no change.
+Updated: 2026-08-10 — no change.

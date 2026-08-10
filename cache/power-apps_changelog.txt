@@ -1,14 +1,15 @@
-# Power Apps — captured 2026-08-09
+# Power Apps — captured 2026-08-10
 
 What's New (learn.microsoft.com/en-us/power-apps/whats-new): still a pointer page only
-(ms.date 2024-08-14, updated_at 2025-05-07) — links to weekly released versions and the Release
-Planner. No feature content. Unchanged.
+(ms.date 2024-08-14, updated_at 2025-05-07) — links to weekly released versions, the Release Planner,
+model-driven release channels (semi-annual / monthly), and known limitations. No feature content.
+Unchanged.
 
 Released versions (power-platform/released-versions/powerapps, updated_at 2026-07-31): version
-tables advanced (Studio/Mobile 3.26081 first available Aug 3, 2026; Make.PowerApps.com 26074 first
-available Jul 29, 2026) but these are build-train rows with no feature descriptions. Unified
-Interface table still tops at 9.2 26042 (April 17, 2026).  [VERSION BUMPS — not reported]
+tables previously advanced to Studio/Mobile 3.26081 (first available Aug 3, 2026) and
+Make.PowerApps.com 26074 (Jul 29, 2026); Unified Interface still tops at 9.2 26042 (April 17, 2026).
+These are build-train rows with no feature descriptions.  [VERSION BUMPS — not reported]
 
 No new Power Apps feature, entity type or agent capability this scan.
 
-Updated: 2026-08-09 — no change.
+Updated: 2026-08-10 — no change.
