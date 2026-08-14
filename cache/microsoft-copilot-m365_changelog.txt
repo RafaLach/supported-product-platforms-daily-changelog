@@ -1,27 +1,32 @@
-Source: https://developer.microsoft.com/graph/changelog/
-Fetched: 2026-07-08 (via RSS fallback: https://developer.microsoft.com/en-us/graph/changelog/rss/)
+# Microsoft Graph changelog / M365 Copilot — captured 2026-08-14
 
-NOTE: The HTML changelog page still returns only nav/header chrome (JS-rendered).
-The RSS feed rendered actual entries — using RSS as source of record.
-RSS lastBuildDate 2026-07-08, but newest dated entries are still June 19, 2026.
+## Graph changelog RSS — REGRESSED THIS SCAN
+Source used: https://developer.microsoft.com/en-us/graph/changelog/rss/
+(the HTML changelog at developer.microsoft.com/graph/changelog/ still renders navigation chrome only)
 
-## Recent entries (2026) — new API/resource/entity additions [ALL REPORTED in prior scan]
+The feed's **lastBuildDate is August 14, 2026**, but its newest ITEMS are dated **June 19, 2026**
+(cross-tenant migration job validation; DLP action/notification updates; tasks-and-plans history
+tracking resources). On the 2026-08-10 scan this same feed carried an **August 10, 2026** item
+(`crossTenantMigrationJob` gains `migrate`). The feed has therefore gone BACKWARDS — the August items
+are no longer present.
 
-### June 19, 2026
-- Tenants: added `migrate` method to crossTenantMigrationJob resource; validate is now entity-bound action.
-- Security: new `policyTipAction` resource; added `policyTip` member to dlpAction enum.
-- Tasks & Plans: new resources plannerTaskData, plannerTaskDetailsData, plannerHistoryItem, taskHistoryItem; historyEntityType/historyEventType enums.
-- Teamwork & Communications: new cloudVideoInteropInfo resource; isRegistrationRequired, meetingType/onlineMeetingType additions.
+Treat the Graph RSS feed as unreliable for recency, not as evidence that nothing shipped. No Graph
+finding either way this scan: the June items are generic Graph churn (identity, security, files,
+teamwork, backup) with **no Copilot, agent, AI or bot content**.
 
-### June 17-18, 2026
-- Identity & Access: access package suggestions resources; filterByCurrentUser method.
-- Applications: new redirectUri configuration resources.
-- Security: new account/file action resources; entity-mapping detection resources.
+## M365 admin center What's New (whats-new-in-preview) — stale source
+ms.date 2026-08-11, updated_at 2026-08-11, but the newest CONTENT section is **November 2025**
+(Engineering direct renamed to Enhanced Engagements). Everything AI-related on the page is old:
+June 2025 Copilot Search admin experience, April 2025 Copilot network connectivity test, February
+2025 admin-initiated Copilot feedback, January 2025 **AI Administrator role**. The page's date
+metadata moves without its content moving — it cannot be used for change detection.
 
-### June 15 & earlier June 2026
-- Security (v1.0): microsoftSecurityForAI member added to serviceSource enum; People: profileCardProperty isVisible.
-- Mail: distributionList / distributionListMember resources. Files container permissions; identity governance workflow extensions; FIDO2/WebAuthn improvements; app risk assessment (applicationRiskFactors/applicationSecurityCompliance) resources; sensor migration + manualAlert resources.
+## Cross-reference
+The live M365 Copilot agent-governance surface is NOT on either page above. It is the Agent 365
+registry (`/microsoft-365/admin/manage/agent-registry`) and the Package Management API
+(`/microsoft-365-copilot/extensibility/api/admin-settings/package/overview`), both reported
+2026-08-10. Neither is in sources.json.
 
-Updated: 2026-07-08 — No net-new entries since prior scan (2026-07-07). RSS lastBuildDate advanced to
-2026-07-08 but newest dated entries still top at June 19, 2026; June 2-15 granular entries all generic
-API churn (security/identity/mail/apps), none AI/agent/Copilot-specific. No reportable addition.
+Nothing reported for Microsoft Copilot (M365) this scan.
+
+Updated: 2026-08-14 — no new content; Graph RSS regressed from August back to June.

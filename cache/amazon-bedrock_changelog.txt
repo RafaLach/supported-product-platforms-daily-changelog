@@ -1,17 +1,35 @@
-# Amazon Bedrock doc-history — captured 2026-08-10
+# Amazon Bedrock doc-history — captured 2026-08-14
 # https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
 
 Newest entries:
-- July 30, 2026 — Amazon Bedrock Agents Classic is no longer open to new customers. Existing
-  customers unaffected; AWS points new users at Amazon Bedrock AgentCore.  [DEPRECATION — not
-  reported]
+- **August 11, 2026 — IAM principal cost allocation now supported on the `bedrock-mantle` endpoint.**
+  Cost allocation by IAM principal (users and roles) for inference requests made through the
+  `bedrock-mantle` endpoint, extending what was already available for `bedrock-runtime`. Tag IAM
+  users/roles, activate as cost allocation tags, analyze in Cost Explorer or CUR 2.0.
+  >>> The cost feature itself is billing plumbing and below the reporting bar. What it EXPOSED is
+  the finding: the **`bedrock-mantle` endpoint** appears nowhere in this monitor's cache history.
+- July 30, 2026 — Amazon Bedrock Agents Classic is no longer open to new customers; AWS points new
+  users at AgentCore.  [DEPRECATION — not reported]
 - June 30, 2026 — advance notice of the same availability change.  [deprecation]
 
-No August 2026 entries. No new Bedrock feature, API or resource type this scan.
+## `bedrock-mantle` — BACKLOG COVERAGE GAP, reported 2026-08-14
+Recovered via WebSearch + AWS docs. Endpoint host `bedrock-mantle.<region>.api.aws`, powered by
+**"Project Mantle"**, a new distributed inference engine for large-scale model serving on Bedrock.
+It serves, in parallel to `bedrock-runtime`:
+  - the **OpenAI Responses API**
+  - the **OpenAI Chat Completions API**
+  - the **Anthropic Messages API**
+with **built-in tool use** and **stateful conversation management**. AWS's stated migration pitch is
+that an existing OpenAI SDK codebase moves to Bedrock by changing only the base URL and API key, and
+AWS **recommends bedrock-mantle for new applications** over bedrock-runtime.
+Supporting doc surfaces: /bedrock/latest/userguide/bedrock-mantle.html (Inference using Responses
+API), /monitoring-mantle.html (dedicated CloudWatch metrics, added June 2026), /endpoints.html.
+PrivateLink support for the OpenAI-compatible endpoints landed February 2026, and a redesigned
+Bedrock console optimized for the OpenAI/Anthropic-compatible APIs landed June 2026 — so this surface
+has been building since at least February and was missed throughout.
 
-API reference (APIReference/welcome.html) unchanged: Amazon Bedrock; Agents for Amazon Bedrock (now
-Classic); Agents for Amazon Bedrock Runtime (Classic); Data Automation for Amazon Bedrock; Runtime
-for Amazon Bedrock Data Automation; Amazon Bedrock Runtime. Both Agents sections now carry the
-closed-to-new-customers note.
+API reference (APIReference/welcome.html) unchanged: Amazon Bedrock; Agents for Amazon Bedrock
+(Classic); Agents for Amazon Bedrock Runtime (Classic); Data Automation; Runtime for Data
+Automation; Amazon Bedrock Runtime. Both Agents sections carry the closed-to-new-customers note.
 
-Updated: 2026-08-10 — no change.
+Updated: 2026-08-14 — one new dated entry, which surfaced a months-old coverage gap.

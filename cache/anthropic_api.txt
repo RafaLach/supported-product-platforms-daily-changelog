@@ -1,43 +1,62 @@
-# Claude Platform release notes — captured 2026-08-10
+# Claude Platform release notes — captured 2026-08-14
 # Source: https://platform.claude.com/docs/en/release-notes/api
 # (the two sources.json Anthropic URLs still 404 — see errors table)
 
-### August 7, 2026  — newest dated entry; all four reported 2026-08-09
-- Session budgets for Claude Managed Agents: a hard cap on a session's spend, priced at public list
-  rates. A session that reaches its budget pauses with the `budget_reached` stop reason instead of
-  starting new model requests; changing or removing the budget resumes it. Deployments accept the
-  same budget and apply it to each session they start.  /docs/en/managed-agents/budgets
-- Session advisor: a model at least as capable as the agent's own that the session's primary thread
-  can consult mid-turn for strategic guidance. Configured as a `{"type": "advisor"}` entry in the
-  agent's multiagent roster, naming the `model` to consult.
-  /docs/en/managed-agents/multiagent-orchestration#give-the-session-an-advisor
-- `inference_geo`: control where model inference runs for a Managed Agents agent. Set inside the
-  `model` object at agent creation, or override per session.  /docs/en/manage-claude/data-residency
-- Skills from GitHub: when a Managed Agents session mounts a repository, any skills in its root
-  `.claude/skills` directory are discovered automatically at session start and are available to the
-  agent for that session.  /docs/en/managed-agents/skills#load-skills-from-a-github-repository
+### August 11, 2026  — NEW THIS SCAN, both reported 2026-08-14
+- **Compliance API now returns transcripts of LOCAL sessions** — Cowork and Claude Code sessions
+  that run on your users' machines. Beta, Claude Enterprise only. Three endpoints:
+    GET /v1/compliance/apps/sessions/local                      (list metadata, `clls_` IDs)
+    GET /v1/compliance/apps/sessions/local/{session_id}         (one session's metadata)
+    GET /v1/compliance/apps/sessions/local/{session_id}/messages (transcript)
+  Same Compliance Access Key + `read:compliance_user_data` scope as the existing chat/file/project
+  endpoints — no new key, scope, setting or client update. Admin API keys are REJECTED (403).
+  `product_surface`: `cowork` (Claude Desktop) | `claude_code` (terminal, Desktop, IDE extension).
+  Transcript = user prompts, assistant text, `tool_use` and `tool_result` blocks; MCP tool calls and
+  most server tool calls are NORMALIZED into the same tool_use/tool_result shapes. CLAUDE.md project
+  instruction files appear as ordinary user content; skill content appears when the client sends it.
+  NOT returned: thinking blocks; the system prompt (a `[system prompt content not shown]` synthetic
+  marker stands in); tool DEFINITIONS and MCP server CONFIGURATION; images/PDFs/binary blocks.
+  Documented capture blind spots: Claude Code authenticated with a Console API key or run through
+  **Amazon Bedrock, Google Cloud or Microsoft Foundry**; Claude Code on the web; organizations with
+  **HIPAA readiness**; sessions under **ZDR**; and under **CMEK** sessions list but content is
+  withheld. Retention 6 years by default or the org's custom conversation retention period.
+  Read-only — no deletion through the API. `provenance` field marks content_unavailable /
+  client_asserted / synthetic_marker. Byte caps `tool_use_input_max_bytes` and
+  `tool_result_max_bytes` default 10,000, `-1` = server max (~1 MiB).
+  /docs/en/manage-claude/compliance-sessions#retrieve-local-sessions
+- **`anthropic-workspace-id` response header** added to the Claude API. Carries the `wrkspc_`-prefixed
+  ID of the workspace that the request's API key or access token resolved to, including the
+  organization's Default Workspace.  /docs/en/manage-claude/workspaces
+
+### August 10, 2026
+- Claude Sonnet 5 introductory pricing ($2/$10 per MTok) becomes the standard price; the scheduled
+  Sept 1 increase will not occur.  [PRICING — not reported]
+
+### August 7, 2026  (reported 2026-08-09)
+- Managed Agents session budgets (`budget_reached` stop reason); session advisor
+  (`{"type":"advisor"}` in the multiagent roster); `inference_geo` pinning; skills auto-discovered
+  from a mounted GitHub repository's root `.claude/skills` directory.
 
 ### August 5, 2026  (reported 2026-08-07)
-- Inference hooks beta for Claude Enterprise.
-- Claude Opus 4.1 retired.
+- Inference hooks beta for Claude Enterprise.  Claude Opus 4.1 retired.
+
+### August 3, 2026  (reported 2026-08-09 via remote-session endpoints)
+- Compliance API returns transcripts of REMOTE Cowork sessions (claude.ai web/mobile), `cse_` IDs,
+  `product_surface` = `cowork_remote`. Note for cross-reference: remote sessions can be
+  **agent-owned** — `user` null, `agent_id` (`cagt_` prefix) set, `started_by_user` names the human
+  who initiated the run (e.g. a scheduled task).
 
 ### August 1, 2026
-- Dreams (research preview) now supports Claude Opus 5.  [below reporting bar — model support add]
+- Dreams (research preview) supports Claude Opus 5.  [below bar — model support add]
 
 ### July 2026 and earlier
 Unchanged: Opus 5 (Jul 24), mid-conversation tool changes, `fallbacks` "default" mode, Opus 4.7
 fast-mode removal, Managed Agents `effort` + environment/memory-store webhooks + `initial_events` +
 thread event deltas (Jul 22), Workbench sunset (Jul 17), mid-conversation system messages (Jul 15),
 Claude Enterprise Admin API user management (Jul 14), Dreams model adds + Access Transparency
-`cmek_preserve` detail (Jul 10), API key expiration (Jul 8), `agent-memory-2026-07-22` header
-(Jul 2), Fable 5 / Mythos 5 restored (Jul 1).
+`cmek_preserve` detail (Jul 10), API key expiration (Jul 8).
 
-Anthropic News (https://www.anthropic.com/news): unchanged — newest is Aug 7 "Improving Fable 5's
-biology safeguards" (safeguard change, not a new capability) and Aug 4 Chief Global Affairs Officer
-appointment. Then Jul 30 cybersecurity-evaluation incidents post, Jul 27 open-weights position, Jul
-27 Cognizant partnership expansion. No new product surface.
+Standing coverage note: keep watching /docs/en/managed-agents/* — fast-moving and under-covered here.
 
-Standing coverage note: keep watching /docs/en/managed-agents/* (agents, sessions, memory stores,
-environments, vaults, webhooks, tunnels) — fast-moving and under-covered here.
-
-Updated: 2026-08-10 — no change. Newest release note is still August 7; no August 8, 9 or 10 entries.
+Updated: 2026-08-14 — TWO new dated entries (Aug 11). The local-session Compliance endpoints are the
+most significant Anthropic addition since the Aug 5 inference hooks.

@@ -1,28 +1,25 @@
-# Cursor changelog — captured 2026-08-10
-# https://cursor.com/changelog
+# Cursor changelog — captured 2026-08-14
+# https://cursor.com/changelog   (docs are at https://cursor.com/docs — sources.json still wrong)
 
-Newest entry is still **Aug 3, 2026 — Google Workspace Plugins** (reported 2026-08-07): agents get
-read/write/act access to Gmail, Google Drive, Calendar, Docs and Sheets through Google's remote MCP
-servers, installed from the Cursor Marketplace. No entries dated Aug 4-10.
+### August 13, 2026 — "Cloud Agents start 3x faster with builds"   [NEW, held below the bar]
+Introduces **builds**: pre-configured development environments that Cloud Agents boot into instead of
+setting up from scratch each session. Environments boot 10x faster internally, 3x faster time to
+first token. Failed builds never become active — agents keep using the last successful version. A new
+**Builds tab** in the Cloud Agents dashboard allows inspection and debugging. Included at no cost.
+[Watching tier: only MAJOR new capabilities qualify. A build is a cached environment snapshot and a
+performance optimization, not a new agent capability or access surface. Recorded, not reported. If
+Cursor Cloud Agents later become an inventory target, a build is a new artifact worth listing.]
+
+### August 3, 2026 — Google Workspace Plugins   [reported 2026-08-07, unchanged]
+Coding agents get read/write/act access to Gmail, Google Drive, Calendar, Docs and Sheets through
+Google's remote MCP servers, installed from the Cursor Marketplace.
 
 Prior, all previously covered: Jul 29 iPad support (PR review, inbox, Bitbucket + Azure DevOps SCM);
-Jul 28 Cursor Start regional plan (India); Jul 22 Cursor Router (Cost / Balance / Intelligence modes
-with per-team admin controls); Jul 17 Slack integration improvements.
+Jul 28 Cursor Start regional plan (India); Jul 22 Cursor Router; Jul 17 Slack integration.
 
-## NEW SOURCE DRIFT (2026-08-10)
-The sources.json Cursor docs URL `https://docs.cursor.com` now returns a **308 cross-host redirect to
-`https://cursor.com/docs`** (WebFetch does not auto-follow cross-host redirects). Fetched
-successfully at the new URL. Documentation sections:
-  - Agent — overview, agents window, review, planning (Plan Mode), prompting, debugging, design mode
-  - Customize — plugins, rules, skills, subagents, hooks, MCP
-  - Cloud Agents — setup, builds, capabilities, best practices, automations, Bugbot, security agents,
-    PR routing
-  - Integrations — GitHub, GitLab, Slack, Jira, Linear, Notion + 6 more
-  - SDK & CLI — TypeScript, Python, bridge tools, CLI
-  - Teams & Enterprise — admin controls and organizational features
-Models listed: Claude Opus 5 / Sonnet 5 / Fable 5, OpenAI GPT, Google Gemini, Cursor Composer, Grok;
-context windows up to 1M with "AgentThinking".
-Nothing dated August 2026 in the docs and nothing above the watching-tier bar (only major NEW
-capabilities qualify). **Recommend updating the Cursor docs URL in sources.json.**
+Docs (cursor.com/docs) unchanged from the 2026-08-10 capture: Agent (incl. Plan Mode, design mode),
+Customize (plugins, rules, skills, subagents, hooks, MCP), Cloud Agents (setup, builds, automations,
+Bugbot, security agents, PR routing), Integrations, SDK & CLI, Teams & Enterprise.
 
-Updated: 2026-08-10 — no change (one new source redirect recorded).
+Updated: 2026-08-14 — one new entry, held below the watching-tier bar.
+**The `docs.cursor.com` -> `cursor.com/docs` 308 redirect remains unfixed in sources.json.**

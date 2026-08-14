@@ -1,18 +1,56 @@
-# OpenAI Python SDK Releases — captured 2026-08-07
-Source: https://github.com/openai/openai-python/releases
-Prior cache: v2.44.0 (2026-07-08). Now: v2.53.0.
+# OpenAI / ChatGPT / Codex — captured 2026-08-14
+# Productive source: https://learn.chatgpt.com/docs/changelog
+#   (sources.json still points at developers.openai.com/codex/changelog, which 308s here)
+# SDK releases: https://github.com/openai/openai-python/releases
 
-- v2.53.0 (Aug 3, 2026) — GPT-5.5 model support; tool response types gain name/namespace attributes.
-- v2.52.1 (Jul 31, 2026) — CI pin maintenance.
-- v2.52.0 (Jul 31, 2026) — **content provenance checks API**; client honors retry-after up to 2 min;
-  mTLS HTTP client docs. [REPORTED]
-- v2.51.0 (Jul 30, 2026) — **fast tier** service tier; helper methods updated.
-- v2.50.0 (Jul 28, 2026) — transcription model updates.
-- v2.49.0 (Jul 27, 2026) — min Python 3.10.
-- Earlier in window — **admin spend-limit APIs**, configurable safety parameters, and
-  **organizational service-account key management endpoints**. [REPORTED]
+## ChatGPT & Codex changelog — NEW THIS SCAN (cache previously stopped at Aug 7)
 
-Updated: 2026-08-07 — 9 releases since the prior cache. Reportable: content provenance checks API;
-org service-account key management + admin spend-limit APIs. GPT-5.6 family (sol/terra/luna) is
-confirmed on official OpenAI surfaces (openai.com/index/gpt-5-6/, Codex changelog, Models docs) even
-though these SDK notes label the Aug 3 entry "GPT-5.5".
+### August 13, 2026 — **Computer History** (opt-in, macOS desktop app)  [reported 2026-08-14]
+Turns activity across apps and websites into **memories and a timeline** that ChatGPT and Codex can
+use. Records interaction events exposed through **macOS accessibility features**: clicks, typing,
+keyboard shortcuts, and app switching. Explicitly does NOT capture screenshots, screen recordings,
+microphone input or system audio — it **replaces the Chronicle research preview**, which was
+screenshot-based, and is described as a rebuilt system rather than a rename.
+Data handling: interaction events stored **on the Mac for up to 48 hours**; events are processed on
+**OpenAI's servers** to generate memories, not retained after processing and not used for training;
+the resulting **plain-text memory files stay local until deleted**.
+Availability: ChatGPT **Pro, Business and Enterprise**; **administrator enablement required for
+workspace members**. Excluded at launch: EEA, Switzerland, UK.
+
+### August 11, 2026  [both reported 2026-08-14]
+- **Linux desktop app (preview)** — Ubuntu, Debian and Fedora, x64 and ARM64, via `.deb` / `.rpm`.
+- **Import external agent setup** — imports configuration from **Claude Code, Claude Cowork and
+  Cursor**, including "settings, skills, plugins, projects, and recent work", with automatic
+  synchronization options.
+
+### August 10, 2026 — **Daybreak Blue and Daybreak Red tiers**  [reported 2026-08-14]
+Two new access tiers in OpenAI's Daybreak "Trusted Access for Cyber" program.
+- **Daybreak Blue** — defensive work on **GPT-5.6 Sol** with Trusted Access for Cyber. Approved
+  workflows: secure code review, vulnerability triage, detection engineering, incident response,
+  malware analysis, patch validation.
+- **Daybreak Red** — advanced defensive AND **offensive** cyber tasks, with access to
+  purpose-trained models **GPT-5.5-Cyber and GPT-5.6-Cyber**: vulnerability research, exploit
+  validation, security testing.
+- OpenAI's own published evaluation: **GPT-5.6-Cyber answered 95% of advanced cybersecurity prompts**
+  (exploit-chain development, authentication bypass, privilege escalation) versus **1.5% for GPT-5.6
+  Sol with default protections.**
+  openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/ ; openai.com/daybreak/
+
+### August 7, 2026 — Codex CLI 0.147.0  [reported 2026-08-07]
+Portable Agent Plugins installation, persistent thread sections, MCP 2026-07-28 protocol support,
+Cursor skill migration, Amazon Bedrock web search/compaction.
+
+## OpenAI Python SDK releases — advanced since the 2026-08-07 capture (v2.53.0)
+- **v3.0.0 (Aug 12, 2026)** — BREAKING: HTTPX2 is now the default HTTP client and `httpx` is no
+  longer installed automatically; custom HTTPX clients must migrate or use a legacy escape hatch.
+  [infrastructure — below the reporting bar]
+- **v2.54.0 (Aug 11, 2026)** — new response model identifiers; audio upload doc clarification.
+  [below bar]
+Standing caution (from the 2026-08-07 scan): SDK release-note wording lags and MISLABELS model
+families — corroborate model launches against openai.com/index/* and the ChatGPT/Codex changelog.
+
+## Held items
+- **`gpt-realtime-2.1` / `-mini`** — still absent from SDK changelogs and platform docs. Watch open
+  since ~2026-07-06. No movement this scan.
+
+Updated: 2026-08-14 — four new changelog entries (Aug 10, 11 ×2, 13); three reported.

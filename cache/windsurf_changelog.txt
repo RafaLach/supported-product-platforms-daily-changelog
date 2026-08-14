@@ -1,24 +1,24 @@
-# Windsurf / Devin Desktop changelog — captured 2026-08-10
+# Windsurf / Devin Desktop changelog — captured 2026-08-14
 # https://docs.devin.ai/desktop/changelog
-# (sources.json still points at windsurf.com/changelog, a 308 cross-host redirect)
+# (sources.json still has windsurf.com/changelog -> 308, and docs.windsurf.com -> 307. Both wrong.)
 
-Newest entry is still **v3.6.27, August 1, 2026** — unchanged vs the 2026-08-09 capture, and still
-HELD BELOW BAR (security/robustness fixes, not new capability):
-  - Fixed Windows certificate store loading for HTTPS requests behind TLS-inspecting proxies.
-  - The `edit`, `write`, `apply_patch` and `notebook_edit` tools now refuse to write through
-    symlinks, preventing unintended file redirection.
+### v3.7.16 — August 10, 2026   [NEW; cache previously at v3.6.27. Held below the watching bar.]
+Desktop: restart-to-update now confirms when local agents are active and states how many will be
+stopped; settings and keyboard shortcuts open as regular editor tabs; **"Plugins" renamed to
+"Extensions"**; Agent Command Center visual polish.
+Local agents: **Share Conversation uploads a sanitized transcript** and produces a team-visible link;
+reverting mid-turn made reliable; **the Customizations panel gains a search box and a new Subagents
+section**; **permission rules from different hierarchy levels now compose predictably, with explicit
+denials taking priority**; sudo password prompts no longer hang commands; **each MCP server's logs
+are separated into distinct output channels**.
+Cloud sessions: session size chips use enterprise ACU thresholds; queued messages editable; collapsed
+agent-group diff summaries open a multi-diff editor.
 
-v3.6.22 (Jul 29): deferred product analytics until account status resolves.  [below bar]
-v3.6.21 (Jul 29, reported 2026-08-07): Browser Preview (ACP) letting remote agents reach local dev
-servers; MCP OAuth "Authenticate" button; Plan Mode in Devin Local; editable command approvals;
-Cascade Migration Wizard (hooks->skills->memories); worktree sessions; custom subagent config in flat
-files; subagent default model; unified agent-session notifications; codemaps in editor tabs; base IDE
-updated to VS Code 1.126.
+[Assessment: watching tier admits only MAJOR new capabilities. These are refinements of features
+already inventoried — subagents and MCP already existed, and Share Conversation is a transcript
+export. Two are worth remembering if Devin Desktop is ever brought into ENDPOINT scope: the
+**sanitized-transcript share link** (an outbound content path from a local coding agent) and the
+**permission-rule hierarchy with deny precedence** (a policy model Zenity would need to evaluate).
+Recorded, not reported.]
 
-## NEW SOURCE DRIFT (2026-08-10)
-The sources.json Windsurf **docs** URL `https://docs.windsurf.com` now **307-redirects cross-host to
-`https://docs.devin.ai/desktop/getting-started`**. This is in addition to the already-known
-`windsurf.com/changelog` -> `docs.devin.ai/desktop/changelog` 308. **BOTH Windsurf URLs in
-sources.json now need updating.**
-
-Updated: 2026-08-10 — no change (one additional source redirect recorded).
+Updated: 2026-08-14 — version advanced 3.6.27 -> 3.7.16; nothing above the bar.

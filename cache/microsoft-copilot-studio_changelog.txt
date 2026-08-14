@@ -1,25 +1,24 @@
-# Microsoft Copilot Studio What's New — captured 2026-08-10
+# Microsoft Copilot Studio What's New — captured 2026-08-14
 # https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new
-# ms.date 2026-07-15, updated_at 2026-08-03
+# ms.date 2026-07-15, updated_at **2026-08-11** (page touched, content not extended)
 
-Newest "Notable changes" section is still **June 2026** — IDENTICAL to the 2026-08-07 and 2026-08-09
-captures. No July or August 2026 section has been published.
+Newest "Notable changes" section is still **June 2026** — identical to the 2026-08-07, 2026-08-09 and
+2026-08-10 captures. **No July or August 2026 section has been published**, even though the page's
+updated_at advanced to 2026-08-11.
 
 June 2026 (all reported 2026-08-07): new agent experience / GitHub Copilot harness
 (production-ready preview); Microsoft IQ; skills; memory; Windows 365 for Agents MCP server (GA);
 condition groups; voice agents with Teams Phone Agent (preview); connect other agents (preview);
 Foundry IQ knowledge connection (preview); Claude Sonnet 5 and GPT-5.5 Chat as primary model (GA).
 
-Released versions page (power-platform/released-versions/copilotstudio, updated_at 2026-07-01):
-still tops at platform 2026.6.3 / UX 26.06.21-24 (June 30, 2026) — unchanged, and now ~6 weeks
-stale relative to the What's New page. Regional spread: preview/France/Switzerland/Korea/Germany/
-South Africa/Norway/Canada/India/Sweden/South America on 2026.6.3; UK/Asia/UAE/Japan/Europe on
-2026.6.2; Australia/US/GCC on 2026.6.1.
+Released versions page (power-platform/released-versions/copilotstudio, ms.date 2026-06-30,
+updated_at 2026-07-01): still tops at platform **2026.6.3** / UX **26.06.21-24** (June 30, 2026) —
+unchanged for a fourth consecutive scan and now ~6.5 weeks stale relative to the What's New page.
+Regional spread unchanged: preview/France/Switzerland/Korea/Germany/South Africa/Norway/Canada/India/
+Sweden/South America on 2026.6.3; UK/Asia/UAE/Japan/Europe on 2026.6.2; Australia/US/GCC on 2026.6.1.
 
-NOTE (cross-reference, 2026-08-10): Copilot Studio agents now appear in the tenant-wide
-**Entra ID -> Agent ID -> All agent identities** inventory alongside Foundry agents, and in the
-**Microsoft Agent 365 registry**. See azure-ai-foundry_changelog.txt for the Agent 365 recovery
-reported 2026-08-10 — it changes how Copilot Studio agents are discoverable, without any change to
-this page.
+Cross-reference (2026-08-14): Copilot Studio agents continue to appear in the tenant-wide
+Entra ID -> Agent ID -> All agent identities inventory and in the Microsoft Agent 365 registry
+(reported 2026-08-10). Nothing on this page changes that.
 
-Updated: 2026-08-10 — no change.
+Updated: 2026-08-14 — no change.

@@ -1,49 +1,39 @@
-# Amazon Bedrock AgentCore release notes — captured 2026-08-10
+# Amazon Bedrock AgentCore release notes — captured 2026-08-14
 # Source used: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
 # (sources.json still points at doc-history.html, which renders title/nav only — recurring since
 #  2026-05-18 and still unfixed)
 
-## August 2026 — exactly four entries, unchanged vs the 2026-08-09 capture
-- Memory, policy, and harness are now available in AWS GovCloud (US-West) `us-gov-west-1`.
-  [REGION EXPANSION, held below the reporting bar: no new entity type, API or capability. Runtime,
-  gateway, identity, built-in tools, observability and evaluations were already available there.]
-- Runtime: Instances compute type with capacity providers.        [reported 2026-08-07]
-- AWS Agent Registry launches under the `agent-registry` namespace. [reported 2026-08-07]
-- Gateway: Configurable rate limits.                              [reported 2026-08-07]
+## August 2026 — now SIX entries (was four on 2026-08-10). Both additions are below the bar.
+- Memory, policy, and harness now available in AWS GovCloud (US-West).   [REGION EXPANSION]
+- Runtime: Instances compute type with capacity providers.               [reported 2026-08-07]
+- AWS Agent Registry launches under the `agent-registry` namespace.      [reported 2026-08-07]
+- Gateway: Configurable rate limits.                                     [reported 2026-08-07]
+- **NEW: Runtime — simplified and increased API rate quotas.** Data-plane APIs consolidated into a
+  single adjustable 1,000 TPS/account quota (was 200 TPS); new session creation a single 25 TPS
+  shared quota; control plane grouped into mutation 50 TPS / Get 150 TPS / List 25 TPS.
+  [QUOTA CHANGE — no new entity type, API or capability. Held below the reporting bar.]
+- **NEW: Gateway — Web Search Tool now available in Europe (Ireland) and Asia Pacific (Tokyo).**
+  Same Amazon-operated index; all connector versions (1.1.0, 1.2.0) available.
+  [REGION EXPANSION of an already-reported tool. Held below the reporting bar.]
 
-## July 2026 — all reported 2026-08-07
-Gateway Web Search connector v1.2.0; Identity Private Key JWT; Harness InvokeHarness streams MCP
-tool result metadata; Runtime unified span destination; Evaluations/Optimizations PrivateLink;
-Evaluations expanded framework support; ActiveSessionCount metric; Runtime default quota increase.
+## July 2026 — all reported 2026-08-07, unchanged
+Gateway Web Search connector v1.2.0 (request-level filters + target include list); Identity Private
+Key JWT client authentication (KMS-held private key, RS256/PS256/ES256, M2M/OBO/user-delegated);
+Harness InvokeHarness streams MCP tool result metadata; Runtime unified span destination
+(`/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`); Evaluations/Optimizations
+PrivateLink; Evaluations expanded framework support (OpenAI Agents, LlamaIndex, Google ADK, Claude
+Agent SDK + generic OTel/OpenInference); ActiveSessionCount metric; Runtime default quota increase.
 
 ## June 2026 and earlier — previously reported
 Web Search Tool GA; Policy + Bedrock Guardrails; Harness GA; Recommendations GA; Batch Evaluations
 GA; A/B Testing GA; Managed Knowledge Base GA; Failure Insights preview; Gateway Runtime targets GA,
 HTTP passthrough targets, inference targets, inbound traffic enforcement; SOC compliance; Identity
-Secrets Manager references; CLI/CDK payments support; Runtime Interactive Shells; Step Functions
-integration.
+Secrets Manager references; CLI/CDK payments support; Runtime Interactive Shells; Step Functions.
 
-## Data-plane Actions list (API_Operations.html) — re-fetched 2026-08-10, IDENTICAL to cache
-Memory: BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords,
-  DeleteMemoryRecord, GetMemoryRecord, ListMemoryRecords, ListMemoryExtractionJobs,
-  RetrieveMemoryRecords, StartMemoryExtractionJob
-Auth/Token: CompleteResourceTokenAuth, GetResourceApiKey, GetResourceOauth2Token,
-  GetResourcePaymentToken, GetWorkloadAccessToken, GetWorkloadAccessTokenForJWT,
-  GetWorkloadAccessTokenForUserId
-Events: CreateEvent, DeleteEvent, GetEvent, ListEvents
-Agent/Runtime: GetAgentCard, InvokeAgentRuntime, InvokeAgentRuntimeCommand, InvokeHarness,
-  StopRuntimeSession
-Browser: GetBrowserSession, ListBrowserSessions, SaveBrowserSessionProfile, StartBrowserSession,
-  StopBrowserSession, UpdateBrowserStream, InvokeBrowser
-Code Interpreter: GetCodeInterpreterSession, InvokeCodeInterpreter, ListCodeInterpreterSessions,
-  StartCodeInterpreterSession, StopCodeInterpreterSession
-Registry: SearchRegistryRecords  (still the ONLY registry op on this page; the AWS Agent Registry
-  ops live on a separate API surface)
-A/B Testing + Batch Evaluation + Recommendation + Payments: unchanged.
-Additional: Evaluate, ListActors, ListSessions, DeleteCapacityProviderSession.
+## Data-plane Actions list (API_Operations.html) — unchanged from the 2026-08-10 capture
+Registry: SearchRegistryRecords remains the only registry op on this page; the AWS Agent Registry
+control-plane ops (incl. ListDiscoverableRegistryRecords, BatchGetDiscoverableRegistryRecord) live on
+a separate API surface.
 
-## Developer guide overview (what-is-bedrock-agentcore.html) — unchanged
-Core services: Harness, Runtime, Memory, Gateway, Identity, Code Interpreter, Browser,
-Observability, Payments (x402), Evaluations, Optimization, Policy, Registry. All previously reported.
-
-Updated: 2026-08-10 — no change.
+Updated: 2026-08-14 — two new August entries, both a quota change and a region expansion.
+**No AgentCore finding this scan.**
