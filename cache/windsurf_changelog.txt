@@ -1,24 +1,20 @@
-# Windsurf / Devin Desktop changelog — captured 2026-08-14
-# https://docs.devin.ai/desktop/changelog
-# (sources.json still has windsurf.com/changelog -> 308, and docs.windsurf.com -> 307. Both wrong.)
+# Windsurf / Devin Desktop changelog — captured 2026-08-21
+# sources.json says windsurf.com/changelog -> 308 to https://docs.devin.ai/desktop/changelog
+# sources.json says docs.windsurf.com     -> 307 to https://docs.devin.ai/desktop/getting-started
+# Windsurf is now Devin Desktop.  Tier: watching
 
-### v3.7.16 — August 10, 2026   [NEW; cache previously at v3.6.27. Held below the watching bar.]
-Desktop: restart-to-update now confirms when local agents are active and states how many will be
-stopped; settings and keyboard shortcuts open as regular editor tabs; **"Plugins" renamed to
-"Extensions"**; Agent Command Center visual polish.
-Local agents: **Share Conversation uploads a sanitized transcript** and produces a team-visible link;
-reverting mid-turn made reliable; **the Customizations panel gains a search box and a new Subagents
-section**; **permission rules from different hierarchy levels now compose predictably, with explicit
-denials taking priority**; sudo password prompts no longer hang commands; **each MCP server's logs
-are separated into distinct output channels**.
-Cloud sessions: session size chips use enterprise ACU thresholds; queued messages editable; collapsed
-agent-group diff summaries open a multi-diff editor.
+## Newest entry: v3.7.25 — August 13, 2026.  NOTHING after Aug 14.
+- Devin Desktop: faster sidebar for users with thousands of cached sessions — filtering, space
+  grouping and sorting now only process the sessions actually fetched for display, eliminating
+  multi-second lag.                                                        [performance, below bar]
+- Devin Local: fixed authentication issues affecting certain MCP servers, including **self-hosted
+  GitLab** and older **Atlassian** MCP instances.                          [bug fix, below bar]
 
-[Assessment: watching tier admits only MAJOR new capabilities. These are refinements of features
-already inventoried — subagents and MCP already existed, and Share Conversation is a transcript
-export. Two are worth remembering if Devin Desktop is ever brought into ENDPOINT scope: the
-**sanitized-transcript share link** (an outbound content path from a local coding agent) and the
-**permission-rule hierarchy with deny precedence** (a policy model Zenity would need to evaluate).
-Recorded, not reported.]
+Version progression across scans: 3.6.27 -> 3.7.16 (Aug 10) -> **3.7.25 (Aug 13)**.
 
-Updated: 2026-08-14 — version advanced 3.6.27 -> 3.7.16; nothing above the bar.
+Held items worth remembering if Devin Desktop ever enters ENDPOINT scope (from 2026-08-14):
+sanitized-transcript share links, and the permission-rule deny-precedence model.
+
+Updated: 2026-08-21 — no new entries in the window. No finding. Both sources.json entries are still
+wrong (cross-host redirects, unapplied).
+</content>

@@ -1,142 +1,49 @@
-# Azure AI Foundry / Microsoft Foundry — captured 2026-08-14
+# Microsoft Foundry — captured 2026-08-21
+# sources.json URL (learn.microsoft.com/en-us/azure/ai-services/openai/whats-new) canonically
+# resolves to /azure/foundry-classic/openai/whats-new — ms.date 2025-12-30, newest content section
+# **May 2026**, zero agent-platform content. STILL UNFIXED.
 
-## SOURCE DRIFT (unchanged, still unfixed in sources.json)
-sources.json changelog URL (learn.microsoft.com/en-us/azure/ai-services/openai/whats-new) still
-canonically resolves to **learn.microsoft.com/en-us/azure/foundry-classic/openai/whats-new** — the
-*classic* Azure OpenAI page, newest section May 2026, no agent-platform content.
+## The live roll-up DID NOT ADVANCE this scan.
+https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry
+  Title: "What's new for July 2026". ms.date 2026-08-12, updated_at 2026-08-13.
+  **Byte-identical to the 2026-08-14 capture.** It advanced June->July last scan and has not moved
+  since. Consistent with the standing note that it trails the product by ~6 weeks.
 
-## ROLL-UP HAS ADVANCED — first movement in three scans
-**https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry** is now titled
-"What's new for **July 2026**", ms.date **2026-08-12**, updated_at **2026-08-13**.
-It was frozen at "June 2026" (ms.date 2026-07-08) on both the 2026-08-09 and 2026-08-10 scans.
-The July roll-up lists these NEW articles (those already covered are marked):
+## Foundry blog — https://devblogs.microsoft.com/foundry/  (read FIRST on Foundry scans)
+Only one post in the Aug 14-21 window:
+- **Aug 17: "From single call to agents: five new Claude capabilities now available in Microsoft
+  Foundry"** (Haoran Cheng) — structured outputs, web search, web fetch, **MCP connector**, and
+  **tool search** for Claude models on Azure. Framed as turning "a model endpoint into a production
+  agent platform".
+  HELD BELOW THE BAR: this is model-capability parity being brought to Claude deployments on a
+  Foundry surface this monitor already covers (MCP tooling, web tools and tool search were all
+  reported previously in their Foundry/OpenAI forms). No new entity type, endpoint or API.
+  Revisit if the Claude MCP connector proves to have a distinct connection object from the managed
+  MCP servers / connector-namespace model reported 2026-08-14.
 
-  Foundry Agent Service
-    - Author azure.yaml for hosted agents                       [deployment config, below bar]
-    - Reminder tool for self-scheduling hosted agents           [covered 2026-08-09 as "routines"]
-    - **What is Microsoft Foundry Canvas?**                     [NEW — reported 2026-08-14]
-    - What is Toolbox in Microsoft Foundry?                     [covered 2026-08-09]
-    - Toolbox authentication in Microsoft Foundry               [extension of toolboxes]
-    - Use a toolbox with a hosted agent                         [extension of toolboxes]
-  Foundry IQ
-    - Deploy Private Agentic Retrieval (tutorial + validation)  [private-networking deployment mode]
-  Foundry Models and APIs
-    - Use tool search with the Azure OpenAI Responses API       [covered 2026-08-09 as "tool search"]
-    - Compare hosting options for Claude models in Foundry      [model availability]
-  Observability
-    - Export hosted agent telemetry by using OpenTelemetry      [below bar — export mechanism]
-    - **Restrict access to sensitive content in Foundry traces**[NEW — reported 2026-08-14]
-  Foundry platform
-    - **Microsoft Foundry Notification Center overview**        [NEW — reported 2026-08-14]
-  Updated articles of note
-    - **Add managed MCP servers powered by connector namespaces (preview)**  [NEW — reported 2026-08-14]
-    - **Enable incoming A2A on a Foundry agent**                [NEW — reported 2026-08-14]
-    - Connect to an A2A agent endpoint (outgoing A2A)           [covered — tool category RemoteA2A]
-    - WebSocket Mode for Azure OpenAI Responses API             [transport, below bar]
-    - Hosted agents / deploy hosted agent / tool catalog        [previously covered]
+## July 2026 roll-up contents — unchanged, all previously reported or held
+New articles: author azure.yaml for hosted agents; **reminder tool for self-scheduling hosted
+agents**; Foundry Canvas; **Toolbox overview**; toolbox authentication; use a toolbox with a hosted
+agent; Foundry IQ private agentic retrieval tutorials (x2); tool search with the Azure OpenAI
+Responses API; Claude models hosting comparison; export hosted agent telemetry via OpenTelemetry;
+restrict access to sensitive content in traces; Notification Center overview.
+Updated articles: hosted agents; deploy a hosted agent; tool catalog; **managed MCP servers powered
+by connector namespaces**; connect to an A2A agent endpoint; **enable incoming A2A**; web search
+tool; Foundry IQ; Claude models (x2); WebSocket mode; Realtime API migration; endpoints; evaluate
+AI agents; traces-to-dataset; portal GA overview.
 
-## NEW THIS SCAN (2026-08-14) — five additions
+Reported 2026-08-14 from this set: incoming A2A endpoints (v0.3 served by DEFAULT when unspecified);
+managed MCP servers via connector namespaces (1,000+ connectors, real endpoint on logic.azure.com,
+`metadata.type = gateway_connector`, NO gating on the REST/SDK/azd path); sensitive trace content
+moving to **`AppGenAIContent`** (values stop being written to AppDependencies/AppTraces/AppEvents
+**from 2026-09-30** — HARD DATE, migrate ingestion before then); Foundry Canvas; Notification Center.
 
-### Enable incoming A2A on a Foundry agent (preview)  ** freshest item in this scan **
-/azure/foundry/agents/how-to/enable-agent-to-agent-endpoint — ms.date 2026-08-12, updated 2026-08-13
-Exposes a Foundry agent AS an A2A server so other agents can DISCOVER and CALL it. Previously this
-monitor had only covered the outgoing direction (agent calls a remote A2A endpoint).
-  - Supported: **prompt agents** (all, by default) and hosted agents that implement the responses
-    protocol. Incoming A2A REQUIRES the responses protocol.
-  - Enabled by one PATCH setting `agent_card` + `agent_endpoint.protocol_configuration.a2a`.
-    Not configurable in the Foundry portal yet — REST API or Python SDK (azure-ai-projects>=2.3.0).
-  - Protocol versions **1.0 and 0.3** both served on the same base path
-    `…/agents/{agent}/endpoint/protocols/a2a`. Version selected via agent-card discovery, the
-    `A2A-Version` header, or `?a2a-version=`. **If unspecified, Foundry serves v0.3 by default.**
-  - Agent cards published at `…/protocols/a2a/agentCard/v1.0` and `…/agentCard/v0.3`. One authored
-    card is projected into both shapes. Card carries description, version, and **skills[]**
-    (id / name / description).
-  - **All A2A URLs require Microsoft Entra ID auth; anonymous access to the agent card is NOT
-    supported.** Caller needs the **Foundry Agent Consumer** role (or higher) on the hosting project.
-    Key-based and unauthenticated access unsupported.
-  - Two caller auth patterns: **on-behalf-of the end user** (agent sees the real user) and
-    **service identity** (agent identity / SP / managed identity — no user context).
-  - Agent-to-agent connections use `authType: AgenticIdentityToken`, `category: RemoteA2A`,
-    audience https://ai.azure.com. Calling agents use `A2APreviewTool`.
-  - Transports: v0.3 = HTTP+JSON and JSONRPC; **v1.0 = JSONRPC only**; gRPC unsupported.
-  - Limitations: text modality only; no streaming/SSE; preview.
+## PRODUCTIVE FOUNDRY METHOD (unchanged, still correct)
+1. devblogs.microsoft.com/foundry — names features the roll-up omits
+2. /azure/foundry/whats-new-foundry — read New/Updated article lists as a POINTER INDEX
+3. go direct to /azure/foundry/agents/how-to/*, /agents/concepts/*, /observability/how-to/*,
+   /concepts/*, /microsoft-agent-365/* — ms.date values run ahead of the roll-up
 
-### Managed MCP servers powered by connector namespaces (preview)
-/azure/foundry/agents/how-to/tools/connectors — ms.date 2026-07-28, updated 2026-07-31
-  - The Foundry Tools Catalog carries **over 1,000 connectors**. Adding one makes Foundry create a
-    **managed MCP server** that Foundry provisions and hosts.
-  - Every Foundry account has a **Connector Namespace** — a managed service hosting connector
-    runtimes and MCP servers. **Each project maps to an environment in that namespace.** The
-    namespace handles hosting, tool definitions, authentication, credential management and lifecycle.
-  - Flow: Browse -> Connect (authenticate) -> Select actions -> Add tool. Only the selected connector
-    ACTIONS become MCP tools. Triggers are NOT supported.
-  - Auth: **OAuth2** in the supported flow. **Each end user that calls the agent must complete a
-    one-time OAuth consent** minted per-user via `listConsentLinks` (link valid ~1 hour); service
-    principals supply their own objectId/tenantId.
-  - Project connection shape: `authType: OAuth2`, `category: RemoteTool`,
-    `metadata.type = gateway_connector`, `metadata.toolEntityId`, and
-    `metadata.mcpserverConfigProperties` (the operations list + per-operation parameter schema).
-    `target` starts as the literal `https://placeholder` and is rewritten by the platform to the real
-    gateway URL, of the form
-    `https://app-XX.<region>.logic.azure.com/api/connectorGateways/<envId>/mcpServerConfigs/<connectionName>/mcp`
-    — i.e. **the managed MCP endpoint is hosted on logic.azure.com, not on the Foundry endpoint.**
-    `overallStatus` goes Unauthenticated -> Connected once consent + action registration complete.
-  - Publisher tiers with explicitly different data responsibility: **Microsoft internal** (SharePoint,
-    Teams, Dynamics 365 — data stays on Microsoft infra), **Microsoft external** (GitHub — transits
-    Microsoft infra to the external service), **Verified third-party** (Docusign, Databricks, Box),
-    and **Independent publisher** (community-contributed, "lower certification bar").
-  - Microsoft's own warning on the page: third-party tools are Non-Microsoft Products, "you do so at
-    your own risk", auth keys and prompt content might be passed to the third-party tool, and "MCP
-    implementations are vulnerable to attacks, cascading failures, and loss of human oversight."
-  - Only **validated** connectors surface the managed-MCP experience in the portal; **the code-first
-    path (REST / SDK / azd) has NO gating — any connector in the catalog can be used.**
-  - Requires **Foundry Project Manager** on the project. 14 supported project regions.
-  - `azd` extension `microsoft.foundry` bundles `azd ai agent|connection|inspector|project|routine|
-    skill|toolbox`.
-
-### Restrict access to sensitive content in Foundry traces (preview)
-/azure/foundry/observability/how-to/traces-sensitive-content — ms.date 2026-07-21
-  - Seven OpenTelemetry gen-AI attributes are classed as sensitive content:
-    `gen_ai.input.messages`, `gen_ai.output.messages`, `gen_ai.system_instructions`,
-    **`gen_ai.tool.definitions`**, **`gen_ai.tool.call.arguments`**, **`gen_ai.tool.call.result`**,
-    `gen_ai.evaluation.explanation`.
-  - They are routed to a dedicated Log Analytics table **`AppGenAIContent`**, which can be set
-    **Protected** (deny-by-default). Only the **Privileged Monitoring Data Reader** role can then
-    read it. Feature flags `protectGenAISensitiveData` / `optOutProtectGenAISensitiveData` on
-    `Microsoft.Insights`.
-  - **Migration: from September 30, 2026** these attribute values stop being written to
-    `AppDependencies` / `AppTraces` / `AppEvents` for newly ingested data — keys remain but values
-    are replaced with a pointer to `AppGenAIContent`. Opt-out is discontinued Sept 30, 2027.
-
-### Microsoft Foundry Canvas (preview)
-/azure/foundry/agents/concepts/foundry-canvas — ms.date 2026-07-21, updated 2026-07-24
-  A **GitHub Copilot App extension** (installed from Settings > Plugins, search `microsoft-foundry`)
-  that opens a side panel to design, configure, test and deploy Foundry **hosted agents** from the
-  editor. Signs in to Azure, enumerates subscriptions and Foundry projects, and browses the project's
-  deployed models, **Toolboxes and tools, skills, and guardrails**. Each canvas choice becomes a
-  ready-to-run prompt for Copilot, which writes the agent code in the workspace. "Inspect Locally"
-  runs the agent in an embedded **Agent Inspector**; "Deploy to Foundry" publishes it. Both run
-  underlying `azd` commands.
-
-### Microsoft Foundry Notification Center
-/azure/foundry/concepts/concept-notification-center — ms.date 2026-07-09, updated 2026-07-21
-  In-app (Foundry portal) aggregated alert feed for agents, models and projects. Four categories:
-  **security alerts from Microsoft Defender for Cloud** (malicious activity, content-safety
-  violations, via Azure security alert APIs), **policy and compliance** (Azure Policy + Foundry
-  built-in guardrails, ML governance policy violations), and run completion / failure events
-  (evaluation runs, training jobs). Bell icon + "View all" page with sort/filter by type, project,
-  severity. Delivery is portal-only today.
-
-## Previously reported and unchanged
-Agent 365 GA (May 1 2026) + registry + Package Management API + autopilot agents + the replaced agent
-object model + Agent Application ARM resources + agent identity/blueprint framework + RBAC rename —
-all reported 2026-08-10, see the 2026-08-10 report. June 2026 wave (toolboxes, tool search, routines,
-Fabric IQ, Work IQ, memory + Memory Store API, agent optimizer, Trace Replay, publish to M365/Teams)
-reported 2026-08-09.
-
-## Foundry blog (devblogs.microsoft.com/foundry)
-Newest posts are both **August 12, 2026** and both cover **Azure Content Understanding** (GPT-5
-series support, sync Read/Layout APIs, confidence scoring, tax preprocessing). Content-extraction
-service, not an agent surface — held below the bar.
-
-Updated: 2026-08-14 — roll-up advanced to July; five new agent-platform surfaces reported.
+Updated: 2026-08-21 — roll-up static, one non-qualifying blog post. **No Foundry finding this scan**
+(first scan without one since 2026-08-07). Watch the 2026-09-30 AppGenAIContent cutover.
+</content>

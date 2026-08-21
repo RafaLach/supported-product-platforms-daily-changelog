@@ -1,38 +1,53 @@
-# OpenAI / ChatGPT + Codex changelog — captured 2026-08-10
-# https://learn.chatgpt.com/docs/changelog
-# (sources.json still points at developers.openai.com/codex/changelog, a 308 cross-host redirect)
+# ChatGPT & Codex changelog — captured 2026-08-21
+# Source used: https://learn.chatgpt.com/docs/changelog
+# (sources.json still points at developers.openai.com/codex/changelog, which 308s here)
 
-Newest entry is still **Codex CLI 0.147.0, August 7, 2026** — IDENTICAL to the 2026-08-07 and
-2026-08-09 captures. No entries dated August 8, 9 or 10.
+### August 20, 2026 — NEW THIS SCAN
+- **Apple Messages plugin** — read and search Messages chats on Mac, prepare and send messages.
+  All plans. Installed from Plugins > Public. Covers **iMessage, SMS and RCS**.
+  Requires **FULL DISK ACCESS** in System Settings + contact-name access + automation access.
+  **Apple Silicon (arm64) build of the desktop app ONLY** — not Intel Macs, not web, not mobile,
+  not Codex CLI, not the IDE extension. Usable from ChatGPT Work AND Codex.
+  Sends need approval by default; **"Always allow sending to this chat"** makes it permanent for
+  that conversation (OpenAI warns this removes the final review).
+  NOTE: no dedicated doc page found — /docs/plugins/apple-messages 404s. Detail via WebSearch
+  (MacRumors, 9to5Mac, Unite.AI, iClarified, all 2026-08-20).   [reported 2026-08-21, HIGH/ENDPOINT]
+- **Computer History available in the EEA, Switzerland and the UK** for Pro/Business/Enterprise —
+  the three jurisdictions excluded when it shipped Aug 13.       [reported 2026-08-21, MEDIUM]
+- Site co-editing (workspace owners invite editors with read/update); editable Site URLs.  [held]
+- Shared read-only Codex thread snapshots from the desktop app.                            [held]
+- Unified pinned threads across desktop and iOS.                                          [held]
+- Codex CLI 0.149.0: interactive agents dashboard, `/cd` `/pwd` `/cwd`, `codex queue`, expanded Vim,
+  `codex doctor` network/proxy/desktop diagnostics, `max`/`ultra` reasoning effort.        [held]
 
-0.147.0 (Aug 7, reported 2026-08-07): portable Agent Plugins with search across local, personal,
-workspace and remote plugin catalogs; conversation sections and incremental transcript browsing;
-`--approve-for-me` automatic approvals; import Cursor-managed skills and sync Claude/Cursor
-conversations; MCP protocol 2026-07-28 (paginated discovery, multi-round requests, non-blocking
-server startup); cached web search; remote conversation compaction for Amazon Bedrock. Fixes include
-secret redaction in commands/history and plugin isolation hardening.
-0.146.1 (Aug 5, reported 2026-08-07): safer automatic-review defaults for cyber-capable models.
+### August 19, 2026 — NEW THIS SCAN
+- **GitLab support (BETA)** — connect GitLab projects to Codex cloud, create environments against
+  them, **trigger tasks from issues and merge requests using `@codex`**, **enable automatic
+  reviews**. Setup covers webhook permissions + MR reviews. First non-GitHub code host.
+  Dedicated doc page not resolvable (developers.openai.com/codex/gitlab -> learn.chatgpt.com/docs/
+  gitlab = 404; /docs/codex/gitlab = 404). Cited /docs/cloud.  [reported 2026-08-21, HIGH/AISPM]
 
-SDK releases — unchanged, no releases between Aug 4 and Aug 10:
-  openai-python v2.53.0 (Aug 3) "GPT-5.5 model support" + tool name/namespace fields on Response
-  types; v2.52.1 (Aug 3) CI pin; v2.52.0 (Jul 31) content provenance checks, Retry-After handling,
-  mTLS docs.
-  openai-node v7.4.0 (Aug 3) same model/tool-metadata adds + mTLS transport examples; v7.3.0
-  (Jul 31) content provenance checks; v7.2.0 (Jul 30) fast tier.
-  NOTE (carried): SDK release-note wording mislabels model families — 5.6 shipped Jul 9 but the
-  Aug 3 SDK entry says "GPT-5.5". Corroborate model launches against openai.com/index/*.
+### August 18, 2026 — NEW THIS SCAN
+- ChatGPT for iOS 1.2026.223: direct Codex Remote launch, MCP forms support, linked folder
+  improvements, voice reliability, diff review performance.                               [held]
+- **Codex CLI 0.148.0**: `/export` conversations to Markdown; session forking + archiving; draft
+  prompts during TUI init; thread credits/cost in `/status`; **Amazon Bedrock Runtime as a built-in
+  provider**; **asynchronous MCP tool invocation in hooks**.
+  The Bedrock provider compounds two known facts: Anthropic's Compliance API explicitly does NOT
+  capture Claude Code routed via Bedrock/GCP/Foundry, and as of 2026-08-19 bedrock-runtime serves
+  the Anthropic Messages API on its /anthropic route.        [reported 2026-08-21, MEDIUM/ENDPOINT]
 
-Status RSS (status.openai.com/history.rss): newest incidents still **Aug 5, 2026** — elevated errors
-with image generation (Files, Image Generation), issues with Custom GPT actions (GPTs), elevated
-errors in ChatGPT conversations with files (Conversations). All resolved. No new service or component
-names.
+### August 13 / 11 / 10, 2026 — all reported 2026-08-14
+Computer History (macOS, opt-in, accessibility-event capture, ephemeral Codex session summarizes to
+local plain-text memory files, 48h on-device buffer, admin grant for Business/Enterprise);
+Import from another agent (Claude Code / Claude Cowork / Cursor, with automatic sync); Daybreak Blue
+and Daybreak Red tiers (GPT-5.5-Cyber / GPT-5.6-Cyber; 95% vs 1.5% on advanced cyber prompts);
+Linux desktop preview (.deb/.rpm, x64 + ARM64).
 
-Community forum (Aug 9-10): background-mode requests stuck in progress via the Responses API; Codex
-VS Code renderer crashing during concurrent agent streaming; Custom GPT image generation returning
-file paths; GPT-5.6 Sol capacity issues in Codex Desktop; Codex rate-limit resets on paid plans;
-phone verification for enterprise Codex accounts; Cloudflare/API compatibility; feature requests for
-Codex on Linux. **No new model, endpoint or agent-feature announcements.**
-**`gpt-realtime-2.1` / `-mini` did not appear at all this scan** and remain absent from SDK
-changelogs and platform docs. WATCH CONTINUES (open since ~2026-07-06).
+### STILL OPEN — sixth consecutive scan
+`gpt-realtime-2.1` / `gpt-realtime-2.1-mini`: forum-only since ~2026-07-06, still absent from SDK
+changelogs, platform docs and this changelog.
 
-Updated: 2026-08-10 — no change.
+Updated: 2026-08-21 — FOUR new dated entries (Aug 18, 19, 20). GitLab and Apple Messages are the
+two reportable surfaces; the Bedrock provider matters mainly as a cross-vendor blind-spot compound.
+</content>

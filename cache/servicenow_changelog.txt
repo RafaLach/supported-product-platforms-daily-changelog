@@ -1,41 +1,45 @@
-# ServiceNow — captured 2026-08-14
-# Family index (sources.json): www.servicenow.com/docs/r/release-notes/family-release-notes.html
-#   Australia family, "Updated August 7, 2026" — UNCHANGED. Still lists AI applications as topics
-#   only, with no version, GA status or feature content. Never use it to answer "did X ship?".
-# Productive surfaces are the per-application pages (still not in sources.json).
+# ServiceNow — captured 2026-08-21
+# Read the PER-APPLICATION *-rn.html pages. The family index
+# (servicenow.com/docs/r/release-notes/family-release-notes.html) lists AI applications as topics
+# only, with no version, GA status or feature content — it will never answer "did X ship?".
 
-## AI Control Tower (release-notes/ai-control-tower-rn.html) — now showing **Australia Patch 4**
-Previously captured 2026-08-10 as the base Australia release. Patch 4 content surfaces items that
-were not captured in the 2026-08-10 read:
-- **Agent map visualization** — displays models, **MCP servers**, providers and workflows across the
-  enterprise.                                                        [NEW — reported 2026-08-14]
-- **Deduplication** — identifies redundant AI assets for consolidation.  [NEW — reported 2026-08-14]
-- Service Graph Connector versions now stated: **Anthropic v2.0.7** (discovers models, tracks
-  **per-user costs**), **Microsoft** (unified Azure ML config, certificate-based auth), **Amazon**
-  (single credential page, automatic key rotation), **GCP Vertex AI v1.2.4 — renamed "AI Connector
-  for Google"**, **Databricks (discovers AND IMPORTS AI agents)**.   [NEW detail — reported]
-- "Kill switch protocol" is the Patch 4 name for the cross-cloud agent deactivation capability
-  reported on 2026-08-10 (deactivate rogue agents across AWS Bedrock, GCP Vertex AI and ServiceNow).
-  Same capability, new label — not re-reported.
-- Carried from the 2026-08-10 report and unchanged: Activity Center; Quality & Safety monitoring with
-  automated scoring and trend analysis; weighted LLM guardrail security scoring; threat metrics for
-  system prompt leakage / sensitive data disclosure / injection attacks; risk heat mapping; global
-  MCP clients; MCP Catalog integration; MCP server access monitoring; "External Registry"
-  integration with Microsoft; risk and compliance posture reviews with regulatory classification.
-- **AI Gateway remains deprecated and unsupported** in Australia.  [deprecation]
+## AI Control Tower — https://www.servicenow.com/docs/r/release-notes/ai-control-tower-rn.html
+**UNCHANGED this scan.** Newest is still **Australia Patch 4**, same feature set captured 2026-08-14:
+- Redesigned AI Control Tower with natural-language search and task completion
+- Activity Center; recommendations and AI insights
+- Quality and safety monitoring with automated scoring and trend analysis
+- ServiceNow Otto premium chat integration with unified search
+- **Kill switch protocol** — AI agent containment for AWS Bedrock, GCP Vertex AI and ServiceNow
+- **Agent map visualization** — AI models, **MCP servers**, providers and workflows  [rep. 08-14]
+- **AI asset deduplication**                                                        [rep. 08-14]
+- Post-runtime security metrics configured by default; asset state at creation;
+  Risk & Compliance posture review; enhanced AWS/GCP/Microsoft connectors
+Patch 3: SB 53 and Colorado AI Act frameworks; AI record type label updates.
+Patch 2: **Microsoft Agent 365 publishing for ServiceNow agents**; Databricks Service Graph Connector.
+Patch 1: customizable AI asset security scoring; new LLM/agent security metrics; agentic AI system
+lifecycle management; expanded AI asset association.
+Early availability: AI connections framework via Service Graph Connectors; managed/unmanaged asset
+categorization; MCP Global Clients and Catalog.
 
-## MCP Server Console (release-notes/mcp-server-console-rn.html)
-Plugin `sn_mcp_server` v1.3 — reported in full on 2026-08-10 (tools from Subflows, Actions, REST
-APIs, Knowledge Graphs and Now Assist skills; embedded OAuth client registration; third-party IDP;
-Quickstart Server; MCP apps). No change detected this scan.
+## Service Graph Connector versions — unchanged, reported 2026-08-14
+Anthropic **v2.0.7** (discovers models, tracks PER-USER costs); Microsoft (unified Azure ML config,
+certificate-based auth); Amazon (single credential page, automatic key rotation); GCP Vertex AI
+**v1.2.4, renamed "AI Connector for Google"** (name-match detection hazard); Databricks (discovers
+AND **imports** AI agents).
 
-## Held / context (unchanged)
-Machine Identity Console — the identity substrate MCP Server Console depends on, genuinely outside
-Zenity's coverage, but introduced in **Zurich** and only enhanced in Australia, so not a new
-addition. Already GA and cached: AI Agent Advisor, Intelligent Approvals, AI Admin Center / Now
-Assist Center, AI Desktop Actions, AI Agent Studio.
+## Standing facts
+- **AI Gateway is DEPRECATED in Australia and no longer supported** (legacy MCP client-server
+  interactions remain visible through it). The "AI Gateway GA" watch is CLOSED as superseded.
+- **MCP Server Console** (plugin `sn_mcp_server`, v1.3) turns a ServiceNow instance into a governed
+  MCP server exposing Subflows, Actions, REST APIs, Knowledge Graphs and Now Assist skills as tools,
+  with embedded OAuth client registration and third-party IDP support. Reported 2026-08-10.
+- Machine Identity Console (Zurich, not Australia) is the identity substrate MCP Server Console
+  depends on. Outside Zenity's coverage — context only.
 
-Note: no release family beyond Australia has appeared; upgrade paths still reference Zurich,
-Yokohama and Xanadu.
+## Pages to read every scan
+ai-control-tower-rn.html, mcp-server-console-rn.html, identity-rn.html, now-assist-rn-landing.html,
+delta-zurich-australia/*.  The family index is only useful for discovering WHICH pages exist.
 
-Updated: 2026-08-14 — Australia Patch 4 detail on AI Control Tower; two new capabilities reported.
+Updated: 2026-08-21 — no change. **No ServiceNow finding this scan.** Recommendation to add the
+per-application URLs to sources.json remains outstanding.
+</content>

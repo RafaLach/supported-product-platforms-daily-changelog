@@ -1,52 +1,67 @@
-# Google Gemini Enterprise / Gemini Enterprise Agent Platform — captured 2026-08-14
-# sources.json still points at cloud.google.com/vertex-ai/docs/release-notes (stale — Workbench
-# image bumps only). Two canonical streams, NEITHER in sources.json:
-#   A) https://docs.cloud.google.com/gemini/enterprise/docs/release-notes           (renders fully)
-#   B) https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes (nav-only)
+# Google Gemini Enterprise release notes — captured 2026-08-21
+# Source used: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes  (renders FULLY)
+# sources.json still points at cloud.google.com/vertex-ai/docs/release-notes (Workbench bumps only)
 
-## Stream A — Gemini Enterprise release notes — ADVANCED from Aug 7 to Aug 13
+## Three release-note streams (see memory: gemini-enterprise-third-release-stream)
+1. cloud.google.com/vertex-ai/docs/release-notes        — in sources.json, useless
+2. docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes — nav-only, WebSearch it
+3. docs.cloud.google.com/gemini/enterprise/docs/release-notes — RENDERS, the productive one
 
-### August 13, 2026  [Skills reported 2026-08-14]
-- **Skills** — users can **create, upload and share skills**: reusable custom instructions that let
-  the assistant handle specialized tasks. Administrators control availability through **Feature
-  Management** settings ("Enable skills" toggle). Corroborating docs describe it as **GA with an
-  allowlist** — the Google Cloud project must be added by the account manager before the admin page
-  is reachable.
-- Gemini 3.7 Flash GA across global, US and EU regions, behind a console feature toggle; not in the
-  mobile app.  [model availability — below bar]
+### August 20, 2026 — NEW THIS SCAN
+- **Antigravity for IDEs** — "AI agents directly into your integrated development environment",
+  now available on Standard, Plus and Pay-as-you-go editions with invoiced billing accounts.
+                                                            [reported 2026-08-21, MEDIUM/ENDPOINT]
+- Okta SCIM autocomplete — user/group autocomplete when sharing notebooks and agents, if Okta is the
+  external IdP.                                                                          [held]
+- Google Identity recommended for third-party data sources with external IdPs using OIDC or
+  SAML 2.0 (excludes Microsoft 365 ingestion).                                           [held]
 
-### August 12, 2026
-- **GitHub connector with Data Federation — GA**  [reported 2026-08-14]. Search and ACT on
-  repositories, issues and pull requests from the agent. Write actions include **create branch, add
-  comment to an issue, add comment to a pending review, update pull request, merge pull request,
-  create or update file, push file, fork repository, update issues**. Data federation sends the
-  search query **directly to the GitHub API** at query time and blends results with other connected
-  sources (rather than indexing into a data store).
-- **AlphaEvolve HPC solution** — distributed, containerized infrastructure for large-scale
-  evolutionary code-optimization experiments that exceed single-machine limits.
+### August 19, 2026 — NEW THIS SCAN
+- Subscription seat limits: self-serve capped at 25 seats, invoiced at 1,000.             [held]
 
-### August 11, 2026  [connector expansion reported 2026-08-14]
-- **12 new data stores in public preview**: Cisco Workspaces, Fibery, Gong, Guru, Hex, LegalZoom,
-  Mercury, Miro, Ramp, Solve Intelligence, **Vanta**, Webex Meetings — natural-language search and
-  read operations.
-- **New write actions on existing connectors**: Airtable record updates; Hex threads; Miro document
-  creation; Smartsheet row additions.
-- Overage management for invoiced Cloud Billing accounts.  [billing — not reported]
+### August 18, 2026 — NEW THIS SCAN
+- Team-member announcement cards on the app home page.                                   [held]
+- Gemini 3.6 Flash GA in US and EU multi-regions, no allowlist for US.                   [held]
 
-### August 10, 2026
-- CSV export of user data reaches GA.  [admin convenience — below bar]
+### August 17, 2026 — NEW THIS SCAN
+- **A2UI / A2A agent registration reaches GA, with A2UI v0.9.** Administrators can register agents
+  using **Agent to UI (A2UI)** for custom interfaces and the **Agent2Agent (A2A) Protocol** for
+  communication with Gemini Enterprise. v0.9 adds **Material Design components**, alongside v0.8.
+  The agent is **hosted and maintained by the customer/third party, NOT Google**, must be
+  network-reachable by Gemini Enterprise for A2A, and is registered by a Gemini Enterprise
+  ADMINISTRATOR via the Cloud console or the **REST API**, making it available to users in a Gemini
+  Enterprise app.
+  => A2UI means the external agent supplies INTERFACE COMPONENTS (buttons, forms, inputs) rendered
+     inside the trusted enterprise surface — a phishing/consent-manipulation surface a text-only
+     agent does not have. Two component protocol versions (v0.8, v0.9) to reason about.
+                                                            [reported 2026-08-21, HIGH/AISPM]
+  /gemini/enterprise/docs/a2ui-agents/register-and-manage-an-a2ui-agent
+  (also: /a2ui-agents/tutorial-host-agent-cloud-run , /register-and-manage-an-a2a-agent)
 
-### August 7 and earlier  (all reported 2026-08-09)
-Custom MCP server data stores GA (off by default, org-policy constraint, auth none or OAuth 2.0,
-HTTPS + StreamableHTTP, importable from the Agent Registry); automatic `tools/list` tool discovery
-(Aug 6); `execute_tool` + `invoke_connector` trace spans (Aug 4); 17 new connectors (Aug 3).
+### August 14, 2026 — NEW THIS SCAN
+- Gemini 3.7 Flash selectable in the mobile app.                                          [held]
 
-## Stream B — Agent Platform release notes (nav-only via WebFetch; recovered via WebSearch)
-- **Gemini Omni Flash** — new video model (generates clips from text/image/video/audio references,
-  edits scenes) now available on the Agent Platform.  [model availability — below bar]
-- AlphaEvolve GA and the Feedback service preview: unchanged, both reported 2026-08-07.
-- Grok 4.1 family deprecated, shutdown August 20, 2026.  [deprecation]
-- No net-new Agent Platform governance/agent capability this scan.
+### August 13 and earlier — all reported 2026-08-14
+Skills (create/upload/share; SKILL.md + scripts/files; admin must enable feature AND sharing;
+sharing can require admin review or be immediate; per-user by email; Skill Registry on the Agent
+Platform side); Gemini 3.7 Flash GA global/US/EU + Agent Designer workflow agents; GitHub connector
+GA with Data Federation and write actions (merge PR, push file, create branch, fork, update issues,
+comments); 12 new data stores in preview (Cisco Workspaces, Fibery, Gong, Guru, Hex, LegalZoom,
+Mercury, Miro, Ramp, Solve Intelligence, Vanta, Webex Meetings) + write actions on Airtable, Hex,
+Miro, Smartsheet.
 
-Updated: 2026-08-14 — Stream A advanced by four dated entries (Aug 10-13); three reported.
-Neither canonical URL is in sources.json (outstanding since 2026-07-08).
+## AGENT PLATFORM (stream 2) — recovered via WebSearch, docs updated 2026-08-13
+- **Agent Registry catalogs FOUR record types**: MCP servers, tools, agents, and **Endpoints** —
+  "target destinations to centrally govern the external APIs and services that your agents can
+  connect to". An **auth manager and bindings** securely authenticate agents to discovered tools.
+  Endpoints = the registry's representation of agent EGRESS; bindings = the concrete grant records
+  joining an agent identity to a discovered tool's credential.
+- **New IAM governance policies in PRIVATE PREVIEW** (August). Track for public preview.
+- Previously reported: Semantic Governance Policy engine + Agent Gateway, Agent Registry GA (Jun 18),
+  Agent Observability + default OTel tracing GA, AI Security Findings dashboard GA, Model Armor on
+  Agent Gateway GA, AlphaEvolve GA, Memory Profiles GA, Feedback service.
+                                                            [reported 2026-08-21, MEDIUM/AISPM]
+  /gemini-enterprise-agent-platform/govern/agent-registry
+
+Updated: 2026-08-21 — five new dated entries on stream 3 (Aug 14-20). A2UI/A2A GA is the finding.
+</content>

@@ -1,24 +1,26 @@
-# Dia Browser release notes — captured 2026-08-14
-# https://diabrowser.com/release-notes
+# Dia Browser release notes — captured 2026-08-21
+# https://diabrowser.com/release-notes   Tier: watching
 
-**Fourth consecutive scan with no extractable feature content.**
+## *** FIFTH CONSECUTIVE SCAN WITH NO EXTRACTABLE FEATURE CONTENT ***
+Newest row: **August 20, 2026, 11:35 AM ET** — but its Issue No. and App Version fields contain
+repeated-digit PLACEHOLDER strings:
+  Issue No.:   "012345678901234567890123456789012345678901234567890123456789"
+  App Version: "01234567890123456789012345678901234567890123456789012345678901234567890123456789"
+Identical failure mode to the Aug 6 rows on 2026-08-10 and the Aug 13 row on 2026-08-14.
 
-The index exposes only dates, issue numbers and version strings; each release body is rendered
-client-side on a per-newsletter page that WebFetch cannot reach. This scan the newest row is dated
-**August 13, 2026 11:15 AM ET** but its Issue No. and App Version fields contain only repeated-digit
-placeholder strings, exactly as the three August 6 rows did on 2026-08-10.
+Older rows carry real version strings but only the title "Notes from the roadmap" — per-release
+bodies render client-side and never reach WebFetch:
+  Aug 13, '26  No. 037  App v1.44.0  "Notes from the roadmap"
+  Aug  6, '26  No. 036  App v1.43.1  "Notes from the roadmap"
+  Jul 30, '26  No. 035  App v1.42.0  "Notes from the roadmap"
 
-Last rows with plausible real values:
-  Aug 6, '26  — No. 036, v1.43.1
-  Jul 30, '26 — No. 035, v1.42.0
-  Jul 23, '26 — No. 034, v1.41.0
-The page advertises "DiaWeeklyUnfiltered — New features every week" and "Notes from the roadmap",
-so releases are shipping; the monitor simply cannot read them.
+WebSearch has returned no feature detail on any attempt.
 
-WebSearch again returned no feature detail for the August releases.
+**Nothing has been reported for Dia since 2026-07-07.** No capability confirmed for five scans.
+This source needs a different acquisition method to be useful at all — candidates: per-issue
+newsletter permalinks (the "No. NNN" values suggest a newsletter archive), or an RSS feed.
+Recommend either finding one or demoting Dia in sources.json, since the current URL cannot
+support change detection.
 
-**No capability confirmed. Nothing reported for Dia for a fourth consecutive scan (since
-2026-07-07).** If Dia matters to Zenity, this source needs a different acquisition method — the
-per-issue newsletter pages or an RSS feed — rather than the index.
-
-Updated: 2026-08-14 — unchanged limitation.
+Updated: 2026-08-21 — no finding.
+</content>

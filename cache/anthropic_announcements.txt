@@ -1,7 +1,49 @@
-# Anthropic News — captured 2026-08-07
+# Anthropic News — captured 2026-08-15
 Source: https://www.anthropic.com/news
 
 ## August 2026
+- **Aug 14 — Announcements: "How Claude's text watermarking works"**   [NEW — REPORTED 2026-08-15]
+  The single new addition anywhere in this scan. NOT present on the platform release-notes stream
+  (/docs/en/release-notes/api), which is the surface this monitor normally reads for Anthropic —
+  it appears only on the news page and in the Help Center, which is why it was missed on 2026-08-14
+  despite being published that day.
+
+  Mechanism: a statistical watermark, not hidden characters. On "low-stakes choices" between equally
+  valid next tokens, Claude's selection is driven by a cryptographic key held by Anthropic plus the
+  preceding context, instead of an arbitrary RNG. Individual word choices look unremarkable; across
+  enough text the pattern is detectable with the key. Explicitly NOT zero-width spaces or Unicode
+  variation selectors ("worthless as a provenance system — removable with find-replace"). Reported
+  externally as a variant of Google DeepMind's SynthID-Text.
+
+  Second, separate mechanism: **signed provenance metadata to the C2PA open standard** embedded in
+  supported generated FILE types — SVG, PNG, JPG.
+
+  Scope (from support.claude.com/en/articles/16266773):
+    - Products: **Claude Platform (the API), Claude, Claude Code, Claude Cowork, and Claude Tag** —
+      i.e. the API is in scope, not just the consumer apps. All regions worldwide.
+    - Models: new models launching **on or after August 2, 2026** mark at launch; earlier models are
+      being retrofitted "over the coming months" (transition period).
+    - **Cloud partners: AWS, Google Cloud and Microsoft Foundry support the watermarks.** Signed
+      C2PA metadata support "varies by platform capabilities." Note this is the inverse of the
+      Compliance-API local-sessions blind spot reported 2026-08-14, where Bedrock/GCP/Foundry-routed
+      Claude Code is NOT captured — marking follows the model, capture follows the account.
+    - **No opt-out.** Applied globally at launch. Driver is EU AI Act Article 50 (transparency
+      obligation effective August 2, 2026), but Anthropic applied it worldwide rather than in the EU.
+  Detection: **"We will soon be offering a watermark detection API. We're in the process of working
+  out the details of its implementation."** Not available yet — this is the thing to watch for.
+  Help Center adds "we'll share details in forthcoming technical documentation."
+
+  Stated limitations (these ARE the coverage map):
+    - Degrades or disappears with heavy editing, format conversion, or screenshots.
+    - Undetectable on small samples / short outputs.
+    - Sparse on proofreading tasks; ineffective where word choice is factually forced.
+    - Cannot distinguish a complete rewrite.
+    - **A mark proves Claude PROCESSED the text, not that Claude AUTHORED it** — marked content may
+      have originated elsewhere and merely passed through Claude.
+    - Absence of a mark does NOT establish human origin, and says nothing about other vendors' models.
+  Sources: https://www.anthropic.com/news/claude-text-watermark
+           https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content
+
 - Aug 7 — Product: Improving Fable 5's biology safeguards. [safety, not a new surface]
 - Aug 4 — Mariano-Florentino Cuéllar joins as Chief Global Affairs Officer. [corporate]
 
@@ -15,9 +57,16 @@ Source: https://www.anthropic.com/news
 - Jul 20 — Rare disease research grants program. [corporate]
 - Jul 9 — Public commitment to address hard AI questions.
 - Jul 6 — The Making of Claude Code. [editorial]
+- **Jun 23 — Claude Tag** (Slack-embedded shared team agent, ambient mode) — reported in the
+  2026-07-03..07-08 reports. Cross-referenced here because Claude Tag is named in the watermark
+  coverage list, confirming it is still a live product surface.
 
 ## June 2026 [already cached]
 - Jun 30 — Claude Sonnet 5 (reported 2026-07-03).
 
-Updated: 2026-08-07 — One product launch above the bar (Claude Opus 5); the rest is research,
-corporate or editorial. Detailed platform deltas are tracked in anthropic_api.txt.
+## STANDING SOURCE LESSON (new this scan)
+The Anthropic **news page and Help Center carry platform-wide capability changes that never appear
+on the API release-notes stream.** Content marking is the proof case: it took effect Aug 2, was
+explained Aug 14, and is invisible to /docs/en/release-notes/api. Read both surfaces every scan.
+
+Updated: 2026-08-15 — ONE new addition (content marking / text watermarking), reported.

@@ -1,62 +1,79 @@
-# Claude Platform release notes — captured 2026-08-14
+# Claude Platform release notes — captured 2026-08-21
 # Source: https://platform.claude.com/docs/en/release-notes/api
 # (the two sources.json Anthropic URLs still 404 — see errors table)
 
-### August 11, 2026  — NEW THIS SCAN, both reported 2026-08-14
-- **Compliance API now returns transcripts of LOCAL sessions** — Cowork and Claude Code sessions
-  that run on your users' machines. Beta, Claude Enterprise only. Three endpoints:
-    GET /v1/compliance/apps/sessions/local                      (list metadata, `clls_` IDs)
-    GET /v1/compliance/apps/sessions/local/{session_id}         (one session's metadata)
-    GET /v1/compliance/apps/sessions/local/{session_id}/messages (transcript)
-  Same Compliance Access Key + `read:compliance_user_data` scope as the existing chat/file/project
-  endpoints — no new key, scope, setting or client update. Admin API keys are REJECTED (403).
-  `product_surface`: `cowork` (Claude Desktop) | `claude_code` (terminal, Desktop, IDE extension).
-  Transcript = user prompts, assistant text, `tool_use` and `tool_result` blocks; MCP tool calls and
-  most server tool calls are NORMALIZED into the same tool_use/tool_result shapes. CLAUDE.md project
-  instruction files appear as ordinary user content; skill content appears when the client sends it.
-  NOT returned: thinking blocks; the system prompt (a `[system prompt content not shown]` synthetic
-  marker stands in); tool DEFINITIONS and MCP server CONFIGURATION; images/PDFs/binary blocks.
-  Documented capture blind spots: Claude Code authenticated with a Console API key or run through
-  **Amazon Bedrock, Google Cloud or Microsoft Foundry**; Claude Code on the web; organizations with
-  **HIPAA readiness**; sessions under **ZDR**; and under **CMEK** sessions list but content is
-  withheld. Retention 6 years by default or the org's custom conversation retention period.
-  Read-only — no deletion through the API. `provenance` field marks content_unavailable /
-  client_asserted / synthetic_marker. Byte caps `tool_use_input_max_bytes` and
-  `tool_result_max_bytes` default 10,000, `-1` = server max (~1 MiB).
-  /docs/en/manage-claude/compliance-sessions#retrieve-local-sessions
-- **`anthropic-workspace-id` response header** added to the Claude API. Carries the `wrkspc_`-prefixed
-  ID of the workspace that the request's API key or access token resolved to, including the
-  organization's Default Workspace.  /docs/en/manage-claude/workspaces
+### August 19, 2026 — NEW THIS SCAN. Eight items in one entry; six reported.
+- **Computer use tool GA** as `computer_toolset_20260801`: no beta header, BATCH ACTIONS (several
+  actions in one turn), `zoom` enabled by default, per-member configuration via `configs`. Earlier
+  beta versions remain. Upgrading changes request shape + tool handling (migrate from
+  `computer_20251124`).                                            [reported 2026-08-21, MEDIUM]
+- **NEW: browser use tool** `browser_toolset_20260801` — client toolset driving a browser the
+  APPLICATION hosts; works in a viewport, not a whole desktop. Reads the page ACCESSIBILITY TREE.
+    read_page  -> a11y tree as text w/ stable refs [ref_1], [ref_2]...; Claude acts BY REFERENCE
+    find       -> locate elements from natural-language description
+    get_page_text -> visible text
+    navigate (+back/forward/reload), screenshot, zoom
+    pointer: left/right/middle/double/triple_click, hover, scroll, scroll_to, left_click_drag,
+             left_mouse_down/up, mouse_move
+    keyboard: type, key (chords), hold_key, wait ; forms: form_input
+    tabs: new_tab, list_tabs, switch_tab, close_tab
+  OPTIONAL members, DISABLED BY DEFAULT: **javascript_exec, file_upload, read_console, read_network**
+  file_upload targets <input type="file"> from executor `paths` OR app-staged `document_ids`.
+  App must report tabs via `browser_state` blocks and downloads via `state_changes`
+  (download_started/completed/failed). target = {type:"ref"} or {type:"coordinate"} (viewport px).
+  Batch semantics: run sequentially, STOP AT FIRST FAILURE, answer the rest is_error.
+  Anthropic's own guidance: dedicated container, no credentials, network-layer domain allowlist,
+  refuse javascript:/file:/data:/chrome:, treat ALL page content as untrusted + sanitize titles/URLs,
+  redact secrets before enabling console/network, human confirmation for consequential actions.
+  Leads with PROMPT INJECTION RISK.                                [reported 2026-08-21, HIGH/AIRT]
+- Both toolsets available on Claude Fable 5, **Claude Mythos 5**, Opus 5, Sonnet 5, Opus 4.8.
+- **Files API GA** — `/v1/files` no longer needs `files-api-2025-04-14`. GA format adds
+  `expires_in_seconds` / `expires_at` and page/next_page pagination + `ids[]` filter.  [held]
+- **Agent Skills + Skills API (`/v1/skills`) GA** — no `skills-2025-10-02` header, incl. Messages API
+  requests loading Skills via the `container` parameter.            [reported 2026-08-21, HIGH]
+- **Admin API user management GA for Claude Enterprise** (claude.ai orgs): members, invites, GROUPS,
+  CUSTOM ROLES. `ce-user-management-2026-07-13` header no longer required. [reported 2026-08-21, MED]
+- **web_search / web_fetch domain restriction** on Managed Agents: `allowed_domains` /
+  `blocked_domains` per-tool in the `agent_toolset_20260401` `configs` array. web_fetch also
+  `max_content_tokens`; web_search also `user_location`. configs entries keyed by `name`, optional
+  `type`; old {name, enabled, permission_policy} shape still works. [reported 2026-08-21, MEDIUM]
+- **Memory stores attachable to SELF-HOSTED sandboxes** — Python/TS/Go SDK workers DOWNLOAD each
+  attached store into the sandbox at its `mount_path` and SYNC THE AGENT'S CHANGES BACK.
+                                                                    [reported 2026-08-21, MEDIUM]
+- Console session viewer redesigned: timeline minimap, transcript grouped by model request,
+  Inspector panel (session details, cost, raw events, per-tool stats, mounted resources,
+  per-thread activity).                                              [held — observability UI]
 
-### August 10, 2026
-- Claude Sonnet 5 introductory pricing ($2/$10 per MTok) becomes the standard price; the scheduled
-  Sept 1 increase will not occur.  [PRICING — not reported]
+### August 18, 2026 — NEW THIS SCAN
+- Workbench is now **Playground** in the Claude Console; supports every Messages API parameter,
+  templates for code execution / web search, shows full SDK request + API response.  [held — rename]
 
-### August 7, 2026  (reported 2026-08-09)
-- Managed Agents session budgets (`budget_reached` stop reason); session advisor
-  (`{"type":"advisor"}` in the multiagent roster); `inference_geo` pinning; skills auto-discovered
-  from a mounted GitHub repository's root `.claude/skills` directory.
+### August 11, 2026  (both reported 2026-08-14)
+- Compliance API returns transcripts of LOCAL sessions (Cowork + Claude Code on users' machines).
+  GET /v1/compliance/apps/sessions/local[/{id}][/messages], `clls_` IDs, existing Compliance Access
+  Key + `read:compliance_user_data`. Admin API keys 403. product_surface = cowork | claude_code.
+  Transcript = prompts, assistant text, tool_use/tool_result (MCP normalized in). NOT returned:
+  thinking, system prompt, **tool definitions + MCP server configuration**, binary blocks.
+  Blind spots: Console API key; **Bedrock / Google Cloud / Microsoft Foundry routing**; Claude Code
+  on web; HIPAA-readiness orgs; ZDR; CMEK (lists, content withheld).
+- `anthropic-workspace-id` response header (`wrkspc_` prefix, incl. Default Workspace).
 
-### August 5, 2026  (reported 2026-08-07)
-- Inference hooks beta for Claude Enterprise.  Claude Opus 4.1 retired.
+### August 10 / 7 / 5 / 3 / 1, 2026 — unchanged, all previously reported
+Sonnet 5 pricing (pricing, not reported); Managed Agents session budgets + advisor + `inference_geo`
++ skills from a mounted GitHub repo's `.claude/skills`; inference hooks beta + Opus 4.1 retired;
+Compliance API REMOTE Cowork sessions (`cse_`, agent-owned sessions have `agent_id` = `cagt_`);
+Dreams supports Opus 5.
 
-### August 3, 2026  (reported 2026-08-09 via remote-session endpoints)
-- Compliance API returns transcripts of REMOTE Cowork sessions (claude.ai web/mobile), `cse_` IDs,
-  `product_surface` = `cowork_remote`. Note for cross-reference: remote sessions can be
-  **agent-owned** — `user` null, `agent_id` (`cagt_` prefix) set, `started_by_user` names the human
-  who initiated the run (e.g. a scheduled task).
+### WATCH ITEM — never reported by this monitor
+**Claude Mythos 5** (`claude-mythos-5`) — launched alongside Claude Fable 5 for **Project Glasswing**
+participants (invitation-only gated research preview for DEFENSIVE CYBERSECURITY work). 1M context,
+128k output, always-on adaptive thinking (`thinking:{"type":"disabled"}` unsupported, no manual
+budgets, no assistant prefill — both 400). Access was "restored" per a dated entry
+(anthropic.com/news/redeploying-fable-5). A gated cyber-capable model tier is the direct analogue of
+OpenAI's Daybreak Red / GPT-5.6-Cyber finding (reported 2026-08-14). **Chase next scan.**
 
-### August 1, 2026
-- Dreams (research preview) supports Claude Opus 5.  [below bar — model support add]
+Standing coverage note: keep watching /docs/en/managed-agents/* and /docs/en/manage-claude/*.
 
-### July 2026 and earlier
-Unchanged: Opus 5 (Jul 24), mid-conversation tool changes, `fallbacks` "default" mode, Opus 4.7
-fast-mode removal, Managed Agents `effort` + environment/memory-store webhooks + `initial_events` +
-thread event deltas (Jul 22), Workbench sunset (Jul 17), mid-conversation system messages (Jul 15),
-Claude Enterprise Admin API user management (Jul 14), Dreams model adds + Access Transparency
-`cmek_preserve` detail (Jul 10), API key expiration (Jul 8).
-
-Standing coverage note: keep watching /docs/en/managed-agents/* — fast-moving and under-covered here.
-
-Updated: 2026-08-14 — TWO new dated entries (Aug 11). The local-session Compliance endpoints are the
-most significant Anthropic addition since the Aug 5 inference hooks.
+Updated: 2026-08-21 — TWO new dated entries (Aug 18, Aug 19). The Aug 19 entry is the largest
+single Anthropic release entry this monitor has recorded; the browser use toolset is the headline.
+</content>

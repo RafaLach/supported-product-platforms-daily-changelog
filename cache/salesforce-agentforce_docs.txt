@@ -1,26 +1,46 @@
-# Salesforce AgentForce / Einstein — captured 2026-08-14
+# Salesforce AgentForce — captured 2026-08-21
+# Tier: secondary. WINTER '27 LANDED THIS WEEK (published on the expected date, 2026-08-19).
 
-## Fetch status this scan
-- developer.salesforce.com/docs/ai/agentforce/guide — **HTTP 503 Service Unavailable** (NEW failure
-  this scan; this URL fetched successfully on 2026-08-10).
-- www.salesforce.com/releases/ — not re-attempted; HTTP 403 on every prior attempt.
+## *** ALL OFFICIAL SALESFORCE SOURCES FAILED ON THE ONE SCAN THAT MATTERED ***
+  developer.salesforce.com/docs/ai/agentforce/guide      -> HTTP 503 (2nd consecutive scan;
+                                                            worked 2026-08-10)
+  www.salesforce.com/releases/                            -> HTTP 403 (months)
+  help.salesforce.com/s/articleView (release notes)       -> client-side "CSS Error" page, NEW
+  www.salesforceben.com (usual fallback)                  -> HTTP 403, NEW
+  developer.salesforce.com/docs/ai/agentforce/references  -> FETCHED OK but release-agnostic
+Everything below is **WebSearch-corroborated only. VERIFY NEXT SCAN before acting.**
 
-## Winter '27 — forward watch, still no feature detail
-Recovered via WebSearch. **The Winter '27 release notes are not yet published** — Salesforce is
-expected to publish them on **August 19, 2026**. Sandbox preview opens **August 28, 2026**;
-production instances upgrade across three weekends starting **September 4, 2026**.
-Dreamforce 2026 runs **September 12-14** in San Francisco, and the Winter release is historically the
-vehicle through which Dreamforce Agentforce announcements reach GA — so expect a large Agentforce
-delta on the scan following August 19, and a larger one after Dreamforce.
-Analyst expectation (not vendor-confirmed, NOT reported): new prebuilt agent templates, expanded
-Atlas Reasoning Engine capabilities, industry-specific agent configurations, and updates to
-Agentforce governance and observability tooling; continued placement of Agentforce actions and topics
-inside core Sales and Service Cloud objects.
+## Winter '27 (release 262) — Agentforce items, unverified
+- **Two new Agentforce agents dedicated to MARKETING**; the first is the **Marketing Goals Agent**,
+  which translates business objectives into actionable marketing strategies.
+- **Agentforce Lead Nurturing is RENAMED Agentforce Engagement.**
+  => detection hazard: name-matching logic will silently stop matching. Same class of failure as
+     ServiceNow's "GCP Vertex AI" -> "AI Connector for Google" rename. Match on stable IDs.
+- **New version of Agentforce Builder** (described as bringing "more flexibility").
+- **AI call-coaching agent** for Agentforce for Sales — automatically evaluates RECORDED CALLS and
+  gives reps feedback. Sensitive data class: customer call recordings.
+- Setup with Agentforce: natural language to enable/disable Dynamic Actions on mobile.
+- Feature-availability doc also lists: Agentforce Observability, **MCP interoperability**, improved
+  Agentforce Voice, more languages.
+  ** MCP interoperability for Agentforce carries a release date of the week of 2026-05-18, so it is
+     NOT a Winter '27 addition and was deliberately EXCLUDED from this scan's finding. **
+                                                            [reported 2026-08-21, MEDIUM, caveated]
 
-## Last confirmed state (unchanged since 2026-08-10)
-Summer '26 Agentforce stack as previously reported. Einstein GenAI overview and the Agentforce /
-Einstein GenAI API reference indexes were unchanged at their last successful fetch.
+## Winter '27 schedule (confirmed 2026-08-14, tracking to plan)
+  2026-08-19  release notes published        <- HAPPENED
+  2026-08-28  sandbox preview opens
+  2026-09-04  production upgrades begin (three weekends)
+  2026-09-12..14  **Dreamforce 2026**, San Francisco — expect a SECOND, probably larger delta
 
-Nothing reported for Salesforce this scan.
+## agentforce/references page contents (fetched OK, unchanged, no Winter '27 additions)
+APIs: Agent API (connected apps + tokens), Models API (Apex + REST to LLMs), Testing API (Metadata +
+Connect endpoints for agent tests), Citations API (Apex).
+SDKs/tools: Agentforce Python SDK (create/manage/deploy agents + prompt templates), Agentforce
+Mobile SDK (native iOS/Android), Agentforce DX (pro-code agent creation/testing outside Builder).
+Languages/config: **Agent Script** (DSL combining natural language with programmatic expressions for
+agent workflows), Lightning Types (custom types for agent-action UI).
+Metadata API and Tooling API both expose Agentforce functionality.
 
-Updated: 2026-08-14 — no confirmed change; one source newly returning 503.
+Updated: 2026-08-21 — Winter '27 published but unreadable from any official source. ONE caveated
+finding. **Highest-priority retry next scan, and budget extra time again for Dreamforce (Sept 12-14).**
+</content>

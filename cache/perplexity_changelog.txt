@@ -1,16 +1,20 @@
-# Perplexity API changelog — captured 2026-08-14
-# https://docs.perplexity.ai/changelog
+# Perplexity API changelog — captured 2026-08-21
+# https://docs.perplexity.ai/changelog   Tier: watching
 
-## August 2026 — model roster additions to the Agent API only
-- **Grok 4.6** (`xai/grok-4.6`) — "xAI's latest flagship reasoning and agentic model", now supported
-  on the Agent API.
-- **NVIDIA Nemotron 3 Ultra** — $0.25 / MTok input or cached-input, $2.50 / MTok output.
-- **NVIDIA Nemotron 3.5 Lightning** — $0.0115 / MTok input; fast open-weight reasoning model.
-- **DeepSeek V4 Flash 0731** — 1M-token context window, fast open reasoning model.
+## August 2026 — new models only. NOTHING above the watching-tier bar.
+New models on the Agent and/or Router APIs:
+- `google/gemini-3.7-flash`                    ($0.375 / $0.0375 cached / $1.875 per M tokens)
+- `xai/grok-4.6`                               (Agent API; xAI flagship reasoning/agentic model)
+- `perplexity/nemotron-3-ultra-550b-a55b`      ($0.25 in|cached / $2.50 out per M)
+- `perplexity/nemotron-3.5-lightning-30b-a3b`  (open-weight reasoning, tiered pricing)
+- `perplexity/deepseek-v4-flash-0731`          (1M-token context)
 
-[All four are MODEL ADDITIONS to an already-inventoried API surface. Watching tier admits only major
-new capabilities, and a wider model roster is not one. Nothing reported for Perplexity this scan.]
+Agent API: the **fast preset** now uses `openai/gpt-5.6-luna` with minimal reasoning and priority
+processing, applied automatically to dynamic requests.
 
-No new API surface, endpoint, agent capability, connector or tool this scan.
+No new APIs, agent capabilities, connectors or MCP features. Model additions on an existing API
+surface remain below the reporting bar for a watching-tier platform (consistent with 2026-08-14,
+which held four new Agent API models).
 
-Updated: 2026-08-14 — model roster expanded; nothing above the bar.
+Updated: 2026-08-21 — no finding.
+</content>

@@ -1,20 +1,26 @@
-# Amazon Q — captured 2026-08-14
+# Amazon Q — captured 2026-08-21
+# https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-history.html   Tier: primary
 
-Q Developer doc-history (qdeveloper-ug/doc-history.html): newest entry is still **May 21, 2026**
-(AmazonQFullAccess / AmazonQDeveloperAccess gain q:CreateArtifact, q:GetArtifact,
-q:GetArtifactActionResult, q:PerformArtifactAction for Amazon Q artifacts preview). No change for a
-fourth consecutive scan. Below that: Mar 19, 2026 Builder ID unsubscribe guidance; Feb 18, 2026
-account subscription limit 10 -> 20; Jan 16, 2026 GitLab code-transformation deprecation.
+## *** THIS SOURCE IS EFFECTIVELY DEAD ***
+Banner: "Amazon Q Business is no longer open to new customers. For capabilities similar to
+Q Business, explore Amazon Quick."
+Page header: "Latest documentation update: **August 14, 2025**".
 
-Q Business doc-history (qbusiness-ug/doc-history.html): newest entry **July 31, 2026 — Amazon Q
-Business is no longer open to new customers**; AWS points new users at Amazon Quick. Latest actual
-feature entry remains Agentic RAG, August 14, 2025. Page header still reads "Latest documentation
-update: August 14, 2025".  [DEPRECATION — not reported]
+Newest entries:
+  2026-07-31  Q Business availability change — closed to new customers        [DEPRECATION]
+  2026-06-30  Q Business availability change — advance notice                 [DEPRECATION]
+  2025-08-14  **Agentic RAG** — newest actual FEATURE entry, over a year old
+  2025-07-22  Clickable S3 link support
+  2025-07-01  Relevancy tuning; response customization
+  ... nothing newer.
 
-API reference (amazonq/latest/api-reference/Welcome.html): namespaces QBusiness and QApps, both
-unchanged; the QBusiness section carries the closed-to-new-customers note.
+Q Developer doc history: unmoved for ~3 months (unchanged from 2026-08-14).
 
-Q Developer docs (qdeveloper-ug/what-is.html): unchanged.
+Assessment: the only movement on Amazon Q in 2026 has been deprecation notices. The successor
+product AWS points to is **Amazon Quick**, which is NOT in sources.json and has never been scanned.
+**Recommendation: demote Amazon Q from primary-tier polling and evaluate whether Amazon Quick
+warrants a source entry in its place** — otherwise this platform consumes primary-tier scan budget
+to confirm a dead product every week while its replacement goes unwatched.
 
-Updated: 2026-08-14 — no change. Amazon Q is effectively frozen as a source: Q Business is closed to
-new customers and Q Developer's doc history has not moved in ~3 months.
+Updated: 2026-08-21 — no change, no finding.
+</content>

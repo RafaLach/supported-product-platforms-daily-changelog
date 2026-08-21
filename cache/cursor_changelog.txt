@@ -1,25 +1,46 @@
-# Cursor changelog — captured 2026-08-14
-# https://cursor.com/changelog   (docs are at https://cursor.com/docs — sources.json still wrong)
+# Cursor changelog — captured 2026-08-21
+# https://cursor.com/changelog  (sources.json URL is CORRECT for the changelog;
+#  only docs.cursor.com is wrong — it 308s to cursor.com/docs)
+# Tier: watching — "only report major new capabilities"
 
-### August 13, 2026 — "Cloud Agents start 3x faster with builds"   [NEW, held below the bar]
-Introduces **builds**: pre-configured development environments that Cloud Agents boot into instead of
-setting up from scratch each session. Environments boot 10x faster internally, 3x faster time to
-first token. Failed builds never become active — agents keep using the last successful version. A new
-**Builds tab** in the Cloud Agents dashboard allows inspection and debugging. Included at no cost.
-[Watching tier: only MAJOR new capabilities qualify. A build is a cached environment snapshot and a
-performance optimization, not a new agent capability or access surface. Recorded, not reported. If
-Cursor Cloud Agents later become an inventory target, a build is a new artifact worth listing.]
+### August 19, 2026 — NEW THIS SCAN. Cloud Agents + Cursor Harness
+- **Subscriptions** — agents monitor **PRs, Slack threads and scheduled tasks**. Agents
+  **automatically subscribe to PRs they create and drive them to completion.**
+- **Custom Modes** — "always on" skills that keep agents focused on specific tasks.
+- **Subagents on isolated machines** — each subagent runs in its own virtual environment with a
+  clean project copy.
+- **Goal tracking** — `/goal` assigns long-lived objectives agents work toward independently.
+- **Non-interruptive steering** — guidance sent mid-run QUEUES for the next tool call rather than
+  halting execution.
+  => agent activity becomes continuous and event-triggered, not session-bounded; the meaningful
+     inventory is active SUBSCRIPTIONS and GOALS, not "agents". Slack-thread monitoring puts an
+     agent with repo access on a channel carrying untrusted text.
+                                                            [reported 2026-08-21, MEDIUM/AISPM]
 
-### August 3, 2026 — Google Workspace Plugins   [reported 2026-08-07, unchanged]
-Coding agents get read/write/act access to Gmail, Google Drive, Calendar, Docs and Sheets through
-Google's remote MCP servers, installed from the Cursor Marketplace.
+### August 17, 2026 — NEW THIS SCAN. *** CURSOR IS NOW A CODE HOST ***
+- **Cursor Origin** — "Origin is Cursor's git forge for storing and sharing code" (early beta).
+  Repository creation, standard git ops (clone/push/pull), code browsing and search at
+  **cursor.com/codebase**, PR review and merge. Existing projects onboarded by **GitHub mirroring**.
+  **PRs on synced repos sync BOTH WAYS** — comment in Cursor and it posts to GitHub; react or reply
+  on GitHub and it appears in Cursor within seconds.
+  Integrations: **Vercel, Depot, Buildkite** for deploys/CI-CD, plus automations, cloud agents, and
+  an **Origin CLI**.
+  Access: Pro, Teams and Enterprise. Team admins grant repo access once a codebase namespace is
+  claimed. **Teams on legacy privacy mode CANNOT enable Origin** — must switch to Privacy Mode first.
+  Privacy follows each namespace owner's Privacy Mode configuration.
+  => this is not an agent feature; it is a NEW LOCATION WHERE CUSTOMER SOURCE CODE LIVES, outside
+     the sanctioned SCM, and bidirectional PR sync moves code review off the governed platform.
+                                                            [reported 2026-08-21, HIGH/AISPM]
+  https://cursor.com/docs/origin
 
-Prior, all previously covered: Jul 29 iPad support (PR review, inbox, Bitbucket + Azure DevOps SCM);
-Jul 28 Cursor Start regional plan (India); Jul 22 Cursor Router; Jul 17 Slack integration.
+### August 13, 2026
+- Cloud Agents start 3x faster with **builds** (pre-built environment snapshots, resilient fallback
+  to last successful build, build history + debugging in the dashboard).   [held 2026-08-14]
 
-Docs (cursor.com/docs) unchanged from the 2026-08-10 capture: Agent (incl. Plan Mode, design mode),
-Customize (plugins, rules, skills, subagents, hooks, MCP), Cloud Agents (setup, builds, automations,
-Bugbot, security agents, PR routing), Integrations, SDK & CLI, Teams & Enterprise.
+### August 3, 2026
+- **Google Workspace plugins** — agents get direct access to Gmail, Google Drive and Google Calendar
+  for managing files, email and schedules within Cursor.                  [previously captured]
 
-Updated: 2026-08-14 — one new entry, held below the watching-tier bar.
-**The `docs.cursor.com` -> `cursor.com/docs` 308 redirect remains unfixed in sources.json.**
+Updated: 2026-08-21 — two new dated entries. Origin (code hosting) is the first Cursor item to clear
+the watching-tier bar as a HIGH, because it changes where code lives rather than what the IDE can do.
+</content>

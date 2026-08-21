@@ -1,39 +1,73 @@
-# Amazon Bedrock AgentCore release notes — captured 2026-08-14
+# Amazon Bedrock AgentCore release notes — captured 2026-08-21
 # Source used: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
 # (sources.json still points at doc-history.html, which renders title/nav only — recurring since
 #  2026-05-18 and still unfixed)
 
-## August 2026 — now SIX entries (was four on 2026-08-10). Both additions are below the bar.
-- Memory, policy, and harness now available in AWS GovCloud (US-West).   [REGION EXPANSION]
-- Runtime: Instances compute type with capacity providers.               [reported 2026-08-07]
-- AWS Agent Registry launches under the `agent-registry` namespace.      [reported 2026-08-07]
-- Gateway: Configurable rate limits.                                     [reported 2026-08-07]
-- **NEW: Runtime — simplified and increased API rate quotas.** Data-plane APIs consolidated into a
-  single adjustable 1,000 TPS/account quota (was 200 TPS); new session creation a single 25 TPS
-  shared quota; control plane grouped into mutation 50 TPS / Get 150 TPS / List 25 TPS.
-  [QUOTA CHANGE — no new entity type, API or capability. Held below the reporting bar.]
-- **NEW: Gateway — Web Search Tool now available in Europe (Ireland) and Asia Pacific (Tokyo).**
-  Same Amazon-operated index; all connector versions (1.1.0, 1.2.0) available.
-  [REGION EXPANSION of an already-reported tool. Held below the reporting bar.]
+## August 2026 — now ELEVEN entries (was six on 2026-08-14). FIVE are new; four reported.
 
-## July 2026 — all reported 2026-08-07, unchanged
-Gateway Web Search connector v1.2.0 (request-level filters + target include list); Identity Private
-Key JWT client authentication (KMS-held private key, RS256/PS256/ES256, M2M/OBO/user-delegated);
-Harness InvokeHarness streams MCP tool result metadata; Runtime unified span destination
-(`/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>`); Evaluations/Optimizations
-PrivateLink; Evaluations expanded framework support (OpenAI Agents, LlamaIndex, Google ADK, Claude
-Agent SDK + generic OTel/OpenInference); ActiveSessionCount metric; Runtime default quota increase.
+- **NEW: Payments — x402 `upto` scheme and Machine Payments Protocol (MPP).**
+  `upto` pays a METERED AMOUNT UP TO A CEILING and settles through the **Permit2 contract**
+  (previously only the `exact` scheme). MPP is an open, HTTP-native standard using the standard HTTP
+  auth-challenge flow: merchant returns `WWW-Authenticate: Payment` in its `402 Payment Required`;
+  the caller forwards the challenge VERBATIM to `ProcessPayment` with `paymentType=MPP`; AgentCore
+  **parses the challenge, checks the SESSION BUDGET, signs with the WALLET, and returns a
+  ready-to-send credential**, which the caller replays in an `Authorization` header.
+  Payment methods: **evm, tempo, solana** (provider support varies by connector type).
+  => an untrusted party's HTTP response is the input driving a wallet signature; the session budget
+  is the primary financial control.               [reported 2026-08-21, HIGH/AIRT]
+  /payments-process-payment.html , /payments-concepts.html
+- **NEW: Payments — Quick create for Coinbase payment connectors.** AgentCore payments PROVISIONS
+  YOUR COINBASE CDP CREDENTIALS FOR YOU: authorize via Coinbase in a browser and the service creates
+  the payment credential provider on your behalf. **No API keys generated or pasted by a human.**
+  Coinbase ONLY — Stripe (Privy) still uses customer-supplied credentials, so connector type
+  predicts credential provenance.                 [reported 2026-08-21, MEDIUM]
+  /payments-create-manager.html
+- **NEW: Evaluations — Skill evaluators.** Two built-in TOOL-LEVEL evaluators:
+    `Builtin.SkillSelectionAccuracy`   — did the loaded skill fit the task, GIVEN THE CATALOG of
+                                         available skills. Yes(1.0)/No(0.0).
+    `Builtin.SkillInstructionFollowing`— five-point rating, Fully Followed(1.0)..Not Followed(0.0).
+  One result PER SKILL INVOCATION, anchored to the tool-call span that loaded the skill. Works with
+  on-demand, batch and online evaluations. Custom TOOL_CALL evaluators can read the same signals via
+  the **`invoked_skill`, `skill_content`, `available_skills`, `user_message`** placeholders.
+  => confirms skills on AgentCore are catalog-backed and loaded at runtime via a tool call.
+                                                  [reported 2026-08-21, MEDIUM]
+  /skill-evaluators.html
+- **NEW: Evaluations — Third-party evaluators.** Evaluators from the **DeepEval** and **AutoEval**
+  open-source libraries. Two modes: MANAGED (select by ID, AWS runs it on a model IT operates) or
+  DERIVED (run the library's logic on your own model + inference). Both are discoverable through
+  **`ListEvaluators`** ALONGSIDE built-in and custom evaluators — i.e. provenance is not
+  distinguished on the inventory surface.         [reported 2026-08-21, MEDIUM]
+  /third-party-evaluators.html
+- **NEW: Payments — Coinbase wallet usage billed through AWS Marketplace.** Mandatory subscription to
+  the "Coinbase Wallets for AgentCore Payments" listing, enforced at connector creation and at wallet
+  operations. Coinbase only.                      [BILLING PLUMBING — held below the bar]
 
-## June 2026 and earlier — previously reported
-Web Search Tool GA; Policy + Bedrock Guardrails; Harness GA; Recommendations GA; Batch Evaluations
-GA; A/B Testing GA; Managed Knowledge Base GA; Failure Insights preview; Gateway Runtime targets GA,
-HTTP passthrough targets, inference targets, inbound traffic enforcement; SOC compliance; Identity
-Secrets Manager references; CLI/CDK payments support; Runtime Interactive Shells; Step Functions.
+## Carried forward, unchanged (all previously reported or held)
+- Memory, policy, harness in AWS GovCloud (US-West) `us-gov-west-1`.        [region expansion, held]
+- Runtime: Instances compute type with capacity providers.                  [reported 2026-08-07]
+- AWS Agent Registry under the `agent-registry` namespace — private governed catalog of agents,
+  tools, skills, MCP servers and custom resources; console + control/data-plane APIs + the registry's
+  own MCP endpoint; `ListDiscoverableRegistryRecords`, `BatchGetDiscoverableRegistryRecord`; record
+  tagging; required `recordType`; Record directory console page; nine Regions. [reported 2026-08-07]
+- Gateway: Configurable rate limits — dimensional scoping (`dimensionKeys`/`entries`), JWT claims
+  (`$.context.jwt.sub`), `iam.sourceIdentity`, target/tool/model dims, wildcard catch-all,
+  most-specific-match-wins; RPS/RPM, TPM, Connections; AND semantics; min(service, customer);
+  `rate=0` = explicit block; ~30s propagation; FAILS OPEN. Six ops: Create/Get/Update/Delete/
+  List RateLimit + BatchPutRateLimitEntries.                                [reported 2026-08-07]
+- Runtime: simplified/increased API rate quotas (data plane 1,000 TPS shared; sessions 25 TPS;
+  control plane mutation 50 / Get 150 / List 25).                     [quota change, held 08-14]
+- Gateway: Web Search Tool in eu-west-1 and ap-northeast-1.          [region expansion, held 08-14]
 
-## Data-plane Actions list (API_Operations.html) — unchanged from the 2026-08-10 capture
-Registry: SearchRegistryRecords remains the only registry op on this page; the AWS Agent Registry
-control-plane ops (incl. ListDiscoverableRegistryRecords, BatchGetDiscoverableRegistryRecord) live on
-a separate API surface.
+## July 2026 and earlier — unchanged
+Web Search connector v1.2.0 (request-level filters, target include list); Identity Private Key JWT
+client auth (KMS-held key, RS256/PS256/ES256, M2M/OBO/user-delegated); Harness InvokeHarness streams
+MCP tool result metadata; Runtime unified span destination; Evaluations/Optimizations PrivateLink;
+Evaluations framework support (OpenAI Agents, LlamaIndex, Google ADK, Claude Agent SDK, OTel/
+OpenInference); ActiveSessionCount metric. Earlier: Web Search GA, Policy + Bedrock Guardrails,
+Harness GA, Recommendations GA, Batch Evaluations GA, A/B Testing GA, Managed Knowledge Base GA,
+Failure Insights preview, Gateway Runtime/HTTP-passthrough/inference targets, Runtime Interactive
+Shells, Step Functions, CLI/CDK payments support.
 
-Updated: 2026-08-14 — two new August entries, both a quota change and a region expansion.
-**No AgentCore finding this scan.**
+Updated: 2026-08-21 — five new August entries, four reported. The payments surface (MPP + `upto` +
+auto-provisioned wallet credentials) is the most consequential AgentCore movement since Harness GA.
+</content>
