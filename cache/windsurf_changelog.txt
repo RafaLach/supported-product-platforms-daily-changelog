@@ -1,20 +1,50 @@
-# Windsurf / Devin Desktop changelog — captured 2026-08-21
-# sources.json says windsurf.com/changelog -> 308 to https://docs.devin.ai/desktop/changelog
-# sources.json says docs.windsurf.com     -> 307 to https://docs.devin.ai/desktop/getting-started
-# Windsurf is now Devin Desktop.  Tier: watching
+# Windsurf / Devin Desktop changelog — captured 2026-08-23
+# Source used: https://docs.devin.ai/desktop/changelog
+# BOTH sources.json Windsurf URLs are wrong (outstanding):
+#   windsurf.com/changelog  -> 308 -> docs.devin.ai/desktop/changelog
+#   docs.windsurf.com       -> 307 -> docs.devin.ai/desktop/getting-started
 
-## Newest entry: v3.7.25 — August 13, 2026.  NOTHING after Aug 14.
-- Devin Desktop: faster sidebar for users with thousands of cached sessions — filtering, space
-  grouping and sorting now only process the sessions actually fetched for display, eliminating
-  multi-second lag.                                                        [performance, below bar]
-- Devin Local: fixed authentication issues affecting certain MCP servers, including **self-hosted
-  GitLab** and older **Atlassian** MCP instances.                          [bug fix, below bar]
+## NEW: v3.8.20 — August 21, 2026   (previous cache stopped at v3.7.25, Aug 13)
 
-Version progression across scans: 3.6.27 -> 3.7.16 (Aug 10) -> **3.7.25 (Aug 13)**.
+**REPORTED ITEM — ACP data sharing.** New settings "control whether **terminal and user-edit
+activity share with ACP agents**."
+What is new is the CONTROL; the control is what makes the flow legible. Receiving side, from
+docs.devin.ai/desktop/acp:
+  - **ACP = Agent Client Protocol: JSON-RPC 2.0 over stdin/stdout; the EDITOR LAUNCHES THE AGENT AS
+    A SUBPROCESS.** Open protocol, LSP-analogous.
+  - Supported: **Codex, Claude Agent, OpenCode, and any other ACP-compatible agent — "including
+    agents built by your team in-house."** So the destination is NOT enumerable from the vendor's
+    surface.
+  - Third-party agents appear in the **Kanban view alongside Devin**, **share the Spaces context
+    layer**, and "operate with the same controls as native sessions" — peers, not sandboxed guests.
+  - Available on Pro, Max and Teams.
+TWO DATA CLASSES LEAVE THE ENDPOINT:
+  - **terminal output** — env vars, connection strings, tokens echoed by CLI tools, failed-auth
+    contents;
+  - **user-edit activity** — proprietary source BEFORE it reaches version control, bypassing every
+    SCM-anchored control.
+The setting's state on a machine is the ONLY local evidence the flow is active.
+                                                        [reported 2026-08-23, MEDIUM/ENDPOINT]
 
-Held items worth remembering if Devin Desktop ever enters ENDPOINT scope (from 2026-08-14):
-sanitized-transcript share links, and the permission-rule deny-precedence model.
+Also in v3.8.20, scope-relevant:
+- **Workspace trust prompts now appear when needed to activate local agents** — local agent
+  activation is gated on a per-workspace trust decision the developer makes unilaterally.
+  Readable as a posture signal.
+- **Multi-root workspaces with virtual filesystem folders** — a virtual root can compose directories
+  no single project boundary contains, widening what one agent session sees.
 
-Updated: 2026-08-21 — no new entries in the window. No finding. Both sources.json entries are still
-wrong (cross-host redirects, unapplied).
+Not reported (QoL): Agent Command Center adapts to selected workspace / converts editor windows in
+place / separate-window setting; perf on Agent<->Editor switching; Windows explicit restart
+confirmation + `devin` CLI co-update; Linux shared-keyring preservation on upgrade; session tabs
+renameable from dropdown; enterprise inline ACU-limit notices; Devin Local plan mode with full
+Markdown files + explicit implementation button; individual subagents stoppable without cancelling
+a turn; migration wizard over remote SSH; Devin Cloud sidebar filter/sort, live shell output
+streaming, "Copy Session URL", network-config conflict reporting.
+
+## Carried forward
+- v3.7.25 (Aug 13, 2026) — sessions-sidebar perf (only fetched sessions processed); Devin Local MCP
+  auth fix for self-hosted GitLab and older Atlassian.                        [held 2026-08-21]
+- Devin Local autonomous mode (v3.4.22) — reported 2026-07-04.
+
+Updated: 2026-08-23 — v3.8.20 is new; the ACP terminal/user-edit sharing setting reported.
 </content>

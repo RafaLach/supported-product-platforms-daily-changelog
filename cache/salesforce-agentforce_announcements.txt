@@ -1,41 +1,54 @@
-# Salesforce Releases / What's New — captured 2026-07-08
+# Salesforce AgentForce — captured 2026-08-23
+# Winter '27 (release 262) release notes published 2026-08-19.
 
-## Note
-Direct fetch of salesforce.com/releases/, /agentforce/what-is-new/, and /news/* all return
-HTTP 403 (consistent 06-16 through 07-08). Content sourced via WebSearch fallback.
+## SOURCE STATE — one recovery, three still broken
+| Source | 2026-08-23 |
+| developer.salesforce.com/docs/ai/agentforce/guide | **RECOVERED** from the 503 that persisted
+|   across 2026-08-14 and 2026-08-21. BUT release-agnostic: carries only the pre-existing April 2026
+|   topics->subagents rename (already reported 2026-05-21). Confirms NOTHING about Winter '27. |
+| www.salesforce.com/releases/ | HTTP 403, months. Not recoverable. |
+| help.salesforce.com/s/articleView (release notes) | JS-rendered viewer; WebFetch cannot read it.
+|   Unchanged from 2026-08-21. |
+| developer.salesforce.com/docs/ai/agentforce/references | Fetches fine, RELEASE-AGNOSTIC — lists
+|   Agent API, Agentforce Python SDK, Agent Script, Agentforce DX, Mobile SDK, Lightning Types,
+|   Models API (Apex+REST), Testing API, Citations, Metadata/Tooling APIs. No 262 deltas. |
+| developer.salesforce.com/docs/einstein/genai/overview | Renders, but overview only. No versions. |
 
-## NEW this scan 2026-07-08 (Summer '26 dev release — previously MISSED, now captured)
-- Headless 360 — the entire platform as API / MCP tool / CLI command to any authenticated
-  caller. "Biggest theme of Summer '26." 60+ new MCP tools, 30+ preconfigured coding skills;
-  Salesforce Hosted MCP Servers connect external MCP clients (Claude/ChatGPT/Cursor) to org
-  data & business logic. [MAJOR new access surface for AI agents]
-- Agent Skills — open format for extending agents; open-sourced sf-skills library, Claude Code compatible.
-- Agent Fabric — governance layer for agents.
-- AgentExchange — unified marketplace for agents/skills.
-- Agentforce Vibes 2.0 — native in-Salesforce coding agent; full org awareness; multi-model
-  (Claude Sonnet, GPT-5). (Revealed at TDX 2026.)
-- New Agent button opens ONLY new Agentforce Builder starting week of July 13 2026 (legacy retired).
+**=> Winter '27 detail is WebSearch-corroborated ONLY, for a second consecutive scan. NOT
+vendor-confirmed. Must be verified before Zenity acts on the technical specifics.**
 
-## Prior — Commerce & Service [REPORTED 2026-07-07]
-- Agentforce Commerce GA (July 6): Shopper (B2C), Buyer (B2B, WhatsApp/SMS), Merchant (back-office)
-  agents; ChatGPT catalog sync (GA), Google Search/AI Mode + Gemini app (coming summer 2026).
-- Agentforce Help Agent GA July '26 — autonomous service agent, 6-click setup, pay-per-resolution.
-- Agentforce Customer Service Portal GA July '26 — real-time adaptive self-service.
+## Winter '27 Agentforce — FIRMED UP since 2026-08-21
 
-## Prior — Summer '26 "Agentic Enterprise" [REPORTED 2026-07-06]
-- Multi-Agent Orchestration GA (Jun 15); Atlas Reasoning Engine 3.0; A2A open protocol;
-  Agent Script + Agentforce Builder GA; "Create Agent" Flow element; IT Service Domain Pack
-  (50+ agents); Agentforce Sales in Slack; Named Query API GA; Agent Builder API;
-  Salesforce-hosted MCP servers GA; v67.0 security defaults.
+- **BOTH marketing agents now named** (last scan had only the first):
+  1. **Marketing Goals Agent** — and the autonomy model is now documented and is STRONGER than last
+     scan's "translates objectives into strategies": users "define a goal, **budget**, and eligible
+     audience," the agent proposes a strategy for review and approval, and once activated it
+     "**operates autonomously within those guardrails, continuously optimizing** activities and
+     decisions toward the desired outcome."
+     => A STANDING GRANT, NOT A TASK. One human approval authorizes ongoing spend and targeting
+        decisions with no per-decision review.
+     => The **budget is a governance object** — same pattern as the AgentCore session budget
+        (reported 2026-08-21): the human-set ceiling is the only real bound on autonomous commercial
+        action. Large/absent budget = a finding.
+     => The **eligible audience is a standing data-scope grant** over prospect + campaign data.
+     => Record the ACTIVATION EVENT AND ITS APPROVER as the authorization for everything after.
+  2. **Agentforce Content Agent** — creates campaign content at scale while maintaining brand
+     consistency.                                     [reported 2026-08-23, MEDIUM/AISPM]
+- **Agentforce observability** — refined agent analytics and **custom scorers**, some in Beta.
+- Also listed: agent interoperability, improved Agentforce Voice, multilingual conversations,
+  improved agent management, a new **Agentforce Builder** version.
+- **Agentforce Lead Nurturing -> Agentforce Engagement** rename (reported 2026-08-21). DETECTION
+  HAZARD: match on stable identifiers, never display names.
+- AI **call-coaching agent** for Agentforce for Sales, auto-evaluates recorded calls
+  (reported 2026-08-21) — reads RECORDED CUSTOMER CALLS.
 
-## Prior — pre-scan (NOT new)
-- Agentforce Operations — GA Apr 29 2026 (back-office: process coordination, data verification,
-  compliance clearance, approval routing). Flow auto-sync/triggers Beta May 2026.
-- Spring '26: Agentforce Voice, Field Service proactive ops.
+## NOT a Winter '27 item — do not re-attribute
+"Unlock Agent Interoperability with MCP for Agentforce" carries a release date of the **week of
+2026-05-18**. Aggregator articles conflate releases; always check the per-feature date.
 
-## Last Fetched
-2026-07-08 - FAILED direct (403). NEW via WebSearch: Headless 360, Agent Skills, Agent Fabric, AgentExchange, Vibes 2.0. Confirmed Agentforce Operations = Apr 2026 (not new).
-2026-07-07 - FAILED direct (403). NEW: Agentforce Commerce GA + Help Agent GA via WebSearch.
-2026-07-06 - FAILED direct (403). Summer '26 features via WebSearch.
-2026-07-04 - FAILED (403). Cache preserved.
-2026-07-03 - FAILED (403). Cache preserved.
+## Next delta
+**Dreamforce, September 12-14 2026** — expect a larger Agentforce announcement set than Winter '27.
+
+Updated: 2026-08-23 — second marketing agent named; Marketing Goals Agent autonomy/budget model
+documented and reported. Sources still cannot confirm it.
+</content>

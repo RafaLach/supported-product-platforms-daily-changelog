@@ -1,79 +1,80 @@
-# Claude Platform release notes — captured 2026-08-21
-# Source: https://platform.claude.com/docs/en/release-notes/api
-# (the two sources.json Anthropic URLs still 404 — see errors table)
+# Anthropic / Claude Platform release notes — captured 2026-08-23
+# Working source: https://platform.claude.com/docs/en/release-notes/api
+# BOTH sources.json Anthropic URLs still return HTTP 404 (recurring for months):
+#   platform.claude.com/docs/api/getting-started , /docs/build-with-claude/overview
 
-### August 19, 2026 — NEW THIS SCAN. Eight items in one entry; six reported.
-- **Computer use tool GA** as `computer_toolset_20260801`: no beta header, BATCH ACTIONS (several
-  actions in one turn), `zoom` enabled by default, per-member configuration via `configs`. Earlier
-  beta versions remain. Upgrading changes request shape + tool handling (migrate from
-  `computer_20251124`).                                            [reported 2026-08-21, MEDIUM]
-- **NEW: browser use tool** `browser_toolset_20260801` — client toolset driving a browser the
-  APPLICATION hosts; works in a viewport, not a whole desktop. Reads the page ACCESSIBILITY TREE.
-    read_page  -> a11y tree as text w/ stable refs [ref_1], [ref_2]...; Claude acts BY REFERENCE
-    find       -> locate elements from natural-language description
-    get_page_text -> visible text
-    navigate (+back/forward/reload), screenshot, zoom
-    pointer: left/right/middle/double/triple_click, hover, scroll, scroll_to, left_click_drag,
-             left_mouse_down/up, mouse_move
-    keyboard: type, key (chords), hold_key, wait ; forms: form_input
-    tabs: new_tab, list_tabs, switch_tab, close_tab
-  OPTIONAL members, DISABLED BY DEFAULT: **javascript_exec, file_upload, read_console, read_network**
-  file_upload targets <input type="file"> from executor `paths` OR app-staged `document_ids`.
-  App must report tabs via `browser_state` blocks and downloads via `state_changes`
-  (download_started/completed/failed). target = {type:"ref"} or {type:"coordinate"} (viewport px).
-  Batch semantics: run sequentially, STOP AT FIRST FAILURE, answer the rest is_error.
-  Anthropic's own guidance: dedicated container, no credentials, network-layer domain allowlist,
-  refuse javascript:/file:/data:/chrome:, treat ALL page content as untrusted + sanitize titles/URLs,
-  redact secrets before enabling console/network, human confirmation for consequential actions.
-  Leads with PROMPT INJECTION RISK.                                [reported 2026-08-21, HIGH/AIRT]
-- Both toolsets available on Claude Fable 5, **Claude Mythos 5**, Opus 5, Sonnet 5, Opus 4.8.
-- **Files API GA** — `/v1/files` no longer needs `files-api-2025-04-14`. GA format adds
-  `expires_in_seconds` / `expires_at` and page/next_page pagination + `ids[]` filter.  [held]
-- **Agent Skills + Skills API (`/v1/skills`) GA** — no `skills-2025-10-02` header, incl. Messages API
-  requests loading Skills via the `container` parameter.            [reported 2026-08-21, HIGH]
-- **Admin API user management GA for Claude Enterprise** (claude.ai orgs): members, invites, GROUPS,
-  CUSTOM ROLES. `ce-user-management-2026-07-13` header no longer required. [reported 2026-08-21, MED]
-- **web_search / web_fetch domain restriction** on Managed Agents: `allowed_domains` /
-  `blocked_domains` per-tool in the `agent_toolset_20260401` `configs` array. web_fetch also
-  `max_content_tokens`; web_search also `user_location`. configs entries keyed by `name`, optional
-  `type`; old {name, enabled, permission_policy} shape still works. [reported 2026-08-21, MEDIUM]
-- **Memory stores attachable to SELF-HOSTED sandboxes** — Python/TS/Go SDK workers DOWNLOAD each
-  attached store into the sandbox at its `mount_path` and SYNC THE AGENT'S CHANGES BACK.
-                                                                    [reported 2026-08-21, MEDIUM]
-- Console session viewer redesigned: timeline minimap, transcript grouped by model request,
-  Inspector panel (session details, cost, raw events, per-tool stats, mounted resources,
-  per-thread activity).                                              [held — observability UI]
+## NEW dated entry since the 2026-08-21 capture
 
-### August 18, 2026 — NEW THIS SCAN
-- Workbench is now **Playground** in the Claude Console; supports every Messages API parameter,
-  templates for code execution / web search, shows full SDK request + API response.  [held — rename]
+### August 20, 2026 — Python SDK v1.0   [HELD BELOW THE BAR: version bump + deprecations]
+HTTP layer moves from `httpx` to **httpx2** (build custom `http_client`/`Timeout`/transport objects
+from `httpx2`; call `httpx2.alias_httpx()` if tracing/mocking libs patch `httpx`). Requires Python
+3.10+. REMOVES: the legacy Text Completions API; `temperature`, `top_p`, `top_k` on Messages methods;
+the tool runner's client-side `compaction_control`. Async `.with_raw_response` now needs
+`await response.parse()`. **`AnthropicBedrock` now raises when no AWS region is configured** instead
+of defaulting to `us-east-1`.
+=> Deprecation-heavy version bump; NOT reportable per the monitor's own rules. Recorded because the
+   AnthropicBedrock region change is a behavioural break worth knowing about.
 
-### August 11, 2026  (both reported 2026-08-14)
-- Compliance API returns transcripts of LOCAL sessions (Cowork + Claude Code on users' machines).
-  GET /v1/compliance/apps/sessions/local[/{id}][/messages], `clls_` IDs, existing Compliance Access
-  Key + `read:compliance_user_data`. Admin API keys 403. product_surface = cowork | claude_code.
-  Transcript = prompts, assistant text, tool_use/tool_result (MCP normalized in). NOT returned:
-  thinking, system prompt, **tool definitions + MCP server configuration**, binary blocks.
-  Blind spots: Console API key; **Bedrock / Google Cloud / Microsoft Foundry routing**; Claude Code
-  on web; HIPAA-readiness orgs; ZDR; CMEK (lists, content withheld).
-- `anthropic-workspace-id` response header (`wrkspc_` prefix, incl. Default Workspace).
+## ===== OPEN WATCH ITEM CLOSED 2026-08-23: claude-mythos-5 / Project Glasswing =====
 
-### August 10 / 7 / 5 / 3 / 1, 2026 — unchanged, all previously reported
-Sonnet 5 pricing (pricing, not reported); Managed Agents session budgets + advisor + `inference_geo`
-+ skills from a mounted GitHub repo's `.claude/skills`; inference hooks beta + Opus 4.1 retired;
-Compliance API REMOTE Cowork sessions (`cse_`, agent-owned sessions have `agent_id` = `cagt_`);
-Dreams supports Opus 5.
+**RESOLVED.** Flagged 2026-08-21 as "appears in model-support lists, never reported, chase next scan."
+Anthropic's own model page states it: Mythos Preview users can upgrade to Claude Mythos 5,
+**"the same model as Claude Fable 5 but with cyber safeguards lifted."**
 
-### WATCH ITEM — never reported by this monitor
-**Claude Mythos 5** (`claude-mythos-5`) — launched alongside Claude Fable 5 for **Project Glasswing**
-participants (invitation-only gated research preview for DEFENSIVE CYBERSECURITY work). 1M context,
-128k output, always-on adaptive thinking (`thinking:{"type":"disabled"}` unsupported, no manual
-budgets, no assistant prefill — both 400). Access was "restored" per a dated entry
-(anthropic.com/news/redeploying-fable-5). A gated cyber-capable model tier is the direct analogue of
-OpenAI's Daybreak Red / GPT-5.6-Cyber finding (reported 2026-08-14). **Chase next scan.**
+MECHANISM = CLASSIFIER REMOVAL. Fable 5 runs **three real-time safety classifiers** that route
+sensitive queries; on Mythos 5 those classifiers are **absent**. That is what permits unrestricted
+offensive security analysis for defensive work.
 
-Standing coverage note: keep watching /docs/en/managed-agents/* and /docs/en/manage-claude/*.
+ENTITLEMENT (this is the discoverable object):
+- "offered only to approved customers in Project Glasswing"; "currently only provided to a small, but
+  growing, set of customers through trusted access programs"
+- Requires: Glasswing membership + Anthropic invitation + **signed NDA** + approval **coordinated
+  with the US government**. Restricted to cyberdefenders and infrastructure providers (select
+  biomedical researchers later, separate programme).
+- **ACCESS PATH IS MULTI-CLOUD:** "contact your **Anthropic, AWS, or Google Cloud** account team."
+  => an org can hold safeguard-lifted model access that NEVER appears in its Anthropic tenant.
+     Look on all three surfaces.
+- Glasswing launch partners: AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the
+  Linux Foundation, Microsoft, NVIDIA, Palo Alto Networks.
+- Mythos 5 rollout expanded the programme to ~**150 organizations across 15+ countries**.
 
-Updated: 2026-08-21 — TWO new dated entries (Aug 18, Aug 19). The Aug 19 entry is the largest
-single Anthropic release entry this monitor has recorded; the browser use toolset is the headline.
+WHY IT WAS MISSED FOR MONTHS: Mythos 5 appears in ORDINARY model-availability lists alongside
+Fable 5 / Opus 5 / Sonnet 5, so it reads as one more model rather than a control-stripped tier.
+
+CROSS-VENDOR PATTERN (model this once, map per vendor): direct analogue of OpenAI's **Daybreak Red /
+GPT-5.5-Cyber & GPT-5.6-Cyber** (reported 2026-08-14; OpenAI's own eval: 95% compliance on advanced
+offensive prompts vs 1.5% for default-protected GPT-5.6 Sol).
+
+**KEY LESSON FOR THE MONITOR: guardrail behaviour is a property of the DEPLOYMENT, not the model.**
+Refusal-based guardrail probes silently "pass" on a tier that has no guardrail to bypass.
+
+Durable pages (add BOTH to sources.json — anthropic.com/news does NOT surface this):
+  https://www.anthropic.com/claude/mythos
+  https://www.anthropic.com/glasswing
+  https://www.anthropic.com/news/claude-fable-5-mythos-5
+  https://red.anthropic.com/2026/mythos-preview/   (capability assessment)
+                                                   [reported 2026-08-23, HIGH/AIRT]
+
+## Carried forward — Aug 18/19 entries, all reported 2026-08-21
+Browser use toolset `browser_toolset_20260801` (accessibility-tree reading, element refs, optional
+`javascript_exec`/`file_upload`/`read_console`/`read_network`); computer use GA
+`computer_toolset_20260801` (batch actions, per-member `configs`); **Agent Skills + Skills API
+`/v1/skills` GA**; per-tool `allowed_domains`/`blocked_domains` for Managed Agents' web_search /
+web_fetch; memory stores attachable to self-hosted sandboxes with sync-back; Admin API user
+management GA for Claude Enterprise. Held: Files API GA, Console session-viewer redesign,
+Workbench→Playground rename.
+
+## Standing context
+Compliance API remains the most productive area (`/docs/en/manage-claude/compliance-*`). Its
+DOCUMENTED BLIND SPOTS double as a coverage map — Claude Code via **Bedrock / Google Cloud /
+Microsoft Foundry** is NOT captured at all (now compounded: OpenAI's own Python SDK added Bedrock
+Runtime support in v3.2.0, 2026-08-17). Transcripts omit thinking blocks, system prompt, tool
+definitions and MCP server config.
+
+## Source note
+`www.anthropic.com/news` fetched 2026-08-23: nothing after **Aug 14** ("How Claude's text watermark
+works"), and **no mention of Mythos or Glasswing anywhere on the page**. The news index is not a
+reliable surface for Anthropic's gated programmes.
+
+Updated: 2026-08-23 — one new dated entry (held); the claude-mythos-5 watch item CLOSED and reported.
 </content>

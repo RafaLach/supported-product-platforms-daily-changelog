@@ -1,56 +1,55 @@
-# OpenAI / ChatGPT / Codex — captured 2026-08-14
+# OpenAI / ChatGPT / Codex — captured 2026-08-23
 # Productive source: https://learn.chatgpt.com/docs/changelog
 #   (sources.json still points at developers.openai.com/codex/changelog, which 308s here)
-# SDK releases: https://github.com/openai/openai-python/releases
+# SDK releases: https://github.com/openai/openai-python/releases   <-- NOT IN sources.json (see below)
 
-## ChatGPT & Codex changelog — NEW THIS SCAN (cache previously stopped at Aug 7)
+## ChatGPT & Codex changelog — NO NEW ENTRIES since the 2026-08-21 scan
+Page tops out at **August 20, 2026**. Every Aug 18-20 entry was reported 2026-08-21:
+Apple Messages plugin (Full Disk Access, iMessage/SMS/RCS, arm64-only, persistent send approval);
+GitLab support for Codex cloud beta (@codex on issues/MRs, automatic reviews, GitLab 19.0+,
+self-managed needs workspace-admin config); Computer History extended to EEA/CH/UK; Codex CLI
+0.148.0 and 0.149.0; site co-editing; shared read-only thread snapshots; unified pinned threads;
+iOS 1.2026.223.
 
-### August 13, 2026 — **Computer History** (opt-in, macOS desktop app)  [reported 2026-08-14]
-Turns activity across apps and websites into **memories and a timeline** that ChatGPT and Codex can
-use. Records interaction events exposed through **macOS accessibility features**: clicks, typing,
-keyboard shortcuts, and app switching. Explicitly does NOT capture screenshots, screen recordings,
-microphone input or system audio — it **replaces the Chronicle research preview**, which was
-screenshot-based, and is described as a rebuilt system rather than a rename.
-Data handling: interaction events stored **on the Mac for up to 48 hours**; events are processed on
-**OpenAI's servers** to generate memories, not retained after processing and not used for training;
-the resulting **plain-text memory files stay local until deleted**.
-Availability: ChatGPT **Pro, Business and Enterprise**; **administrator enablement required for
-workspace members**. Excluded at launch: EEA, Switzerland, UK.
+## ===== SDK RELEASE STREAM — READ FOR THE FIRST TIME SINCE v3.0.0 =====
+## The 2026-08-21 scan did not read this stream at all. FOUR releases were unexamined.
+## THIS IS A sources.json GAP: no source points at the SDK releases; this cache tracked it by hand.
 
-### August 11, 2026  [both reported 2026-08-14]
-- **Linux desktop app (preview)** — Ubuntu, Debian and Fedora, x64 and ARM64, via `.deb` / `.rpm`.
-- **Import external agent setup** — imports configuration from **Claude Code, Claude Cowork and
-  Cursor**, including "settings, skills, plugins, projects, and recent work", with automatic
-  synchronization options.
+- **v3.3.1 (Aug 19, 2026)** — security fixes + build tooling migration only.        [below bar]
+- **v3.3.0 (Aug 18, 2026)** — "support named data-residency endpoints"; dependency updates.
+                                                                                    [below bar]
+- **v3.2.0 (Aug 17, 2026)** — **"add Bedrock Runtime endpoint support (SDK-290)"**
+                            — "Add shell call streaming events and new service/image types"
+  => THE REPORTABLE ONE. Cross-provider routing is no longer confined to Codex CLI (0.148.0,
+     reported 2026-08-21) — it is now in THE LIBRARY ANY APPLICATION USES, so arbitrary production
+     workloads can target Bedrock. Compounds two known blind spots:
+       (a) Anthropic's Compliance API explicitly does NOT capture Claude Code routed through
+           Bedrock / Google Cloud / Microsoft Foundry;
+       (b) as of 2026-08-21 `bedrock-runtime` serves the Anthropic Messages API on `/anthropic`
+           and the OpenAI shapes on `/openai/v1`.
+     => OpenAI-SDK app + Bedrock Runtime + a Claude model = traffic OpenAI never sees, Anthropic's
+        compliance surface never captures, and AWS receives in a foreign wire format.
+     RULE: per-vendor telemetry cannot establish coverage once vendors' own SDKs route to each
+     other's endpoints. The only reliable vantage point is the cloud account's own logging.
+  => "shell call streaming events" implies a COMMAND-EXECUTION surface in the streaming schema —
+     track for parser work.                                    [reported 2026-08-23, MEDIUM/AIDR]
+- **v3.1.0 (Aug 14, 2026)** — "add WebSocket stream IDs"; **"add workload identity access token
+  issued event"**; Sora video APIs marked deprecated.          [schema items, held — parse them]
+- v3.0.0 (Aug 12, 2026) — BREAKING: migrate to HTTPX2.                    [held 2026-08-14]
+- v2.54.0 (Aug 11, 2026) — new Responses model identifiers.               [held 2026-08-14]
 
-### August 10, 2026 — **Daybreak Blue and Daybreak Red tiers**  [reported 2026-08-14]
-Two new access tiers in OpenAI's Daybreak "Trusted Access for Cyber" program.
-- **Daybreak Blue** — defensive work on **GPT-5.6 Sol** with Trusted Access for Cyber. Approved
-  workflows: secure code review, vulnerability triage, detection engineering, incident response,
-  malware analysis, patch validation.
-- **Daybreak Red** — advanced defensive AND **offensive** cyber tasks, with access to
-  purpose-trained models **GPT-5.5-Cyber and GPT-5.6-Cyber**: vulnerability research, exploit
-  validation, security testing.
-- OpenAI's own published evaluation: **GPT-5.6-Cyber answered 95% of advanced cybersecurity prompts**
-  (exploit-chain development, authentication bypass, privilege escalation) versus **1.5% for GPT-5.6
-  Sol with default protections.**
-  openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/ ; openai.com/daybreak/
-
-### August 7, 2026 — Codex CLI 0.147.0  [reported 2026-08-07]
-Portable Agent Plugins installation, persistent thread sections, MCP 2026-07-28 protocol support,
-Cursor skill migration, Amazon Bedrock web search/compaction.
-
-## OpenAI Python SDK releases — advanced since the 2026-08-07 capture (v2.53.0)
-- **v3.0.0 (Aug 12, 2026)** — BREAKING: HTTPX2 is now the default HTTP client and `httpx` is no
-  longer installed automatically; custom HTTPX clients must migrate or use a legacy escape hatch.
-  [infrastructure — below the reporting bar]
-- **v2.54.0 (Aug 11, 2026)** — new response model identifiers; audio upload doc clarification.
-  [below bar]
-Standing caution (from the 2026-08-07 scan): SDK release-note wording lags and MISLABELS model
-families — corroborate model launches against openai.com/index/* and the ChatGPT/Codex changelog.
+Standing caution (2026-08-07): SDK release-note wording lags and MISLABELS model families —
+corroborate model launches against openai.com/index/* and the ChatGPT/Codex changelog.
+NEW caution (2026-08-23): `github.com/openai/openai-python/blob/main/CHANGELOG.md` renders GitHub
+chrome only via WebFetch. Use `/releases` or `/releases/tag/<version>`.
 
 ## Held items
-- **`gpt-realtime-2.1` / `-mini`** — still absent from SDK changelogs and platform docs. Watch open
-  since ~2026-07-06. No movement this scan.
+- **`gpt-realtime-2.1` / `-mini`** — absent for a SEVENTH consecutive scan (open since ~2026-07-06).
+  Confirmed absent from all four newly-read SDK releases (v3.1.0 - v3.3.1).
+- Daybreak Blue / Daybreak Red tiers (GPT-5.6 Sol; GPT-5.5-Cyber & GPT-5.6-Cyber) — reported
+  2026-08-14. **Now confirmed as one half of a CROSS-VENDOR pattern**: Anthropic's Mythos 5 /
+  Project Glasswing is the direct analogue (reported 2026-08-23). See anthropic_api.txt.
 
-Updated: 2026-08-14 — four new changelog entries (Aug 10, 11 ×2, 13); three reported.
+Updated: 2026-08-23 — no changelog movement; four unread SDK releases examined, one reported
+(v3.2.0 Bedrock Runtime endpoint support).
+</content>

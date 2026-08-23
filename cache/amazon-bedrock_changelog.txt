@@ -1,71 +1,48 @@
-# Amazon Bedrock document history — captured 2026-08-21
-# Source: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html  (renders fine)
+# Amazon Bedrock doc history — captured 2026-08-23
+# Source: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
 
-## *** AWS REVERSED LAST WEEK'S ENDPOINT GUIDANCE *** — read this before using the 08-14 cache.
+## NO NEW ENTRIES since the 2026-08-21 capture. Newest is still August 19, 2026.
+Newest entry: "Fixed Anthropic Messages API code samples and switched model-card OpenAI-SDK samples
+to bedrock-runtime" (Aug 19) — reported 2026-08-21.
 
-### August 19, 2026 — NEW THIS SCAN
-"Fixed Anthropic Messages API code samples and switched model-card OpenAI-SDK samples to
-bedrock-runtime". Substance beneath the cosmetic title:
-- Anthropic Messages API samples now target the **`bedrock-runtime` endpoint's `/anthropic` route**:
-  `base_url="https://bedrock-runtime.{region}.amazonaws.com/anthropic"`, authenticated with a
-  short-term bearer token from `aws-bedrock-token-generator`'s `provide_token()`.
-  Applied to every Anthropic model card supporting bedrock-runtime (Opus 5, Opus 4.8, Opus 4.7,
-  Sonnet 5, Haiku 4.5, Fable 5) using the model's Global inference ID.
-- **`OPENAI_BASE_URL` on 49 NON-Anthropic model cards** (OpenAI, Mistral, DeepSeek, Google, Meta,
-  Qwen, MiniMax, NVIDIA, Moonshot AI, Z.AI, Writer, xAI) repointed from the `bedrock-mantle` `/v1`
-  route to **`https://bedrock-runtime.{region}.amazonaws.com/openai/v1`**.
-- Messages API tabs reordered to LEAD with bedrock-runtime; the `bedrock-mantle` curl tab moved last.
-- mantle "continues to be fully supported"; mantle-ONLY pages still show mantle URLs:
-  **Web Search, Projects, Workspaces, Chat Completions on mantle, the mantle Responses API**.
-                                                            [reported 2026-08-21, HIGH/AIDR]
+## THE STANDING RULE — SELECT PARSERS AND AUTH BY ROUTE PATH, NOT HOSTNAME
+BOTH Bedrock inference endpoints serve FOREIGN API SHAPES. AWS reversed its guidance on
+2026-08-15/19 and now recommends `bedrock-runtime` for new applications INCLUDING OpenAI- and
+Anthropic-compatible workloads (the direct opposite of the 2026-08-14 capture).
+  https://bedrock-runtime.{region}.amazonaws.com/anthropic    <- Anthropic Messages API
+  https://bedrock-runtime.{region}.amazonaws.com/openai/v1    <- OpenAI Responses + Chat Completions
+      (OPENAI_BASE_URL repointed on 49 non-Anthropic model cards away from the mantle /v1 route)
+  https://bedrock-mantle.{region}.api.aws/v1                  <- still fully supported
+**Auth differs BY ROUTE, not just format**: short-term bearer token from
+`aws-bedrock-token-generator` on the documented `/anthropic` samples; SigV4 via the
+`AnthropicBedrock` client on the Quickstart samples.
+`bedrock-mantle` remains the ONLY host for: **Web Search, Projects, Workspaces, Chat Completions on
+mantle, and the mantle Responses API.** Neither endpoint can be dropped.
 
-### August 15, 2026 — NEW THIS SCAN (two entries)
-- "Updated endpoint guidance to recommend the bedrock-runtime endpoint" — across the whole User Guide,
-  **recommending `bedrock-runtime` for new applications, INCLUDING for OpenAI- and
-  Anthropic-compatible workloads.** This is the DIRECT REVERSAL of the guidance captured 2026-08-14
-  (which recommended mantle for new applications). Retitled the Responses API and Chat Completions
-  pages as the `bedrock-mantle` variants. Added cross-reference tips on the Projects and Workspaces
-  pages. "Existing applications that use it do not need to change."
-- Follow-up positioning: Quickstart tabs reordered (Messages, Responses, Chat Completions, Converse,
-  Invoke); Messages tab uses the **`AnthropicBedrock` client with AWS SigV4** against bedrock-runtime;
-  samples updated to Claude Opus 5 and GPT-5.6 Sol; a bedrock-runtime recommendation callout added to
-  every supporting model card; **Daybreak Red: GPT-5.6 Cyber and Daybreak Blue: GPT-5.6 Sol added to
-  the "Models at a glance" table**.
-  => NOTE: auth differs BY ROUTE — bearer token on /anthropic per the Aug 19 entry, SigV4 via
-     AnthropicBedrock per this one. Parser AND auth selection must key on the route path.
+## COMPOUNDING FACT — UPDATED 2026-08-23
+`bedrock-runtime` serving the Anthropic Messages API intersects Anthropic's Compliance API blind spot
+(Claude Code via Bedrock / Google Cloud / Microsoft Foundry is NOT captured). As of this scan the
+routing path into that gap is no longer just Codex CLI 0.148.0 (reported 2026-08-21) — **OpenAI's
+official Python SDK added Bedrock Runtime endpoint support in v3.2.0 (2026-08-17)**, so arbitrary
+production applications, not just coding agents, can route there.
+=> Coverage must come from the AWS ACCOUNT'S OWN LOGGING, not from either model vendor.
+See openai_changelog.txt and anthropic_api.txt.
 
-### August 14, 2026 — NEW THIS SCAN
-- **AgentCore Memory integration for Bedrock agentic retrieval.** Agentic retrieval on fully managed
-  Bedrock knowledge bases integrates with AgentCore Memory via a **`memoryConfiguration`** field on
-  **`AgenticRetrieveStream`**. Three modes: restore an earlier session from short-term memory; let the
-  agent retrieve records from long-term memory; or both.     [reported 2026-08-21, MEDIUM/AIDR]
-  /kb-test-agentic-retrieve.html
+## Carried forward — reported 2026-08-21
+- **Projects / Workspaces** — the mantle control-plane entity. Projects (OpenAI-compatible) and
+  Workspaces (Anthropic-compatible) are THE SAME RESOURCE, managed by the Projects API at
+  `POST|GET https://bedrock-mantle.{region}.api.aws/v1/organization/projects`, returning
+  `arn:aws:bedrock-mantle:...:project/proj_...`. They differ ONLY in the binding header:
+  `OpenAI-Project: {id}` vs `anthropic-workspace: {id}`. IAM-addressable, tags, `status`, archive
+  lifecycle. **Every account has a DEFAULT project that all inference lands in unless another is
+  named** — default-attributed production traffic is a posture finding. Two traps: the project is
+  asserted BY THE CALLER AT REQUEST TIME via header, so control-plane state alone won't tell you what
+  traffic claimed; and a Bedrock Workspace is NOT an Anthropic workspace (`anthropic-workspace`
+  carries an AWS `proj_` ID, not a `wrkspc_` ID).
+- **AgentCore Memory integration for agentic retrieval (Aug 14)** — `memoryConfiguration` field on
+  **`AgenticRetrieveStream`**; restore a session from short-term memory, retrieve from long-term, or
+  both. Memory now CONDITIONS what a knowledge base returns.
+- Daybreak Red: GPT-5.6 Cyber and Daybreak Blue: GPT-5.6 Sol added to Models at a glance.
 
-### August 11, 2026 — reported 2026-08-14 (this is what surfaced Mantle)
-IAM principal cost allocation extended to the `bedrock-mantle` endpoint.
-
-### July 30, 2026
-Amazon Bedrock Agents Classic no longer open to new customers.        [DEPRECATION — not reported]
-
-## PROJECTS / WORKSPACES — new to this monitor, surfaced by the endpoint rewrite
-Read from /workspaces.html. **Projects (OpenAI-compatible) and Workspaces (Anthropic-compatible) are
-THE SAME UNDERLYING RESOURCE**, both managed through the **Projects API**.
-  Create/List: POST|GET https://bedrock-mantle.{region}.api.aws/v1/organization/projects
-  Returns: arn:aws:bedrock-mantle:{region}:{acct}:project/proj_...  , `id`, `name`, `status`,
-           `created_at`, `object: organization.project`, `tags`
-  Binding header:  Workspaces -> `anthropic-workspace: {project-id}`   (on /anthropic/v1/messages)
-                   Projects    -> `OpenAI-Project: {project-id}`        (on /v1)
-  Capabilities: access isolation (**project as a resource in IAM policies**), cost monitoring via
-  AWS tags + Cost Explorer, per-workspace usage/observability. Lifecycle incl. **archiving**.
-  **Every AWS account has a default workspace/project that all inference is associated with** unless
-  another is named. AWS's recommended structure is one project per application per environment.
-  => the project is asserted BY THE CALLER at request time via header, not derived from the
-     credential — control-plane state alone won't tell you what traffic claimed.
-  => naming collision: a Bedrock Workspace is NOT an Anthropic workspace; `anthropic-workspace` here
-     carries an AWS `proj_` ID, not a `wrkspc_` ID.
-                                                            [reported 2026-08-21, MEDIUM/AISPM]
-
-Updated: 2026-08-21 — three new entries. The endpoint reversal supersedes the 2026-08-14 coverage
-recommendation: the OpenAI/Anthropic wire formats must now be parsed on BOTH endpoints, selected by
-ROUTE PATH rather than hostname.
+Updated: 2026-08-23 — no new entries.
 </content>

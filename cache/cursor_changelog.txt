@@ -1,46 +1,27 @@
-# Cursor changelog — captured 2026-08-21
-# https://cursor.com/changelog  (sources.json URL is CORRECT for the changelog;
-#  only docs.cursor.com is wrong — it 308s to cursor.com/docs)
-# Tier: watching — "only report major new capabilities"
+# Cursor changelog — captured 2026-08-23
+# Source: https://cursor.com/changelog  (this URL is CORRECT in sources.json)
+# NOTE: the Cursor *docs* URL in sources.json is wrong — docs.cursor.com 308s to cursor.com/docs.
 
-### August 19, 2026 — NEW THIS SCAN. Cloud Agents + Cursor Harness
-- **Subscriptions** — agents monitor **PRs, Slack threads and scheduled tasks**. Agents
-  **automatically subscribe to PRs they create and drive them to completion.**
-- **Custom Modes** — "always on" skills that keep agents focused on specific tasks.
-- **Subagents on isolated machines** — each subagent runs in its own virtual environment with a
-  clean project copy.
-- **Goal tracking** — `/goal` assigns long-lived objectives agents work toward independently.
-- **Non-interruptive steering** — guidance sent mid-run QUEUES for the next tool call rather than
-  halting execution.
-  => agent activity becomes continuous and event-triggered, not session-bounded; the meaningful
-     inventory is active SUBSCRIPTIONS and GOALS, not "agents". Slack-thread monitoring puts an
-     agent with repo access on a channel carrying untrusted text.
-                                                            [reported 2026-08-21, MEDIUM/AISPM]
+## NO CHANGE since the 2026-08-21 capture. Newest entry: August 19, 2026.
 
-### August 17, 2026 — NEW THIS SCAN. *** CURSOR IS NOW A CODE HOST ***
-- **Cursor Origin** — "Origin is Cursor's git forge for storing and sharing code" (early beta).
-  Repository creation, standard git ops (clone/push/pull), code browsing and search at
-  **cursor.com/codebase**, PR review and merge. Existing projects onboarded by **GitHub mirroring**.
-  **PRs on synced repos sync BOTH WAYS** — comment in Cursor and it posts to GitHub; react or reply
-  on GitHub and it appears in Cursor within seconds.
-  Integrations: **Vercel, Depot, Buildkite** for deploys/CI-CD, plus automations, cloud agents, and
-  an **Origin CLI**.
-  Access: Pro, Teams and Enterprise. Team admins grant repo access once a codebase namespace is
-  claimed. **Teams on legacy privacy mode CANNOT enable Origin** — must switch to Privacy Mode first.
-  Privacy follows each namespace owner's Privacy Mode configuration.
-  => this is not an agent feature; it is a NEW LOCATION WHERE CUSTOMER SOURCE CODE LIVES, outside
-     the sanctioned SCM, and bidirectional PR sync moves code review off the governed platform.
-                                                            [reported 2026-08-21, HIGH/AISPM]
-  https://cursor.com/docs/origin
+- **Aug 19, 2026 — "Cloud Agents and Cursor Harness Improvements."**  [reported 2026-08-21, MEDIUM]
+  **Subscriptions** — agents monitor PRs, Slack threads and scheduled tasks; agents AUTOMATICALLY
+  SUBSCRIBE TO PRs THEY CREATE and drive them to completion. **`/goal`** — long-lived objectives
+  agents work toward independently. **Subagents on isolated machines** — each in its own virtual
+  environment with a clean project copy. **Custom Modes** — "always on" pinned skills.
+  Non-interruptive steering — guidance queues for the next tool call instead of halting execution.
+  => activity becomes CONTINUOUS AND EVENT-TRIGGERED, not session-bounded. Inventory active
+     SUBSCRIPTIONS AND GOALS, not just "agents". Slack-thread monitoring = an injection path into an
+     agent holding repo access.
 
-### August 13, 2026
-- Cloud Agents start 3x faster with **builds** (pre-built environment snapshots, resilient fallback
-  to last successful build, build history + debugging in the dashboard).   [held 2026-08-14]
+- **Aug 17, 2026 — Cursor Origin (early beta).** [reported 2026-08-21, HIGH/AISPM]
+  "Origin is Cursor's git forge for storing and sharing code." Repo creation, standard git ops, code
+  browsing/search at cursor.com/codebase, PR review and merge. Onboarding via **GitHub mirroring**;
+  PRs on synced repos **sync BIDIRECTIONALLY** (a Cursor comment posts to GitHub and vice versa
+  within seconds). Integrates Vercel, Depot, Buildkite for deploy/CI-CD, plus automations, cloud
+  agents and an Origin CLI. Pro/Teams/Enterprise; **teams on legacy privacy mode CANNOT enable it**
+  and must switch to Privacy Mode first (a discoverable posture signal).
+  => a NEW LOCATION WHERE CUSTOMER SOURCE LIVES, outside sanctioned SCM.
 
-### August 3, 2026
-- **Google Workspace plugins** — agents get direct access to Gmail, Google Drive and Google Calendar
-  for managing files, email and schedules within Cursor.                  [previously captured]
-
-Updated: 2026-08-21 — two new dated entries. Origin (code hosting) is the first Cursor item to clear
-the watching-tier bar as a HIGH, because it changes where code lives rather than what the IDE can do.
+Updated: 2026-08-23 — no change.
 </content>

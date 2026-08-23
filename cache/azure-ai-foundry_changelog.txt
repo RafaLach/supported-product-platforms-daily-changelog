@@ -1,49 +1,86 @@
-# Microsoft Foundry — captured 2026-08-21
+# Microsoft Foundry (Azure AI Foundry) — captured 2026-08-23
 # sources.json URL (learn.microsoft.com/en-us/azure/ai-services/openai/whats-new) canonically
-# resolves to /azure/foundry-classic/openai/whats-new — ms.date 2025-12-30, newest content section
-# **May 2026**, zero agent-platform content. STILL UNFIXED.
+# resolves to /azure/foundry-classic/openai/whats-new — FROZEN, newest section May 2026. Outstanding.
+# Live roll-up: https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry
+# Blog: https://devblogs.microsoft.com/foundry
 
-## The live roll-up DID NOT ADVANCE this scan.
-https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry
-  Title: "What's new for July 2026". ms.date 2026-08-12, updated_at 2026-08-13.
-  **Byte-identical to the 2026-08-14 capture.** It advanced June->July last scan and has not moved
-  since. Consistent with the standing note that it trails the product by ~6 weeks.
+## Roll-up state — UNCHANGED for a THIRD consecutive scan
+"What's new for July 2026", ms.date **2026-08-12**, updated_at **2026-08-13**. Identical to the
+2026-08-14 and 2026-08-21 captures. Trails the product by ~6 weeks (standing memory note).
+Blog: nothing after **Aug 17** ("From single call to agents: five new Claude capabilities" —
+structured outputs, web search, web fetch, MCP connector, tool search; model-capability parity,
+held 2026-08-21).
 
-## Foundry blog — https://devblogs.microsoft.com/foundry/  (read FIRST on Foundry scans)
-Only one post in the Aug 14-21 window:
-- **Aug 17: "From single call to agents: five new Claude capabilities now available in Microsoft
-  Foundry"** (Haoran Cheng) — structured outputs, web search, web fetch, **MCP connector**, and
-  **tool search** for Claude models on Azure. Framed as turning "a model endpoint into a production
-  agent platform".
-  HELD BELOW THE BAR: this is model-capability parity being brought to Claude deployments on a
-  Foundry surface this monitor already covers (MCP tooling, web tools and tool search were all
-  reported previously in their Foundry/OpenAI forms). No new entity type, endpoint or API.
-  Revisit if the Claude MCP connector proves to have a distinct connection object from the managed
-  MCP servers / connector-namespace model reported 2026-08-14.
+## ===== IMPORTANT PROCESS CORRECTION — 2026-08-23 =====
+The July roll-up's "New articles" list was worked as a pointer index per the standing method. SIX of
+seven candidates that LOOKED like never-reported coverage gaps were **already reported on 2026-08-09**:
+  Toolbox / toolboxes  ....... reported 2026-08-09 (HIGH/AISPM)
+  Tool search  ............... reported 2026-08-09 (inside the toolbox finding)
+  Skills-in-toolbox  ......... reported 2026-08-09 (inside the toolbox finding)
+  Fabric IQ  ................. reported 2026-08-09 (HIGH/AISPM)
+  Work IQ  ................... reported 2026-08-09 (HIGH/AISPM)
+  Routines + the SELF-SCHEDULING REMINDER TOOL ... reported 2026-08-09 (HIGH/AISPM)
+**DO NOT re-report these.** The roll-up re-lists July articles every scan; check reports/ first.
 
-## July 2026 roll-up contents — unchanged, all previously reported or held
-New articles: author azure.yaml for hosted agents; **reminder tool for self-scheduling hosted
-agents**; Foundry Canvas; **Toolbox overview**; toolbox authentication; use a toolbox with a hosted
-agent; Foundry IQ private agentic retrieval tutorials (x2); tool search with the Azure OpenAI
-Responses API; Claude models hosting comparison; export hosted agent telemetry via OpenTelemetry;
-restrict access to sensitive content in traces; Notification Center overview.
-Updated articles: hosted agents; deploy a hosted agent; tool catalog; **managed MCP servers powered
-by connector namespaces**; connect to an A2A agent endpoint; **enable incoming A2A**; web search
-tool; Foundry IQ; Claude models (x2); WebSocket mode; Realtime API migration; endpoints; evaluate
-AI agents; traces-to-dataset; portal GA overview.
+## NEW TO COVERAGE (never read before) — the Foundry Skills API (preview)
+Endpoint: **`{FOUNDRY_PROJECT_ENDPOINT}/skills`**   ms.date 2026-08-05, updated_at 2026-08-07
+- A skill is a `SKILL.md` per the **agentskills.io** spec: YAML front matter `name` (URL path key,
+  `^[a-z0-9]([a-z0-9\-]*[a-z0-9])?$`, max 64, MUST be unquoted) + `description` (max 1,024,
+  unquoted); Markdown body "becomes the skill's injected instructions".
+- **Versioning:** creating a version AUTO-CREATES the parent skill. Every update = a new **immutable
+  `SkillVersion`**. Parent `Skill` tracks **`default_version`** and **`latest_version`**.
+  => Promoting a new default is a **METADATA-ONLY REPOINT** that silently changes behaviour for every
+     agent/toolbox referencing the skill UNPINNED. Pinned-vs-floating is a discoverable property.
+- CRUD: `POST|GET|DELETE {endpoint}/skills[/{name}[/versions[/{v}]]]`, `GET .../content` (ZIP).
+  Create from `inline_content` JSON or multipart ZIP upload.
+- **Required preview header on EVERY call: `Foundry-Features: Skills=V1Preview`.**
+  Bearer token scope `https://ai.azure.com/.default`. RBAC: **Foundry User** on the project.
+- **TWO DELIVERY MODES:**
+  1) Attach to a toolbox -> skills surface as **MCP Resources** under **SEP-2640** (the MCP Skills
+     extension). Client calls `resources/list` at startup, `resources/read` for content.
+     Microsoft: "**any MCP client — GitHub Copilot, Claude Code, or your own agent harness — can
+     consume skills this way without any Foundry SDK**."
+     => FOUNDRY IS A SKILL DISTRIBUTION POINT FOR NON-MICROSOFT AGENTS. Instruction text governed in
+        a Foundry project executes in clients Foundry cannot see; the Foundry-side inventory is the
+        only place that reach is enumerable. Same-project only; no cross-project refs.
+  2) Direct download into a hosted/local agent project; `SKILL.md` read at startup and injected as
+     extra system instructions per session.
+- **Prebuilt catalog** in the VS Code Foundry Toolkit, registerable from a card (no procurement step):
+  Office docs (`docx`,`pptx`,`xlsx`,`pdf`); Design (`canvas-design`,`algorithmic-art`,
+  `brand-guidelines`,`theme-factory`); Writing (`doc-coauthoring`,`internal-comms`,
+  `slack-gif-creator`).
+- **LIMITATION: no private networking.** The Skills API is NOT reachable over a private endpoint —
+  a Foundry resource with public network access disabled cannot create/manage/download skills at all.
+  Adopting skills therefore requires a network-posture concession.
+- Destructive-op trap: `azd ai skill create --force` DELETES the existing skill and ALL its versions
+  before uploading. `azd ai skill update` rejects `.zip`.
+- Microsoft's caution: "Customers are responsible for understanding the behaviors of any skills
+  deployed and the data handling practices of any external endpoints receiving data."
+                    [reported 2026-08-23, MEDIUM/AISPM — flagged as coverage-gap recovery, not new]
 
-Reported 2026-08-14 from this set: incoming A2A endpoints (v0.3 served by DEFAULT when unspecified);
-managed MCP servers via connector namespaces (1,000+ connectors, real endpoint on logic.azure.com,
-`metadata.type = gateway_connector`, NO gating on the REST/SDK/azd path); sensitive trace content
-moving to **`AppGenAIContent`** (values stop being written to AppDependencies/AppTraces/AppEvents
-**from 2026-09-30** — HARD DATE, migrate ingestion before then); Foundry Canvas; Notification Center.
+## New detail on ALREADY-REPORTED capabilities (recorded, no finding)
+- **`reminder_preview`** (self-scheduling; the capability was reported 2026-08-09 inside Routines).
+  Args: `minutes` integer **1 - 43,200 (30 days)**; `input` string = instructions for the
+  re-invocation. **Connectionless** — no external service, no authentication. **Hosted agents only**
+  (NOT prompt agents). Must be added to a toolbox, then the toolbox attached to the agent. Foundry
+  creates a **scheduled routine** that re-invokes the SAME agent **on the SAME conversation**,
+  preserving context — unlike regular routines, which start new conversations.
+  Created via `project.toolboxes.create_version(...)` / `POST {endpoint}/toolboxes/{name}/versions
+  ?api-version=v1` with tool `type: reminder_preview`; agent manifest references
+  `kind: toolbox, url: .../agents/toolboxes/{name}/mcp?version=N`.
+- **Foundry RBAC roles were RENAMED** (role IDs and permissions unchanged; old names still visible
+  in places): Azure AI User -> **Foundry User**; Azure AI Owner -> **Foundry Owner**;
+  Azure AI Account Owner -> **Foundry Account Owner**; Azure AI Project Manager -> **Foundry Project
+  Manager**. => display-name matching on Foundry roles will break; match on role ID.
+- Toolbox how-to page has advanced: ms.date **2026-08-17**, updated_at **2026-08-18**.
 
-## PRODUCTIVE FOUNDRY METHOD (unchanged, still correct)
-1. devblogs.microsoft.com/foundry — names features the roll-up omits
-2. /azure/foundry/whats-new-foundry — read New/Updated article lists as a POINTER INDEX
-3. go direct to /azure/foundry/agents/how-to/*, /agents/concepts/*, /observability/how-to/*,
-   /concepts/*, /microsoft-agent-365/* — ms.date values run ahead of the roll-up
+## Carried forward — reported 2026-08-14
+Incoming A2A endpoints (`enable-agent-to-agent-endpoint`; **Foundry serves A2A v0.3 by default when
+the caller omits a version**); managed MCP servers powered by connector namespaces (1,000+
+connectors, real endpoint on `logic.azure.com`, **no validation gating on the REST/SDK/azd path**);
+sensitive trace content moving to the **`AppGenAIContent`** table by **2026-09-30**; Foundry Canvas;
+Notification Center.
 
-Updated: 2026-08-21 — roll-up static, one non-qualifying blog post. **No Foundry finding this scan**
-(first scan without one since 2026-08-07). Watch the 2026-09-30 AppGenAIContent cutover.
+Updated: 2026-08-23 — roll-up unchanged; Skills API newly covered; six candidates confirmed as
+already-reported (see the process correction above).
 </content>

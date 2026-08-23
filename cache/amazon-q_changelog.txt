@@ -1,26 +1,53 @@
-# Amazon Q — captured 2026-08-21
-# https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-history.html   Tier: primary
+# Amazon Q — captured 2026-08-23
+# Sources: docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/doc-history.html
+#          docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-history.html
 
-## *** THIS SOURCE IS EFFECTIVELY DEAD ***
-Banner: "Amazon Q Business is no longer open to new customers. For capabilities similar to
-Q Business, explore Amazon Quick."
-Page header: "Latest documentation update: **August 14, 2025**".
+## STATUS: DEAD SOURCE, NOW FORMALLY DYING. Second consecutive scan recommending demotion.
 
-Newest entries:
-  2026-07-31  Q Business availability change — closed to new customers        [DEPRECATION]
-  2026-06-30  Q Business availability change — advance notice                 [DEPRECATION]
-  2025-08-14  **Agentic RAG** — newest actual FEATURE entry, over a year old
-  2025-07-22  Clickable S3 link support
-  2025-07-01  Relevancy tuning; response customization
-  ... nothing newer.
+### Q Developer doc history — newest entries
+- **END OF SUPPORT NOTICE — August 17, 2026.** "On April 30, 2027, AWS will discontinue support for
+  Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore
+  **Kiro** to access the latest models and features, including **agentic coding, chat and MCP
+  support**." Migration page: "everything you rely on today (inline suggestions, chat, and code
+  generation) is available in Kiro." -> kiro.dev/docs/upgrade-guides/migrating-from-q-developer/
+  (The deprecation itself is NOT reportable. The NAMED SUCCESSOR is — see below.)
+- Newest actual FEATURE entry: **May 21, 2026** — `q:CreateArtifact`, `q:GetArtifact`,
+  `q:GetArtifactActionResult`, `q:PerformArtifactAction` added to AmazonQFullAccess /
+  AmazonQDeveloperAccess for Amazon Q artifacts (preview).
+- Then: Mar 19 2026 (Builder ID unsubscribe), Feb 18 2026 (subscription account limit 10 -> 20).
+  ~3 months with no feature movement.
 
-Q Developer doc history: unmoved for ~3 months (unchanged from 2026-08-14).
+### Q Business — frozen
+Closed to new customers **2026-07-31**. Newest FEATURE entry remains **Agentic RAG, August 14, 2025**
+— over a year old.
 
-Assessment: the only movement on Amazon Q in 2026 has been deprecation notices. The successor
-product AWS points to is **Amazon Quick**, which is NOT in sources.json and has never been scanned.
-**Recommendation: demote Amazon Q from primary-tier polling and evaluate whether Amazon Quick
-warrants a source entry in its place** — otherwise this platform consumes primary-tier scan budget
-to confirm a dead product every week while its replacement goes unwatched.
+## ===== TWO NAMED SUCCESSORS, BOTH ABSENT FROM sources.json =====
 
-Updated: 2026-08-21 — no change, no finding.
+**1. KIRO** (new this scan) — an agentic IDE. Squarely inside ENDPOINT's remit:
+  - "**one unified agent harness that powers every surface (IDE, CLI, Web, and Mobile)**" — one
+    configuration follows the developer across four form factors.
+  - **Custom agents**: config files carry an **`mcpServers` field naming which MCP servers that agent
+    may reach**, a `tools` field selecting individual tools per source, and `toolAliases` for naming
+    conflicts. Per-agent tool grants are declarative, file-based and ENUMERABLE.
+  - **MCP config at BOTH workspace and user scope** (`Kiro: Open workspace MCP config (JSON)` /
+    `Open user MCP config (JSON)`).
+  - **HOT-RELOAD:** a file watcher on `.kiro/agents` directories and `mcp.json` applies changes on
+    save with **no session restart** => an agent's capability set changes mid-session with no UI
+    event. Defeats point-in-time capability inventory (same failure mode as Anthropic's
+    repository-mounted skills, reported 2026-08-09).
+  - This is an INHERITED installed base, not organic adoption — AWS is pushing a population onto it
+    by a known date (2027-04-30).
+  Docs: https://kiro.dev/docs/mcp/ , /docs/mcp/configuration/ , /docs/custom-agents/ ,
+        /docs/custom-agents/configuration-reference/ , https://github.com/kirodotdev/Kiro
+                                                    [reported 2026-08-23, MEDIUM/ENDPOINT]
+
+**2. AMAZON QUICK** (flagged 2026-08-21) — AWS points Q Business users here. Still never scanned.
+
+## RECOMMENDATION (repeated)
+Demote Amazon Q from primary-tier polling and add Kiro (`kiro.dev/docs` + changelog) plus an Amazon
+Quick source. Otherwise primary-tier budget confirms a dead product weekly while BOTH of its
+successors go unwatched — one of which is an agentic IDE with hot-reloading MCP grants.
+
+Updated: 2026-08-23 — EOL notice dated Aug 17 is new; Kiro identified and reported as the unwatched
+successor.
 </content>
