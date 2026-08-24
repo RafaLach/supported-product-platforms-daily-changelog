@@ -1,0 +1,74 @@
+# Agent Plugins specification — FIRST CAPTURE 2026-08-24
+# NOT IN sources.json. Read at:
+#   https://agent-plugins.org
+#   https://github.com/agentplugins/agent-plugins-spec
+#   https://vercel.com/blog/introducing-agent-plugins
+#   https://aws.amazon.com/blogs/opensource/aws-supports-agent-plugins-an-open-standard-for-portable-agent-extensions/
+# CROSS-VENDOR. Not a platform — a format that changes SIX clients at once.
+
+## AGENT PLUGINS 1.0.0 — released 2026-08-06     [reported 2026-08-24, HIGH/ENDPOINT]
+Open, vendor-neutral, openly licensed. Technical Steering Committee:
+  **AWS, Cursor, Microsoft, OpenAI, Vercel**  — "no single company's product roadmap sets the
+  format's direction." Governance + contribution process public.
+Spec, JSON Schemas, author/implementer guides: agent-plugins.org
+Repo: agentplugins/agent-plugins-spec.  **1.1.0 is a WORKING DRAFT** — component set will grow.
+
+Structure (a plugin is just a directory):
+  plugin.json   REQUIRED manifest. MINIMUM = 2 fields:
+                  { "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+                    "name": "my-plugin" }
+                In practice also carries ACTIVATION KEYWORDS.
+  skills/       OPTIONAL. Agent Skills format — folders each holding a SKILL.md with
+                `name` + `description` frontmatter.
+  mcp.json      OPTIONAL. Describes **stdio, Streamable HTTP, or legacy HTTP+SSE** MCP servers.
+
+1.0.0 standardizes TWO component types: Agent Skills, and MCP servers.
+Discovery: clients SCAN THE DIRECTORY STRUCTURE.
+Installation, surfacing and distribution are DELIBERATELY LEFT TO EACH CLIENT
+  ("preserving their ability to differentiate") => no standard trust prompt, no standard
+  provenance record, no standard MCP-enablement gate.
+
+## CLIENTS SUPPORTING IT TODAY (per Vercel, 2026-08-06)
+  ChatGPT · Codex · Cursor · GitHub Copilot · Kiro · VS Code
+=> ONE artifact, SIX clients, FIVE vendors. Per-vendor extension inventory cannot establish what
+   an endpoint runs. Each vendor's management surface sees only its own slice.
+
+## NO SECURITY SECTION ANYWHERE
+Checked agent-plugins.org, the spec repo, the AWS announcement and the Vercel announcement.
+None contains a security-considerations section. No signing, no provenance, no trust model.
+
+## WHAT THIS MONITOR GOT WRONG (correction of record)
+2026-08-07 reported "Codex Agent Plugins" as an OPENAI capability (repo marketplace at
+  $REPO_ROOT/.agents/plugins/marketplace.json, personal at ~/.agents/plugins/marketplace.json).
+2026-08-23 reported Foundry's Skills API + the agentskills.io spec as a Microsoft thing.
+Kiro Powers, Agent Toolkit for AWS and Vercel's implementation are THE SAME FORMAT AGAIN.
+=> Model "Agent Plugin" ONCE as a cross-vendor entity with one identity and MANY INSTALL SITES.
+
+## AGENT TOOLKIT FOR AWS  [reported 2026-08-24, MEDIUM/AISPM]
+docs.aws.amazon.com/agent-toolkit/latest/userguide/skills.html · github.com/aws/agent-toolkit-for-aws
+Official AWS MCP servers + skills + plugins. **30+ curated skills**: service selection,
+CDK/CloudFormation, serverless (Lambda), containers, storage (S3, DynamoDB), IAM policy config,
+observability, billing, SDK usage, deployment; plus Bedrock/AgentCore agent-building skills and
+S3 Tables / Glue / Athena data-lake+ETL skills. Skill types: service decision guides, step-by-step
+procedures, troubleshooting guides, SDK usage guides.
+Plugins ship for **Claude Code, Codex, Cursor**; Kiro consumes the same content as Powers.
+
+FOUR INSTALL PATHS — the fourth leaves NOTHING ON DISK:
+  1. bundled with a plugin (no network calls after install)
+  2. downloaded individually from GitHub into the agent's skills directory
+  3. `aws configure agent-toolkit` wizard / `aws agent-toolkit` commands — "DETECTS SUPPORTED
+     AGENTS ON YOUR SYSTEM and installs skills into EACH agent's configuration directory"
+     => one command fans one grant out to every agent client on the machine
+  4. **RUNTIME via the AWS MCP Server, "without any local installation"** — agent calls
+     `search_documentation` to find a skill, `retrieve_skill` to load it into context.
+     => NO on-disk artifact. File-based endpoint collection CANNOT SEE IT.
+        `retrieve_skill` is a named AIDR activity type.
+Also: `npx skills add aws/agent-toolkit-for-aws/skills`
+Lifecycle: loaded on demand, and "after the task is complete, your agent RELEASES the skill
+content from context" => installed / loaded / active are THREE DIFFERENT SETS.
+Skills "work best with the AWS MCP Server, which provides authenticated API access, sandboxed
+script execution, and enterprise controls like CloudWatch metrics and IAM context keys," but also
+work WITHOUT it by driving the AWS CLI directly.
+
+Updated: 2026-08-24 — first capture. RECOMMEND adding agent-plugins.org + spec repo releases to
+sources.json; 1.1.0 draft means the next component type changes six clients simultaneously.

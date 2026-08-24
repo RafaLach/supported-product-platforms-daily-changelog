@@ -1,56 +1,36 @@
-# Amazon Bedrock AgentCore release notes — captured 2026-08-23
+# Amazon Bedrock AgentCore release notes — captured 2026-08-24
 # Source used: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
 # (sources.json still points at doc-history.html, which renders title/nav only — recurring since
-#  2026-05-18 and still unfixed)
+#  2026-05-18 and still unfixed. Recommended every scan since 2026-07-05.)
 
-## August 2026 — now TWELVE entries (was eleven on 2026-08-21). ONE is new.
+## NO NEW ENTRIES. August 2026 still holds TWELVE entries, VERIFIED ITEM-FOR-ITEM against the
+## 2026-08-23 capture. Same headings, same order.
 
-- **NEW 2026-08-23: Memory — store and extract non-conversational JSON payloads.**
-  `CreateEvent` accepts a **`json` payload type**: non-conversational, JSON-formatted data —
-  "behavioral events, activity logs, and system events" — **up to 100 KB for EACH payload**.
-  THE EXTRACTION ASYMMETRY IS THE DETECTION RULE (from /short-term-create-event.html):
-    "Conversational and JSON payloads are extracted into long-term memory.
-     Blob payloads are stored in short-term memory only and are not extracted."
-  JSON payloads run through the **semantic, user preference, summarization and episodic** strategies.
-  => the memory WRITE PATH NO LONGER REQUIRES A CONVERSATION. Any system that can emit a CreateEvent
-     writes durable, LLM-extracted agent memory. Payload TYPE (not size/source) decides whether
-     stored data can influence future sessions.        [reported 2026-08-23, MEDIUM/AIDR]
-  /short-term-create-event.html , API_CreateEvent.html
+August 2026, in page order:
+ 1. Payments — Coinbase wallet usage billed through AWS Marketplace   [billing plumbing, held]
+ 2. Memory — store and extract non-conversational JSON payloads       [reported 2026-08-23, MED/AIDR]
+ 3. Evaluations — Skill evaluators                                    [reported 2026-08-21, MEDIUM]
+ 4. Payments — Quick create for Coinbase payment connectors           [reported 2026-08-21, MEDIUM]
+ 5. Payments — x402 `upto` scheme + Machine Payments Protocol (MPP)   [reported 2026-08-21, HIGH/AIRT]
+ 6. Evaluations — Third-party evaluators (DeepEval, AutoEval)         [reported 2026-08-21, MEDIUM]
+ 7. Memory, policy, harness in AWS GovCloud (US-West)                 [region expansion, held]
+ 8. Runtime — Instances compute type with capacity providers          [reported 2026-08-07, HIGH]
+ 9. AWS Agent Registry under the `agent-registry` namespace           [reported 2026-08-07, HIGH]
+10. Gateway — Configurable rate limits (FAILS OPEN)                   [reported 2026-08-07, HIGH]
+11. Runtime — simplified/increased API rate quotas                    [quota change, held 08-14]
+12. Gateway — Web Search Tool in eu-west-1 and ap-northeast-1         [region expansion, held 08-14]
 
-## Carried forward from the 2026-08-21 capture (unchanged)
-- Payments — x402 `upto` scheme + Machine Payments Protocol (MPP). `upto` pays a METERED AMOUNT UP TO
-  A CEILING, settles via the **Permit2 contract**. MPP: merchant returns `WWW-Authenticate: Payment`
-  in a 402; caller forwards the challenge VERBATIM to `ProcessPayment` with `paymentType=MPP`;
-  AgentCore parses it, checks the SESSION BUDGET, SIGNS WITH THE WALLET, returns a ready-to-send
-  credential replayed in an `Authorization` header. Methods: evm, tempo, solana.
-                                                       [reported 2026-08-21, HIGH/AIRT]
-- Payments — Quick create for Coinbase connectors: AgentCore PROVISIONS YOUR COINBASE CDP CREDENTIALS
-  FOR YOU via browser authorization. No API keys touched by a human. Coinbase only; Stripe (Privy)
-  still customer-supplied, so connector type predicts credential provenance.
-                                                       [reported 2026-08-21, MEDIUM]
-- Evaluations — Skill evaluators: `Builtin.SkillSelectionAccuracy` (did the loaded skill fit, GIVEN
-  THE CATALOG) and `Builtin.SkillInstructionFollowing` (five-point). One result PER SKILL INVOCATION,
-  anchored to the tool-call span that loaded the skill. Custom TOOL_CALL evaluators read
-  `invoked_skill`, `skill_content`, `available_skills`, `user_message`.
-                                                       [reported 2026-08-21, MEDIUM]
-- Evaluations — Third-party evaluators from **DeepEval** and **AutoEval**. MANAGED (AWS runs it on a
-  model IT operates) or DERIVED (your model + inference). Both discoverable via `ListEvaluators`
-  ALONGSIDE built-in and custom — provenance is NOT distinguished on the inventory surface.
-                                                       [reported 2026-08-21, MEDIUM]
-- Payments — Coinbase wallet usage billed through AWS Marketplace. Mandatory subscription to the
-  "Coinbase Wallets for AgentCore Payments" listing, enforced at connector creation and wallet ops.
-                                                       [BILLING PLUMBING — held below the bar]
-- Memory, policy, harness in AWS GovCloud (US-West) `us-gov-west-1`.        [region expansion, held]
-- Runtime: Instances compute type with capacity providers.                  [reported 2026-08-07]
-- AWS Agent Registry under the `agent-registry` namespace — private governed catalog of agents,
-  tools, skills, MCP servers and custom resources; console + control/data-plane APIs + the registry's
-  own MCP endpoint; `ListDiscoverableRegistryRecords`, `BatchGetDiscoverableRegistryRecord`; record
-  tagging; required `recordType`; Record directory console page; nine Regions. [reported 2026-08-07]
-- Gateway: Configurable rate limits — dimensional scoping, JWT claims, `iam.sourceIdentity`,
-  wildcard catch-all, most-specific-match-wins; RPS/RPM, TPM, Connections; `rate=0` = explicit block;
-  ~30s propagation; FAILS OPEN. Six ops + BatchPutRateLimitEntries.         [reported 2026-08-07]
-- Runtime: simplified/increased API rate quotas.                      [quota change, held 08-14]
-- Gateway: Web Search Tool in eu-west-1 and ap-northeast-1.          [region expansion, held 08-14]
+## KEY RULES CARRIED FORWARD (unchanged)
+- Memory extraction asymmetry IS the detection rule (/short-term-create-event.html):
+  "Conversational and JSON payloads are extracted into long-term memory. Blob payloads are stored
+   in short-term memory only and are not extracted."
+  => the memory WRITE PATH NO LONGER REQUIRES A CONVERSATION. Payload TYPE, not size or source,
+     decides whether stored data can influence future sessions.
+- x402 `upto` pays a METERED AMOUNT UP TO A CEILING via the Permit2 contract; MPP forwards a
+  `WWW-Authenticate: Payment` challenge VERBATIM to ProcessPayment, which checks the SESSION BUDGET
+  and SIGNS WITH THE WALLET. Methods: evm, tempo, solana.
+- Third-party evaluators are discoverable via `ListEvaluators` ALONGSIDE built-in and custom —
+  provenance is NOT distinguished on the inventory surface.
 
 ## July 2026 and earlier — unchanged
 Web Search connector v1.2.0; Identity Private Key JWT client auth; Harness InvokeHarness streams MCP
@@ -60,11 +40,15 @@ Guardrails, Harness GA, Recommendations GA, Batch Evaluations GA, A/B Testing GA
 Base GA, Failure Insights preview, Gateway Runtime/HTTP-passthrough/inference targets, Runtime
 Interactive Shells, Step Functions, CLI/CDK payments support.
 
-## Data-plane Actions API — RE-VERIFIED 2026-08-23, NO CHANGE
-Operation list is **operation-for-operation identical** to the 2026-08-07 capture. No net-new
-operations. (`SearchRegistryRecords` remains the only registry op on the AgentCore data-plane page;
+## Data-plane Actions API — RE-VERIFIED 2026-08-24, NO CHANGE
+**71 operations, operation-for-operation identical to the 2026-08-07 capture.** Second consecutive
+verification with no net-new operations. `SearchRegistryRecords` remains the only registry op here;
 `ListDiscoverableRegistryRecords` / `BatchGetDiscoverableRegistryRecord` live on the separate AWS
-Agent Registry API surface.) See amazon-bedrock-agentcore_api.txt.
+Agent Registry API surface. See amazon-bedrock-agentcore_api.txt.
 
-Updated: 2026-08-23 — one new August entry (Memory json payload type), reported.
-</content>
+## SEE ALSO — new this scan, adjacent to AgentCore
+agent-plugins_spec.txt: the Agent Toolkit for AWS ships Bedrock/AgentCore agent-building skills as
+Agent Plugins to Claude Code, Codex, Cursor and Kiro, one path of which loads skills at RUNTIME via
+the AWS MCP Server with NO local installation.
+
+Updated: 2026-08-24 — no new entries; API surface re-verified identical.

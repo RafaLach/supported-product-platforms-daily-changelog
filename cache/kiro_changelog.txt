@@ -1,0 +1,62 @@
+# Kiro — FIRST CAPTURE 2026-08-24
+# NOT IN sources.json. Read at:
+#   https://kiro.dev/changelog/            (changelog, renders fully)
+#   https://kiro.dev/docs/powers/          + /docs/powers/installation/
+#   https://kiro.dev/docs/steering/
+# Why watched: AWS names Kiro the migration target for ALL Amazon Q Developer IDE plugins,
+# which retire 2027-04-30. Inherited installed base, not organic adoption.
+
+## POWERS = Kiro's implementation of the open AGENT PLUGINS 1.0 standard  [reported 2026-08-24, HIGH/ENDPOINT]
+Structure: plugin.json (REQUIRED manifest, declares ACTIVATION KEYWORDS)
+           skills/          (SKILL.md files, Agent Skills format)
+           mcp.json         (OPTIONAL — MCP server config TRAVELS INSIDE THE POWER)
+           dev.kiro/        (OPTIONAL — Kiro-specific steering extensions)
+
+*** THE DISCOVERY BLIND SPOT — THIS IS THE FINDING ***
+  Agent Plugins (plugin.json) format:
+    "MCP servers are managed INTERNALLY by Kiro and are NOT added to your user-level
+     ~/.kiro/settings/mcp.json file."
+  Legacy (POWER.md) format:
+    servers DO register in ~/.kiro/settings/mcp.json under the Powers section.
+  => READING mcp.json UNDER-REPORTS, and it under-reports exactly the standard/new format.
+     Enumerate from Kiro's own power storage, not from mcp.json.
+
+Install paths (3): curated marketplace kiro.dev/powers (partners incl. Datadog, Figma, Stripe;
+  one-click "Add to Kiro")  |  ANY PUBLIC GITHUB REPO URL — "a single repository can contain
+  multiple powers, each in its own directory" (one URL = several tool grants)  |  local folder
+  (for private repos; select dir containing plugin.json or POWER.md).
+Activation: DYNAMIC. Kiro "reads the task description, evaluates installed powers against the
+  task, and loads only relevant powers into context." => INSTALLED != ACTIVE, and the active set
+  is a function of the user's prompt text. Compounds with hot-reload.
+Only stated control: "Kiro powers are third-party tools... Only install powers from trusted
+  sources." No trust prompt, no signing, no approval workflow documented.
+
+## AGENTS.md STEERING — ALWAYS ON, RECURSIVE, NO GATE  [reported 2026-08-24, MEDIUM/AIRT]
+Added IDE 1.0.309 (Aug 13) + CLI 2.18.0 (Aug 12): AGENTS.md loads as steering context
+"from anywhere in your workspace tree."
+  AGENTS.md "do NOT support inclusion modes and are ALWAYS included."
+  Kiro "automatically discovers them in SUBDIRECTORIES THROUGHOUT your workspace."
+Contrast Kiro's own steering files in .kiro/steering/ which DO carry inclusion modes:
+  always | fileMatch (pattern-gated) | manual (#steering-file-name) | auto (description match).
+Scopes: .kiro/steering/ (workspace, wins on conflict) and ~/.kiro/steering/ (GLOBAL — "applies
+  to all workspaces"). No trust/approval gate documented for steering content.
+
+## Changelog rows read 2026-08-24 (all HELD below the bar)
+- CLI 2.19.0   Aug 19 — automatic stream recovery, idle watchdog + retry
+- IDE 1.0.337  Aug 18 — "improves filesystem and command permission rules"; runs agent commands
+                        in configured terminal profiles on Windows.  [WATCH: permission model]
+- IDE 1.0.309  Aug 13 — AGENTS.md per-directory-tree instructions (see above); MCP conn. improvements
+- CLI 2.18.0   Aug 12 — AGENTS.md as steering from anywhere in tree; spec review screen
+- IDE 1.0.293  Aug 11 — Cloud Sessions support for Agent Focus Mode
+- IDE 1.0.288  Aug 7  — install powers "aligned with the open Agent Plugin format from a local
+                        folder or GitHub URL"; MCP install handling in UNTRUSTED workspaces
+- IDE 1.0.242  Jul 28 — guided form for creating hooks
+
+## Carried from the 2026-08-23 memo, still true
+Custom agents in .kiro/agents carry per-agent `mcpServers` (which MCP servers that agent may reach)
+plus `tools` and `toolAliases`. MCP config at BOTH workspace and user scope. Both hot-reload via a
+file watcher — capability set changes mid-session, no restart, no UI event.
+One unified agent harness across IDE, CLI, Web and Mobile => one identity, four surfaces.
+
+Updated: 2026-08-24 — first capture. Two findings (Powers/mcp.json blind spot; AGENTS.md steering).
+RECOMMEND: add kiro.dev/changelog and kiro.dev/docs to sources.json; demote Amazon Q.

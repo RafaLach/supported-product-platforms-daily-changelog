@@ -1,54 +1,37 @@
-# Salesforce AgentForce — captured 2026-08-23
-# Winter '27 (release 262) release notes published 2026-08-19.
+# Salesforce AgentForce (secondary tier) — captured 2026-08-24
+# Source status, all unchanged:
+#   www.salesforce.com/releases/                        HTTP 403, months. Not recoverable.
+#   help.salesforce.com/s/articleView (release notes)   JS-rendered, does NOT survive WebFetch.
+#   developer.salesforce.com/docs/ai/agentforce/guide   Loads, but RELEASE-AGNOSTIC.
+#   developer.salesforce.com/docs/ai/agentforce/references  Loads, but UNDATED and UNVERSIONED.
+# => Winter '27 remains WEBSEARCH-CORROBORATED ONLY for a THIRD consecutive scan.
 
-## SOURCE STATE — one recovery, three still broken
-| Source | 2026-08-23 |
-| developer.salesforce.com/docs/ai/agentforce/guide | **RECOVERED** from the 503 that persisted
-|   across 2026-08-14 and 2026-08-21. BUT release-agnostic: carries only the pre-existing April 2026
-|   topics->subagents rename (already reported 2026-05-21). Confirms NOTHING about Winter '27. |
-| www.salesforce.com/releases/ | HTTP 403, months. Not recoverable. |
-| help.salesforce.com/s/articleView (release notes) | JS-rendered viewer; WebFetch cannot read it.
-|   Unchanged from 2026-08-21. |
-| developer.salesforce.com/docs/ai/agentforce/references | Fetches fine, RELEASE-AGNOSTIC — lists
-|   Agent API, Agentforce Python SDK, Agent Script, Agentforce DX, Mobile SDK, Lightning Types,
-|   Models API (Apex+REST), Testing API, Citations, Metadata/Tooling APIs. No 262 deltas. |
-| developer.salesforce.com/docs/einstein/genai/overview | Renders, but overview only. No versions. |
+## NO NEW DETAIL. This scan's WebSearch added nothing beyond the 08-23 capture.
+Winter '27 release notes went live around **August 19, 2026**.
+**Sandbox instances upgrade around AUGUST 29, 2026** — worth a look next week; that is when
+first-hand, non-WebSearch confirmation is most likely to become reachable.
 
-**=> Winter '27 detail is WebSearch-corroborated ONLY, for a second consecutive scan. NOT
-vendor-confirmed. Must be verified before Zenity acts on the technical specifics.**
+## Winter '27 Agentforce, as corroborated (reported 2026-08-21 and 2026-08-23)
+- **Marketing Goals Agent** — user defines a **goal, BUDGET and eligible audience**; the agent
+  generates a recommended strategy for review and approval; once activated it "operates
+  **AUTONOMOUSLY within those guardrails, continuously optimizing** activities and decisions toward
+  the desired outcome."  => the approval boundary is ONE-TIME; the budget is the only real bound on
+  autonomous commercial action; the eligible audience is a STANDING data-scope grant.
+- **Agentforce Content Agent** — creates campaign content at scale while maintaining brand
+  consistency. (The second of the two new marketing agents; named on 08-23.)
+- **Agentforce observability** — refined agent analytics and **CUSTOM SCORERS**, some in Beta.
+- Also: agent interoperability, voice, multilingual conversations, improved agent management.
 
-## Winter '27 Agentforce — FIRMED UP since 2026-08-21
+## API reference surface (references page, read 2026-08-24) — unchanged vs the 2026-08-07 cache
+Agent API · Agentforce Python SDK · Agent Script · Agentforce DX · Agentforce Mobile SDK ·
+Lightning Types · Models API · Testing API · Citations · Metadata and Tooling APIs.
+**No version numbers, no dates, no update indicators anywhere on the page** — it cannot support
+change detection at all.
 
-- **BOTH marketing agents now named** (last scan had only the first):
-  1. **Marketing Goals Agent** — and the autonomy model is now documented and is STRONGER than last
-     scan's "translates objectives into strategies": users "define a goal, **budget**, and eligible
-     audience," the agent proposes a strategy for review and approval, and once activated it
-     "**operates autonomously within those guardrails, continuously optimizing** activities and
-     decisions toward the desired outcome."
-     => A STANDING GRANT, NOT A TASK. One human approval authorizes ongoing spend and targeting
-        decisions with no per-decision review.
-     => The **budget is a governance object** — same pattern as the AgentCore session budget
-        (reported 2026-08-21): the human-set ceiling is the only real bound on autonomous commercial
-        action. Large/absent budget = a finding.
-     => The **eligible audience is a standing data-scope grant** over prospect + campaign data.
-     => Record the ACTIVATION EVENT AND ITS APPROVER as the authorization for everything after.
-  2. **Agentforce Content Agent** — creates campaign content at scale while maintaining brand
-     consistency.                                     [reported 2026-08-23, MEDIUM/AISPM]
-- **Agentforce observability** — refined agent analytics and **custom scorers**, some in Beta.
-- Also listed: agent interoperability, improved Agentforce Voice, multilingual conversations,
-  improved agent management, a new **Agentforce Builder** version.
-- **Agentforce Lead Nurturing -> Agentforce Engagement** rename (reported 2026-08-21). DETECTION
-  HAZARD: match on stable identifiers, never display names.
-- AI **call-coaching agent** for Agentforce for Sales, auto-evaluates recorded calls
-  (reported 2026-08-21) — reads RECORDED CUSTOMER CALLS.
+## Carried
+April 2026 topics -> subagents rename (reported 2026-05-21) is the only thing the guide asserts.
+Match agents on STABLE IDENTIFIERS, not display names — cf. the concurrent Lead Nurturing ->
+Engagement rename.
+**Dreamforce Sept 12-14, 2026** is the larger expected delta.
 
-## NOT a Winter '27 item — do not re-attribute
-"Unlock Agent Interoperability with MCP for Agentforce" carries a release date of the **week of
-2026-05-18**. Aggregator articles conflate releases; always check the per-feature date.
-
-## Next delta
-**Dreamforce, September 12-14 2026** — expect a larger Agentforce announcement set than Winter '27.
-
-Updated: 2026-08-23 — second marketing agent named; Marketing Goals Agent autonomy/budget model
-documented and reported. Sources still cannot confirm it.
-</content>
+Updated: 2026-08-24 — no new detail; sandbox upgrade ~Aug 29 is the next real checkpoint.

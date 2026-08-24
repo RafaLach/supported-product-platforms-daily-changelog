@@ -1,46 +1,65 @@
-# Google — Gemini Enterprise / Gemini Enterprise Agent Platform — captured 2026-08-23
-# THREE release-note streams; sources.json contains only the dead one. Outstanding since 2026-07-08.
-#  1. cloud.google.com/vertex-ai/docs/release-notes  [IN sources.json] 301 -> docs.cloud.google.com.
-#     Newest entry 2026-08-16 = Agent Platform Workbench v2 IMAGE BUMPS (Ruby gem CVEs incl.
-#     CVE-2022-21797 / CVE-2025-69223, aiohttp/joblib/cryptography patches, CUDA 12.8.1 -> 12.9.2,
-#     JupyterLab 3 removed from Python 3.12 containers). USELESS for agent-surface detection.
-#  2. docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes — renders NAV-ONLY via
-#     WebFetch (recurring). Recover dated rows via WebSearch.
-#  3. docs.cloud.google.com/gemini/enterprise/docs/release-notes — RENDERS FULLY. Read this first.
+# Google Gemini Enterprise / Gemini Enterprise Agent Platform — captured 2026-08-24
+# Streams read (sources.json still points ONLY at the dead one):
+#   1. cloud.google.com/vertex-ai/docs/release-notes  <- IN sources.json. 301 -> docs.cloud.google.com.
+#      Newest AUG 16, still Agent Platform Workbench v2 IMAGE BUMPS (Ruby gem CVEs, aiohttp/joblib/
+#      cryptography, CUDA 12.8.1->12.9.2, JupyterLab 3 removed). USELESS for agent surfaces.
+#   2. docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes — NAV-ONLY via WebFetch.
+#   3. docs.cloud.google.com/gemini/enterprise/docs/release-notes — RENDERS FULLY. Read stream 3 first.
+#   NOTE: docs.cloud.google.com/gemini-enterprise/docs/release-notes is a 404. Use /gemini/enterprise/docs/.
 
-## Stream 3 (Gemini Enterprise app) — NO CHANGE since 2026-08-21. Newest date: August 20, 2026.
-- Aug 20: **Antigravity for IDEs** available on Standard/Plus/Pay-as-you-go with invoiced billing
-  accounts.                                                    [reported 2026-08-21]
-- Aug 20: Okta+SCIM autocomplete when sharing; **Google Identity** for third-party data stores via
-  external IdPs (OIDC / SAML 2.0).                             [held 2026-08-21]
-- Aug 19: subscription seat caps — self-serve 25, invoiced 1,000 per account.   [held]
-- Aug 18: new-team-member welcome cards; **Gemini 3.6 Flash GA in the `us` and `eu` multi-regions**
-  without allowlist.                                           [held]
-- Aug 17: **A2UI + A2A agent registration GA, with A2UI v0.9** (Material Design components)
-  alongside v0.8. Customer-hosted, customer-maintained, network-reachable, registered by an admin via
-  Cloud console or REST API.                                   [reported 2026-08-21, HIGH/AISPM]
+## NO NEW DATED ENTRIES since the 2026-08-23 capture. Stream 3 still tops at AUGUST 20.
+Aug 20: Antigravity for IDEs on Standard/Plus/PAYG with invoiced billing [reported 08-21];
+        Okta SCIM autocomplete when sharing notebooks [held 08-21];
+        Google Identity recommended for third-party data store connections w/ external IdP [held 08-21].
+Aug 19: seat caps — 25 self-serve, 1,000 invoiced. [held]
+Aug 18: new-team-member welcome cards; Gemini 3.6 Flash GA in US/EU without allowlist. [held]
 
-## Stream 2 (Agent Platform) — nav-only; recovered via WebSearch 2026-08-23
-August 2026 carried:
-- **Memory Bank `IngestEvents` API GA** — "decouples event ingestion from memory generation, letting
-  you continuously stream content to Memory Bank and configure when memory generation is triggered."
-  [HELD BELOW THE BAR: the `IngestEvents` path was already named on 2026-08-07 inside the memory-
-   profiles finding, the GA cannot be dated to this scan's window, and Google is secondary tier.
-   WATCH IT — a continuous streaming ingress into agent memory is the same shape as the AgentCore
-   `json` payload finding reported 2026-08-23. If it reappears with a date, report it.]
-- **Memory profiles in Memory Bank GA** — already reported 2026-08-07.
-- CodeMender model support changed (Gemini 3 Flash removed; 3.5 Flash + 3.1 Pro Preview kept).
-- **Agent Studio SSRF fix** in the **auto-generated `/api-proxy` backend endpoint** for web apps
-  created before 2026-07-01 — regenerate and redeploy. [A FIX, not an addition, so not reported. But
-  note the disclosure: Agent Studio AUTO-GENERATES a backend proxy endpoint in the apps it emits.]
-- Grok 4.1 family deprecated / shut down 2026-08-20. [deprecation]
-- `execute_tool` / `invoke_connector` trace spans — already reported 2026-08-09.
+## NEW FINDING 2026-08-24 — COVERAGE GAP, not platform movement
+## AGENT IDENTITY (SPIFFE) — a NEW IAM PRINCIPAL TYPE   [reported 2026-08-24, HIGH/AISPM]
+Found by following the "admins can view an agent's SPIFFE ID on the Agent details page
+(Public Preview)" line into the IAM + Agent Platform governance docs. Both render fully:
+  docs.cloud.google.com/iam/docs/agent-identity-overview
+  docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview
 
-## Carried forward
-Agent Registry governs **Endpoints** as a first-class record type alongside MCP servers, tools and
-agents, with an auth manager + bindings; IAM governance policies in private preview
-(reported 2026-08-21). Agents API + Agent Studio, SGP engine + Agent Gateway, Model Armor on Agent
-Gateway, AI Security Findings dashboard, custom MCP server data stores GA, 17 third-party connectors.
+ID format:      spiffe://TRUST_DOMAIN/resources/SERVICE/RESOURCE_PATH
+IAM policy:     **principal://**TRUST_DOMAIN/resources/SERVICE/RESOURCE_PATH
+  e.g. principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/
+       projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent
 
-Updated: 2026-08-23 — no movement on stream 3; stream 2 recovered, nothing above the bar.
-</content>
+*** ACTION ITEM #1: any IAM parser that knows serviceAccount: / user: / group: / domain:
+    but NOT principal:// will read an agent-bound policy as having NO agent bindings. ***
+
+Credentials: X.509 auto-provisioned at deploy, **RENEWED EVERY 24 HOURS**.
+vs service accounts (Google's own framing): agent identities "are not shared by multiple workloads
+  by default, CAN'T BE IMPERSONATED, and don't allow developers to generate long-lived service
+  account keys."  => INVERTS the posture question: not "who can mint SA keys" but
+  **"WHICH AGENTS STILL RUN ON A SERVICE ACCOUNT INSTEAD OF AN AGENT IDENTITY."**
+Authenticates to: MCP SERVERS, cloud resources, OTHER AGENTS, external tools/services.
+TWO PRIVILEGE ENVELOPES on one principal:
+  own authority   — bound access tokens (GCP); 2-legged OAuth / API keys / HTTP basic (external)
+  on behalf of user — 3-LEGGED OAUTH, bounded by the user's consent
+  Audit logs DISTINGUISH the two ("acting as itself" vs "on behalf of an end user").
+  *** AIDR signal: agent acting under OWN authority on data it only ever reached ON BEHALF OF
+      a user = privilege escalation, visible in these logs and NOWHERE ELSE. ***
+Governance surfaces to inventory: IAM allow AND DENY policies; **Principal Access Boundary (PAB)**;
+  VPC Service Controls; DEFAULT Context-Aware Access policies enforcing **mTLS + DPoP token
+  binding** (a relaxed CAA policy is a detectable downgrade from the documented default).
+Console caveat: if the publisher does not publish a SPIFFE ID, the Agent details page falls back to
+  the **Agent Registry resource ID** => console is NOT a uniform source of agent identity, and a
+  fallback ID is itself the signal that an agent runs WITHOUT an attested identity.
+
+## MIS-MAPPING HAZARD THAT CAUSED THE MISS
+2026-08-10 reported "Agent Identity" — that was MICROSOFT'S **Entra Agent ID**. Different thing.
+Model "attested per-agent identity" ONCE with per-vendor bindings: Entra Agent ID / Google SPIFFE
+agent identity / AgentCore workload access tokens. Do not treat as three unrelated features.
+
+## Carried forward (all previously reported)
+A2UI + A2A agent registration GA, A2UI v0.9 (Aug 17). Agent Registry governs `Endpoints` as a
+first-class record type + IAM governance policies in private preview. Custom MCP server data stores
+GA (Aug 7, off by default behind an org-policy constraint). Automatic tools/list discovery (Aug 6).
+17 new third-party connectors (Aug 3). execute_tool / invoke_connector trace spans (Aug 4).
+Memory Bank IngestEvents API GA + memory profiles GA. Feedback service preview. AlphaEvolve GA.
+Agent Studio SSRF fix — discloses that Agent Studio AUTO-GENERATES an /api-proxy backend endpoint.
+
+Updated: 2026-08-24 — no live delta; one coverage-gap finding (Agent Identity / SPIFFE).
+RECOMMEND: add /iam/docs/agent-identity-overview and the two Gemini streams to sources.json.

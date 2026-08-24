@@ -1,20 +1,34 @@
-# Perplexity API changelog — captured 2026-08-21
-# https://docs.perplexity.ai/changelog   Tier: watching
+# Perplexity API changelog + API reference — captured 2026-08-24   Tier: watching
+# https://docs.perplexity.ai/changelog       (in sources.json)
+# https://docs.perplexity.ai/api-reference   (in sources.json)
 
-## August 2026 — new models only. NOTHING above the watching-tier bar.
-New models on the Agent and/or Router APIs:
-- `google/gemini-3.7-flash`                    ($0.375 / $0.0375 cached / $1.875 per M tokens)
-- `xai/grok-4.6`                               (Agent API; xAI flagship reasoning/agentic model)
-- `perplexity/nemotron-3-ultra-550b-a55b`      ($0.25 in|cached / $2.50 out per M)
-- `perplexity/nemotron-3.5-lightning-30b-a3b`  (open-weight reasoning, tiered pricing)
-- `perplexity/deepseek-v4-flash-0731`          (1M-token context)
+## NO CHANGE ON EITHER. Nothing above the watching-tier bar.
 
-Agent API: the **fast preset** now uses `openai/gpt-5.6-luna` with minimal reasoning and priority
-processing, applied automatically to dynamic requests.
+## Changelog — August 2026 is still MODELS ONLY (unchanged from the 08-21 capture)
+- google/gemini-3.7-flash                      ($0.375 / $0.0375 cached / $1.875 per M tokens)
+- xai/grok-4.6                                 (Agent API; xAI flagship reasoning/agentic model)
+- perplexity/nemotron-3-ultra-550b-a55b        ($0.25 in|cached / $2.50 out per M)
+- perplexity/nemotron-3.5-lightning-30b-a3b    (open-weight reasoning, tiered pricing)
+- perplexity/deepseek-v4-flash-0731            (1M-token context)
+- Prompt caching for PRESETS.
+- Agent API **fast preset** now uses `openai/gpt-5.6-luna` with minimal reasoning + priority
+  processing, applied automatically to dynamic requests.
+Held from 08-23: the `defer_loading` flag that keeps MCP TOOL DEFINITIONS OUT OF INITIAL CONTEXT —
+worth remembering as a discovery hazard (declared tools may not be in the visible context window).
 
-No new APIs, agent capabilities, connectors or MCP features. Model additions on an existing API
-surface remain below the reporting bar for a watching-tier platform (consistent with 2026-08-14,
-which held four new Agent API models).
+## API reference — endpoint surface IDENTICAL to the 2026-08-07 cache
+Single primary endpoint: **POST /v1/agent** (canonical since March 2026; migrated off
+/v1/chat/completions).
+Capabilities unchanged: web search with domain/date/recency filters; `fetch_url`; finance search;
+people search; **SANDBOX CODE EXECUTION**; custom function tools with JSON Schema; multi-turn via
+`previous_response_id`; SSE streaming (14+ event types with intermediate tool output for search,
+fetch, finance, people, sandbox, MCP) and async background execution with polling; research loops up
+to **100 steps**; **external MCP server integration** with tool discovery; **managed connectors**;
+**Skills** — built-in Office document generation (docx, pdf, pptx, xlsx) plus custom inline skills;
+reasoning effort minimal..max; JSON-schema structured output; model fallback chains up to 5;
+token/cache accounting and per-operation cost tracking.
 
-Updated: 2026-08-21 — no finding.
-</content>
+Model additions on an existing API surface remain below the reporting bar for a watching-tier
+platform (consistent with 08-14, 08-21 and 08-23).
+
+Updated: 2026-08-24 — no finding. Endpoint surface re-verified unchanged.

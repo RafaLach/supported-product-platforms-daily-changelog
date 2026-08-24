@@ -1,9 +1,9 @@
-# Amazon Bedrock doc history — captured 2026-08-23
-# Source: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
+# Amazon Bedrock doc history — captured 2026-08-24
+# Source: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html  (in sources.json, works)
 
-## NO NEW ENTRIES since the 2026-08-21 capture. Newest is still August 19, 2026.
+## NO NEW ENTRIES since the 2026-08-23 capture. Newest is still AUGUST 19, 2026.
 Newest entry: "Fixed Anthropic Messages API code samples and switched model-card OpenAI-SDK samples
-to bedrock-runtime" (Aug 19) — reported 2026-08-21.
+to bedrock-runtime" (Aug 19) — reported 2026-08-21. Preceding dated entries: Aug 15 (x2), Aug 14, Aug 11.
 
 ## THE STANDING RULE — SELECT PARSERS AND AUTH BY ROUTE PATH, NOT HOSTNAME
 BOTH Bedrock inference endpoints serve FOREIGN API SHAPES. AWS reversed its guidance on
@@ -14,17 +14,19 @@ Anthropic-compatible workloads (the direct opposite of the 2026-08-14 capture).
       (OPENAI_BASE_URL repointed on 49 non-Anthropic model cards away from the mantle /v1 route)
   https://bedrock-mantle.{region}.api.aws/v1                  <- still fully supported
 **Auth differs BY ROUTE, not just format**: short-term bearer token from
-`aws-bedrock-token-generator` on the documented `/anthropic` samples; SigV4 via the
-`AnthropicBedrock` client on the Quickstart samples.
+`aws-bedrock-token-generator` (`provide_token()`) on the documented `/anthropic` samples; SigV4 via
+the `AnthropicBedrock` client on the Quickstart samples.
+Model cards updated to the `/anthropic` + bearer-token pattern: Claude Opus 5, Opus 4.8, Opus 4.7,
+Sonnet 5, Haiku 4.5, **Fable 5**.
 `bedrock-mantle` remains the ONLY host for: **Web Search, Projects, Workspaces, Chat Completions on
 mantle, and the mantle Responses API.** Neither endpoint can be dropped.
 
-## COMPOUNDING FACT — UPDATED 2026-08-23
+## COMPOUNDING FACT — WIDENED AGAIN 2026-08-24
 `bedrock-runtime` serving the Anthropic Messages API intersects Anthropic's Compliance API blind spot
-(Claude Code via Bedrock / Google Cloud / Microsoft Foundry is NOT captured). As of this scan the
-routing path into that gap is no longer just Codex CLI 0.148.0 (reported 2026-08-21) — **OpenAI's
-official Python SDK added Bedrock Runtime endpoint support in v3.2.0 (2026-08-17)**, so arbitrary
-production applications, not just coding agents, can route there.
+(Claude Code via Bedrock / Google Cloud / Microsoft Foundry is NOT captured). The routing path into
+that gap now includes **BOTH official OpenAI SDKs** — Python v3.2.0 (Aug 17, reported 08-23) and
+**Node v7.5.0 (Aug 17, read 08-24)** — not just Codex CLI 0.148.0. Arbitrary production applications
+in either language can route there.
 => Coverage must come from the AWS ACCOUNT'S OWN LOGGING, not from either model vendor.
 See openai_changelog.txt and anthropic_api.txt.
 
@@ -42,7 +44,7 @@ See openai_changelog.txt and anthropic_api.txt.
 - **AgentCore Memory integration for agentic retrieval (Aug 14)** — `memoryConfiguration` field on
   **`AgenticRetrieveStream`**; restore a session from short-term memory, retrieve from long-term, or
   both. Memory now CONDITIONS what a knowledge base returns.
-- Daybreak Red: GPT-5.6 Cyber and Daybreak Blue: GPT-5.6 Sol added to Models at a glance.
+- Daybreak Red: GPT-5.6 Cyber and Daybreak Blue: GPT-5.6 Sol added to Models at a glance. Both model
+  IDs now also appear in the openai-node SDK v7.5.0.
 
-Updated: 2026-08-23 — no new entries.
-</content>
+Updated: 2026-08-24 — no new entries.

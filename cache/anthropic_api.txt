@@ -1,80 +1,45 @@
-# Anthropic / Claude Platform release notes — captured 2026-08-23
-# Working source: https://platform.claude.com/docs/en/release-notes/api
-# BOTH sources.json Anthropic URLs still return HTTP 404 (recurring for months):
-#   platform.claude.com/docs/api/getting-started , /docs/build-with-claude/overview
+# Claude Enterprise (Anthropic) — captured 2026-08-24
+# Source used: https://platform.claude.com/docs/en/release-notes/api
+# BOTH sources.json Anthropic URLs are still HTTP 404 (re-confirmed this scan):
+#   platform.claude.com/docs/api/getting-started   -> 404
+#   platform.claude.com/docs/build-with-claude/overview -> 404
+# www.anthropic.com/news fetched OK but DID NOT ADVANCE — newest still Aug 14 ("How Claude's text
+# watermark works"), and it STILL does not mention Mythos 5 or Project Glasswing at all.
 
-## NEW dated entry since the 2026-08-21 capture
+## NO NEW ENTRIES. Release notes still top at AUGUST 20, 2026.
+- Aug 20  **Python SDK v1.0** — HTTP layer httpx -> httpx2; Python 3.10+ required; REMOVES the
+          legacy Text Completions API, the `temperature`/`top_p`/`top_k` params on Messages methods,
+          and the tool runner's client-side `compaction_control`; async `.with_raw_response` now
+          needs `await response.parse()`; `AnthropicBedrock` ERRORS when no AWS region is set
+          instead of defaulting to us-east-1.  [HELD 08-23: version bump + deprecations]
 
-### August 20, 2026 — Python SDK v1.0   [HELD BELOW THE BAR: version bump + deprecations]
-HTTP layer moves from `httpx` to **httpx2** (build custom `http_client`/`Timeout`/transport objects
-from `httpx2`; call `httpx2.alias_httpx()` if tracing/mocking libs patch `httpx`). Requires Python
-3.10+. REMOVES: the legacy Text Completions API; `temperature`, `top_p`, `top_k` on Messages methods;
-the tool runner's client-side `compaction_control`. Async `.with_raw_response` now needs
-`await response.parse()`. **`AnthropicBedrock` now raises when no AWS region is configured** instead
-of defaulting to `us-east-1`.
-=> Deprecation-heavy version bump; NOT reportable per the monitor's own rules. Recorded because the
-   AnthropicBedrock region change is a behavioural break worth knowing about.
+## Claude Code CHANGELOG (github.com/anthropics/claude-code) — read via raw.githubusercontent.com
+Newest **2.1.241** ("bug fixes and reliability improvements"); 2.1.240 same; 2.1.239 carries cost
+estimate adjustments for DATA-RESIDENCY WORKSPACES, fullscreen renderer, Python API migration
+tooling. **The changelog carries NO DATES**, so it cannot be windowed to a scan and is not usable as
+a dated change source. Use raw.githubusercontent.com, not the rendered blob view.
 
-## ===== OPEN WATCH ITEM CLOSED 2026-08-23: claude-mythos-5 / Project Glasswing =====
+## STANDING FINDING — guardrail behaviour is a property of the DEPLOYMENT, not the model
+`claude-mythos-5` is "the same model as Claude Fable 5 but with cyber safeguards lifted" — Fable 5's
+THREE real-time safety classifiers are ABSENT on Mythos 5. Entitled per-organization via
+**Anthropic, AWS *or* Google Cloud account teams** (Project Glasswing; NDA + US-government-
+coordinated approval; ~150 orgs across 15+ countries). It appears in ordinary model-availability
+lists alongside Fable 5 / Opus 5 / Sonnet 5, so it reads as one more model.
+=> REFUSAL-BASED GUARDRAIL PROBES FALSELY PASS on this tier.
+Direct structural analogue: OpenAI's Daybreak Red / GPT-5.6-Cyber (reported 08-14), whose model IDs
+now appear in the openai-node SDK v7.5.0. Model "safeguard-lifted model entitlement" ONCE, map per
+vendor. Durable pages: anthropic.com/claude/mythos and anthropic.com/glasswing — NEITHER is in
+sources.json and neither is linked from anthropic.com/news.
 
-**RESOLVED.** Flagged 2026-08-21 as "appears in model-support lists, never reported, chase next scan."
-Anthropic's own model page states it: Mythos Preview users can upgrade to Claude Mythos 5,
-**"the same model as Claude Fable 5 but with cyber safeguards lifted."**
+## Carried forward — the Compliance API's documented blind spots double as a coverage map
+Compliance API does NOT capture sessions routed through **Amazon Bedrock, Google Cloud, or Microsoft
+Foundry**. Both official OpenAI SDKs can now target Bedrock Runtime (Python v3.2.0, Node v7.5.0),
+and `bedrock-runtime`'s `/anthropic` route serves the Anthropic Messages API. => coverage must come
+from the cloud account's own logging. See openai_changelog.txt, amazon-bedrock_changelog.txt.
 
-MECHANISM = CLASSIFIER REMOVAL. Fable 5 runs **three real-time safety classifiers** that route
-sensitive queries; on Mythos 5 those classifiers are **absent**. That is what permits unrestricted
-offensive security analysis for defensive work.
+Also carried: inference hooks (Aug 5 beta) — external AI security server holds every governed prompt
+across claude.ai, Cowork and Claude Code for an allow/deny verdict BEFORE inference; fail-open vs
+fail-closed decides whether an outage is a bypass. Admin API user management for Claude Enterprise.
+Claude Opus 5 across API + Bedrock + Vertex + Foundry. Mid-conversation tool changes.
 
-ENTITLEMENT (this is the discoverable object):
-- "offered only to approved customers in Project Glasswing"; "currently only provided to a small, but
-  growing, set of customers through trusted access programs"
-- Requires: Glasswing membership + Anthropic invitation + **signed NDA** + approval **coordinated
-  with the US government**. Restricted to cyberdefenders and infrastructure providers (select
-  biomedical researchers later, separate programme).
-- **ACCESS PATH IS MULTI-CLOUD:** "contact your **Anthropic, AWS, or Google Cloud** account team."
-  => an org can hold safeguard-lifted model access that NEVER appears in its Anthropic tenant.
-     Look on all three surfaces.
-- Glasswing launch partners: AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the
-  Linux Foundation, Microsoft, NVIDIA, Palo Alto Networks.
-- Mythos 5 rollout expanded the programme to ~**150 organizations across 15+ countries**.
-
-WHY IT WAS MISSED FOR MONTHS: Mythos 5 appears in ORDINARY model-availability lists alongside
-Fable 5 / Opus 5 / Sonnet 5, so it reads as one more model rather than a control-stripped tier.
-
-CROSS-VENDOR PATTERN (model this once, map per vendor): direct analogue of OpenAI's **Daybreak Red /
-GPT-5.5-Cyber & GPT-5.6-Cyber** (reported 2026-08-14; OpenAI's own eval: 95% compliance on advanced
-offensive prompts vs 1.5% for default-protected GPT-5.6 Sol).
-
-**KEY LESSON FOR THE MONITOR: guardrail behaviour is a property of the DEPLOYMENT, not the model.**
-Refusal-based guardrail probes silently "pass" on a tier that has no guardrail to bypass.
-
-Durable pages (add BOTH to sources.json — anthropic.com/news does NOT surface this):
-  https://www.anthropic.com/claude/mythos
-  https://www.anthropic.com/glasswing
-  https://www.anthropic.com/news/claude-fable-5-mythos-5
-  https://red.anthropic.com/2026/mythos-preview/   (capability assessment)
-                                                   [reported 2026-08-23, HIGH/AIRT]
-
-## Carried forward — Aug 18/19 entries, all reported 2026-08-21
-Browser use toolset `browser_toolset_20260801` (accessibility-tree reading, element refs, optional
-`javascript_exec`/`file_upload`/`read_console`/`read_network`); computer use GA
-`computer_toolset_20260801` (batch actions, per-member `configs`); **Agent Skills + Skills API
-`/v1/skills` GA**; per-tool `allowed_domains`/`blocked_domains` for Managed Agents' web_search /
-web_fetch; memory stores attachable to self-hosted sandboxes with sync-back; Admin API user
-management GA for Claude Enterprise. Held: Files API GA, Console session-viewer redesign,
-Workbench→Playground rename.
-
-## Standing context
-Compliance API remains the most productive area (`/docs/en/manage-claude/compliance-*`). Its
-DOCUMENTED BLIND SPOTS double as a coverage map — Claude Code via **Bedrock / Google Cloud /
-Microsoft Foundry** is NOT captured at all (now compounded: OpenAI's own Python SDK added Bedrock
-Runtime support in v3.2.0, 2026-08-17). Transcripts omit thinking blocks, system prompt, tool
-definitions and MCP server config.
-
-## Source note
-`www.anthropic.com/news` fetched 2026-08-23: nothing after **Aug 14** ("How Claude's text watermark
-works"), and **no mention of Mythos or Glasswing anywhere on the page**. The news index is not a
-reliable surface for Anthropic's gated programmes.
-
-Updated: 2026-08-23 — one new dated entry (held); the claude-mythos-5 watch item CLOSED and reported.
-</content>
+Updated: 2026-08-24 — no new entries; both configured URLs re-confirmed 404.

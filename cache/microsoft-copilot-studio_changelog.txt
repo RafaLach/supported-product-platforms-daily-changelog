@@ -1,41 +1,28 @@
-# Microsoft Copilot Studio What's New — captured 2026-08-23
-# Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new
+# Microsoft Copilot Studio — captured 2026-08-24
+# Sources (both in sources.json, both fetch OK):
+#   https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new
+#   https://learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio
 
-## NO CHANGE since the 2026-08-21 capture
-Newest section: **July 2026**.  ms.date **2026-08-18**, updated_at **2026-08-20**, word_count 2434.
-Identical to the 2026-08-21 capture. No August 2026 section has appeared.
+## NO CHANGE. What's New still tops at JULY 2026.
+Metadata IDENTICAL to the 08-21 and 08-23 captures: ms.date **2026-08-18**,
+updated_at **2026-08-20**, word_count 2434, git_commit_id 0005a8d7. Byte-for-byte the same page.
 
-## July 2026 — all six items reported 2026-08-21
-- **Entra Agent ID creation is now MANDATORY**: "Starting in July 2026, Copilot Studio automatically
-  creates a Microsoft Entra Agent ID for every new agent, and **you can no longer opt out at the
-  environment level**." (preview opt-in Nov 2025 -> default May 2026 -> mandatory Jul 2026.)
-  CAVEAT: "every NEW agent" != every agent. Pre-mandate agents in opted-out environments still lack
-  an Agent ID — a known-incomplete population a registry-based inventory will miss.
-                                                              [reported 2026-08-21, MEDIUM/AISPM]
-- **(Preview) Add a WORKFLOW or an MCP SERVER as a tool** for agents on the **GitHub Copilot
-  harness**.                                                  [reported 2026-08-21, HIGH/AISPM]
-- (Preview) **Submit an MCP server for Microsoft certification**. [reported 2026-08-21, MEDIUM/AISPM]
-- (Preview) **Export environment-level agent telemetry to Azure Application Insights** via the Power
-  Platform admin center.                                       [reported 2026-08-21, MEDIUM/AIDR]
-- (Preview) **File attachments and agent-created files** for GitHub Copilot harness agents.
-                                                              [reported 2026-08-21, held]
-- Real-time agents across voice AND digital messaging (digital messaging in preview) with
-  **GPT-5-Chat (Preview)**, monitored via Application Insights.  [held — extension of voice surface]
+July 2026 section (all previously reported):
+- Copilot Studio AUTOMATICALLY creates a Microsoft Entra Agent ID for EVERY new agent, and you can
+  NO LONGER OPT OUT at the environment level.
+- (Preview) Add a WORKFLOW or an MCP SERVER as a tool for agents on the GitHub Copilot harness.
+- (Preview) Submit your MCP server for MICROSOFT CERTIFICATION.
+- Real-time agents across voice AND digital messaging; GPT-5-Chat (Preview) model; Application
+  Insights monitoring for real-time agents.
+- (Preview) Export ENVIRONMENT-LEVEL AGENT TELEMETRY to Azure Application Insights via PPAC.
+- (Preview) Users attach files to a conversation and view files the agent CREATES.
 
-## June 2026 and earlier — unchanged
-GitHub Copilot harness (production-ready preview); Microsoft IQ; skills; memory; Windows 365 for
-Agents MCP server GA (full operational control of a Cloud PC — desktop interaction, browser
-automation, semantic UI inspection); condition groups; Teams Phone Agent voice integration; connect
-other agents (A2A); Foundry IQ connect; Claude Sonnet 5 / GPT-5.5 Chat GA. May 2026: computer use GA,
-prompt node, M365 Copilot node, consent-based recording, **agent inventory schema** (admin center,
-API, Azure Resource Graph), agent readiness status, async agent-flow responses, computer-use
-standalone tools, Mistral Medium 3.5.
+## Released-versions page — STALE FOR A SEVENTH CONSECUTIVE SCAN
+ms.date **2026-06-30**, updated_at 2026-07-01. Still tops at platform **2026.6.3** / UX
+**26.06.21-24** (first available June 30, 2026). Now ~8 weeks behind the What's New page, on a page
+that states "This page is updated each week on Tuesday." Region spread: 2026.6.3 in Preview-US,
+France, Switzerland, Korea, Germany, South Africa, Norway, Canada, India, Sweden, South America;
+2026.6.2 in UK, Asia, UAE, Japan, Europe; 2026.6.1 in Australia, United States, GCC.
+=> This page cannot be used for change detection. Rely on What's New only.
 
-## Released-versions page — STALE for a SIXTH consecutive scan
-learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio
-ms.date **2026-06-30**, updated_at 2026-07-01. Tops at platform **2026.6.3** / UX **26.06.21-24**
-(first available June 30, 2026). ~8 weeks behind the What's New page. Claims to update weekly on
-Tuesdays; it does not.
-
-Updated: 2026-08-23 — no change. Do not re-report the July items.
-</content>
+Updated: 2026-08-24 — no change on either source.

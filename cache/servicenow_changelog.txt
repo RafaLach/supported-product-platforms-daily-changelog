@@ -1,45 +1,35 @@
-# ServiceNow — captured 2026-08-21
-# Read the PER-APPLICATION *-rn.html pages. The family index
-# (servicenow.com/docs/r/release-notes/family-release-notes.html) lists AI applications as topics
-# only, with no version, GA status or feature content — it will never answer "did X ship?".
+# ServiceNow (secondary tier) — captured 2026-08-24
+# sources.json points at the FAMILY INDEX, which is useless. STANDING RULE: read the per-application
+# *-rn.html pages directly, NEVER the family index.
+#   https://www.servicenow.com/docs/r/release-notes/family-release-notes.html  <- index, in sources.json
+#   https://www.servicenow.com/docs/r/release-notes/ai-control-tower-rn.html   <- the productive page
 
-## AI Control Tower — https://www.servicenow.com/docs/r/release-notes/ai-control-tower-rn.html
-**UNCHANGED this scan.** Newest is still **Australia Patch 4**, same feature set captured 2026-08-14:
-- Redesigned AI Control Tower with natural-language search and task completion
-- Activity Center; recommendations and AI insights
-- Quality and safety monitoring with automated scoring and trend analysis
-- ServiceNow Otto premium chat integration with unified search
-- **Kill switch protocol** — AI agent containment for AWS Bedrock, GCP Vertex AI and ServiceNow
-- **Agent map visualization** — AI models, **MCP servers**, providers and workflows  [rep. 08-14]
-- **AI asset deduplication**                                                        [rep. 08-14]
-- Post-runtime security metrics configured by default; asset state at creation;
-  Risk & Compliance posture review; enhanced AWS/GCP/Microsoft connectors
-Patch 3: SB 53 and Colorado AI Act frameworks; AI record type label updates.
-Patch 2: **Microsoft Agent 365 publishing for ServiceNow agents**; Databricks Service Graph Connector.
-Patch 1: customizable AI asset security scoring; new LLM/agent security metrics; agentic AI system
-lifecycle management; expanded AI asset association.
-Early availability: AI connections framework via Service Graph Connectors; managed/unmanaged asset
-categorization; MCP Global Clients and Catalog.
+## NO CHANGE. Newest release family is still **Australia**; AI Control Tower still at
+## **Australia Patch 4** (page updated March 12, 2026). Identical to the 08-14, 08-21, 08-23 captures.
+The family index confirms Australia is newest and carries NO per-application AI links — it only says
+"The Australia release includes new features and improvements built on the ServiceNow AI Platform."
+This is exactly why the index cannot be used for change detection.
 
-## Service Graph Connector versions — unchanged, reported 2026-08-14
-Anthropic **v2.0.7** (discovers models, tracks PER-USER costs); Microsoft (unified Azure ML config,
-certificate-based auth); Amazon (single credential page, automatic key rotation); GCP Vertex AI
-**v1.2.4, renamed "AI Connector for Google"** (name-match detection hazard); Databricks (discovers
-AND **imports** AI agents).
+## Australia Patch 4 feature set (all previously reported)
+- **Activity Center** — centralizes governance tasks and recommendations across AI Control Tower
+- Recommendations and AI insights
+- Monitor quality and safety for AI systems (automated scoring + trend analysis)
+- **Trace connections** — collects data from **AWS, Azure and Google Cloud**
+- Plan AI strategy / prioritize / execute — portfolio planning in one workspace
+- Conversational interface (ServiceNow Otto premium chat with web search)
+- **AI agent containment using KILL SWITCH PROTOCOL** — deactivates rogue agents ACROSS PLATFORMS
+- **Agent network MAP** — visualizes AI models, MCP servers and providers
+- Configure post-runtime security metrics (system prompt leakage, threat monitoring)
+- Specify asset state during AI asset creation
+- Review AI risk and compliance posture
+- New connectors for **Anthropic** (2.0.7) and **Amazon**; Microsoft integration improvements
+  (Google connector 1.2.4)
 
-## Standing facts
-- **AI Gateway is DEPRECATED in Australia and no longer supported** (legacy MCP client-server
-  interactions remain visible through it). The "AI Gateway GA" watch is CLOSED as superseded.
-- **MCP Server Console** (plugin `sn_mcp_server`, v1.3) turns a ServiceNow instance into a governed
-  MCP server exposing Subflows, Actions, REST APIs, Knowledge Graphs and Now Assist skills as tools,
-  with embedded OAuth client registration and third-party IDP support. Reported 2026-08-10.
-- Machine Identity Console (Zurich, not Australia) is the identity substrate MCP Server Console
-  depends on. Outside Zenity's coverage — context only.
+## Resolved watch item, carried
+AI Control Tower ships in the **Australia** release via the ServiceNow Store; **AI Gateway is
+DEPRECATED and no longer supported** — the "GA expected August 2026" forecast was superseded, not
+met. Australia also introduced **MCP Server Console**, which turns a ServiceNow instance into a
+governed MCP SERVER exposing Subflows, Actions, REST APIs, Knowledge Graphs and Now Assist skills as
+tools. Control Tower can DEACTIVATE AGENTS IN AWS BEDROCK AND GCP VERTEX AI from ServiceNow.
 
-## Pages to read every scan
-ai-control-tower-rn.html, mcp-server-console-rn.html, identity-rn.html, now-assist-rn-landing.html,
-delta-zurich-australia/*.  The family index is only useful for discovering WHICH pages exist.
-
-Updated: 2026-08-21 — no change. **No ServiceNow finding this scan.** Recommendation to add the
-per-application URLs to sources.json remains outstanding.
-</content>
+Updated: 2026-08-24 — no change. Recommend repointing sources.json at the per-application *-rn.html pages.

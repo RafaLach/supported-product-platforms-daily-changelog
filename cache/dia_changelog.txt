@@ -1,29 +1,22 @@
-# Dia Browser release notes — captured 2026-08-23
-# Source: https://diabrowser.com/release-notes
+# Dia Browser (watching tier) — captured 2026-08-24
+# https://diabrowser.com/release-notes  (in sources.json, HTTP 200)
 
-## SIXTH CONSECUTIVE SCAN WITH NO EXTRACTABLE CONTENT.
+## SEVENTH CONSECUTIVE SCAN WITH NO EXTRACTABLE CONTENT.
+The newest row is still dated **August 20, 2026** and its **Issue No. and App Version fields are
+repeated-digit PLACEHOLDER STRINGS** (sequences of zeros and ones), repeated three times at the top
+of the page. No description text.
 
-The newest row is dated **August 20, 2026 11:35 AM ET** (Brooklyn, USA) but its fields are
-TEMPLATE PLACEHOLDERS, and the same block repeats three times at the page top:
-  Issue No.:    "012345678901234567890123456789012345678901234567890123456789"
-  App Version:  "01234567890123456789012345678901234567890123456789012345678901234567890123456789"
+Readable rows behind it, TITLES ONLY, unchanged:
+  Aug 13, 2026 — No. 037, v1.44.0 — "Dia 🤝 LinkedIn"
+  Aug  6, 2026 — No. 036, v1.43.1 — "Swipeable Profiles are here"
+  Jul 30, 2026 — No. 035, v1.42.0 — "Dia's coming to Windows!"
 
-Readable past issues (titles only, no feature detail):
-  Aug 13, '26 | No. 037 | v1.44.0 | "Dia (handshake) LinkedIn"
-  Aug  6, '26 | No. 036 | v1.43.1 | "Swipeable Profiles are here"
-  Jul 30, '26 | No. 035 | v1.42.0 | "Dia's coming to Windows!"
+The page's only substantive prose is editorial security copy ("your chat history lives on your
+machine", data retention policy) — not a release note.
 
-The only prose on the page is a "Notes from the roadmap" privacy section: chat history is stored
-locally by default ("your chat history lives on your machine (under History)"), and context sent to
-model providers operates under "zero data retention."
+## NOTHING REPORTED FOR DIA SINCE 2026-07-07.
+**This source needs a different acquisition method to be useful at all.** Candidates worth trying
+next scan: the in-app release-notes view, an RSS/JSON feed if one exists, the App Store /
+Microsoft Store version history, or WebSearch on "Dia browser v1.4x".
 
-## STATUS
-**Nothing has been reported for Dia since 2026-07-07.** The failure is in the page template, not in
-the fetch, so retrying will not help. **This source needs a different acquisition method to be useful
-at all** — candidates: the per-issue permalink pages (e.g. issue 037) rather than the index, an RSS
-feed if one exists, or the macOS/Windows app release feed. Recommend investigating rather than
-continuing to poll the index.
-
-Updated: 2026-08-23 — sixth consecutive failure. Watching tier, so no coverage escalation, but the
-source should be replaced or dropped.
-</content>
+Updated: 2026-08-24 — no extractable delta, seventh consecutive scan.

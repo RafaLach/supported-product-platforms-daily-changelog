@@ -1,27 +1,26 @@
-# Cursor changelog — captured 2026-08-23
-# Source: https://cursor.com/changelog  (this URL is CORRECT in sources.json)
-# NOTE: the Cursor *docs* URL in sources.json is wrong — docs.cursor.com 308s to cursor.com/docs.
+# Cursor (watching tier) — captured 2026-08-24
+# https://cursor.com/changelog  — CORRECT in sources.json, fetches fine.
+# https://docs.cursor.com       — 308 -> https://cursor.com/docs. sources.json entry WRONG,
+#                                 recommendation outstanding since 2026-08-10.
 
-## NO CHANGE since the 2026-08-21 capture. Newest entry: August 19, 2026.
+## NO NEW ENTRIES. Still tops at August 19, 2026.
+- Aug 19  "Cloud Agents and Cursor Harness Improvements" — SUBSCRIPTIONS for event monitoring,
+          CUSTOM MODES FOR SKILLS, ISOLATED SUBAGENT ENVIRONMENTS, `/goal` command for long-lived
+          objectives, steering improvements.                        [reported 2026-08-21]
+- Aug 17  "Origin Code Hosting" — repos, pull requests, code browsing, GitHub sync, app integrations
+          (Vercel, Depot, Buildkite).                               [reported 2026-08-21]
+- Aug 13  "Cloud Agents Start 3x Faster with Builds" — pre-built dev environments.
+- Aug 3   "Google Workspace Plugins" — Gmail, Drive, Calendar via Google's remote MCP servers,
+          installed from the Cursor Marketplace in ~5 clicks, Drive incl. SHARE.  [reported 08-07]
+- Jul 29  "Cursor, now on iPad".
 
-- **Aug 19, 2026 — "Cloud Agents and Cursor Harness Improvements."**  [reported 2026-08-21, MEDIUM]
-  **Subscriptions** — agents monitor PRs, Slack threads and scheduled tasks; agents AUTOMATICALLY
-  SUBSCRIBE TO PRs THEY CREATE and drive them to completion. **`/goal`** — long-lived objectives
-  agents work toward independently. **Subagents on isolated machines** — each in its own virtual
-  environment with a clean project copy. **Custom Modes** — "always on" pinned skills.
-  Non-interruptive steering — guidance queues for the next tool call instead of halting execution.
-  => activity becomes CONTINUOUS AND EVENT-TRIGGERED, not session-bounded. Inventory active
-     SUBSCRIPTIONS AND GOALS, not just "agents". Slack-thread monitoring = an injection path into an
-     agent holding repo access.
+## NEW CONTEXT 2026-08-24 — Cursor is a founding TSC member of Agent Plugins 1.0
+Cursor sits on the Agent Plugins Technical Steering Committee (with AWS, Microsoft, OpenAI, Vercel)
+and is a named implementing client, alongside ChatGPT, Codex, GitHub Copilot, Kiro and VS Code. The
+Aug 19 "custom modes for skills" line is Cursor's side of that ecosystem. The Agent Toolkit for AWS
+ships plugins for Cursor specifically. => Cursor's marketplace is NOT the only way extensions reach
+a Cursor install; a plugin authored anywhere in the ecosystem is portable to it, and the
+`aws configure agent-toolkit` wizard installs into detected agents' config directories directly.
+See agent-plugins_spec.txt.
 
-- **Aug 17, 2026 — Cursor Origin (early beta).** [reported 2026-08-21, HIGH/AISPM]
-  "Origin is Cursor's git forge for storing and sharing code." Repo creation, standard git ops, code
-  browsing/search at cursor.com/codebase, PR review and merge. Onboarding via **GitHub mirroring**;
-  PRs on synced repos **sync BIDIRECTIONALLY** (a Cursor comment posts to GitHub and vice versa
-  within seconds). Integrates Vercel, Depot, Buildkite for deploy/CI-CD, plus automations, cloud
-  agents and an Origin CLI. Pro/Teams/Enterprise; **teams on legacy privacy mode CANNOT enable it**
-  and must switch to Privacy Mode first (a discoverable posture signal).
-  => a NEW LOCATION WHERE CUSTOMER SOURCE LIVES, outside sanctioned SCM.
-
-Updated: 2026-08-23 — no change.
-</content>
+Updated: 2026-08-24 — no new entries.
