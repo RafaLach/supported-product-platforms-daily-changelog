@@ -1,37 +1,68 @@
-# Salesforce AgentForce (secondary tier) — captured 2026-08-24
-# Source status, all unchanged:
-#   www.salesforce.com/releases/                        HTTP 403, months. Not recoverable.
-#   help.salesforce.com/s/articleView (release notes)   JS-rendered, does NOT survive WebFetch.
-#   developer.salesforce.com/docs/ai/agentforce/guide   Loads, but RELEASE-AGNOSTIC.
-#   developer.salesforce.com/docs/ai/agentforce/references  Loads, but UNDATED and UNVERSIONED.
-# => Winter '27 remains WEBSEARCH-CORROBORATED ONLY for a THIRD consecutive scan.
+# Salesforce AgentForce — captured 2026-08-27
+# sources.json URLs status: www.salesforce.com/releases/ = HTTP 403 (months).
+#   help.salesforce.com release notes = JS "CSS Error" shell (FIFTH consecutive scan).
+#   developer.salesforce.com/docs/ai/agentforce/references = still undated/release-agnostic.
+# The Aug 26 press release at www.salesforce.com/news/... ALSO returns 403.
+# Recovered via the INVESTOR RELATIONS mirror, which renders:
+#   https://investor.salesforce.com/news/news-details/2026/
+#     Salesforce-and-Anthropic-Announce-Claudeforce-The-1-AI-Meets-the-1-AI-CRM/default.aspx
+# *** NEW METHOD NOTE: when salesforce.com/news 403s, try investor.salesforce.com. ***
 
-## NO NEW DETAIL. This scan's WebSearch added nothing beyond the 08-23 capture.
-Winter '27 release notes went live around **August 19, 2026**.
-**Sandbox instances upgrade around AUGUST 29, 2026** — worth a look next week; that is when
-first-hand, non-WebSearch confirmation is most likely to become reachable.
+## *** CLAUDEFORCE — announced 2026-08-26, alongside Q2 FY27 earnings. NEW. ***
 
-## Winter '27 Agentforce, as corroborated (reported 2026-08-21 and 2026-08-23)
-- **Marketing Goals Agent** — user defines a **goal, BUDGET and eligible audience**; the agent
-  generates a recommended strategy for review and approval; once activated it "operates
-  **AUTONOMOUSLY within those guardrails, continuously optimizing** activities and decisions toward
-  the desired outcome."  => the approval boundary is ONE-TIME; the budget is the only real bound on
-  autonomous commercial action; the eligible audience is a STANDING data-scope grant.
-- **Agentforce Content Agent** — creates campaign content at scale while maintaining brand
-  consistency. (The second of the two new marketing agents; named on 08-23.)
-- **Agentforce observability** — refined agent analytics and **CUSTOM SCORERS**, some in Beta.
-- Also: agent interoperability, voice, multilingual conversations, improved agent management.
+### 1. "Salesforce in Claude" — a PLUGIN that runs INSIDE Claude
+   - 37 PREBUILT SALES SKILLS, described as engineered for Claude rather than generic
+     API wrapping. Named examples: meeting prep, deal health review, pipeline review.
+   - Lets sellers "reason over LIVE REVENUE CONTEXT, automate pipeline updates, and take
+     GOVERNED ACTION right from Claude."
+   - Availability: select PILOT customers now; OPEN BETA expected SEPTEMBER 2026.
+   - "Additional prebuilt skills will begin launching in late 2026."
+   => DIRECTION OF FLOW IS INVERTED vs everything previously reported for this platform.
+      Historically Salesforce hosted the agent. Here the agent host is CLAUDE and
+      Salesforce is the tool/data surface reached from outside the CRM.
+   NOTE: claude.com/plugins/sales is a DIFFERENT, generic Sales plugin (4 commands:
+   /call-summary, /forecast, /pipeline-review + 5 auto skills, CRM-agnostic via MCP).
+   Do not conflate the two. No public docs page for the 37-skill Salesforce plugin yet.
 
-## API reference surface (references page, read 2026-08-24) — unchanged vs the 2026-08-07 cache
-Agent API · Agentforce Python SDK · Agent Script · Agentforce DX · Agentforce Mobile SDK ·
-Lightning Types · Models API · Testing API · Citations · Metadata and Tooling APIs.
-**No version numbers, no dates, no update indicators anywhere on the page** — it cannot support
-change detection at all.
+### 2. Claude INSIDE Agentforce — now the default model in several components
+   - Powers the ATLAS REASONING ENGINE
+   - DEFAULT model for AGENTFORCE VIBES
+   - DEFAULT model for AGENTFORCE COWORKER
+   - Available in AGENT BUILDER
+   *** AGENTFORCE COWORKER HAS NEVER BEEN REPORTED BY THIS MONITOR (grep: 0 hits). ***
+   Coworker = an AI teammate surfaced "in every search bar" across the Salesforce
+   experience; announced ~May 2026, provisions automatically through Salesforce
+   Foundation Flex Credits; unmetered for Agentforce 1 Edition / Agentforce for Sales,
+   Service, Industries licences PROVIDED user-based AI permissions are configured —
+   otherwise the same users consume credits. (Corroborated via secondary sources only;
+   Salesforce Help is unreachable.)
 
-## Carried
-April 2026 topics -> subagents rename (reported 2026-05-21) is the only thing the guide asserts.
-Match agents on STABLE IDENTIFIERS, not display names — cf. the concurrent Lead Nurturing ->
-Engagement rename.
-**Dreamforce Sept 12-14, 2026** is the larger expected delta.
+### 3. Claude in SLACK
+   - "the intelligent backbone across every layer of the Slack experience"
+   - Powers SLACKBOT; augments team decision-making via CLAUDE TAG; founding partner
+     for SLACK CODE.
+   (Claude Tag was reported 2026-07-03 as an agentic Slack teammate with admin-scoped
+   identities and tool/data/codebase access. This makes it a first-class Slack layer.)
 
-Updated: 2026-08-24 — no new detail; sandbox upgrade ~Aug 29 is the next real checkpoint.
+### 4. Deployment / trust boundary
+   - Delivered THROUGH AMAZON BEDROCK, "within the Salesforce Trust Boundary."
+   - Prior partnership material states Anthropic is "the first LLM provider fully
+     integrated within the Salesforce trust boundary, with all of Claude's traffic
+     contained within the Salesforce virtual private cloud."
+   => the Claude traffic is inside Salesforce's VPC via Bedrock; neither a Salesforce-only
+      nor an Anthropic-only control plane sees the whole path.
+
+## WINTER '27 — published 2026-08-19, still not directly verifiable from Salesforce
+WebSearch corroboration only. Sandbox PREVIEW opens 2026-08-28 (was previously noted as
+~Aug 29). Content surfaced this scan:
+ - Sales Cloud renamed AGENTFORCE SALES; Agentforce Lead Nurturing renamed AGENTFORCE
+   ENGAGEMENT; Engagement agents built in the newer AGENTFORCE BUILDER using AGENT SCRIPT
+   for business rules and guardrails.       [renames + already-known builder — held]
+ - 24 additional conversation languages.    [held]
+ - Agentforce Observability + Custom Scorers.  [ALREADY REPORTED 08-21 / 08-23]
+ - Hosted MCP Servers.                       [GA'd April 2026 — NOT a Winter '27 addition]
+ - Agentforce Prospecting: scheduling agent runs, prioritising recently engaged contacts,
+   researching accounts outside a dedicated prospecting group, Agent Activity view.
+                                             [extension of a reported capability — held]
+
+Updated: 2026-08-27 — Claudeforce is the finding. Winter '27 still needs a working source.

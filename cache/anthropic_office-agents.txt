@@ -1,0 +1,132 @@
+# Claude for Microsoft 365 — "Office agents" — FIRST CAPTURE 2026-08-27
+# Source set: https://claude.com/docs/office-agents/{excel,powerpoint,word,outlook,
+#                work-across-apps,connectors-and-skills,third-party-platforms,data-storage}
+# NOT IN sources.json. Never read by this monitor before today.
+# Surfaced because the 2026-08-26 Anthropic release note added product_surface
+# `office_agents/*` to the Compliance API. The PRODUCT is not new — Excel/PowerPoint/Word
+# went GA 2026-05-07, Outlook is in public beta — this monitor simply never covered it.
+# Note the support.claude.com article 301-redirects to claude.com/docs/office-agents/*.
+
+## WHAT IT IS
+Four Office add-ins (Excel, PowerPoint, Word, Outlook) installed from Microsoft AppSource
+as a single listing, "Claude for Microsoft 365" (WA200010725). Sidebar task pane, sharing
+ONE conversation thread per M365 user across all four apps.
+Plans: Pro, Max, Team, Enterprise. Requires SharedRuntime (so: NOT iPad, NOT Android,
+NOT Excel 2016/2019 perpetual/volume).
+
+## PER-APP CAPABILITY (all WRITE, not just read)
+Excel   : read/answer with CELL-LEVEL CITATIONS; change values preserving formula
+          relationships; debug #REF!/#DIV/0; generate models; populate templates;
+          multi-tab; native ops — sort, filter, EDIT PIVOT TABLES, conditional
+          formatting, data-validation dropdowns. NOT supported: data tables, macros/VBA.
+PowerPoint: build slides in template, edit selection, generate native charts/diagrams,
+          respects slide masters.
+Word    : edit with TRACKED CHANGES, respond to COMMENT THREADS, preserve company styles
+          and heading hierarchy.
+Outlook (beta): inbox triage, draft replies, coordinate CALENDAR AVAILABILITY across team
+          members. Reaches `graph.microsoft.com` MAILBOX AND CALENDAR API via Microsoft
+          Entra ID Nested App Auth (`login.microsoftonline.com`) for the Graph token.
+
+## CROSS-APP MODE ("Let Claude work across files")
+*** DEFAULT-ON for Pro and Max. Default-OFF for Team and Enterprise. PER-DEVICE toggle. ***
+Runs over a WebSocket bridge at `bridge.claudeusercontent.com`.
+Admin control: Organization settings > Office agents > "Let Claude work across apps".
+NOT supported when connecting through Bedrock / Vertex AI / Foundry / an LLM gateway
+ => cross-app only works on DIRECT Claude accounts. In a tenant that routes AI through
+    Bedrock, any cross-app usage is by definition out-of-band personal-account usage.
+Limits: only files/emails CURRENTLY OPEN; Claude cannot create, open, close or switch files.
+
+## CONNECTORS AND SKILLS
+Connectors: `+` below the chat input > Connectors. Named: S&P Global, LSEG, Daloopa
+(financial data) "plus any custom connectors your organization has enabled".
+CUSTOM CONNECTORS ARE REMOTE MCP. Anthropic's own warning: "Custom connectors can
+introduce security risks."  MCP tool calls proxy through `mcp-proxy.anthropic.com`.
+`api.anthropic.com` serves "Claude inference API, file uploads, CODE-EXECUTION CONTAINERS,
+and MCP CONNECTOR REGISTRY".
+Skills: enabled in Claude settings, apply automatically; invoke directly with `/` (e.g.
+`/deck-check` in PowerPoint). App-irrelevant skills are filtered out of the list.
+Skills download over `pivot.claude.ai`.
+Persistent Instructions: per-app, set in the add-in sidebar Settings, applied to EVERY
+conversation in that app. Excel Instructions are separate from PowerPoint/Word.
+
+## ANTHROPIC'S OWN PROMPT-INJECTION WARNING (verbatim, on the Excel page)
+"Only use Claude for Excel with trusted spreadsheets. Files from external sources can
+ contain hidden instructions that manipulate the add-in into extracting data, modifying
+ records, or performing destructive actions."
+"Testing has identified scenarios where Claude for Excel can be manipulated to extract
+ sensitive information, modify critical data, or perform destructive actions if allowed
+ to act without verification."
+Mitigation is a per-operation user confirmation prompt — i.e. user click-through.
+
+## DATA HANDLING / LOGGING — THE COVERAGE PROBLEM
+Chat history is stored LOCALLY in the browser via IndexedDB. "Conversations are not stored
+on Anthropic's servers, are not synced across devices, and can be cleared from Settings."
+Reinstalling the add-in or switching between Claude add-ins does NOT remove it.
+Backend inputs/outputs deleted within 30 days; cached for some hours after deletion.
+*** The add-ins DO NOT inherit the org's custom data retention settings. ***
+*** The docs still state: "Activity is not included in Enterprise audit logs or the
+    Compliance API." — CONTRADICTED by the 2026-08-26 release note, which added
+    office_agents/* to the Compliance API local session endpoints in beta.
+    The product docs are STALE relative to the platform release notes. Re-verify. ***
+
+## THIRD-PARTY PLATFORM DEPLOYMENT (docs/office-agents/third-party-platforms)
+Four connection paths, chosen by IT admin; end users see an identical interface:
+  LLM gateway      — LiteLLM, Portkey, Kong etc. "Matches the pattern used by Claude Code."
+  Bedrock direct   — add-in authenticates via Microsoft Entra ID, calls Bedrock directly.
+  Vertex AI direct — Google OAuth, calls Vertex directly.
+  Foundry direct   — per-user Entra token (KEYLESS) or the resource API key. Deployment
+                     names must be default model IDs (e.g. `claude-opus-4-6`), not custom.
+                     Keyless needs an Entra app registration with Azure Cognitive Services
+                     `user_impersonation` delegated permission (admin-consented) + users
+                     holding the Cognitive Services User role.
+Bedrock direct REQUIRES: an IAM OIDC identity provider trusting Microsoft Entra ID tokens,
+and a role with `bedrock:InvokeModel` + `bedrock:InvokeModelWithResponseStream`, trust
+policy scoped to the Claude add-in's application ID.
+ => A STANDING ENTRA -> AWS FEDERATION EDGE created for an Office add-in.
+
+## DEPLOYMENT IS DRIVEN BY A CLAUDE CODE PLUGIN
+  claude plugin marketplace add anthropics/financial-services
+  claude plugin install claude-for-msft-365-install@claude-for-financial-services
+  /claude-for-msft-365-install:setup
+Commands:
+  :setup              provisions cloud resources, admin consent, writes manifest
+  :manifest           generates customized add-in manifest XML
+  :consent            generates the Azure admin-consent URL
+  :update-user-attrs  *** writes PER-USER configuration via MICROSOFT GRAPH EXTENSION
+                          ATTRIBUTES *** (e.g. different gateway tokens or AWS roles per team)
+  :bootstrap          *** builds a BOOTSTRAP ENDPOINT for PER-USER MCP SERVERS, SKILLS and
+                          DYNAMIC CONFIG *** — an org-controlled channel that pushes MCP
+                          servers and skills to individual users at runtime
+  :debug              triage
+  :export-data        read-only copy of a user's chat history, skills, CONNECTOR
+                      REGISTRATIONS and settings
+Custom-manifest path for tenants with the Office Store disabled:
+  https://pivot.claude.ai/manifest-excel.xml  (per-app manifests)
+
+## NETWORK ALLOWLIST (both modes route UI + telemetry to Anthropic even in 3P mode)
+1P: pivot.claude.ai, claude.ai, api.anthropic.com, appsforoffice.microsoft.com,
+    login.microsoftonline.com (Outlook), o1158394.ingest.us.sentry.io (optional),
+    mcp-proxy.anthropic.com (MCP), bridge.claudeusercontent.com (cross-app),
+    graph.microsoft.com (Outlook)
+3P: pivot.claude.ai, claude.ai/api/, appsforoffice.microsoft.com, login.microsoftonline.com,
+    sentry, + the chosen inference endpoint (gateway URL / sts.amazonaws.com +
+    bedrock-runtime.<region>.amazonaws.com / accounts.google.com + oauth2.googleapis.com +
+    aiplatform.googleapis.com / <resource>.services.ai.azure.com), graph.microsoft.com
+Anthropic's note: "Domains pointing to Anthropic (such as pivot.claude.ai) serve the
+add-in's interface, feature configuration, and operational telemetry, not prompt or
+response content."
+
+## ADMIN DEPLOYMENT (1P)
+M365 Admin Center > Settings > Org Settings > User owned apps and services >
+"Let users access the Office Store"; then Settings > Integrated apps > Add-ins > assign.
+Known Microsoft issue: the Integrated apps page does NOT recognise roles activated through
+Entra PIM, so deployment fails (tracking ID 11126536) — workaround is a PERMANENTLY ACTIVE
+admin role rather than PIM-eligible. Individual users can ALWAYS self-install regardless.
+
+## MODEL ACCESS
+"A curated subset of the Claude models". Org model-access settings apply in 1P mode.
+In 3P mode the model list comes from the PLATFORM and the admin's configuration instead,
+NOT from Claude.ai model access settings.
+
+Captured: 2026-08-27 — first capture. RECOMMEND ADDING claude.com/docs/office-agents/ TO
+sources.json AS A PRIMARY-TIER ANTHROPIC SOURCE.

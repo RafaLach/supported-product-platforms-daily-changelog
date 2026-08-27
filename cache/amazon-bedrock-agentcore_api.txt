@@ -1,11 +1,8 @@
-# Amazon Bedrock AgentCore Data Plane - Actions API Reference — captured 2026-08-07
+# Amazon Bedrock AgentCore Data Plane - Actions API Reference — RE-VERIFIED 2026-08-26
 
-Full operation list diffed against the 2026-07-07 cache.
+## OPERATION-FOR-OPERATION IDENTICAL TO THE 2026-08-07 CAPTURE.
+## THIRD CONSECUTIVE VERIFICATION WITH NO NET-NEW DATA-PLANE OPERATIONS (08-07, 08-24, 08-26).
 
-### NEW since 2026-07-07
-- DeleteCapacityProviderSession   (matches the new August Runtime "Instances" compute type)
-
-### Unchanged groups
 Memory: BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords,
   DeleteMemoryRecord, GetMemoryRecord, ListMemoryRecords, ListMemoryExtractionJobs,
   RetrieveMemoryRecords, StartMemoryExtractionJob
@@ -14,15 +11,12 @@ Auth/Token: CompleteResourceTokenAuth, GetResourceApiKey, GetResourceOauth2Token
   GetWorkloadAccessTokenForUserId
 Events: CreateEvent, DeleteEvent, GetEvent, ListEvents
 Agent/Runtime: GetAgentCard, InvokeAgentRuntime, InvokeAgentRuntimeCommand, InvokeHarness,
-  StopRuntimeSession
+  StopRuntimeSession, DeleteCapacityProviderSession
 Browser: GetBrowserSession, ListBrowserSessions, SaveBrowserSessionProfile, StartBrowserSession,
   StopBrowserSession, UpdateBrowserStream, InvokeBrowser
 Code Interpreter: GetCodeInterpreterSession, InvokeCodeInterpreter, ListCodeInterpreterSessions,
   StartCodeInterpreterSession, StopCodeInterpreterSession
-Registry: SearchRegistryRecords
-  (NOTE: the August release notes add ListDiscoverableRegistryRecords and
-   BatchGetDiscoverableRegistryRecord under the new `agent-registry` namespace — they are NOT on this
-   AgentCore data-plane Actions page, they live in the separate AWS Agent Registry API surface.)
+Registry: SearchRegistryRecords   <- STILL THE ONLY REGISTRY OP ON THIS PAGE
 A/B Testing + Batch Evaluation + Recommendation: CreateABTest, DeleteABTest, GetABTest, ListABTests,
   UpdateABTest, DeleteBatchEvaluation, GetBatchEvaluation, ListBatchEvaluations, StartBatchEvaluation,
   StopBatchEvaluation, DeleteRecommendation, GetRecommendation, ListRecommendations, StartRecommendation
@@ -31,5 +25,20 @@ Payments: CreatePaymentInstrument, CreatePaymentSession, DeletePaymentInstrument
   ListPaymentSessions, ProcessPayment
 Additional: Evaluate, ListActors, ListSessions
 
-Updated: 2026-08-07 — One net-new data-plane operation (DeleteCapacityProviderSession).
-Gateway rate-limit ops (CreateRateLimit et al.) are control-plane and not listed on this page.
+## THE SEPARATE `agent-registry` API SURFACE — grew this scan (see the changelog cache)
+Not on this page. Now known to include, at minimum:
+  Control plane: GetRegistry, UpdateRegistry, DeleteRegistry, PutResourcePolicy,
+                 CreateRegistryRecord, UpdateRegistryRecord, DeleteRegistryRecord, GetRegistryRecord,
+                 ListRegistryRecords, SubmitRegistryRecordForApproval, UpdateRegistryRecordStatus
+  Data plane:    SearchDiscoverableRegistryRecords, GetDiscoverableRegistryRecord,
+                 ListDiscoverableRegistryRecords, BatchGetDiscoverableRegistryRecord,
+                 **InvokeRegistryMcp**
+  Condition keys: agent-registry:RecordCreatorAccount, agent-registry:RecordSourceAccount
+CLI namespaces observed: `aws agent-registry ...` (data plane) and `aws agent-registry-control ...`.
+=> **THIS SURFACE, NOT THE AGENTCORE DATA-PLANE PAGE, IS WHERE REGISTRY CHANGES LAND. Watch it
+   separately; the AgentCore Actions page has been static for three verifications running.**
+
+Gateway rate-limit ops (CreateRateLimit, GetRateLimit, UpdateRateLimit, DeleteRateLimit,
+ListRateLimits, BatchPutRateLimitEntries) are control-plane and not listed on this page.
+
+Updated: 2026-08-26 — no change. Registry activity is happening on the agent-registry surface instead.

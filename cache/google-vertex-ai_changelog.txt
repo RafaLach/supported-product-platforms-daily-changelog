@@ -1,65 +1,72 @@
-# Google Gemini Enterprise / Gemini Enterprise Agent Platform — captured 2026-08-24
-# Streams read (sources.json still points ONLY at the dead one):
-#   1. cloud.google.com/vertex-ai/docs/release-notes  <- IN sources.json. 301 -> docs.cloud.google.com.
-#      Newest AUG 16, still Agent Platform Workbench v2 IMAGE BUMPS (Ruby gem CVEs, aiohttp/joblib/
-#      cryptography, CUDA 12.8.1->12.9.2, JupyterLab 3 removed). USELESS for agent surfaces.
-#   2. docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes — NAV-ONLY via WebFetch.
-#   3. docs.cloud.google.com/gemini/enterprise/docs/release-notes — RENDERS FULLY. Read stream 3 first.
-#   NOTE: docs.cloud.google.com/gemini-enterprise/docs/release-notes is a 404. Use /gemini/enterprise/docs/.
+# Google — Gemini Enterprise / Gemini Enterprise Agent Platform / Vertex AI — captured 2026-08-26
+# THREE release-note streams exist; sources.json contains ONLY the dead one.
+#  1. cloud.google.com/vertex-ai/docs/release-notes            <- IN sources.json. 301s to
+#     docs.cloud.google.com/... Newest **Aug 23, 2026**: Agent Platform Workbench v2 upstream package
+#     bumps + a fix so scheduled notebook executions report final status when the execution user's
+#     credentials stop working mid-run. Aug 16: Ruby/Python CVE patches, CUDA 12.8.1->12.9.2,
+#     JupyterLab 3 removed. USELESS for agent-surface detection. Outstanding since 2026-07-08.
+#  2. docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes  <- NAV-ONLY via WebFetch,
+#     recover via WebSearch. August content all previously reported / deprecations / below bar:
+#     Memory Bank IngestEvents GA, Memory Profiles GA, Agent Studio /api-proxy strict domain-allowlist
+#     hardening for code generated before Jul 1 2026, Grok 4.1 family shutdown Aug 20,
+#     Nano Banana preview model retirement.
+#  3. docs.cloud.google.com/gemini/enterprise/docs/release-notes  <- **RENDERS FULLY. THE PRODUCTIVE
+#     ONE. READ THIS FIRST EVERY GOOGLE SCAN.** Produced both findings this scan.
 
-## NO NEW DATED ENTRIES since the 2026-08-23 capture. Stream 3 still tops at AUGUST 20.
-Aug 20: Antigravity for IDEs on Standard/Plus/PAYG with invoiced billing [reported 08-21];
-        Okta SCIM autocomplete when sharing notebooks [held 08-21];
-        Google Identity recommended for third-party data store connections w/ external IdP [held 08-21].
-Aug 19: seat caps — 25 self-serve, 1,000 invoiced. [held]
-Aug 18: new-team-member welcome cards; Gemini 3.6 Flash GA in US/EU without allowlist. [held]
+## STREAM 3 — TWO NEW DATED ENTRIES SINCE THE 08-24 CAPTURE
+## NOTE: the 08-24 scan recorded this stream as topping at Aug 20. It now carries Aug 21 and Aug 24.
+## => TREAT THIS STREAM AS CAPABLE OF BACK-FILLING DATES; do not trust "tops at X" as final.
 
-## NEW FINDING 2026-08-24 — COVERAGE GAP, not platform movement
-## AGENT IDENTITY (SPIFFE) — a NEW IAM PRINCIPAL TYPE   [reported 2026-08-24, HIGH/AISPM]
-Found by following the "admins can view an agent's SPIFFE ID on the Agent details page
-(Public Preview)" line into the IAM + Agent Platform governance docs. Both render fully:
-  docs.cloud.google.com/iam/docs/agent-identity-overview
-  docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview
+### August 24, 2026
+- **D&B Commercial Graph data store (Preview)** — search and import company data using natural
+  language. REPORTED MED/AISPM (bundled with the Aug 21 data stores).
+- **Cloud Monitoring telemetry for data connectors extended.** REPORTED MED/AIDR.
+    discoveryengine.googleapis.com/dataconnector/request_count
+      + NEW dimensions: **tool_id** (identifier of the connector tool invoked),
+                        **engine_id** (the Gemini Enterprise app identifier),
+                        **response_code** (gRPC response status)
+      (existing `status` dimension retained)
+    NEW metric (Beta):
+      discoveryengine.googleapis.com/dataconnector/**request_latencies**
+      "distribution of tool invocation latency" in ms; dimensions status, response_code,
+      tool_id, engine_id.
+  KEY CAVEATS: these are METRICS, not logs — dimensions/counts/distributions only, NO arguments,
+  NO results, NO invoking-user identity. Correlating to a principal still needs audit logs + traces.
+  Metrics publish under the `discoveryengine.googleapis.com/` prefix = Google's "all other Google
+  Cloud metrics" tier = **RETAINED SIX WEEKS BY DEFAULT** (~42 days). request_latencies is Beta so
+  its dimension set may still change.
+  Doc: docs.cloud.google.com/gemini/enterprise/docs/access-metrics
 
-ID format:      spiffe://TRUST_DOMAIN/resources/SERVICE/RESOURCE_PATH
-IAM policy:     **principal://**TRUST_DOMAIN/resources/SERVICE/RESOURCE_PATH
-  e.g. principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/
-       projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent
+### August 21, 2026
+- **Seven new data stores (Public Preview)**: **Atlan** (data catalog / governance metadata),
+  **Bitly**, **FactSet AI-Ready Data** (licensed financial data), **FullStory** (session replay +
+  product analytics = recorded user behaviour), **Globalping**, **Pendo**, **Stripe** (payments).
+  Searchable and readable with natural language. REPORTED MED/AISPM.
+- **New ACTIONS on existing connectors (Public Preview)** — *** THESE ARE NOT READS ***:
+    **Supabase**: apply migration | deploy edge function | **execute SQL** | pause project |
+                  restore project
+                  => an agent holding these OPERATES Supabase, it does not ground on it.
+                     `deploy edge function` = CODE DEPLOYMENT driven by an agent.
+                     `pause/restore project` = availability operations.
+    **Descript**: import media | prompt project agent | publish project  (publish = external sink)
+    **Gamma**:    generate Gamma
+  Doc: docs.cloud.google.com/gemini/enterprise/docs/connectors/supabase
+  DEPLOYMENT CONSTRAINTS: Google recommends associating only ONE data store with actions belonging to
+  a SINGLE connector type per app. The Supabase data store is supported only in `global`, `us`, `eu`.
+- AI Developer Tools available on the **Standard Emerging Market edition** for projects on invoiced
+  Cloud Billing accounts. Entitlement change — HELD below the bar.
 
-*** ACTION ITEM #1: any IAM parser that knows serviceAccount: / user: / group: / domain:
-    but NOT principal:// will read an agent-bound policy as having NO agent bindings. ***
+## CARRIED FORWARD (reported earlier, unchanged)
+- Aug 20: Antigravity for IDEs — reported 2026-08-21.
+- Aug 20: Okta SCIM autocomplete; Google Identity for third-party data stores — explicitly held 08-21.
+- Aug 7: custom MCP server data stores GA (off by default behind an org-policy constraint; auth = none
+  OR OAuth 2.0; HTTPS + StreamableHTTP; importable from the Agent Registry) — reported 2026-08-09.
+- Aug 6: automatic tools/list tool discovery. Aug 4: execute_tool / invoke_connector trace spans.
+  Aug 3: 17 third-party connectors (iManage, NetDocuments, Cohesity, Supabase, Oracle NetSuite).
+- **Agent Identity (SPIFFE)** — reported 2026-08-24 from /iam/docs/agent-identity-overview.
 
-Credentials: X.509 auto-provisioned at deploy, **RENEWED EVERY 24 HOURS**.
-vs service accounts (Google's own framing): agent identities "are not shared by multiple workloads
-  by default, CAN'T BE IMPERSONATED, and don't allow developers to generate long-lived service
-  account keys."  => INVERTS the posture question: not "who can mint SA keys" but
-  **"WHICH AGENTS STILL RUN ON A SERVICE ACCOUNT INSTEAD OF AN AGENT IDENTITY."**
-Authenticates to: MCP SERVERS, cloud resources, OTHER AGENTS, external tools/services.
-TWO PRIVILEGE ENVELOPES on one principal:
-  own authority   — bound access tokens (GCP); 2-legged OAuth / API keys / HTTP basic (external)
-  on behalf of user — 3-LEGGED OAUTH, bounded by the user's consent
-  Audit logs DISTINGUISH the two ("acting as itself" vs "on behalf of an end user").
-  *** AIDR signal: agent acting under OWN authority on data it only ever reached ON BEHALF OF
-      a user = privilege escalation, visible in these logs and NOWHERE ELSE. ***
-Governance surfaces to inventory: IAM allow AND DENY policies; **Principal Access Boundary (PAB)**;
-  VPC Service Controls; DEFAULT Context-Aware Access policies enforcing **mTLS + DPoP token
-  binding** (a relaxed CAA policy is a detectable downgrade from the documented default).
-Console caveat: if the publisher does not publish a SPIFFE ID, the Agent details page falls back to
-  the **Agent Registry resource ID** => console is NOT a uniform source of agent identity, and a
-  fallback ID is itself the signal that an agent runs WITHOUT an attested identity.
+## STANDING RECOMMENDATION (outstanding)
+Replace the Vertex release-notes URL with streams 2 AND 3, and add
+docs.cloud.google.com/iam/docs/agent-identity-overview.
 
-## MIS-MAPPING HAZARD THAT CAUSED THE MISS
-2026-08-10 reported "Agent Identity" — that was MICROSOFT'S **Entra Agent ID**. Different thing.
-Model "attested per-agent identity" ONCE with per-vendor bindings: Entra Agent ID / Google SPIFFE
-agent identity / AgentCore workload access tokens. Do not treat as three unrelated features.
-
-## Carried forward (all previously reported)
-A2UI + A2A agent registration GA, A2UI v0.9 (Aug 17). Agent Registry governs `Endpoints` as a
-first-class record type + IAM governance policies in private preview. Custom MCP server data stores
-GA (Aug 7, off by default behind an org-policy constraint). Automatic tools/list discovery (Aug 6).
-17 new third-party connectors (Aug 3). execute_tool / invoke_connector trace spans (Aug 4).
-Memory Bank IngestEvents API GA + memory profiles GA. Feedback service preview. AlphaEvolve GA.
-Agent Studio SSRF fix — discloses that Agent Studio AUTO-GENERATES an /api-proxy backend endpoint.
-
-Updated: 2026-08-24 — no live delta; one coverage-gap finding (Agent Identity / SPIFFE).
-RECOMMEND: add /iam/docs/agent-identity-overview and the two Gemini streams to sources.json.
+Updated: 2026-08-26 — two new dated entries in stream 3, both producing findings.

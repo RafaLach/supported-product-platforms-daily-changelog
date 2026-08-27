@@ -1,59 +1,48 @@
-# Microsoft Foundry (Azure AI Foundry) — captured 2026-08-24
-# sources.json points at /azure/ai-services/openai/whats-new, which canonically resolves to
-#   /azure/foundry-classic/openai/whats-new — the FROZEN "classic" page, newest content May 2026.
-# Read instead:
-#   https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry   (roll-up, ~6 weeks behind)
-#   https://devblogs.microsoft.com/foundry/                              (blog)
+# Microsoft Foundry (Azure AI Foundry) — captured 2026-08-26
+# sources.json has learn.microsoft.com/en-us/azure/ai-services/openai/whats-new, which canonically
+# resolves to /azure/foundry-classic/openai/whats-new — the FROZEN CLASSIC page.
+#   Re-confirmed 2026-08-26: newest section **May 2026** (GPT Realtime 2.0 / Translate / Whisper
+#   concept articles), ms.date **2025-12-30**, updated_at 2026-06-05. NO agent-platform content.
+# LIVE ROLL-UP: learn.microsoft.com/en-us/azure/foundry/whats-new-foundry
 
-## NO CHANGE ON EITHER — third consecutive scan.
-Roll-up: still "**What's new for July 2026**", ms.date **2026-08-12**, updated_at **2026-08-13**,
-word_count 253, git_commit_id f5ac2a44 — identical to the 08-14, 08-21 and 08-23 captures. The
-New-articles and Updated-articles lists are unchanged.
-Blog: newest post still **August 17, 2026** — "From single call to agents: five new Claude
-capabilities now available in Microsoft Foundry" (structured outputs, web search, web fetch, MCP
-connector, tool search for Claude models hosted on Azure).
+## ROLL-UP DID NOT ADVANCE FOR A FOURTH CONSECUTIVE SCAN.
+Still "What's new for July 2026"; ms.date **2026-08-12**, updated_at **2026-08-13** — byte-identical
+New-articles and Updated-articles lists vs the 08-14 / 08-21 / 08-23 / 08-24 captures.
+New articles (all previously reported — see foundry-already-reported-do-not-redup):
+  Agent Service: author azure.yaml for hosted agents; reminder tool for self-scheduling hosted agents;
+    Foundry Canvas; Toolbox overview; Toolbox authentication; use a toolbox with a hosted agent
+  Foundry IQ: private agentic retrieval tutorial + validation
+  Models/APIs: tool search with the Azure OpenAI Responses API; Claude hosting comparison
+  Observability: export hosted agent telemetry via OpenTelemetry; restrict access to sensitive content
+    in traces
+  Platform: Notification Center
+Updated articles: hosted agents, tool catalog, managed MCP servers via connector namespaces,
+  A2A outbound + incoming A2A endpoints, web search tool, Foundry IQ, Claude models, WebSocket mode,
+  Realtime GA migration, Foundry Models endpoints, evaluate agents, traces-to-dataset, portal GA.
 
-## METHOD (standing): treat the roll-up's New-articles list as a POINTER INDEX, then open the
-## individual /agents/* pages. But GREP reports/ FIRST — the July roll-up re-lists the same
-## New-articles every scan and most are already reported.
-July New articles, with disposition:
-  author azure.yaml for hosted agents ........................ [reported 2026-08-09]
-  reminder tool for self-scheduling hosted agents ............ [reported 2026-08-09 in Routines;
-        detail added 08-23: `minutes` 1..43,200 (30 days), connectionless, hosted-agents-only,
-        creates a scheduled routine re-invoking the SAME agent on the SAME conversation]
-  What is Microsoft Foundry Canvas? .......................... [reported 2026-08-09]
-  What is Toolbox in Microsoft Foundry? ...................... [reported 2026-08-09]
-  Toolbox authentication ..................................... [reported 2026-08-09]
-  Use a toolbox with a hosted agent .......................... [reported 2026-08-09]
-  Foundry IQ private agentic retrieval tutorials (x2) ........ [Foundry IQ reported earlier]
-  Use tool search with the Azure OpenAI Responses API ........ [reported 2026-08-09]
-  Compare hosting options for Claude models .................. [hosting comparison, held]
-  Export hosted agent telemetry via OpenTelemetry ............ [observability, held]
-  Restrict access to sensitive content in Foundry traces ..... [control, not an addition, held]
-  Foundry Notification Center overview ....................... [held]
+## devblogs.microsoft.com/foundry — ALSO DID NOT ADVANCE
+Newest post is still **August 17, 2026**, "From single call to agents: five new Claude capabilities now
+available in Microsoft Foundry" (structured outputs, web search, web fetch, MCP connector, tool
+search). Nothing Aug 18-26.
 
-## Standalone finding from 08-23 (not in the roll-up) — SKILLS API
-`{FOUNDRY_PROJECT_ENDPOINT}/skills`, preview, header **`Foundry-Features: Skills=V1Preview`**,
-bearer scoped `https://ai.azure.com/.default`, RBAC **Foundry User**. A skill is a SKILL.md per the
-**agentskills.io** spec. Creating a version auto-creates the parent skill; every update makes a NEW
-IMMUTABLE `SkillVersion`; parent tracks `default_version` + `latest_version` => promoting a default
-is a METADATA-ONLY REPOINT that changes behaviour for every unpinned reference. Attached to a
-toolbox, skills surface as **MCP Resources** under SEP-2640, so "any MCP client — GitHub Copilot,
-Claude Code, or your own agent harness — can consume skills WITHOUT any Foundry SDK."
-NOT reachable over a PRIVATE ENDPOINT. `azd ai skill create --force` DELETES the skill and all its
-versions.                                             [reported 2026-08-23, MEDIUM/AISPM]
-=> NOTE 2026-08-24: agentskills.io is the Agent Skills spec that is ALSO the `skills/` component of
-   **Agent Plugins 1.0** (TSC: AWS, Cursor, Microsoft, OpenAI, Vercel). Microsoft is a TSC member and
-   VS Code + GitHub Copilot are named implementing clients. Foundry's Skills API is therefore a
-   distribution point INTO the cross-vendor plugin ecosystem. See agent-plugins_spec.txt.
+## WHERE THE FOUNDRY DELTA ACTUALLY CAME FROM THIS SCAN
+Per the standing method (roll-up is a POINTER INDEX, then open individual pages), the productive
+Microsoft surface this scan was **Microsoft Agent Framework** — a separate docs tree and release
+stream that is NOT in sources.json and had never been read. It produced two HIGH findings:
+**Agent Hooks** (AGENT-HOOKS-0.1 interception contract) and **FIDES** (information-flow control).
+See microsoft-agent-framework_changelog.txt.
+Both doc pages carry updated_at **2026-08-25**; FIDES has ms.date **2026-06-23** and was missed for
+two months.
 
-## Carried forward (reported 2026-08-10) — the identity/control-plane layer
-Microsoft Agent 365 (GA since 2026-05-01): tenant-wide agent registry that DISCOVERS SHADOW AGENTS,
-ten-type risk taxonomy, block/unblock/reassign via **Microsoft Graph API**. Autopilot agents =
-licensed Entra user accounts with mailbox, calendar, OneDrive, Teams presence. New Foundry agent
-object model (Agent Application + Deployment collapsed into Agent; `agent_card`, `instance_identity`,
-`agent_endpoint`); every new agent gets an Entra Agent Identity AT CREATION; legacy agents have a
-NULL `instance_identity`. **"Foundry Agent Applications are NOT registered in the Microsoft Entra
-agent registry"** — Microsoft's own documented blind spot. RBAC renamed Azure AI * -> Foundry *.
+## Copilot Studio (adjacent, unchanged)
+learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new — newest section still **July 2026**,
+  ms.date 2026-08-18, updated_at 2026-08-20. Identical to 08-21/08-23/08-24.
+learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio — **EIGHTH consecutive stale
+  scan**: platform 2026.6.3 / UX 26.06.21-24 (June 30, 2026), ms.date 2026-06-30, on a page claiming
+  weekly Tuesday updates. Now ~8 weeks behind the What's New page.
 
-Updated: 2026-08-24 — no change on the roll-up or the blog.
+## STANDING RECOMMENDATION (outstanding since 2026-08-09)
+Repoint the Azure OpenAI whats-new source to /azure/foundry/whats-new-foundry AND add
+devblogs.microsoft.com/foundry. ADD the Agent Framework releases stream and agents/ docs tree.
+
+Updated: 2026-08-26 — roll-up frozen for a 4th scan; delta found via Agent Framework instead.

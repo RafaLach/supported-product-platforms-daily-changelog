@@ -1,0 +1,106 @@
+# Sources verified UNCHANGED (or below the reporting bar) — scan 2026-08-27
+# Kept out of the report body so the report stays signal-only.
+
+## AWS
+docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
+  UNCHANGED. August 2026 still holds THIRTEEN entries, item-for-item identical to the
+  08-26 capture and in the same order (RAM cross-account sharing still top).
+  sources.json still points at doc-history.html, which renders title/nav only.
+  RECOMMENDED EVERY SCAN SINCE 2026-07-05, STILL UNAPPLIED.
+docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html
+  UNCHANGED. Newest entry still August 24, 2026 — the Claude Sonnet 5 adaptive-thinking
+  DOCUMENTATION CORRECTION. Not an addition. Below the bar for a second scan.
+docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/doc-history.html   [not re-fetched]
+docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-history.html    [not re-fetched]
+  Both confirmed DEAD on 08-26 (qdeveloper newest = Aug 17 end-of-support; qbusiness
+  "no longer open to new customers", last doc update Aug 14 2025). Skipped this scan to
+  stop spending primary-tier budget on two dead products. FIFTH scan recommending
+  demotion. Amazon Quick still absent from sources.json.
+
+## Microsoft
+learn.microsoft.com/en-us/azure/foundry/whats-new-foundry
+  FIFTH CONSECUTIVE STALE SCAN. Still "What's new for July 2026", ms.date 2026-08-12,
+  updated_at 2026-08-13, identical New/Updated article lists (Toolbox, tool search,
+  Foundry Canvas, reminder tool, Foundry IQ private retrieval, Claude hosting comparison,
+  hosted-agent OTel export, traces sensitive content, Notification Center).
+  All of those were reported on or before 2026-08-09 — see the standing
+  "do not re-report the July roll-up" rule.
+learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new
+  UNCHANGED for a fourth consecutive scan. Newest section still July 2026,
+  ms.date 2026-08-18, updated_at 2026-08-20 — byte-identical to 08-21/08-23/08-24/08-26.
+developer.microsoft.com/graph/changelog/rss/
+  lastBuildDate advanced to Thu, 27 Aug 2026 06:11:36 Z but the NEWEST ITEMS DID NOT MOVE
+  — still August 3, 2026 (plannerGoal + goalIds; resourceAccountKeyAuthenticationMethod;
+  verifiedIdMethodType). ~3.5 weeks stale. NO agent / Copilot / AI resources in the feed
+  at all. The "switch Graph to RSS" recommendation stays PROVISIONAL, not confirmed:
+  the feed builds daily but its content does not advance.
+learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio      [frozen]
+learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview            [frozen]
+learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/                [static]
+learn.microsoft.com/en-us/power-automate|power-apps|power-pages whats-new     [frozen]
+  Not re-fetched. All confirmed frozen on 08-26 with the same metadata for many scans.
+github.com/microsoft/agent-framework/releases
+  NO NEW RELEASE since the 08-26 capture. Newest still dotnet-1.19.0 (Aug 22) and
+  python-1.15.0 (Aug 21). Agent Hooks and FIDES were reported 2026-08-26.
+  STILL ABSENT FROM sources.json — carried forward as the highest-value outstanding fix.
+
+## Google
+docs.cloud.google.com/gemini/enterprise/docs/release-notes
+  ONE new dated entry: AUGUST 26 — "Updates to A2UI Material catalog component
+  properties", a v0.9 component-gallery reference update (MaterialButton, validation
+  `checks`, MaterialIcon, MaterialChips, layout alignment values, input types).
+  A spec/reference revision, not a new capability. HELD BELOW THE BAR.
+  Aug 24 (D&B Commercial Graph, connector telemetry) and Aug 21 (seven data stores,
+  Supabase/Descript/Gamma actions) were reported 2026-08-26.
+  Aug 20 (Antigravity for IDEs, Okta SCIM autocomplete, Google Identity for third-party
+  data stores) were reported/held 2026-08-21.
+  STILL NOT IN sources.json. cloud.google.com/vertex-ai/docs/release-notes remains the
+  configured URL and remains useless for agent-surface detection.
+
+## ServiceNow
+www.servicenow.com/docs/r/release-notes/ai-control-tower-rn.html
+  UNCHANGED. Still the AUSTRALIA family, Patch 4, page last updated March 12 2026, with
+  the same feature set captured on 08-14 / 08-21 / 08-23 / 08-24 / 08-26 (Activity Center,
+  recommendations, quality+safety scoring, Otto conversational interface, kill-switch
+  containment, agent network map, post-runtime security metrics, Service Graph Connectors
+  for AWS/Microsoft/GCP Vertex/Anthropic/Databricks/n8n/LangGraph/Salesforce, MCP server
+  management). No family newer than Australia.
+
+## OpenAI
+learn.chatgpt.com/docs/changelog  (sources.json still points at developers.openai.com/
+  codex/changelog, which 308s cross-host — ELEVENTH+ scan recommending the fix)
+  UNCHANGED. Newest entries are still the three from AUGUST 25 — site tools (WebMCP),
+  browser-extension expansion + cloud sign-in, event-triggered scheduled tasks, and the
+  Codex MCP server command deprecation. ALL REPORTED 2026-08-26.
+github.com/openai/openai-python/releases   [still absent from sources.json]
+  ADVANCED but below the bar: v3.5.0 (Aug 27) makes function-call output call IDs
+  optional; v3.4.0 (Aug 26) adds obfuscation on ChatCompletionChunk, project residency
+  settings, cost quantity tracking units, Azure auth/deployment-name handling, Realtime
+  encoded call offers + WebSocket session config, origin validation on WebSocket
+  redirects. SDK plumbing and transport hardening — no new service or agent surface.
+  (v3.3.0's "named data-residency endpoints", Aug 18, likewise held.)
+status.openai.com/history.rss  — not re-fetched; availability-only source.
+
+## Watching tier — nothing at or above the bar
+cursor.com/changelog        UNCHANGED. Newest still August 19 (Subscriptions, Custom
+                            Modes, subagents on isolated machines, /goal, steering) —
+                            reported 2026-08-21. docs.cursor.com still 308s to
+                            cursor.com/docs; sources.json still wrong.
+docs.devin.ai/desktop/changelog   UNCHANGED. Still v3.8.20 (Aug 21). Both Windsurf
+                            entries in sources.json still cross-host redirect.
+docs.perplexity.ai/changelog  UNCHANGED. Still models and pricing only (Gemini 3.7 Flash,
+                            Grok 4.6, Nemotron 3 Ultra / 3.5 Lightning, DeepSeek V4 Flash,
+                            `fast` preset on gpt-5.6-luna, preset prompt caching).
+                            Endpoint surface still a single POST /v1/agent.
+kiro.dev/changelog          Advanced but below the bar for watching tier: 2.20.0 CLI
+                            (Aug 26) full-screen spec task execution + preserve
+                            scrollback; 2.19.2 (Aug 25) and 2.19.1 (Aug 21) patches.
+                            No new capability surface. STILL ABSENT FROM sources.json.
+diabrowser.com/release-notes  NINTH consecutive scan with no extractable content. Newest
+                            row still dated August 20, 2026 with no readable description;
+                            readable rows behind it unchanged (Aug 13 / v1.44.0
+                            "Dia <> LinkedIn"; Aug 6 / v1.43.1; Jul 30 / v1.42.0
+                            "Dia's coming to Windows"). Nothing reported since 2026-07-07.
+                            This source needs a different acquisition method.
+
+Updated: 2026-08-27

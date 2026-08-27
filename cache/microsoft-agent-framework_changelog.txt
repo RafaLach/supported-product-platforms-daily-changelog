@@ -1,0 +1,152 @@
+# Microsoft Agent Framework — FIRST CAPTURE 2026-08-26
+# *** NOT IN sources.json AT ALL. TWELFTH OUTSTANDING SOURCE FIX, AND THE HIGHEST-VALUE ONE. ***
+# Sources used:
+#   https://github.com/microsoft/agent-framework/releases          (release stream, ~2x/week, 2 SDKs)
+#   https://learn.microsoft.com/en-us/agent-framework/agents/agent-hooks
+#   https://learn.microsoft.com/en-us/agent-framework/agents/security          (FIDES)
+#   https://learn.microsoft.com/en-us/agent-framework/concepts/agents/middleware/
+# First read produced TWO HIGH findings, one of which (FIDES) had been documented since JUNE 23 and
+# was missed for two months.
+
+## RELEASE STREAM — newest six
+dotnet-1.19.0  Aug 22, 2026  *** agent-hooks interception contract as a FIRST-CLASS EXPERIMENTAL
+                                 FEATURE ***; session-persisted chat client routing; Azure Blob
+                                 Storage session persistence; hosted agent state in Foundry
+                                 (resilient hosted agents w/ steering + recovery);
+                                 BREAKING: MCP long-running task support migrated to the
+                                 **2026-07-28 Tasks extension**; AG-UI sample updates;
+                                 Anthropic SDK -> 12.42.0; A2A streaming artifact fixes.
+python-1.15.0  Aug 21, 2026  optional **A2UI** support for agent-generated interfaces (A2UI ITSELF WAS
+                                 REPORTED 2026-08-21 — this is one framework adopting it);
+                                 A2A preview consent URLs; Foundry Hosted Agents steering/retry/
+                                 recovery; production harness sample; BREAKING OpenTelemetry
+                                 semantic-convention changes.
+dotnet-1.18.0  Aug 18, 2026  experimental A2A task store isolation; hosted agent conversation history
+                                 unification; **Cosmos chat history retrieval API**; concurrent tool
+                                 invocation opt-in.
+python-1.14.0  Aug 13, 2026  new Mistral chat client; BREAKING functional workflows must build into
+                                 stateful instances; Foundry Hosted Agents -> Responses 2.x storage;
+                                 checkpoint create/resume; **experimental agent-hooks enforcement**.
+dotnet-1.17.0  Aug  4, 2026  Durable Task + Azure Functions integrations extracted to a separate repo.
+python-1.13.0  Jul 30, 2026  bounded in-memory MCP archive discovery; reusable session stores;
+                                 BREAKING workflow checkpoints require full replay.
+
+## FINDING 1 — AGENT HOOKS  (reported HIGH/AISPM 2026-08-26)
+Doc ms.date 2026-08-07, updated_at 2026-08-25.
+Implements the FRAMEWORK-NEUTRAL **AGENT-HOOKS-0.1** contract:
+  github.com/responsibleai/agent-hooks/blob/main/spec/AGENT-HOOKS-0.1.md
+"so policy engines, approval gateways, budget guards, content filters, and egress controls can target
+one common control surface." CONTROL PLANE, NOT TELEMETRY PLANE — every interceptor returns a verdict.
+
+EIGHT INTERCEPTION POINTS (transform target in parens):
+  agent_startup   (not transformable)
+  input           (input content + role)
+  pre_model_call  (messages sent to the model)
+  post_model_call (response content, framework-executed tool calls, finish reason)
+  pre_tool_call   (tool arguments)
+  post_tool_call  (tool result)
+  output          (final response content)
+  agent_shutdown  (not transformable)
+Typical tool run: agent_startup -> input -> pre_model_call -> post_model_call -> pre_tool_call ->
+                  post_tool_call -> pre_model_call -> post_model_call -> output -> agent_shutdown
+
+VERDICTS: allow | warn | deny | **escalate** (liftable deny resolved via approval `resolver`;
+          WITHOUT a resolver the deny simply stands) | transform (rewrite at a `$target` path)
+
+RUNTIME GUARANTEES: fail closed (invalid contexts/verdicts, interceptor failures AND enforcement
+  failures all block); transform write-back (unappliable transform fails the run); BUFFERED STREAMING
+  (nothing reaches caller until the full response passes post_model_call + output);
+  verdict-gated persistence; complete bundle installation (agent+chat+function install as ONE unit).
+
+*** THE FOUR DOCUMENTED BYPASSES — THE MOST VALUABLE PART ***
+1. HOSTED TOOLS: "Tools executed by a model provider don't pass through Agent Framework's
+   function-invocation seam." They surface at post_model_call, but pre_tool_call / post_tool_call
+   "can't block the provider's server-side execution."
+   => an agent on provider-hosted tools has NO enforceable tool gate, only after-the-fact visibility.
+2. ORDERING: "Middleware placed before the bundle is outside the enforcement boundary. Treat outer
+   position as outer trust." Coverage depends on ORDER, not presence.
+3. COOPERATIVE BOUNDARY: interceptors run in the host process, receive full content, are NOT
+   sandboxed. "Only register interceptors you trust." "Code paths that bypass the guarded agent
+   pipeline aren't covered."
+4. PERSISTENCE: with require_per_service_call_history_persistence=True each model exchange persists
+   once its post_model_call verdict permits — "a later `output` deny doesn't roll back that already
+   permitted history." An output-only egress policy leaves model content DURABLE.
+
+CONFIG (create_agent_hooks_middleware): interceptors (>=1) | resolver | **mode: enforce |
+  evaluate_only** | composition (default sequential `first_deny`) | identity_provider (default
+  jcs-sha256) | timeout (default 5 s; a SYNC interceptor blocking the event loop can't be preempted) |
+  record_sink.
+*** evaluate_only IS A FALSE-ASSURANCE STATE: runs every interceptor, records every verdict, ALLOWS
+    EVERY ACTION. MS: "Don't describe an evaluate_only deployment as enforced governance." ***
+RULES: exactly ONE bundle per agent (stacked bundles rejected); bundle can't be split; install on
+  Agent (not on a chat client / context provider); each nested agent needs its OWN bundle.
+record_sink yields InterceptionRecord = decision, reason, interceptor summary, mode, identity,
+  sequence — **PAYLOAD-FREE** (high signal, low sensitivity; but you can't reconstruct WHAT was
+  blocked from the record). Default one Agent Hooks session per run;
+  create_agent_hooks_middleware_from_emitter() spans multiple runs under one session/approval ledger.
+AVAILABILITY: **PYTHON ONLY, EXPERIMENTAL** (ExperimentalWarning on first use).
+  .NET and Go are told to use plain middleware + tool approval + Agent Safety instead
+  => within one fleet the same nominal control exists on some agents and not others.
+Install: pip install "agent-framework-core[agent-hooks]" — deliberately NOT in [all].
+GOTCHA: for tools with approval_mode="always_require", the framework builds the human approval request
+  BEFORE function middleware runs, so a pre_tool_call transform changes arguments AFTER the user
+  approved the originals. MS says transform at post_model_call or escalate at pre_tool_call instead.
+
+## FINDING 2 — FIDES  (reported HIGH/AIRT 2026-08-26; COVERAGE-GAP RECOVERY)
+Flow Integrity Deterministic Enforcement System. Doc ms.date **2026-06-23**, updated_at 2026-08-25.
+Based on the FIDES paper (Costa et al., arxiv.org/abs/2505.23643). Ships in agent-framework-core
+behind `agent_framework.security`. EXPERIMENTAL, **PYTHON ONLY**.
+MS's framing: defensive prompts "are heuristic… they don't make the next attack impossible";
+sanitization "is lossy"; "pre/post-hoc monitoring detects damage; it doesn't prevent it."
+
+TWO-AXIS LABEL on every Content item (`security_label` in additional_properties):
+  integrity:        trusted | untrusted
+  confidentiality:  public | private | user_identity
+  combine_labels() = MOST RESTRICTIVE WINS (untrusted > trusted; user_identity > private > public)
+FOUR PARTS: ContentLabel (data) | LabelTrackingFunctionMiddleware (propagates) |
+  PolicyEnforcementFunctionMiddleware (checks BEFORE the tool runs) |
+  quarantined_llm + ContentVariableStore (process untrusted content safely)
+
+SINK ANNOTATIONS (the enforcement primitive):
+  accepts_untrusted: False        -> refuse the tool whenever ANY untrusted content is in scope
+                                    (intended for file writes, destructive ops, production mutation)
+  max_allowed_confidentiality    -> cap what a sink may leak (`public` for anything that publishes
+                                    externally: comments, tweets, public webhooks)
+SOURCE ANNOTATIONS: per-item security_label (preferred) > tool-level source_integrity >
+  implicit propagation from input labels (right default for pure transformation tools).
+
+SecureAgentConfig (a CONTEXT PROVIDER) — the posture surface:
+  auto_hide_untrusted        default **True**  -> untrusted results never reach the main model; they
+                                                 go to the ContentVariableStore and the context gets a
+                                                 **var_<id>** VariableReferenceContent
+  default_integrity          default UNTRUSTED (secure-by-default; **flipping to TRUSTED silently
+                                                relabels every unannotated tool's output as safe**)
+  default_confidentiality    default PUBLIC
+  allow_untrusted_tools      explicit per-tool EXEMPTION list (data fetchers must be callable in any
+                             context; security tools auto-allowed)
+  block_on_violation         default True
+  approval_on_violation      default False -> when True the control collapses to user click-through
+  enable_audit_log           default True
+  enable_policy_enforcement  default True; **False = DRY RUN: labels propagate, audit log fills,
+                             NO SINK IS EVER BLOCKED** (governance telemetry, zero enforcement)
+  quarantine_chat_client     without it quarantined_llm returns placeholders
+THREE MODES: hard block | human-in-the-loop (approval_on_violation) | dry run (enforcement off).
+quarantined_llm(prompt, variable_ids=[...]) — isolated context, **NO TOOLS ATTACHED**, result itself
+  labeled untrusted and re-entered into the store. So embedded "call write_file" is only TEXT.
+
+DOCUMENTED LIMITATIONS = coverage map:
+  1. Labels are OPT-IN PER DATA SOURCE — a forgotten tool falls back to defaults.
+  2. Most-restrictive propagation is CONSERVATIVE — once untrusted enters, the run stays untrusted
+     "unless you explicitly drop it" (the DROP is where a bypass would live).
+  3. Approvals are COARSE — the label algebra is not shown to the approving user.
+  4. quarantined_llm is SINGLE-TURN and TOOLS-FREE; multi-turn quarantined sub-agents unsupported.
+
+## ADJACENT (read, not reported)
+- Agent middleware (3 types: agent run / function calling / IChatClient-or-chat). Termination via
+  MiddlewareTermination or simply not calling call_next. Result override in streaming AND
+  non-streaming. Middleware doc ms.date 2026-08-07, updated_at 2026-08-25.
+- Tool approval (approval_mode="always_require"), Agent Safety (heuristic best practices).
+- Go SDK: middleware only; built-ins are toolautocall, structured output, otelprovider, run logger.
+
+Updated: 2026-08-26 — first capture. RECOMMEND ADDING BOTH THE RELEASES STREAM AND THE agents/ DOCS
+TREE TO sources.json AS MICROSOFT PRIMARY-TIER SOURCES.

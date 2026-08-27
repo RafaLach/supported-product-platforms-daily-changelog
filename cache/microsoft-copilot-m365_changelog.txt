@@ -1,35 +1,36 @@
-# Microsoft Copilot (M365) — captured 2026-08-24
-# Sources, all in sources.json:
-#   https://developer.microsoft.com/graph/changelog/         JS-rendered. Use the RSS feed:
-#   https://developer.microsoft.com/en-us/graph/changelog/rss/
-#   https://learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview
-#   https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/
+# Microsoft Graph changelog — captured 2026-08-26
+# sources.json has: https://developer.microsoft.com/graph/changelog/   (JS-rendered, unusable)
+# RSS: https://developer.microsoft.com/en-us/graph/changelog/rss/
 
-## GRAPH CHANGELOG RSS — REGRESSION, FOURTH CONSECUTIVE SCAN
-(2026-08-14, 08-21, 08-23, 08-24.)
-  lastBuildDate: **Mon, 24 Aug 2026 06:18:36 Z**  <- advances daily
-  newest ITEMS:   **19 Jun 2026**                 <- has not moved
-The August items this feed carried on 2026-08-10 have NOT returned. No AI/agent/Copilot API
-additions visible. **NEITHER Graph surface is trustworthy for recency, and the feed's silence is NOT
-evidence that nothing shipped.** The old "switch Graph to RSS" recommendation remains SUSPENDED.
+## *** PARTIAL RECOVERY AFTER FOUR CONSECUTIVE SCANS OF REGRESSION ***
+lastBuildDate: **Wed, 26 Aug 2026 06:33:38 Z**
+Newest items have ADVANCED from **June 19, 2026** (frozen on 08-14, 08-21, 08-23, 08-24) to
+**August 3, 2026**.
 
-## M365 admin center What's New — UNUSABLE FOR CHANGE DETECTION (re-confirmed)
-ms.date **2026-08-11**, updated_at **2026-08-11**, word_count 2729 — but the newest CONTENT section
-is **November 2025**, and the body below it runs back through 2022 (June 2025 Copilot Search admin
-experience, April 2025 Copilot network connectivity test, Jan 2025 AI Administrator role, ...).
-Date metadata advances WITHOUT the content advancing. Do not treat a date bump here as a signal.
+Newest five items:
+ 1. Mon 03 Aug 2026 22:32:29 Z — Tasks and plans: added the `plannerGoalStatus` enumeration type and
+    goal-related resources.
+ 2. Mon 03 Aug 2026 20:07:44 Z — Identity and access: `resourceAccountKeyAuthenticationMethod` resource.
+ 3. Mon 03 Aug 2026 16:49:56 Z — Identity and access: verified identity configuration features incl.
+    the `verifiedIdMethodType` enumeration.
+ 4. Mon 03 Aug 2026 14:46:53 Z — Mailbox import/export: `wellKnownName` property on `mailboxFolder`.
+ 5. Thu 30 Jul 2026 00:00:00 Z — Security: case management `caseTypeConfigurations` relationship plus
+    custom field definition resources.
 
-## Copilot extensibility landing page — STATIC, no change
-ms.date **2026-05-06**, updated_at **2026-07-29**, git_commit_id 3fdb7962 — identical to 08-23.
-Link list only: declarative agents, custom engine agents, Evaluate agents, Insights Agent (preview),
-manage agents in the M365 admin center, API plugins, Copilot connectors, M365 Agents Toolkit,
-M365 Agents SDK, **Work IQ API**, Copilot APIs, **Microsoft Agent 365**. No new surfaces; the two
-notable links are both already covered.
+## ASSESSMENT
+Still ~3 weeks stale, and still generic Graph API churn with NO AI-agent-specific content — so it
+remains below the reporting bar. BUT the feed is no longer frozen.
+=> **The "switch the Graph source to RSS" recommendation moves from DOUBTFUL back to PROVISIONAL.
+   Re-verify on the next scan before acting: if it advances again, apply the fix.**
 
-## Carried — the real M365 agent-governance surface is Agent 365 (reported 2026-08-10)
-GA since 2026-05-01. Tenant-wide agent registry that DISCOVERS SHADOW AGENTS, a ten-type risk
-taxonomy (prompt injection, excessive permissions, sensitive data access, ownerless agents), and
-block / unblock / ownership-reassignment actions exposed through a **Microsoft Graph API**.
-Foundry Agent Applications are NOT in the Entra agent registry — Microsoft's own documented gap.
+## Other M365 Copilot sources — unchanged
+learn.microsoft.com/en-us/microsoft-365/admin/whats-new-in-preview
+  ms.date **2026-08-11**, updated_at **2026-08-25** (both advanced) but the newest CONTENT section is
+  still **November 2025** and the body runs back to 2022. DATE METADATA MOVES WITHOUT THE CONTENT.
+  Confirmed unusable for change detection for the Nth time.
+learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/
+  Landing page only. ms.date **2026-05-06**, updated_at **2026-07-29** — unchanged from 08-23/08-24.
+  Links Microsoft Agent 365, Work IQ API, M365 Agents SDK/Toolkit, Copilot APIs, declarative and
+  custom-engine agents, API plugins, Copilot connectors, Insights Agent (preview) — all covered.
 
-Updated: 2026-08-24 — no change on any of the three; Graph RSS regression now 4 scans old.
+Updated: 2026-08-26 — Graph RSS partially recovered (June 19 -> Aug 3). No findings.

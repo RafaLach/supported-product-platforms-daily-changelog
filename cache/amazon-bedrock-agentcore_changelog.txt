@@ -1,24 +1,59 @@
-# Amazon Bedrock AgentCore release notes — captured 2026-08-24
+# Amazon Bedrock AgentCore release notes — captured 2026-08-26
 # Source used: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
 # (sources.json still points at doc-history.html, which renders title/nav only — recurring since
 #  2026-05-18 and still unfixed. Recommended every scan since 2026-07-05.)
 
-## NO NEW ENTRIES. August 2026 still holds TWELVE entries, VERIFIED ITEM-FOR-ITEM against the
-## 2026-08-23 capture. Same headings, same order.
+## ONE NEW ENTRY. August 2026 now holds THIRTEEN entries (was twelve on 08-24).
+## The other twelve are item-for-item identical to the 2026-08-24 capture, same order.
 
 August 2026, in page order:
- 1. Payments — Coinbase wallet usage billed through AWS Marketplace   [billing plumbing, held]
- 2. Memory — store and extract non-conversational JSON payloads       [reported 2026-08-23, MED/AIDR]
- 3. Evaluations — Skill evaluators                                    [reported 2026-08-21, MEDIUM]
- 4. Payments — Quick create for Coinbase payment connectors           [reported 2026-08-21, MEDIUM]
- 5. Payments — x402 `upto` scheme + Machine Payments Protocol (MPP)   [reported 2026-08-21, HIGH/AIRT]
- 6. Evaluations — Third-party evaluators (DeepEval, AutoEval)         [reported 2026-08-21, MEDIUM]
- 7. Memory, policy, harness in AWS GovCloud (US-West)                 [region expansion, held]
- 8. Runtime — Instances compute type with capacity providers          [reported 2026-08-07, HIGH]
- 9. AWS Agent Registry under the `agent-registry` namespace           [reported 2026-08-07, HIGH]
-10. Gateway — Configurable rate limits (FAILS OPEN)                   [reported 2026-08-07, HIGH]
-11. Runtime — simplified/increased API rate quotas                    [quota change, held 08-14]
-12. Gateway — Web Search Tool in eu-west-1 and ap-northeast-1         [region expansion, held 08-14]
+ 1. AWS Agent Registry — cross-account sharing with AWS RAM      *** NEW 2026-08-26, reported HIGH/AISPM ***
+ 2. Payments — Coinbase wallet usage billed through AWS Marketplace   [billing plumbing, held]
+ 3. Memory — store and extract non-conversational JSON payloads       [reported 2026-08-23, MED/AIDR]
+ 4. Evaluations — Skill evaluators                                    [reported 2026-08-21, MEDIUM]
+ 5. Payments — Quick create for Coinbase payment connectors           [reported 2026-08-21, MEDIUM]
+ 6. Payments — x402 `upto` scheme + Machine Payments Protocol (MPP)   [reported 2026-08-21, HIGH/AIRT]
+ 7. Evaluations — Third-party evaluators (DeepEval, AutoEval)         [reported 2026-08-21, MEDIUM]
+ 8. Memory, policy, harness in AWS GovCloud (US-West)                 [region expansion, held]
+ 9. Runtime — Instances compute type with capacity providers          [reported 2026-08-07, HIGH]
+10. AWS Agent Registry under the `agent-registry` namespace           [reported 2026-08-07, HIGH]
+11. Gateway — Configurable rate limits (FAILS OPEN)                   [reported 2026-08-07, HIGH]
+12. Runtime — simplified/increased API rate quotas                    [quota change, held 08-14]
+13. Gateway — Web Search Tool in eu-west-1 and ap-northeast-1         [region expansion, held 08-14]
+
+## NEW ENTRY DETAIL — AWS Agent Registry cross-account sharing with AWS RAM
+Doc: .../devguide/registry-cross-account-sharing.html
+Shareable RAM resource type: `agent-registry:Registry`. Owner selects ONE managed permission:
+- AWSRAMDefaultPermissionAgentRegistryReadOnly  (default if none specified)
+    GetRegistry, GetRegistryRecord, ListRegistryRecords,
+    SearchDiscoverableRegistryRecords, GetDiscoverableRegistryRecord, ListDiscoverableRegistryRecords
+    => NO MCP invoke.
+- AWSRAMPermissionAgentRegistryForConsumer   *** AWS RECOMMENDS THIS AS THE DEFAULT CHOICE ***
+    the three Discoverable ops + **agent-registry:InvokeRegistryMcp**
+    => the share is a LIVE TOOL-INVOCATION GRANT, not a read grant.
+- AWSRAMPermissionAgentRegistryForPublisher
+    Consumer + GetRegistry, CreateRegistryRecord, UpdateRegistryRecord, DeleteRegistryRecord,
+    GetRegistryRecord, ListRegistryRecords, SubmitRegistryRecordForApproval
+- AWSRAMPermissionAgentRegistryForAdmin
+    Publisher + **UpdateRegistryRecordStatus** (approve / reject / deprecate)
+    => curation authority delegated to a FOREIGN ACCOUNT.
+UpdateRegistry / DeleteRegistry NEVER delegable — always the owner's.
+
+## KEY RULES — NEW THIS SCAN
+- ORG-INTERNAL SHARES AUTO-ACCEPT. With RAM sharing-with-Organizations enabled, "acceptance is
+  automatic — no invitation is required." Only EXTERNAL (cross-org) shares send an invitation.
+  => in the common enterprise case there is NO consumer-side consent event to observe.
+- REVOCATION IS EVENTUALLY CONSISTENT: ~30 s of continued access after disassociate-resource-share.
+- CONDITION KEYS HAVE AN ENUMERATION HOLE. Two keys, resolved at authz time from the stored record,
+  cannot be spoofed from request input:
+      agent-registry:RecordCreatorAccount
+      agent-registry:RecordSourceAccount
+  They are NOT evaluated on CreateRegistryRecord, and NOT on
+      SearchDiscoverableRegistryRecords / ListRegistryRecords / ListDiscoverableRegistryRecords
+  which "return summaries for all matching records regardless of condition-key restrictions."
+  AWS's own remedy is to withhold search+list from the share — which defeats the purpose.
+  => a consumer scoped to its own records can still enumerate the WHOLE catalogue.
+- Owner needs ram:CreateResourceShare + agent-registry:PutResourcePolicy. Registry must be READY.
 
 ## KEY RULES CARRIED FORWARD (unchanged)
 - Memory extraction asymmetry IS the detection rule (/short-term-create-event.html):
@@ -40,15 +75,10 @@ Guardrails, Harness GA, Recommendations GA, Batch Evaluations GA, A/B Testing GA
 Base GA, Failure Insights preview, Gateway Runtime/HTTP-passthrough/inference targets, Runtime
 Interactive Shells, Step Functions, CLI/CDK payments support.
 
-## Data-plane Actions API — RE-VERIFIED 2026-08-24, NO CHANGE
-**71 operations, operation-for-operation identical to the 2026-08-07 capture.** Second consecutive
-verification with no net-new operations. `SearchRegistryRecords` remains the only registry op here;
-`ListDiscoverableRegistryRecords` / `BatchGetDiscoverableRegistryRecord` live on the separate AWS
-Agent Registry API surface. See amazon-bedrock-agentcore_api.txt.
+## Data-plane Actions API — RE-VERIFIED 2026-08-26, NO CHANGE
+**Operation-for-operation identical to the 2026-08-07 capture. THIRD consecutive verification with
+no net-new operations.** `SearchRegistryRecords` remains the only registry op on that page; the
+RAM-shared discovery ops and `InvokeRegistryMcp` live on the separate `agent-registry` API surface.
+See amazon-bedrock-agentcore_api.txt.
 
-## SEE ALSO — new this scan, adjacent to AgentCore
-agent-plugins_spec.txt: the Agent Toolkit for AWS ships Bedrock/AgentCore agent-building skills as
-Agent Plugins to Claude Code, Codex, Cursor and Kiro, one path of which loads skills at RUNTIME via
-the AWS MCP Server with NO local installation.
-
-Updated: 2026-08-24 — no new entries; API surface re-verified identical.
+Updated: 2026-08-26 — one new entry (Agent Registry RAM cross-account sharing); API surface identical.

@@ -1,53 +1,81 @@
-# ChatGPT & Codex changelog — captured 2026-08-21
-# Source used: https://learn.chatgpt.com/docs/changelog
-# (sources.json still points at developers.openai.com/codex/changelog, which 308s here)
+# OpenAI / ChatGPT / Codex changelog — captured 2026-08-26
+# sources.json has: https://developers.openai.com/codex/changelog  -> 308 CROSS-HOST REDIRECT
+# REAL URL: https://learn.chatgpt.com/docs/changelog   (carries BOTH ChatGPT and Codex CLI entries;
+# the single most productive OpenAI source. sources.json still unfixed.)
 
-### August 20, 2026 — NEW THIS SCAN
-- **Apple Messages plugin** — read and search Messages chats on Mac, prepare and send messages.
-  All plans. Installed from Plugins > Public. Covers **iMessage, SMS and RCS**.
-  Requires **FULL DISK ACCESS** in System Settings + contact-name access + automation access.
-  **Apple Silicon (arm64) build of the desktop app ONLY** — not Intel Macs, not web, not mobile,
-  not Codex CLI, not the IDE extension. Usable from ChatGPT Work AND Codex.
-  Sends need approval by default; **"Always allow sending to this chat"** makes it permanent for
-  that conversation (OpenAI warns this removes the final review).
-  NOTE: no dedicated doc page found — /docs/plugins/apple-messages 404s. Detail via WebSearch
-  (MacRumors, 9to5Mac, Unite.AI, iClarified, all 2026-08-20).   [reported 2026-08-21, HIGH/ENDPOINT]
-- **Computer History available in the EEA, Switzerland and the UK** for Pro/Business/Enterprise —
-  the three jurisdictions excluded when it shipped Aug 13.       [reported 2026-08-21, MEDIUM]
-- Site co-editing (workspace owners invite editors with read/update); editable Site URLs.  [held]
-- Shared read-only Codex thread snapshots from the desktop app.                            [held]
-- Unified pinned threads across desktop and iOS.                                          [held]
-- Codex CLI 0.149.0: interactive agents dashboard, `/cd` `/pwd` `/cwd`, `codex queue`, expanded Vim,
-  `codex doctor` network/proxy/desktop diagnostics, `max`/`ultra` reasoning effort.        [held]
+## NEWEST: August 25, 2026 — TWO MAJOR ENTRIES, BOTH REPORTED 2026-08-26
 
-### August 19, 2026 — NEW THIS SCAN
-- **GitLab support (BETA)** — connect GitLab projects to Codex cloud, create environments against
-  them, **trigger tasks from issues and merge requests using `@codex`**, **enable automatic
-  reviews**. Setup covers webhook permissions + MR reviews. First non-GitHub code host.
-  Dedicated doc page not resolvable (developers.openai.com/codex/gitlab -> learn.chatgpt.com/docs/
-  gitlab = 404; /docs/codex/gitlab = 404). Cited /docs/cloud.  [reported 2026-08-21, HIGH/AISPM]
+### Aug 25 — "Browser extensions, site tools, and cloud sign-in"  *** 3 findings ***
+(a) SITE TOOLS = WebMCP.  REPORTED HIGH/AIRT.  Doc: learn.chatgpt.com/docs/webmcp
+    - A website registers tools in ordinary page JS via **document.modelContext.registerTool()**
+      with: name, description, input schema, execute handler calling the app's OWN logic,
+      annotations (e.g. readOnlyHint).
+    - ChatGPT Work and Codex in the DESKTOP APP'S BUILT-IN BROWSER (and ChatGPT Sites)
+      **discover tools automatically on page load** and invoke them.
+    - NO install, NO marketplace, NO config file, NO server, NO on-disk artifact.
+      Tool set exists only for the LIFETIME OF THE PAGE => capability is a function of NAVIGATION,
+      not configuration. (Different problem from the 08-24 Kiro/mcp.json gap: there is no artifact.)
+    - Tools run against the SITE'S EXISTING AUTHENTICATED SESSION (execute handler = site's own code,
+      site's own permissions).
+    - OpenAI's own words: "Website-provided tool definitions and results are untrusted content";
+      "tool names alone don't prove function or scope"; "These checks reduce risk; they don't make a
+      website or its output trustworthy."
+    - Controls: per-invocation safety review; browser ties invocations to originating page; normal
+      website-access/confirmation policies for consequential actions (messages, purchases, deleting
+      data, changing permissions); "Site tools" button in the ADDRESS BAR lists them;
+      disable at Settings > Browser > Permissions. ALL USER-FACING — no tenant policy documented.
+    - Requires **GPT-5.6 Sol or Terra**. Luna has WebMCP DISABLED.
+    - *** NOT AVAILABLE IN ENTERPRISE OR EDU WORKSPACES *** => lands on the least-managed tiers.
+    - WebMCP Challenge partners: Chromium Dev, Cloudflare, Shopify, Vercel, Render, Netlify.
+(b) BROWSER EXTENSION now on **Microsoft Edge, Brave, Opera, Vivaldi** + Chrome. REPORTED MED/ENDPOINT.
+    - Install via Settings > Computer Use ("More browsers" expander); select per chat by @-mention
+      against the SPECIFIC BROWSER PROFILE where the extension was installed.
+    - All five support tab mentions + browser control; Opera lacks side chat.
+    - Per-browser **allowlist / blocklist of domains** under "Manage" — USER-set, not admin-set.
+    - Doc: learn.chatgpt.com/docs/chrome-extension and /docs/computer-use
+(c) CLOUD BROWSER WEBSITE SIGN-IN. REPORTED MED/ENDPOINT (same finding as (b)).
+    - ChatGPT Work on WEB, iOS and ANDROID can prompt the user to sign in to a supported website
+      "through the cloud browser"; login details entered IN THE SIGN-IN FLOW, not in chat
+      => the auth event is NOT in the transcript.
+    - Cloud browser sessions are ISOLATED FROM LOCAL BROWSERS => authenticated third-party session
+      lives entirely in OpenAI-hosted infra, invisible to any endpoint collector.
+    - *** EXCLUDED FROM ENTERPRISE AND EDU WORKSPACES ***
+    - Doc: learn.chatgpt.com/docs/browser
 
-### August 18, 2026 — NEW THIS SCAN
-- ChatGPT for iOS 1.2026.223: direct Codex Remote launch, MCP forms support, linked folder
-  improvements, voice reliability, diff review performance.                               [held]
-- **Codex CLI 0.148.0**: `/export` conversations to Markdown; session forking + archiving; draft
-  prompts during TUI init; thread credits/cost in `/status`; **Amazon Bedrock Runtime as a built-in
-  provider**; **asynchronous MCP tool invocation in hooks**.
-  The Bedrock provider compounds two known facts: Anthropic's Compliance API explicitly does NOT
-  capture Claude Code routed via Bedrock/GCP/Foundry, and as of 2026-08-19 bedrock-runtime serves
-  the Anthropic Messages API on its /anthropic route.        [reported 2026-08-21, MEDIUM/ENDPOINT]
+### Aug 25 — "Trigger scheduled tasks from Gmail, Slack, and GitHub events"  REPORTED HIGH/AIDR
+Doc: learn.chatgpt.com/docs/automations
+- Tasks fire on EVENTS, not a clock:
+    Gmail  — new message, filterable by SENDER or SUBJECT
+    Slack  — new message in a WATCHED CHANNEL (ChatGPT Slack app must be a MEMBER of that channel)
+    GitHub — PR activity in an AUTHORIZED github.com repo: reviews, comments, commit updates, merges
+             (GitHub app needs repository access)
+- Setup: Settings > Apps to connect, then describe event+action in Work; user reviews
+  **Trigger / Condition / Prompt** and completes authorization.
+- **Time-based schedules and event triggers CANNOT COEXIST on one task.**
+- **Clustered events may be COMBINED INTO A SINGLE RUN** => external-content-to-agent-run mapping is
+  many-to-one and NOT reconstructable from the run alone.
+- Pending events / manual runs under "Scheduled".
+- Plans: Plus, Pro, Business, Enterprise, Edu + ChatGPT for Healthcare workspaces.
+- WHY IT MATTERS: the INITIATING PARTY is now whoever AUTHORED THE TRIGGERING CONTENT, and for all
+  three sources that is frequently EXTERNAL. Indirect prompt injection with the delivery problem
+  solved. The "filter by sender/subject" is attacker-observable and attacker-satisfiable, not a control.
+  The standing grant outlives the user's attention — no human in the session.
 
-### August 13 / 11 / 10, 2026 — all reported 2026-08-14
-Computer History (macOS, opt-in, accessibility-event capture, ephemeral Codex session summarizes to
-local plain-text memory files, 48h on-device buffer, admin grant for Business/Enterprise);
-Import from another agent (Claude Code / Claude Cowork / Cursor, with automatic sync); Daybreak Blue
-and Daybreak Red tiers (GPT-5.5-Cyber / GPT-5.6-Cyber; 95% vs 1.5% on advanced cyber prompts);
-Linux desktop preview (.deb/.rpm, x64 + ARM64).
+## Held below the bar
+- Aug 24 — Codex CLI 0.149.1: "bug fixes and improvements".
+- Aug 24 — Codex MCP server command DEPRECATION (a removal; out of scope).
+- Aug 20 — Codex + ChatGPT (Apple Messages, site co-editing, editable Site URLs, Computer History in
+  Europe, shared thread snapshots, unified pinned threads) — reported 2026-08-21.
+- Aug 20 / Aug 18 — Codex CLI 0.148.0; Aug 19 GitLab support in Codex cloud (Beta); Aug 18 iOS
+  1.2026.223 — all reported 2026-08-21.
 
-### STILL OPEN — sixth consecutive scan
-`gpt-realtime-2.1` / `gpt-realtime-2.1-mini`: forum-only since ~2026-07-06, still absent from SDK
-changelogs, platform docs and this changelog.
+## SDK streams (still NOT in sources.json — recommended since 2026-08-23)
+Python github.com/openai/openai-python/releases — tops at **v3.3.1 (Aug 19)**, unchanged since 08-24.
+  v3.3.0 (Aug 18) named data-residency endpoints; v3.2.0 (Aug 17) Bedrock Runtime endpoint support
+  (reported 08-23), shell call streaming events, new service/image types; v3.1.0 (Aug 14) WebSocket
+  stream IDs, workload identity access token issued event, ultrafast tier, structured MCP;
+  v3.0.0 (Aug 12) HTTPX2 default.
+Node github.com/openai/openai-node/releases — tops at **v7.5.0 (Aug 17)**, unchanged since 08-24.
+FETCH TRAP: the blob CHANGELOG.md view renders GitHub chrome only — use /releases.
 
-Updated: 2026-08-21 — FOUR new dated entries (Aug 18, 19, 20). GitLab and Apple Messages are the
-two reportable surfaces; the Bedrock provider matters mainly as a cross-vendor blind-spot compound.
-</content>
+Updated: 2026-08-26 — two new Aug 25 entries producing THREE reported findings.
