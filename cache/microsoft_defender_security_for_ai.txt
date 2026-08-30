@@ -1,0 +1,101 @@
+SOURCE SET (NOT IN sources.json - first read 2026-08-30):
+  https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/defender-security-for-ai          (ms.date 2026-08-07)
+  https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/get-started-defender-security-for-ai (ms.date 2026-07-01)
+  https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-real-time-protection      (ms.date 2026-07-01, updated 2026-08-11)
+  https://learn.microsoft.com/en-us/defender-endpoint/local-agent-discovery-overview                (ms.date 2026-05-27, PREVIEW)
+  https://learn.microsoft.com/en-us/defender-endpoint/ai-agent-runtime-protection-overview          (ms.date 2026-05-27, PREVIEW)
+  https://learn.microsoft.com/en-us/defender-endpoint/configure-ai-agent-runtime-protection         (ms.date 2026-08-13, PREVIEW)
+  https://learn.microsoft.com/en-us/microsoft-copilot-studio/external-security-provider             (ms.date 2026-06-01, updated 2026-08-19, PREVIEW)
+  https://learn.microsoft.com/en-us/microsoft-copilot-studio/external-security-webhooks-interface-developers (updated 2026-01-23)
+SCANNED: 2026-08-30
+
+=== LOCAL AI AGENT DISCOVERY (Defender for Endpoint, Preview) ===
+Defender automatically discovers supported local AI agents AND MCP server configurations (local and remote) on
+onboarded Windows and macOS devices. Agent identity = (user, device, agent type). Claude Code in 15 project folders
+for one user on one device = ONE inventory entry.
+Surfaces: Local AI agent inventory (device + user associations, discovery metadata); Exposure map (relationships
+between local AI agents, devices, identities and the resources those identities can reach); Advanced hunting (KQL).
+SUPPORTED LOCAL AI AGENTS (enumerated taxonomy):
+  CLI agents: Claude Code, Codex CLI, Gemini CLI, GitHub Copilot CLI, Junie CLI, Kiro CLI, OpenCode, Warp,
+              Antigravity CLI
+  Desktop apps: ChatGPT Desktop, Claude Desktop, Codex Desktop, Goose Desktop, Hermes Agent, Ollama Desktop,
+              Perplexity Desktop, Poe Desktop
+  Agentic IDEs: Cursor, Devin Desktop (formerly Windsurf), Kiro IDE, Antigravity IDE
+  VS Code extensions: Claude Code, Cline, Codex, Gemini Code Assist, GitHub Copilot, Roo Code
+  Claw-based agents: OpenClaw, Clawpilot, QClaw, Claw/Nanobot
+
+=== AI AGENT RUNTIME PROTECTION (Defender for Endpoint, Preview) ===
+Device-level prompt-injection detection and blocking for local AI agents. Inspects three points in the agent loop:
+user prompt, pre-tool call (before execution), post-tool response.
+TWO INSPECTION METHODS, each with Disabled / Audit / Block modes:
+ 1. Agent-native event inspection - `Set-MpPreference -AiAgentProtection <mode>` - uses vendor-supported agent
+    event/hook interfaces. Supported agents and their hook docs:
+      Claude Code        -> code.claude.com/docs/en/hooks
+      Codex CLI          -> developers.openai.com/codex/hooks
+      GitHub Copilot CLI -> docs.github.com/copilot/how-tos/copilot-cli/customize-copilot/use-hooks
+      GitHub Copilot app -> docs.github.com/en/copilot/reference/hooks-reference
+ 2. Network inspection - `Set-MpPreference -AiAgentNetworkInspection <mode>` - inspects agent-to-LLM network flows
+    in transit for agents with no vendor event interface.
+    DOCUMENTED BYPASS: "Network inspection doesn't support agents that use certificate pinning or HTTP/3."
+Requires Defender for Endpoint P2 / M365 E5 / Microsoft Agent 365 / M365 E7; Defender AV active mode; signature
+version 1.451.224.0 or later. NO native Intune policy support - deploy via PowerShell platform scripts in system
+context. Setting is protected by tamper protection.
+Alert: "Suspicious AI prompt injection". Block mode -> Critical/High/Medium/Low by risk; Audit mode -> Informational.
+User sees a block message in the agent terminal plus a Windows toast; also in Windows Security > Protection history.
+
+=== SECURITY FOR AI (Defender XDR) ===
+Enabled automatically when a tenant onboards to Microsoft Agent 365 ("Enable" toggle ON by default).
+Setup: Settings > Security for AI > Get started. Data sources: Agent 365 (auto Done), Microsoft 365 connector
+(requires Entra ID Management events + Microsoft 365 activities; Entra Users and groups is a prerequisite),
+Copilot Studio real-time protection (requires a Power Platform admin and a shared Entra App ID).
+CLOUD/PLATFORM AGENT DISCOVERY spans Microsoft Copilot Studio, Microsoft Foundry, AWS Bedrock and GCP Vertex AI,
+plus M365 Copilot Agent Builder and non-Microsoft agents built with the Microsoft Agent 365 SDK.
+Posture: Advanced Hunting prebuilt queries for misconfigurations, risky agent settings, excessive permissions.
+Threat detection scenarios: indirect prompt injection, evasion techniques, malicious content propagation, secret
+leakage, LLM reconnaissance, suspicious IP access.
+
+=== REAL-TIME PROTECTION RULES (Defender XDR) ===
+Coverage by agent type:
+  - Agent 365 tool invocations: via Work IQ MCP, including customer MCP tools onboarded to Agent 365. Agents that
+    rely on unsupported tools or don't integrate with Work IQ MCP ARE NOT COVERED.
+  - Copilot Studio agents (Preview): evaluates tool invocations, independent of Work IQ MCP.
+  - Foundry agents (Preview): evaluates user requests, agent responses, tool invocations AND tool responses.
+  - Local AI agents: via Defender for Endpoint runtime protection.
+Rule types: built-in Default rule audits ALL agents (records behaviour, does not stop); Custom rules block matching
+actions and record the behaviour, scoped to All agents or specific agents, with an Exclude list.
+IMPORTANT: the agent Exclude picker only lists "agents with a Microsoft Entra agent ID."
+Detection types selectable on a rule: Secret exfiltration, Malicious content propagation, Evasion techniques,
+Unsafe email domain.
+Audited and blocked activity is recorded as behaviours in the `BehaviorInfo` table (what happened, why it was
+risky, which agent/user/tool). Near-real-time detections surface as alerts ONLY in audit mode - when a blocking
+rule covers an agent, near-real-time alerts are NOT generated for that agent.
+Prompt Shields block events for Foundry and M365 Copilot Agent Builder are also recorded as behaviours; NOT yet
+supported for Copilot Studio agents.
+Prompt evidence collection (Settings > Security for AI > Prompt evidence collection) includes user prompt / agent
+response snippets as alert evidence, on by default, secrets redacted.
+
+=== COPILOT STUDIO EXTERNAL THREAT DETECTION PROVIDER (Preview) ===
+"Bring your own protection." Every time the orchestrator considers invoking a tool it POSTs the proposed tool use
+to an external REST endpoint which returns allow or block.
+Only called on GENERATIVE agents using generative orchestration; SKIPPED for classic agents.
+API (api-version=2025-05-01), two endpoints:
+  POST /validate                 - health/readiness check. Response {isSuccessful, status}.
+  POST /analyze-tool-execution   - risk evaluation. Response {blockAction, reasonCode?, reason?, diagnostics?}.
+Request body (EvaluationRequest):
+  plannerContext   - userMessage, thought (planner's reasoning for tool choice), chatHistory[] (id/role/content/
+                     timestamp), previousToolOutputs[] (toolId, toolName, outputs with values, timestamp)
+  toolDefinition   - id, type, name, description, inputParameters[], outputParameters[]
+  inputValues      - the actual key/value arguments about to be passed to the tool
+  conversationMetadata - agent {id, tenantId, environmentId, version, isPublished}, user {Entra oid, tenantId},
+                     trigger {id, schemaName}, conversationId, planId, planStepId, parentAgentComponentId
+Auth: Entra ID; Federated Identity Credentials (secret-less), explicit subject identifier
+  /eid1/c/pub/t/{b64 tenantId}/a/m1WPnYRZpEaQKq1Cceg--g/{b64 endpoint}
+  Setup via Create-CopilotWebhookApp.ps1 (PowerShell Gallery) or manual Azure portal registration.
+Configured in Power Platform admin center > Security > Threat detection > Additional threat detection.
+FAIL-OPEN BY DEFAULT: response required in <1000 ms; "If your system doesn't respond in time, the agent behaves as
+if your response is 'allow', invoking the tool." Error behaviour is configurable to "Block the query".
+NO TENANT-WIDE SETTING: "There's no PowerShell, API, or admin center setting to enforce or propagate this
+configuration globally"; must be turned on manually PER ENVIRONMENT, including every newly created environment.
+Named provider option: Microsoft Defender (defender-cloud-apps/real-time-agent-protection-during-runtime), custom
+in-house systems, or "products from other trusted security providers".
+Provider receives data that "might be processed and stored outside your geographic region".

@@ -1,72 +1,38 @@
-# Anthropic News — captured 2026-08-15
-Source: https://www.anthropic.com/news
+SOURCE: https://www.anthropic.com/news
+SCANNED: 2026-08-30
+NEWEST: 2026-08-27
 
-## August 2026
-- **Aug 14 — Announcements: "How Claude's text watermarking works"**   [NEW — REPORTED 2026-08-15]
-  The single new addition anywhere in this scan. NOT present on the platform release-notes stream
-  (/docs/en/release-notes/api), which is the surface this monitor normally reads for Anthropic —
-  it appears only on the news page and in the Help Center, which is why it was missed on 2026-08-14
-  despite being published that day.
+ENTRIES:
+- 2026-08-27 "Previewing the Model Hardware Standard" (research preview)
+  -> https://www.anthropic.com/news/model-hardware-standard-research-preview
+  MHS = shared specification for AI agents to safely operate physical devices. Co-developed with HHMI Janelia
+  Research Campus. Standardized software driver translating between operating systems and hardware devices.
+  Primitives: "read" (retrieve data e.g. temperature) and "write" (set parameters).
+  Device discovery: devices become discoverable in a standardized format so agents and instruments locate each
+  other across networks with no custom translator programs.
+  Device metadata: drivers carry natural-language tags documenting weight, capabilities and SAFETY LIMITS,
+  auto-generating the reference files agents need for safe operation.
+  Three control interfaces working together for multi-device orchestration: Model Context Protocol (MCP),
+  command-line interfaces, and code file APIs.
+  Device classes demonstrated: liquid handlers, 6-DoF robotic arms, microplate readers, two-photon and light-sheet
+  microscopy, thermocyclers, qPCR instruments, centrifuges, incubators, cameras, sensors, laser systems, optics.
+  Research preview partners: Genentech, University of Washington (Baker/Pinglay labs), Carnegie Mellon University,
+  HHMI Janelia, QuEra Computing, Tetsuwan Scientific.
+  Platform partners building native MHS support: AWS/Strands, Tecan, QIAGEN, Universal Robots.
+  Safety controls: device-level safety limits enforced by MHS drivers (laser power, mechanical ranges); agents
+  "often stopped to wait for human confirmation before performing an action it deemed even slightly risky";
+  CMU induced six failure scenarios (missing plate, rotated plate, reader busy, disconnected camera, unreachable
+  device, emergency stop) and the system "correctly blocked all six before any device moved".
+  Model agnostic - not tied to Claude. Applications at modelhardwarestandard.com. Anthropic plans to open-source
+  the standard so any device manufacturer in any industry can adopt it.
+  NOTE: modelhardwarestandard.com is an application gate only - the technical spec is restricted to approved
+  preview participants. No public spec document or SDK link.
 
-  Mechanism: a statistical watermark, not hidden characters. On "low-stakes choices" between equally
-  valid next tokens, Claude's selection is driven by a cryptographic key held by Anthropic plus the
-  preceding context, instead of an arbitrary RNG. Individual word choices look unremarkable; across
-  enough text the pattern is detectable with the key. Explicitly NOT zero-width spaces or Unicode
-  variation selectors ("worthless as a provenance system — removable with find-replace"). Reported
-  externally as a variant of Google DeepMind's SynthID-Text.
+- 2026-08-27 "Expanding our support for scientists"
+  Claude Science (launched June 2026) access expansion; AI for Science Program broadened beyond biological
+  sciences; new Claude Team Plan for Scientists - 10,000 seats free / discounted for one year; premium seats with
+  5x limits at $15/month; PI at academic or nonprofit institutions; biology/chemistry researchers limited to
+  Opus-class models; up to $50,000 in credits per project.
+  NO new product, API, connector or agent surface. Below reporting bar.
 
-  Second, separate mechanism: **signed provenance metadata to the C2PA open standard** embedded in
-  supported generated FILE types — SVG, PNG, JPG.
-
-  Scope (from support.claude.com/en/articles/16266773):
-    - Products: **Claude Platform (the API), Claude, Claude Code, Claude Cowork, and Claude Tag** —
-      i.e. the API is in scope, not just the consumer apps. All regions worldwide.
-    - Models: new models launching **on or after August 2, 2026** mark at launch; earlier models are
-      being retrofitted "over the coming months" (transition period).
-    - **Cloud partners: AWS, Google Cloud and Microsoft Foundry support the watermarks.** Signed
-      C2PA metadata support "varies by platform capabilities." Note this is the inverse of the
-      Compliance-API local-sessions blind spot reported 2026-08-14, where Bedrock/GCP/Foundry-routed
-      Claude Code is NOT captured — marking follows the model, capture follows the account.
-    - **No opt-out.** Applied globally at launch. Driver is EU AI Act Article 50 (transparency
-      obligation effective August 2, 2026), but Anthropic applied it worldwide rather than in the EU.
-  Detection: **"We will soon be offering a watermark detection API. We're in the process of working
-  out the details of its implementation."** Not available yet — this is the thing to watch for.
-  Help Center adds "we'll share details in forthcoming technical documentation."
-
-  Stated limitations (these ARE the coverage map):
-    - Degrades or disappears with heavy editing, format conversion, or screenshots.
-    - Undetectable on small samples / short outputs.
-    - Sparse on proofreading tasks; ineffective where word choice is factually forced.
-    - Cannot distinguish a complete rewrite.
-    - **A mark proves Claude PROCESSED the text, not that Claude AUTHORED it** — marked content may
-      have originated elsewhere and merely passed through Claude.
-    - Absence of a mark does NOT establish human origin, and says nothing about other vendors' models.
-  Sources: https://www.anthropic.com/news/claude-text-watermark
-           https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content
-
-- Aug 7 — Product: Improving Fable 5's biology safeguards. [safety, not a new surface]
-- Aug 4 — Mariano-Florentino Cuéllar joins as Chief Global Affairs Officer. [corporate]
-
-## July 2026
-- Jul 30 — Investigating three real-world incidents in our cybersecurity evaluations. [research]
-- Jul 27 — Position statement on open-weights models; Cognizant enterprise partnership expansion.
-- **Jul 24 — Product: Claude Opus 5** — "a step change improvement for the Opus tier powering
-  long-running agents while delivering improvements in coding and professional work." [REPORTED]
-- Jul 22 — Economic Futures Research Fund agenda; Anthropic Economic Index connector. [research data]
-- Jul 21 — $20M donation to Public First Action. [corporate]
-- Jul 20 — Rare disease research grants program. [corporate]
-- Jul 9 — Public commitment to address hard AI questions.
-- Jul 6 — The Making of Claude Code. [editorial]
-- **Jun 23 — Claude Tag** (Slack-embedded shared team agent, ambient mode) — reported in the
-  2026-07-03..07-08 reports. Cross-referenced here because Claude Tag is named in the watermark
-  coverage list, confirming it is still a live product surface.
-
-## June 2026 [already cached]
-- Jun 30 — Claude Sonnet 5 (reported 2026-07-03).
-
-## STANDING SOURCE LESSON (new this scan)
-The Anthropic **news page and Help Center carry platform-wide capability changes that never appear
-on the API release-notes stream.** Content marking is the proof case: it took effect Aug 2, was
-explained Aug 14, and is invisible to /docs/en/release-notes/api. Read both surfaces every scan.
-
-Updated: 2026-08-15 — ONE new addition (content marking / text watermarking), reported.
+- 2026-08-25 "Funding better evaluations of AI's impact on wellbeing" [unchanged since 2026-08-27 scan]

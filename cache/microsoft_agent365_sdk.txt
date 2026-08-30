@@ -1,0 +1,51 @@
+SOURCE (NOT IN sources.json - first read 2026-08-30):
+  https://learn.microsoft.com/en-us/microsoft-agent-365/developer/       (ms.date 2026-08-10, updated 2026-08-13)
+  https://learn.microsoft.com/en-us/entra/agent-id/agent-blueprint       (ms.date 2026-04-28)
+  https://learn.microsoft.com/en-us/microsoft-agent-365/overview         (ms.date 2026-08-19, updated 2026-08-20)
+SCANNED: 2026-08-30
+
+=== AGENT 365 SDK ===
+Does NOT create or host agents. It ENHANCES agents already built on any stack by adding:
+  - Entra-backed Agent Identity, including the agent's own user resources such as a MAILBOX
+  - Notifications from Teams, Outlook, Word comments and emails - the agent participates like a human
+  - Full observability via OpenTelemetry: agent interactions, INFERENCE EVENTS, and TOOL USAGE
+  - Invocation of governed MCP servers reaching M365 workloads (Mail, Calendar, SharePoint, Teams) under admin control
+  - Enforcement inside an IT-approved blueprint system so each instance inherits compliance/governance/security policy
+Works with agents built on Copilot Studio, Azure AI Foundry, Microsoft Agent Framework, Microsoft Agents SDK,
+OpenAI Agents SDK, Claude Code SDK, LangChain SDK - and with agent code hosted on Azure, AWS, GCP "or any other
+cloud provider."
+Layering: Enterprise Capabilities (Agent 365 SDK) / Agent Logic (your code) / LLM Orchestrator Runtime (your framework).
+Distinct from the Microsoft 365 Agents SDK (hosting, activity protocol, identity) - it layers on top.
+
+=== CROSS-CLOUD AUTO-REGISTRATION ===
+"Enable Google Vertex AI or Amazon Bedrock agents - Registration for these agents requires NO development work -
+agents are pulled automatically via the Google and Amazon APIs. No SDK integration, no blueprint, and no code
+changes are required. Once registered, you can use the Agent 365 SDK to add observability, Work IQ tool access,
+and other capabilities incrementally."
+-> Agent 365 becomes a cross-cloud agent registry that ingests AWS Bedrock and GCP Vertex AI agents automatically.
+
+=== AGENT 365 CLI ===
+Creates agent blueprints and supporting resources; manages out-of-box and custom Work IQ tools, permissions and
+tooling; deploys agent code to Azure; publishes agent application packages to the Microsoft admin center; cleans up
+blueprints, identities and Azure resources.
+Agent 365 Skills: an AI coding assistant (GitHub Copilot CLI, Claude Code, or VS Code agent mode) walks a developer
+through installation, configuration, deployment and publishing.
+
+=== ENTRA AGENT IDENTITY BLUEPRINT (Graph resource: agentIdentityBlueprint) ===
+An OBJECT IN ENTRA ID that is a template for creating agent identities, and a special identity type in its own right.
+A blueprint can perform exactly one tenant operation: provision or deprovision agent identities. It has an OAuth
+client ID, credentials, and the special Graph permission `AgentIdentity.CreateAsManager`.
+Shared properties: description, app roles, verified publisher, auth protocol settings (OptionalClaims).
+CREDENTIALS ARE CONFIGURED ON THE BLUEPRINT: "OAuth permissions granted to an agent identity blueprint are granted
+to ALL agent identities created from that blueprint."
+INHERITABLE PERMISSIONS: define which resource apps have permissions automatically inherited by agent identities
+created from the blueprint. "When an administrator grants permissions on the blueprint principal from an inheritable
+resource app, ALL agent identities in that organization receive those permissions automatically."
+REQUIRED RESOURCE ACCESS: declares APIs/permissions the agent needs; visible to admins at consent review.
+Conditional Access can target a blueprint and take effect for all its agent identities. Disabling a blueprint
+prevents all its agent identities from authenticating.
+AGENT IDENTITY BLUEPRINT PRINCIPAL: the per-tenant object representing a blueprint's presence. Token `oid` claim
+references it; blueprint actions (e.g. creating agent identities) are audited as the blueprint principal.
+Blueprints can be SINGLE-TENANT or MULTITENANT and published to customers via Microsoft catalogs - a customer adds
+a third-party blueprint to their tenant and it can then mint agent identities there.
+Full schema: /graph/api/resources/agentidentityblueprint

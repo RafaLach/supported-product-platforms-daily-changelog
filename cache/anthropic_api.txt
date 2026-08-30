@@ -1,94 +1,17 @@
-# Anthropic / Claude Platform release notes — captured 2026-08-27
-# Source used: https://platform.claude.com/docs/en/release-notes/api
-# (sources.json still points at platform.claude.com/docs/api/getting-started and
-#  /docs/build-with-claude/overview — BOTH still HTTP 404. Recommended for months, still unfixed.)
+SOURCE: https://platform.claude.com/docs/en/release-notes/api
+(replacement for the two 404ing Anthropic URLs in sources.json)
+SCANNED: 2026-08-30
+NEWEST: 2026-08-27
 
-## ADVANCED. Newest dated entry is now AUGUST 26, 2026 (was August 20 on the 08-26 scan).
+- 2026-08-27: Python SDK 1.2.0, TypeScript 0.122.0, Go 1.68.0, Java 2.59.0, Ruby 1.67.0, C# 12.44.0 -
+  `client.beta.files` and `client.beta.skills` no longer send the `files-api-2025-04-14` and `skills-2025-10-02`
+  beta headers and return the same shapes as `client.files` / `client.skills`. `client.beta.skills.delete()` now
+  deletes a Skill together with all of its versions. Beta Messages type `BetaSkill` renamed `BetaContainerSkill`.
+  Requests still sending the beta headers keep the beta shapes.
+  ASSESSMENT: SDK shape migration, not a new capability. Below reporting bar.
 
-### August 26, 2026 — THREE items, all new
+- 2026-08-26 and earlier: item-for-item unchanged from the 2026-08-27 scan.
+  (Compliance API session endpoints GA; local session endpoints return claude_science and office_agents/*;
+  Admin API in the `ant` CLI and seven SDKs under client.beta.organization.)
 
-1. Compliance API session endpoints are OUT OF BETA for Cowork and Claude Code sessions.
-
-2. *** Compliance API local session endpoints now ALSO return transcripts of: ***
-     - Claude Science sessions            product_surface = `claude_science`
-     - Claude for Microsoft 365 sessions  product_surface = `office_agents/excel`,
-                                          `office_agents/powerpoint`, `office_agents/word`,
-                                          `office_agents/outlook`
-                                          (`office_agents` alone when the app is unidentified)
-   In BETA for Claude Enterprise orgs. NO new key, scope, setting or client update:
-   existing Compliance Access Key + `read:compliance_user_data` scope.
-
-3. Admin API is now available in the `ant` CLI (`ant beta:organization`) and in the
-   Python, TypeScript, C#, Go, Java, PHP and Ruby SDKs under `client.beta.organization`.
-   Covers: organization info, members, invites, workspaces + workspace members, API keys,
-   rate limits, service accounts, WORKLOAD IDENTITY FEDERATION issuers and rules, and
-   CUSTOMER-MANAGED ENCRYPTION KEYS.
-   Usage/cost reports and the Claude Enterprise user-management + analytics endpoints
-   remain curl-only. Reads an Admin API key from ANTHROPIC_API_KEY or an `org:admin`
-   OAuth token from ANTHROPIC_AUTH_TOKEN. Automated workloads skip login entirely and
-   authenticate through WIF — the SDKs/CLI perform the token exchange from the federation
-   environment variables.
-
-## COMPLIANCE API SESSION SURFACE — full map (compliance-sessions page)
-
-Two endpoint families, both READ-ONLY, both 403 for Admin API keys (`sk-ant-admin01-...`):
-
-  LOCAL   /v1/compliance/apps/sessions/local           id prefix `clls_`
-          /v1/compliance/apps/sessions/local/{id}
-          /v1/compliance/apps/sessions/local/{id}/messages
-          product_surface: cowork, claude_code, claude_science, office_agents/*
-
-  REMOTE  /v1/compliance/apps/sessions/remote          id prefix `cse_`
-          /v1/compliance/apps/sessions/remote/{id}/messages
-          product_surface: cowork_remote ONLY
-
-Local capture is SERVER-SIDE: "Anthropic records each conversation server-side as its
-requests reach the Claude API; nothing is installed on the device." => transcripts show
-what Claude was ASKED and what it RETURNED, not what happened on the device. Activity
-that never reaches the API is invisible.
-
-### DOCUMENTED BLIND SPOTS (these double as a coverage map)
-NOT returned by the session endpoints:
- - Claude Code authenticated with a Console API key, or run via Bedrock / Vertex / Foundry.
- - Claude Code on the WEB (runs in Anthropic cloud but is NOT a remote session; remote
-   endpoints return Cowork only).
- - Local sessions in orgs with HIPAA readiness enabled (no local data captured AT ALL).
- - Local sessions under zero data retention (excluded from lists; 404 on retrieve).
-Never in a transcript:
- - Thinking blocks. System prompt (replaced by `[system prompt content not shown]` marker).
- - TOOL DEFINITIONS and MCP SERVER CONFIGURATION.
- - Images/PDFs/binary blocks; non-text tool-result items (web search results, code-exec
-   output) collapse to `[N non-text item(s) not shown]` — the matching tool_use with the
-   query/code in `input` IS still returned.
- - Citation metadata.
-Tool inputs and each tool-result text entry are truncated to 10,000 bytes by default
-(`tool_use_input_max_bytes` / `tool_result_max_bytes`; pass -1 for ~1 MiB max). A truncated
-tool_use `input` is NO LONGER VALID JSON.
-CLAUDE.md appears as ordinary user content. Skill content appears when the client sends it
-as message content and is NOT distinguished from other user text.
-Retention: 6 years default, or the org's custom conversation retention period (shortest
-wins when several are configured). `created_at` ADVANCES as calls age out — deduplicate on `id`.
-`provenance` types: content_unavailable (reasons: not_captured / client_aborted /
-cmek_key_revoked / retention_elapsed / oversize), client_asserted, synthetic_marker.
-NOTE: `not_captured` "does not prove that no record was stored" — content withheld by
-Anthropic's data-handling policies reports the same reason.
-Remote sessions can be AGENT-OWNED: `agent_id` prefix `cagt_`, with `started_by_user`
-naming the human who initiated (e.g. a scheduled task). user_ids[] filter EXCLUDES
-agent-owned sessions.
-Claude Science emits SEPARATE background sessions for its own work — conversation naming,
-and on newer versions its REVIEWER and DELEGATION TRACKS. => Claude Science has sub-agents.
-Claude for M365: deleting a conversation in the add-in is CLIENT-ONLY and is not reflected
-in the API; local sessions have no `deleted_at`.
-
-### August 20, 2026 and earlier — unchanged, carried forward
-Python SDK v1.0 (httpx -> httpx2); computer_toolset_20260801 + browser_toolset_20260801 on
-Google Cloud; computer use out of beta; browser use tool launched; Files API out of beta.
-
-## anthropic.com/news — UNCHANGED since 08-26
-Newest still Aug 25 "Funding better evaluations of AI's impact on wellbeing".
-*** It does NOT carry the Aug 26 CLAUDEFORCE announcement, which Salesforce published the
-    same day. Confirms again that this page does not surface partnership/gated programmes.
-    Mythos 5 and Project Glasswing still absent. ***
-
-Updated: 2026-08-27 — release notes advanced to Aug 26; two NEW product_surface families
-(claude_science, office_agents/*) and the Admin API CLI/SDK surface.
+Date headings present: Aug 27, 26, 20, 19, 18, 11, 10, 7, 5, 3, 1; then July 24, 22, 17, 15, 14, 10, 8, 2, 1.

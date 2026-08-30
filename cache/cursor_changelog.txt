@@ -1,26 +1,22 @@
-# Cursor (watching tier) — captured 2026-08-24
-# https://cursor.com/changelog  — CORRECT in sources.json, fetches fine.
-# https://docs.cursor.com       — 308 -> https://cursor.com/docs. sources.json entry WRONG,
-#                                 recommendation outstanding since 2026-08-10.
+SOURCE: https://cursor.com/changelog
+SCANNED: 2026-08-30
+NEWEST: 2026-08-27  (was 2026-08-19 on the previous scan)
 
-## NO NEW ENTRIES. Still tops at August 19, 2026.
-- Aug 19  "Cloud Agents and Cursor Harness Improvements" — SUBSCRIPTIONS for event monitoring,
-          CUSTOM MODES FOR SKILLS, ISOLATED SUBAGENT ENVIRONMENTS, `/goal` command for long-lived
-          objectives, steering improvements.                        [reported 2026-08-21]
-- Aug 17  "Origin Code Hosting" — repos, pull requests, code browsing, GitHub sync, app integrations
-          (Vercel, Depot, Buildkite).                               [reported 2026-08-21]
-- Aug 13  "Cloud Agents Start 3x Faster with Builds" — pre-built dev environments.
-- Aug 3   "Google Workspace Plugins" — Gmail, Drive, Calendar via Google's remote MCP servers,
-          installed from the Cursor Marketplace in ~5 clicks, Drive incl. SHARE.  [reported 08-07]
-- Jul 29  "Cursor, now on iPad".
+NEW SINCE LAST SCAN - 2026-08-27:
+- "Start from scratch": Cloud Agents can now launch with NO GitHub or third-party SCM connection. Select
+  "Start from scratch" in the repo picker and prompt the agent; Cursor automatically creates an Origin repo in the
+  background. When the work is good, click "Create repo" to save it as a named Origin repository with configurable
+  visibility (private or internal). The fully scaffolded repo appears in the Codebase tab.
+- In-browser live preview: Cursor "port-forwards your cloud agent's live environment straight to your browser",
+  giving real-time preview and design-mode access during the session.
+- Publish with Vercel: connect a Vercel account and deploy the finished work to get a LIVE URL. "A Vercel account
+  is required to use the publish feature."
 
-## NEW CONTEXT 2026-08-24 — Cursor is a founding TSC member of Agent Plugins 1.0
-Cursor sits on the Agent Plugins Technical Steering Committee (with AWS, Microsoft, OpenAI, Vercel)
-and is a named implementing client, alongside ChatGPT, Codex, GitHub Copilot, Kiro and VS Code. The
-Aug 19 "custom modes for skills" line is Cursor's side of that ecosystem. The Agent Toolkit for AWS
-ships plugins for Cursor specifically. => Cursor's marketplace is NOT the only way extensions reach
-a Cursor install; a plugin authored anywhere in the ecosystem is portable to it, and the
-`aws configure agent-toolkit` wizard installs into detected agents' config directories directly.
-See agent-plugins_spec.txt.
-
-Updated: 2026-08-24 — no new entries.
+PREVIOUSLY REPORTED / HELD:
+- 2026-08-19 Subscriptions (agents watch PRs and Slack threads), Custom Modes, subagent isolation on independent
+  VMs, /goal, non-blocking steering. [reported 08-21]
+- 2026-08-17 Cursor Origin git forge, bidirectional GitHub sync, Vercel/Depot/Buildkite integrations. [reported 08-21]
+- 2026-08-03 Google Workspace plugins - Gmail (search/read messages, draft and send, manage labels and threads),
+  Google Drive (search files, access content, create and organize documents), Google Calendar (access schedules,
+  create/update events, identify availability). Changelog does not document the authorization mechanism or scopes.
+  [surfaced 2026-08-07 scan]

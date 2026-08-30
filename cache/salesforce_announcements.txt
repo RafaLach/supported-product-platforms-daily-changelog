@@ -1,86 +1,30 @@
-# Salesforce Releases Page
+SOURCE: sources.json Salesforce URLs all return HTTP 403 (www.salesforce.com/*).
+  investor.salesforce.com/news/default.aspx renders only a year-picker shell via WebFetch this scan - the
+  2026-08-27 recovery path (investor.salesforce.com/news/news-details/...) still works for a KNOWN slug but the
+  index page did not enumerate. Recovered this scan via WebSearch.
+SCANNED: 2026-08-30
 
-## Note
-Fetch on 2026-03-30 returned HTTP 403 error. Cache content preserved from 2026-03-25.
+NEWEST SALESFORCE-DATED ITEMS:
+- 2026-08-28 Q2 results: Agentforce Plan and Solution ARR over $1.5B; combined Agentforce + Data 360 ARR over $3.9B.
+  Financial disclosure - not a product addition.
+- 2026-08-26 Claudeforce (Salesforce + Anthropic). [FULLY REPORTED 2026-08-27]
 
-## Content (from 2026-03-25 fetch)
+COVERAGE GAP DISCOVERED THIS SCAN (not new, never reported):
+- AGENTFORCE OPERATIONS - announced 2026-04-29, GENERALLY AVAILABLE.
+  https://www.salesforce.com/news/stories/agentforce-operations-announcement/  (403 direct; recovered via
+  martech.org, constellationr.com, pulse2.com)
+  Extends Agentforce agents from front-office experiences into BACK-OFFICE processes and systems - email, ERP and
+  collaboration tools - for "end-to-end agentic execution across the back office." Positioned against legacy
+  workflow tools on the basis that "agents are designed to complete work rather than route it."
+  Specialized Agents that "extract data from complex documents, run computations, update credit models and identify
+  compliance gaps"; agents handle data verification, approvals and compliance checks.
+  30+ pre-configured BLUEPRINTS for processes such as invoice auditing, onboarding and purchase-order rescheduling;
+  blueprints can also be generated from unstructured process documents.
+  Surfaces work into Slack and Microsoft Teams. Processes are changed with plain-language updates.
+  Governance surface claimed: audit trails; agents proactively flag bottlenecks.
+  Ecosystem integration - auto-sync data and trigger actions with Salesforce Flows - was slated for beta May 2026.
+  Claimed effect: 50-70% cycle-time reduction, 80% less manual data entry.
+  ZERO hits for "Agentforce Operations" across reports/ before this scan.
 
-### Main Headline & Description
-The page announces "The Spring '26 Release is here" and describes it as delivering "AI-driven innovation across every cloud and industry." The core message emphasizes transformation into an "Agentic Enterprise, where human expertise and AI productivity work together."
-
-### Primary Call-to-Action Resources
-- **Trailhead Module**: "Spring '26 Release Highlights"
-- **Release in a Box**: PDF deck highlighting major features
-
-### Webinars & Events Listed
-
-**Upcoming Events:**
-- "Build, Scale, Monetize: The ISV Strategy for Salesforce Spring '26" (3/3/26)
-
-**On-Demand Webinars:**
-- Agentforce Voice innovations
-- Spring '26 Marketing Release
-- Agentforce Field Service Innovation Review
-- Salesforce Platform Roadmap (ALM and Security focus)
-- Marketing Cloud Next Innovations
-- Agentforce Sales Winter '26 features
-- Platform Roadmap (Security and AI Development)
-- Communications Sales with Agentforce
-
-### Product Feature Demos Available
-
-**By Product Category:**
-- Slack, Sales, Service, Field Service and Operations, Agentforce, Commerce, Marketing, Revenue Management, Flow, Analytics
-
-**By Industry:**
-- Automotive, Communications, Consumer Goods, Education, Health, Nonprofit
-
-### Spring '26 Product-Specific Innovations
-
-**Agentforce Enhancements:**
-- Voice capabilities with new and upcoming features for voice-first customer experiences
-- Field Service innovations enabling proactive rather than reactive operations
-- AI agent building for field representatives with voice command support
-
-**Sales Cloud:**
-- Account prioritization tools
-- Book management features
-- Partner alignment capabilities
-
-**Service Cloud:**
-- Early issue resolution mechanisms
-- Escalation reduction features
-- Customer satisfaction improvements
-
-**Field Service & Operations:**
-- Faster information capture
-- Reduced manual data entry
-- Work prioritization tools
-
-**Marketing Cloud:**
-- AI-powered Engagement driving real-time responses
-- Seamless human handoff capabilities
-- Compliant personalized outreach
-
-**Commerce:**
-- Personalized shopping experiences
-- Operational optimization
-- Revenue growth enablement
-
-**Platform/Developer Features:**
-- Enhanced DevOps capabilities
-- Security improvements
-- Flow automation scaling enhancements
-
-### Industry-Specific Solutions
-Spring '26 includes innovations for Automotive, Communications, Consumer Goods, Education, Health, and Nonprofit sectors with AI agent integration across cloud platforms.
-
-### Additional Resources
-- Release Readiness video series (Spring '26, Winter '26, Summer '25 collections)
-- Trailhead learning trails for skill development
-- Release notes access
-- Trailblazer Community group for discussions
-- Blog updates on seasonal releases
-
-## Last Fetched
-2026-03-30 - FAILED (403 error). Cache content preserved from 2026-03-25.
+STILL UNVERIFIABLE FROM SALESFORCE DIRECTLY: Winter '27 (published 2026-08-19) - sixth consecutive scan.
+Dreamforce is 2026-09-12 to 09-14 and remains the larger expected delta.

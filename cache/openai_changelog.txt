@@ -1,63 +1,19 @@
-# ChatGPT Enterprise / OpenAI — captured 2026-08-24
-# Sources read (sources.json is wrong or silent on ALL of these):
-#   https://learn.chatgpt.com/docs/changelog                  <- 308 from developers.openai.com/codex/changelog
-#   https://github.com/openai/openai-python/releases          <- NOT IN sources.json
-#   https://github.com/openai/openai-node/releases            <- NOT IN sources.json
-#   https://status.openai.com/history.rss                     <- in sources.json
-# FETCH TRAP: never use /blob/main/CHANGELOG.md — renders GitHub chrome only. Use /releases[/tag/<v>].
+SOURCE: https://developers.openai.com/codex/changelog -> 308 redirect -> https://learn.chatgpt.com/docs/changelog
+(NEW redirect target this scan; previously tracked at developers.openai.com)
+SCANNED: 2026-08-30
+NEWEST: 2026-08-26
 
-## learn.chatgpt.com/docs/changelog — ONE new entry, BELOW THE BAR
-- Aug 24  **Codex CLI 0.149.1** — "bug fixes and improvements". No new surface.  [HELD]
-Everything Aug 18-20 was reported 2026-08-21:
-- Aug 20  Codex + ChatGPT: Apple Messages plugin, Site co-editing, editable Site URLs, Computer
-          History in Europe, shared thread snapshots, unified pinned threads.
-- Aug 20  Codex CLI 0.149.0 — interactive AGENTS DASHBOARD, working-directory commands
-          (/cd, /pwd, /cwd), session message queuing, expanded Vim editing, codex doctor
-          diagnostics, reasoning-effort selection.
-- Aug 19  GitLab support in Codex cloud (Beta).
-- Aug 18  ChatGPT for iOS 1.2026.223 — MCP FORMS support. Codex CLI 0.148.0 — conversation export
-          to Markdown, session forking/archiving, **Amazon Bedrock provider support**, async hooks.
+- 2026-08-26 ChatGPT for iOS 1.2026.230: task search across titles and conversation content on connected hosts;
+  compact composer gauge for reasoning effort; full-screen editor for long prompts; configurable Home Screen
+  shortcuts for ChatGPT / Work / Codex Remote; optional comments on selected response annotations.
+  ASSESSMENT: client UX. Below bar.
+- 2026-08-25 Browser extension on Microsoft Edge, Brave, Opera, Vivaldi; site tools (WebMCP); cloud browser
+  sign-in for ChatGPT Work on web/iOS/Android. [ALREADY REPORTED 2026-08-26]
+- 2026-08-25 Scheduled task event triggers from Gmail, Slack, GitHub. [ALREADY REPORTED 2026-08-26]
+- 2026-08-24 `codex mcp-server` command deprecated in favour of the Codex app server; Codex plugin for Claude Code
+  recommended for Claude Code integration. DEPRECATION - not reported per scope rules.
 
-## Python SDK — openai-python, NO new releases. Still tops at v3.3.1 (Aug 19).
-- v3.3.1  Aug 19 — dependency security fixes, uv build system, Pyright pin.  [held]
-- v3.3.0  Aug 18 — "support named data-residency endpoints".
-- v3.2.0  Aug 17 — **"add Bedrock Runtime endpoint support (SDK-290)"** [reported 08-23, MED/AIDR];
-                   "shell call streaming events and new service/image types".
-- v3.1.0  Aug 14 — WebSocket stream IDs; **workload identity access token issued event**;
-                   ultrafast tier; structured MCP support; Sora video APIs deprecated.
-- v3.0.0  Aug 12 — BREAKING: httpx2 is the default HTTP client.
+NO NEW ADDITIONS since the 2026-08-26 scan.
 
-## Node SDK — openai-node, read this scan. HELD BELOW THE BAR.
-- v7.5.0  Aug 17 — **Bedrock Runtime endpoint support** (same capability as Python v3.2.0, already
-                   reported 08-23, so no separate finding); **new model identifiers: Daybreak and
-                   `gpt-5.6-cyber`** — SDK-level corroboration of the safeguard-lifted tier reported
-                   2026-08-14; ServiceTier + ImageDetail types; WebSocket stream IDs; security fixes
-                   (prototype pollution, API-key disclosure). ~40 fixes.
-- v7.4.0  Aug 3  — gpt-5.5 model + tool metadata fields; HTTP mTLS transport examples.
-
-## THE STANDING RULE — cross-provider routing is now in the LIBRARIES, not just the CLIs
-Both official SDKs (Python v3.2.0, Node v7.5.0) can target the Bedrock Runtime endpoint, where
-`/anthropic` serves the Anthropic Messages API and `/openai/v1` serves the OpenAI shapes. Anthropic's
-Compliance API explicitly does NOT capture sessions routed via Bedrock / Google Cloud / Foundry.
-=> Per-vendor telemetry CANNOT establish coverage. Only the cloud account's own logging can.
-   Select parsers by ROUTE PATH, not hostname. See amazon-bedrock_changelog.txt.
-
-## status.openai.com — three RESOLVED incidents in window, below the bar
-Aug 21 unexpected logouts for ChatGPT web users (Login component). Aug 20 elevated Codex API
-authentication errors. Aug 20 elevated errors for Thinking mode (Image Generation, ChatGPT Work,
-Conversations). Availability, not additions.
-
-## HELD ITEM — EIGHTH consecutive scan
-`gpt-realtime-2.1` / `gpt-realtime-2.1-mini` still absent from every OpenAI surface, including both
-SDK release streams. Open since ~2026-07-06.
-
-## CORRECTION OF RECORD (see agent-plugins_spec.txt)
-"Codex Agent Plugins" reported 2026-08-07 as an OpenAI capability is in fact OpenAI's implementation
-of **Agent Plugins 1.0.0**, an open vendor-neutral standard (TSC: AWS, Cursor, Microsoft, OpenAI,
-Vercel) also implemented by Cursor, GitHub Copilot, VS Code and Kiro. Model it once, cross-vendor.
-
-## Doc pages named in changelogs that DO NOT EXIST (confirmed 2026-08-21)
-learn.chatgpt.com/docs/gitlab, /docs/codex/gitlab, /docs/plugins/apple-messages — all 404.
-OpenAI ships changelog entries ahead of their doc pages. Cite /docs/cloud for the GitLab beta.
-
-Updated: 2026-08-24 — one new entry (Codex CLI 0.149.1), held. No new SDK releases.
+SECONDARY SOURCE: https://developers.openai.com/changelog - newest 2026-08-21 (regional processing via prefixed
+domains; GPT-5.6 Sol price cut to $4/$20 per M tokens). Unchanged.
