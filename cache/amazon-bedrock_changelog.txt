@@ -1,44 +1,29 @@
-# Amazon Bedrock doc history — captured 2026-08-26
-# Source: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html  (renders fine)
+# Amazon Bedrock doc history — captured 2026-09-02
+# Source: https://docs.aws.amazon.com/bedrock/latest/userguide/doc-history.html (as configured; renders)
 
-## NEWEST ENTRY ADVANCED TO **August 24, 2026** — BUT IT IS A CORRECTION, NOT AN ADDITION. HELD.
-"Corrected Claude Sonnet 5 thinking guidance: adaptive thinking is on by default and can be disabled."
-The Claude Sonnet 5 model card had wrongly said adaptive thinking is ALWAYS ON and CANNOT be disabled.
-Corrected: on by default (including when the `thinking` field is omitted), turned off only by
-`"thinking": {"type": "disabled"}`; `budget_tokens` NOT supported on this model; thinking tokens billed
-as output tokens; revisit `max_tokens` when migrating from Claude Sonnet 4.6. Sonnet 5 added to the
-Adaptive thinking supported-models table.
-=> A documentation accuracy fix. No new API, service or entity. BELOW THE BAR.
+## ONE NEW ENTRY since the 2026-08-30 capture.
 
-## Entries below it — all previously reported, unchanged
-Aug 19 — Anthropic Messages API samples repointed to the `bedrock-runtime` **/anthropic** route
-         (base_url="https://bedrock-runtime.{region}.amazonaws.com/anthropic", short-term bearer token
-         from aws-bedrock-token-generator provide_token()). 49 non-Anthropic model cards had
-         OPENAI_BASE_URL repointed from the bedrock-mantle /v1 route to bedrock-runtime **/openai/v1**.
-         Messages API tabs reordered to lead with bedrock-runtime; the bedrock-mantle curl tab moved
-         to the end. Reported 2026-08-21/08-23.
-Aug 15 — endpoint guidance now RECOMMENDS `bedrock-runtime` for new applications incl. OpenAI- and
-         Anthropic-compatible workloads. Reported 08-21.
-Aug 15 — follow-up bedrock-runtime positioning; Quickstart samples use Claude Opus 5 and GPT-5.6 Sol;
-         **Daybreak Red: GPT-5.6 Cyber** and **Daybreak Blue: GPT-5.6 Sol** added to the Models at a
-         glance table. Reported 08-14/08-21.
-Aug 14 — AgentCore Memory integration for Bedrock agentic retrieval via `memoryConfiguration` on
-         **AgenticRetrieveStream**. Reported 2026-08-21 (MED/AIDR).
-Aug 11 — IAM principal cost allocation now supported on the bedrock-mantle endpoint.
-Jul 31 — Amazon Bedrock Agents Classic no longer open to new customers (deprecation; out of scope).
+2026-09-01 *** Added Claude Fable 5.1 and Claude Mythos 5.1 model cards ***
+  model-card-anthropic-claude-fable-5-1.html and model-card-anthropic-claude-mythos-5-1.html
+  Updated: Adaptive thinking, Extended thinking, Tool use, Prompt caching.
+  NEW TOPIC: **claude-messages-thinking-block-binding.html — "Thinking block binding (beta)"**.
+  >>> MYTHOS 5.1 HAS A BEDROCK MODEL CARD ON DAY ONE. The safeguards-lifted model is a first-class
+      Bedrock entitlement. See claude-mythos-5-safeguards-lifted memory. Reported 09-02 HIGH/AIRT.
+2026-08-24 Correction: Claude Sonnet 5 adaptive thinking is ON BY DEFAULT and CAN be disabled.
+  [the "newest entry is a correction" state noted on 08-30 has now advanced]
 
-## STANDING RULE — mantle vs runtime (unchanged, still correct)
-BOTH endpoints serve the OpenAI AND Anthropic API shapes. AWS reversed its recommendation toward
-`bedrock-runtime` on 2026-08-15/19, but `bedrock-mantle` "continues to be fully supported" and the
-mantle-only pages remain: Web Search, **Projects**, **Workspaces**, Chat Completions on mantle, the
-mantle Responses API page.
-=> **SELECT PARSERS BY ROUTE PATH (/anthropic, /openai/v1, /v1), NOT BY HOSTNAME.**
-Projects/Workspaces remain the mantle control-plane entities.
+## MANTLE / RUNTIME ROUTING — unchanged, carried forward (see bedrock-mantle-coverage-gap memory)
+2026-08-19 Anthropic Messages samples repointed to bedrock-runtime `/anthropic`; OPENAI_BASE_URL on
+  49 non-Anthropic model cards moved from bedrock-mantle `/v1` to bedrock-runtime `/openai/v1`.
+2026-08-15 Endpoint guidance now RECOMMENDS bedrock-runtime for new apps, including for OpenAI- and
+  Anthropic-compatible workloads. bedrock-mantle remains fully supported.
+  >>> RULE: SELECT PARSERS BY ROUTE PATH, NOT HOSTNAME. Both endpoints serve both API shapes.
+      Mantle-only surfaces remain: Web Search, PROJECTS, WORKSPACES, Chat Completions on mantle,
+      the mantle Responses API page.
+2026-08-14 AgentCore Memory integration for Bedrock agentic retrieval — `memoryConfiguration` on
+  AgenticRetrieveStream can restore an earlier session from short-term memory and/or let the agent
+  retrieve from long-term memory.
+2026-08-11 IAM principal cost allocation on bedrock-mantle.
+2026-07-30 Bedrock Agents Classic no longer open to new customers.
 
-## API Reference — re-verified 2026-08-26, UNCHANGED
-docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html lists six surfaces:
-Amazon Bedrock | Agents for Amazon Bedrock | Agents for Amazon Bedrock Runtime | Data Automation for
-Amazon Bedrock | Runtime for Amazon Bedrock Data Automation | Amazon Bedrock Runtime.
-Both Agents sections now carry the Agents-Classic closed-to-new-customers note. No new API surface.
-
-Updated: 2026-08-26 — newest entry is Aug 24 but it is a doc correction; no reportable addition.
+Updated: 2026-09-02.

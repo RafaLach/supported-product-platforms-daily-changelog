@@ -1,0 +1,54 @@
+# Sources checked 2026-09-02 with NO reportable delta. Recorded so the next scan can tell
+# "verified unchanged" apart from "not read".
+
+Cursor changelog (cursor.com/changelog)      — newest entry 2026-08-27 "Start from scratch".
+                                                Unchanged. Reported 08-30.
+Devin Desktop (docs.devin.ai/desktop/changelog) — newest v3.8.20, 2026-08-21. Unchanged, 2nd scan.
+Perplexity (docs.perplexity.ai/changelog)    — entries labelled only "August 2026", NO DATES.
+                                                Six third-party model additions: GLM 5.3,
+                                                Gemini 3.7 Flash, Grok 4.6, NVIDIA Nemotron 3 Ultra,
+                                                Nemotron 3.5 Lightning, DeepSeek V4 Flash 0731.
+                                                Plus prompt caching for Agent API presets and the
+                                                `fast` preset moving to openai/gpt-5.6-luna.
+                                                Model plumbing on a watching-tier platform. Below bar.
+Dia Browser (diabrowser.com/release-notes)   — newest issue 2026-08-27; prior 038 (Aug 20, v1.45.0),
+                                                037 (Aug 13, v1.44.0, LinkedIn integration),
+                                                036 (Aug 6, v1.43.1). Aug 27 highlights a **Linear
+                                                integration** with natural-language project queries.
+                                                Watching tier, single connector. Held.
+ServiceNow AI Control Tower (ai-control-tower-rn.html) — "Last Updated: March 12, 2026", unchanged.
+                                                Australia Patch 4 / 2 / 1 content already covered by
+                                                the 2026-08-10 and 2026-08-14 reports (kill switch,
+                                                agent map, Databricks connector, Service Graph
+                                                Connectors). ONE item with ZERO prior hits:
+                                                Patch 2 "Ability to publish ServiceNow agents to
+                                                Microsoft Agent 365" — reported 09-02 MEDIUM/AISPM.
+ServiceNow family index (family-release-notes.html, IN sources.json) — still asserts no version, GA
+                                                status or feature content. Will never answer
+                                                "did X ship?". Read per-application *-rn.html pages.
+Amazon Q Developer / Q Business doc history  — newest feature entries 2026-05-21 and 2025-08-14.
+                                                DEAD, sixth consecutive scan. Demote from primary.
+Microsoft Agent 365 overview                 — ms.date 2026-08-19, unchanged.
+Defender XDR security-for-ai overview        — ms.date 2026-08-07, unchanged from the 08-30 read.
+Microsoft Graph changelog RSS                — lastBuildDate 2026-09-02 05:21 UTC; newest ITEM still
+                                                2026-08-03. FIFTH consecutive frozen scan.
+                                                Only agent-relevant item remains 2026-07-23:
+                                                `user` member added to the agentIdentityType enum;
+                                                displayName + identityId on agentRiskDetection;
+                                                agentId + agentDisplayName deprecated, removal
+                                                2027-04-28.
+M365 admin What's New                        — August 2026 = Enhanced Engagements nudge tracking only.
+Power Apps / Power Automate / Power Pages    — all three sources.json URLs render as stale pointer
+                                                indexes with no dated feature content.
+Copilot Studio What's New                    — July 2026, ms.date 2026-08-18. SIXTH frozen scan.
+Power Platform released-versions/copilotstudio — 2026.6.3 / June 30 2026. NINE WEEKS STALE despite
+                                                claiming weekly Tuesday updates. RECOMMEND REMOVAL.
+devblogs.microsoft.com/foundry               — newest post 2026-08-17. No delta.
+Salesforce /releases/ and /news/             — HTTP 403 (unchanged). Recovered via WebSearch:
+                                                **Dreamforce 2026 runs 2026-09-15 to 09-17** at
+                                                Moscone Center (note: NOT Sept 12-14 as previously
+                                                recorded). Expected: next Agentforce Sales release,
+                                                "Salesforce in Claude" open beta (already reported
+                                                08-27), **Tableau MCP** (zero prior hits — WATCH),
+                                                50+ specialist agents in Slack/Teams/IT service desk.
+                                                Next scan should treat Dreamforce as the delta.

@@ -1,84 +1,102 @@
-# Amazon Bedrock AgentCore release notes — captured 2026-08-26
+# Amazon Bedrock AgentCore release notes — captured 2026-09-02
 # Source used: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
 # (sources.json still points at doc-history.html, which renders title/nav only — recurring since
-#  2026-05-18 and still unfixed. Recommended every scan since 2026-07-05.)
+#  2026-05-18. Recommended every scan since 2026-07-05.)
 
-## ONE NEW ENTRY. August 2026 now holds THIRTEEN entries (was twelve on 08-24).
-## The other twelve are item-for-item identical to the 2026-08-24 capture, same order.
+## FOUR NEW ENTRIES. August 2026 now holds SEVENTEEN entries (was thirteen on 08-26).
+## The thirteen below the fold are item-for-item identical to the 2026-08-26 capture, same order.
 
-August 2026, in page order:
- 1. AWS Agent Registry — cross-account sharing with AWS RAM      *** NEW 2026-08-26, reported HIGH/AISPM ***
- 2. Payments — Coinbase wallet usage billed through AWS Marketplace   [billing plumbing, held]
- 3. Memory — store and extract non-conversational JSON payloads       [reported 2026-08-23, MED/AIDR]
- 4. Evaluations — Skill evaluators                                    [reported 2026-08-21, MEDIUM]
- 5. Payments — Quick create for Coinbase payment connectors           [reported 2026-08-21, MEDIUM]
- 6. Payments — x402 `upto` scheme + Machine Payments Protocol (MPP)   [reported 2026-08-21, HIGH/AIRT]
- 7. Evaluations — Third-party evaluators (DeepEval, AutoEval)         [reported 2026-08-21, MEDIUM]
- 8. Memory, policy, harness in AWS GovCloud (US-West)                 [region expansion, held]
- 9. Runtime — Instances compute type with capacity providers          [reported 2026-08-07, HIGH]
-10. AWS Agent Registry under the `agent-registry` namespace           [reported 2026-08-07, HIGH]
-11. Gateway — Configurable rate limits (FAILS OPEN)                   [reported 2026-08-07, HIGH]
-12. Runtime — simplified/increased API rate quotas                    [quota change, held 08-14]
-13. Gateway — Web Search Tool in eu-west-1 and ap-northeast-1         [region expansion, held 08-14]
+August 2026, in page order (newest first):
+ 1. AWS Agent Registry GA — auto-detection w/ AWS Organizations + CMK   *** NEW, reported HIGH/AISPM ***
+ 2. Memory — Ingest content directly into long-term memory (IngestData) *** NEW, reported HIGH/AIDR ***
+ 3. Memory — Flexible Namespaces (namespace variables)                  *** NEW, folded into #2 ***
+ 4. AWS Agent Registry — AWS PrivateLink support                        *** NEW, reported in detail ***
+ 5. AWS Agent Registry — cross-account sharing with AWS RAM             [reported 2026-08-26 HIGH/AISPM]
+ 6. Payments — Coinbase billed through AWS Marketplace                  [billing plumbing, held]
+ 7. Memory — store/extract non-conversational JSON payloads             [reported 2026-08-23 MED/AIDR]
+ 8. Evaluations — Skill evaluators                                      [reported 2026-08-21 MEDIUM]
+ 9. Payments — Quick create for Coinbase payment connectors             [reported 2026-08-21 MEDIUM]
+10. Payments — x402 `upto` scheme + Machine Payments Protocol (MPP)     [reported 2026-08-21 HIGH/AIRT]
+11. Evaluations — Third-party evaluators (DeepEval, AutoEval)           [reported 2026-08-21 MEDIUM]
+12. Memory, policy, harness in AWS GovCloud (US-West)                   [region expansion, held]
+13. Runtime — Instances compute type with capacity providers            [reported 2026-08-07 HIGH]
+14. AWS Agent Registry under the `agent-registry` namespace             [reported 2026-08-07 HIGH]
+15. Gateway — Configurable rate limits (FAILS OPEN)                     [reported 2026-08-07 HIGH]
+16. Runtime — simplified/increased API rate quotas                      [quota change, held 08-14]
+17. Gateway — Web Search Tool in eu-west-1 and ap-northeast-1           [region expansion, held 08-14]
 
-## NEW ENTRY DETAIL — AWS Agent Registry cross-account sharing with AWS RAM
-Doc: .../devguide/registry-cross-account-sharing.html
-Shareable RAM resource type: `agent-registry:Registry`. Owner selects ONE managed permission:
-- AWSRAMDefaultPermissionAgentRegistryReadOnly  (default if none specified)
-    GetRegistry, GetRegistryRecord, ListRegistryRecords,
-    SearchDiscoverableRegistryRecords, GetDiscoverableRegistryRecord, ListDiscoverableRegistryRecords
-    => NO MCP invoke.
-- AWSRAMPermissionAgentRegistryForConsumer   *** AWS RECOMMENDS THIS AS THE DEFAULT CHOICE ***
-    the three Discoverable ops + **agent-registry:InvokeRegistryMcp**
-    => the share is a LIVE TOOL-INVOCATION GRANT, not a read grant.
-- AWSRAMPermissionAgentRegistryForPublisher
-    Consumer + GetRegistry, CreateRegistryRecord, UpdateRegistryRecord, DeleteRegistryRecord,
-    GetRegistryRecord, ListRegistryRecords, SubmitRegistryRecordForApproval
-- AWSRAMPermissionAgentRegistryForAdmin
-    Publisher + **UpdateRegistryRecordStatus** (approve / reject / deprecate)
-    => curation authority delegated to a FOREIGN ACCOUNT.
-UpdateRegistry / DeleteRegistry NEVER delegable — always the owner's.
+## NEW #1 DETAIL — AWS Agent Registry GA + ORGANIZATION-WIDE AUTO-DETECTION
+Doc: .../devguide/registry-organizations.html
+- Auto-detects `AWS::BedrockAgentCore::Runtime` and `AWS::BedrockAgentCore::Gateway` across ALL
+  AWS Organizations MEMBER ACCOUNTS into one ORGANIZATION-SCOPED REGISTRY.
+- "Fully managed. ... NO AGENTS, NO PER-ACCOUNT PERMISSIONS, and no member-account resources to set up."
+- ONE org-scoped registry PER REGION. Owned by mgmt account or (AWS-recommended) a DELEGATED ADMIN.
+  Requires organizations:EnableAWSServiceAccess + RegisterDelegatedAdministrator, and the SLR
+  AWSServiceRoleForAgentRegistry in the MANAGEMENT account (and in the admin account too if CMK).
+- Initial discovery of pre-existing resources takes UP TO 20 MINUTES.
+- Record name: `aws-autodetected-<accountId>-<region>-<resourceId>` (NOT the display name).
+- provenance[]: relation DETECTED_FROM, sourceId = source ARN, sourceType = the CFN type.
+  sourceDetails carries JWT `discoveryUrl` and `workloadIdentityArn`.
 
-## KEY RULES — NEW THIS SCAN
-- ORG-INTERNAL SHARES AUTO-ACCEPT. With RAM sharing-with-Organizations enabled, "acceptance is
-  automatic — no invitation is required." Only EXTERNAL (cross-org) shares send an invitation.
-  => in the common enterprise case there is NO consumer-side consent event to observe.
-- REVOCATION IS EVENTUALLY CONSISTENT: ~30 s of continued access after disassociate-resource-share.
-- CONDITION KEYS HAVE AN ENUMERATION HOLE. Two keys, resolved at authz time from the stored record,
-  cannot be spoofed from request input:
-      agent-registry:RecordCreatorAccount
-      agent-registry:RecordSourceAccount
-  They are NOT evaluated on CreateRegistryRecord, and NOT on
-      SearchDiscoverableRegistryRecords / ListRegistryRecords / ListDiscoverableRegistryRecords
-  which "return summaries for all matching records regardless of condition-key restrictions."
-  AWS's own remedy is to withhold search+list from the share — which defeats the purpose.
-  => a consumer scoped to its own records can still enumerate the WHOLE catalogue.
-- Owner needs ram:CreateResourceShare + agent-registry:PutResourcePolicy. Registry must be READY.
+## KEY RULES — NEW THIS SCAN (all four are detection content)
+- CANNOT DISTINGUISH MCP SERVER FROM AGENT. Every runtime protocol (MCP, HTTP, A2A, AGUI) maps to
+  recordType=AGENT, "because auto-detection can't distinguish a standalone MCP server from an agent
+  that exposes an MCP interface." You may hand-narrow AGENT->MCP, but a later PROTOCOL CHANGE
+  RESETS IT BACK TO AGENT and overrides your narrowing. Gateway records are always GATEWAY.
+- AUTHORIZER DETAIL IS TRUNCATED. `AllowedClients`, `AllowedAudience`, `AllowedScopes` are
+  **NOT carried into the record** — only discoveryUrl is. => the registry CANNOT answer
+  "who may call this agent". Must read the source resource.
+- DEPRECATION SILENTLY FREEZES SYNC. "If you deprecate an auto-detected record ... auto-detection
+  stops syncing changes from the source resource ... Subsequent updates — such as protocol,
+  authorizer, or endpoint changes — are NOT applied." => plausible evasion path.
+- TWO STATUS FIELDS, AND THEY DISAGREE. `autoDetectionConfiguration.enabled` (what you request) vs
+  `autoDetection.status` ACTIVE/INACTIVE (what is in effect). enabled=true is NECESSARY BUT NOT
+  SUFFICIENT. => enabled=true + status=INACTIVE means the org believes discovery runs and it does not.
+  AWS also flips enabled to false itself when trusted access is disabled or the delegated admin is
+  deregistered — and RE-ENABLING TRUSTED ACCESS DOES NOT RESUME AUTO-DETECTION.
+- Auto-detected records CANNOT BE DELETED while auto-detection is enabled.
+- A refresh of an APPROVED record is written as a NEW DRAFT REVISION, undiscoverable until approved;
+  the old approved revision stays discoverable meanwhile => discoverable view can lag reality.
+- Field ownership split: you own name/description/recordVersion/descriptor data; the service owns
+  descriptor protocol, descriptor source URL, and provenance (edits rejected).
+
+## NEW #2 DETAIL — Memory IngestData
+Doc: .../devguide/long-term-ingest-data.html ; API_IngestData.html
+"Submit content directly for long-term memory extraction, WITHOUT persisting it as a short-term
+ memory event." => "the submitted content CANNOT BE RETRIEVED with GetEvent, ListEvents, or
+ ListSessions, or reorganized with branching."
+Payload types: `conversational` (role USER/ASSISTANT + text) and `json` (behavioral events, activity
+ logs, system events). Optional structured metadata. Scoped by actorId + sessionId + namespace;
+ content sharing all three "is treated as related context during extraction."
+FANS OUT to EVERY configured long-term strategy EXCEPT self-managed ones.
+Async. Failures -> dedicated queue; ListMemoryExtractionJobs / StartMemoryExtractionJob to re-drive;
+ FailedExtraction CloudWatch metric. Kinesis memory-record streaming gives real-time create notices.
+>>> PROGRESSION: 08-23 = memory write no longer needs a CONVERSATION (json on CreateEvent).
+>>> 09-02 = memory write no longer needs an EVENT. Only CloudTrail / Kinesis remain as signals.
+
+## NEW #4 DETAIL — Agent Registry PrivateLink
+TWO interface endpoints:
+  com.amazonaws.<region>.agent-registry-control  — registry and record MANAGEMENT
+  com.amazonaws.<region>.agent-registry          — record DISCOVERY + THE REGISTRY MCP ENDPOINT
+Endpoint policies match callers by IAM principal. FOR JWT-AUTHORIZED REGISTRIES YOU MUST SET
+`Principal` TO `*` so bearer-token requests can reach the service. => the VPC endpoint policy on a
+JWT registry is wide open by design; authorization lives entirely in the JWT.
 
 ## KEY RULES CARRIED FORWARD (unchanged)
-- Memory extraction asymmetry IS the detection rule (/short-term-create-event.html):
-  "Conversational and JSON payloads are extracted into long-term memory. Blob payloads are stored
-   in short-term memory only and are not extracted."
-  => the memory WRITE PATH NO LONGER REQUIRES A CONVERSATION. Payload TYPE, not size or source,
-     decides whether stored data can influence future sessions.
-- x402 `upto` pays a METERED AMOUNT UP TO A CEILING via the Permit2 contract; MPP forwards a
-  `WWW-Authenticate: Payment` challenge VERBATIM to ProcessPayment, which checks the SESSION BUDGET
-  and SIGNS WITH THE WALLET. Methods: evm, tempo, solana.
-- Third-party evaluators are discoverable via `ListEvaluators` ALONGSIDE built-in and custom —
-  provenance is NOT distinguished on the inventory surface.
+- RAM org-internal shares AUTO-ACCEPT (no consumer consent event). Revocation ~30 s eventually
+  consistent. AWSRAMPermissionAgentRegistryForConsumer (AWS's recommended default) includes
+  agent-registry:InvokeRegistryMcp => the share is a LIVE TOOL-INVOCATION GRANT.
+  Condition keys RecordCreatorAccount / RecordSourceAccount are NOT evaluated on Create or on
+  Search/List => a scoped consumer can still enumerate the WHOLE catalogue.
+- Memory extraction asymmetry: conversational + JSON are extracted to long-term; BLOB payloads are
+  short-term only and NOT extracted. Payload TYPE decides influence on future sessions.
+- x402 `upto` pays a metered amount up to a ceiling via Permit2; MPP forwards a
+  `WWW-Authenticate: Payment` challenge VERBATIM to ProcessPayment.
+- Third-party evaluators are discoverable via ListEvaluators ALONGSIDE built-in and custom —
+  provenance NOT distinguished on the inventory surface.
 
-## July 2026 and earlier — unchanged
-Web Search connector v1.2.0; Identity Private Key JWT client auth; Harness InvokeHarness streams MCP
-tool result metadata; Runtime unified span destination; Evaluations/Optimizations PrivateLink;
-Evaluations framework support; ActiveSessionCount metric. Earlier: Web Search GA, Policy + Bedrock
-Guardrails, Harness GA, Recommendations GA, Batch Evaluations GA, A/B Testing GA, Managed Knowledge
-Base GA, Failure Insights preview, Gateway Runtime/HTTP-passthrough/inference targets, Runtime
-Interactive Shells, Step Functions, CLI/CDK payments support.
+## July 2026 and earlier — unchanged from the 2026-08-26 capture.
 
-## Data-plane Actions API — RE-VERIFIED 2026-08-26, NO CHANGE
-**Operation-for-operation identical to the 2026-08-07 capture. THIRD consecutive verification with
-no net-new operations.** `SearchRegistryRecords` remains the only registry op on that page; the
-RAM-shared discovery ops and `InvokeRegistryMcp` live on the separate `agent-registry` API surface.
-See amazon-bedrock-agentcore_api.txt.
-
-Updated: 2026-08-26 — one new entry (Agent Registry RAM cross-account sharing); API surface identical.
+Updated: 2026-09-02 — four new August entries; Agent Registry is now a GA service with its own
+namespace, control/data-plane APIs, MCP endpoint and PrivateLink endpoints. RECOMMEND adding
+.../devguide/registry.html to sources.json as its own entry.

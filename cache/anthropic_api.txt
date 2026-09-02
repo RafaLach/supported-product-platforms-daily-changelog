@@ -1,17 +1,97 @@
-SOURCE: https://platform.claude.com/docs/en/release-notes/api
-(replacement for the two 404ing Anthropic URLs in sources.json)
-SCANNED: 2026-08-30
-NEWEST: 2026-08-27
+# Anthropic platform release notes — captured 2026-09-02
+# Source used: https://platform.claude.com/docs/en/release-notes/api
+# (sources.json URLs platform.claude.com/docs/api/getting-started and /docs/build-with-claude/overview
+#  both still 404. Recommended repoint every scan since 2026-08-07.)
 
-- 2026-08-27: Python SDK 1.2.0, TypeScript 0.122.0, Go 1.68.0, Java 2.59.0, Ruby 1.67.0, C# 12.44.0 -
-  `client.beta.files` and `client.beta.skills` no longer send the `files-api-2025-04-14` and `skills-2025-10-02`
-  beta headers and return the same shapes as `client.files` / `client.skills`. `client.beta.skills.delete()` now
-  deletes a Skill together with all of its versions. Beta Messages type `BetaSkill` renamed `BetaContainerSkill`.
-  Requests still sending the beta headers keep the beta shapes.
-  ASSESSMENT: SDK shape migration, not a new capability. Below reporting bar.
+## NEWEST ENTRY: 2026-09-01 — Claude Fable 5.1 + Claude Mythos 5.1. LARGE entry, 8 bullets.
+## (Reusable lesson holds: Anthropic ships very large single-day entries. Read every bullet.)
 
-- 2026-08-26 and earlier: item-for-item unchanged from the 2026-08-27 scan.
-  (Compliance API session endpoints GA; local session endpoints return claude_science and office_agents/*;
-  Admin API in the `ant` CLI and seven SDKs under client.beta.organization.)
+2026-09-01 — MODELS
+- claude-fable-5-1 (all customers) and claude-mythos-5-1 (Project Glasswing participants ONLY).
+  1M context = DEFAULT AND MAXIMUM. 128k max output. Adaptive thinking ALWAYS ON.
+  $10/$50 per MTok, same as Fable 5. CACHE READS $0.25/MTok = 0.025x base input
+  (vs 0.1x on every other Claude model).
+  Availability: Claude API, Amazon Bedrock (anthropic.claude-fable-5-1), Claude Platform on AWS,
+  Google Cloud, Microsoft Foundry (on Anthropic infrastructure).
+  Mythos 5.1 access = Anthropic, AWS or Google Cloud ACCOUNT TEAMS. Same channel as Mythos 5.
+  Both: 30-day retention REQUIRED, not available under ZDR without express Anthropic authorization.
+  Both are "Covered Models".
 
-Date headings present: Aug 27, 26, 20, 19, 18, 11, 10, 7, 5, 3, 1; then July 24, 22, 17, 15, 14, 10, 8, 2, 1.
+## *** KEY DIVERGENCE — REPORTED 2026-09-02, HIGH/AIRT ***
+## Fable 5.1 enforces a thinking-block PREFIX-INTEGRITY CHECK. Editing system prompt, tools, or any
+## earlier message invalidates every later thinking block; replay => 400
+##     "The block is bound to a different conversation"
+## Enforced for accounts created ON OR AFTER 2026-08-31. Older accounts: recorded but only acted on
+## when thinking.block_binding.prefix_mismatch_behavior is set.
+## >>> "Claude Mythos 5.1 doesn't run this check." <<<
+## => this is a DEPLOYMENT FINGERPRINT for Mythos, far more reliable than refusal probes.
+##    (Refusal probes still falsely pass — see claude-mythos-5-safeguards-lifted memory.)
+
+BREAKING (Fable 5.1 + Mythos 5.1):
+1. tool_choice {"type":"any"} and {"type":"tool",...} => 400 invalid_request_error.
+   "tool_choice: type \"tool\" and \"any\" are not supported for this model."
+   Same validation on the token-counting endpoint. auto/none unchanged.
+   => ANY Zenity harness or red-team fixture pinning a tool call breaks silently -> falls back to auto.
+2. Thinking blocks bound to producing model. Fable 5.1 reads earlier models' blocks; no earlier model
+   reads Fable 5.1's. Cross-model drop is SILENT unless beta header thinking-binding-controls-2026-08-01,
+   which reports it in a top-level `input_transformations` array (reason: "prefix_binding_mismatch").
+3. Prefix-integrity check above.
+
+ADDITIVE (new beta headers — all three are new parser surface):
+- mid-conversation-output-config-2026-07-01 — PER-MESSAGE EFFORT. A role:"system" message inside
+  `messages` carrying output_config.effort changes effort for later turns WITHOUT invalidating cache.
+  Fable 5.1, Mythos 5.1, Opus 5.
+- mid-conversation-system-clear-at-2026-08-21 — TURN-SCOPED SYSTEM MESSAGES.
+  role:"system" + clear_at:"next_user_message". Text "carries SYSTEM-PROMPT AUTHORITY for the current
+  turn", then stops rendering. Stays in messages, costs ZERO input tokens once cleared.
+  => anything that can append to `messages` can inject system-level instruction for one turn.
+- thinking-display-updates-2026-08-18 — thinking.display accepts a THIRD value "updates".
+  Reasoning returns empty; the model's inter-tool-call progress updates return AS TEXT.
+  (default remains "omitted"; "summarized" also returns them.)
+
+CONTENT PROVENANCE (new):
+- Text from Fable 5.1 / Mythos 5.1 carries Anthropic's STATISTICAL TEXT WATERMARK on EVERY platform
+  where the model is available. No tokens, no hidden chars, no org-identifying info.
+- Images/videos produced via the CODE EXECUTION TOOL carry signed C2PA Content Credentials when
+  retrieved through the Files API on the Claude API.
+
+BEHAVIOUR CHANGES worth carrying (from whats-new-fable-5-1):
+- Parallel tool calling MORE VARIABLE: may issue one tool call per turn where Fable 5 batched.
+- FEWER progress updates during long tool runs.
+- Answers from memory more often at `low` effort (calls search/retrieval tools less).
+- MORE LIKELY TO REWRITE A WHOLE FILE than make a targeted edit => larger blast radius per action.
+- Unmarked quotations in summaries.
+Fallback targets for a refused Fable 5.1 request: Claude Opus 4.8 and Claude Opus 5.
+
+2026-08-27 — *** PERSONAL KEYS + SERVICE ACCOUNT KEYS *** (REPORTED 2026-09-02, MEDIUM/AISPM)
+  New credential types in the Claude Console. "Act as you or as a service account, with the same
+  permissions, and stop working when the linked account is removed from an organization."
+  Scope: EITHER a specific workspace OR "work on admin endpoints and across ANY workspace the account
+  has access to."  Workspace API keys remain as a LEGACY option.
+  => three credential types now coexist; org-scoped personal keys are the privileged case.
+2026-08-27 — SDK beta-header migration (reported/held 08-30): client.beta.files / client.beta.skills
+  stop sending files-api-2025-04-14 and skills-2025-10-02; BetaSkill -> BetaContainerSkill.
+
+2026-08-26 — Compliance API session endpoints GA for Cowork + Claude Code; local endpoints now return
+  claude_science and office_agents/* transcripts; Admin API in `ant` CLI + 7 SDKs under
+  client.beta.organization. (All reported 08-26/08-27.)
+
+## NEWS STREAM (anthropic.com/news) — captured 2026-09-02
+2026-09-01 Introducing Claude Fable 5.1 and Claude Mythos 5.1  /claude-fable-and-mythos-5-1
+2026-09-01 *** Developing Enterprise Frontier Safeguards with our customers *** /news/enterprise-frontier-safeguards
+           REPORTED 2026-09-02 MEDIUM/AISPM. ZDR + misuse detection, data stored in the CUSTOMER'S OWN
+           AWS S3 / Azure Blob / GCS under the CUSTOMER'S OWN KEYS. Automated detection ONLY, flags go
+           DIRECTLY TO THE CUSTOMER, no Anthropic human review. Pattern analysis ACROSS MULTIPLE
+           SESSIONS AND ACCOUNTS over rolling windows. Phased rollout from FALL 2026.
+           Spans Claude Code, Claude Enterprise, Claude Platform, Amazon Bedrock, Claude Platform on
+           AWS, Google's Agent Platform, Microsoft Foundry. 100+ enterprise co-developers
+           (Goldman Sachs, Morgan Stanley, Citi, BofA, Wells Fargo, Comcast, KPMG, Mastercard,
+           Salesforce, Visa, Stripe, Snowflake; Factory, Cognition, Rogo; AWS, Google Cloud, Azure).
+           >>> NOTE: EFS changes what "ZDR" means. Compliance API excludes ZDR sessions — an org that
+               adopts EFS to get ZDR opts OUT of the Compliance API path and INTO a bucket. <<<
+2026-08-31 Improving our alignment and security efforts  /news/improving-alignment-security-efforts  [not read]
+2026-08-27 Previewing the Model Hardware Standard  [reported 08-30 HIGH/AIRT]
+2026-08-27 Expanding our support for scientists  [held 08-30]
+2026-08-25 Funding better evaluations of AI's impact on wellbeing  [not reportable]
+
+Updated: 2026-09-02.

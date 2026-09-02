@@ -1,48 +1,118 @@
-# Microsoft Foundry (Azure AI Foundry) — captured 2026-08-26
-# sources.json has learn.microsoft.com/en-us/azure/ai-services/openai/whats-new, which canonically
-# resolves to /azure/foundry-classic/openai/whats-new — the FROZEN CLASSIC page.
-#   Re-confirmed 2026-08-26: newest section **May 2026** (GPT Realtime 2.0 / Translate / Whisper
-#   concept articles), ms.date **2025-12-30**, updated_at 2026-06-05. NO agent-platform content.
-# LIVE ROLL-UP: learn.microsoft.com/en-us/azure/foundry/whats-new-foundry
+# Microsoft Foundry — captured 2026-09-02
+# Source used: https://learn.microsoft.com/en-us/azure/ai-foundry/whats-new-azure-ai-foundry
+#   (canonical: learn.microsoft.com/en-us/azure/foundry/whats-new-foundry)
+# sources.json points at /azure/ai-services/openai/whats-new which resolves to the FROZEN
+# foundry-classic Azure OpenAI page. Recommended repoint since 2026-08-09.
 
-## ROLL-UP DID NOT ADVANCE FOR A FOURTH CONSECUTIVE SCAN.
-Still "What's new for July 2026"; ms.date **2026-08-12**, updated_at **2026-08-13** — byte-identical
-New-articles and Updated-articles lists vs the 08-14 / 08-21 / 08-23 / 08-24 captures.
-New articles (all previously reported — see foundry-already-reported-do-not-redup):
-  Agent Service: author azure.yaml for hosted agents; reminder tool for self-scheduling hosted agents;
-    Foundry Canvas; Toolbox overview; Toolbox authentication; use a toolbox with a hosted agent
-  Foundry IQ: private agentic retrieval tutorial + validation
-  Models/APIs: tool search with the Azure OpenAI Responses API; Claude hosting comparison
-  Observability: export hosted agent telemetry via OpenTelemetry; restrict access to sensitive content
-    in traces
-  Platform: Notification Center
-Updated articles: hosted agents, tool catalog, managed MCP servers via connector namespaces,
-  A2A outbound + incoming A2A endpoints, web search tool, Foundry IQ, Claude models, WebSocket mode,
-  Realtime GA migration, Foundry Models endpoints, evaluate agents, traces-to-dataset, portal GA.
+## *** THE ROLL-UP UNFROZE. Now "August 2026", ms.date 2026-09-01, updated_at 2026-09-01T17:22Z.
+## It sat on "July 2026" for SIX consecutive scans (08-14 through 08-30). ***
+## Method confirmed again: read New articles / Updated articles as a POINTER INDEX, then open the
+## individual pages. All four findings this scan came from individual pages, never the roll-up text.
 
-## devblogs.microsoft.com/foundry — ALSO DID NOT ADVANCE
-Newest post is still **August 17, 2026**, "From single call to agents: five new Claude capabilities now
-available in Microsoft Foundry" (structured outputs, web search, web fetch, MCP connector, tool
-search). Nothing Aug 18-26.
+## REPORTED 2026-09-02 (each verified ZERO hits across every prior report before inclusion):
 
-## WHERE THE FOUNDRY DELTA ACTUALLY CAME FROM THIS SCAN
-Per the standing method (roll-up is a POINTER INDEX, then open individual pages), the productive
-Microsoft surface this scan was **Microsoft Agent Framework** — a separate docs tree and release
-stream that is NOT in sources.json and had never been read. It produced two HIGH findings:
-**Agent Hooks** (AGENT-HOOKS-0.1 interception contract) and **FIDES** (information-flow control).
-See microsoft-agent-framework_changelog.txt.
-Both doc pages carry updated_at **2026-08-25**; FIDES has ms.date **2026-06-23** and was missed for
-two months.
+1. PRIVATE SKILL CATALOG — /azure/foundry/agents/how-to/private-skill-catalog  (ms.date 2026-08-19, preview)
+   Skill = "instructions, bundled scripts, and tool references."
+   Registered as an ASSET in **AZURE API CENTER**, type Skill, with:
+     title, summary, description, lifecycle stage, **Source URL** (the Git repo holding the source),
+     and **Allowed tools** = "the APIs or MCP servers from your API inventory that the skill can access."
+   >>> "The allowed tools list IS THE GOVERNANCE BOUNDARY for a skill." <<<
+   - Git repo integration keeps the catalog in sync with source => a COMMIT changes what a shared
+     org-wide agent capability does, with NO Azure control-plane event.
+   - Governance > AI Assessment scores skills vs default/custom criteria (name, score range, pass
+     threshold, weight) before promotion => an LLM-adjacent judgement standing in for a review gate.
+   - Developer access = **Azure API Center Data Reader** (coarse, all-or-nothing per reader).
+     Role assignments take UP TO 24 HOURS to propagate => revocation is not immediate.
+   - Discovered in the Foundry portal under Build > Skills.
+   => Zenity's Foundry collector MUST read Azure API Center or it understates agent reach.
+      Same shape as the AgentCore skill catalog (reported 08-21) but boundary is EXTERNALIZED.
 
-## Copilot Studio (adjacent, unchanged)
-learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new — newest section still **July 2026**,
-  ms.date 2026-08-18, updated_at 2026-08-20. Identical to 08-21/08-23/08-24.
-learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio — **EIGHTH consecutive stale
-  scan**: platform 2026.6.3 / UX 26.06.21-24 (June 30, 2026), ms.date 2026-06-30, on a page claiming
-  weekly Tuesday updates. Now ~8 weeks behind the What's New page.
+2. LONG-RUNNING + STEERABLE HOSTED AGENTS (preview) — packages `azure-ai-agentserver-*`
+   /agents/concepts/long-running-agent-reference (ms.date 2026-08-10)
+   /agents/concepts/long-running-agent-resilience
+   /agents/how-to/steer-hosted-agent (ms.date 2026-08-05)
+   plus how-to: deploy-resilient-agent, manage-task-state, recover-long-running-work,
+   stream-with-reconnect, deploy-steerable-agent, add-human-in-the-loop.
+   STEERING: `steerable_conversations=True` on ResponsesServerOptions, or `steerable=True` on
+     @multi_turn_task. A 2nd input on a BUSY conversation QUEUES and the running handler
+     COOPERATIVELY CANCELS, instead of `409 conversation_locked`. Follow-up sent as a new response
+     with previous_response_id = the RUNNING response + same agent_session_id.
+     Ordering guard is OPTIONAL: `if_last_input_id` ("the input-queue equivalent of an HTTP If-Match");
+     mismatch => LastInputIdPreconditionFailed. Bounded queue => SteeringQueueFull.
+     Context fields: ctx.is_steered_turn, ctx.pending_input_count, ctx.cancel.
+     MS's own example: "Plan a trip to Rome" -> "Actually, Paris" MID-EXECUTION.
+   DURABILITY: @task / @multi_turn_task. TaskContext.entry_mode = fresh | resumed | **recovered**.
+     TaskStatus = Pending | InProgress | **Suspended** | Completed. Input PERSISTED BEFORE the handler
+     runs, ~10 MiB limit (InputTooLarge). "Crash recovery re-enters the same attempt and DOESN'T
+     CONSUME RETRY BUDGET" => unbounded re-entry without tripping RetryPolicy.
+     ResponsesServerOptions: resilient_background (default False), steerable_conversations (False),
+     default_fetch_history_count=100, shutdown_grace_period_seconds=10.
+     ResponseContext: is_recovery, persisted_response, conversation_chain_metadata, ConversationChainId.
+     STREAMING REGISTRY: use_in_memory_live() | use_in_memory_replay(ttl) |
+     **use_file_backed_replay(storage_dir=...)** — the last PERSISTS TO DISK AND SURVIVES RESTART.
+   => durable agent state (task inputs, persisted_response snapshots, chain metadata, on-disk replay
+      buffers) OUTLIVES THE CONTAINER and is invisible to point-in-time inventory.
 
-## STANDING RECOMMENDATION (outstanding since 2026-08-09)
-Repoint the Azure OpenAI whats-new source to /azure/foundry/whats-new-foundry AND add
-devblogs.microsoft.com/foundry. ADD the Agent Framework releases stream and agents/ docs tree.
+3. BRING YOUR OWN REGISTRY — /agents/how-to/private-registry-connections
+   *** ms.date 2026-09-01 — the NEWEST Foundry page this scan ***
+   Hosted agents deployed from container registries OUTSIDE AZURE: JFrog Artifactory (validated),
+   self-hosted Docker Distribution (needs a CUSTOMER-BUILT auth adapter — "Foundry doesn't define a
+   universal ... request and response contract").
+   Auth = OIDC TOKEN EXCHANGE. Entra application supplies the AUDIENCE (no client secret needed);
+   the **Foundry project MANAGED IDENTITY** is the exchanged subject; registry issues short-lived
+   pull creds => NO STORED REGISTRY SECRET (also: no credential artifact to inventory).
+   Materializes as a project connection: category `CustomKeys`, authType `CustomKeys`,
+     metadata { type: "registry_connection", mode: "oauth_token_exchange" },
+     keys { audience, tokenEndpoint, body.provider_name, body.* }.
+   Agent definition: `registryConnectionId` + `docker.imagePassthrough: true`.
+   API version on the connection resource: 2025-04-01-preview. Requires `Foundry Project Manager`.
+   => THE IMAGE AN AGENT RUNS NEED NOT EXIST IN ANY AZURE RESOURCE. ACR enumeration is now blind.
+   *** ALSO ON THIS PAGE — RBAC ROLE RENAME ***
+     Azure AI User        -> Foundry User
+     Azure AI Owner       -> Foundry Owner
+     Azure AI Account Owner -> Foundry Account Owner
+     Azure AI Project Manager -> Foundry Project Manager
+   "The role IDs and core permissions are unchanged by the rename."
+   => ANY Zenity rule/query matching Foundry roles BY DISPLAY NAME silently stops matching.
 
-Updated: 2026-08-26 — roll-up frozen for a 4th scan; delta found via Agent Framework instead.
+4. MICROSOFT FOUNDRY TOOLKIT FOR VS CODE — /how-to/develop/get-started-projects-visual-studio-code
+   (ms.date 2026-08-20; also install-foundry-toolkit-visual-studio-code,
+    set-up-foundry-project-visual-studio-code, foundry-skills-scenarios-example-prompts)
+   "Foundry Toolkit is the NEW NAME FOR AI TOOLKIT. It also includes the capabilities previously
+    provided by the SEPARATE Microsoft Foundry extension."  => two extension IDs collapse into one;
+    identifier-based endpoint detection breaks.
+   Tool Catalog discovers "Foundry tools, **Model Context Protocol (MCP) servers**, and toolboxes".
+   Agent Builder configures instructions/models/variables/structured outputs/tools **WITHOUT creating
+    an agent code project** => an agent can exist with NO FILE IN SOURCE CONTROL.
+   Agent Inspector debugs local agents, streaming responses, tool calls, workflow execution.
+   Local models via ONNX, **Ollama**, Foundry Local. Local GPU fine-tuning. NPU/GPU profiling.
+   Deploys hosted agents to Foundry Agent Service FROM SOURCE CODE OR A CONTAINER IMAGE.
+   Changelog lives at microsoft.github.io/foundry-toolkit/ (NOT on learn.microsoft.com).
+
+## HELD from the August New-articles list (extensions of already-reported surfaces):
+   agent-optimizer-costs; autopilot-lifecycle + autopilot-overview [autopilot reported 08-10];
+   add-human-in-the-loop; toolbox-network-isolation [toolbox reported 08-09];
+   trace-ingestion-entra-authentication [trace ingestion reported 08-14];
+   responses-multi-agent; model-migration; use-chat-reasoning; use-foundry-models-grok;
+   use-foundry-models-mai-thinking; evaluate-model-router; the 11 cloud-evaluation-* pages incl.
+   evaluate-admin-connected-models; concepts/capabilities + capability-reference;
+   concepts/customer-managed-keys; responsible-ai/content-safety/provenance-disclosure.
+## Updated articles of note: agents/how-to/agent-365 ("Quickstart: Build your first autopilot"),
+   use-routines, tools/toolbox, tools/fabric-iq, tools/web-search, mcp/available-tools.
+   >>> PER MEMORY foundry-already-reported-do-not-redup: Toolbox, tool search, Fabric IQ, Work IQ,
+       routines and the reminder tool were ALL reported 2026-08-09. Do not re-report. <<<
+
+## OTHER MICROSOFT SOURCES, this scan:
+- devblogs.microsoft.com/foundry — newest post AUGUST 17 ("five new Claude capabilities in Foundry").
+  Nothing after. No delta.
+- Copilot Studio What's New — newest section JULY 2026, ms.date 2026-08-18. SIXTH frozen scan.
+- power-platform/released-versions/copilotstudio — FROZEN AT 2026.6.3 / JUNE 30 2026 despite the page
+  claiming "updated each week on Tuesday". 9 weeks stale. RECOMMEND REMOVING FROM sources.json.
+- Agent 365 overview — ms.date 2026-08-19, unchanged. (GA for Commercial since 2026-05-01.)
+- Defender XDR security-for-ai overview — ms.date 2026-08-07, unchanged from the 08-30 read.
+  Newly-named sub-pages not yet read: /security-for-ai/ai-agent-inventory,
+  /security-for-ai/ai-agent-detection-protection, /defender-endpoint/discover-local-ai-agents.
+- Graph changelog RSS — lastBuildDate 2026-09-02 05:21 UTC, newest ITEM still 2026-08-03. 5th frozen scan.
+- M365 admin What's New — August 2026 section is Enhanced Engagements nudge tracking only. No AI delta.
+
+Updated: 2026-09-02.

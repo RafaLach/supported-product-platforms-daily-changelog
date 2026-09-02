@@ -1,47 +1,39 @@
-# Kiro — captured 2026-08-26
-# *** STILL NOT IN sources.json *** (recommended 08-21, 08-23, 08-24; read manually every scan since).
-# Sources: kiro.dev/changelog, kiro.dev/docs/powers/installation/, kiro.dev/docs/steering/
+# Kiro — captured 2026-09-02
+# Source used: https://kiro.dev/changelog/ and https://kiro.dev/docs/cloud-sessions/
+# *** STILL NOT IN sources.json — fourth consecutive scan recommending it. ***
+# Kiro is AWS's NAMED REPLACEMENT for the Amazon Q Developer IDE plugins retiring 2027-04-30.
 
-## NO CHANGE SINCE THE 08-24 CAPTURE. Newest release is still **CLI 2.19.0 (Aug 19, 2026)**.
-Recent entries:
-  CLI 2.19.0   Aug 19 — mouse support on the spec review screen; stream idle watchdog, automatic
-                        retries with backoff, 60-minute streaming timeout.
-  IDE 1.0.337  Aug 18 — "improves filesystem and command permission rules"; configured-terminal-profile
-                        execution on Windows. (Permission-model refinement — watch, not an addition.)
-  Web          Aug 17 — access Kiro Web with **Okta or Microsoft Entra ID**.
-  IDE 1.0.309  Aug 13 — nested AGENTS.md + long-session efficiency. REPORTED 2026-08-24 (MED/AIRT).
+2026-09-01 *** CLOUD CONFIGURATION IN LOCAL SESSIONS (Web) *** REPORTED 09-02 HIGH/ENDPOINT
+  "Configuration Sync now bridges cloud settings to LOCAL IDE AND CLI SESSIONS."
+  Syncs **Steering files, custom agents, Skills, POWERS and Hooks** without replacing local files.
+  Kiro docs: "your steering files, permissions, hooks, MCP SERVERS, and custom agents work
+  identically whether you're in the IDE, CLI, or Web, with your .kiro/ configuration SHARED ACROSS
+  ALL OF THEM."  POWERS "bundle MCP tools with knowledge and workflows" and "ACTIVATE DYNAMICALLY
+  BASED ON CONTEXT."
+  >>> COMBINED WITH WHAT WE ALREADY KNEW (2026-08-23/08-24):
+      - custom agent config files carry an `mcpServers` field naming which MCP servers that agent
+        may reach (plus `tools` and `toolAliases`)
+      - MCP config exists at BOTH workspace and user scope
+      - a FILE WATCHER on .kiro/agents and mcp.json HOT-RELOADS mid-session, no restart, no UI event
+      - Powers HIDE plugin-format MCP servers from ~/.kiro/settings/mcp.json
+      => A REMOTE, CLOUD-SIDE CHANGE CAN NOW ALTER A LOCAL AGENT'S TOOL GRANTS AND MCP SERVER LIST,
+         MID-SESSION, WITH NO RESTART, NO USER ACTION AND NO LOCAL CONTROL-PLANE EVENT.
+      => configuration must be captured as a TIME SERIES, not a snapshot.
+2026-09-01 KIRO WEB GENERALLY AVAILABLE — browser platform for building and delegating dev work;
+  collaborative exploration, Specs for task shaping, end-to-end task handoff.
+2026-09-01 OPENTELEMETRY METRICS EXPORT (GA) — admins export PER-USER usage metrics over OTLP to
+  CloudWatch, Datadog, Dynatrace, Elastic, Honeycomb, OpenSearch. Server-side daily at 02:00 UTC.
+  => an ingestible telemetry stream where a customer already collects it.
+2026-09-01 AWS ISO/IEC 27001:2022 certification. Scope includes Kiro, EXCLUDES Fable.
+2026-08-31 Branch selection for repositories (Web) — cloud sessions no longer must start from the
+  default branch; choose the branch in the GitHub/GitLab selector.
+2026-08-27 IDE v1.0.395 — third-party VS Code extensions now compatible alongside Kiro;
+  "support for the latest MCP protocol revision with more reliable sign-in"; fewer extension-host
+  crashes on large agent responses; agent continuity across brief network interruptions.
+2026-08-27 Sessions auto-naming (Web) — agent-generated titles; user-set names persist.
+2026-08-26 CLI v2.20.0 — full-screen Spec task execution view, task scope selection, scrollback toggle.
 
-## POWERS DOCUMENTATION — RE-VERIFIED 2026-08-26, UNCHANGED. The finding still holds.
-Three install paths: curated marketplace at kiro.dev/powers (partners incl. Datadog, Figma, Stripe)
-one-click "Add to Kiro"; **any public GitHub repository URL** (one repo can hold MULTIPLE powers, each
-in its own directory); a local folder for private repos. Each needs a `plugin.json` or `POWER.md`.
+Docs to watch: kiro.dev/docs/cloud-sessions/, /docs/custom-agents/configuration-reference/,
+/docs/mcp/configuration/, /docs/skills/, /docs/steering/ (AGENTS.md recursive steering).
 
-*** THE CORE FINDING, STILL TRUE: ***
-  Agent Plugins format (plugin.json): "MCP servers are managed internally by Kiro and are **not added
-    to your user-level ~/.kiro/settings/mcp.json** file."
-  Legacy format (POWER.md): servers DO register in ~/.kiro/settings/mcp.json under a Powers section.
-  => whether an MCP server is visible in the canonical config file depends PURELY on packaging format,
-     and the newer/standard/marketplace-endorsed format is the INVISIBLE one. Any collector that
-     enumerates MCP servers by reading mcp.json systematically under-reports, in the direction the
-     whole industry is converging on.
-
-*** STILL NO SIGNING, VERIFICATION OR TRUST CONTROL DOCUMENTED. *** The only stated control remains
-advice: "Kiro powers are third-party tools that may be subject to separate terms. Only install powers
-from trusted sources."
-
-Other properties carried forward (unchanged):
-- Activation is DYNAMIC and content-driven: Kiro "reads the task description, evaluates installed
-  powers against the task, and loads only relevant powers into context", keyed on activation keywords
-  declared in plugin.json => INSTALLED != ACTIVE, and the active set is a function of prompt text.
-- Custom agents carry per-agent `mcpServers` / `tools` / `toolAliases` grants.
-- MCP config exists at BOTH workspace and user scope, and BOTH hot-reload from disk via a file watcher
-  on `.kiro/agents` and `mcp.json` — capability sets change mid-session with no restart, no UI event.
-- AGENTS.md: "do not support inclusion modes and are always included", "automatically discovers them
-  in subdirectories throughout your workspace". Kiro's own steering files DO have always/fileMatch/
-  manual/auto modes; AGENTS.md has none. Global `~/.kiro/steering/` applies to ALL workspaces.
-
-## URGENCY (inherited, not speculative)
-Amazon Q Developer IDE plugins reach end of support **2027-04-30** and AWS names Kiro as the
-replacement — an installed base is being migrated onto this surface.
-
-Updated: 2026-08-26 — no new releases, docs unchanged. RECOMMEND ADDING kiro.dev/changelog + /docs.
+Updated: 2026-09-02.

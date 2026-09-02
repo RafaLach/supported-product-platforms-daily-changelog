@@ -1,81 +1,59 @@
-# OpenAI / ChatGPT / Codex changelog — captured 2026-08-26
-# sources.json has: https://developers.openai.com/codex/changelog  -> 308 CROSS-HOST REDIRECT
-# REAL URL: https://learn.chatgpt.com/docs/changelog   (carries BOTH ChatGPT and Codex CLI entries;
-# the single most productive OpenAI source. sources.json still unfixed.)
+# OpenAI / Codex — captured 2026-09-02
+# Source used: https://learn.chatgpt.com/docs/changelog
+# sources.json has developers.openai.com/codex/changelog, which 308-redirects here. Unfixed.
 
-## NEWEST: August 25, 2026 — TWO MAJOR ENTRIES, BOTH REPORTED 2026-08-26
+## NEWEST: 2026-09-01. Prior scan (08-30) read through the 2026-08-25 items.
+## NEW SINCE: Codex CLI 0.150.0 (Aug 26), 0.150.1 (Aug 27), 0.151.0 (Aug 29), 0.152.0/0.152.1 (Sep 1),
+## plus two ChatGPT iOS builds.
 
-### Aug 25 — "Browser extensions, site tools, and cloud sign-in"  *** 3 findings ***
-(a) SITE TOOLS = WebMCP.  REPORTED HIGH/AIRT.  Doc: learn.chatgpt.com/docs/webmcp
-    - A website registers tools in ordinary page JS via **document.modelContext.registerTool()**
-      with: name, description, input schema, execute handler calling the app's OWN logic,
-      annotations (e.g. readOnlyHint).
-    - ChatGPT Work and Codex in the DESKTOP APP'S BUILT-IN BROWSER (and ChatGPT Sites)
-      **discover tools automatically on page load** and invoke them.
-    - NO install, NO marketplace, NO config file, NO server, NO on-disk artifact.
-      Tool set exists only for the LIFETIME OF THE PAGE => capability is a function of NAVIGATION,
-      not configuration. (Different problem from the 08-24 Kiro/mcp.json gap: there is no artifact.)
-    - Tools run against the SITE'S EXISTING AUTHENTICATED SESSION (execute handler = site's own code,
-      site's own permissions).
-    - OpenAI's own words: "Website-provided tool definitions and results are untrusted content";
-      "tool names alone don't prove function or scope"; "These checks reduce risk; they don't make a
-      website or its output trustworthy."
-    - Controls: per-invocation safety review; browser ties invocations to originating page; normal
-      website-access/confirmation policies for consequential actions (messages, purchases, deleting
-      data, changing permissions); "Site tools" button in the ADDRESS BAR lists them;
-      disable at Settings > Browser > Permissions. ALL USER-FACING — no tenant policy documented.
-    - Requires **GPT-5.6 Sol or Terra**. Luna has WebMCP DISABLED.
-    - *** NOT AVAILABLE IN ENTERPRISE OR EDU WORKSPACES *** => lands on the least-managed tiers.
-    - WebMCP Challenge partners: Chromium Dev, Cloudflare, Shopify, Vercel, Render, Netlify.
-(b) BROWSER EXTENSION now on **Microsoft Edge, Brave, Opera, Vivaldi** + Chrome. REPORTED MED/ENDPOINT.
-    - Install via Settings > Computer Use ("More browsers" expander); select per chat by @-mention
-      against the SPECIFIC BROWSER PROFILE where the extension was installed.
-    - All five support tab mentions + browser control; Opera lacks side chat.
-    - Per-browser **allowlist / blocklist of domains** under "Manage" — USER-set, not admin-set.
-    - Doc: learn.chatgpt.com/docs/chrome-extension and /docs/computer-use
-(c) CLOUD BROWSER WEBSITE SIGN-IN. REPORTED MED/ENDPOINT (same finding as (b)).
-    - ChatGPT Work on WEB, iOS and ANDROID can prompt the user to sign in to a supported website
-      "through the cloud browser"; login details entered IN THE SIGN-IN FLOW, not in chat
-      => the auth event is NOT in the transcript.
-    - Cloud browser sessions are ISOLATED FROM LOCAL BROWSERS => authenticated third-party session
-      lives entirely in OpenAI-hosted infra, invisible to any endpoint collector.
-    - *** EXCLUDED FROM ENTERPRISE AND EDU WORKSPACES ***
-    - Doc: learn.chatgpt.com/docs/browser
+2026-09-01 Codex CLI 0.152.1 — "Guardian approval review now honors Node REPL policies provided
+  through MODEL METADATA."  => a POLICY INPUT ARRIVING WITH THE MODEL rather than from local config.
+2026-09-01 Codex CLI 0.152.0 — **per-tool MCP `output_token_limit` settings** (per-tool truncation =
+  per-tool EVIDENCE LOSS for anything inspecting tool output); MCP server names now accept
+  package-style formatting (`:`, `@`, `/`, `.`); credential-refresh progress display for
+  **Amazon Bedrock reauthentication**; configurable app-server `thread/shellCommand` timeouts
+  **EXCEEDING ONE HOUR**; planning tool now OPT-IN; Vim `/` and `?` search; rate-limit banners.
+2026-08-29 Codex CLI 0.151.0 *** EXTENSION-LEVEL MCP TOOL RESULT INSPECTION/REPLACEMENT ***
+  REPORTED 09-02 MEDIUM/AIDR. An extension can INSPECT **OR REPLACE** an MCP tool result BEFORE IT
+  REACHES THE MODEL. Cuts both ways: a defensive integration point stronger than the hook surface,
+  AND a supply-chain component with model-facing write access (a replaced result is indistinguishable
+  from a genuine one). Same release: configurable grace period for OPTIONAL MCP server tool discovery;
+  **plugin catalogs now COMBINE PER-REPOSITORY CONFIGURATION** while reporting invalid marketplaces
+  separately => A REPOSITORY CAN CONTRIBUTE PLUGIN SOURCES to a developer's session
+  (the agent-plugins-cross-vendor-standard pattern arriving in another client).
+  Also: remote sandbox enforcement using EXECUTOR METADATA; structured MCP error preservation;
+  nested SUBAGENT token budgeting; stale Guardian classification prevention.
+2026-08-27 Codex CLI 0.150.1 — remote compaction counts retained images toward its token budget.
+2026-08-26 Codex CLI 0.150.0 — **`@` task mentions "enabling agents to READ/CREATE/MESSAGE TASKS"**
+  (agent-to-agent and agent-to-human comms through a channel not currently modelled);
+  new **`Interrupt` hooks** for interrupted-turn commands and MCP handlers; `/copy` picker;
+  automatic unnamed-task titling; clickable Markdown links; permission-mode cycle shortcuts.
+  Fixes touching: untrusted project instructions, MANAGED DENY-READ ENFORCEMENT, CREDENTIAL REDACTION,
+  REMOTE MCP BEARER-TOKEN RESOLUTION, Amazon Bedrock compaction/multi-agent compatibility.
+2026-08-26 ChatGPT for iOS 1.2026.230 — task search across connected hosts; Home Screen shortcuts for
+  ChatGPT / Work / Codex Remote.
+2026-09-01 ChatGPT for iOS 1.2026.237 — cross-host attachments (Photo Library video), Priority view,
+  queued prompt syncing with background sending, live working-time display, thread ID copying.
 
-### Aug 25 — "Trigger scheduled tasks from Gmail, Slack, and GitHub events"  REPORTED HIGH/AIDR
-Doc: learn.chatgpt.com/docs/automations
-- Tasks fire on EVENTS, not a clock:
-    Gmail  — new message, filterable by SENDER or SUBJECT
-    Slack  — new message in a WATCHED CHANNEL (ChatGPT Slack app must be a MEMBER of that channel)
-    GitHub — PR activity in an AUTHORIZED github.com repo: reviews, comments, commit updates, merges
-             (GitHub app needs repository access)
-- Setup: Settings > Apps to connect, then describe event+action in Work; user reviews
-  **Trigger / Condition / Prompt** and completes authorization.
-- **Time-based schedules and event triggers CANNOT COEXIST on one task.**
-- **Clustered events may be COMBINED INTO A SINGLE RUN** => external-content-to-agent-run mapping is
-  many-to-one and NOT reconstructable from the run alone.
-- Pending events / manual runs under "Scheduled".
-- Plans: Plus, Pro, Business, Enterprise, Edu + ChatGPT for Healthcare workspaces.
-- WHY IT MATTERS: the INITIATING PARTY is now whoever AUTHORED THE TRIGGERING CONTENT, and for all
-  three sources that is frequently EXTERNAL. Indirect prompt injection with the delivery problem
-  solved. The "filter by sender/subject" is attacker-observable and attacker-satisfiable, not a control.
-  The standing grant outlives the user's attention — no human in the session.
+## ALREADY REPORTED 2026-08-26, do not re-report:
+2026-08-25 Browser extensions on Edge/Brave/Opera/Vivaldi; desktop built-in browser **Site tools
+  (WebMCP)** via GPT-5.6 Sol/Terra; CLOUD BROWSER SIGN-IN; scheduled tasks TRIGGERED BY
+  Gmail / Slack / GitHub events; `codex mcp-server` deprecated in favour of the Codex app server.
 
-## Held below the bar
-- Aug 24 — Codex CLI 0.149.1: "bug fixes and improvements".
-- Aug 24 — Codex MCP server command DEPRECATION (a removal; out of scope).
-- Aug 20 — Codex + ChatGPT (Apple Messages, site co-editing, editable Site URLs, Computer History in
-  Europe, shared thread snapshots, unified pinned threads) — reported 2026-08-21.
-- Aug 20 / Aug 18 — Codex CLI 0.148.0; Aug 19 GitLab support in Codex cloud (Beta); Aug 18 iOS
-  1.2026.223 — all reported 2026-08-21.
+## SDK STREAM — openai-python /releases and openai-node /releases (NEITHER IS IN sources.json)
+python v3.7.0 (Sep 2) update usage APIs + docs; no repeated numpy validation for embeddings.
+python v3.6.0 (Aug 28) **compute_units** added to response + chat completion usage metrics;
+  **X.509 workload identity hardening**.
+python v3.5.0 (Aug 27) function call output identifiers now OPTIONAL in API responses.
+python v3.4.0 (Aug 26) **obfuscation field on ChatCompletionChunk**; **PROJECT RESIDENCY
+  CONFIGURATION** and **cost units**; fixes to Realtime encoding, WebSocket redirects, Azure
+  deployment-name encoding, SSE incremental decoding.
+node v7.9.0 (Sep 2) usage APIs; WebSocket redirect prevention.
+node v7.8.0 (Aug 27) compute_units on Responses + Chat Completions; default WebSocket User-Agent;
+  **AUDIT LOG EVENTS**; workload identity refresh-buffer clamping; X.509 hardening.
+=> library-level plumbing, held from the report but PARSER-RELEVANT: compute_units, cost units,
+   project residency, obfuscation, audit log events.
+Fetch trap: github.com/openai/openai-python/blob/main/CHANGELOG.md renders GitHub chrome only.
+Use /releases or /releases/tag/<version>.
 
-## SDK streams (still NOT in sources.json — recommended since 2026-08-23)
-Python github.com/openai/openai-python/releases — tops at **v3.3.1 (Aug 19)**, unchanged since 08-24.
-  v3.3.0 (Aug 18) named data-residency endpoints; v3.2.0 (Aug 17) Bedrock Runtime endpoint support
-  (reported 08-23), shell call streaming events, new service/image types; v3.1.0 (Aug 14) WebSocket
-  stream IDs, workload identity access token issued event, ultrafast tier, structured MCP;
-  v3.0.0 (Aug 12) HTTPX2 default.
-Node github.com/openai/openai-node/releases — tops at **v7.5.0 (Aug 17)**, unchanged since 08-24.
-FETCH TRAP: the blob CHANGELOG.md view renders GitHub chrome only — use /releases.
-
-Updated: 2026-08-26 — two new Aug 25 entries producing THREE reported findings.
+Updated: 2026-09-02.
