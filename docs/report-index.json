@@ -1,5 +1,39 @@
 [
   {
+    "date": "2026-09-20",
+    "scan_time": "2026-09-20 10:46",
+    "file": "report-2026-09-20.md",
+    "platforms": [
+      {
+        "name": "Google Gemini Enterprise (secondary)",
+        "status": "changed",
+        "details": [
+          "**New actions for Microsoft OneDrive, Outlook, SharePoint and Teams data stores (September 18, Public Preview).** Four Microsoft connectors gained write and management operations. OneDrive: copy folder, move file, move folder, rename file, rename folder, **share file or folder**, update file properties. Outlook: create calendar, RSVP to event, update calendar. SharePoint: create list item, discard check-out, get list fields, get list item, list lists, **share resource**, update file properties, update list, update list item, update page. Teams: **add member to channel**, create channel, create chat, create schedule, create time-off entry, update channel, update channel message, update chat, update chat message, update time-off entry. Source: https://docs.cloud.google.com/gemini/enterprise/docs/manage-actions",
+          "**Workflow Builder GA (September 3) \u2014 previously unreported.** Formerly Agent Designer. A no-code/low-code surface in the Gemini Enterprise web app where **non-admin end users** create chat agents and multi-step workflows from natural-language prompts or a visual flow editor, connect them to data sources, tools and **MCP servers**, schedule recurring executions, and publish and share them with users or groups. Source: https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Gemini Enterprise can now write into Microsoft 365 \u2014 share OneDrive files, share SharePoint resources, and add members to Teams channels",
+        "description": "The September 18 preview adds action sets to the Microsoft OneDrive, Outlook, SharePoint and Teams data stores, converting four read connectors into read-write ones. Three of the new actions are permission-mutating rather than content-mutating, and those are the ones that matter: OneDrive **\"share file or folder\"**, SharePoint **\"share resource\"**, and Teams **\"add member to channel\"**. An agent holding these can change who has access to Microsoft 365 data from outside Microsoft's control plane entirely \u2014 the grant is made by a Google-side principal acting through a stored connector credential, so it lands in the tenant as a sharing event without a corresponding Entra agent identity, Copilot Studio agent, or Foundry autopilot behind it. Every Microsoft-side agent-governance surface Zenity tracks (Entra Agent ID, Agent 365, Copilot Studio DLP, Defender Security for AI) sees nothing here, because the actor is not a Microsoft agent. The remaining actions broaden the blast radius in ordinary ways worth inventorying: SharePoint list item and page writes, OneDrive file moves and renames, Outlook calendar creation and event RSVP, and a full Teams management set including channel creation, chat creation, message updates and **time-off entry creation** (a Shifts/workforce-data write, which is employee data). AISPM should model connector actions as a first-class capability on each Gemini Enterprise data store \u2014 an inventory that records \"SharePoint connector: connected\" without recording *which action set is enabled* will now understate reach by an order of magnitude \u2014 and should flag any data store where sharing-class actions (`share file or folder`, `share resource`, `add member to channel`) are enabled, since those let an agent expand access rather than merely consume it. AIDR should treat Gemini-originated M365 writes as a distinct activity class and correlate the Google-side action against the Microsoft-side audit event, because neither log alone attributes the change to an agent. This is the fourth consecutive scan (2026-08-21, 2026-08-30, 2026-09-02, 2026-09-18) in which Google expanded actions without expanding the connector list; the connector inventory looks static while the capability surface does not",
+        "source": "https://docs.cloud.google.com/gemini/enterprise/docs/manage-actions",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Gemini Enterprise Workflow Builder: end users build, schedule and share agents and workflows with MCP server connections \u2014 GA'd September 3, missed on the last scan",
+        "description": "Workflow Builder (formerly Agent Designer) reached general availability as \"an interactive no-code, low-code platform for creating, managing, and turning on chat agents and workflows in your Gemini Enterprise web app.\" Four properties make it an inventory requirement rather than a UI change. **First, the builder is not admin-gated.** Google's own framing is that it \"empowers employees and non-admin users to build and deploy chat agents and workflows\" \u2014 the constraint is that available tools are \"limited to the data connectors, tools, and permissions provisioned by the Gemini Enterprise administrator.\" That is a real ceiling, but it is a *tenant-wide* ceiling: any connector an admin provisions becomes composable by every end user, so the admin controls the palette and the user controls the composition. Combined with the connector-action finding above, an end user can now assemble a workflow that shares SharePoint resources or adds Teams channel members without any per-workflow review. **Second, workflows connect to MCP servers** \u2014 a documented first-class capability, meaning user-authored workflows reach arbitrary external tools through a protocol Zenity already treats as a monitored surface elsewhere. **Third, workflows run on a schedule**, with documented chat-agent execution scheduling. A scheduled workflow is an unattended agent: it acts with no user present, on a recurring cadence, which removes the human-in-the-loop assumption underpinning most interactive-assistant risk models. **Fourth, workflows are publishable and shareable** to specific users or groups, so one user's construction becomes an organizational asset with its own distribution graph. AISPM should discover Workflow Builder chat agents and workflows as inventory entities distinct from Gemini Enterprise's admin-registered agents; record each one's **author** (and whether that author is a non-admin), its connector and tool grants, its MCP server connections, its execution schedule, and its share scope; and flag scheduled workflows holding write-capable or sharing-capable connector actions, workflows connected to MCP servers not on an approved list, and workflows shared organization-wide. This is shadow-agent creation as a shipped product feature, and it pairs directly with the Gemini Enterprise **Projects** entity reported on 2026-09-18 \u2014 Projects gives users a self-assembled knowledge base, Workflow Builder gives them a self-assembled actor, and the two are designed to connect. Noting the correction: this GA'd on September 3 and was visible in the release notes read on 2026-09-18, where the adjacent agent-observability item was reported and this one was not",
+        "source": "https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-09-18",
     "scan_time": "2026-09-18 08:26",
     "file": "report-2026-09-18.md",

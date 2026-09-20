@@ -1,0 +1,52 @@
+Scan 2026-09-20 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-09-18 (2-day delta). 1 of 19 platforms moved.
+
+=== MICROSOFT ===
+microsoft-copilot-studio_changelog: ms.date 2026-08-18, newest section July 2026 (FROZEN, 8th scan)
+azure-ai-foundry_changelog: whats-new-foundry = "August 2026", ms.date 2026-09-01, updated_at 2026-09-09 (unchanged)
+  NOTE: learn.microsoft.com/en-us/azure/ai-foundry/whats-new/whats-new-foundry = 404; correct path is /azure/foundry/whats-new-foundry
+microsoft-copilot-m365_announcements: admin whats-new-in-preview ms.date 2026-08-27, newest section August 2026 (nudge status/timeline) — unchanged
+microsoft_graph_rss: frozen at 2026-08-03 (7th scan)
+
+=== ANTHROPIC ===
+anthropic_api_releasenotes: newest 2026-09-18 (Claude in Chrome compliance sessions) — UNCHANGED since last scan
+  Sept: 9/18 chrome sessions, 9/14 compact-on-demand, 9/10 auto permission policy + ant sessions connect,
+        9/3 ant apply + per-message effort on Vertex, 9/1 Fable/Mythos 5.1
+
+=== AWS ===
+aws_agentcore_releasenotes: September 2026 = 2 items (Consent Portal, Evaluations TypeScript) — UNCHANGED
+aws_bedrock_changelog: newest 2026-09-15 (bedrock-runtime OpenAI-compat restructuring); 9/1 Fable/Mythos 5.1 cards — UNCHANGED
+aws_q_business_changelog: newest feature 2025-08-14 (DEAD, 8th scan)
+aws_q_developer_changelog: newest feature 2026-05-21 (DEAD, 8th scan)
+
+=== GOOGLE (only platform with new additions) ===
+google_gemini_enterprise_changelog: newest 2026-09-18 (NEW this scan)
+  9/18 Actions for OneDrive/Outlook/SharePoint/Teams data stores (Public Preview) -> REPORTED [HIGH]
+  9/17 voice input GA; 9/17 Code Assist unbundled (Antigravity replaces it)
+  9/10 PAYG all invoiced accounts + Slack channel mentions/multi-turn GA
+  9/9 VPC-SC blocks Notebook URL ingestion; 9/8 Marketplace semantic search
+  9/4 Projects GA + Monday federated store + 4 connectors
+  9/3 agent observability GA + WORKFLOW BUILDER GA -> REPORTED [HIGH] this scan (MISSED on 09-18)
+  9/2 Gemini 3.8 Flash regional GA; 9/1 overage controls
+  WATCH: read-to-write action expansion is now a 4-scan pattern (8/21, 8/30, 9/02, 9/18).
+         Connector LIST stays static while ACTION SETS grow. Diff actions, not connectors.
+
+=== OTHER ===
+servicenow_zurich_highlights: unchanged since 2026-08-07
+salesforce: developer.salesforce.com/docs/ai/* = 403; investor.salesforce.com/news/ returned nav chrome ONLY
+  this scan (JS-loaded list did not render). Dreamforce 9/15-17 items captured 2026-09-18.
+openai_codex_changelog: newest 0.155.1 (9/18, bug fix only). 0.155.0 (9/17) voice/TouchID MCP/Bedrock creds.
+  9/18 ChatGPT iOS 1.2026.251 cosmetic. 9/14 GPT-5.3-Codex-Spark deprecated + GPT-5.5 retires 10/14 (not reportable).
+cursor_changelog: newest 2026-09-10 (Projects) — unchanged
+devin_desktop_changelog: newest v3.10.31 (2026-09-16) — unchanged
+perplexity_changelog: Sept unchanged (custom connectors, MCP OAuth, Gemini 3.8 Flash, GLM 5.3 Flash)
+dia_changelog: newest 2026-09-17, no technical detail published
+
+=== STANDING CONFIG DEBT ===
+13 stale/redirecting URLs in sources.json. Confirmed again this scan:
+  bedrock-agentcore doc-history -> use release-notes.html
+  vertex-ai/docs/* -> docs.cloud.google.com/gemini/enterprise/docs/release-notes
+  azure/ai-studio/ -> azure/foundry/whats-new-foundry
+  developers.openai.com/codex/changelog -> 308 learn.chatgpt.com/docs/changelog
+  windsurf.com/changelog -> 308 docs.devin.ai/desktop/changelog
+  platform.claude.com/docs/api/getting-started -> /docs/en/release-notes/api
