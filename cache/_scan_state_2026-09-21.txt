@@ -1,0 +1,62 @@
+Scan 2026-09-21 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-09-20 (1-day delta). 0 of 19 platforms moved. Clean no-change scan.
+
+=== MICROSOFT ===
+microsoft-copilot-studio_changelog: ms.date 2026-08-18, updated_at 2026-09-17, newest section July 2026 (FROZEN, 9th scan)
+microsoft-copilot-studio_releasedversions: ms.date 2026-06-30, top version 2026.6.3 (June 30) (FROZEN since July)
+azure-ai-foundry_changelog: whats-new-foundry = "August 2026", ms.date 2026-09-01, updated_at 2026-09-09 (unchanged, 3rd scan)
+  PATH: learn.microsoft.com/en-us/azure/foundry/whats-new-foundry  (the /azure/ai-foundry/whats-new/ variant 404s)
+microsoft-copilot-m365_announcements: admin whats-new-in-preview ms.date + updated_at 2026-08-27, newest section August 2026 (nudge status/timeline) — unchanged
+microsoft-copilot-m365_docs: extensibility landing ms.date 2026-05-06, updated_at 2026-07-29 — unchanged; nav still lists Agent 365, Work IQ API, Insights Agent (preview)
+microsoft_powerautomate_changelog: ms.date 2025-07-10 — pointer page only, no feature content. Low value source.
+microsoft_powerpages_changelog: ms.date 2023-03-21, updated_at 2026-08-31 — release-plan pointers only, newest plan is 2023 wave 2. DEAD source.
+microsoft_graph_rss: nav chrome only again; content frozen at 2026-08-03 (8th scan)
+NOTE: learn.microsoft.com failed a domain-safety check on the first fetch of the scan, succeeded on retry.
+  Transient, not a source defect — retry once before recording a Microsoft source as failed.
+
+=== ANTHROPIC ===
+anthropic_api_releasenotes: newest 2026-09-18 (Claude in Chrome compliance sessions) — UNCHANGED, 2nd scan
+  Sept: 9/18 chrome sessions, 9/14 compact-on-demand, 9/10 auto permission policy + ant sessions connect,
+        9/3 ant apply + per-message effort on Google Cloud, 9/1 Fable/Mythos 5.1
+
+=== AWS ===
+aws_agentcore_releasenotes: September 2026 = 2 items (Evaluations TypeScript, Consent Portal) — UNCHANGED, 2nd scan
+aws_agentcore_api: 66 operations rendered; every one inside the previously-reported set.
+  *** CACHE DEFECT FIXED THIS SCAN ***: aws_agentcore_api.txt / amazon-bedrock-agentcore_api.txt were PROSE
+  SUMMARIES, not operation lists. They omitted Payments, ABTest, BatchEvaluation, Recommendation,
+  InvokeBrowser, SearchRegistryRecords, DeleteCapacityProviderSession, IngestData — and so produced a
+  false 25-operation "delta" this scan that cost a full investigation. Both files now hold the LITERAL list.
+  LESSON: cache literal lists for enumerable API surfaces. Never cache an LLM summary of one.
+  Prior art for the false hits: reports 2026-05-18, 2026-05-21, 2026-04-10, 2026-08-07, 2026-08-21.
+aws_bedrock_changelog: newest 2026-09-15 (bedrock-runtime OpenAI-compat restructuring); 9/1 Fable/Mythos 5.1 cards — UNCHANGED
+  (doc-history.html timed out on first attempt, succeeded on retry — page is ~74KB)
+aws_q_business_changelog: newest feature 2025-08-14 (DEAD, 9th scan). Closed to new customers 2026-07-31.
+aws_q_developer_changelog: newest feature 2026-05-21 (DEAD, 9th scan)
+  RECOMMEND: retire both Amazon Q sources from sources.json.
+
+=== GOOGLE ===
+google_gemini_enterprise_changelog: newest 2026-09-18 (Actions for OneDrive/Outlook/SharePoint/Teams, Public Preview) — UNCHANGED
+  WATCH: read-to-write action expansion is a 4-scan pattern (8/21, 8/30, 9/02, 9/18).
+         Connector LIST stays static while ACTION SETS grow. Diff actions, not connectors.
+
+=== OTHER ===
+servicenow: Australia family, updated 2026-09-10 — unchanged. Family index names no individual features;
+  per-application *-rn.html pages remain the only useful read.
+salesforce: developer.salesforce.com/docs/ai/* = 403. investor.salesforce.com/news/ AND /news/default.aspx both
+  returned nav chrome ONLY — 2nd consecutive scan. The JS year-selector list does not render for WebFetch.
+  Try salesforce.com/news/ (main newsroom) next scan.
+openai_codex_changelog: newest 0.155.1 (9/18, bug fix). 0.155.0 (9/17) voice/TouchID MCP/Bedrock creds. UNCHANGED
+cursor_changelog: newest 2026-09-10 (Projects) — unchanged
+devin_desktop_changelog: newest v3.10.31 (2026-09-16) — unchanged (windsurf.com/changelog 308s here)
+perplexity_changelog: Sept unchanged (custom connectors, MCP OAuth, Gemini 3.8 Flash, GLM 5.3 Flash)
+dia_changelog: newest 2026-09-17, still no technical detail published; 9/10 = "Dia + Microsoft" (v1.48.0)
+
+=== STANDING CONFIG DEBT ===
+13 stale/redirecting URLs in sources.json. Confirmed again this scan:
+  bedrock-agentcore doc-history -> use release-notes.html
+  vertex-ai/docs/* -> docs.cloud.google.com/gemini/enterprise/docs/release-notes
+  azure/ai-studio/ -> azure/foundry/whats-new-foundry
+  developers.openai.com/codex/changelog -> 308 learn.chatgpt.com/docs/changelog
+  windsurf.com/changelog -> 308 docs.devin.ai/desktop/changelog
+  platform.claude.com/docs/api/getting-started -> use /docs/en/release-notes/api
+  claude.com/docs/office-agents/, investor.salesforce.com/news/

@@ -1,44 +1,72 @@
-# Amazon Bedrock AgentCore Data Plane - Actions API Reference — RE-VERIFIED 2026-08-26
+# Amazon Bedrock AgentCore Data Plane — Actions (literal operation list)
+# Captured 2026-09-21 from https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Operations.html
+# NOTE: store the LITERAL list here, never a prose summary. A summarized cache
+# omits whole operation families and manufactures false deltas (see report-2026-09-21).
 
-## OPERATION-FOR-OPERATION IDENTICAL TO THE 2026-08-07 CAPTURE.
-## THIRD CONSECUTIVE VERIFICATION WITH NO NET-NEW DATA-PLANE OPERATIONS (08-07, 08-24, 08-26).
-
-Memory: BatchCreateMemoryRecords, BatchDeleteMemoryRecords, BatchUpdateMemoryRecords,
-  DeleteMemoryRecord, GetMemoryRecord, ListMemoryRecords, ListMemoryExtractionJobs,
-  RetrieveMemoryRecords, StartMemoryExtractionJob
-Auth/Token: CompleteResourceTokenAuth, GetResourceApiKey, GetResourceOauth2Token,
-  GetResourcePaymentToken, GetWorkloadAccessToken, GetWorkloadAccessTokenForJWT,
-  GetWorkloadAccessTokenForUserId
-Events: CreateEvent, DeleteEvent, GetEvent, ListEvents
-Agent/Runtime: GetAgentCard, InvokeAgentRuntime, InvokeAgentRuntimeCommand, InvokeHarness,
-  StopRuntimeSession, DeleteCapacityProviderSession
-Browser: GetBrowserSession, ListBrowserSessions, SaveBrowserSessionProfile, StartBrowserSession,
-  StopBrowserSession, UpdateBrowserStream, InvokeBrowser
-Code Interpreter: GetCodeInterpreterSession, InvokeCodeInterpreter, ListCodeInterpreterSessions,
-  StartCodeInterpreterSession, StopCodeInterpreterSession
-Registry: SearchRegistryRecords   <- STILL THE ONLY REGISTRY OP ON THIS PAGE
-A/B Testing + Batch Evaluation + Recommendation: CreateABTest, DeleteABTest, GetABTest, ListABTests,
-  UpdateABTest, DeleteBatchEvaluation, GetBatchEvaluation, ListBatchEvaluations, StartBatchEvaluation,
-  StopBatchEvaluation, DeleteRecommendation, GetRecommendation, ListRecommendations, StartRecommendation
-Payments: CreatePaymentInstrument, CreatePaymentSession, DeletePaymentInstrument, DeletePaymentSession,
-  GetPaymentInstrument, GetPaymentInstrumentBalance, GetPaymentSession, ListPaymentInstruments,
-  ListPaymentSessions, ProcessPayment
-Additional: Evaluate, ListActors, ListSessions
-
-## THE SEPARATE `agent-registry` API SURFACE — grew this scan (see the changelog cache)
-Not on this page. Now known to include, at minimum:
-  Control plane: GetRegistry, UpdateRegistry, DeleteRegistry, PutResourcePolicy,
-                 CreateRegistryRecord, UpdateRegistryRecord, DeleteRegistryRecord, GetRegistryRecord,
-                 ListRegistryRecords, SubmitRegistryRecordForApproval, UpdateRegistryRecordStatus
-  Data plane:    SearchDiscoverableRegistryRecords, GetDiscoverableRegistryRecord,
-                 ListDiscoverableRegistryRecords, BatchGetDiscoverableRegistryRecord,
-                 **InvokeRegistryMcp**
-  Condition keys: agent-registry:RecordCreatorAccount, agent-registry:RecordSourceAccount
-CLI namespaces observed: `aws agent-registry ...` (data plane) and `aws agent-registry-control ...`.
-=> **THIS SURFACE, NOT THE AGENTCORE DATA-PLANE PAGE, IS WHERE REGISTRY CHANGES LAND. Watch it
-   separately; the AgentCore Actions page has been static for three verifications running.**
-
-Gateway rate-limit ops (CreateRateLimit, GetRateLimit, UpdateRateLimit, DeleteRateLimit,
-ListRateLimits, BatchPutRateLimitEntries) are control-plane and not listed on this page.
-
-Updated: 2026-08-26 — no change. Registry activity is happening on the agent-registry surface instead.
+BatchCreateMemoryRecords
+BatchDeleteMemoryRecords
+BatchUpdateMemoryRecords
+CompleteResourceTokenAuth
+CreateABTest
+CreateEvent
+CreatePaymentInstrument
+CreatePaymentSession
+DeleteABTest
+DeleteBatchEvaluation
+DeleteCapacityProviderSession
+DeleteEvent
+DeleteMemoryRecord
+DeletePaymentInstrument
+DeletePaymentSession
+DeleteRecommendation
+Evaluate
+GetABTest
+GetAgentCard
+GetBatchEvaluation
+GetBrowserSession
+GetCodeInterpreterSession
+GetEvent
+GetMemoryRecord
+GetPaymentInstrument
+GetPaymentInstrumentBalance
+GetPaymentSession
+GetRecommendation
+GetResourceApiKey
+GetResourceOauth2Token
+GetResourcePaymentToken
+GetWorkloadAccessToken
+GetWorkloadAccessTokenForJWT
+GetWorkloadAccessTokenForUserId
+IngestData
+InvokeAgentRuntime
+InvokeAgentRuntimeCommand
+InvokeBrowser
+InvokeCodeInterpreter
+InvokeHarness
+ListABTests
+ListActors
+ListBatchEvaluations
+ListBrowserSessions
+ListCodeInterpreterSessions
+ListEvents
+ListMemoryExtractionJobs
+ListMemoryRecords
+ListPaymentInstruments
+ListPaymentSessions
+ListRecommendations
+ListSessions
+ProcessPayment
+RetrieveMemoryRecords
+SaveBrowserSessionProfile
+SearchRegistryRecords
+StartBatchEvaluation
+StartBrowserSession
+StartCodeInterpreterSession
+StartMemoryExtractionJob
+StartRecommendation
+StopBatchEvaluation
+StopBrowserSession
+StopCodeInterpreterSession
+StopRuntimeSession
+UpdateABTest
+UpdateBrowserStream
