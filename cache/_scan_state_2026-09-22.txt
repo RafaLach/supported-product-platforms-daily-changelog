@@ -1,0 +1,62 @@
+Scan 2026-09-22 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-09-21 (1-day delta). 3 of 19 platforms moved. 4 findings.
+
+=== AWS === *** MOVED ***
+aws_agentcore_releasenotes: September 2026 = 4 items (was 2)
+  NEW: "Harness: Custom OpenAI-compatible endpoints" (apiBase on OpenAI model config)
+  NEW: "Harness: Lifecycle hooks" (before_invocation/before_tool_call/after_tool_call/after_invocation;
+       Lambda sync allow|deny; SNS + EventBridge non-blocking targets; InvokeHarness emits hookEvent)
+  Carried: Evaluations TypeScript agent framework support; Consent Portal for AgentCore Identity
+  NOTE: harness is GA in all AgentCore regions. Unaudited harness subpages (next sweep):
+    harness-skills, harness-memory, harness-environment, harness-security, harness-versioning, harness-export
+aws_bedrock_changelog: newest 2026-09-15 (bedrock-runtime OpenAI-compat restructuring) — UNCHANGED
+aws_q_*: not fetched. Dead. Retirement still recommended.
+
+=== ANTHROPIC === *** MOVED ***
+anthropic_api_releasenotes: newest 2026-09-18 (Claude in Chrome compliance sessions) — UNCHANGED, 3rd scan
+anthropic_news: newest 2026-09-18 "Partnering with Accenture on embedded evaluation" (reviewed, NOT reported —
+  services partnership, no new surface)
+  NEW + REPORTED: 2026-09-17 "Introducing the Life Sciences Verification Program" (LSVP)
+    Standard Use = permissive bio classifiers on Mythos/Opus/Sonnet; High-risk Use add-on = ALL
+    life-sciences-blocking safeguards removed for a named project. Cyber classifiers retained.
+    Annual / bi-annual grants. Enforcement moves from real-time block to offline pattern analysis.
+    SECOND instance of guardrail-by-entitlement after Mythos 5.
+
+=== GOOGLE === *** MOVED ***
+google_gemini_enterprise_changelog: newest 2026-09-21 — NEW: transfer ownership of shared agents
+  (agentspaceAdmin/discoveryengine.admin; shared agents only; sole-owner model, prior owner -> agentUser;
+   Google accounts or WIF principals; schedules/event triggers DISABLED by transfer)
+  Doc: docs.cloud.google.com/gemini/enterprise/docs/share-custom-agents
+  Carried 9/18 Microsoft connector actions; 4-scan action-set expansion pattern still live.
+
+=== MICROSOFT === (no movement)
+azure-ai-foundry_changelog: whats-new-foundry = "August 2026", ms.date 2026-09-01, updated_at 2026-09-09
+  (unchanged, 4th scan; 60s timeout on 1st attempt, OK on retry)
+microsoft-copilot-studio_changelog: ms.date 2026-08-18, updated_at 2026-09-17, newest section July 2026
+  (FROZEN, 10th scan)
+microsoft-copilot-m365_announcements: ms.date + updated_at 2026-08-27, newest section August 2026 — unchanged
+microsoft_graph_rss: not fetched; frozen at 2026-08-03 (9th scan)
+
+=== OTHER === (no movement)
+salesforce: *** SOURCE FIXED *** www.salesforce.com/news/ RENDERS and returns the dated press-release list.
+  Newest 2026-09-16 (Live Nation Agentforce; Missionforce + OpenAI). Entire Dreamforce 2026 set
+  (AIforce, Koa, Claudeforce, Agentforce Coworker, Agentforce 360) already reported 2026-09-18.
+  USE salesforce.com/news/ GOING FORWARD. investor.salesforce.com/news/ = JS-only, abandon.
+  developer.salesforce.com/docs/ai/* still 403.
+servicenow: Australia family, updated 2026-09-10 — unchanged. Family index names no individual features;
+  per-application *-rn.html pages remain the only useful read.
+openai_codex_changelog: newest 2026-09-18 (Codex CLI 0.155.1 bugfix; ChatGPT iOS 1.2026.251) — UNCHANGED
+cursor_changelog: newest 2026-09-10 (Projects) — unchanged
+devin_desktop_changelog: newest v3.10.31 (2026-09-16) — unchanged
+perplexity_changelog: Sept unchanged (custom MCP connectors, MCP OAuth, Gemini 3.8 Flash)
+dia_changelog: newest 2026-09-17 (issue 042), still no technical detail published
+
+=== STANDING CONFIG DEBT ===
+13 stale/redirecting URLs in sources.json; 1 now has a confirmed replacement:
+  www.salesforce.com/releases/ + investor.salesforce.com -> www.salesforce.com/news/  [NEW, CONFIRMED]
+  bedrock-agentcore doc-history -> use release-notes.html
+  vertex-ai/docs/* -> docs.cloud.google.com/gemini/enterprise/docs/release-notes
+  azure/ai-studio/ -> azure/foundry/whats-new-foundry
+  developers.openai.com/codex/changelog -> 308 learn.chatgpt.com/docs/changelog
+  windsurf.com/changelog -> 308 docs.devin.ai/desktop/changelog
+  platform.claude.com/docs/api/getting-started -> 404, use /docs/en/release-notes/api

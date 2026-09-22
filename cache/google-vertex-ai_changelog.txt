@@ -1,42 +1,31 @@
-# Google — captured 2026-09-02
-# PRODUCTIVE SOURCE: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes
-#   (renders fully via WebFetch; this is stream 3 of three — read it FIRST every Google scan)
-# sources.json has cloud.google.com/vertex-ai/docs/release-notes, which 301s to docs.cloud.google.com
-#   and carries Workbench image bumps only. Useless. Recommended repoint since 2026-08-09.
-# Stream 2, docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes, renders NAV-ONLY;
-#   recover dated rows via WebSearch.
+SOURCE: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes
+(Vertex AI is now Gemini Enterprise Agent Platform; cloud.google.com/vertex-ai/docs/release-notes is superseded)
+CAPTURED: 2026-09-22
+CACHE RULE: store the LITERAL dated entry list.
 
-## NEWEST: 2026-08-31 (was 2026-08-28 on the 08-30 scan).
+## September 2026
+2026-09-21  Transfer ownership of shared agents. Gemini Enterprise Admin role only
+            (roles/discoveryengine.agentspaceAdmin | roles/discoveryengine.admin). Shared agents only;
+            private agents cannot be transferred. Sole-owner model: new owner becomes sole owner,
+            previous owner retained as agentUser. Targets = Google accounts or Workforce Identity
+            Federation (WIF) principals. Schedule/event triggers are marked DISABLED by the transfer
+            and must be re-enabled by the new owner.
+            Doc: docs.cloud.google.com/gemini/enterprise/docs/share-custom-agents
+2026-09-18  New Public Preview actions for Microsoft data stores: OneDrive (copy folder, move file,
+            move folder); Outlook (create calendar, RSVP to event); SharePoint (create list item,
+            share resource); Teams (add member to channel, create channel, create chat, scheduling).
+2026-09-17  New online Gemini Enterprise Standard/Plus subscriptions no longer include Gemini Code Assist.
+2026-09-17  Voice input for the chat box GA. Admin toggle "Enable speech-to-text".
+2026-09-10  Pay-as-you-go edition and AI developer tools available to all invoiced-billing projects.
+2026-09-10  Gemini Enterprise app for Slack supports channel mentions and multi-turn conversations.
+2026-09-09  (Breaking) VPC-SC projects cannot add website URLs as Gemini Notebook Enterprise sources.
+2026-09-08  Semantic search for agent discovery in Google Cloud Marketplace.
+2026-09-04  Monday federated data store connection GA (boards, items, updates, docs; no ingestion).
+2026-09-04  Projects in Gemini Enterprise — dedicated knowledge bases, private file uploads, chat.
+2026-09-03  Observability views: Latency (p50/p95) and Error rate (by response class and error code).
+2026-09-02  Workflow Builder (formerly Agent Designer) GA — multi-step workflows, scheduled execution,
+            manual triggering, Slack/Jira/ServiceNow integration.
+2026-09-02  Gemini 3.8 Flash GA in Global, US, EU.
+2026-09-01  Overage controls available to all invoiced-billing projects.
 
-2026-08-31 *** FEDERATED DATA STORES IN ASSURED WORKLOADS (GA) *** REPORTED 09-02 MEDIUM/AISPM
-  Google Workspace and third-party FEDERATED data stores can now be connected to projects inside
-  **Assured Workloads folders**, which enforce **FedRAMP High**.
-  Third-party federated connectors at GA or Public Preview are IN SCOPE for Google's FedRAMP High
-  authorization; so is the Google federated connector for Workspace (Gmail, Drive, Calendar).
-  Authorized (indexed) data stores for FedRAMP High / IL4 are Cloud Storage buckets + BigQuery datasets.
-  >>> MECHANISM IS THE FINDING: a FEDERATED store is NOT INDEXED. "Gemini Enterprise sends your
-      search query DIRECTLY TO THE THIRD-PARTY API" and blends the results. So an agent inside a
-      FedRAMP High boundary issues LIVE QUERIES OUT to third-party SaaS APIs at request time.
-      The compliance boundary and the data-flow boundary are NOT the same boundary.
-      => record FEDERATION MODE as an attribute of every data store.
-2026-08-31 *** SENSITIVE DATA PROTECTION CONTENT POLICIES (GA) *** REPORTED 09-02 (same finding)
-  SDP content policies can now be applied to **connectors, apps AND notebooks**; blocks sensitive or
-  inappropriate material. => its ABSENCE is now a detectable posture gap at three object levels.
-2026-08-31 Gemini 3.5 Flash in Canada (ca) with in-region DRZ + MLP.  [held]
-2026-08-31 Gemini 3.1 Flash Image "Nano Banana 2" GA in us and eu multi-regions.  [held]
-
-2026-08-28 Five new data stores in public preview: Campfire, Clay, CourtListener, Daloopa, MSCI.
-2026-08-28 New ACTIONS on existing connectors: AirOps "Update knowledge base document metadata";
-  Airtable "Create records for a table"; Zoho Desk "Update event".
-  [both reported 2026-08-30 MEDIUM/AISPM — the read-to-write drift pattern]
-2026-08-26 A2UI Material catalog component updates v0.9.  [held]
-2026-08-24 D&B Commercial Graph data store (public preview).  [held / prior scan]
-2026-08-24 Cloud Monitoring: new request-count dimensions tool_id, engine_id, response_code, and a new
-  TOOL-INVOCATION LATENCY metric (beta).  [held — but note: tool_id on request metrics is an ingestible
-  per-tool activity signal]
-
-## STANDING PATTERN (3rd scan): Google keeps widening what ALREADY-CONNECTED data stores can do —
-## new actions, new compliance placements, new policy attach points — WITHOUT the connector list
-## changing. An inventory taken before the change understates reach afterward.
-
-Updated: 2026-09-02.
+WATCH: connector LIST stays static while ACTION SETS grow (8/21, 8/30, 9/02, 9/18). Diff actions, not connectors.

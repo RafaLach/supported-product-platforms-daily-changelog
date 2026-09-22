@@ -1,5 +1,71 @@
 [
   {
+    "date": "2026-09-22",
+    "scan_time": "2026-09-22 10:10",
+    "file": "report-2026-09-22.md",
+    "platforms": [
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "changed",
+        "details": [
+          "**Harness: Lifecycle hooks** \u2014 hooks fire at `before_invocation`, `before_tool_call`, `after_tool_call` and `after_invocation`, including for inline-function tool calls. An AWS Lambda target returns a synchronous `allow` or `deny` that can stop an invocation or skip a tool call; Amazon SNS and Amazon EventBridge targets receive non-blocking notifications. `InvokeHarness` emits a `hookEvent` for each configured hook that fires. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-lifecycle-hooks.html",
+          "**Harness: Custom OpenAI-compatible endpoints** \u2014 OpenAI model configurations now accept an optional `apiBase` field, routing direct OpenAI requests through a customer-specified gateway, proxy, self-hosted endpoint or regional endpoint. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-models.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Claude Enterprise (Anthropic)",
+        "status": "changed",
+        "details": [
+          "**Life Sciences Verification Program (September 17, 2026)** \u2014 a vetting-gated entitlement that replaces an organisation's biology-related safety classifiers with a more permissive set. Two tiers: *Standard Use* (Mythos, Opus and Sonnet with classifiers tuned permissive for science tasks) and *High-risk Use*, an add-on that **removes all safeguards blocking life-sciences requests** for a named project. Cyber classifiers and other safeguards are retained. Grants are annual (Standard) or bi-annual (High-risk), scoped to declared use cases, and enforcement shifts from real-time blocking to offline pattern analysis. Source: https://www.anthropic.com/news/life-sciences-verification-program"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Google Gemini Enterprise",
+        "status": "changed",
+        "details": [
+          "**Transfer agent ownership (September 21, 2026)** \u2014 administrators holding `roles/discoveryengine.agentspaceAdmin` or `roles/discoveryengine.admin` can reassign ownership of a shared agent to another user, including themselves. Shared agents only; the new owner becomes sole owner and the previous owner is downgraded to `agentUser`. Targets may be Google accounts or Workforce Identity Federation principals. Any schedule or event trigger on the agent is marked disabled by the transfer and must be re-enabled by the new owner. Source: https://docs.cloud.google.com/gemini/enterprise/docs/share-custom-agents"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "AgentCore harness lifecycle hooks",
+        "description": "A new synchronous interception and control surface inside the AgentCore agent loop. Four hook points (`before_invocation`, `before_tool_call`, `after_tool_call`, `after_invocation`) can each bind a Lambda that returns `allow`/`deny` and can halt an invocation or suppress a tool call, plus SNS/EventBridge fan-out targets. This introduces new inventory entities (harness hook configurations, their Lambda/SNS/EventBridge targets) and a new activity type \u2014 the `hookEvent` records emitted by `InvokeHarness` \u2014 which is a first-class detection feed for what an AgentCore agent actually invoked. It is also a control plane an attacker with harness-config write access can neuter or repurpose: replacing a `deny` Lambda silently removes the customer's own tool-call gating, and a `before_tool_call` Lambda sees every tool argument, making it an exfiltration point. Zenity must inventory hook configurations, alert on hooks removed or repointed, and ingest `hookEvent` as an AIDR activity source",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-lifecycle-hooks.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Anthropic Life Sciences Verification Program \u2014 entitlement-based safeguard removal",
+        "description": "A verified organisation's Claude deployment can run with biology safety classifiers relaxed (Standard Use) or, at the High-risk tier, with all life-sciences-blocking safeguards removed for a named project. Guardrail behaviour is therefore a property of the *entitlement attached to the workspace/API key*, not of the model \u2014 the same `claude-mythos-5`/Opus/Sonnet model ID behaves differently for an entitled org, and Anthropic explicitly moves that tier from real-time blocking to offline pattern analysis. Red-team probes that infer safety posture from refusals will pass falsely against an entitled deployment. AIRT needs a bio-domain probe set, and AISPM needs to record the LSVP entitlement and tier as a property of the Anthropic connection so an unexpected High-risk grant is a finding. Directly parallels the Mythos-5 safeguard-lifting pattern already tracked",
+        "source": "https://www.anthropic.com/news/life-sciences-verification-program",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore harness custom OpenAI endpoint (`apiBase`)",
+        "description": "OpenAI model configs in the AgentCore harness now take an `apiBase` pointing at any OpenAI-compatible gateway, proxy, self-hosted or regional endpoint. This is a new outbound model-traffic path that leaves AWS-observed inference entirely \u2014 every prompt, tool result and completion for that agent can be routed to an arbitrary third-party host set by a single config field, with no code change and no new IAM resource. AISPM must surface `apiBase` per harness configuration, treat a non-default value as an unmonitored data-egress edge, and flag agents whose model traffic bypasses Bedrock",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-models.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Gemini Enterprise agent ownership transfer",
+        "description": "A new administrative action that reassigns the sole owner of a shared agent, demoting the previous owner to `agentUser`, and that accepts Workforce Identity Federation principals as well as Google accounts. This mutates an inventory relationship Zenity already models (agent \u2192 owner) through a path that is not agent creation, so ownership drift will go unobserved unless the transfer is tracked; it is also a plausible privilege-consolidation move \u2014 an admin can make themselves the owner of any shared agent in the tenant. The transfer additionally disables the agent's schedule and event triggers, silently changing autonomous-execution posture. AISPM should treat owner change on an existing agent, and trigger-state change caused by it, as distinct monitored events",
+        "source": "https://docs.cloud.google.com/gemini/enterprise/docs/share-custom-agents",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-09-21",
     "scan_time": "2026-09-21 11:09",
     "file": "report-2026-09-21.md",

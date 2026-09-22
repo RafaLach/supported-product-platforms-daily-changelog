@@ -1,38 +1,22 @@
 SOURCE: https://www.anthropic.com/news
-SCANNED: 2026-08-30
-NEWEST: 2026-08-27
+CAPTURED: 2026-09-22
+CACHE RULE: store the LITERAL dated item list.
 
-ENTRIES:
-- 2026-08-27 "Previewing the Model Hardware Standard" (research preview)
-  -> https://www.anthropic.com/news/model-hardware-standard-research-preview
-  MHS = shared specification for AI agents to safely operate physical devices. Co-developed with HHMI Janelia
-  Research Campus. Standardized software driver translating between operating systems and hardware devices.
-  Primitives: "read" (retrieve data e.g. temperature) and "write" (set parameters).
-  Device discovery: devices become discoverable in a standardized format so agents and instruments locate each
-  other across networks with no custom translator programs.
-  Device metadata: drivers carry natural-language tags documenting weight, capabilities and SAFETY LIMITS,
-  auto-generating the reference files agents need for safe operation.
-  Three control interfaces working together for multi-device orchestration: Model Context Protocol (MCP),
-  command-line interfaces, and code file APIs.
-  Device classes demonstrated: liquid handlers, 6-DoF robotic arms, microplate readers, two-photon and light-sheet
-  microscopy, thermocyclers, qPCR instruments, centrifuges, incubators, cameras, sensors, laser systems, optics.
-  Research preview partners: Genentech, University of Washington (Baker/Pinglay labs), Carnegie Mellon University,
-  HHMI Janelia, QuEra Computing, Tetsuwan Scientific.
-  Platform partners building native MHS support: AWS/Strands, Tecan, QIAGEN, Universal Robots.
-  Safety controls: device-level safety limits enforced by MHS drivers (laser power, mechanical ranges); agents
-  "often stopped to wait for human confirmation before performing an action it deemed even slightly risky";
-  CMU induced six failure scenarios (missing plate, rotated plate, reader busy, disconnected camera, unreachable
-  device, emergency stop) and the system "correctly blocked all six before any device moved".
-  Model agnostic - not tied to Claude. Applications at modelhardwarestandard.com. Anthropic plans to open-source
-  the standard so any device manufacturer in any industry can adopt it.
-  NOTE: modelhardwarestandard.com is an application gate only - the technical spec is restricted to approved
-  preview participants. No public spec document or SDK link.
+2026-09-18  Partnering with Accenture on embedded evaluation
+            (reviewed 2026-09-22, NOT reported — services partnership, no new surface)
+2026-09-17  Introducing the Life Sciences Verification Program  *** REPORTED 2026-09-22 ***
+            Vetted-access entitlement. Standard Use = Mythos/Opus/Sonnet with bio classifiers tuned
+            permissive for science tasks. High-risk Use add-on = REMOVES ALL safeguards that block
+            life sciences requests, for a named project. Cyber classifiers and other safeguards retained.
+            Annual (Standard) / bi-annual (High-risk) grants scoped to declared use cases. Enforcement
+            shifts from real-time blocking to OFFLINE pattern analysis.
+            2nd instance of guardrail-by-entitlement after Mythos 5.
+2026-09-01  Developing Enterprise Frontier Safeguards with customers
+2026-08-31  Improving alignment and security efforts
+2026-08-27  Previewing the Model Hardware Standard
+2026-08-27  Expanding support for scientists
+2026-08-25  Funding better evaluations of AI's impact on wellbeing
+2026-08-14  How Claude's text watermark works
 
-- 2026-08-27 "Expanding our support for scientists"
-  Claude Science (launched June 2026) access expansion; AI for Science Program broadened beyond biological
-  sciences; new Claude Team Plan for Scientists - 10,000 seats free / discounted for one year; premium seats with
-  5x limits at $15/month; PI at academic or nonprofit institutions; biology/chemistry researchers limited to
-  Opus-class models; up to $50,000 in credits per project.
-  NO new product, API, connector or agent surface. Below reporting bar.
-
-- 2026-08-25 "Funding better evaluations of AI's impact on wellbeing" [unchanged since 2026-08-27 scan]
+NOTE: this page does NOT surface partnership/gated-programme content published by partners
+(e.g. it missed Claudeforce, announced by Salesforce 2026-08-26).
