@@ -1,0 +1,112 @@
+Scan 2026-09-23 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-09-22 (1-day delta). 4 of 19 platforms moved. 4 findings.
+
+=== AWS === *** MOVED ***
+aws_agentcore_releasenotes: September 2026 = 5 items (was 4). Literal list:
+  1. Harness: Interactive shells (terminals)          [NEW 9/23 — REPORTED]
+  2. Harness: Custom OpenAI-compatible endpoints       (reported 9/22)
+  3. Harness: Lifecycle hooks                          (reported 9/22)
+  4. Evaluations: TypeScript agent framework support   (reported earlier)
+  5. Consent Portal for AgentCore Identity             (reported earlier)
+  August 2026 = AWS Agent Registry GA (auto-detection + CMK); Memory IngestData;
+    Memory flexible namespaces; Agent Registry PrivateLink  — all previously reported.
+  Interactive shells detail: InvokeAgentRuntimeCommandShell, wss://bedrock-agentcore.<region>
+    .amazonaws.com/runtimes/<url-encoded-harness-arn>/ws/shells. Bash only. SigV4 /
+    pre-signed URL / bearer via harness inbound authorizer; browser path = base64url token in
+    Sec-WebSocket-Protocol. Channels 0x00 STDIN 0x01 STDOUT(PTY) 0x02 STDERR 0x03 STATUS
+    0x04 RESIZE 0x05 HEARTBEAT 0xFF CLOSE. Limits: 64KB frame, 250 fps, 1h conn, 10 active
+    shells, 20 retained entries, 256KB replay buffer. *** CloudTrail logs the API call only;
+    terminal input/output NOT logged anywhere. ***
+  UNAUDITED harness subpages (carried 2nd scan — SCHEDULE THIS):
+    harness-skills, harness-memory, harness-environment, harness-security (contains the
+    authoritative "complete harness permissions model"), harness-versioning, harness-export,
+    harness-operations
+aws_bedrock_changelog: newest 2026-09-21 = tokens-per-day quota became cross-model per-account
+  (quota change, NOT reportable). Prior newest was 2026-09-15.
+aws_q_*: not fetched. Dead. Retirement still recommended.
+
+=== ANTHROPIC === *** MOVED ***
+anthropic_api_releasenotes: newest 2026-09-22 (was 2026-09-18). Literal entry list, newest first:
+  2026-09-22 Opus 5.5 (claude-opus-5-5, 1M ctx, 128k out, always-on adaptive thinking,
+    $4/$20 MTok; thinking cannot be disabled -> 400; tool_choice any|tool -> 400;
+    computer use needs computer_toolset_20260801; Fast mode research preview);
+    *** inline-tools-2026-09-15 beta: tool_addition blocks define tools BY VALUE ***  [REPORTED]
+  2026-09-18 Compliance API returns claude_in_chrome transcripts
+  2026-09-14 Compaction on Demand (compact-2026-09-04); thinking mismatch reporting
+  2026-09-10 Managed Agents permission policies `auto`; ant CLI v1.32.0 beta:sessions connect
+  2026-09-03 ant CLI v1.30.0 `ant apply`; per-message effort on Google Cloud
+  2026-09-01 Fable 5.1 / Mythos 5.1
+  2026-08-27 SDK beta.files/beta.skills un-gated; personal + service account keys
+  2026-08-26 Compliance API GA for Cowork/Claude Code; Science + M365 Office agent sessions
+  Inline tools detail: doc = platform.claude.com/docs/en/build-with-claude/
+    mid-conversation-system-messages  (NOT /tool-use/inline-tools — that 404s).
+    tool_addition.tool = {type: tool_definition, definition: {...}}; same name = schema
+    REPLACEMENT from that point on; mcp_toolset variant needs mcp-client-2026-09-15 and
+    yields mcp_tool_listing blocks; must keep >=1 non-deferred tool in `tools`; limits
+    10k deferred / 10k post-first-user-message / 4MB defs / 4MB rendered; computer use
+    cannot be defined inline. Models: Fable 5.1, Mythos 5.1, Opus 5, Opus 5.5 (NOT Sonnet 5);
+    Claude API + Bedrock + Google Cloud.
+anthropic_news: newest 2026-09-22 "Introducing Claude Opus 5.5" (model launch, watchlist only).
+  9/18 Accenture partnership + 9/17 LSVP both handled in prior scans.
+
+=== OPENAI === *** MOVED ***
+openai_codex_changelog (learn.chatgpt.com/docs/changelog): newest 2026-09-23 (was 2026-09-18).
+  2026-09-23 Codex CLI 0.156.1 — GPT-6 Sol / GPT-6 Luna in model picker; rate-limit guidance
+  2026-09-22 GPT-6 Sol + GPT-6 Luna release (API, Codex, ChatGPT Work; ~50% below GPT-5.6)
+  2026-09-22 Codex CLI 0.156.0 — [REPORTED] fullscreen TUI w/ search; voice conversations ON
+    BY DEFAULT with bundled runtimes; /usage analytics dashboard + plan history; /daemon
+    update management; worktree session filtering; Windows sandbox network policy + DNS +
+    account handling + managed proxy routing; MCP policy consistency enforcement; MCP
+    credential handling; Code Mode tool metadata + filesystem accessor bindings; Guardian
+    reviewer lifecycle refactor; 6 themes; Mermaid + equations
+  Model watchlist now: GPT-6 Astra (9/09), GPT-6 Sol, GPT-6 Luna (9/22).
+  *** OpenAI DevDay 2026 = September 29. Expect a large delta that week. ***
+
+=== GOOGLE === *** MOVED ***
+google_gemini_enterprise_changelog: newest 2026-09-22 (was 2026-09-21).
+  2026-09-22 D&B Risk Analytics data store GA  [NEW — REPORTED] (KYB onboarding, counterparty
+    due diligence, sanctions screening, risk assessment; connector WITH ACTIONS; global/us/eu;
+    VPC-SC enforcement requires delete+recreate of existing stores)
+  2026-09-21 Transfer agent ownership (reported 9/22)
+  2026-09-18 New actions PP: OneDrive, Outlook, SharePoint, Teams (reported 9/18)
+  2026-09-17 Code Assist unbundled; Voice input GA
+  2026-09-10 PAYG availability; Slack app channel mentions + multi-turn GA
+  2026-09-09 VPC-SC website-URL ingestion breaking change
+  2026-09-08 Marketplace semantic agent search Preview
+  2026-09-04 Monday federated store GA; Projects GA; CoinDesk/Relativity/Streak/Superhuman Preview
+  2026-09-03 Agent latency+error views GA; Workflow Builder GA; Gemini 3.8 Flash GA
+  Connector-ACTION expansion is now a 5-scan pattern (8/21, 8/30, 9/02, 9/18, 9/22).
+  DOC GAP: no per-store page for D&B Risk Analytics; the shared
+    /connectors/d-and-b-commercial-graph overview does NOT enumerate actions, auth or
+    entity types. Follow-up sweep needed to inventory the action set.
+
+=== MICROSOFT === (no movement)
+azure-ai-foundry_changelog: whats-new-foundry = "August 2026", ms.date 2026-09-01,
+  updated_at 2026-09-09 (unchanged, 5th scan). Correct path is /azure/ai-foundry/whats-new-foundry.
+microsoft-copilot-studio_changelog: ms.date 2026-08-18, updated_at 2026-09-17, newest section
+  July 2026 (FROZEN, 11th scan)
+microsoft-copilot-m365_announcements: ms.date + updated_at 2026-08-27, newest section
+  August 2026 (nudge status / nudge timeline) — unchanged
+microsoft_graph_rss: not fetched; frozen at 2026-08-03 (10th scan)
+
+=== OTHER === (no movement)
+salesforce: www.salesforce.com/news/ renders (2nd consecutive scan). Newest 2026-09-16
+  (Live Nation Agentforce; Missionforce + OpenAI). Dreamforce set reported 2026-09-18.
+servicenow: not fetched this scan. Australia family, updated 2026-09-10 at last read.
+cursor_changelog: newest 2026-09-10 (Projects) — unchanged
+devin_desktop_changelog: newest v3.10.31 (2026-09-16) — unchanged
+perplexity_changelog: Sept unchanged in substance; Agent API added GPT-6 Sol, GPT-6 Luna,
+  Claude Opus 5.5, Grok 4.7 (model additions only). Custom MCP connectors + MCP OAuth carried.
+dia_changelog: newest entry (2026-09-17, issue 042) renders PLACEHOLDER data — issue number and
+  app version are filler digit strings. Last real entry = 2026-09-10 No. 041 v1.48.0
+  "Dia + Microsoft". Still no technical detail published.
+
+=== STANDING CONFIG DEBT ===
+13 stale/redirecting URLs in sources.json. Confirmed replacements ready to commit:
+  www.salesforce.com/releases/ + investor.salesforce.com -> www.salesforce.com/news/  [2nd confirm]
+  bedrock-agentcore doc-history -> use release-notes.html
+  vertex-ai/docs/* -> docs.cloud.google.com/gemini/enterprise/docs/release-notes
+  azure/ai-studio/ -> azure/ai-foundry/whats-new-foundry
+  developers.openai.com/codex/changelog -> 308 learn.chatgpt.com/docs/changelog
+  windsurf.com/changelog -> 308 docs.devin.ai/desktop/changelog
+  platform.claude.com/docs/api/getting-started -> 404, use /docs/en/release-notes/api

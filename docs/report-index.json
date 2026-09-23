@@ -1,5 +1,80 @@
 [
   {
+    "date": "2026-09-23",
+    "scan_time": "2026-09-23 09:00",
+    "file": "report-2026-09-23.md",
+    "platforms": [
+      {
+        "name": "Claude Enterprise (Anthropic)",
+        "status": "changed",
+        "details": [
+          "**Inline tool definitions \u2014 `tool_addition` by value (`inline-tools-2026-09-15` beta, September 22)** \u2014 a `tool_addition` block in a mid-conversation `role: \"system\"` message can now carry a **full tool definition by value** (name, description, `input_schema`) rather than naming a tool that was already declared in the request's `tools` array. The `tools` array never changes, so the prompt cache still hits. Re-sending a definition under the same name **replaces the tool's schema from that point onward**. Combined with the `mcp-client-2026-09-15` beta header, the same block can attach an **`mcp_toolset`** mid-conversation, and the response then carries `mcp_tool_listing` blocks enumerating that server's tools. Limits: 10,000 deferred tools, 10,000 tools defined after the first user message, 4 MB of post-first-user-message tool definitions. Computer-use tools cannot be defined inline. Supported on Claude Fable 5.1, Mythos 5.1, Opus 5, Opus 5.5 \u2014 on the Claude API, Amazon Bedrock and Google Cloud. Source: https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages",
+          "**Claude Opus 5.5 (September 22)** \u2014 `claude-opus-5-5`, 1M context, 128k max output, always-on adaptive thinking; `thinking: {\"type\":\"disabled\"}` and `tool_choice` `any`/`tool` return 400. Computer use requires the `computer_toolset_20260801` toolset. Fast mode available as a research preview. *Model-inventory watchlist item; not raised as a coverage finding.* Source: https://platform.claude.com/docs/en/release-notes/api"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "changed",
+        "details": [
+          "**Harness: Interactive shells (terminals)** \u2014 `InvokeAgentRuntimeCommandShell` opens a persistent, interactive **Bash PTY over WebSocket** inside the microVM running a harness session, at `wss://bedrock-agentcore.<region>.amazonaws.com/runtimes/<harness-arn>/ws/shells`. Environment variables, working directory, command history and running processes persist across inputs. A client can detach and **reconnect with the stored `shellId`**, replaying up to 256 KB of buffered output; up to **10 concurrent shells** per harness session (20 retained active+detached entries), 1-hour connection cap, 64 KB frames, 250 frames/sec. Auth is SigV4 (`bedrock-agentcore:InvokeAgentRuntimeCommandShell`), a SigV4 pre-signed URL, or a bearer token accepted by the harness inbound authorizer \u2014 including a **browser-friendly base64url bearer token passed through `Sec-WebSocket-Protocol`**. Works in the managed default environment and in a configured custom container. AWS's own guidance: the shell \"can access customer-provided data, files, and secrets in the selected environment or on mounted filesystems\" and \"connect to network destinations that the session can reach.\" **CloudTrail records the API call and CloudWatch gets connection metadata, but neither logs terminal input or output.** Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-command-shell.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Codex CLI 0.156.0 (September 22)** \u2014 fullscreen TUI with search; **voice conversations enabled by default with bundled runtimes**; a **usage analytics dashboard at `/usage`** with plan history tracking; **daemon update management via `/daemon`**; worktree session filtering; **Windows sandbox changes \u2014 network policy support, DNS resolution, account handling, and integration with managed proxy routing**; **MCP policy consistency enforcement** and improved MCP credential handling; Code Mode tool metadata improvements and filesystem accessor bindings; refactored Guardian reviewer lifecycle; Mermaid/equation rendering. Source: https://learn.chatgpt.com/docs/changelog",
+          "**GPT-6 Sol and GPT-6 Luna (September 22)** \u2014 new models in the API, Codex and ChatGPT Work, at ~50% lower API pricing than GPT-5.6; selectable from the Codex model picker as of CLI 0.156.1 (September 23). Follows GPT-6 Astra, already on the watchlist from the 2026-09-18 report. *Model-inventory watchlist item; not raised as a coverage finding.* Source: https://learn.chatgpt.com/docs/changelog"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Google Gemini Enterprise",
+        "status": "changed",
+        "details": [
+          "**D&B Risk Analytics data store \u2014 GA (September 22)** \u2014 a second Dun & Bradstreet federated data store alongside D&B Commercial Graph, targeted at KYB onboarding, counterparty due diligence, sanctions screening and risk assessment. It is a **connector with actions**, not a read-only index; Google's own guidance is to associate only one data store with the actions belonging to a single connector type. Available in `global`, `us` and `eu`; VPC Service Controls enforcement requires deleting and recreating existing data stores. Source: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/d-and-b-commercial-graph"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Anthropic inline tool definitions \u2014 tools and MCP servers introduced mid-conversation, by value",
+        "description": "A `tool_addition` block in a `role: \"system\"` message can now carry a complete tool definition, so a tool that Claude will call **need never appear in the request's `tools` array**. Every static analysis Zenity performs that reads an agent's declared toolset from the top of the request is now incomplete by design: the real tool surface is the union of `tools` plus every inline definition appended across the conversation, and a later definition under the same name **silently replaces the earlier schema**. Two consequences compound this. First, the same mechanism can attach an entire **`mcp_toolset` mid-conversation** (with `mcp-client-2026-09-15`), which means an MCP server \u2014 and the arbitrary tool list it returns in `mcp_tool_listing` \u2014 can enter an agent's reach after the conversation started and after any pre-flight policy check ran. Second, because the system-message block is *appended data*, an agent pipeline that builds messages from retrieved or user-influenced content gives an injection a route to **define its own tool** rather than merely persuade the model to misuse an existing one. AIRT needs probes for inline tool injection and mid-conversation MCP attachment; AISPM must treat an agent's tool inventory as conversation-scoped and evolving, parse `tool_addition` and `mcp_tool_listing` blocks as first-class inventory events, and alert on schema replacement of an already-known tool name",
+        "source": "https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "AgentCore harness interactive shells (`InvokeAgentRuntimeCommandShell`)",
+        "description": "A new WebSocket API that gives a caller a persistent, stateful Bash terminal inside the microVM running a harness agent \u2014 the same environment as the agent, with the same filesystem, mounted secrets and network reachability. AWS states plainly that **terminal input and output are not logged**: CloudTrail captures only the fact of the `InvokeAgentRuntimeCommandShell` call (caller identity, timestamp, source IP, resolved runtime, response status), and CloudWatch receives connection metadata only. Everything typed and everything returned is invisible to AWS-native logging, which makes this the least-observed execution path AgentCore has shipped. Detach-and-reconnect (`shellId` + runtime session ID) means a process started in one connection keeps running unattended and can be resumed later from a different client, and the browser-oriented **base64url bearer token over `Sec-WebSocket-Protocol`** path means a shell can be opened from a browser without SigV4 at all, authorised only by the harness inbound authorizer. Zenity must inventory which principals hold `bedrock-agentcore:InvokeAgentRuntimeCommandShell` and on which harness ARNs, treat any grant of it as a high-privilege finding (AWS's own security note says to restrict it to trusted principals and specific harness ARNs), surface harnesses whose inbound authorizer would accept a bearer-token shell connection, and ingest the CloudTrail event as an AIDR activity type \u2014 with the explicit caveat that content-level detection is not available and the compensating control has to be authorisation, not inspection",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-command-shell.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Codex CLI 0.156.0 \u2014 always-on voice with bundled runtimes, a local usage dashboard, and managed proxy routing in the Windows sandbox",
+        "description": "Three changes alter what Codex is on a workstation. **Voice conversations are now enabled by default and ship with bundled runtimes**, which turns the local coding agent into a always-available microphone-driven input path with its own embedded speech runtime on disk \u2014 a new prompt-entry vector that leaves no text artifact and a new bundled binary to inventory. The **`/usage` analytics dashboard with plan history** is a locally reachable record of the agent's own consumption; useful as telemetry, and also a reconnaissance surface. The Windows sandbox now carries **network policy support, DNS resolution and integration with managed proxy routing**, meaning Codex's egress on Windows is governed by a configurable local policy object that ENDPOINT should read and assess rather than assume. Alongside these, **MCP policy consistency enforcement** and improved MCP credential handling change how locally configured MCP servers are admitted, and **Code Mode tool metadata plus filesystem accessor bindings** expand what the agent can reach on the filesystem. This is an extension of the Codex daemon/worktree endpoint object already reported 2026-09-18, not a new product, hence MEDIUM",
+        "source": "https://learn.chatgpt.com/docs/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Gemini Enterprise D&B Risk Analytics data store (GA)",
+        "description": "A second Dun & Bradstreet connector reaches GA, and unlike a plain search index it is a **connector with actions** \u2014 meaning a Gemini Enterprise agent can invoke operations against an external commercial-risk service, not merely read from it. The declared use cases (KYB onboarding, counterparty due diligence, sanctions screening, risk decisioning) put it directly in a regulated decision path: an agent grounded on this store is producing outputs that feed onboarding and credit decisions, and the store itself becomes a route by which internal counterparty identifiers leave the tenant for a third-party data provider. AISPM must add D&B Risk Analytics as an inventory entity alongside D&B Commercial Graph, enumerate the actions registered for it (the action set is the privilege, not the connector), capture its region binding (`global`/`us`/`eu`) as a data-residency attribute, and flag agents that hold it as a grounding source in a compliance-relevant workflow",
+        "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/d-and-b-commercial-graph",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-09-22",
     "scan_time": "2026-09-22 10:10",
     "file": "report-2026-09-22.md",
