@@ -1,0 +1,40 @@
+SOURCE: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes
+FETCHED: 2026-09-24
+
+*** THIS SOURCE PUBLISHES FUTURE-DATED ENTRIES. DIFF THE LITERAL LIST, NOT THE DATE. ***
+
+LITERAL SEPTEMBER 2026 ENTRY LIST (newest first, 17 entries):
+2026-09-29  Gemini Enterprise: D&B Finance Analytics data store (Preview)   [NEW 9/24]
+2026-09-22  Gemini Enterprise: D&B Risk Analytics data store
+2026-09-21  Gemini Enterprise: Transfer ownership of shared agents
+2026-09-18  Gemini Enterprise: Support for new actions (Public Preview)
+2026-09-17  Gemini Enterprise: Gemini Code Assist availability update for subscriptions
+2026-09-17  Gemini Enterprise: Voice input for the chat box
+2026-09-10  Gemini Enterprise: Pay-as-you-go edition and AI developer tools available for
+            all invoiced Cloud Billing accounts
+2026-09-10  Gemini Enterprise: Support for channel mentions and multi-turn conversations in
+            the Gemini Enterprise app for Slack
+2026-09-09  Gemini Notebook Enterprise: Website URL ingestion blocked by VPC Service Controls
+2026-09-08  Gemini Enterprise: Semantic search support in Google Cloud Marketplace (Preview)
+2026-09-04  Gemini Enterprise: Monday federated data store (GA)
+2026-09-04  Gemini Enterprise: Create and manage projects
+2026-09-04  Gemini Enterprise: New data stores and support for new actions (Preview)
+2026-09-03  Gemini Enterprise: Latency and error rate views for agents
+2026-09-03  Gemini Enterprise: General availability of Workflow Builder (formerly Agent Designer)
+2026-09-02  Gemini Enterprise: Gemini 3.8 Flash available in Global, US, and EU regions
+2026-09-01  Gemini Enterprise: Overage controls available for all invoiced Cloud Billing accounts
+
+2026-09-29 VERBATIM TEXT:
+"The D&B Finance Analytics data store is available in Public Preview in Gemini Enterprise.
+You can connect D&B Finance Analytics to look up company and credit reports, scores, filings,
+and corporate ownership, and to search and compare the companies in your portfolios, using
+natural language. The data store also supports actions, such as creating and processing
+credit applications and managing folders."
+
+Regions: not stated in the release note.
+DOC GAP: no per-store page exists for either D&B store. The shared overview at
+/gemini/enterprise/docs/connectors/d-and-b-commercial-graph does NOT enumerate actions,
+auth model, or entity types. Follow-up sweep owed.
+
+CONNECTOR-ACTION EXPANSION PATTERN: 6 scans — 8/21, 8/30, 9/02, 9/18, 9/22, 9/24.
+Every new Gemini Enterprise data store now ships with write actions by default.

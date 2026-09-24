@@ -1,0 +1,110 @@
+SOURCE: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-security.html
+FETCHED: 2026-09-24 (first audit — carried debt from 2026-09-22 and 2026-09-23 reports)
+
+SECURITY PRIMITIVES
+- Isolated execution: every session in its own Firecracker microVM in AgentCore Runtime.
+  No shared state, no shared filesystem.
+- IAM execution role assumed by the harness; trust policy principal bedrock-agentcore.amazonaws.com
+- Inbound OAuth (custom JWT authorizer) OR SigV4 (AWS IAM, default).
+- VPC mode available; Cedar-based AgentCore Policy on Gateway gates tool calls.
+
+*** SigV4 DOES NOT PROPAGATE PER-USER IDENTITY DOWNSTREAM. ***
+Token Vault user-scoped OAuth storage and on-behalf-of token exchange are available ONLY
+when the caller authenticates with a Bearer JWT via the OAuth inbound path. SigV4 support
+for per-user identity is "planned for a future release."
+
+TRUST BOUNDARY
+"Any principal that passes the IAM or JWT authentication and authorization gate has access
+to the full microVM session, including the tools and capabilities configured on the harness.
+The harness validates the structure of the request it accepts, but it does not inspect the
+meaning of prompts, screen content, or enforce behavioral constraints on the agent."
+- Harness REJECTS toolUse blocks in the final InvokeHarness message (server-side), for both
+  built-in server-side tools and inline functions.
+- Non-harness AgentCore Runtime provides NO server-side protection — the agent entrypoint
+  must strip toolUse blocks itself.
+- toolResult IS accepted in the final message; inline-function handoffs resume via the same
+  runtimeSessionId.
+
+*** MODEL CONFIGURATION PARAMETERS — UNVALIDATED PASSTHROUGH ***
+"The harness does not validate, filter, or restrict these parameters."
+Callers who can set additionalParams can:
+- Redirect requests to arbitrary endpoints — LiteLLM aws_bedrock_runtime_endpoint overrides
+  the Bedrock endpoint URL; the SIGNED request INCLUDING THE SigV4 SIGNATURE AND SESSION
+  CREDENTIALS is routed to the specified endpoint.
+- Override HTTP headers — OpenAI extra_headers injects/overrides outbound headers INCLUDING
+  Authorization.
+- Attempt IAM role assumption — LiteLLM aws_role_name; succeeds or fails on the execution
+  role's sts:AssumeRole permission.
+- Change target model or region — modelId and apiBase redirect inference to a different
+  model, region, or provider entirely.
+Suggested mitigations (customer-side): strip/allowlist the `model` field, validate or remove
+additionalParams/apiBase/modelId, deny sts:AssumeRole, scope network via VPC security groups.
+
+*** SKILLS AND INSTRUCTIONS — TRUSTED-INPUT BY DESIGN ***
+Skills = bundles of markdown and scripts fetched from Amazon S3 or Git AT INVOCATION TIME and
+injected into the agent's context. "The harness treats all skill content as trusted input. It
+does not validate, sanitize, or inspect the content or source of skills."
+Skills can be OVERRIDDEN PER InvokeHarness CALL — a caller can supply their own skill sources
+containing arbitrary instructions or scripts. Mitigations: strip the `skills` field,
+allowlist S3 prefixes / Git repos.
+
+OBSERVABILITY
+Correlation identifiers propagate to Gateway, Memory, Code Interpreter, Browser for unified
+CloudWatch traces. "These identifiers are used for observability only - they are never used
+for authorization or data access decisions."
+
+*** PAIRED IAM PERMISSION MODEL (14 harness APIs) ***
+API                        -> Required IAM actions
+InvokeHarness              -> InvokeHarness + InvokeAgentRuntime
+InvokeAgentRuntimeCommand  -> InvokeAgentRuntimeCommand + InvokeAgentRuntime
+InvokeAgentRuntimeCommandShell -> InvokeAgentRuntimeCommandShell
+CreateHarness              -> CreateHarness + CreateAgentRuntime + CreateMemory
+UpdateHarness              -> UpdateHarness + UpdateAgentRuntime + UpdateMemory
+DeleteHarness              -> DeleteHarness + DeleteAgentRuntime + DeleteMemory
+GetHarness                 -> GetHarness
+ListHarnesses              -> ListHarnesses
+CreateHarnessEndpoint      -> CreateHarnessEndpoint + CreateAgentRuntimeEndpoint
+UpdateHarnessEndpoint      -> UpdateHarnessEndpoint + UpdateAgentRuntimeEndpoint
+DeleteHarnessEndpoint      -> DeleteHarnessEndpoint + DeleteAgentRuntimeEndpoint
+GetHarnessEndpoint         -> GetHarnessEndpoint
+ListHarnessEndpoints       -> ListHarnessEndpoints
+ListHarnessVersions        -> ListHarnessVersions
+
+RESOURCE ARNS:
+  arn:aws:bedrock-agentcore:<region>:<accountId>:harness/<id>
+  arn:aws:bedrock-agentcore:<region>:<accountId>:harness/<id>/harness-endpoint/<endpointName>
+Get/Update/DeleteHarnessEndpoint require BOTH ARNs. CreateHarnessEndpoint requires only the
+harness ARN. Invoking a custom endpoint makes InvokeHarness and InvokeAgentRuntimeCommand
+require both ARNs.
+
+EXECUTION-ROLE REACH (sample policy + optional add-ons):
+  bedrock:InvokeModel / InvokeModelWithResponseStream on foundation-model/* (all regions)
+  ecr-public:GetAuthorizationToken, sts:GetServiceBearerToken
+  xray:PutTraceSegments / PutTelemetryRecords / GetSamplingRules / GetSamplingTargets
+  logs:CreateLogGroup / DescribeLogStreams / DescribeLogGroups / CreateLogStream /
+    PutLogEvents / PutResourcePolicy(*)
+  cloudwatch:PutMetricData (namespace bedrock-agentcore)
+  bedrock-agentcore:GetWorkloadAccessToken, GetWorkloadAccessTokenForJWT
+  Browser: StartBrowserSession, StopBrowserSession, GetBrowserSession, ListBrowserSessions,
+    UpdateBrowserStream, ConnectBrowserAutomationStream, ConnectBrowserLiveViewStream
+  Code Interpreter: Start/Stop/Get/ListCodeInterpreterSession(s), InvokeCodeInterpreter
+  Memory: CreateEvent, DeleteEvent, GetEvent, ListEvents, RetrieveMemoryRecords
+  Optional: lambda:InvokeFunction / sns:Publish / events:PutEvents (lifecycle hook targets);
+    ecr:GetDownloadUrlForLayer / BatchGetImage / BatchCheckLayerAvailability (custom + VPC
+    managed image pull from repository/harness-*); s3:GetObject + s3:ListBucket (skill
+    sources); bedrock-agentcore:GetResourceApiKey + secretsmanager:GetSecretValue
+    (bedrock-agentcore-identity!default/apikey/*); bedrock-agentcore:GetResourceOauth2Token
+    + secretsmanager:GetSecretValue (.../oauth2/*); bedrock-agentcore:InvokeGateway
+
+NETWORK: default = public network. VPC mode requires interface endpoints for ecr.dkr and
+ecr.api, a gateway endpoint for s3, and bedrock-runtime if calling Bedrock. In VPC mode the
+managed application container is pulled from a PRIVATE ECR repo named harness-<region> owned
+by an AWS service account (ARN account wildcarded).
+
+SHARED RESPONSIBILITY — customer owns: agent code security, IAM access controls, security of
+commands executed in runtime sessions, session-to-user mapping enforcement, input validation
+and PROMPT INJECTION PREVENTION, model configuration validation, skill and instruction
+sources, container image updates, network configuration.
+
+STILL UNAUDITED harness subpages: harness-skills, harness-memory, harness-environment,
+harness-versioning, harness-export, harness-operations.

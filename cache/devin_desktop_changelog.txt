@@ -1,0 +1,27 @@
+SOURCE: https://docs.devin.ai/desktop/changelog
+(sources.json still lists windsurf.com/changelog which 308-redirects here)
+FETCHED: 2026-09-24
+
+LITERAL ENTRY LIST (September 2026, newest first):
+v3.10.35  2026-09-24   [NEW THIS SCAN]
+  - Devin Desktop no longer crashes at startup on Apple Macs using M6 chips
+  - Resolved memory leak in agent command center
+  - Fixed folder selection for agents on SSH/WSL hosts
+  - *** MCP servers from ACP clients now usable in sessions ***   [REPORTED]
+v3.10.31  2026-09-16
+  - Enhanced Restricted Mode to block nested object-form workspace settings
+  - Sessions display transcripts immediately when switching back
+v3.10.27  2026-09-15
+  - Restored file dragging from Explorer to agent panel
+  - Remote SSH sessions open without "locked by another process" errors
+  - Devin Fusion activation works without Claude Fable 5.1
+v3.10.23  2026-09-10
+  - Remote agent host connectivity over SSH with saved hosts
+  - Local sessions deletable from agent sidebar
+  - Faster startup with bounded memory management
+  - ACP is always enabled; toggle removed
+
+NOTE: v3.10.23 made ACP always-on (no opt-out), and v3.10.35 now surfaces ACP-client MCP
+servers inside sessions. Combined effect: a Devin agent's real tool set can include MCP
+servers never registered in Devin's own configuration. An endpoint inventory built from
+Devin's local MCP config alone will under-report.

@@ -1,5 +1,96 @@
 [
   {
+    "date": "2026-09-24",
+    "scan_time": "2026-09-24 09:26",
+    "file": "report-2026-09-24.md",
+    "platforms": [
+      {
+        "name": "Cursor (tier: watching)",
+        "status": "changed",
+        "details": [
+          "**Rollouts** \u2014 a new production-monitoring bot. It attaches a monitor to every pull request, reads the diff and the systems it touches, and writes a monitoring plan as a PR comment. It wakes on deploy events for the change's commit and runs that plan against the customer's logs, metrics and traces, tracking each environment separately and returning a per-environment verdict (verified healthy / regression detected / inconclusive). On a regression it names the suspected change, notifies the author, and \u2014 depending on configuration \u2014 **opens a revert PR or hands the finding to a cloud agent for a fix**. Integrations: source control (GitHub/Origin), the customer's CD system, and telemetry providers including Datadog, Grafana and Honeycomb. Teams and Enterprise plans. Source: https://cursor.com/changelog/rollouts-and-security-reviewer",
+          "**Security Review** \u2014 a new security-agent family shipped alongside Rollouts. *Security Reviewer* reads every pull request in the context of the whole codebase and posts a single review comment reporting exploitable bugs (SQL/command/template injection, authn/authz bypass, secrets and credentials, SSRF, unsafe deserialization, vulnerable dependencies). A companion *Vulnerability Scanner* scans the codebase **at rest** for pre-existing issues. Teams can add custom codebase rules. Enabled per repository from the dashboard; draft PRs excluded. Source: https://cursor.com/docs/security-agents"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Google Gemini Enterprise (tier: secondary)",
+        "status": "changed",
+        "details": [
+          "**D&B Finance Analytics data store (Public Preview)** \u2014 new third-party data store. Beyond read access to company and credit reports, scores, filings and corporate ownership, it **supports actions**: creating and processing credit applications, and managing folders. This is the fifth connector-action expansion since 2026-08-21 and the second D&B data store in three days (D&B Risk Analytics GA'd 2026-09-22). Source: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/d-and-b-commercial-graph"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Bedrock AgentCore (tier: primary) \u2014 carried audit debt cleared",
+        "status": "changed",
+        "details": [
+          "**Caller-controlled model configuration and skill sources.** The `model.additionalParams`, `apiBase` and `modelId` fields on `InvokeHarness` are passed through to the model provider **unvalidated and unfiltered** by AWS. The `skills` field can be overridden per invocation to point the harness at arbitrary S3 or Git sources, and the harness \"treats all skill content as trusted input.\" Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-security.html",
+          "**Harness IAM permission model and `harness-endpoint` resource type.** Harness APIs require paired permissions on both the harness ARN and the underlying AgentCore Runtime (and Memory) resource \u2014 e.g. `InvokeHarness` needs both `bedrock-agentcore:InvokeHarness` and `bedrock-agentcore:InvokeAgentRuntime`. A distinct `arn:aws:bedrock-agentcore:<region>:<account>:harness/<id>/harness-endpoint/<name>` resource type exists with its own Create/Update/Delete/Get/List actions. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-security.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Cognition Devin Desktop (tier: watching)",
+        "status": "changed",
+        "details": [
+          "**v3.10.35 (2026-09-24): MCP servers advertised by ACP clients are now usable inside Devin sessions.** An MCP server the user never configured in Devin can now be reached by a Devin agent because a connected ACP (Agent Client Protocol) client exposes it. Source: https://docs.devin.ai/desktop/changelog"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Cursor Rollouts \u2014 an AI agent with production deploy, telemetry and revert authority",
+        "description": "A new Cursor bot that attaches to every PR, ingests the customer's production logs, metrics and traces via Datadog/Grafana/Honeycomb integrations, and can autonomously open revert PRs or delegate a fix to a cloud agent. This introduces new inventory entities Zenity does not model: Rollouts monitors (one per PR), per-environment change-health verdicts, CD-system connections, and telemetry-provider connections. The toxic combination is concrete \u2014 an agent holding simultaneous read access to production observability data and write access to the source repository, able to revert code with no human in the loop depending on configuration. AISPM must discover Rollouts enablement per org, enumerate its connected deploy and telemetry providers, and flag configurations where autonomous revert is enabled",
+        "source": "https://cursor.com/changelog/rollouts-and-security-reviewer",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Cursor Security Agents \u2014 Security Reviewer and Vulnerability Scanner",
+        "description": "A new agent family that reads every pull request *in the context of the entire codebase* and, via the Vulnerability Scanner, scans the codebase at rest. New inventory entities: Security Reviewer agent configurations, per-repository enablement, custom codebase rules, and at-rest scan results. The security-relevant property is that these agents ingest whole-repository content \u2014 including secrets they are explicitly tasked with finding \u2014 and emit findings into PR comments, creating a new data-flow path out of the codebase. AISPM must inventory which repositories have security agents enabled and what custom rules are attached",
+        "source": "https://cursor.com/docs/security-agents",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "AgentCore harness accepts unvalidated model configuration and caller-supplied skill sources",
+        "description": "AWS documents that `additionalParams`, `apiBase` and `modelId` on `InvokeHarness` are passed to the model provider without validation. A caller can use LiteLLM's `aws_bedrock_runtime_endpoint` to redirect the signed request \u2014 **including the SigV4 signature and session credentials** \u2014 to an attacker-chosen endpoint, use OpenAI's `extra_headers` to override the `Authorization` header, attempt role escalation via `aws_role_name` + `sts:AssumeRole`, or redirect inference to a different model, region or provider entirely. Separately, the `skills` field can be overridden per invocation to fetch arbitrary markdown and scripts from any S3 bucket or Git repo, which the harness injects into agent context as trusted instructions. Both are first-class prompt-injection and credential-exfiltration vectors reachable by any principal that passes the IAM/JWT gate. AIRT should add probes for `additionalParams` endpoint redirection and per-invocation skill-source override; AISPM should flag harnesses whose execution role grants `sts:AssumeRole` or whose application forwards caller-supplied `model` and `skills` fields",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-security.html",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore `harness-endpoint` resource type and paired-permission IAM model",
+        "description": "A distinct resource type `arn:aws:bedrock-agentcore:<region>:<account>:harness/<id>/harness-endpoint/<endpointName>` exists with its own `CreateHarnessEndpoint` / `UpdateHarnessEndpoint` / `DeleteHarnessEndpoint` / `GetHarnessEndpoint` / `ListHarnessEndpoints` actions, plus `ListHarnessVersions`. Harness control-plane calls require paired permissions on the harness *and* the underlying Runtime and Memory resources, meaning a principal appearing to hold only harness permissions may in fact carry Runtime and Memory authority. Zenity's AgentCore inventory must add `harness-endpoint` as an entity and model the paired-permission expansion when computing effective agent privilege. Note also that SigV4 callers do **not** get per-user identity propagation into downstream tool calls \u2014 only inbound OAuth (Bearer JWT) does \u2014 so any SigV4-invoked harness runs downstream tools under a shared service identity",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-security.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Gemini Enterprise D&B Finance Analytics data store with write actions",
+        "description": "New Public Preview connector giving agents natural-language access to company and credit reports, scores, filings and corporate ownership, and \u2014 critically \u2014 **write actions** that create and process credit applications and manage folders. New inventory entities: the D&B Finance Analytics data store, its connector-action set, and the credit-application objects it can create. An agent with this connector can originate financial transactions, not merely read reference data. AISPM must discover the data store and enumerate its granted actions. **Doc gap:** Google has published no per-store page for either D&B store; the shared D&B connector overview does not enumerate actions, auth model or entity types, so the action set needs a follow-up sweep once documentation lands",
+        "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/d-and-b-commercial-graph",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Devin Desktop exposes ACP-client MCP servers inside agent sessions",
+        "description": "As of v3.10.35, MCP servers advertised by a connected ACP (Agent Client Protocol) client are usable from within Devin Desktop sessions. This is a transitive MCP-tool surface: a local agent gains tools that were never registered in Devin's own configuration, so an endpoint inventory built from Devin's MCP config alone will under-report the agent's real tool set. ENDPOINT coverage must resolve MCP servers reachable through ACP clients, not only those declared locally",
+        "source": "https://docs.devin.ai/desktop/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-09-23",
     "scan_time": "2026-09-23 09:00",
     "file": "report-2026-09-23.md",

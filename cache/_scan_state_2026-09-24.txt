@@ -1,0 +1,129 @@
+Scan 2026-09-24 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-09-23 (1-day delta). 3 of 19 platforms moved + 1 carried audit cleared.
+6 findings.
+
+=== AWS === (release notes NOT moved; harness-security AUDITED this scan)
+aws_agentcore_releasenotes: September 2026 = 5 items (UNCHANGED from 9/23). Literal list:
+  1. Harness: Interactive shells (terminals)        (reported 9/23)
+  2. Harness: Custom OpenAI-compatible endpoints     (reported 9/22)
+  3. Harness: Lifecycle hooks                        (reported 9/22)
+  4. Evaluations: TypeScript agent framework support (reported earlier)
+  5. Consent Portal for AgentCore Identity           (reported earlier)
+  August 2026 = 8 items (Agent Registry GA+CMK; Memory IngestData; Memory flexible
+    namespaces; Agent Registry PrivateLink; Agent Registry RAM cross-account sharing;
+    Payments Coinbase-via-Marketplace; Memory non-conversational JSON; Evaluations
+    skill evaluators) — all previously reported.
+harness-security: AUDITED 2026-09-24. Two findings filed. Key literal facts:
+  * additionalParams / apiBase / modelId on InvokeHarness are passed to the model provider
+    UNVALIDATED. Documented abuses: LiteLLM aws_bedrock_runtime_endpoint redirects the
+    SIGNED SigV4 request + session credentials to an arbitrary endpoint; OpenAI
+    extra_headers overrides Authorization; LiteLLM aws_role_name attempts sts:AssumeRole;
+    modelId/apiBase redirect inference to another model/region/provider.
+  * `skills` field overridable PER INVOCATION -> arbitrary S3/Git source; harness treats
+    all skill content as TRUSTED input, no validation/sanitization.
+  * harness REJECTS toolUse blocks in the final InvokeHarness message (server-side).
+    Non-harness AgentCore Runtime has NO such server-side protection.
+  * toolResult IS accepted in the final message; inline-function handoffs resume by
+    runtimeSessionId.
+  * PAIRED IAM MODEL: InvokeHarness needs InvokeHarness + InvokeAgentRuntime;
+    CreateHarness needs CreateHarness + CreateAgentRuntime + CreateMemory; Update/Delete
+    likewise. Full table of 14 harness APIs captured in the report.
+  * NEW RESOURCE TYPE: arn:aws:bedrock-agentcore:<r>:<a>:harness/<id>/harness-endpoint/<name>
+  * SigV4 callers get NO per-user identity propagation downstream — Token Vault user-scoped
+    OAuth + on-behalf-of exchange only work via inbound OAuth Bearer JWT.
+  * Execution-role reach: bedrock:InvokeModel *, ECR public+private, X-Ray, CloudWatch,
+    GetWorkloadAccessToken(ForJWT), Browser (7 actions), Code Interpreter (5), Memory (5),
+    GetResourceApiKey + secretsmanager:GetSecretValue, GetResourceOauth2Token,
+    InvokeGateway, s3:GetObject for skills, lambda:InvokeFunction / sns:Publish /
+    events:PutEvents for lifecycle hooks.
+  UNAUDITED harness subpages (3rd carry — NOW HALF DONE, sweep the rest):
+    harness-skills, harness-memory, harness-environment, harness-versioning,
+    harness-export, harness-operations
+aws_bedrock_changelog: newest 2026-09-21 = cross-model tokens-per-day quota. UNCHANGED.
+aws_q_*: not fetched. Dead. Retirement still recommended.
+
+=== ANTHROPIC === (no platform movement)
+anthropic_api_releasenotes: newest 2026-09-22 (Opus 5.5) — UNCHANGED from 9/23. Entry list
+  identical to 9/23 snapshot (9/22, 9/18, 9/14, 9/10, 9/03, 9/01).
+  NOTE: the 9/01 "Fable 5.1 / Mythos 5.1" and 8/27/8/26 entries no longer render on the
+  fetched page tail — page may be paginating. Re-verify depth next scan.
+anthropic_news: newest 2026-09-23 "Claude discovers a novel enzyme system with CRISPR-like
+  repeats" (Science category — research output, NOT a platform capability. Not reported.)
+
+=== OPENAI === (no new movement)
+openai_codex_changelog (learn.chatgpt.com/docs/changelog): newest 2026-09-23 Codex CLI
+  0.156.1 — same as 9/23 snapshot. UNCHANGED.
+  Model watchlist: GPT-6 Astra (9/09), GPT-6 Sol, GPT-6 Luna (9/22).
+  *** OpenAI DevDay 2026 = September 29. 5 days out. Expect a large delta. ***
+
+=== GOOGLE === *** MOVED ***
+google_gemini_enterprise_changelog: 17 September entries (was 16).
+  NEW: 2026-09-29 "Gemini Enterprise: D&B Finance Analytics data store (Preview)"
+    [NEW — REPORTED]  *** FUTURE-DATED: dated 9/29 but live on 9/24. ***
+    Reads: company + credit reports, scores, filings, corporate ownership; portfolio
+    search/compare in natural language. ACTIONS: create and process credit applications,
+    manage folders. Regions not stated in the note.
+  All other 16 entries unchanged from the 9/23 snapshot.
+  *** DIFF BY LITERAL ENTRY LIST, NOT BY DATE — this source publishes future-dated items. ***
+  Connector-ACTION expansion now a 6-scan pattern (8/21, 8/30, 9/02, 9/18, 9/22, 9/24).
+  DOC GAP persists: no per-store page for EITHER D&B store (Risk Analytics or Finance
+    Analytics). Shared /connectors/d-and-b-commercial-graph overview enumerates neither
+    actions, auth, nor entity types. Follow-up sweep still owed.
+
+=== MICROSOFT === (no movement — all three feeds frozen)
+azure-ai-foundry_changelog: /azure/ai-foundry/whats-new-foundry = "August 2026",
+  ms.date 2026-09-01, updated_at 2026-09-09. 6th consecutive frozen scan.
+microsoft-copilot-studio_changelog: ms.date 2026-08-18, updated_at 2026-09-17, newest
+  section July 2026. 12th consecutive frozen scan.
+microsoft-copilot-studio_releasedversions: ms.date 2026-06-30, updated_at 2026-07-01.
+  Newest platform version 2026.6.3 (June 30, 2026); newest UX 26.06.21-24. Page banner
+  claims "updated each week on Tuesday" — it is NOT. ~12 weeks stale.
+  *** Zenity now has NO working Copilot Studio change feed. Both sources are dead.
+      Find a replacement: Power Platform release planner or M365 message center. ***
+microsoft-copilot-m365_announcements: unchanged since 2026-08-27 (August section, nudge
+  status / nudge timeline).
+microsoft_graph_rss: not fetched; frozen at 2026-08-03 (11th scan).
+
+=== OTHER ===
+cursor_changelog: *** MOVED *** newest 2026-09-23 "Rollouts and Security Review"
+  (was 2026-09-10 Projects).  [NEW — 2 FINDINGS REPORTED]
+  Rollouts: monitor per PR; reads diff + touched systems; writes monitoring plan as PR
+    comment; wakes on deploy events; runs plan against logs/metrics/traces; per-environment
+    verdict = verified healthy | regression detected | inconclusive; on regression names
+    suspected change, notifies author, CAN OPEN A REVERT PR or hand off to a cloud agent.
+    Integrations: Origin/GitHub, CD system, Datadog / Grafana / Honeycomb. Teams+Enterprise.
+    *** NO /docs/rollouts PAGE — 404 as of this scan. Only the changelog permalink
+        https://cursor.com/changelog/rollouts-and-security-reviewer. Re-check for a docs
+        page next scan. ***
+  Security Review: Security Reviewer (PR-time, reads PR in context of whole codebase, posts
+    ONE review comment) + Vulnerability Scanner (codebase AT REST). Scope: SQL/command/
+    template injection, authn/authz bypass, secrets/credentials, SSRF, unsafe
+    deserialization, vulnerable dependencies. Custom per-codebase rules. Per-repo enable;
+    draft PRs excluded. Docs: cursor.com/docs/security-agents + cursor.com/docs/security-review.
+devin_desktop_changelog: *** MOVED *** newest v3.10.35 (2026-09-24), was v3.10.31 (9/16).
+  v3.10.35: M6 Mac startup crash fix; agent command center memory leak fix; SSH/WSL folder
+    selection fix; *** "MCP servers from ACP clients now usable in sessions" *** [REPORTED]
+  Prior: v3.10.27 (9/15), v3.10.23 (9/10 — remote SSH agent hosts, ACP always-on).
+salesforce: www.salesforce.com/news/ renders (3rd consecutive scan). Newest 2026-09-16
+  (Live Nation Agentforce; Missionforce+OpenAI; Missionforce 1yr). UNCHANGED.
+servicenow: Australia family, page last updated 2026-09-10. UNCHANGED. No AI/agent-specific
+  release-note pages linked from the family index (as expected — use per-application
+  *-rn.html pages).
+perplexity_changelog: September unchanged in substance. Model additions only this week
+  (gpt-6-sol, gpt-6-luna, claude-opus-5-5, grok-4.7, gemini-3.8-flash, glm-5.3-flash).
+  Custom MCP connectors + remote-MCP OAuth still carried as previously reported.
+dia_changelog: newest entry (2026-09-17) STILL renders PLACEHOLDER filler — issue number and
+  app version are digit strings. 2nd consecutive scan. Last real entry = 2026-09-10 No. 041
+  v1.48.0 "Dia + Microsoft".
+
+=== STANDING CONFIG DEBT ===
+13 stale/redirecting URLs in sources.json. Confirmed replacements ready to commit:
+  www.salesforce.com/releases/ + investor.salesforce.com -> www.salesforce.com/news/ [3rd confirm]
+  bedrock-agentcore doc-history -> use release-notes.html
+  vertex-ai/docs/* -> docs.cloud.google.com/gemini/enterprise/docs/release-notes
+  azure/ai-studio/ -> azure/ai-foundry/whats-new-foundry
+  developers.openai.com/codex/changelog -> 308 learn.chatgpt.com/docs/changelog
+  windsurf.com/changelog -> 308 docs.devin.ai/desktop/changelog
+  platform.claude.com/docs/api/getting-started -> 404, use /docs/en/release-notes/api
+  NEW THIS SCAN: both Copilot Studio sources are dead feeds (see MICROSOFT above) — this is
+  a source-REPLACEMENT need, not just a URL fix.
