@@ -1,5 +1,89 @@
 [
   {
+    "date": "2026-09-25",
+    "scan_time": "2026-09-25 09:16",
+    "file": "report-2026-09-25.md",
+    "platforms": [
+      {
+        "name": "Amazon Bedrock AgentCore (tier: primary) \u2014 carried audit debt cleared",
+        "status": "changed",
+        "details": [
+          "**Harness persistent filesystem mounts.** A harness can mount three distinct persistent filesystem types at paths under `/mnt`: service-managed **session storage** (survives stop/resume for a `runtimeSessionId`, no VPC needed), an **Amazon EFS access point** (customer-owned, explicitly \"shared across sessions and agents\", up to 2 mounts, VPC required), and an **Amazon S3 Files access point** (up to 2 mounts, VPC required) whose mount path **syncs bidirectionally with the backing S3 bucket**. Files written to these mounts survive session termination and are visible to later invocations. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-environment.html",
+          "**`InvokeAgentRuntimeCommand` \u2014 direct root shell into the harness microVM.** AWS documents this as deliberate out-of-band access: \"deterministic command execution with no model reasoning, no token cost.\" Commands run as **root (uid 0)**, and AWS states plainly that a `USER` directive in the customer's Dockerfile \"applies to the agent process only\" \u2014 `InvokeAgentRuntimeCommand` \"runs at a higher privilege level,\" and \"the IAM permission is the access gate, not the in-VM privilege level.\" Documented uses include cloning repos, installing packages, and pushing commits. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-environment.html",
+          "**Harness memory: caller-supplied `actorId` is the isolation boundary, and managed memory is provisioned by default.** Memory events are scoped by `actorId` + `sessionId`, and `actorId` is passed by the caller on each `InvokeHarness` call. Long-term retrieval templates `actorId` directly into namespace paths (e.g. `/summary/{actorId}/{sessionId}/`). Retrieval is automatic on every invocation (`topK=10`, `relevanceScore=0.2` by default) and injects retrieved memories into context before the model reasons. Separately: creating a harness through the **service API** with the memory configuration omitted causes the service to **provision managed memory automatically** (the CLI defaults the other way, to disabled), and `DeleteHarness` cascade-deletes it unless `deleteManagedMemory=false`. BYO memory can be attached to and shared across multiple harnesses. Four long-term strategies: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-memory.html",
+          "**Harness skill sources \u2014 four source types, fully enumerated.** The `skills` field (settable at create time, overridable per invocation, invoke-time entries appended after and winning on name collision) accepts: `awsSkills` (pre-built AWS-service skills from the AWS Agent Toolkit, glob-selected), `git` (clone **any public or private HTTPS Git repository**, sparse-checkout a subdirectory, private repos authenticated via a Token Vault `apikeycredentialprovider` ARN), `s3` (customer bucket, fetched with the execution role, \u22641 GB), and `path` (filesystem, baked into the container image *or installed at session start via `InvokeAgentRuntimeCommand`*). Skills follow the open **AgentSkills.io** standard \u2014 a `SKILL.md` plus optional `scripts/`, `references/` and `assets/` directories. Skills are fetched once per session and persist on disk across invocations. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-skills.html"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Cursor (tier: watching)",
+        "status": "error",
+        "details": [
+          "**`cursor.com/docs/rollouts` now exists** (404 on the 2026-09-24 scan). The docs page materially **corrects** the changelog text this report relied on yesterday: Rollouts **does not automatically revert** \u2014 on a detected regression it \"opens an issue, and notifies the author.\" It also documents the real integration surface: up to **200 monitored repositories**; version control across **GitHub, GitLab.com, Bitbucket Cloud and Origin**; observability via **Datadog and other tools connected over MCP**; Slack notifications to a DM or channel; and CI/CD integration by placing a **Cursor API key in CI secrets**. Check cadence after a deploy event is 20 minutes, 1 hour, 1 day and 3 days. At least one telemetry connection is required. Source: https://cursor.com/docs/rollouts"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "OpenAI Codex (tier: primary)",
+        "status": "changed",
+        "details": [
+          "**Codex CLI 0.157.0 (2026-09-25)** \u2014 \"Enabled automatic background-server startup for eligible interactive sessions, with recovery choices when server settings are incompatible\"; \"Made `/import` available in remote sessions and local background-server sessions\"; an `f` shortcut to \"fork conversations open in another app, preserving drafts and queued prompts\"; GPT-6 Sol and Luna added to the catalog including **Amazon Bedrock** as a provider. Source: https://learn.chatgpt.com/docs/changelog"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "AgentCore harness persistent filesystem mounts \u2014 three new resource types, one explicitly cross-agent",
+        "description": "A harness can mount service-managed session storage, up to two **EFS access points**, and up to two **S3 Files access points** at paths under `/mnt`. AWS states the EFS mount is \"shared across sessions and agents\" \u2014 meaning two different agents, potentially with different execution roles and different data-classification levels, can be wired to the same access point and exchange files outside any modelled data flow. The S3 Files mount **syncs bidirectionally**, so anything an agent writes to its local mount path lands in the customer's S3 bucket automatically, and anything placed in that bucket becomes agent-readable input. Zenity's AgentCore inventory must add `filesystemConfigurations` as a first-class relationship \u2014 mapping each harness to its `sessionStorage`, `efsAccessPoint` and `s3FilesAccessPoint` mounts \u2014 and AISPM should raise a toxic-combination finding when one EFS or S3 Files access point is mounted by more than one agent or harness, and when an S3 Files-backed bucket is also writable by a non-agent principal (an injection path into agent context). Note `UpdateHarness` replaces the entire `filesystemConfigurations` list, so mount changes are not incremental and a drift-detection baseline must re-read the whole list",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-environment.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "`InvokeAgentRuntimeCommand` executes arbitrary shell as root inside the agent's microVM, bypassing the agent loop entirely",
+        "description": "AWS documents this API as a deliberate out-of-band path with \"no model reasoning, no token cost\" \u2014 meaning it produces **no agent turn, no tool-use event and no model trace**. Commands run as **uid 0** regardless of a `USER` directive in the customer's container image, and AWS is explicit that \"the IAM permission is the access gate, not the in-VM privilege level.\" The documented use cases are themselves high-impact: clone a repository, install dependencies, run tests, **commit and push**, extract build artifacts, and install skills into `.agents/skills/` at session start. Any AIDR model that infers agent activity from invocation traces or model telemetry will see nothing at all for this path. Zenity must treat `bedrock-agentcore:InvokeAgentRuntimeCommand` as a distinct high-severity activity type sourced from CloudTrail rather than from agent traces, and AISPM must flag any principal holding it \u2014 it is effectively root on the agent host, and it is a separate IAM action from `InvokeHarness`",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-environment.html",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Harness memory isolation depends on a caller-supplied `actorId` string",
+        "description": "Short-term and long-term memory are scoped by `actorId` + `sessionId`, and `actorId` is an ordinary request field the caller sets on `InvokeHarness`. Long-term retrieval templates it straight into the namespace path (`/summary/{actorId}/{sessionId}/`) and runs **automatically on every invocation**, injecting the top 10 semantically-matched records into context before the model reasons. If the calling application forwards a client-controlled identifier \u2014 or if the caller is a SigV4 principal, which per the harness security page gets **no per-user identity propagation at all** \u2014 then submitting another user's `actorId` retrieves that user's extracted facts, summaries, preferences and episodes into the attacker's session. This is a cross-tenant memory read reachable with no IAM change, and the injected content is also an indirect prompt-injection carrier (it is written by prior conversations). AIRT should add a probe that varies `actorId` across otherwise identical sessions and checks for retrieval leakage; AISPM should flag harnesses that are both memory-enabled and SigV4-invoked",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-memory.html",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore harness managed memory is silently auto-provisioned by the service API",
+        "description": "Creating a harness through the service API with the memory configuration **omitted** causes AgentCore to provision a managed AgentCore Memory resource automatically \u2014 the AgentCore CLI defaults the opposite way (disabled). The result is a persistent store of conversation events and extracted long-term records (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC` strategies) that exists without the operator ever asking for it, and which cannot be deleted through the Memory APIs directly. Zenity's inventory must not assume \"no memory configured\" means \"no memory\" \u2014 it must resolve each harness's effective memory resource and mark implicitly-provisioned managed memory as an undeclared data store. Conversely, `DeleteHarness` cascade-deletes that memory by default unless `deleteManagedMemory=false` is passed, which matters for evidence retention. BYO memory attached to several harnesses is an additional cross-agent data-sharing edge to model",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-memory.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore harness skill sources \u2014 four source types including arbitrary Git clone at invoke time",
+        "description": "This supplies the concrete entity model behind the per-invocation skill-override risk reported on 2026-09-24. The `skills` field accepts `awsSkills` (glob-selected AWS Agent Toolkit skills granting EC2/S3/Lambda/DynamoDB/CloudWatch/**IAM** operational knowledge), `git` (any public or private HTTPS repository, private repos authenticated with a Token Vault API-key credential provider holding a PAT), `s3` (execution-role-fetched, \u22641 GB), and `path` (baked into the image, or installed mid-session via `InvokeAgentRuntimeCommand`). Skills carry a `scripts/` directory alongside `SKILL.md` and conform to the open **AgentSkills.io** specification \u2014 the same cross-vendor plugin format Zenity already tracks \u2014 so a skill bundle is executable content, not just prose. Zenity should inventory skill attachments as a per-harness entity with the source type, URI/repo, and credential ARN recorded; flag invoke-time overrides as distinct from create-time defaults (invoke-time wins on name collision); and flag `awsSkills` globs that pull in IAM-operation skills",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-skills.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Codex CLI 0.157.0 starts a background server by default and opens `/import` to remote and background-server sessions",
+        "description": "As of 0.157.0 the Codex CLI \"enable[s] automatic background-server startup for eligible interactive sessions\" \u2014 a long-lived local listener now comes up without the user opting in \u2014 and `/import` (pulling external content into a session) is newly available **in remote sessions and in local background-server sessions**. A new `f` shortcut forks a conversation that is open in another application, carrying over drafts and queued prompts, which moves conversation state across process boundaries. For endpoint coverage this means Codex's local footprint is no longer bounded by a foreground TUI process: ENDPOINT must detect the background server, and treat `/import` in a background-server session as an untrusted-content ingestion point into a tool-capable local agent",
+        "source": "https://learn.chatgpt.com/docs/changelog",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-09-24",
     "scan_time": "2026-09-24 09:26",
     "file": "report-2026-09-24.md",
