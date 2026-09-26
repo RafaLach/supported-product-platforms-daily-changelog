@@ -1,0 +1,50 @@
+# AgentCore harness-tools — AUDITED 2026-09-26 (FIRST AUDIT). [REPORTED]
+# Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-tools.html
+
+FIVE tool types + 2 builtins.
+  1. remote_mcp                  config.remoteMcp.url  (+ optional .headers map)
+  2. agentcore_gateway           config.agentCoreGateway.gatewayArn (+ .outboundAuth)
+  3. agentcore_browser           no config
+  4. agentcore_code_interpreter  no config
+  5. inline_function             config.inlineFunction.description + .inputSchema
+  BUILTINS always present unless restricted: `shell` (bash), `file_operations`
+  (view/create/edit). ~900 input tokens of definitions added to EVERY model request.
+
+tools settable at CreateHarness, UpdateHarness AND InvokeHarness (per-invocation override).
+CLI: `agentcore add tool --harness X --type <underscore_name>`; persisted in harness.json.
+
+*** remote_mcp headers can hold RAW PLAINTEXT SECRETS. ***
+  Doc's own example: {"Authorization": "Bearer <your-token>"}.
+  Alternative: ${arn:aws:bedrock-agentcore:<region>:<acct>:token-vault/default/
+  apikeycredentialprovider/<name>} resolved at invocation time.
+  AWS recommends Gateway + AgentCore Identity "for managed credential rotation and
+  OAuth-protected tools" — i.e. the plaintext path is documented and supported.
+  ANY public MCP endpoint by URL, "No Gateway required for simple cases" =>
+  no policy enforcement, no inbound/outbound auth, no access control on that path.
+
+allowedTools — LLM-selection scoping only. Patterns:
+  "*" | "shell" | "file_*" | "@builtin" | "@builtin/shell" | "@git" | "@git/git_status"
+  | "@git/read_*" | "@*-mcp/status".  Omitted => ALL tools allowed (fail-open default).
+*** VERBATIM: "allowedTools scopes LLM tool selection during InvokeHarness only. It does
+    not affect InvokeAgentRuntimeCommand, which is a separate API with its own IAM action
+    (bedrock-agentcore:InvokeAgentRuntimeCommand) that executes commands directly without
+    passing through the LLM. To prevent direct command execution, do not grant
+    bedrock-agentcore:InvokeAgentRuntimeCommand in your IAM policies." ***
+
+inline_function = executes CLIENT-SIDE, not on the harness VM. Harness pauses with
+  stopReason "tool_use", returns toolUse to caller code, caller posts back a toolResult
+  on the SAME runtimeSessionId. Harness stores the AUTHORITATIVE assistant toolUse in
+  session state and IGNORES a resent copy. Missing/duplicate/stale/replayed result cannot
+  resume the handoff. Documented pattern for "human-in-the-loop approvals".
+*** Doc warns: read harness-lifecycle-hooks.md#harness-hook-inline-functions BEFORE using
+    an `after_tool_call` event for an inline function "as an authorization or audit
+    signal." => the obvious audit hook is NOT reliable for this tool type. ***
+
+WEB SEARCH is not a harness tool type. It arrives as an agentcore_gateway whose target has
+  connectorId: "web-search", exposed as MCP tool `WebSearch`. Gateway service role needs
+  bedrock-agentcore:InvokeWebSearch; harness execution role needs
+  bedrock-agentcore:InvokeGateway on the gateway ARN. us-east-1 only. Served entirely
+  within AWS on a purpose-built index.
+
+Gateway outbound auth choices in the TUI: AWS IAM (default) | None | OAuth.
+  "None" is a selectable outbound-auth mode.

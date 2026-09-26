@@ -1,0 +1,62 @@
+# AgentCore harness-command-shell — AUDITED 2026-09-26 (FIRST AUDIT). [REPORTED]
+# Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-command-shell.html
+
+InvokeAgentRuntimeCommandShell = persistent interactive BASH terminal inside the harness
+session microVM, over WebSocket.
+  wss://bedrock-agentcore.<region>.amazonaws.com/runtimes/<url-encoded-HARNESS-arn>/ws/shells
+  Harness ARN required; the managed Runtime ARN is REJECTED (ValidationException).
+
+AUTH — two independent paths:
+  * SigV4 / SigV4 pre-signed URL => needs IAM bedrock-agentcore:InvokeAgentRuntimeCommandShell
+  * *** BEARER TOKEN => "Bearer-token requests must satisfy the harness inbound authorizer
+    instead." No IAM action is evaluated on that path. ***
+  Browser clients that cannot set an Authorization header pass the token INSIDE
+  Sec-WebSocket-Protocol: base64UrlBearerAuthorization.<base64url-token> + the
+  base64UrlBearerAuthorization sentinel. => a bearer token travels in a WebSocket
+  subprotocol header value.
+
+*** LOGGING BLIND SPOT (verbatim): "AgentCore sends the request ID and connection metadata
+    to the harness Runtime log group in Amazon CloudWatch Logs. The service doesn't log
+    terminal input or output." and "AWS CloudTrail records InvokeAgentRuntimeCommandShell
+    API calls, including the caller identity, timestamp, source IP address, resolved
+    Runtime resource, and response status. CloudTrail doesn't log terminal input or
+    output." ***
+    => connection is auditable, COMMANDS ARE NOT. Same blind spot class as
+       InvokeAgentRuntimeCommand.
+
+Security note (verbatim): "A principal that can open a Harness shell has interactive
+  command access to the harness session." "The shell can access customer-provided data,
+  files, and secrets in the selected environment or on mounted filesystems. It can also
+  connect to network destinations that the session can reach. The shell environment uses
+  an allowlist and doesn't inject AgentCore platform or workload credentials."
+  Stays inside the session microVM; no cross-customer access.
+  NOTE: this shell does NOT state root/uid 0 (unlike InvokeAgentRuntimeCommand, which
+  harness-environment documents as running as ROOT).
+
+BINARY FRAME PROTOCOL — first byte = channel:
+  0x00 STDIN (c->s) | 0x01 STDOUT = PTY, stdout+stderr COMBINED (s->c)
+  0x02 STDERR = service/platform diagnostics only (s->c)
+  0x03 STATUS = UTF-8 JSON {kind,apiVersion,metadata:{shellId,reconnected,bytesDropped},status}
+  0x04 RESIZE {"width":n,"height":n} 1..1000 | 0x05 HEARTBEAT (echoed) | 0xFF CLOSE
+  Text frames not part of protocol; 5 consecutive text frames => close 1003.
+
+RECONNECT / DETACH:
+  ?shellId=<id> + same runtime session ID. Process KEEPS RUNNING while detached.
+  Service replays up to 256 KB of buffered output; metadata.bytesDropped if it overflowed.
+  *** A second connection with the same shellId REPLACES the first; the evicted client
+      gets close code 4000. => shell-session hijack/takeover primitive for any principal
+      holding the same permission. ***
+
+QUOTAS: 64 KB max frame | 250 frames/sec | 1 hour max connection | 10 concurrent ACTIVE
+  shells per harness session (DETACHED shells do NOT count) | 20 retained active+detached
+  entries, oldest detached evicted | 256 KB replay buffer.
+  Runtime session ID must be >= 33 characters.
+Close codes: 1000 clean, 1003 text frames, 1006 network, 1008 duration/rate/buffer,
+  1009 frame >64KB, 1011 server, 4000 replaced by another client.
+Errors: ValidationException, AccessDeniedException, ResourceNotFoundException,
+  ServiceQuotaExceededException(429), RuntimeClientError(424), ThrottlingException,
+  RetryableConflictException(409).
+
+Custom container: shell runs INSIDE that container; requires Bash at /bin/bash.
+  sh and dash are NOT supported.
+AgentCore CLI and high-level SDK shell helpers DO NOT support harness targets at launch.

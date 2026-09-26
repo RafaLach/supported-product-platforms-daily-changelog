@@ -1,0 +1,132 @@
+Scan 2026-09-26 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-09-25 (1-day delta). 2 of 19 platforms moved + 2 carried harness
+sub-pages audited. 5 findings.
+
+=== AWS === (release notes NOT moved; 2 harness sub-pages AUDITED this scan)
+aws_agentcore_releasenotes: September 2026 = 5 items (UNCHANGED from 9/23, 9/24, 9/25).
+  1. Harness: Interactive shells (terminals)
+  2. Harness: Custom OpenAI-compatible endpoints
+  3. Harness: Lifecycle hooks
+  4. Evaluations: TypeScript agent framework support
+  5. Consent Portal for AgentCore Identity
+  August 2026 = 8 items, unchanged, all previously reported.
+
+harness-tools: AUDITED 2026-09-26. [3 FINDINGS REPORTED] See
+  cache/aws_agentcore_harness_tools.txt for the literal facts. Headlines:
+  * 5 tool types: remote_mcp | agentcore_gateway | agentcore_browser |
+    agentcore_code_interpreter | inline_function. Builtins shell + file_operations
+    ALWAYS present unless restricted (~900 tokens/request).
+  * *** allowedTools does NOT affect InvokeAgentRuntimeCommand. *** Separate IAM action.
+    Omitted allowedTools = ALL tools allowed (fail-open).
+  * remote_mcp headers hold PLAINTEXT secrets in AWS's own example.
+    Any public MCP by URL, "No Gateway required" => no policy enforcement on that path.
+  * Gateway outbound auth selectable as AWS IAM | None | OAuth.
+  * inline_function = CLIENT-SIDE execution; after_tool_call hook NOT reliable as an
+    authorization/audit signal (AWS's own warning).
+  * Web Search = a Gateway target connectorId "web-search", NOT a tool type. us-east-1.
+  * tools settable at Create/Update AND per-Invoke => create-time snapshot != runtime.
+
+harness-command-shell: AUDITED 2026-09-26. [1 FINDING REPORTED] See
+  cache/aws_agentcore_harness_command_shell.txt. Headlines:
+  * WebSocket bash terminal in the session microVM. wss://.../ws/shells, HARNESS arn only.
+  * TWO auth paths: SigV4 => IAM InvokeAgentRuntimeCommandShell;
+    *** bearer token => harness inbound authorizer, NO IAM action evaluated. ***
+  * *** Neither CloudWatch nor CloudTrail logs terminal input or output. *** Connection
+    metadata only. Command content structurally uncollectable from AWS-native logs.
+  * Same shellId on a 2nd connection REPLACES the 1st (close 4000) = takeover primitive.
+    Detached shells keep running, don't count toward the 10-active limit.
+  * Does NOT state root/uid 0 (contrast InvokeAgentRuntimeCommand, which IS root).
+  * Quotas: 64KB frame, 250 fps, 1hr, 10 active, 20 retained, 256KB replay.
+
+  UNAUDITED harness subpages: harness-versioning, harness-export, harness-operations.
+  *** NEW BACKLOG ITEM — PRIORITISE: harness-lifecycle-hooks, specifically
+      #harness-hook-inline-functions. It was a Sept release-note item AND is the named
+      weak point in the inline-function audit path. ***
+aws_bedrock_changelog: newest 2026-09-21 = cross-model tokens-per-day quota. UNCHANGED.
+aws_q_*: not fetched. Dead 10+ scans. RETIREMENT RECOMMENDED.
+
+=== ANTHROPIC === *** MOVED — AND SOURCE RECOVERED ***
+anthropic_api_releasenotes: *** FETCH SUCCEEDED. The 9/25 block was a ONE-SCAN TRANSIENT.
+  No alternate host needed. /docs/en/release-notes/api remains the right URL. ***
+  Newest = 2026-09-24 (the 9/24 scan topped out at 9/22 — the entry published after it ran).
+  2026-09-24 = 3 bullets:
+    1. Refusal billing resumed for pre-output refusals in stop_details.category
+       "bio" | "frontier_llm" | "reasoning_extraction". NOT REPORTED (billing).
+    2. Compliance API local session endpoints OUT OF BETA for Claude for M365
+       (product_surface prefix "office_agents"). WATCHLIST — stability tier change on an
+       already-covered surface (reported 8/27 and 9/18).
+    3. *** [REPORTED] Activity Feed no longer returns filename/title on file, project
+       document and artifact activities. RETROACTIVE — "including on activities recorded
+       before this change." ID->name lookup needs a Compliance Access Key with
+       read:compliance_user_data. COVERAGE REGRESSION, fails SILENTLY not loudly. ***
+  September list below 9/24, all previously reported: 09-23 cache diagnostics GA,
+    09-22 Opus 5.5 + inline-tools beta, 09-18 claude_in_chrome + cache diagnostics,
+    09-14 compaction-on-demand + thinking_mismatch_allowed, 09-10 managed-agents `auto`
+    permission + ant beta:sessions connect, 09-09 cache fingerprint, 09-03 ant apply,
+    09-01 Fable 5.1 / Mythos 5.1.
+anthropic_news: not fetched this scan (9/23 enzyme entry was research output, not platform).
+
+=== OPENAI === (moved, but body unavailable)
+openai_codex_changelog (learn.chatgpt.com/docs/changelog): newest 2026-09-26
+  "Codex CLI 0.157.1" (was 0.157.0 on 9/25). *** BODY UNRESOLVABLE — the page itself
+  says "the supplied PR index is empty, and the GitHub tag comparison returned 404."
+  Per-release permalinks still 404. CARRY TO NEXT SCAN. ***
+  September list: 0.157.1 (9/26), 0.157.0 (9/25), iOS 1.2026.258 (9/23), 0.156.1 (9/23),
+    GPT-6 Sol and Luna in Codex and ChatGPT Work (9/22), 0.156.0 (9/22).
+  *** OpenAI DevDay 2026 = September 29. THREE DAYS OUT. Expect a large delta. ***
+
+=== GOOGLE === (no movement)
+google_gemini_enterprise_changelog: September literal entry list IDENTICAL to 9/25.
+  Newest 09-23 Gemini 3.8 Flash enabled by default. Count and order unchanged.
+  *** DIFF BY LITERAL ENTRY LIST, NOT BY DATE — this source publishes future-dated items. ***
+  DOC GAP persists: no per-store page for EITHER D&B store. Follow-up sweep still owed.
+
+=== MICROSOFT === (no movement — all feeds still frozen)
+azure-ai-foundry_changelog: /azure/foundry/whats-new-foundry = "August 2026",
+  ms.date 2026-09-01, updated_at 2026-09-09, git_commit 8fea4e7d. 8th CONSECUTIVE FROZEN SCAN.
+  New-articles list byte-identical — DO NOT RE-REPORT (memory: foundry-already-reported-do-not-redup).
+  NOTE: canonical URL is now /azure/foundry/whats-new-foundry (the /azure/ai-foundry/ path
+  still resolves there).
+microsoft-copilot-studio_changelog: 14th consecutive frozen scan. Newest section July 2026.
+  ms.date 2026-08-18, updated_at 2026-09-17, git_commit b32743267a46.
+microsoft-copilot-studio_releasedversions: ~12 weeks stale, newest 2026.6.3.
+  *** STILL NO working Copilot Studio change feed. Replacement candidates: Power Platform
+      release planner, M365 message center. ***
+microsoft-copilot-m365_announcements: unchanged since 2026-08-27.
+microsoft_graph_rss: not fetched; frozen at 2026-08-03 (13th scan).
+
+=== OTHER ===
+cursor_changelog: newest still 2026-09-23 "Rollouts and Security Review". UNCHANGED.
+  (Sep 10 Projects, Sep 2 Self-hosted Machines, Aug 27 Start from Scratch below it.)
+devin_desktop_changelog: newest still v3.10.35 (2026-09-24). UNCHANGED.
+salesforce: www.salesforce.com/news/ newest still 2026-09-16. UNCHANGED. 5th consecutive
+  scan this host renders. Dreamforce (Sept 12-14) delta = the Sept 15-16 cluster:
+  AIforce, Koa (CRM reasoning model on NVIDIA Nemotron), Missionforce+OpenAI, AgentExchange,
+  AWS partnership. *** These were never broken out as findings — worth a back-check. ***
+servicenow: Australia family, page last updated 2026-09-10. UNCHANGED.
+perplexity_changelog: September unchanged in substance. New: GLM 5.3 Flash, Gemini 3.8 Flash
+  (model routing), Oct 24 retirement of 7 older GPT versions, "Fast preset uses Fast Search".
+  None reportable at watching tier. Carried: custom MCP connectors, remote-MCP OAuth,
+  Fast Search (all previously judged).
+dia_changelog: *** RENDERING AGAIN. *** 2026-09-24 entry has real body (brand refresh by
+  team member An; new logo colors + custom icons). Ends 3 consecutive placeholder scans,
+  though the version string still renders as a digit-run artifact.
+  *** OPEN: 2026-09-17 v1.49.0 "Your tool kit, in Dia" has NEVER rendered a body and
+      /release-notes/1-49-0 is a 404. On title alone it may be a tool/extension surface
+      in a browser agent. CHASE NEXT SCAN via search or the in-app changelog. ***
+
+=== STANDING CONFIG DEBT ===
+13 stale/redirecting URLs in sources.json. Confirmed replacements ready to commit:
+  www.salesforce.com/releases/ + investor.salesforce.com -> www.salesforce.com/news/ [5th confirm]
+  bedrock-agentcore doc-history -> use release-notes.html
+  vertex-ai/docs/* x3 -> docs.cloud.google.com/gemini/enterprise/docs/release-notes
+  azure/ai-studio/ -> azure/foundry/whats-new-foundry
+  developers.openai.com/codex/changelog -> 308 learn.chatgpt.com/docs/changelog
+  windsurf.com/changelog -> 308 docs.devin.ai/desktop/changelog
+  platform.claude.com/docs/api/getting-started -> 404, use /docs/en/release-notes/api
+    (CONFIRMED WORKING AGAIN 2026-09-26 — remove the 9/25 blocked-source caveat)
+  Copilot Studio x2 = source REPLACEMENT need, not a URL fix.
+  Amazon Q x4 = RETIREMENT recommended.
+*** NEW: ADD harness-tools and harness-command-shell to sources.json as explicit AgentCore
+    sources. Neither was listed; both produced HIGH findings today, and the release notes
+    that announced them carried none of the detail that made them findings. ***
