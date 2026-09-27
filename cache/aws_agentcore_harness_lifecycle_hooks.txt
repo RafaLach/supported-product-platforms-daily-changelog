@@ -1,0 +1,73 @@
+SOURCE: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-lifecycle-hooks.html
+FETCHED: 2026-09-27  (first full audit; backlog item raised 2026-09-26)
+
+*** LITERAL FACTS ONLY — do not replace with a prose summary. ***
+
+CONFIGURATION
+- Hooks set on CreateHarness / UpdateHarness. NOT available as an InvokeHarness override.
+- Max 20 hooks per harness. Hook names unique within the harness.
+- UpdateHarness `hooks` REPLACES the entire existing list. Empty list = remove all hooks.
+  Omitting `hooks` retains existing config.  => single-call silent de-instrumentation.
+
+EVENTS (4) and deny behavior
+  before_invocation  ctx = ordered `messages` from the current InvokeHarness request,
+                     BEFORE the harness restores session state.
+                     deny => stops invocation; messageStop stopReason = "hook_stopped".
+  before_tool_call   ctx = toolName, toolType, toolUseId, toolInput.
+                     deny => skips the tool call; agent loop CONTINUES.
+  after_tool_call    ctx = toolName, toolType, toolUseId, toolResult, error.
+                     deny => KEEPS the completed tool result, then stops the invocation.
+  after_invocation   ctx = stopReason, usage{inputTokens,outputTokens}.
+                     deny => reported in stream only; cannot retract streamed output.
+
+TARGETS (3)
+  Lambda        synchronous RequestResponse, waits up to timeoutSeconds.
+                *** ONLY target type that can change agent-loop behavior. ***
+                must return {"decision":"allow"|"deny", "reason"?} ; reason capped 1024 chars.
+                timeoutSeconds default 60, range 1-900.
+                failureMode on timeout/error/invalid response: "deny" (default) | "allow".
+                Multiple Lambda hooks on the same event run CONCURRENTLY; any deny applies;
+                first denying hook in list order supplies the reason.
+  SNS           publish as SNS Message. Non-blocking. NO decision returned.
+                FIFO topic: message group ID derived from harness ARN + session ID.
+  EventBridge   payload in `detail`, source "bedrock-agentcore.harness",
+                detail-type "Harness Lifecycle Hook". Non-blocking. NO decision.
+  Standard SNS and EventBridge DO NOT guarantee lifecycle event order.
+  Delivery errors do NOT stop the invocation.
+  Execution role needs permission per target — see harness-security.md#harness-lifecycle-hook-permissions.
+
+*** CONTEXT TRUNCATION — 64 KiB cap per `context` object ***
+  before_invocation: keeps newest contiguous complete messages that fit; adds
+    "truncated": true; if newest message alone exceeds limit, `messages` = [].
+  other events: harness REPLACES the largest context fields with
+    {"truncated": true, "preview": "<prefix of the serialized field>"}
+  *** VERBATIM: "Context truncation does not activate failureMode. The Lambda function
+      receives the truncated context and must return a decision." ***
+  => toolInput / toolResult are exactly the fields most likely to be replaced.
+
+INLINE FUNCTIONS (#harness-hook-inline-functions)
+  - Tool-call hooks DO run for inline_function tools. before_tool_call fires after the model
+    generates the request and before handoff for CLIENT-SIDE execution.
+  - VERBATIM: "The model-generated request can appear in earlier stream events before the
+    hook decision; before_tool_call controls execution, not visibility in the stream."
+  - Result returned in a LATER InvokeHarness request with the same runtimeSessionId.
+    That follow-up is a NEW invocation => invocation hooks run again; before_tool_call is
+    NOT repeated; after_tool_call runs once with the submitted result.
+  - Ordering: harness tool A -> inline B (waits for result) -> harness tool C. Multiple
+    inline functions handed off one at a time.
+  - deny on before_tool_call B => skip B, continue to C. deny on after_tool_call B =>
+    retain B's result, stop before C.
+  - VERBATIM WARNING: "An after_tool_call event for an inline function confirms that the
+    harness processed a result supplied by the client. It does not attest that the client
+    performed the external action represented by that result. Authenticate the caller and
+    validate the result before using the event as an authorization or audit signal."
+
+RESPONSE STREAM
+  InvokeHarness emits a `hookEvent` per fired hook: {hookEventId, name, type, decision, reason}.
+  *** For SNS/EventBridge, `decision` and `reason` are ABSENT and the hookEvent
+      "does not confirm that the target received the event." ***
+  after_invocation hookEvent follows terminal messageStop; some error paths emit
+  after_invocation with NO messageStop.
+
+REPORTED 2026-09-27 as [AIDR][MEDIUM] (truncation + non-authoritative hook events).
+The 4 hook points / Lambda-deny basics were already reported 2026-09-22 — do not re-report.

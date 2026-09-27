@@ -1,0 +1,39 @@
+SOURCE: https://www.diabrowser.com/release-notes/1-49-0-microsoft-tools
+FETCHED: 2026-09-27
+*** The index slug /release-notes/1-49-0 is a 404. Dia per-release slugs are NOT
+    constructible — resolve them via WebSearch. This body failed to render on the
+    09-18, 09-22 and 09-26 scans and was recovered only by searching the title. ***
+
+Dia 1.49.0 — "Your tool kit, in Dia" — 2026-09-17 (Issue No. 042)
+
+MICROSOFT TOOL SUITE (the headline of this release)
+  Outlook      email and calendar
+  Teams        channel messages, thread analysis, meeting chat
+  SharePoint   document changes and content
+  Surfaced through a "Morning Brief" aggregation view
+  (e.g. "a heads-up in your morning brief when a doc updates in SharePoint")
+
+EXISTING, EXTENDED THIS RELEASE
+  Slack        + voice note transcripts, + reading images/screenshots attached to messages
+
+BETA TOOLS (4 new)
+  Zoom         meetings, recordings, summaries, transcripts, notes, action items
+  Salesforce   accounts, contacts, leads, cases, pipeline opportunities
+  Figma        file search, comments, text/layer extraction from designs and FigJams
+  Canva        design search, folder browsing, text and visual content
+
+CATALOG IS OPEN-ENDED: users request further tools via Settings or
+tool-requests@diabrowser.com.
+
+*** NOT DOCUMENTED ANYWHERE ON THE PAGE: authorization/OAuth model, admin controls,
+    tenant-side consent, audit surface, data retention. ***
+
+ADJACENT: 2026-09-24 release note (body recovered same day) adds a Figma tool,
+AI-response pause/resume, search over previous chats, collapsible PR stacks in
+GitHub Live Folders, and a brand refresh.
+
+STILL UNREAD — likely connector releases, audit next scan:
+  1.48.0 (2026-09-10) "Dia 🤝 Microsoft"
+  1.47.1 (2026-09-03) "Dia 🤝 Notion"
+
+REPORTED 2026-09-27 as [ENDPOINT][HIGH].
