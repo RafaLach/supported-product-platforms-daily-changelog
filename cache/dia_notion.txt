@@ -1,0 +1,36 @@
+Dia 1.47.1 "Dia (handshake) Notion" — 2026-09-03
+Slug: https://www.diabrowser.com/release-notes/Notion   (NOT constructible from the version)
+Audited 2026-09-28 (backlog item from the 2026-09-27 scan state).
+
+Capability: Dia searches ACROSS connected tools and WRITES the collected result into a
+Notion document. Verbatim framing from the page: "ask and Dia wrangles Slack dms, long
+email threads, and messy Google Docs (and more) with ease."
+
+Worked example given on the page (verbatim): "Searching across our tools, find me
+conversations where Susan's communication and leadership skills excelled this Summer,
+collecting it all in a Notion doc for me to review."
+
+*** SIGNIFICANCE: this is the first Dia release where a tool is a WRITE TARGET, not just a
+    read source. The 1.49.0 Microsoft/Slack/Zoom/Salesforce tools reported 2026-09-27 were
+    all read-oriented. Notion here is an egress destination. ***
+*** Second distinct property: CROSS-TOOL AGGREGATION. The example query fans out over
+    Slack DMs + email + Google Docs in one request and concentrates the result into a
+    single document — i.e. an employee-performance dossier assembled from four separately
+    governed systems, produced client-side, landing in a fifth. ***
+
+Not documented on the page: authorization model, scopes requested against Notion, admin
+control, audit surface, or whether the write is scoped to a user-owned page.
+
+Dia release-notes index state 2026-09-28 (slug map, for future diffing):
+  2026-09-24  (no version shown)  "Crafted with care, because you spend your day here"
+              — brand refresh: hand-painted elements, "Sunglow Yellow" logo shade, custom
+              brushed New Tab Page icons. NOT REPORTABLE (cosmetic).
+  2026-09-17  v1.49.0  "Your tool kit, in Dia"   /release-notes/1-49-0-microsoft-tools
+              REPORTED 2026-09-27.
+  2026-09-10  v1.48.0  "Dia (handshake) Microsoft"  /release-notes/Tools
+              Outlook + SharePoint + Teams feeding Morning Brief; Slack voice-note
+              transcripts; tab-close/memory fixes. SUBSET OF THE 1.49.0 FINDING —
+              DO NOT RE-REPORT.
+  2026-09-03  v1.47.1  "Dia (handshake) Notion"     /release-notes/Notion
+              THIS FILE. Reported 2026-09-28.
+DIA BACKLOG IS NOW CLEAR. All September releases audited.

@@ -1,35 +1,42 @@
-# ServiceNow (secondary tier) — captured 2026-08-24
-# sources.json points at the FAMILY INDEX, which is useless. STANDING RULE: read the per-application
-# *-rn.html pages directly, NEVER the family index.
-#   https://www.servicenow.com/docs/r/release-notes/family-release-notes.html  <- index, in sources.json
-#   https://www.servicenow.com/docs/r/release-notes/ai-control-tower-rn.html   <- the productive page
+ServiceNow release families — state as of 2026-09-28
 
-## NO CHANGE. Newest release family is still **Australia**; AI Control Tower still at
-## **Australia Patch 4** (page updated March 12, 2026). Identical to the 08-14, 08-21, 08-23 captures.
-The family index confirms Australia is newest and carries NO per-application AI links — it only says
-"The Australia release includes new features and improvements built on the ServiceNow AI Platform."
-This is exactly why the index cannot be used for change detection.
+*** BRAZIL IS REAL. THE 2026-09-27 "RENDER ARTIFACT" CALL WAS WRONG. ***
 
-## Australia Patch 4 feature set (all previously reported)
-- **Activity Center** — centralizes governance tasks and recommendations across AI Control Tower
-- Recommendations and AI insights
-- Monitor quality and safety for AI systems (automated scoring + trend analysis)
-- **Trace connections** — collects data from **AWS, Azure and Google Cloud**
-- Plan AI strategy / prioritize / execute — portfolio planning in one workspace
-- Conversational interface (ServiceNow Otto premium chat with web search)
-- **AI agent containment using KILL SWITCH PROTOCOL** — deactivates rogue agents ACROSS PLATFORMS
-- **Agent network MAP** — visualizes AI models, MCP servers and providers
-- Configure post-runtime security metrics (system prompt leakage, threat monitoring)
-- Specify asset state during AI asset creation
-- Review AI risk and compliance posture
-- New connectors for **Anthropic** (2.0.7) and **Amazon**; Microsoft integration improvements
-  (Google connector 1.2.4)
+Evidence gathered 2026-09-28:
+ 1. https://www.servicenow.com/docs/r/release-notes/family-release-notes.html rendered
+    "Brazil (current)" with Australia / Zurich / Yokohama listed as previous families.
+    Page updated September 10, 2026.
+ 2. https://www.servicenow.com/docs/r/release-notes/ai-agent-advisor-rn.html rendered with
+    Release Family = BRAZIL, AI Agent Advisor v1.4, page updated September 10, 2026.
+    New in 1.4: (a) automation opportunities enhancements — quick-select filters and
+    enhanced resolution-steps pages; (b) delete custom data set analysis.
+ 3. Search corroboration: Brazil EARLY AVAILABILITY landed 2026-09-24 (same date Brazil
+    PDIs became available). General Availability expected early November 2026.
+    ServiceNow community posts: "What's New in ServiceNow Otto for Creator: Brazil EA
+    Release (September 2026 Store Release)"; "CWM Brazil Updates - September 2026 Release".
 
-## Resolved watch item, carried
-AI Control Tower ships in the **Australia** release via the ServiceNow Store; **AI Gateway is
-DEPRECATED and no longer supported** — the "GA expected August 2026" forecast was superseded, not
-met. Australia also introduced **MCP Server Console**, which turns a ServiceNow instance into a
-governed MCP SERVER exposing Subflows, Actions, REST APIs, Knowledge Graphs and Now Assist skills as
-tools. Control Tower can DEACTIVATE AGENTS IN AWS BEDROCK AND GCP VERTEX AI from ServiceNow.
+Family ordering sanity check: ServiceNow families run reverse-alphabetically then restart
+the alphabet — Xanadu, Yokohama, Zurich, Australia, Brazil. Brazil after Australia is the
+CORRECT next family. The name is not implausible; do not dismiss it again.
 
-Updated: 2026-08-24 — no change. Recommend repointing sources.json at the per-application *-rn.html pages.
+*** FETCH INSTABILITY IS THE REAL ISSUE. The docs host serves inconsistent cached
+    variants per request: the SAME family-release-notes.html URL rendered "Brazil" on one
+    fetch and "Australia (no Brazil exists)" on another, WITHIN THE SAME SCAN. The
+    /docs/bundle/brazil-release-notes/... path also returned the Australia variant.
+    now-assist-ai-agents-rn.html and ai-platform-rn.html returned HTTP 404 on direct
+    fetch despite being indexed by search. CONCLUSION: a negative render from this host
+    is NOT evidence of absence. Corroborate with WebSearch before concluding anything. ***
+
+Brazil agentic content reported by preview coverage, NOT yet confirmed on a docs page
+(CARRY as unaudited backlog for the next scan):
+  * Build Agent — now self-upgrading; standalone ServiceNow IDE folded into Studio
+  * Autonomous Engineer
+  * Fluent DSL / Now SDK — five new APIs: RestMessage, Alias, AliasTemplate, RetryPolicy,
+    DataLookup; plus CLI for CI/CD, instance queries and explanations ("metadata as code
+    for both human and AI-agent developers")
+  * Redesigned AI Agent Studio — agents, tools and workflows on one connected canvas;
+    versions the wider agent/workflow definition; can generate an update set for promotion
+  * ServiceNow Otto for Creator — Brazil EA, September 2026 Store Release
+PER-APPLICATION *-rn.html PAGES TO AUDIT NEXT SCAN (memory rule: never the family index):
+  now-assist-ai-agents-rn.html (AI Agent Studio), ai-agent-advisor-rn.html [DONE],
+  and locate the Build Agent / Autonomous Engineer / Fluent equivalents.

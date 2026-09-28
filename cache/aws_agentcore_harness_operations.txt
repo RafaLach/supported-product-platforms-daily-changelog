@@ -1,0 +1,56 @@
+AgentCore harness — Observability and cost controls (harness-operations.html)
+FIRST FULL AUDIT 2026-09-28. Literal facts.
+
+=== CLOUDTRAIL (#harness-cloudtrail) — THE FINDING ===
+"Harness operations are logged to AWS CloudTrail as management events (control plane) and
+data events (data plane). In CloudTrail, harness resources appear under the
+`AWS::BedrockAgentCore::Runtime` resource type RATHER THAN A HARNESS-SPECIFIC TYPE.
+Harness is a managed abstraction over AgentCore Runtime, and CloudTrail events reflect the
+underlying runtime resource for consistency."
+
+ALL harness CloudTrail events use resources.type = AWS::BedrockAgentCore::Runtime.
+Event names:
+  Management: CreateHarness, UpdateHarness, DeleteHarness, GetHarness, ListHarnesses
+  Data:       InvokeAgentRuntime, InvokeAgentRuntimeCommand, InvokeAgentRuntimeCommandShell
+
+*** "Data plane operations appear as InvokeAgentRuntime, InvokeAgentRuntimeCommand, and
+    InvokeAgentRuntimeCommandShell in CloudTrail, matching the underlying Runtime API."
+    -> THERE IS NO `InvokeHarness` EVENT NAME IN CLOUDTRAIL. An InvokeHarness call is
+    indistinguishable by event name from a plain AgentCore Runtime invocation. ***
+"The resources.ARN field contains the HARNESS ARN for control plane events and the
+RUNTIME ARN for data plane events." -> control-plane and data-plane events for the same
+harness carry DIFFERENT ARNs; correlation requires the harness->runtime mapping.
+
+=== OBSERVABILITY ===
+Every invocation auto-generates traces/logs/metrics via AgentCore Observability in
+CloudWatch. "Model calls, tool invocations, memory operations, shell commands: each step
+appears with timing and payload details. No extra configuration."
+*** PRECONDITION: "Before you see traces, enable Transaction Search in CloudWatch
+    (one-time per account)." -> traces are NOT on by default at the account level. ***
+Telemetry flows through the harness EXECUTION ROLE (so a role missing the logs/xray
+statements silently produces no trace).
+"Observability explains activity but is not a billing report."
+
+=== EXECUTION LIMITS (#harness-limits) ===
+maxIterations            reasoning/action cycles per invocation. Default 75.
+timeoutSeconds           wall-clock timeout for a single invocation. Default 3600.
+maxTokens                token budget per invocation. Default N/A.
+idleRuntimeSessionTimeout  how long an idle microVM stays warm. Default 900.
+maxLifetime              max lifetime of a microVM session. Default 28800 (8h).
+"All limits are optional; omit them to use service defaults."
+*** Limits can be OVERRIDDEN PER INVOCATION: passing maxIterations, timeoutSeconds or
+    maxTokens in invoke_harness overrides the configured harness defaults — a caller can
+    raise a control-plane-set bound at call time. ***
+CLI --truncation-strategy accepts sliding_window or summarization.
+
+=== TAGS ===
+Harness tags PROPAGATE to the managed Runtime, Runtime endpoint, and managed Memory created
+for the harness. Separately created resources (Gateway, EFS, S3, BYO Memory) do NOT inherit.
+
+=== COST SURFACE (billable capability list) ===
+AgentCore Runtime (per-second CPU + peak memory from microVM start to termination),
+model inference, AgentCore Memory (events written / records stored / retrievals),
+Browser and Code Interpreter, Gateway and Web Search, Observability (CloudWatch),
+storage and network (ECR/S3/EFS/data transfer).
+Note: Browser and Code Interpreter "tool definitions can still add model input tokens when
+allowed, even if the agent doesn't call them."

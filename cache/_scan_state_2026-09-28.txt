@@ -1,0 +1,124 @@
+Scan 2026-09-28 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-09-27 (1-day delta). 0 of 19 platforms moved on their change feeds
+for the SECOND consecutive day. 6 findings, ALL from auditing backlog pages.
+
+=== AWS === (no feed movement; 2 backlog pages AUDITED and CLEARED)
+aws_agentcore_releasenotes: September 2026 = 5 items, UNCHANGED for the 6th scan
+  (09-23 -> 09-28). 1 Interactive shells  2 Custom OpenAI-compatible endpoints
+  3 Lifecycle hooks  4 Evaluations TypeScript  5 Consent Portal. August unchanged.
+harness-security: AUDITED 2026-09-28. BACKLOG ITEM CLEARED. [3 FINDINGS REPORTED]
+  Literal facts in cache/aws_agentcore_harness_iam_permissions.txt. Headlines:
+  * additionalParams passed through "unchanged... does not validate, filter, or restrict."
+    LiteLLM aws_bedrock_runtime_endpoint reroutes the SIGNED request incl. SigV4 signature
+    and session credentials. OpenAI extra_headers overrides the Authorization header.
+    aws_role_name attempts sts:AssumeRole. modelId/apiBase redirect the provider.
+  * *** skills CAN BE OVERRIDDEN PER InvokeHarness CALL, fetched from S3/Git at invocation
+    time, "treats all skill content as trusted input", never inspected. ***
+  * IAM table = 14 rows. InvokeAgentRuntimeCommandShell is the ONLY invoke API not also
+    requiring InvokeAgentRuntime. New ARN types: harness/<id> and
+    harness/<id>/harness-endpoint/<name>.
+  * SigV4 does NOT propagate per-user identity downstream; Token Vault per-user scoping is
+    JWT-inbound ONLY. "planned for a future release."
+  * DOES exist server-side: harness rejects a toolUse block in the FINAL message. Non-harness
+    AgentCore Runtime has "no server-side protection" for the same thing.
+  * The AWS sample execution role (created AUTOMATICALLY by the AgentCore CLI) grants
+    bedrock:InvokeModel on foundation-model/* across all regions + all account Bedrock.
+harness-operations: AUDITED 2026-09-28. BACKLOG ITEM CLEARED. [1 FINDING REPORTED]
+  Literal facts in cache/aws_agentcore_harness_operations.txt. Headlines:
+  * *** NO harness CloudTrail resource type. Everything is AWS::BedrockAgentCore::Runtime.
+    There is NO `InvokeHarness` CLOUDTRAIL EVENT NAME — data plane logs as
+    InvokeAgentRuntime / InvokeAgentRuntimeCommand / InvokeAgentRuntimeCommandShell. ***
+  * resources.ARN = harness ARN on control plane, RUNTIME ARN on data plane. The two halves
+    do not join without an externally built harness->runtime map.
+  * Traces require Transaction Search enabled in CloudWatch, ONE-TIME PER ACCOUNT. Off by
+    default => a harness can run with zero trace data and no error.
+  * Limits: maxIterations 75 / timeoutSeconds 3600 / maxTokens none / idleRuntimeSession
+    Timeout 900 / maxLifetime 28800. First three are OVERRIDABLE PER INVOCATION.
+  * Harness tags propagate to managed Runtime, Runtime endpoint and managed Memory only.
+UNAUDITED harness subpages REMAINING: harness-versioning, harness-export, harness-memory,
+  harness-environment, harness-models, harness-get-started#api-documentation. Lower
+  priority than the two cleared today but harness-versioning + harness-export are next.
+agentcore_api_operations: not re-fetched. Literal list was 67 ops, byte-identical 09-21
+  through 09-27. InvokeAgentRuntimeCommandShell is STILL absent from that Actions list yet
+  appears in today's IAM table -> the op list remains an incomplete picture. CONFIRMED.
+aws_bedrock_changelog: newest 2026-09-21 cross-model TPD quota. UNCHANGED.
+aws_q_*: not fetched. Dead 12+ scans. RETIREMENT RECOMMENDED.
+
+=== ANTHROPIC === (no movement)
+anthropic_api_releasenotes: newest STILL 2026-09-24 (refusal billing / office_agents out of
+  beta / Activity Feed filename+title removal). All three handled 09-26. UNCHANGED.
+
+=== OPENAI === (no movement)
+learn.chatgpt.com/docs/changelog: newest still 2026-09-26 Codex CLI 0.157.1, body STILL
+  UNRESOLVABLE upstream (3rd scan). September list otherwise unchanged.
+  *** OPENAI DEVDAY 2026 IS TOMORROW, 2026-09-29. EXPECT A LARGE DELTA. ***
+
+=== GOOGLE === (no movement)
+google_gemini_enterprise_changelog: newest still 2026-09-23 Gemini 3.8 Flash by default.
+  Literal September entry list unchanged. The future-dated 09-29 D&B entry is again absent
+  from the render (present 9/24, absent 9/27 and 9/28) — render variance, keep diffing the
+  literal list, never diff by date.
+
+=== MICROSOFT === (all feeds still frozen)
+azure-ai-foundry_changelog: "August 2026", ms.date 2026-09-01, updated_at 2026-09-09,
+  git_commit 8fea4e7d850e658ebcbb7d43e0b2a45850338602. *** 10th CONSECUTIVE FROZEN SCAN. ***
+  New-articles list byte-identical (autopilot-*, long-running-agent-*, private-skill-catalog,
+  toolbox-network-isolation, capability-reference, etc). Do NOT re-report — see memory
+  [[foundry-already-reported-do-not-redup]].
+microsoft-copilot-studio_changelog: newest section July 2026, ms.date 2026-08-18,
+  updated_at 2026-09-17, git_commit b32743267a46a1d23ea0e05299cca124a550d107.
+  *** 16th CONSECUTIVE FROZEN SCAN. ***
+microsoft_graph_changelog: 15th consecutive failure (nav chrome only).
+
+=== SERVICENOW === *** THE MISS OF THE WEEK, NOW CORRECTED ***
+BRAZIL IS REAL. EA 2026-09-24. GA expected early November 2026.
+The 2026-09-27 "model-render artifact / no Brazil exists" conclusion WAS WRONG.
+Confirmations today: family-release-notes.html rendered "Brazil (current)";
+ai-agent-advisor-rn.html rendered Release Family = Brazil (v1.4, page 2026-09-10);
+application-development/build-agent.html rendered Release Family = Brazil (2026-09-10);
+plus community Store-release posts and Brazil PDI availability.
+*** ROOT CAUSE OF THE MISS: servicenow.com/docs serves INCONSISTENT CACHED VARIANTS of the
+    SAME URL within a single scan. Today the /docs/bundle/brazil-release-notes/ path still
+    returned the Australia variant, and now-assist-ai-agents-rn.html + ai-platform-rn.html
+    both 404'd despite being search-indexed. A NEGATIVE RENDER FROM THIS HOST IS NOT
+    EVIDENCE OF ABSENCE. Always corroborate with WebSearch before concluding "no change". ***
+REPORTED TODAY: Brazil family + Autonomous Engineer (new AI Workflow Factory SKU) +
+  Build Agent Skills/Rules/playbooks + Fluent 5 new APIs + AI Agent Studio canvas.
+ALREADY REPORTED 2026-09-18 under Zurich, do NOT re-report: Build Agent MCP support,
+  Build Agent global-scope authoring, AI Control Tower redesign, Machine Identity Access
+  Controls, publishing managed agents to external registries.
+NOT YET REPORTED, CARRY: the May 2026 newsroom item "Build Agent now works inside every
+  major AI coding tool" — Build Agent runs as an MCP CLIENT inside Cursor, Windsurf,
+  Claude Code and GitHub Copilot via the ServiceNow SDK, pulling Figma specs, Miro
+  requirements and GitHub code context. That is an ENDPOINT-tier finding that predates
+  this monitor's ServiceNow coverage and has zero hits in reports/. AUDIT AND REPORT.
+BACKLOG: re-try now-assist-ai-agents-rn.html (AI Agent Studio) and locate the Autonomous
+  Engineer / Fluent *-rn.html pages. Memory rule holds: per-application *-rn.html, never
+  the family index.
+
+=== OTHER ===
+dia: *** BACKLOG NOW CLEAR. *** 1.47.1 Notion (09-03) audited -> cache/dia_notion.txt.
+  FIRST WRITE-CAPABLE TOOL (Notion is an egress destination, not a read source) + cross-tool
+  aggregation over Slack DMs + email + Google Docs into one doc. REPORTED.
+  1.48.0 (09-10, slug /release-notes/Tools) audited = strict subset of the 1.49.0 finding
+  reported 09-27. NOT re-reported. 09-24 entry = brand refresh, cosmetic, not reportable.
+  *** SLUGS REMAIN NON-CONSTRUCTIBLE AND ARE NOT EVEN VERSION-SHAPED: /release-notes/Tools
+      and /release-notes/Notion are bare words. ALWAYS resolve via WebSearch. ***
+cursor_changelog: newest still 2026-09-23 "Rollouts and Security Review". UNCHANGED.
+salesforce: www.salesforce.com/news/ newest still 2026-09-16. 7th consecutive render.
+  STILL OPEN: the Sept 15-16 Dreamforce cluster (AIforce, Koa/NVIDIA Nemotron, Missionforce
+  +OpenAI, AgentExchange, AWS partnership, Adecco 40-country Agentforce Coworker rollout)
+  was never broken out as findings. BACK-CHECK STILL OWED — 2nd scan carried.
+perplexity_changelog: model routing + legacy model retirement + Fast Search pricing.
+  Below the watching-tier bar.
+
+=== STANDING CONFIG DEBT ===
+13 stale/redirecting URLs in sources.json, unchanged from 9/26 and 9/27. Still uncommitted:
+  ADD harness-tools, harness-command-shell, harness-lifecycle-hooks, harness-security and
+  harness-operations as explicit AgentCore sources (ALL FIVE produced findings; the release
+  notes carried none of the detail). The harness subpage tree is the single highest-yield
+  source this monitor has.
+  ADD a note to the Dia source: per-release slugs require WebSearch resolution and are not
+  version-shaped.
+  ADD a note to the ServiceNow source: the docs host serves inconsistent cached variants;
+  corroborate negative renders with WebSearch.
