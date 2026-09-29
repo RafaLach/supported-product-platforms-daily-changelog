@@ -1,59 +1,25 @@
-# OpenAI / Codex — captured 2026-09-02
-# Source used: https://learn.chatgpt.com/docs/changelog
-# sources.json has developers.openai.com/codex/changelog, which 308-redirects here. Unfixed.
+SOURCE: https://learn.chatgpt.com/docs/changelog  CACHED 2026-09-29
+LITERAL SEPTEMBER 2026 LIST (in page order):
+2026-09-28 Codex CLI 0.158.0   <-- NEW since the 09-28 scan
+2026-09-26 Codex CLI 0.157.1   (body still unresolvable upstream, 4th consecutive scan)
+2026-09-25 macOS security update 26.924 (CVE-2026-100754)
+2026-09-25 Codex CLI 0.157.0
+2026-09-23 ChatGPT for iOS 1.2026.258
+2026-09-23 Codex CLI 0.156.1
+2026-09-22 GPT-6 Sol and Luna
+2026-09-22 Codex CLI 0.156.0
+NOTHING dated 2026-09-29. DevDay keynote is 10:00 PT 2026-09-29 — after this scan ran.
 
-## NEWEST: 2026-09-01. Prior scan (08-30) read through the 2026-08-25 items.
-## NEW SINCE: Codex CLI 0.150.0 (Aug 26), 0.150.1 (Aug 27), 0.151.0 (Aug 29), 0.152.0/0.152.1 (Sep 1),
-## plus two ChatGPT iOS builds.
-
-2026-09-01 Codex CLI 0.152.1 — "Guardian approval review now honors Node REPL policies provided
-  through MODEL METADATA."  => a POLICY INPUT ARRIVING WITH THE MODEL rather than from local config.
-2026-09-01 Codex CLI 0.152.0 — **per-tool MCP `output_token_limit` settings** (per-tool truncation =
-  per-tool EVIDENCE LOSS for anything inspecting tool output); MCP server names now accept
-  package-style formatting (`:`, `@`, `/`, `.`); credential-refresh progress display for
-  **Amazon Bedrock reauthentication**; configurable app-server `thread/shellCommand` timeouts
-  **EXCEEDING ONE HOUR**; planning tool now OPT-IN; Vim `/` and `?` search; rate-limit banners.
-2026-08-29 Codex CLI 0.151.0 *** EXTENSION-LEVEL MCP TOOL RESULT INSPECTION/REPLACEMENT ***
-  REPORTED 09-02 MEDIUM/AIDR. An extension can INSPECT **OR REPLACE** an MCP tool result BEFORE IT
-  REACHES THE MODEL. Cuts both ways: a defensive integration point stronger than the hook surface,
-  AND a supply-chain component with model-facing write access (a replaced result is indistinguishable
-  from a genuine one). Same release: configurable grace period for OPTIONAL MCP server tool discovery;
-  **plugin catalogs now COMBINE PER-REPOSITORY CONFIGURATION** while reporting invalid marketplaces
-  separately => A REPOSITORY CAN CONTRIBUTE PLUGIN SOURCES to a developer's session
-  (the agent-plugins-cross-vendor-standard pattern arriving in another client).
-  Also: remote sandbox enforcement using EXECUTOR METADATA; structured MCP error preservation;
-  nested SUBAGENT token budgeting; stale Guardian classification prevention.
-2026-08-27 Codex CLI 0.150.1 — remote compaction counts retained images toward its token budget.
-2026-08-26 Codex CLI 0.150.0 — **`@` task mentions "enabling agents to READ/CREATE/MESSAGE TASKS"**
-  (agent-to-agent and agent-to-human comms through a channel not currently modelled);
-  new **`Interrupt` hooks** for interrupted-turn commands and MCP handlers; `/copy` picker;
-  automatic unnamed-task titling; clickable Markdown links; permission-mode cycle shortcuts.
-  Fixes touching: untrusted project instructions, MANAGED DENY-READ ENFORCEMENT, CREDENTIAL REDACTION,
-  REMOTE MCP BEARER-TOKEN RESOLUTION, Amazon Bedrock compaction/multi-agent compatibility.
-2026-08-26 ChatGPT for iOS 1.2026.230 — task search across connected hosts; Home Screen shortcuts for
-  ChatGPT / Work / Codex Remote.
-2026-09-01 ChatGPT for iOS 1.2026.237 — cross-host attachments (Photo Library video), Priority view,
-  queued prompt syncing with background sending, live working-time display, thread ID copying.
-
-## ALREADY REPORTED 2026-08-26, do not re-report:
-2026-08-25 Browser extensions on Edge/Brave/Opera/Vivaldi; desktop built-in browser **Site tools
-  (WebMCP)** via GPT-5.6 Sol/Terra; CLOUD BROWSER SIGN-IN; scheduled tasks TRIGGERED BY
-  Gmail / Slack / GitHub events; `codex mcp-server` deprecated in favour of the Codex app server.
-
-## SDK STREAM — openai-python /releases and openai-node /releases (NEITHER IS IN sources.json)
-python v3.7.0 (Sep 2) update usage APIs + docs; no repeated numpy validation for embeddings.
-python v3.6.0 (Aug 28) **compute_units** added to response + chat completion usage metrics;
-  **X.509 workload identity hardening**.
-python v3.5.0 (Aug 27) function call output identifiers now OPTIONAL in API responses.
-python v3.4.0 (Aug 26) **obfuscation field on ChatCompletionChunk**; **PROJECT RESIDENCY
-  CONFIGURATION** and **cost units**; fixes to Realtime encoding, WebSocket redirects, Azure
-  deployment-name encoding, SSE incremental decoding.
-node v7.9.0 (Sep 2) usage APIs; WebSocket redirect prevention.
-node v7.8.0 (Aug 27) compute_units on Responses + Chat Completions; default WebSocket User-Agent;
-  **AUDIT LOG EVENTS**; workload identity refresh-buffer clamping; X.509 hardening.
-=> library-level plumbing, held from the report but PARSER-RELEVANT: compute_units, cost units,
-   project residency, obfuscation, audit log events.
-Fetch trap: github.com/openai/openai-python/blob/main/CHANGELOG.md renders GitHub chrome only.
-Use /releases or /releases/tag/<version>.
-
-Updated: 2026-09-02.
+0.158.0 body:
+- MCP: connect to MCP servers that require PRE-REGISTERED OAuth CLIENT SECRETS, including
+  via `codex mcp add --oauth-client-secret`. => Codex now holds OAuth client secrets locally.
+- Direct exec-server WebSocket connections now support BEARER TOKEN authentication;
+  support extended to app-server configured connections.
+- Image gen/edit: explicit transparent backgrounds; edits accept file-backed conversation
+  images.
+- Terminal input approval ON BY DEFAULT for commands with elevated permissions.
+- copy-on-select + right-click paste in the fullscreen TUI; copied transcript selections
+  preserve Markdown formatting.
+Fixes: Windows sandbox standard paths/credential handling, Linux sandbox startup with
+nested writable roots, git metadata protection across multiple writable roots, macOS patch
+system path aliases, approval-review retry on new input, Mermaid quoted labels/ampersands.

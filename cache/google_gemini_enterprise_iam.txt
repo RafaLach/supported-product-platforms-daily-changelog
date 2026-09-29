@@ -1,0 +1,14 @@
+SOURCE: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes
+CACHED: 2026-09-29. Entry dated 2026-09-28.
+TITLE: "Configure granular access controls for apps and data stores"
+- Admins can "configure granular, resource-level Identity and Access Management (IAM)
+  permissions to restrict access to specific Gemini Enterprise apps and data stores using
+  the Google Cloud console, the Google Cloud CLI, or the REST API."
+- Gemini Enterprise Admin / Viewer / User roles can now be bound on INDIVIDUAL apps or data
+  stores, without project-wide access.
+- Custom PROJECT-level roles for "restricted administrators, restricted viewers, and
+  restricted end users so principals can access only their assigned apps and data stores."
+- New console surface: view data store configurations, connected apps, sync details and
+  user permissions.
+=> APP and DATA STORE are now IAM resource scopes. Project-level IAM reads no longer
+   describe effective access.

@@ -1,0 +1,87 @@
+Scan 2026-09-29 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-09-28 (1-day delta). The 2-day feed drought BROKE: Anthropic, Google
+and OpenAI all moved. 4 findings, 3 platforms.
+
+*** NEXT SCAN PRIORITY: OPENAI DEVDAY 2026 was 2026-09-29 10:00 PT, AFTER this scan ran.
+    Nothing dated 09-29 was on any OpenAI feed at scan time. Press says "a dozen or more"
+    products incl. a GPT-6 Cyber preview, plus rumors of an always-on assistant "o", a
+    faster API tier and a $500 ChatGPT plan. Hit openai.com/index + the API changelog +
+    learn.chatgpt.com/docs/changelog FIRST next run. openai.com/news/ returns 403 to
+    WebFetch — use openai.com/index or WebSearch. ***
+
+=== ANTHROPIC === (MOVED — 2 findings, plus a major backlog clear)
+anthropic_api_releasenotes: NEW entry 2026-09-28 (3 bullets). Literal Sept date list is now
+  09-28, 09-24, 09-23, 09-22, 09-18, 09-14, 09-10, 09-09, 09-03, 09-01. Cache updated.
+  * Claude Sonnet 5.5 (claude-sonnet-5-5). Model launch itself NOT reported (version bump).
+  * ACCOUNT-BOUND THINKING BLOCKS reported: cross-account replay is DROPPED SILENTLY and
+    the request SUCCEEDS. No error. Earlier models unaffected.
+*** ADVISOR TOOL: AUDITED FOR THE FIRST TIME EVER. 2 FINDINGS. ***
+  Found by chasing the Sonnet 5.5 line "the advisor tool rejects Opus 4.8, Opus 4.7 and
+  Sonnet 5 as advisors". Type string is advisor_20260301 — dated MARCH 2026, so this has
+  been live and uncovered for ~6 months. Literal facts in cache/anthropic_advisor_tool.txt.
+  Headlines:
+  * Advisor receives the executor's FULL TRANSCRIPT: system prompt + tool definitions +
+    all prior turns + all tool results + in-flight executor text. server_tool_use.input is
+    ALWAYS EMPTY — the app cannot see or control what was sent.
+  * max_uses DEFAULT IS UNLIMITED.
+  * On Sonnet 5.5 / Fable 5.1 / Mythos 5.1 / Opus 5.5 / Opus 5 / Fable 5 / Mythos 5 the
+    result is advisor_redacted_result with encrypted_content, and those executors pair ONLY
+    with encrypted-returning advisors => THE ADVICE TEXT IS UNREADABLE BY THE CUSTOMER.
+  * SECOND SHAPE on Claude Managed Agents: roster entry {"type":"advisor","model":...},
+    advice arrives as THREAD EVENTS, not advisor_tool_result blocks. Block-type detectors
+    miss this path.
+  * Beta on Claude API + Claude Platform on AWS. NOT Bedrock / Google Cloud / Foundry.
+  UNMINED advisor doc sections (NEXT BACKLOG ITEM): Multi-turn conversations (Resuming a
+  paused turn; Mid-conversation nudge for under-calling executors), Advisor prompt caching
+  (executor-side vs advisor-side), Combining with other tools.
+
+=== GOOGLE === (MOVED — 1 finding)
+google_gemini_enterprise_changelog: NEW entry 2026-09-28 "Configure granular access
+  controls for apps and data stores". Literal Sept date list now: 09-28, 09-23, 09-22,
+  09-21, 09-18, 09-17, 09-11, 09-10, 09-09, 09-08, 09-04, 09-03, 09-02, 09-01.
+  The future-dated 09-29 D&B entry rendered again today under 09-22 — render variance as
+  always, keep diffing the literal list, NEVER by date.
+  Direct doc: /gemini/enterprise/docs/iam-policy-for-apps. Key beyond the release note:
+  project-level IAM OVERRIDES app-level policy (need the new Gemini Enterprise RESTRICTED
+  User role to actually restrict); setIamPolicy REPLACES the whole policy; role id is
+  roles/discoveryengine.agentspaceUser.
+
+=== OPENAI === (MOVED — 1 finding)
+learn.chatgpt.com/docs/changelog: NEW 2026-09-28 Codex CLI 0.158.0.
+  * codex mcp add --oauth-client-id/--oauth-client-secret PERSISTS an OAuth client secret
+    into the Codex server config on the workstation.
+  * exec-server WebSocket connections now take BEARER TOKENS (also app-server configured).
+  * Terminal input approval now ON BY DEFAULT for elevated-permission commands.
+  0.157.1 body STILL unresolvable upstream (4th consecutive scan) — stop retrying it.
+
+=== AWS === (no movement)
+aws_agentcore_releasenotes: September = SAME 5 items, UNCHANGED for the 7th scan
+  (09-23 -> 09-29). August unchanged. Full heading list cached.
+aws_bedrock_changelog: newest still 2026-09-21 cross-model TPD quota. UNCHANGED.
+aws_q_*: not fetched. Dead 13+ scans. RETIREMENT RECOMMENDED.
+UNAUDITED AgentCore harness subpages REMAINING: harness-versioning, harness-export,
+  harness-memory, harness-environment, harness-models, harness-get-started#api-documentation.
+  Now second in the backlog behind the advisor-tool subsections.
+
+=== MICROSOFT === (no movement; TWO dead primary-tier feeds)
+foundry whats-new: STILL the AUGUST 2026 edition (ms.date 2026-09-01, updated_at 09-09).
+  No September roll-up. All New-articles already reported 2026-08-09 — DO NOT RE-DUP.
+copilot-studio whats-new: *** now frozen at JULY 2026 (ms.date 2026-08-18). *** Notable-
+  changes list tops at July. Confirms the dead-feed memory. Second dead MS feed.
+graph changelog: page truncates before any entry renders. Unusable, 3rd scan.
+
+=== SECONDARY / WATCHING === (no movement)
+servicenow: Brazil family page renders navigation chrome only today. Brazil EA 2026-09-24
+  already reported 09-28. Consistent with the known cached-variant flakiness.
+cursor: newest still 2026-09-23 Rollouts + Security Review. UNCHANGED.
+perplexity: September set unchanged (custom connectors, MCP OAuth, model preset swaps to
+  GPT-6 Luna/Sol and Claude Opus 5.5 on xhigh). Custom connectors reported 2026-09-21.
+  Page still publishes NO per-entry dates — month granularity only.
+dia: newest 2026-09-24 brand refresh. Backlog cleared 09-28. Nothing new.
+salesforce: no movement on the investor.salesforce.com mirror.
+
+=== METHOD NOTE WORTH KEEPING ===
+Today's two HIGH findings came from following a cross-reference inside a release note
+("the advisor tool rejects...") to a doc page that no feed ever announced. The feed told us
+a model shipped; the CROSS-REFERENCE told us a whole tool existed. Chase the nouns in
+release notes that the monitor has never seen before — grep reports/ for each one.

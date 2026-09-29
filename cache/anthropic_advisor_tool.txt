@@ -1,0 +1,42 @@
+SOURCE: https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool
+CACHED: 2026-09-29 (FIRST AUDIT — never covered by this monitor before)
+
+LITERAL FACTS:
+- Tool type string: "advisor_20260301"  name: "advisor". Server-side tool.
+- Required params: type, name, model (advisor model id). Optional: max_uses (default
+  UNLIMITED), max_tokens (min 1024), caching {"type":"ephemeral","ttl":"5m"|"1h"}.
+  Also accepts cache_control, allowed_callers, defer_loading, strict.
+- Flow: executor emits server_tool_use {name:"advisor", input:{}} -> Anthropic runs a
+  SEPARATE SERVER-SIDE INFERENCE PASS on the advisor model -> advisor_tool_result block.
+- *** The advisor "receives the executor's full transcript as quoted context in its input.
+  That transcript includes your system prompt, the tool definitions, the prior turns and
+  tool results, and the text the executor has produced so far in this turn." ***
+- "The server_tool_use.input is always empty. The server constructs the advisor's view from
+  the full transcript automatically. Nothing the executor puts in input reaches the advisor."
+- Advisor runs WITHOUT tools and WITHOUT context management. Its thinking blocks are dropped.
+- Result variants (discriminated union on advisor_tool_result.content):
+    advisor_result           -> text, stop_reason        (e.g. Claude Opus 4.8 advisor)
+    advisor_redacted_result  -> encrypted_content, stop_reason
+  *** Sonnet 5.5, Fable 5.1, Mythos 5.1, Opus 5.5, Opus 5, Fable 5, Mythos 5 advisors
+  return the ENCRYPTED variant. Those models as EXECUTORS pair ONLY with advisors that
+  return the encrypted form => "on those executors the advice text isn't readable in the
+  response." Customer-opaque model-to-model channel. ***
+- Errors: advisor_tool_result_error, error_code "max_uses_exceeded".
+- Model compatibility: advisor must be Sonnet 4.6 or more capable AND at least as capable as
+  the executor. Invalid pair -> 400 invalid_request_error.
+- Platform availability: BETA on the Claude API and Claude Platform on AWS. NOT on Amazon
+  Bedrock, Google Cloud, or Microsoft Foundry.
+- Claude Managed Agents variant: configured as part of the AGENT, not as a tool definition —
+  add {"type":"advisor","model":...} to the agent's MULTIAGENT ROSTER. No max_uses/max_tokens/
+  caching there. Advice delivered as THREAD EVENTS on the session event stream, NOT as
+  advisor_tool_result blocks.
+- Composes with other tools in the same tools array (doc example pairs it with web_search
+  and a client-side run_bash tool).
+- Sonnet 5.5 release note (2026-09-28): "The advisor tool rejects Claude Opus 4.8,
+  Claude Opus 4.7, and Claude Sonnet 5 as advisors."
+- Doc page headings (for future diffing): When to use it / Quick start / How it works /
+  Tool parameters / Response structure (Successful advisor call, Result variants, Error
+  results) / Multi-turn conversations (Resuming a paused turn, Mid-conversation nudge) /
+  Streaming / Usage and billing / Advisor prompt caching (Executor-side, Advisor-side) /
+  Combining with other tools / Best practices / Model compatibility (+ Platform
+  availability) / Advisor on Claude Managed Agents / Next steps.

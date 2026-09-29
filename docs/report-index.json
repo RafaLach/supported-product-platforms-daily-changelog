@@ -1,5 +1,75 @@
 [
   {
+    "date": "2026-09-29",
+    "scan_time": "2026-09-29 08:24",
+    "file": "report-2026-09-29.md",
+    "platforms": [
+      {
+        "name": "Claude Enterprise (Anthropic)",
+        "status": "error",
+        "details": [
+          "**The advisor tool \u2014 a caller-configured second model that reads the entire",
+          "**On current models, the advice text is unreadable by the customer.**",
+          "**`max_uses` defaults to unlimited.** The tool takes `model` (required \u2014 the advisor's",
+          "**A second, differently-shaped form exists on Claude Managed Agents.** There the advisor",
+          "**Availability:** beta on the Claude API and on Claude Platform on AWS. Explicitly **not**",
+          "**Claude Sonnet 5.5 shipped 2026-09-28 with account-bound thinking blocks.** Thinking"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Google Gemini Enterprise",
+        "status": "changed",
+        "details": [
+          "**Resource-level IAM on apps and data stores (2026-09-28).** Administrators can now"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "ChatGPT Enterprise (OpenAI)",
+        "status": "changed",
+        "details": [
+          "**Codex CLI 0.158.0 (2026-09-28) adds OAuth client-secret storage and bearer-token"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Anthropic advisor tool \u2014 an undeclared, model-initiated transcript egress to a second model",
+        "description": "A new server-side tool (`advisor_20260301`) lets any Claude request nominate a second \"advisor\" model that, on the executor's own initiative, receives the **entire conversation transcript including the system prompt, all tool definitions, every prior turn and every tool result**. The calling application never sees what was sent \u2014 `server_tool_use.input` is always empty and the server assembles the advisor's view itself. `max_uses` defaults to **unlimited**, so a single request can trigger an unbounded number of these passes. AIDR needs a new activity type for advisor invocations and must treat the `advisor` tool's presence in a `tools` array as a full-context data flow to a second model, distinct from the tool calls it already tracks",
+        "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Advisor results are encrypted on every current model \u2014 an opaque model-to-model channel",
+        "description": "On Sonnet 5.5, Fable 5.1, Mythos 5.1, Opus 5.5, Opus 5, Fable 5 and Mythos 5, the advisor returns `advisor_redacted_result` with `encrypted_content`, and those models as executors *cannot* be paired with a plaintext advisor \u2014 Anthropic states \"the advice text isn't readable in the response.\" Strategic guidance therefore reaches the executor and steers its subsequent tool calls through a channel neither the customer nor any content inspector can read. This is a prompt-injection amplification path worth red-teaming: content injected into the transcript reaches the advisor, whose (invisible) response then redirects the executor. AIRT should build probes that measure executor behaviour change across advisor-on/advisor-off runs, since inspecting the advice directly is not possible. A second variant exists on Claude Managed Agents where advice is delivered as **thread events** rather than result blocks, so detectors keyed on the block type miss it",
+        "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#result-variants",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Gemini Enterprise resource-level IAM on apps and data stores",
+        "description": "Gemini Enterprise apps and data stores are now first-class IAM resource scopes, managed through `getIamPolicy` / `setIamPolicy` on the app itself, with `roles/discoveryengine.agentspaceUser` bound per-app, alongside new custom project-level roles for restricted administrators, viewers and end users. Two behaviours make this a detection requirement rather than a nicety. First, **project-level IAM takes precedence over app-level policy** \u2014 a principal holding Gemini Enterprise User at the project level reaches *every* app regardless of app-level bindings, so genuinely restricting a user requires swapping them to the new **Gemini Enterprise Restricted User** role and then granting per-app. Second, `setIamPolicy` **replaces** the entire policy, so a partial write silently strips bindings. AISPM must fetch per-resource IAM policy on each app and data store, add the restricted-{administrator,viewer,user} personas to its inventory, and flag the toxic combination of a project-level Gemini Enterprise User grant coexisting with app-level restrictions that it silently defeats",
+        "source": "https://docs.cloud.google.com/gemini/enterprise/docs/iam-policy-for-apps",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Codex CLI stores MCP OAuth client secrets and exposes bearer-authenticated exec-server WebSockets",
+        "description": "Codex CLI 0.158.0 adds `codex mcp add --oauth-client-id <id> --oauth-client-secret <secret>`, which **persists a pre-registered OAuth client secret into the Codex server configuration** on the developer workstation (the secret is redacted in debug output and kept out of authorization URLs and persisted token records, but the config file itself now holds it). The same release adds bearer-token authentication to direct exec-server WebSocket connections, extended to app-server configured connections. ENDPOINT needs to inventory this new credential material in the Codex config and to recognise the exec-server WebSocket as a locally-listening, token-authenticated command-execution surface",
+        "source": "https://learn.chatgpt.com/docs/extend/mcp",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-09-28",
     "scan_time": "2026-09-28 09:24",
     "file": "report-2026-09-28.md",
@@ -516,12 +586,5 @@
         "action": "New Coverage Required"
       }
     ]
-  },
-  {
-    "date": "2026-09-21",
-    "scan_time": "2026-09-21 11:09",
-    "file": "report-2026-09-21.md",
-    "platforms": [],
-    "findings": []
   }
 ]

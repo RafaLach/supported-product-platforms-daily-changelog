@@ -1,0 +1,23 @@
+SOURCE: https://platform.claude.com/docs/en/release-notes/api  CACHED 2026-09-29
+LITERAL SEPTEMBER 2026 DATE LIST: 09-28, 09-24, 09-23, 09-22, 09-18, 09-14, 09-10, 09-09,
+09-03, 09-01.
+
+2026-09-28 (NEW since the 09-28 scan) — 3 bullets:
+ 1. Claude Sonnet 5.5 (claude-sonnet-5-5) launched; Claude API, Amazon Bedrock, Claude
+    Platform on AWS, Google Cloud, Microsoft Foundry.
+ 2. Five breaking changes vs Sonnet 5: thinking {"type":"between_tools"} replaces
+    "disabled" at high effort or below; tool_choice any/tool returns 400; thinking blocks
+    tied to model AND conversation; computer_20251124 not accepted on Claude API + Google
+    Cloud; *** the ADVISOR TOOL rejects Opus 4.8, Opus 4.7 and Sonnet 5 as advisors. ***
+ 3. *** ACCOUNT-BOUND THINKING BLOCKS: thinking blocks Sonnet 5.5 produces "work only in
+    the account that produced them, or in an account linked to it. When another account
+    sends one of these blocks, the API DROPS THE BLOCK BEFORE THE MODEL SEES IT, AND THE
+    REQUEST SUCCEEDS." Earlier models unaffected. Silent degradation, no error raised. ***
+
+Earlier September entries byte-stable vs prior cache: 09-24 refusal billing resumed for
+bio/frontier_llm/reasoning_extraction + Compliance API local sessions GA for office_agents
++ Activity Feed filename/title removal; 09-23 cache diagnostics out of beta; 09-22 Opus 5.5
++ inline tool definitions beta (inline-tools-2026-09-15, mcp_tool_listing block); 09-18
+Compliance API claude_in_chrome local sessions; 09-14 compaction-on-demand +
+thinking_mismatch_allowed; 09-10 Managed Agents `auto` permission policy + ant beta:sessions
+connect; 09-09 cache diagnostics fingerprint; 09-03 ant apply; 09-01 Fable 5.1 / Mythos 5.1.
