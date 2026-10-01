@@ -1,5 +1,75 @@
 [
   {
+    "date": "2026-10-01",
+    "scan_time": "2026-10-01 08:27",
+    "file": "report-2026-10-01.md",
+    "platforms": [
+      {
+        "name": "ChatGPT Enterprise (OpenAI) \u2014 primary",
+        "status": "changed",
+        "details": [
+          "**Agents API** \u2014 a managed agent runtime distinct from the Responses API. Object model is **Agent** (model, instructions, tools, MCP servers), **Environment** (sandbox), **Session** (durable, server-retained state across turns) and **Events/items**. Sessions are created at `POST https://api.openai.com/v1/agents/sessions` behind the `OpenAI-Beta: agents=v1` header. Supports **subagent delegation** (up to 4 concurrent in documented examples), MCP servers over HTTP transport, web search, code execution, file editing and command execution. OpenAI manages orchestration, context compaction and recovery. US-only data residency; **Zero Data Retention is not supported, even with self-hosted sandboxes**. Entered public beta 2026-09-10 and was not caught by prior scans. Source: https://developers.openai.com/api/docs/guides/agents-api/overview",
+          "**Computer use in the Agents API** (2026-09-29) \u2014 agents drive a browser in an **OpenAI-hosted environment**, with per-origin approval and in-band credential collection. Source: https://developers.openai.com/api/docs/changelog",
+          "**Dots** (2026-09-29) \u2014 always-on autonomous agents in ChatGPT, powered by GPT-6 Astra. Each dot has **its own cloud computer and browser**, runs while the user is offline, reaches 4,000+ apps through plugins, and delegates to background subagents. Off by default; enabled per workspace by an administrator. Source: https://learn.chatgpt.com/docs/dots",
+          "**Local computer access for dots and Work Cloud** \u2014 a cloud-orchestrated agent executing on the user's own machine, gated by a new **Agent Security** admin surface. Source: https://learn.chatgpt.com/docs/enterprise/cloud-local-access",
+          "**ChatGPT Space** (2026-09-29) \u2014 collaborative pages where agents are invoked inline, in comments and via slash commands. New entity set: Spaces, Members, Agents, Connectors, Files. Source: https://learn.chatgpt.com/docs/space/agents",
+          "**Decisions API** (2026-09-29) \u2014 a new constrained-output decision endpoint backed by GPT-6 Luna; limited preview, GA announced on the OpenAI API and Microsoft Foundry. Source: https://openai.com/index/devday-2026-recap/"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Agents API \u2014 a managed agent runtime with server-held sessions, sandbox environments and subagents",
+        "description": "OpenAI now runs the agent loop itself rather than leaving orchestration to the customer's code. Four new entity types enter the inventory \u2014 **Agent** (model + instructions + tools + attached MCP servers), **Environment** (an execution sandbox, OpenAI-hosted or self-hosted), **Session** (a *durable* agent instance whose conversation state, compaction and recovery are retained server-side by OpenAI), and **Events/items**. Agents may attach arbitrary **remote MCP servers over HTTP**, run **code execution, file editing and shell commands** inside the environment, and **delegate to subagents**, so one inventoried agent can fan out into a tree of executions the customer never registered. Two properties make this materially riskier than the Responses API surface Zenity already maps: session state is a **new OpenAI-side data store** that holds full conversation history, and **Zero Data Retention is not supported at all \u2014 even when the customer supplies their own sandbox**, so ZDR-contracted enterprises silently lose that guarantee the moment a team adopts the Agents API. Data residency is US-only. This went to public beta on 2026-09-10 and was missed for three weeks. AISPM must discover Agents, Environments and Sessions as first-class resources, enumerate each agent's MCP server attachments and tool grants, and flag ZDR-contracted tenants with Agents API usage",
+        "source": "https://developers.openai.com/api/docs/guides/agents-api/overview",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Computer use in the Agents API \u2014 end-user passwords and verification codes are submitted into an OpenAI-hosted browser, and approval is per-origin, not per-action",
+        "description": "The Agents API now runs a full browser inside an OpenAI-controlled environment. Two documented properties are direct attack surface. First, **approval granularity is the origin, not the action**: a `computer_use_approval_request` of type `browser_origin_access` is raised once per new origin, and OpenAI's own documentation states that origin approval \"does not enforce confirmation before individual actions\" \u2014 so a single approval of a trusted domain authorises every subsequent purchase, deletion or data export the agent performs there, which is precisely the payoff an indirect prompt injection on that page is reaching for. Second, **the credential path is in-band**: for authenticated tasks the hosted browser raises a `browser_authentication` request and the application collects the user's email, password and verification codes and submits them through the **session events endpoint** \u2014 live human credentials and OTPs flowing into an OpenAI-hosted browser session. Passkeys and QR sign-in are not supported, which pushes tenants toward the weaker shared-secret path. Screenshots of authenticated pages are returned to the application and OpenAI warns they must be kept out of logs. AIRT should build injection and over-approval scenarios against origin-scoped consent; AISPM should inventory which agents carry the `computer_use` tool with the `openai_hosted` environment and treat them as credential-handling systems",
+        "source": "https://developers.openai.com/api/docs/guides/agents-api/tools/computer-use",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "OpenAI Dots \u2014 always-on autonomous agents with their own cloud computer, 4,000+ app reach and background subagents",
+        "description": "Dots, announced at DevDay on 2026-09-29, are persistent agents that **keep working after the user logs off**. Each dot is powered by GPT-6 Astra and is provisioned with **its own cloud computer and browser**, can act across **4,000+ apps via plugins already connected to the account**, and spawns **background subagents** to run tasks in parallel. Governance is a layered custom-rules model \u2014 read-only background research, four levels of Custom Rules, mandatory human takeover for passwords and money transfers, and an automatic pre-action auto-review \u2014 all of which are **per-dot configuration that an enterprise has no inventory of today**. Dots are off by default and enabled by a workspace administrator, which makes enablement state itself a posture signal. This is a new non-human identity class on the OpenAI surface: long-lived, self-directed, inheriting the user's full connector grants, and executing with no human in the session. AISPM must inventory dots per workspace, their Custom Rules level, their enabled plugin/connector reach, and flag dots whose inherited connector scope exceeds their owner's need; AIDR needs dot activity as a distinct, user-absent activity type",
+        "source": "https://learn.chatgpt.com/docs/dots",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Local computer access for dots and Work Cloud \u2014 OpenAI-orchestrated agents executing on employee machines, with audit split across two incompatible pipelines",
+        "description": "A new **\"Allow local computer access\"** permission lets a cloud-orchestrated dot or Work task execute on the user's own machine: running local repositories and developer tools, driving **desktop applications and the local browser**, and implementing changes and builds against local files. This is a managed-endpoint agent, governed through a new **Agent Security** admin surface with a Global baseline and per-environment overrides (approval policies and web search mode are Global-only and cannot be overridden). It requires ChatGPT desktop 26.929+. The audit story has documented holes Zenity should treat as coverage requirements rather than assurances: **local execution telemetry only leaves via OpenTelemetry export to the customer's own collector**, while **cloud orchestration records go to the Compliance API** \u2014 the two never meet, and **cloud OTel events do not reach legacy collectors**. OpenAI further documents that **MCP hooks do not provide complete audit trails** and that callback failures (timeouts, malformed responses) **can occur without blocking the action**, i.e. the agent proceeds while the control plane is blind. A `enforce_residency` cloud policy disables the feature, and it is unavailable for FedRAMP, EKM and UAE-residency workspaces. ENDPOINT must detect the desktop local executor and its permission state; AIDR must correlate the OTel local stream against Compliance API cloud records to find actions that executed with no corresponding audit record",
+        "source": "https://learn.chatgpt.com/docs/enterprise/cloud-local-access",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "ChatGPT Space \u2014 a collaborative document surface with embedded agents and connector reach",
+        "description": "Space introduces shared pages where agents are invoked inline (`@ChatGPT`, `@dot`), from comments, from a conversation sidebar and through slash commands. It brings a new entity set \u2014 **Spaces, Members (with differing permission levels), Agents including custom dots, Connectors, and Files** \u2014 and the agents available inside a Space inherit whatever tools the workspace has enabled. The security-relevant shape is a **multi-tenant collaborative container where an agent reads shared member content and reaches enterprise connectors**: content pasted into a Space by one member becomes agent-readable context for every agent invoked there, which is both a data-boundary question and an indirect prompt injection path. AISPM should inventory Spaces, their membership and permission levels, which agents and connectors are reachable from each, and flag Spaces whose connector reach crosses data-classification boundaries",
+        "source": "https://learn.chatgpt.com/docs/space/agents",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "OpenAI Decisions API \u2014 a new constrained-choice endpoint that routes agent control flow",
+        "description": "The Decisions API, introduced at DevDay on 2026-09-29, lets an application hand a narrow repetitive choice to GPT-6 Luna: the caller supplies context as text or images plus a **fixed set of predefined answers**, and the model selects among them. It is explicitly positioned for classifying content, routing requests, and **choosing an agent's next action** \u2014 which makes it a control-flow component, not a content-generation one, and therefore an unmonitored decision point inside agent pipelines Zenity otherwise maps. It is distinct from Structured Outputs (which constrains response *shape*, not the answer set). Announced GA on the OpenAI API and **Microsoft Foundry**, currently limited preview with no public endpoint schema yet; AISPM should add it to the OpenAI API inventory now and revisit when the reference publishes, since a Foundry-side surface means it will also appear on a Microsoft primary-tier platform",
+        "source": "https://openai.com/index/devday-2026-recap/",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-09-29",
     "scan_time": "2026-09-29 08:24",
     "file": "report-2026-09-29.md",
@@ -442,147 +512,6 @@
         "description": "As of v3.10.35, MCP servers advertised by a connected ACP (Agent Client Protocol) client are usable from within Devin Desktop sessions. This is a transitive MCP-tool surface: a local agent gains tools that were never registered in Devin's own configuration, so an endpoint inventory built from Devin's MCP config alone will under-report the agent's real tool set. ENDPOINT coverage must resolve MCP servers reachable through ACP clients, not only those declared locally",
         "source": "https://docs.devin.ai/desktop/changelog",
         "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-09-23",
-    "scan_time": "2026-09-23 09:00",
-    "file": "report-2026-09-23.md",
-    "platforms": [
-      {
-        "name": "Claude Enterprise (Anthropic)",
-        "status": "changed",
-        "details": [
-          "**Inline tool definitions \u2014 `tool_addition` by value (`inline-tools-2026-09-15` beta, September 22)** \u2014 a `tool_addition` block in a mid-conversation `role: \"system\"` message can now carry a **full tool definition by value** (name, description, `input_schema`) rather than naming a tool that was already declared in the request's `tools` array. The `tools` array never changes, so the prompt cache still hits. Re-sending a definition under the same name **replaces the tool's schema from that point onward**. Combined with the `mcp-client-2026-09-15` beta header, the same block can attach an **`mcp_toolset`** mid-conversation, and the response then carries `mcp_tool_listing` blocks enumerating that server's tools. Limits: 10,000 deferred tools, 10,000 tools defined after the first user message, 4 MB of post-first-user-message tool definitions. Computer-use tools cannot be defined inline. Supported on Claude Fable 5.1, Mythos 5.1, Opus 5, Opus 5.5 \u2014 on the Claude API, Amazon Bedrock and Google Cloud. Source: https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages",
-          "**Claude Opus 5.5 (September 22)** \u2014 `claude-opus-5-5`, 1M context, 128k max output, always-on adaptive thinking; `thinking: {\"type\":\"disabled\"}` and `tool_choice` `any`/`tool` return 400. Computer use requires the `computer_toolset_20260801` toolset. Fast mode available as a research preview. *Model-inventory watchlist item; not raised as a coverage finding.* Source: https://platform.claude.com/docs/en/release-notes/api"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "**Harness: Interactive shells (terminals)** \u2014 `InvokeAgentRuntimeCommandShell` opens a persistent, interactive **Bash PTY over WebSocket** inside the microVM running a harness session, at `wss://bedrock-agentcore.<region>.amazonaws.com/runtimes/<harness-arn>/ws/shells`. Environment variables, working directory, command history and running processes persist across inputs. A client can detach and **reconnect with the stored `shellId`**, replaying up to 256 KB of buffered output; up to **10 concurrent shells** per harness session (20 retained active+detached entries), 1-hour connection cap, 64 KB frames, 250 frames/sec. Auth is SigV4 (`bedrock-agentcore:InvokeAgentRuntimeCommandShell`), a SigV4 pre-signed URL, or a bearer token accepted by the harness inbound authorizer \u2014 including a **browser-friendly base64url bearer token passed through `Sec-WebSocket-Protocol`**. Works in the managed default environment and in a configured custom container. AWS's own guidance: the shell \"can access customer-provided data, files, and secrets in the selected environment or on mounted filesystems\" and \"connect to network destinations that the session can reach.\" **CloudTrail records the API call and CloudWatch gets connection metadata, but neither logs terminal input or output.** Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-command-shell.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "ChatGPT Enterprise (OpenAI)",
-        "status": "changed",
-        "details": [
-          "**Codex CLI 0.156.0 (September 22)** \u2014 fullscreen TUI with search; **voice conversations enabled by default with bundled runtimes**; a **usage analytics dashboard at `/usage`** with plan history tracking; **daemon update management via `/daemon`**; worktree session filtering; **Windows sandbox changes \u2014 network policy support, DNS resolution, account handling, and integration with managed proxy routing**; **MCP policy consistency enforcement** and improved MCP credential handling; Code Mode tool metadata improvements and filesystem accessor bindings; refactored Guardian reviewer lifecycle; Mermaid/equation rendering. Source: https://learn.chatgpt.com/docs/changelog",
-          "**GPT-6 Sol and GPT-6 Luna (September 22)** \u2014 new models in the API, Codex and ChatGPT Work, at ~50% lower API pricing than GPT-5.6; selectable from the Codex model picker as of CLI 0.156.1 (September 23). Follows GPT-6 Astra, already on the watchlist from the 2026-09-18 report. *Model-inventory watchlist item; not raised as a coverage finding.* Source: https://learn.chatgpt.com/docs/changelog"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Google Gemini Enterprise",
-        "status": "changed",
-        "details": [
-          "**D&B Risk Analytics data store \u2014 GA (September 22)** \u2014 a second Dun & Bradstreet federated data store alongside D&B Commercial Graph, targeted at KYB onboarding, counterparty due diligence, sanctions screening and risk assessment. It is a **connector with actions**, not a read-only index; Google's own guidance is to associate only one data store with the actions belonging to a single connector type. Available in `global`, `us` and `eu`; VPC Service Controls enforcement requires deleting and recreating existing data stores. Source: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/d-and-b-commercial-graph"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "Anthropic inline tool definitions \u2014 tools and MCP servers introduced mid-conversation, by value",
-        "description": "A `tool_addition` block in a `role: \"system\"` message can now carry a complete tool definition, so a tool that Claude will call **need never appear in the request's `tools` array**. Every static analysis Zenity performs that reads an agent's declared toolset from the top of the request is now incomplete by design: the real tool surface is the union of `tools` plus every inline definition appended across the conversation, and a later definition under the same name **silently replaces the earlier schema**. Two consequences compound this. First, the same mechanism can attach an entire **`mcp_toolset` mid-conversation** (with `mcp-client-2026-09-15`), which means an MCP server \u2014 and the arbitrary tool list it returns in `mcp_tool_listing` \u2014 can enter an agent's reach after the conversation started and after any pre-flight policy check ran. Second, because the system-message block is *appended data*, an agent pipeline that builds messages from retrieved or user-influenced content gives an injection a route to **define its own tool** rather than merely persuade the model to misuse an existing one. AIRT needs probes for inline tool injection and mid-conversation MCP attachment; AISPM must treat an agent's tool inventory as conversation-scoped and evolving, parse `tool_addition` and `mcp_tool_listing` blocks as first-class inventory events, and alert on schema replacement of an already-known tool name",
-        "source": "https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "AgentCore harness interactive shells (`InvokeAgentRuntimeCommandShell`)",
-        "description": "A new WebSocket API that gives a caller a persistent, stateful Bash terminal inside the microVM running a harness agent \u2014 the same environment as the agent, with the same filesystem, mounted secrets and network reachability. AWS states plainly that **terminal input and output are not logged**: CloudTrail captures only the fact of the `InvokeAgentRuntimeCommandShell` call (caller identity, timestamp, source IP, resolved runtime, response status), and CloudWatch receives connection metadata only. Everything typed and everything returned is invisible to AWS-native logging, which makes this the least-observed execution path AgentCore has shipped. Detach-and-reconnect (`shellId` + runtime session ID) means a process started in one connection keeps running unattended and can be resumed later from a different client, and the browser-oriented **base64url bearer token over `Sec-WebSocket-Protocol`** path means a shell can be opened from a browser without SigV4 at all, authorised only by the harness inbound authorizer. Zenity must inventory which principals hold `bedrock-agentcore:InvokeAgentRuntimeCommandShell` and on which harness ARNs, treat any grant of it as a high-privilege finding (AWS's own security note says to restrict it to trusted principals and specific harness ARNs), surface harnesses whose inbound authorizer would accept a bearer-token shell connection, and ingest the CloudTrail event as an AIDR activity type \u2014 with the explicit caveat that content-level detection is not available and the compensating control has to be authorisation, not inspection",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-command-shell.html",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Codex CLI 0.156.0 \u2014 always-on voice with bundled runtimes, a local usage dashboard, and managed proxy routing in the Windows sandbox",
-        "description": "Three changes alter what Codex is on a workstation. **Voice conversations are now enabled by default and ship with bundled runtimes**, which turns the local coding agent into a always-available microphone-driven input path with its own embedded speech runtime on disk \u2014 a new prompt-entry vector that leaves no text artifact and a new bundled binary to inventory. The **`/usage` analytics dashboard with plan history** is a locally reachable record of the agent's own consumption; useful as telemetry, and also a reconnaissance surface. The Windows sandbox now carries **network policy support, DNS resolution and integration with managed proxy routing**, meaning Codex's egress on Windows is governed by a configurable local policy object that ENDPOINT should read and assess rather than assume. Alongside these, **MCP policy consistency enforcement** and improved MCP credential handling change how locally configured MCP servers are admitted, and **Code Mode tool metadata plus filesystem accessor bindings** expand what the agent can reach on the filesystem. This is an extension of the Codex daemon/worktree endpoint object already reported 2026-09-18, not a new product, hence MEDIUM",
-        "source": "https://learn.chatgpt.com/docs/changelog",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Gemini Enterprise D&B Risk Analytics data store (GA)",
-        "description": "A second Dun & Bradstreet connector reaches GA, and unlike a plain search index it is a **connector with actions** \u2014 meaning a Gemini Enterprise agent can invoke operations against an external commercial-risk service, not merely read from it. The declared use cases (KYB onboarding, counterparty due diligence, sanctions screening, risk decisioning) put it directly in a regulated decision path: an agent grounded on this store is producing outputs that feed onboarding and credit decisions, and the store itself becomes a route by which internal counterparty identifiers leave the tenant for a third-party data provider. AISPM must add D&B Risk Analytics as an inventory entity alongside D&B Commercial Graph, enumerate the actions registered for it (the action set is the privilege, not the connector), capture its region binding (`global`/`us`/`eu`) as a data-residency attribute, and flag agents that hold it as a grounding source in a compliance-relevant workflow",
-        "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/d-and-b-commercial-graph",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-09-22",
-    "scan_time": "2026-09-22 10:10",
-    "file": "report-2026-09-22.md",
-    "platforms": [
-      {
-        "name": "Amazon Bedrock AgentCore",
-        "status": "changed",
-        "details": [
-          "**Harness: Lifecycle hooks** \u2014 hooks fire at `before_invocation`, `before_tool_call`, `after_tool_call` and `after_invocation`, including for inline-function tool calls. An AWS Lambda target returns a synchronous `allow` or `deny` that can stop an invocation or skip a tool call; Amazon SNS and Amazon EventBridge targets receive non-blocking notifications. `InvokeHarness` emits a `hookEvent` for each configured hook that fires. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-lifecycle-hooks.html",
-          "**Harness: Custom OpenAI-compatible endpoints** \u2014 OpenAI model configurations now accept an optional `apiBase` field, routing direct OpenAI requests through a customer-specified gateway, proxy, self-hosted endpoint or regional endpoint. Source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-models.html"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Claude Enterprise (Anthropic)",
-        "status": "changed",
-        "details": [
-          "**Life Sciences Verification Program (September 17, 2026)** \u2014 a vetting-gated entitlement that replaces an organisation's biology-related safety classifiers with a more permissive set. Two tiers: *Standard Use* (Mythos, Opus and Sonnet with classifiers tuned permissive for science tasks) and *High-risk Use*, an add-on that **removes all safeguards blocking life-sciences requests** for a named project. Cyber classifiers and other safeguards are retained. Grants are annual (Standard) or bi-annual (High-risk), scoped to declared use cases, and enforcement shifts from real-time blocking to offline pattern analysis. Source: https://www.anthropic.com/news/life-sciences-verification-program"
-        ],
-        "tier": "primary"
-      },
-      {
-        "name": "Google Gemini Enterprise",
-        "status": "changed",
-        "details": [
-          "**Transfer agent ownership (September 21, 2026)** \u2014 administrators holding `roles/discoveryengine.agentspaceAdmin` or `roles/discoveryengine.admin` can reassign ownership of a shared agent to another user, including themselves. Shared agents only; the new owner becomes sole owner and the previous owner is downgraded to `agentUser`. Targets may be Google accounts or Workforce Identity Federation principals. Any schedule or event trigger on the agent is marked disabled by the transfer and must be re-enabled by the new owner. Source: https://docs.cloud.google.com/gemini/enterprise/docs/share-custom-agents"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "AgentCore harness lifecycle hooks",
-        "description": "A new synchronous interception and control surface inside the AgentCore agent loop. Four hook points (`before_invocation`, `before_tool_call`, `after_tool_call`, `after_invocation`) can each bind a Lambda that returns `allow`/`deny` and can halt an invocation or suppress a tool call, plus SNS/EventBridge fan-out targets. This introduces new inventory entities (harness hook configurations, their Lambda/SNS/EventBridge targets) and a new activity type \u2014 the `hookEvent` records emitted by `InvokeHarness` \u2014 which is a first-class detection feed for what an AgentCore agent actually invoked. It is also a control plane an attacker with harness-config write access can neuter or repurpose: replacing a `deny` Lambda silently removes the customer's own tool-call gating, and a `before_tool_call` Lambda sees every tool argument, making it an exfiltration point. Zenity must inventory hook configurations, alert on hooks removed or repointed, and ingest `hookEvent` as an AIDR activity source",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-lifecycle-hooks.html",
-        "module": "AIDR",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Anthropic Life Sciences Verification Program \u2014 entitlement-based safeguard removal",
-        "description": "A verified organisation's Claude deployment can run with biology safety classifiers relaxed (Standard Use) or, at the High-risk tier, with all life-sciences-blocking safeguards removed for a named project. Guardrail behaviour is therefore a property of the *entitlement attached to the workspace/API key*, not of the model \u2014 the same `claude-mythos-5`/Opus/Sonnet model ID behaves differently for an entitled org, and Anthropic explicitly moves that tier from real-time blocking to offline pattern analysis. Red-team probes that infer safety posture from refusals will pass falsely against an entitled deployment. AIRT needs a bio-domain probe set, and AISPM needs to record the LSVP entitlement and tier as a property of the Anthropic connection so an unexpected High-risk grant is a finding. Directly parallels the Mythos-5 safeguard-lifting pattern already tracked",
-        "source": "https://www.anthropic.com/news/life-sciences-verification-program",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "AgentCore harness custom OpenAI endpoint (`apiBase`)",
-        "description": "OpenAI model configs in the AgentCore harness now take an `apiBase` pointing at any OpenAI-compatible gateway, proxy, self-hosted or regional endpoint. This is a new outbound model-traffic path that leaves AWS-observed inference entirely \u2014 every prompt, tool result and completion for that agent can be routed to an arbitrary third-party host set by a single config field, with no code change and no new IAM resource. AISPM must surface `apiBase` per harness configuration, treat a non-default value as an unmonitored data-egress edge, and flag agents whose model traffic bypasses Bedrock",
-        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-models.html",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "Gemini Enterprise agent ownership transfer",
-        "description": "A new administrative action that reassigns the sole owner of a shared agent, demoting the previous owner to `agentUser`, and that accepts Workforce Identity Federation principals as well as Google accounts. This mutates an inventory relationship Zenity already models (agent \u2192 owner) through a path that is not agent creation, so ownership drift will go unobserved unless the transfer is tracked; it is also a plausible privilege-consolidation move \u2014 an admin can make themselves the owner of any shared agent in the tenant. The transfer additionally disables the agent's schedule and event triggers, silently changing autonomous-execution posture. AISPM should treat owner change on an existing agent, and trigger-state change caused by it, as distinct monitored events",
-        "source": "https://docs.cloud.google.com/gemini/enterprise/docs/share-custom-agents",
-        "module": "AISPM",
         "action": "New Coverage Required"
       }
     ]

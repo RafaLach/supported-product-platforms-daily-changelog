@@ -1,0 +1,41 @@
+learn.chatgpt.com/docs/dots + /docs/enterprise/cloud-local-access + /docs/space/agents — literal facts as of 2026-10-01
+
+DOTS (announced DevDay 2026-09-29)
+ Always-on agents powered by GPT-6 Astra. Each dot lives in the cloud with ITS OWN COMPUTER AND BROWSER.
+ Keeps working when the user's computer is off; works between conversations; tracks progress and follows through.
+ Reaches 4,000+ apps via plugins already connected to the account. Uses background agents to work in parallel.
+ Plans: Pro 100 / Pro 200 / Pro 500 (18+, outside EEA/UK/CH), Business Premium, Enterprise.
+ OFF BY DEFAULT — must be enabled by a workspace administrator.
+ Permission model: read-only background proactive research; opt-in local machine access; FOUR-LEVEL Custom Rules;
+   mandatory human takeover for passwords and money transfers; automatic pre-action auto-review against instructions,
+   Custom Rules and safety requirements.
+ Slack participation, Custom Rules and local computer access are SEPARATE permissions.
+
+LOCAL COMPUTER ACCESS (dots + Work Cloud)
+ Toggled independently for Work and for dots under "Permissions & roles". Requires ChatGPT desktop 26.929+.
+ Admin surface: AGENT SECURITY + Workspace settings. Global baseline; Local environments may override some settings.
+   Approval policies and web search modes are GLOBAL ONLY and cannot be environment-overridden.
+ Policy precedence: MDM requirements > legacy managed config > Agent Security cloud policies > system requirements.
+ Work: uses permitted files and tools on a connected computer while OpenAI's cloud coordinates the task; if the computer
+   goes offline mid-task, Work switches to cloud execution without local file access.
+ Dots: investigate bugs, implement changes, run builds using permitted local repositories, developer tools and skills;
+   also use desktop apps and the LOCAL BROWSER.
+ Not supported with cloud orchestration even for local steps: command/shell, prompt, and agent MCP handlers.
+ AUDIT: local execution -> telemetry exported from the local executor to existing OpenTelemetry collectors.
+        cloud orchestration -> Compliance API. Cloud OTel events DO NOT reach legacy collectors.
+        MCP hooks DO NOT provide complete audit trails. Callback failures (timeouts, malformed responses) may occur
+        WITHOUT BLOCKING ACTIONS.
+ enforce_residency in any cloud policy makes "Allow local computer access" unavailable.
+ Dots unavailable for FedRAMP, EKM-enabled, or UAE inference residency workspaces.
+ Analytics API covers dots usage.
+
+CHATGPT SPACE (announced DevDay 2026-09-29)
+ Collaborative pages. Entities: Spaces, Members (differing permission levels), Agents (ChatGPT or custom dots),
+ Connectors, Files. Invocation: inline @ChatGPT / @dot, comments, conversation sidebar, slash commands
+ (/Generate, /Visualize, /Image). Available agents and connected tools vary by workspace access level.
+
+DECISIONS API (announced DevDay 2026-09-29)
+ GPT-6 Luna. Caller supplies context (text or images) plus a FIXED SET OF PREDEFINED ANSWERS; model selects one.
+ Use cases named by OpenAI: classify content, route requests, CHOOSE AN AGENT'S NEXT ACTION.
+ Distinct from Structured Outputs (which constrains response shape, not the answer set).
+ Limited preview; announced GA on the OpenAI API and Microsoft Foundry. NO PUBLIC ENDPOINT/SCHEMA YET as of 2026-10-01.

@@ -1,0 +1,98 @@
+Scan 2026-10-01 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-09-29 (2-day delta). OPENAI DEVDAY 2026 (09-29) WAS THE WHOLE SCAN.
+6 findings, 1 platform. Every other platform flat.
+
+*** CRITICAL SOURCE LESSON: the OpenAI Agents API went PUBLIC BETA 2026-09-10 and we
+    missed it for three weeks, because developers.openai.com/api/docs/changelog is NOT in
+    sources.json — we only watch learn.chatgpt.com (Codex/ChatGPT) and the GitHub SDK
+    releases. THE API CHANGELOG IS A SEPARATE FEED FROM THE CHATGPT CHANGELOG.
+    ADD: https://developers.openai.com/api/docs/changelog  (API/model/tool launches)
+    KEEP: https://learn.chatgpt.com/docs/changelog        (Codex CLI + ChatGPT app)
+    ALSO NEW AND UNWATCHED: https://learn.chatgpt.com/docs/whats-new (weekly roll-ups,
+    e.g. /whats-new/devday-2026 and /whats-new/september-28-october-2-2026). ***
+
+=== OPENAI === (6 findings — all reported 2026-10-01)
+developers.openai.com/api/docs/changelog literal entry list: 09-29 Computer use in Agents
+  API; 09-29 GPT-6.1 Sol; 09-29 Ultrafast mode (service_tier:"ultrafast"); 09-25 image
+  encoding bugfix; 09-22 GPT-6 Sol + Luna.
+learn.chatgpt.com/docs/changelog literal list now: 09-30 Codex CLI 0.159.3, 09-29 GPT-6.1
+  Sol in Codex/ChatGPT Work, 09-29 Codex CLI 0.159.2, 09-29 0.159.1, 09-29 0.159.0,
+  09-28 0.158.0, 09-26 0.157.1, 09-25 macOS 26.924, 09-25 0.157.0.
+REPORTED:
+  * Agents API (public beta 09-10). POST /v1/agents/sessions, header OpenAI-Beta: agents=v1.
+    Objects: Agent / Environment / Session / Events-items. Subagents (<=4 concurrent in
+    docs). MCP over HTTP. Code exec, file edit, shell. US-only. *** ZDR NOT SUPPORTED EVEN
+    WITH A SELF-HOSTED SANDBOX. *** Session state retained server-side by OpenAI.
+  * Computer use in Agents API. Approval type computer_use_approval_request /
+    browser_origin_access is PER-ORIGIN ONLY — docs state it "does not enforce confirmation
+    before individual actions". Credentials: browser_authentication request; email,
+    password and verification CODES submitted through the SESSION EVENTS ENDPOINT. No
+    passkeys, no QR. Screenshots returned to app.
+  * Dots. GPT-6 Astra. Own cloud computer + browser. Runs while user offline. 4,000+ apps
+    via already-connected plugins. Background subagents. 4-level Custom Rules, auto-review,
+    mandatory human takeover for passwords/money. OFF BY DEFAULT, admin-enabled.
+  * Local computer access (dots + Work Cloud). New "Agent Security" admin surface, Global
+    baseline + per-environment override; approval policy and web-search mode are GLOBAL
+    ONLY. Desktop 26.929+. AUDIT SPLIT: local executor -> customer OTel collector; cloud
+    orchestration -> Compliance API; cloud OTel does NOT reach legacy collectors. MCP hooks
+    give INCOMPLETE audit trails and callback failures DO NOT BLOCK the action.
+    enforce_residency disables it. Unavailable on FedRAMP / EKM / UAE residency.
+  * ChatGPT Space. Entities: Spaces, Members (permission levels), Agents incl. dots,
+    Connectors, Files. @ChatGPT / @dot inline, comments, sidebar, slash commands.
+  * Decisions API. GPT-6 Luna, fixed predefined answer set, text+image context. Positioned
+    to "choose an agent's next action". LIMITED PREVIEW, NO PUBLIC SCHEMA YET. Announced GA
+    on OpenAI API *and MICROSOFT FOUNDRY* — recheck Foundry side next scans.
+NOT REPORTED (version/perf): GPT-6.1 Sol, service_tier "ultrafast", Responses API -45% TTFT,
+  Codex CLI 0.159.x TUI/instant_interrupt changes.
+UNMINED NEXT: the Agents API reference URL 404s
+  (developers.openai.com/api/reference/resources/beta/subresources/agents) — find the real
+  reference path and extract the LITERAL operation list. Also unmined:
+  /api/docs/guides/agents-api/quickstart, and Codex Cloud (DevDay item, not yet examined).
+
+=== ANTHROPIC === (no new surface)
+anthropic_api_releasenotes literal Sept/Oct date list: 09-30, 09-28, 09-24, 09-23, 09-22,
+  09-18, 09-14, 09-10, 09-09, 09-03, 09-01. NEW since last scan: 09-30 ONLY, and it is a
+  Sonnet 4.5 DEPRECATION (retire 2026-11-30) — out of scope, not reported.
+Advisor-tool backlog STILL OPEN: Multi-turn conversations (resuming a paused turn;
+  mid-conversation nudge), advisor prompt caching, combining with other tools.
+
+=== GOOGLE === (no new surface)
+gemini_enterprise_changelog literal Sept list: 09-29, 09-28, 09-23, 09-22 (x2), 09-21,
+  09-18 (x2), 09-17 (x2), 09-11, 09-10 (x2), 09-09, 09-08, 09-04 (x3), 09-03 (x2), 09-02,
+  09-01. NEW since last scan: 09-29 only = Gemini 3.8 Flash becomes the default model for
+  AlphaEvolve experiments (version bump). Not reported.
+
+=== AWS === (no movement)
+agentcore release notes: SAME 5 September headings for the 8th scan (Harness interactive
+  shells, Harness apiBase, Harness lifecycle hooks, Evaluations TypeScript, Consent Portal).
+bedrock doc-history newest: 09-29 GPT-6.1 Sol model card (Mantle + US CRIS). Model add only.
+UNAUDITED AgentCore harness subpages REMAINING: harness-versioning, harness-export,
+  harness-memory, harness-environment, harness-models, harness-get-started#api-documentation.
+aws_q_*: not fetched. Dead 15+ scans. RETIREMENT RECOMMENDED.
+
+=== MICROSOFT === (no movement; both primary feeds still dead)
+foundry whats-new: STILL August 2026 edition (ms.date 2026-09-01, updated_at 09-09). 2nd
+  consecutive scan with no September roll-up. All New-articles already reported 08-09.
+copilot-studio whats-new: STILL frozen at July 2026 (ms.date 2026-08-18, updated_at 09-17).
+azure openai whats-new: resolves to the FROZEN CLASSIC page; newest real entry May 2026.
+  This URL in sources.json is effectively dead — the live equivalent is the foundry
+  whats-new page, which is itself stale. No working Azure model feed right now.
+graph changelog: truncates before any entry renders. Unusable, 4th scan.
+*** WATCH: the Decisions API is claimed GA on Microsoft Foundry. When the Foundry feed
+    unfreezes, that is the first thing to look for. ***
+
+=== SECONDARY / WATCHING === (no movement)
+servicenow: Brazil page returned navigation chrome only AGAIN (2nd consecutive scan).
+  Known cached-variant flakiness — a negative render is NOT evidence of absence.
+cursor: newest still 09-23 Rollouts + Security Review. UNCHANGED.
+windsurf -> docs.devin.ai/desktop/changelog: v3.10.48 (09-29) adds sign-in with ChATGPT
+  credentials to apply a ChatGPT Plus/Pro plan to GPT model usage; diagnostics commands.
+  Watching tier, below bar. Prior: v3.10.35 (09-24), v3.10.31 (09-16), v3.10.27 (09-15).
+perplexity: still NO per-entry dates. Set now includes GPT-6.1 Sol and Claude Sonnet 5.5 in
+  the Agent API, xhigh preset -> claude-opus-5-5, and "fast search" (search_type:"fast",
+  ~800ms faster, $1.00/1k calls) across Search and Agent APIs. Custom MCP connectors
+  reported 09-21. Nothing above the watching-tier bar.
+dia: newest still 09-24 brand refresh. Unchanged.
+salesforce: not fetched this scan (all four sources known-dead; investor.salesforce.com is
+  the working mirror). DREAMFORCE WAS SEPT 12-14 — the Dreamforce delta is still unaudited
+  and is now the oldest open backlog item.

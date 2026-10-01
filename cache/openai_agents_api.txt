@@ -1,0 +1,27 @@
+developers.openai.com/api/docs/guides/agents-api/* — literal facts as of 2026-10-01
+Public beta since 2026-09-10.
+Session create: POST https://api.openai.com/v1/agents/sessions   header: OpenAI-Beta: agents=v1
+Concepts: Agent (model, instructions, tools, MCP servers) | Environment (optional sandbox) | Session (durable agent instance) | Events/items
+Managed harness tools: programmatic tool calling, MCP server connections (HTTP transport), web search, code execution in sandbox, file editing, command execution
+Subagents: delegation supported; up to 4 concurrent subagents in documented examples
+OpenAI manages: sessions, orchestration, context compaction, recovery. Application provides tools and chooses execution environment.
+"The Agents API retains session state so you can continue work across turns without rebuilding the conversation context."
+Data residency: United States only.
+Zero Data Retention (ZDR): NOT SUPPORTED, even with self-hosted sandboxes.
+
+COMPUTER USE TOOL (added 2026-09-29):
+ tool type "computer_use", environment "openai_hosted" — browser runs in an OpenAI-controlled environment.
+ Origin approval: computer_use_approval_request, type browser_origin_access, raised once per NEW ORIGIN incl. public sites.
+   Docs: origin approval "does not enforce confirmation before individual actions".
+   Mitigation OpenAI suggests: restrict the browser to safe resources, or use a locally-controlled runtime.
+ Authentication: browser_authentication approval request. App renders login choices + fields, collects email / password /
+   verification codes, submits via the SESSION EVENTS ENDPOINT using field IDs and values.
+   "Never pass credentials in ordinary messages" — only through dedicated authentication events.
+   Supported: email addresses, passwords, verification codes. NOT supported: passkeys, QR-code sign-in.
+ Screenshots: optional; may contain sensitive page/account data; OpenAI says keep them out of application logs.
+ App controls: session create/delete, task instructions, browser behavior, origin + auth approvals, credential collection,
+   screenshot display/retention.
+
+UNMINED: the reference URL developers.openai.com/api/reference/resources/beta/subresources/agents returns 404.
+Find the real reference path next scan and extract the LITERAL operation list.
+Also unmined: /api/docs/guides/agents-api/quickstart, and Codex Cloud (DevDay item).
