@@ -1,0 +1,123 @@
+Scan 2026-10-06 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-10-01 (5-day delta). 11 findings, 6 platforms.
+
+*** HEADLINE: COPILOT STUDIO WHAT'S-NEW UNFROZE. It sat at the July 2026 edition for ~12
+    weeks and the last 4 scans recorded it as a dead feed. It now carries ms.date
+    2026-10-05 / updated_at 2026-10-06 and a full SEPTEMBER 2026 section. Four new
+    surfaces had accumulated unseen. LESSON: a frozen Microsoft feed is frozen until it
+    isn't — keep fetching dead feeds, and when one moves, read the newest section by
+    OPENING EVERY LINKED ARTICLE. Every one of the four findings needed the article; the
+    roll-up line alone carried none of the security-relevant detail. ***
+
+=== MICROSOFT COPILOT STUDIO === (4 findings — all reported 2026-10-06)
+whats-new ms.date 2026-10-05, updated_at 2026-10-06. September 2026 section literal list:
+  extract node; Copilot node (preview); model dropdown for GitHub Copilot harness agents;
+  content safety test method; attach files GA (Excel/PPT/Word); Dataverse tables knowledge.
+REPORTED:
+  * Copilot node (doc ms.date 09-15). Runs Copilot Chat OR a COWORK TASK. Runs as the
+    connected M365 user — "whatever that user can see in M365, the workflow can use."
+    Agent dropdown: Researcher, Analyst, tenant Agent Builder agents. Cowork can START a
+    new task or RESUME AN EXISTING TASK (inject instructions into in-flight work).
+  * Dataverse tables as knowledge (doc ms.date 09-25). <=15 tables/source. PREVIEW extends
+    retrieval into MemoType (Multiline Text) and FileType (File) columns. ENABLING ACT IS
+    IN POWER APPS, NOT COPILOT STUDIO: mark column Searchable + add to Quick Find View.
+    Up to 2 days backfill. Requires auth mode "Authenticate with Microsoft".
+  * extract node (doc ms.date 09-10). PDF/Word/Excel/PPT -> named values + tables.
+    Maker-selectable extraction model. Input usually a mailbox attachment or SharePoint.
+  * content safety test method. Severity threshold 0-7 per content type (0 strictest,
+    7 most permissive). 4 types: hate/unfairness, sexual, violence, self-harm.
+NOT REPORTED (model/version): harness model dropdown w/ experimental models; attach-files
+  GA expansion.
+NEXT: the September list is now mined. Watch for an OCTOBER section.
+
+=== OPENAI === (3 findings)
+developers.openai.com/api/docs/changelog literal list: 10-05 HIPAA BAA in-product flow;
+  09-29 computer use in Agents API + GPT-6.1 Sol (multi-agent beta) + Ultrafast;
+  09-25 image encoding fix; 09-22 GPT-6 Sol+Luna; 09-15 API key creation governance;
+  09-10 project key expiration + Agents API public beta + GPT-Live 1 GA; 09-08 prompt
+  cache diagnostics GA + GPT Image 2.5 Sunburst/Flare + GPT-Rosalind GA; 09-03 GPT-6
+  Astra + async tool calling + mid-turn steering; 09-02 error taxonomy; 09-01 IPv6.
+learn.chatgpt.com/docs/changelog literal list: 10-05 Codex CLI 0.160.1; 10-02 iOS
+  1.2026.267; 10-01 Codex CLI 0.160.0; 09-30 0.159.3; 09-29 GPT-6.1 Sol; 09-29 0.159.2 /
+  0.159.1 / 0.159.0; 09-28 0.158.0.
+REPORTED:
+  * CODEX GUARDIAN / AUTO-REVIEW. approvals_reviewer = "guardian_subagent". Reviewer
+    subagent REPLACES HUMAN APPROVAL at the sandbox boundary for shell, file writes,
+    network, MCP tool calls. 0.160.0 added two OPT-IN (default-off) capabilities: retrieve
+    earlier user instructions; include agent-handoff context. Policy customizable per
+    enterprise (guardian_policy_config) and per user ([auto_review].policy). KNOWN UPSTREAM
+    ISSUES: auto_review.policy SILENTLY REPLACES the catalog security policy (#38316);
+    auto_review.extra_policy SILENTLY OMITTED under current catalog template (#50309).
+    => effective policy != configured policy.
+    Docs: learn.chatgpt.com/docs/sandboxing/auto-review
+  * Codex 0.158.0 MCP auth: OAuth client secrets + WebSocket bearer tokens. 0.160.1 fixed
+    Windows env-var preservation for remote MCP servers.
+  * API key governance (09-15) + max key lifetime (09-10). Org overrides project.
+    EXISTING KEYS UNAFFECTED — a restriction can be on while legacy long-lived keys live.
+NOT REPORTED: 10-05 HIPAA BAA flow (compliance workflow, not a surface).
+UNMINED NEXT: Agents API reference path still unknown (old URL 404s). Codex Cloud still
+  unexamined. learn.chatgpt.com/docs/whats-new weekly roll-ups still unwatched.
+
+=== AWS === (1 finding)
+agentcore release-notes: FIRST MOVEMENT IN 9 SCANS. New OCTOBER 2026 heading:
+  "Gateway: Private certificate authority support for targets". MCP/OpenAPI/HTTP-proxy
+  targets; PEM CA in S3 or Secrets Manager as trust anchor; direct to VPC Lattice private
+  endpoints, NO ALB IN PATH. doc: devguide/gateway-vpc-egress.html#gateway-private-certificate
+  September headings unchanged (Harness shells, apiBase, lifecycle hooks, Evaluations TS,
+  Consent Portal).
+agentcore data-plane API: 68 ops, BYTE-IDENTICAL to the 2026-09-21 literal cache. No delta.
+bedrock doc-history newest: still 09-29 GPT-6.1 Sol model card. No movement.
+UNAUDITED AgentCore harness subpages REMAINING: harness-versioning, harness-export,
+  harness-memory, harness-environment, harness-models, harness-get-started#api-documentation.
+aws_q_*: not fetched. Dead 16+ scans. RETIREMENT RECOMMENDED.
+
+=== GOOGLE === (2 findings)
+gemini_enterprise_changelog literal Oct list: 10-02 (federated query mode), 10-01 (x2,
+  Gemini 2.5 Pro removal + web app toggle). Sept newest: 09-29, 09-28, 09-23, 09-22 (x2),
+  09-21, 09-18 (x2), 09-17 (x2), 09-11, 09-10 (x2), 09-09, 09-08, 09-04 (x3), 09-03 (x2),
+  09-02, 09-01.
+REPORTED:
+  * Federated query mode for Data Cloud connectors (Preview) — AlloyDB, BigQuery, Cloud
+    SQL, Spanner. QUERIES IN PLACE over MCP with EACH USER'S OWN credentials (IAM or
+    OAuth 2.1). NO DATA STORE ARTIFACT EXISTS — ingestion-based inventory goes blind.
+    Attaching a connector in this mode AUTO-ENABLES Knowledge Catalog on the Assistant tab.
+    doc: /gemini/enterprise/docs/connectors/connect-data-cloud
+  * Granular resource-level IAM (09-28) for apps and data stores; console, gcloud AND REST.
+NOT REPORTED: 09-29 Outlook actions / new data stores (routine connector adds); 09-23 and
+  09-29 Gemini 3.8 Flash defaults (version).
+
+=== PERPLEXITY === (1 finding) — watching tier, first movement in many scans
+changelog Oct entries: Decisions API; native document support (input_file PDF/DOC/DOCX/
+  TXT/RTF, inline OR public HTTPS URL = server-side fetch); image_search tool ($2.50/1k);
+  sandbox extraction tracking; Fast Search expansion. Sept: model adds only.
+Decisions API: POST https://api.perplexity.ai/v1/decisions, model pplx-decider-v1-27b,
+  types bool/choice/score, probability distribution not text. SECOND VENDOR IN 2 SCANS to
+  ship a constrained-decision endpoint (OpenAI's was reported 10-01). CROSS-VENDOR PATTERN.
+
+=== DIA === (logged, below the reporting bar)
+1.51.0 (2026-10-01): Loom automatic tools (video search + transcripts), chat queue/steering,
+  Chromium M155. Loom is a new connector in the Dia tool surface (see memory
+  dia-tools-connector-surface). Folded into Platform Details only.
+
+=== OTHER MICROSOFT === (no movement)
+foundry whats-new: STILL August 2026 edition (ms.date 2026-09-01, updated_at 09-09). THIRD
+  consecutive scan with no September roll-up. Now the ONLY dead Microsoft primary feed.
+azure openai whats-new: still the FROZEN CLASSIC page, newest real entry May 2026.
+graph changelog: truncates before any entry renders. Unusable, 5th scan.
+
+=== ANTHROPIC === (no new surface)
+release notes literal date list: 10-01, 09-30, 09-28, 09-24, 09-23, 09-22, 09-18, 09-14,
+  09-10, 09-09, 09-03, 09-01. NEW since last scan: 10-01 ONLY = a `line` field on the
+  Models API. Convenience field, not a surface. Not reported.
+Advisor-tool backlog STILL OPEN: multi-turn (resuming a paused turn; mid-conversation
+  nudge), advisor prompt caching, combining with other tools.
+
+=== SALESFORCE / SERVICENOW === (no finding)
+investor.salesforce.com/news/ returned navigation chrome only this scan — the content is at
+  /news/default.aspx with a year selector. DREAMFORCE 2026 (Sept 12-14) OUTPUT IS STILL
+  UNRECOVERED across several scans. CARRY FORWARD — highest-value outstanding gap.
+servicenow brazil-api-reference RENDERS but documents no AI/agent-specific endpoints.
+  Negative result, not a fetch error.
+
+=== CURSOR === newest changelog entry still 09-23 (Rollouts, Security Review) — both
+  already reported 09-24/09-25. No movement.

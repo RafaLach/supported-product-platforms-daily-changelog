@@ -1,25 +1,22 @@
-SOURCE: https://learn.chatgpt.com/docs/changelog  CACHED 2026-09-29
-LITERAL SEPTEMBER 2026 LIST (in page order):
-2026-09-28 Codex CLI 0.158.0   <-- NEW since the 09-28 scan
-2026-09-26 Codex CLI 0.157.1   (body still unresolvable upstream, 4th consecutive scan)
-2026-09-25 macOS security update 26.924 (CVE-2026-100754)
-2026-09-25 Codex CLI 0.157.0
-2026-09-23 ChatGPT for iOS 1.2026.258
-2026-09-23 Codex CLI 0.156.1
-2026-09-22 GPT-6 Sol and Luna
-2026-09-22 Codex CLI 0.156.0
-NOTHING dated 2026-09-29. DevDay keynote is 10:00 PT 2026-09-29 — after this scan ran.
+# ChatGPT & Codex changelog (literal entry list)
+# Captured 2026-10-06 from https://learn.chatgpt.com/docs/changelog
+# (developers.openai.com/codex/changelog 308-redirects here — sources.json still unfixed)
+# NOTE: store the LITERAL entry list here, never a prose summary.
 
-0.158.0 body:
-- MCP: connect to MCP servers that require PRE-REGISTERED OAuth CLIENT SECRETS, including
-  via `codex mcp add --oauth-client-secret`. => Codex now holds OAuth client secrets locally.
-- Direct exec-server WebSocket connections now support BEARER TOKEN authentication;
-  support extended to app-server configured connections.
-- Image gen/edit: explicit transparent backgrounds; edits accept file-backed conversation
-  images.
-- Terminal input approval ON BY DEFAULT for commands with elevated permissions.
-- copy-on-select + right-click paste in the fullscreen TUI; copied transcript selections
-  preserve Markdown formatting.
-Fixes: Windows sandbox standard paths/credential handling, Linux sandbox startup with
-nested writable roots, git metadata protection across multiple writable roots, macOS patch
-system path aliases, approval-review retry on new input, Mermaid quoted labels/ampersands.
+2026-10-05  Codex CLI 0.160.1 — preserve Windows environment variables for remote MCP servers
+2026-10-02  ChatGPT for iOS 1.2026.267 — home screen widgets for tasks and usage, keyboard persistence
+2026-10-01  Codex CLI 0.160.0 — agent command center history browsing; X11 middle-click paste;
+            workspace default sessions; opt-in GUARDIAN review capabilities (retrieve earlier
+            user instructions; include agent-handoff context) — both default-off
+2026-09-30  Codex CLI 0.159.3 — account security setup reminders for ChatGPT-signed sessions
+2026-09-29  GPT-6.1 Sol in Codex and ChatGPT Work
+2026-09-29  Codex CLI 0.159.2 — Windows console window suppression fixes
+2026-09-29  Codex CLI 0.159.1 — GPT-6.1 Sol added to bundled and Bedrock catalogs
+2026-09-29  Codex CLI 0.159.0 — instant interrupt steering; compact welcome screen; warning viewer;
+            transcript scrolling during planning; Mermaid rendering
+2026-09-28  Codex CLI 0.158.0 — copy-on-select config; OAuth CLIENT SECRET support for MCP servers;
+            WEBSOCKET BEARER TOKEN authentication; transparent background image generation;
+            terminal approval defaults
+2026-09-26  Codex CLI 0.157.1
+2026-09-25  macOS 26.924
+2026-09-25  Codex CLI 0.157.0
