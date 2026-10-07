@@ -1,0 +1,131 @@
+Scan 2026-10-07 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-10-06 (1-day delta). 6 findings, 5 platforms.
+
+*** HEADLINE: FOUR VENDORS PUBLISHED ON 2026-10-06 (OpenAI, Anthropic, Google, Cursor).
+    A 1-day delta still yielded 4 vendor findings + 2 from the AgentCore harness backlog.
+    The harness-subpage backlog is now 7 pages audited / 7 findings. It has never
+    returned a null. Finish it. ***
+
+=== AWS AGENTCORE === (2 findings — both from the UNAUDITED harness subpage backlog)
+release-notes: NO new October heading. Still only "Gateway: Private certificate authority
+  support for targets" (reported 10-06). September headings unchanged.
+data-plane API: not re-fetched; was byte-identical at 68 ops on 10-06.
+bedrock doc-history: not re-fetched (newest was 09-29).
+REPORTED:
+  * harness-export.html — `agentcore export harness --arn|--name`. Managed harness ->
+    editable Strands PYTHON. Build types CodeZip (default) / Container. Carries over:
+    model provider config INCLUDING API KEY REFERENCES, remote MCP tools, Gateways,
+    inline function tools, AgentCore Browser, Code Interpreter, built-in `shell` and
+    `file_operations`, memory, execution limits, truncation, skills (Path/S3/Git),
+    filesystem mounts (session storage/EFS/S3), AUTHORIZER CONFIGURATION.
+    Deployable SELF-HOSTED: Lambda, ECS/Fargate, EC2, Kubernetes, ON-PREMISE, any
+    container host, Python 3.12+. => governance escape hatch. Writes EXPORT_NOTES.md.
+    Strands only today; "Claude Agents SDK coming soon".
+  * harness-memory.html — MANAGED MEMORY AUTO-PROVISIONED when harness created via
+    SERVICE API with memory config OMITTED. CLI defaults the OPPOSITE way (disabled).
+    Strategies: SEMANTIC, SUMMARIZATION, USER_PREFERENCE, EPISODIC. Namespaces
+    actorId-scoped e.g. /summary/{actorId}/{sessionId}/. Retrieval AUTOMATIC, no config,
+    topK=10 relevanceScore=0.2, injected before reasoning. actorId is a CALLER-SUPPLIED
+    string at invoke_harness time, not an authenticated principal => isolation rests on
+    caller input. Managed memory CANNOT be deleted via Memory APIs; DeleteHarness
+    CASCADE-DELETES it unless deleteManagedMemory=false. BYO = agentCoreMemoryConfiguration
+    (needed for custom namespaces, KMS, sharing across harnesses). Truncation:
+    sliding_window (default) / summarization / none.
+UNAUDITED HARNESS SUBPAGES REMAINING: harness-versioning, harness-environment,
+  harness-models, harness-get-started#api-documentation. (harness-skills seen via
+  export page cross-ref but not opened directly.)
+aws_q_*: not fetched. Dead 17+ scans. RETIREMENT RECOMMENDED.
+
+=== OPENAI === (1 finding)
+developers.openai.com/api/docs/changelog literal Oct list: 10-06 Decisions API beta w/
+  gpt-6-luna; 10-06 usage tiers 5->3 (Build/Launch/Grow); 10-05 HIPAA BAA in-product flow.
+  (Sept list unchanged from 10-06 scan.)
+learn.chatgpt.com/docs/changelog literal list: 10-05 Codex CLI 0.160.1; 10-02 iOS
+  1.2026.267; 10-01 Codex CLI 0.160.0. NO MOVEMENT since last scan.
+REPORTED:
+  * DECISIONS API NOW CALLABLE. POST /v1/decisions, model gpt-6-luna ONLY.
+    Request: model + input (text OR user messages w/ input_text + input_image parts) +
+    questions[] (type, instructions, optional choices/levels).
+    Types: predicate (probability 0-1) / choice (value + probabilities + confidence) /
+    score (prob-weighted avg over ordered levels + per-level probabilities + confidence).
+    Images MUST be inline base64 data URLs — http(s) URLs and file IDs UNSUPPORTED
+    (contrast Perplexity, which DOES fetch public URLs server-side).
+    Multiple independent questions per shared input in one call. Refusals possible.
+    Pricing $0.10/1M input; NO CHARGE for output or cache r/w => priced for per-hop use.
+    Supports ZDR, HIPAA, data residency, US + EU regional processing.
+  Doc: developers.openai.com/api/docs/guides/decisions
+NOT REPORTED: usage tier consolidation (billing).
+CROSS-VENDOR DECISION-ENDPOINT PATTERN now 3 vendors: OpenAI (/v1/decisions, gpt-6-luna),
+  Perplexity (/v1/decisions, pplx-decider-v1-27b), Microsoft Foundry (announced DevDay,
+  surface not yet located — WATCH FOR IT ON A PRIMARY-TIER PLATFORM).
+
+=== ANTHROPIC === (1 finding)
+anthropic.com/news Oct list: 10-06 Expanding the Cyber Verification Program; 10-02 $100M
+  engineer training; 10-01 Barclays.
+release-notes/api literal Oct list: 10-05 capabilities.thinking.types.disabled on Models
+  API; 10-01 `line` field on Models API. BOTH metadata convenience fields. Not reported.
+REPORTED:
+  * CYBER VERIFICATION PROGRAM — three tiers, absorbs PROJECT GLASSWING.
+    URL IS /news/cyber-verification-program (NOT /news/expanding-the-... which 404s).
+    Defense Access: SOC/IR, malware RE, vuln analysis+validation. Qualifying: in-house
+      security teams, critical-infra operators of ANY size (regional hospitals, municipal
+      utilities), small security firms, OSS maintainers, individual researchers w/ a
+      track record.
+    Red Team Access: + authorized pen testing / red teaming. In-house, government and
+      commercial red teams. STILL real-time blocks on physical harm / mass disruption
+      (ransomware deploy, damaging physical systems, pen testing high-risk safety systems).
+    Specialized Access: FEWEST CYBER BLOCKS. Limited verified orgs authorized to test
+      flight operating systems, power grids, telecom, interbank transfer infra,
+      government administrative networks.
+    ALL tiers: Claude Opus 5.5, Sonnet 5.5, MYTHOS 5.1, + new models going forward.
+    Glasswing partners: 129k verified vulns Apr-Jul 2026; Anthropic OSS scanning +5.5k
+      Apr-Oct; >33k rated critical/high.
+  => FOURTH instance of guardrail-by-entitlement. See memory claude-mythos-5-safeguards-lifted.
+Advisor-tool backlog STILL OPEN (multi-turn resume, mid-conversation nudge, advisor
+  prompt caching, combining with other tools).
+
+=== GOOGLE GEMINI ENTERPRISE === (1 finding)
+release-notes literal Oct list: 10-06 (Antigravity feature access control, GA); 10-02
+  (federated query mode + Knowledge Catalog, Preview); 10-01 x2 (Gemini 2.5 Pro removal
+  Canada/Japan 10-20; web app toggle). 10-02 and 10-01 already reported 10-06.
+REPORTED:
+  * ANTIGRAVITY BOOST + TEAMWORK admin access controls (GA).
+    Boost = /boost, tiered multi-agent hierarchy for deep debugging / algorithmic work.
+    Teamwork = SENTINEL (coordinator) spawns PROJECT ORCHESTRATOR, which breaks an
+      approved brief into milestones and delegates to EXPLORERS (read-only repo research,
+      call-chain tracing, no source edits) and WORKERS (terminal + file tools, build,
+      refactor, write tests). Parallel tracks, per-agent scratch spaces, file-ownership
+      arbitration so two workers never edit one file.
+      Workspace: ~/teamwork_projects/{PROJECT_NAME}.
+      HUMAN GATE IS PHASE 1 ONLY (approve the generated brief); execution then autonomous.
+      Admin can ENFORCE WORKSPACE SANDBOXING and RESTRICT BROWSER / MCP SERVER PERMISSIONS.
+    NOTE: docs live on antigravity.google/docs/*, NOT on docs.cloud.google.com.
+      Guessed URL docs.cloud.google.com/gemini/enterprise/docs/antigravity-access-control
+      404s. Resolve Antigravity doc paths via WebSearch.
+    Antigravity ITSELF was reported Aug 2026 (reports/report-2026-08-21, -08-30);
+      Boost/Teamwork/subagents were NOT.
+UNMINED: antigravity.google/docs/subagents (custom subagents), /docs/changelog,
+  /docs/enterprise — none ever fetched by this monitor. HIGH-YIELD CANDIDATE.
+
+=== CURSOR === (1 finding) — watching tier
+changelog newest: 10-06 "Remote Control for Local Agents" — Cursor iOS app can see and
+  reply to agents running on the user's own computer; agents keep running locally.
+  Previous entry still 09-23 (Rollouts, Security Review), both already reported.
+
+=== MICROSOFT === (NO MOVEMENT — all four feeds)
+copilot-studio whats-new: ms.date 2026-10-05 / updated_at 2026-10-06, IDENTICAL to last
+  scan. NO OCTOBER SECTION YET. September list unchanged (extract node, Copilot node,
+  model dropdown, content safety test, attach files GA, Dataverse tables) — all mined.
+foundry whats-new: STILL AUGUST 2026 edition (ms.date 2026-09-01, updated_at 2026-09-09).
+  FOURTH consecutive scan with no September roll-up. Only dead Microsoft primary feed.
+azure openai whats-new: frozen classic page, newest real entry May 2026.
+graph changelog: truncates before any entry renders. Unusable, 6th scan.
+
+=== SALESFORCE / SERVICENOW === (no finding)
+investor.salesforce.com/news/default.aspx returned navigation chrome ONLY — press list
+  loads dynamically behind a year selector. DREAMFORCE 2026 (Sept 12-14) OUTPUT STILL
+  UNRECOVERED, now many scans running. HIGHEST-VALUE OUTSTANDING GAP. Next attempt should
+  use WebSearch against salesforce.com/news rather than fetching the IR index.
+servicenow: not fetched this scan (BRAZIL current, last audit found no AI endpoints).
+
+=== PERPLEXITY / DIA === not re-fetched (1-day delta; both moved on the 10-06 scan).

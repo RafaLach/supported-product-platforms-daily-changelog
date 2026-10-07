@@ -1,0 +1,25 @@
+AgentCore harness memory — cached 2026-10-07
+https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-memory.html
+Short-term: raw events (messages, tool calls) within a session.
+Long-term: strategies semantic / summarization / user preference / episodic / custom.
+actorId scoping: events scoped by actorId + sessionId; namespace templates e.g.
+  /summary/{actorId}/{sessionId}/. actorId is passed at invoke_harness() time BY THE CALLER,
+  not derived from an authenticated principal.
+MANAGED MEMORY: provisioned automatically when a harness is created via the SERVICE API
+  with the memory config OMITTED. The AgentCore CLI default is the OPPOSITE: memory
+  disabled unless managed memory or an existing memory resource is selected.
+Strategies (LITERAL): SEMANTIC, SUMMARIZATION, USER_PREFERENCE, EPISODIC.
+Config via create-harness --memory managedMemoryConfiguration {strategies[], eventExpiryDuration};
+  update via UpdateHarness.
+Managed memory CANNOT be deleted via the Memory APIs. DeleteHarness cascade-deletes it by
+  default; pass deleteManagedMemory=false to disassociate instead. Or UpdateHarness to
+  switch to BYO / disabled.
+BYO: agentCoreMemoryConfiguration {arn, retrievalConfig} — needed for custom namespace
+  templates, KMS encryption, or memory shared across multiple harnesses.
+Long-term retrieval: AUTOMATIC, derived from the memory instance's active strategies.
+  Defaults topK=10, relevanceScore=0.2. Retrieved memories are injected into the
+  conversation context before the agent reasons, on every invocation.
+  An explicit retrievalConfig in BYO takes priority and suppresses auto-derivation.
+Truncation: sliding_window (default, numMessages N) / summarization / none.
+Related pages: harness-models, harness-environment, harness-skills, harness-security,
+  harness-get-started#api-documentation.

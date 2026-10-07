@@ -1,0 +1,19 @@
+OpenAI Decisions API — cached 2026-10-07 (released beta 2026-10-06)
+https://developers.openai.com/api/docs/guides/decisions
+POST /v1/decisions
+Required fields: model (gpt-6-luna ONLY) | input (text string OR user messages with
+  input_text and/or input_image parts) | questions[] (type, instructions, optional
+  choices/levels)
+Question types: predicate -> probability 0-1
+                choice   -> selected value + probabilities + confidence
+                score    -> probability-weighted average over ordered levels,
+                            + per-level probabilities + confidence
+Response: answers[] with type, name, and type-specific fields; matched to questions by name.
+Images MUST be inline base64 data URLs. HTTP/HTTPS URLs and file IDs are UNSUPPORTED.
+  (Contrast Perplexity's decisions/document path, which DOES fetch public URLs server-side.)
+Multiple independent questions against one shared input per request. Refusals possible.
+Pricing: input $0.10 per 1M tokens. No charge for cache reads, cache writes, or output
+  tokens. Regional processing premiums and long-context multipliers apply.
+Compliance: ZDR, HIPAA, data residency, regional processing in the United States and Europe.
+Cross-vendor: Perplexity POST /v1/decisions (pplx-decider-v1-27b) reported 2026-10-06;
+  a Microsoft Foundry surface was announced at DevDay but has NOT been located yet.

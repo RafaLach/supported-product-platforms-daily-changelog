@@ -1,0 +1,19 @@
+AgentCore harness export — cached 2026-10-07
+https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-export.html
+CLI: agentcore export harness --arn <arn> | --name <name>
+  [--target-agent-name <name>] [--build CodeZip|Container] [--json]
+Default target agent name: <harnessName>Agent. Default build: CodeZip.
+Framework: Strands only (Claude Agents SDK "coming soon"). Language: Python only.
+Carried into generated agent (LITERAL LIST):
+  - Model provider and config (Bedrock, OpenAI, Gemini - including model ID and API key references)
+  - Tools - Remote MCP tools, Gateways, inline function tools, AgentCore Browser,
+    AgentCore Code Interpreter, built-in `shell` and `file_operations` tools
+  - Memory
+  - Execution limits
+  - Conversation truncation
+  - Skills (Path, S3, Git)
+  - Filesystem mounts (session storage, EFS, S3) for VPC harnesses
+  - Authorizer configuration
+Post-export: EXPORT_NOTES.md written with manual follow-up items. Then `agentcore deploy`.
+Deployment options: AgentCore Runtime (managed) OR self-hosted anywhere Python 3.12+ —
+  Lambda, ECS/Fargate, EC2, Kubernetes clusters, on-premise servers, any containerized env.

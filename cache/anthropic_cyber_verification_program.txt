@@ -1,0 +1,26 @@
+Anthropic Cyber Verification Program — cached 2026-10-07 (announced 2026-10-06)
+https://www.anthropic.com/news/cyber-verification-program
+NOTE: /news/expanding-the-cyber-verification-program 404s. Use the slug above.
+Consolidates the original CVP + PROJECT GLASSWING into ONE three-tier program.
+All tiers grant: Claude Opus 5.5, Claude Sonnet 5.5, CLAUDE MYTHOS 5.1, and new models
+  going forward.
+TIER 1 — Defense Access: SOC and incident response, reverse-engineering malware,
+  analyzing and validating vulnerabilities. Qualifying: security teams at companies,
+  nonprofits, universities and government bodies defending systems they own or maintain;
+  critical-infrastructure operators OF ANY SIZE (regional hospitals, municipal utilities);
+  smaller security firms; open-source maintainers; individual researchers with a track
+  record of reported vulnerabilities.
+TIER 2 — Red Team Access: adds authorized penetration testing and red-teaming to the
+  defensive uses above. Qualifying: in-house red teams, government red teams, security and
+  penetration testing firms. RETAINS real-time blocks on actions that could cause physical
+  harm or mass disruption — deploying ransomware, damaging physical systems, pen testing
+  high-risk safety systems.
+TIER 3 — Specialized Access: FEWEST CYBER BLOCKS. Reserved for a limited set of verified
+  organizations authorized to test safety systems that could impact people's lives or
+  disrupt markets — flight operating systems, power grids, telecom networks, interbank
+  transfer infrastructure, government administrative networks.
+Reported results: Glasswing partners found 129,000 verified software vulnerabilities
+  Apr-Jul 2026; Anthropic open-source scanning found +5,500 Apr-Oct 2026; more than 33,000
+  rated critical or high severity.
+=> FOURTH confirmed instance of guardrail-by-ENTITLEMENT (not per-model). Refusal-based
+   red-team probes on a standard key do NOT reproduce a CVP-entitled key's behavior.

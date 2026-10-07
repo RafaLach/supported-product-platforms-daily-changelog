@@ -1,0 +1,29 @@
+Antigravity Boost + Teamwork — cached 2026-10-07
+Gemini Enterprise release note 2026-10-06 (GA): "Control access to Antigravity features"
+Docs live on antigravity.google/docs/*, NOT docs.cloud.google.com.
+  https://antigravity.google/docs/teamwork/     (FETCHED)
+  https://antigravity.google/docs/subagents/    (NOT YET FETCHED — custom subagents)
+  https://antigravity.google/docs/enterprise/   (NOT YET FETCHED)
+  https://antigravity.google/docs/changelog/    (NOT YET FETCHED)
+BOOST: /boost command. Tiered multi-agent hierarchy for complex algorithmic challenges and
+  deep debugging. Admins can control per-user access.
+TEAMWORK (/teamwork-preview): agent teams for large projects.
+  SENTINEL (coordinator) spawns the PROJECT ORCHESTRATOR.
+  Orchestrator breaks the approved brief into structured milestones, coordinates parallel
+    work tracks, and delegates every unit of work.
+  EXPLORERS: read-only research agents — explore the repository, trace call chains from
+    entry points, evaluate candidate solutions WITHOUT modifying any source files.
+  WORKERS: implementation agents equipped with TERMINAL AND FILE TOOLS — build components,
+    refactor code, write unit tests.
+  Workspace: ~/teamwork_projects/{PROJECT_NAME}. Per-agent scratch spaces for logs and
+    helper scripts. File-ownership arbitration: multiple workers never edit the same file
+    at the same time.
+  HUMAN GATE: Phase 1 ONLY — review and approve the generated prompt artifact; execution is
+    autonomous thereafter. Monitoring via the UI subagent panel or CLI status bar.
+ADMIN CONTROLS (Gemini Enterprise console): enable/disable Boost per user; for Teamwork,
+  ENFORCE WORKSPACE SANDBOXING and RESTRICT BROWSER OR MCP SERVER PERMISSIONS so agents
+  execute strictly within authorized environments. Spend thresholds and monthly
+  project-level budget caps. Requires a Gemini Enterprise Standard or Plus license and the
+  Gemini Enterprise API (aiplatform.googleapis.com) enabled.
+HISTORY: Antigravity itself was reported Aug 2026 (report-2026-08-21, report-2026-08-30).
+  Boost, Teamwork and the subagent taxonomy were NOT covered until now.
