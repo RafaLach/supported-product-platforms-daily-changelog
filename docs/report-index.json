@@ -1,5 +1,86 @@
 [
   {
+    "date": "2026-10-08",
+    "scan_time": "2026-10-08 13:04",
+    "file": "report-2026-10-08.md",
+    "platforms": [
+      {
+        "name": "Claude Enterprise (Anthropic)",
+        "status": "changed",
+        "details": [
+          "**Managed Agents cloud environments are a first-class API resource** \u2014 `POST /v1/environments`,",
+          "**`networking` defaults to `unrestricted` when omitted from an API create request** \u2014 the",
+          "**`allowed_hosts` now also gates the server-side `web_search` and `web_fetch` tools** (2026-10-07).",
+          "**`web_fetch` restricted to URL provenance** (2026-10-07) \u2014 the tool now fetches only URLs that",
+          "**Browser-use and computer-use SDK toolsets (beta)** (2026-10-07) \u2014 Python and TypeScript classes",
+          "**Compliance API chat endpoints now also return chats from the unified Claude experience**"
+        ],
+        "tier": "primary"
+      },
+      {
+        "name": "Amazon Bedrock AgentCore",
+        "status": "changed",
+        "details": [
+          "**Harness versioning and endpoints** \u2014 every harness is automatically versioned (V1 at create,",
+          "**Bedrock Guardrails on a harness work only with the `converse_stream` API format** \u2014 guardrails",
+          "Release notes: **no new October heading.** The 2026-10-06 Gateway private-CA entry remains the",
+          "**Backlog correction:** `harness-environment` and `harness-skills` were listed as unaudited in the"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Anthropic Managed Agents \"cloud environment\" is an uninventoried resource type whose network posture defaults to unrestricted when created by API",
+        "description": "Environments are a standalone Anthropic API resource \u2014 `POST /v1/environments`, with list, retrieve, **archive** and delete \u2014 created once and referenced by ID from every session that runs in them. Each environment carries a `packages` block (apt, cargo, gem, go, npm, pip, with optional version pinning) and a `networking` block, and it is the object that actually determines what an agent's sandbox can reach. Two properties make it a priority. First, **a create request that omits `networking` gets `unrestricted`** \u2014 full outbound access to any host \u2014 while the Claude Console's form starts at Limited with nothing allowed; the same logical environment therefore has opposite network posture depending on which path created it, exactly the provisioning-by-omission pattern already confirmed on AgentCore harness memory. Second, **environments are not versioned**, so an environment mutated after sessions have run leaves no record of which configuration any given session actually used, and Anthropic explicitly tells operators to keep that record themselves. Anthropic's own documentation enumerates the consequence of `unrestricted`: anything in the sandbox can leave it, including credentials; fetched content can steer the agent; and the safety blocklist \"is not an allowlist.\" AISPM must inventory environments as a first-class entity (ID, name, `networking.type`, `allowed_hosts`, `allow_mcp_servers`, `allow_package_managers`, `packages`), map the session-to-environment edge, flag every `unrestricted` environment, and treat an archived-but-referenced environment as still live \u2014 archiving makes it read-only but existing sessions continue. Note also that `allow_package_managers: true` silently opens ~40 Anthropic-maintained hosts including `github.com`, `ghcr.io` and `registry-1.docker.io`, and that **network access is granted per host, not per operation** \u2014 an allowed host accepts `git push` and package publishing, which is the documented exfiltration path",
+        "source": "https://platform.claude.com/docs/en/managed-agents/environments#networking",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Anthropic now enforces URL provenance on `web_fetch`, and the exact boundary is a detection surface",
+        "description": "As of 2026-10-07, the Managed Agents `web_fetch` tool fetches **only URLs that have already appeared in the session** \u2014 in the text of a user message, in a `web_search` result, or in a page a previous `web_fetch` returned. A URL that appears only in Claude's own output, in the agent's system prompt, in an attached document, or in the output of `bash`, `read` or an **MCP tool** does not qualify, and the call returns a `url_not_in_prior_context` error result to the agent. Anthropic states the purpose directly: reducing data exfiltration. Separately, under `limited` networking, `allowed_hosts` now **also** applies to `web_search` and `web_fetch` even though those tools run on Anthropic's servers rather than in the sandbox, and session creation fails with a 400 when a web tool's `allowed_domains` contains an entry not within `allowed_hosts` (host matching is exact unless the entry starts with `*.`). Both halves matter to Zenity. The positive half is a new, readable control whose configured state AISPM should inventory. The negative half is the attack surface it leaves standing: the documented way to make any URL fetchable is to get it into the text of a `user.message` event, so an application that echoes user-supplied or third-party content into user turns re-opens the channel the control was built to close \u2014 and MCP tool output is explicitly *not* a qualifying source, which is the sharpest injection boundary in the design. AIDR needs `url_not_in_prior_context` as a distinct blocked-egress event type and should treat a cluster of them as an active exfiltration attempt rather than a malfunction; AIRT should probe the user-message laundering path",
+        "source": "https://platform.claude.com/docs/en/managed-agents/tools-web-restrictions",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "AgentCore harness Bedrock Guardrails are silently inert outside the `converse_stream` API format, and the format is overridable per invocation",
+        "description": "A harness applies Amazon Bedrock Guardrails by placing a `guardrailConfig` object inside `bedrockModelConfig.additionalParams`, and AWS documents the constraint plainly \u2014 this works only when the model configuration uses the `converse_stream` API format, served by the `bedrock-runtime` endpoint. The same `bedrockModelConfig` also accepts `apiFormat: responses` or `chat_completions`, which route the request to the **`bedrock-mantle`** endpoint instead. Those are the two formats that a caller can select, and `apiFormat` sits in the set of fields overridable on a single `InvokeHarness` call alongside `modelId`, `tools` and `systemPrompt`. The result is a guardrail whose enforcement depends on a per-request routing field: a harness configured and inventoried as guardrail-protected serves ungated inference the moment an invocation specifies a different API format, with no configuration change, no new IAM permission, and no change to the harness resource Zenity reads. The stop reason `guardrail_intervened` \u2014 the only positive evidence a guardrail fired \u2014 simply never appears. This compounds a risk already reported on 2026-09-24 and 2026-09-28: AWS passes `additionalParams` through to the provider **unvalidated**, and warns that these fields \"can alter provider behavior including endpoint routing, credential handling, and region selection.\" AIRT must treat API format as an input dimension of every AgentCore guardrail assertion \u2014 a probe run in `converse_stream` that observes a correct refusal proves nothing about the same harness invoked in `responses` format. AISPM should flag any harness that carries a `guardrailConfig` but does not pin `apiFormat` to `converse_stream`, and should record the route (`bedrock-runtime` vs `bedrock-mantle`) per invocation, consistent with the standing guidance to select parsers by route path rather than hostname",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-models.html#harness-model-guardrails",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "AgentCore harness versions and endpoints are two new control-plane entity types, and the deployed configuration is not the one `GetHarness` returns",
+        "description": "Every harness is automatically versioned \u2014 `CreateHarness` produces V1, **every update produces a new immutable version carrying a complete self-contained configuration** (model, system prompt, tools, memory, limits, environment), and named **endpoints** pin an environment to a chosen version. The `DEFAULT` endpoint automatically advances to the newest version on every update; **named endpoints do not and must be updated explicitly**. AWS's own lifecycle table shows the divergence as intended behavior: after a tool or skill change the harness is at V3 while a `PROD` endpoint still serves V2. For Zenity this breaks a common assumption \u2014 reading the harness resource returns the latest configuration, not the configuration production traffic is actually executing, so an inventory that records tools, model and memory from the harness object alone can be describing a version no live endpoint serves. The practical consequence is a governance lag that runs in the dangerous direction too: a tool or guardrail *removed* from a harness stays live on every pinned endpoint until someone updates it. Six new operations to inventory and audit \u2014 `CreateHarnessEndpoint`, `UpdateHarnessEndpoint`, `GetHarnessEndpoint`, `DeleteHarnessEndpoint`, `ListHarnessVersions`, `ListHarnessEndpoints`. AISPM should model `HarnessVersion` (immutable, with its full captured configuration) and `HarnessEndpoint` (name, `targetVersion`, lifecycle state) as distinct entities, resolve each endpoint to the version it actually serves before evaluating any posture rule, and raise a drift finding when a named endpoint lags `DEFAULT` by one or more versions. Endpoint lifecycle states worth surfacing: `CREATING`, `CREATE_FAILED`, `READY`, `UPDATING`, `UPDATE_FAILED` \u2014 a stuck `UPDATE_FAILED` means a remediation that was believed applied never took effect",
+        "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-versioning.html",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Anthropic browser-use and computer-use SDK toolsets put the driver, and therefore the enforcement point, on the customer's own machine",
+        "description": "The Python and TypeScript SDKs now ship beta classes for the browser use tool and the computer use tool. The developer subclasses one and implements a method per member tool \u2014 `navigate`, `left_click` and so on \u2014 **against their own browser or desktop automation**; the SDK routes each model-issued call, runs the policies passed to it, invokes an approval callback, and assembles each `tool_result`. Anthropic is explicit that the SDK includes no browser, no desktop, no ready-made driver and **no URL policy**; the reference CDP implementation driving Chromium lives in the `claude-quickstarts` repository and is labelled not production code. This is a materially different endpoint shape from Anthropic-hosted computer use. The agent's actual browsing and desktop control runs as an ordinary local process on a developer workstation or a customer-operated host, inheriting that machine's network position, cookies, authenticated sessions and credentials, while the reasoning that decides each click happens server-side. The security controls \u2014 which URLs are reachable, which files are touchable, whether a given action pauses for human approval \u2014 are **customer-written code**, so their presence and strictness vary per deployment and cannot be read from the Anthropic API. ENDPOINT should detect the browser and computer toolset classes in use, inventory the local driver process and the browser profile it attaches to, and treat an unconfigured URL policy or an auto-approving callback as a posture gap. AIRT should target the gap directly: a locally-driven browser agent holding a logged-in session is the classic indirect-prompt-injection-to-action path, and here nothing in the platform constrains it",
+        "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/browser-use-sdk",
+        "module": "ENDPOINT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Anthropic Compliance API now returns chats from the unified Claude experience",
+        "description": "As of 2026-10-08, the Compliance API's chat endpoints also return conversations from the unified Claude experience \u2014 in beta for Claude Enterprise organizations, reachable with the **existing** Compliance Access Key and requiring no new credential or onboarding. This is a coverage expansion on the surface Zenity already uses as its authoritative Anthropic retrieval and deletion path, and it follows the same pattern as the 2026-09-26 addition of `office_agents` local sessions: Anthropic widens what the Compliance API returns without widening the credential. The consequence is that a Zenity integration which enumerates chats and treats the returned set as complete will now be silently under-collecting unless it re-reads the endpoint's scope \u2014 the new conversations are retrievable today but only for a caller that asks. Because the Compliance API's documented blind spots have served as Zenity's working map of what is *not* observable on Anthropic, each expansion also redraws that map and should be reflected in coverage claims. AISPM should re-enumerate the chat endpoints' returned `product_surface` values, add unified-experience chats to the Anthropic conversation inventory, and verify that retention and deletion workflows reach the newly-returned records",
+        "source": "https://platform.claude.com/docs/en/manage-claude/compliance-content-data",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-10-07",
     "scan_time": "2026-10-07 13:35",
     "file": "report-2026-10-07.md",

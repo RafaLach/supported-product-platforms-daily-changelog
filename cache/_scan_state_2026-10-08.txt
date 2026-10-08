@@ -1,0 +1,104 @@
+Scan 2026-10-08 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-10-07 (1-day delta). 6 findings, 2 platforms.
+
+*** HEADLINE 1: THE AGENTCORE HARNESS BACKLOG IS CLOSED. 9 pages audited, 9 findings,
+    never a null. BUT: the backlog LIST carried in the 09-27 -> 10-07 reports was WRONG.
+    It listed harness-environment and harness-skills as unaudited; both were fully mined
+    on 09-25. Lesson: the backlog list was copied forward scan to scan without being
+    re-derived from the reports. ALWAYS grep reports/ before trusting a carried backlog.
+
+*** HEADLINE 2: NEW HIGHEST-YIELD SOURCE = the ANTHROPIC MANAGED AGENTS DOC TREE.
+    Same shape the AgentCore harness tree had: a deep subpage tree, not announced in
+    release notes, each page holding a resource type. 2 pages opened this scan, 2 findings,
+    one of them an entire uninventoried resource type (cloud environments).
+    Unaudited: self-hosted-sandboxes, permission-policies, cloud-sandboxes-reference,
+    multiagent-orchestration, events-and-streaming. SWEEP THIS NEXT. ***
+
+=== ANTHROPIC === (4 findings — biggest single-vendor block in weeks)
+news Oct list: 10-07 Introducing Claude Haiku 5.5; 10-06 Expanding the Cyber Verification
+  Program; 10-02 $100M engineer training; 10-01 Barclays.
+release-notes/api literal Oct list: 10-08 Compliance API + unified Claude experience chats;
+  10-07 (SEVEN entries) Sonnet 5.5 cache-read price cut, Haiku 5.5 launch, Haiku 4.5->5.5
+  migration breakage, browser/computer use SDK toolsets, Max/Team API credits, limited
+  networking allowed_hosts now gates web_search/web_fetch, 400 on allowed_domains outside
+  allowed_hosts, web_fetch URL-provenance restriction; 10-06 capabilities.server_tools;
+  10-05 capabilities.thinking.types.disabled; 10-01 line field + Dreams model support.
+REPORTED:
+  * MANAGED AGENTS CLOUD ENVIRONMENTS = uninventoried RESOURCE TYPE. POST /v1/environments,
+    list/retrieve/ARCHIVE/delete. Referenced by ID at session create. packages block
+    (apt,cargo,gem,go,npm,pip). NETWORKING OMITTED ON API CREATE => "unrestricted".
+    Console form defaults opposite (Limited, nothing allowed). SAME provisioning-by-omission
+    pattern as AgentCore harness memory. ENVIRONMENTS ARE NOT VERSIONED — no record of which
+    config a session used; Anthropic tells operators to keep their own record.
+    allow_package_managers=true opens ~40 hosts incl github.com, ghcr.io, registry-1.docker.io.
+    "Network access is granted per host, not per operation" — allowed host accepts git push
+    and package publishing. Archive != delete; archived env still serves existing sessions.
+  * web_fetch URL PROVENANCE (10-07). Only URLs ALREADY IN SESSION: user message text,
+    web_search result, or an earlier web_fetch page. NOT qualifying: Claude's own output,
+    system prompt, attached document, bash/read/MCP TOOL OUTPUT. Error result to agent =
+    `url_not_in_prior_context`. Anthropic states purpose = reduce exfiltration.
+    LAUNDERING PATH: get the URL into the text of a user.message event.
+    Also 10-07: under `limited`, allowed_hosts now gates SERVER-SIDE web_search/web_fetch;
+    empty allowed_hosts => neither tool returns anything; 400 when a tool's allowed_domains
+    entry is not within allowed_hosts; host match exact unless entry starts with `*.`.
+  * BROWSER-USE + COMPUTER-USE SDK TOOLSETS (10-07, beta, Python+TS). Subclass a class,
+    one method per member tool (navigate, left_click) against YOUR OWN browser/desktop
+    automation. SDK runs the loop, the policies you pass, the approval callback, builds
+    tool_result. SDK ships NO browser, NO desktop, NO driver, NO URL POLICY. Reference CDP
+    impl is in claude-quickstarts, labelled not production code. => enforcement point is
+    customer-written code on a local host; unreadable from the Anthropic API.
+  * COMPLIANCE API now returns UNIFIED CLAUDE EXPERIENCE chats (10-08). Beta, Enterprise
+    orgs, EXISTING Compliance Access Key, no new credential. Same pattern as the 09-26
+    office_agents local-sessions expansion. Each expansion redraws the blind-spot map.
+NOT REPORTED (held below bar): Claude Haiku 5.5 (claude-haiku-5-5, 1M ctx, 128k out, adaptive
+  thinking, on Bedrock+Vertex+Foundry — MODEL-INVENTORY WATCHLIST ITEM); Sonnet 5.5 cache-read
+  price cut $0.20->$0.10/M; Max/Team monthly API credits; capabilities.server_tools.
+
+=== AWS AGENTCORE === (2 findings — backlog CLOSED)
+release-notes: NO new October heading. Still only "Gateway: Private certificate authority
+  support for targets" (reported 10-06). September headings unchanged.
+data-plane API: not re-fetched; was byte-identical at 68 ops on 10-06.
+REPORTED:
+  * harness-versioning.html — auto-versioning. V1 at create; EVERY UPDATE = a NEW IMMUTABLE
+    version with a COMPLETE SELF-CONTAINED config (model, system prompt, tools, memory,
+    limits, environment). ENDPOINTS pin an env to a version. DEFAULT auto-advances;
+    NAMED ENDPOINTS DO NOT and must be updated explicitly. AWS's own table shows harness at
+    V3 while PROD still serves V2 — intended behavior. => GetHarness returns the LATEST
+    config, NOT what production executes. A tool/guardrail REMOVED stays live on pinned
+    endpoints. 6 new ops: Create/Update/Get/DeleteHarnessEndpoint, ListHarnessVersions,
+    ListHarnessEndpoints. Endpoint states: CREATING, CREATE_FAILED, READY, UPDATING,
+    UPDATE_FAILED (a stuck UPDATE_FAILED = a remediation believed applied that never took).
+  * harness-models.html#harness-model-guardrails — BEDROCK GUARDRAILS ONLY WORK WITH
+    apiFormat=converse_stream. Passed as guardrailConfig inside bedrockModelConfig.
+    additionalParams. apiFormat=responses|chat_completions route to bedrock-mantle instead
+    and the guardrail is INERT. apiFormat IS OVERRIDABLE PER INVOCATION (alongside modelId,
+    tools, systemPrompt, maxIterations, maxTokens, timeout, skills, allowedTools, actorId).
+    => guardrail enforcement depends on a per-request routing field. stop reason
+    `guardrail_intervened` simply never appears. Compounds the UNVALIDATED additionalParams
+    passthrough reported 09-24/09-28.
+BACKLOG CORRECTION: harness-environment + harness-skills were AUDITED 2026-09-25 (filesystem
+  mounts, InvokeAgentRuntimeCommand root shell, four skill source types). The carried backlog
+  list was stale. Nothing re-reported from them.
+HARNESS BACKLOG: CLOSED. Re-walk the tree periodically for NEWLY ADDED pages.
+aws_q_*: not fetched. Dead 18+ scans. RETIREMENT RECOMMENDED.
+
+=== NO CHANGE ===
+OPENAI developers.openai.com/api/docs/changelog literal Oct list: 10-07 chat-latest snapshot
+  update (POINTER MOVE, not a surface); 10-06 Decisions API beta w/ gpt-6-luna (reported);
+  10-06 usage tiers 5->3; 10-05 HIPAA BAA flow. No new surface.
+COPILOT STUDIO whats-new ms.date 2026-10-05, updated_at 2026-10-06. September block = 6 items,
+  ALL reported 10-06 (extract node, Copilot node, GitHub-harness model dropdown, content
+  safety test method, attach files GA Excel/PPT/Word, Dataverse tables knowledge).
+CURSOR changelog: newest is still 10-06 Remote Control for Local Agents (reported). Then
+  09-23 Rollouts/Security Review, 09-10 Projects, 08-27 start-without-repo.
+PERPLEXITY changelog: October set unchanged — Decisions API, native document input,
+  image_search, sandbox extraction usage, Fast Search presets. All reported 10-06.
+GEMINI ENTERPRISE (docs.cloud.google.com/gemini/enterprise/docs/release-notes) Oct list:
+  10-07 pay-as-you-go above quota for Frontline/EDU/Emerging Market (BILLING, not a surface);
+  10-06 Antigravity Boost/Teamwork admin controls (reported 10-07); 10-02 federated query
+  mode; 10-01 Gemini 2.5 Pro regional removal + admin toggle. NOTE: cloud.google.com 301s
+  to docs.cloud.google.com — sources.json still carries the stale host.
+FOUNDRY whats-new: STILL August 2026 edition (ms.date 2026-09-01, updated_at 2026-09-09).
+  FIFTH consecutive scan frozen. All New articles reported 2026-08-09.
+Not fetched this scan: Salesforce, ServiceNow, Windsurf, Dia, Power Platform, Power Pages,
+  M365 Copilot, Azure OpenAI, Graph.
