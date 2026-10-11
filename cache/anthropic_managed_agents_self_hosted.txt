@@ -1,0 +1,61 @@
+# Anthropic Managed Agents — self-hosted sandboxes + security model (literal)
+# Captured 2026-10-11 from
+#   https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes
+#   https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-security
+
+CREATE: POST /v1/environments  {"name":"...","config":{"type":"self_hosted"}}
+  beta header: managed-agents-2026-04-01
+  CLI: ant apply environment.yaml   (schema platform.claude.com/schemas/ant/beta/environment.json)
+
+MODEL: the environment is a WORK QUEUE. Anthropic keeps orchestration; the customer runs an
+ENVIRONMENT WORKER that claims work items, downloads the agent's skills + the session's memory
+stores, executes each tool call locally, and posts results back. Tool inputs AND OUTPUTS still
+flow to Anthropic's control plane.
+
+NEW CREDENTIAL TYPES:
+  ANTHROPIC_ENVIRONMENT_KEY  (sk-ant-oat01-...)  authenticates the worker to its queue.
+      CONSOLE-ONLY issuance, even for an API-created environment.
+      Scoped to ONE environment's work queue. Revocation validated on every request.
+  per-work-item `secret`  — the ONLY credential the memory-store endpoints accept
+      (they reject the environment key). Must not be logged or shared across sandboxes.
+
+CLAUDE PLATFORM ON AWS: worker authenticates with IAM SigV4 (or a Console-generated AWS API key),
+  managed policy `AnthropicSelfHostedEnvironmentAccess`. Claude Console environment keys DO NOT
+  work against that endpoint.
+
+WORKER: `ant beta:worker poll --workdir /workspace` (workdir defaults to cwd; system default
+  /workspace). Needs /bin/bash at that exact path and outbound HTTPS only.
+  Stats: `ant beta:environments:work stats --environment-id ...` -> workers_polling
+  If no worker is connected the session STAYS QUEUED rather than failing.
+
+SESSION RESOURCES: memory_store ONLY. A `file` or `github_repository` resource => 400
+  "Environment env_... is a self-hosted environment. `resources` are not supported with
+   self-hosted environments." Same rule applies to scheduled deployments.
+
+VENDOR WORKER BUILDS: AWS Lambda MicroVMs, Blaxel, Cloudflare, Daytona, E2B, Fly.io,
+  GKE Agent Sandbox, Modal, Namespace, Superserve, Vercel.
+
+INDEPENDENT OF MCP TUNNELS (self-hosting = where code runs; tunnels = how Anthropic reaches
+  private MCP servers). Either combination is valid.
+
+SECURITY MODEL — customer owns:
+  sandbox image quality + runtime hardening (Anthropic does NOT inspect or verify the image)
+  network egress controls (customer VPC/firewall only)
+  environment service key storage + rotation
+  isolating untrusted workloads (one workspace+environment per trust boundary)
+  per-session `secret` handling
+  tool-execution blast radius
+  log retention + session content
+  memory store local copies under /mnt/memory/
+
+*** read_only MEMORY STORES: "protected from upload, not from local modification."
+    worker write/edit tools refuse; memory-store endpoints reject writes with the session secret;
+    BUT bash, custom tools and sandbox-served MCP servers run with the worker's permissions and
+    CAN rewrite the local copy. Later tool calls in that session read the changed copy.
+    Documented mitigation: disable bash for that agent + give no filesystem-writing custom tool.
+*** A worker that exits WITHOUT running teardown LEAVES THE MEMORY COPY ON DISK.
+
+"What Anthropic cannot do for you": know that your key leaked; verify your worker build
+  (supply-chain compromise in the image is NOT detectable from the control plane); isolate tools
+  inside your sandbox; enforce data retention in your environment ("once session content reaches
+  your worker, it is outside Anthropic's data lifecycle controls").

@@ -1,0 +1,117 @@
+Scan 2026-10-11 — source state snapshot (for next-scan diffing)
+Previous scan: 2026-10-08 (3-day delta). 5 findings, 1 platform.
+
+*** HEADLINE: THE ANTHROPIC MANAGED AGENTS TREE IS THE REAL THING. 6 pages opened this scan,
+    5 findings, no nulls. Running record 8 pages / 7 findings. IT IS NOT CLOSED — 13 pages
+    still unaudited (list at the bottom). SWEEP IT AGAIN NEXT SCAN.
+    Only ONE of the five findings appeared in a release note (dynamic workflows, 10-09).
+    The other four live only on subpages. Same shape as the AgentCore harness tree.
+
+*** DISCIPLINE NOTE: grepping reports/ before calling anything a gap killed SIX would-be
+    findings this scan (Copilot Studio Sept block, OpenAI Decisions API + Ultrafast,
+    Gemini federated query + Antigravity, Perplexity image_search/decider, Cursor Remote
+    Control). Every one of them looked new on the page. KEEP DOING THIS FIRST.
+
+=== ANTHROPIC === (5 findings)
+release-notes/api literal list since 10-08:
+  10-09: dynamic workflows for Managed Agents (beta, managed-agents-2026-04-01). Set agent's
+         multiagent field to {"type":"multiagent_20261001","workflows":{"type":"enabled"}}.
+         Follow via workflow_run.* events. Links to new page /managed-agents/workflow-runs.
+  10-08: Compliance API returns unified-Claude-experience chats (REPORTED 10-08);
+         Compliance API can download Claude Docs documents as WORD files (held below bar).
+news Oct list: 10-08 2026 Usage Policy update / American scientific discovery / Anthropic
+  Cyber Mission; 10-06 Cyber Verification Program; 10-02 $100M engineers; 10-01 Barclays.
+  (All policy/PR — none reportable.)
+REPORTED:
+  * DYNAMIC WORKFLOWS + WORKFLOW RUNS. Agent AUTHORS A PROGRAM; Anthropic's server runs it in
+    the BACKGROUND. New entity: workflow run. States running/idle/ended. result types:
+    completed, stopped, program_error, thread_limit_error, timeout_error, unknown_error.
+    Events: workflow_run.created (carries name + phases), .status_running, .phase_started,
+    .status_ended. NO API STARTS A RUN (model judgment from user.message text) and NO API
+    STOPS ONE — documented stop procedure is "send a user.message asking the agent to stop
+    its runs"; archiving the session also ends runs. Anthropic states permission policies
+    "apply to the tools that a run's agents call, NOT to starting the run."
+    RUN THREADS ARE EXEMPT FROM THE SESSION CHILD-THREAD LIMIT.
+    Budget pause: a paused run does NOT keep the session running -> session goes idle with
+    budget_reached while the run is still open; the run's LIFETIME KEEPS PASSING while paused,
+    so it can die with timeout_error mid-pause.
+  * INLINE AGENTS ON BY DEFAULT. multiagent_20261001: subagents AND workflows both enabled by
+    default; subagents.predefined_agents and workflows.predefined_agents BOTH EMPTY by default;
+    inline_agents enabled under both. Agent/workflow defines agents at runtime AND WRITES THEIR
+    SYSTEM PROMPTS. "You can't limit an inline agent" to declared MCP servers. Only scoping:
+    inline_agents {"type":"disabled"} under BOTH + >=1 predefined agent in each (empty list =>
+    400). Sending null to `workflows` TURNS IT ON (default is enabled) — watch for that.
+    Two lists are separate; up to 20 agents each. An agent that itself has `multiagent` set
+    cannot be listed as another agent's subagent. {"type":"self"} allowed.
+  * SELF-HOSTED SANDBOX ENVIRONMENTS. config {"type":"self_hosted"} on POST /v1/environments.
+    Environment = WORK QUEUE. Customer runs an ENVIRONMENT WORKER (ant CLI `ant beta:worker poll`,
+    + Python/TS/Go SDK workers). NEW CREDENTIAL TYPE: environment key ANTHROPIC_ENVIRONMENT_KEY
+    (sk-ant-oat01-...), CONSOLE-ONLY issuance even for API-created envs. Plus a PER-WORK-ITEM
+    `secret` which is the ONLY credential the memory-store endpoints accept (env key rejected).
+    Claude Platform on AWS: worker uses SigV4 + managed policy AnthropicSelfHostedEnvironmentAccess;
+    Console environment keys DO NOT WORK against that endpoint.
+    Session resources: memory_store ONLY. file / github_repository => 400.
+    Vendor worker builds: AWS Lambda MicroVMs, Blaxel, Cloudflare, Daytona, E2B, Fly.io,
+    GKE Agent Sandbox, Modal, Namespace, Superserve, Vercel.
+    Independent of MCP tunnels. Tool inputs AND OUTPUTS still flow to Anthropic's control plane.
+  * read_only MEMORY STORES ARE WRITABLE LOCALLY. "protected from upload, not from local
+    modification." worker write/edit refuse; endpoints reject writes with the session secret;
+    BUT bash, custom tools and sandbox-served MCP servers run with the worker's permissions and
+    CAN rewrite /mnt/memory/. Later tool calls that session read the changed copy. Documented
+    mitigation = disable bash + no filesystem-writing custom tool. Self-poisoning with no trace
+    in the authoritative store. Pairs with the AgentCore IngestData silent-write gap.
+    ALSO: a worker that exits without teardown LEAVES THE MEMORY COPY BEHIND on disk.
+  * `auto` PERMISSION POLICY. Third type beside always_allow / always_ask. Server evaluates EACH
+    call against tool + input + session content so far => allow / ask / deny. Denied: agent gets
+    `Permission to use {tool_name} has been denied.` with is_error:true, session keeps running,
+    CLIENT CANNOT OVERRIDE (user.tool_confirmation on a denied call => 400).
+    Event field evaluated_permission + nested evaluation.evaluated_permission with reason_code
+    (high_risk, indeterminate). Anthropic: reason_code is "a value for your client to branch on
+    and keep in audit records."
+    *** DEFAULTS: agent toolset = always_allow. MCP toolsets = always_ask. ***
+    Per-tool overrides exist (`name` + policy). Custom tools are NOT governed at all.
+    Running sessions keep the toolset config they were created with; updates apply to new sessions.
+NOT REPORTED: advisor formalized as multiagent.advisor {"type":"enabled","model":...}, disabled
+  by default — the advisor TOOL was already reported 2026-09-17, this is just its config surface.
+  Compliance API Word export of Claude Docs. Usage Policy / Cyber Mission posts.
+
+=== EVERYTHING ELSE: NO DELTA ===
+AgentCore data-plane API: BYTE-IDENTICAL at 67 ops vs cache/aws_agentcore_api.txt (captured
+  09-21). Payment*, ABTest*, Recommendation* families all already present — do NOT re-flag them.
+AgentCore release-notes: October still ONLY "Gateway: Private certificate authority support for
+  targets" (reported 10-06). September headings unchanged.
+Bedrock doc-history: Oct 6 Kimi K3 India CRIS (in.moonshotai.kimi-k3); Sep 29 GPT-6.1 Sol model
+  card. Model availability only.
+Copilot Studio whats-new: ms.date 2026-10-05 but NO October section — tops out at September
+  (extract node, Copilot node preview, GitHub-Copilot-harness model dropdown, content safety test
+  method, file attachments GA, Dataverse tables knowledge). ALL reported 10-06.
+OpenAI developers.openai.com/api/docs/changelog: 10-08 Ultrafast service_tier for gpt-6.1-sol;
+  10-07 chat-latest refresh; 10-06 Decisions API beta (gpt-6-luna, v1/decisions) + usage tiers
+  cut 5->3 (Build/Launch/Grow); 10-05 HIPAA self-serve BAA. Decisions API reported 10-06.
+Gemini Enterprise release-notes: 10-08 Gemini 3.8 Flash Singapore + Claude Opus 5.5/Sonnet 5.5 in
+  AI developer tools; 10-07 PAYG above quota for Frontline/EDU/Emerging; 10-06 Antigravity
+  Boost+Teamwork access control (reported 10-07); 10-02 federated query mode (reported 10-06).
+Perplexity changelog: Haiku 5.5 on Agent API; pplx-decider-v1.1-27b; Decisions API; native
+  document input; image_search tool; sandbox extraction costs; Fast Search presets. ALL reported
+  10-06/10-08.
+Cursor changelog: latest is Oct 6 Remote Control for local agents — reported 10-07.
+Devin Desktop (ex-Windsurf, 308 redirect): no October release; latest v3.10.48 2026-09-29.
+Amazon Q Business doc-history: still frozen at 2025-08-14. Only 2026 entries are the shutdown.
+Azure Foundry whats-new: renders but FROZEN AT AUGUST 2026 (ms.date 2026-09-01). Two alternate
+  URL spellings 404. Known ~6-week lag — keep reading it as a pointer index.
+Graph changelog: nav chrome only, no entries. 13th consecutive failure.
+investor.salesforce.com/news/: client-rendered year filter, returned NO headlines. The Aug-26
+  recovery path is NO LONGER RELIABLE — update the memory note.
+
+=== MANAGED AGENTS BACKLOG (re-derived from reports/, not carried) ===
+AUDITED: environments, tools-web-restrictions (10-08); permission-policies,
+  self-hosted-sandboxes, self-hosted-sandboxes-security, multiagent-orchestration,
+  events-and-streaming, workflow-runs (10-11).
+UNAUDITED (sweep next): cloud-sandboxes-reference, self-hosted-sandboxes-workers,
+  self-hosted-sandboxes-memory, self-hosted-sandboxes-custom-tools, self-hosted-sandboxes-reference,
+  self-hosted-sandboxes-operations, memory, skills, scheduled-deployments, session-threads,
+  webhooks, sessions, reference (FULL EVENT-TYPE CATALOG — highest value of the remainder),
+  agent-setup, mcp-connector, mcp-tunnels/overview.
+NOTE: events-and-streaming points at /managed-agents/reference#event-types for the full catalog
+  and warns that WEBHOOK event names DIFFER from stream names (session.status_idled vs
+  session.status_idle). Both catalogs need capturing as literal lists.

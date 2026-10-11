@@ -1,0 +1,44 @@
+# Anthropic Managed Agents — multiagent orchestration + workflow runs (literal config facts)
+# Captured 2026-10-11 from
+#   https://platform.claude.com/docs/en/managed-agents/multiagent-orchestration
+#   https://platform.claude.com/docs/en/managed-agents/workflow-runs
+# NOTE: store LITERAL field names / defaults / event names here, never a prose summary.
+
+multiagent.type = "multiagent_20261001"   (supersedes the older "coordinator" type)
+
+DEFAULTS under multiagent_20261001:
+  subagents                      enabled
+  subagents.predefined_agents    []          (empty)
+  subagents.inline_agents        enabled
+  workflows                      enabled
+  workflows.predefined_agents    []          (empty)
+  workflows.inline_agents        enabled
+  advisor                        disabled    ({"type":"enabled","model":"<id>"} to turn on)
+
+RULES:
+  - sending null to `workflows` or `subagents` TURNS IT ON (default is enabled)
+  - inline_agents {"type":"disabled"} requires >=1 entry in that list's predefined_agents, else 400
+  - the two predefined_agents lists are SEPARATE; up to 20 unique agents EACH
+  - an agent that itself has `multiagent` set cannot be listed in another agent's lists
+  - {"type":"self"} lists the agent itself; reads back as its own id + version
+  - "You can't limit an inline agent" to a declared set of MCP servers
+  - with a `limited` environment, session create 400s if the agent or any listed agent declares
+    an MCP server host not in allowed_hosts; environment networking allow_mcp_servers:true
+    turns that check off
+
+WORKFLOW RUN
+  started by: model judgment from user.message text. NO API CALL.
+  stopped by: asking the agent in a user.message; or archiving the session. NO API CALL.
+  permission policies apply to a run's agents' TOOLS, not to starting the run.
+  run threads are EXEMPT from the session child-thread limit.
+  a paused run does not keep the session running; its lifetime keeps passing while paused.
+
+  states:  running | idle | ended
+  result types: completed | stopped | program_error | thread_limit_error | timeout_error
+                | unknown_error
+
+  event types (session event stream):
+    workflow_run.created          (carries run name + `phases`)
+    workflow_run.status_running
+    workflow_run.phase_started
+    workflow_run.status_ended     (carries `result`)

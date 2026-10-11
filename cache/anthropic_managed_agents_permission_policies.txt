@@ -1,0 +1,30 @@
+# Anthropic Managed Agents — permission policies (literal)
+# Captured 2026-10-11 from https://platform.claude.com/docs/en/managed-agents/permission-policies
+
+POLICY TYPES:
+  always_allow  tool executes automatically, no confirmation
+  always_ask    session pauses, waits for client approval
+  auto          server evaluates EACH call -> runs it, denies it, or pauses for approval
+
+DEFAULTS PER TOOLSET KIND:
+  agent_toolset_20260401   always_allow     <-- built-in tools incl. bash run ungated by default
+  MCP toolsets             always_ask
+
+SET AT: agent `tools[].default_config.permission_policy`
+PER-TOOL OVERRIDE: tools[].configs[] with `name` (MCP: the tool name the MCP server reports)
+NOT GOVERNED: custom tools (executed by the customer's application)
+
+SCOPE: running sessions keep the toolset config they were created with; updates apply only to
+sessions created afterward.
+
+`auto` OUTCOMES on the event stream:
+  {"type":"auto","evaluated_permission":{"type":"allow"}}                               -> "allow"
+  {"type":"auto","evaluated_permission":{"type":"ask","reason_code":"indeterminate"}}   -> "ask"
+  {"type":"auto","evaluated_permission":{"type":"deny","reason_code":"high_risk"}}      -> "deny"
+
+DENIAL: agent receives tool_result content `Permission to use {tool_name} has been denied.`
+with is_error:true. Session keeps running. CLIENT CANNOT OVERRIDE — sending
+user.tool_confirmation for an event whose evaluated_permission is not `ask` returns 400.
+
+Anthropic on reason_code: "a value for your client to branch on and keep in audit records,
+not text to display to end users."

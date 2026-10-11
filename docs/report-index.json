@@ -1,5 +1,67 @@
 [
   {
+    "date": "2026-10-11",
+    "scan_time": "2026-10-11 12:38",
+    "file": "report-2026-10-11.md",
+    "platforms": [
+      {
+        "name": "Claude Enterprise (Anthropic)",
+        "status": "changed",
+        "details": [
+          "**Dynamic workflows and `workflow_run` as a resource type** (2026-10-09, beta,",
+          "**No start and no stop API for a run.** \"Only the agent starts a run. No event you send ends one;",
+          "**Inline agents are enabled by default** under both `subagents` and `workflows` \u2014 the agent (or a",
+          "**Self-hosted sandbox environments** \u2014 `{\"config\": {\"type\": \"self_hosted\"}}` on",
+          "**`read_only` memory stores are not read-only inside a self-hosted sandbox.** \"A store attached",
+          "**`auto` permission policy \u2014 server-side per-call evaluation.** A third policy type alongside"
+        ],
+        "tier": "primary"
+      }
+    ],
+    "findings": [
+      {
+        "severity": "HIGH",
+        "title": "Anthropic Managed Agents dynamic workflows and workflow runs",
+        "description": "An agent can now author a *program* that the Anthropic server executes in the background, spawning an unbounded set of agent threads across phases. Enabled with `multiagent: {\"type\": \"multiagent_20261001\", \"workflows\": {\"type\": \"enabled\"}}` \u2014 and with that type, **`workflows` and `subagents` are both on by default**. This introduces a new inventory entity, the **workflow run** (states running / idle / ended; `result` types `completed`, `stopped`, `program_error`, `thread_limit_error`, `timeout_error`), plus the run's **phases** and its per-agent **session threads**, which are explicitly *exempt from the session's child-thread limit*. The run is started by model judgment from the text of a `user.message`, with no API call, and Anthropic states that permission policies \"apply to the tools that a run's agents call, not to starting the run\" \u2014 so no approval gate exists on the run itself. AISPM must inventory `multiagent` configuration per agent, enumerate open workflow runs, and flag `multiagent_20261001` agents whose `workflows` setting was never explicitly disabled, since `null` reads as enabled",
+        "source": "https://platform.claude.com/docs/en/managed-agents/workflow-runs",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Inline agents are enabled by default \u2014 the agent writes its own subagents' system prompts",
+        "description": "Under `multiagent_20261001`, both `subagents.inline_agents` and `workflows.inline_agents` default to enabled while `subagents.predefined_agents` and `workflows.predefined_agents` are both **empty by default**. The practical result is that an agent \u2014 or a workflow program the agent wrote \u2014 defines agents at runtime and authors a system prompt for each, with no operator-reviewed definition anywhere. Anthropic states plainly that \"you can't limit an inline agent\" to a declared set of MCP servers; the only scoping available is setting `inline_agents` to `{\"type\": \"disabled\"}` under *both* settings and listing at least one predefined agent in each. This is a prompt-injection amplifier: content the primary agent read can determine both the existence and the instructions of agents that then run tools. AIRT needs inline-agent definition as an injection target, and AISPM needs \"inline agents enabled with an empty predefined list\" as a toxic-combination rule",
+        "source": "https://platform.claude.com/docs/en/managed-agents/multiagent-orchestration#predefined-and-inline-agents",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Self-hosted sandbox environments, environment workers and environment keys",
+        "description": "`POST /v1/environments` with `{\"config\": {\"type\": \"self_hosted\"}}` creates an environment that acts as a **work queue** rather than an Anthropic-run sandbox. A customer-operated **environment worker** (shipped in the `ant` CLI and the Python/TypeScript/Go SDKs, with vendor builds from AWS Lambda MicroVMs, Cloudflare, Daytona, E2B, Fly.io, GKE Agent Sandbox, Modal, Namespace, Superserve, Vercel and Blaxel) claims work items and executes every tool call on customer infrastructure. Three new things to inventory: the `self_hosted` environment, the worker fleet (`workers_polling` is readable via `ant beta:environments:work stats`), and a **new credential type \u2014 the environment key** (`ANTHROPIC_ENVIRONMENT_KEY`, issuable only in the Console even for API-created environments), plus a per-work-item `secret` that is the only credential accepted by the memory-store endpoints. Anthropic states its security boundary stops at the sandbox: \"Anthropic does not inspect your sandbox image or runtime,\" egress is entirely the customer's VPC policy, and \"once session content reaches your worker, it is outside Anthropic's data lifecycle controls.\" On Claude Platform on AWS the worker instead authenticates with SigV4 under the `AnthropicSelfHostedEnvironmentAccess` managed policy \u2014 an IAM principal that must be inventoried as an agent-execution identity",
+        "source": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes",
+        "module": "AISPM",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "`read_only` memory stores are writable from inside a self-hosted sandbox",
+        "description": "Anthropic documents that a memory store attached with `read_only` access \"is protected from upload, not from local modification.\" The worker's `write` and `edit` tools refuse it and the memory-store endpoints reject writes made with the session `secret` \u2014 but the agent's own `bash` tool, any custom tool, and any MCP server served from the sandbox run with the worker's permissions and can rewrite the local copy under `/mnt/memory/`. Later tool calls in that session then read the modified copy. The documented mitigation is to disable `bash` entirely and grant no filesystem-writing custom tool. This is a self-poisoning path for agent memory that leaves no trace in the authoritative store, and it sits directly alongside the AgentCore `IngestData` silent-memory-write gap. AIRT should treat in-session mutation of a nominally read-only memory store as a test case; AISPM should flag any agent that holds both a `read_only` memory store and an enabled `bash` tool",
+        "source": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-security",
+        "module": "AIRT",
+        "action": "New Coverage Required"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "`auto` permission policy \u2014 a server-side per-call tool evaluator emitting a new decision record",
+        "description": "A third permission policy type joins `always_allow` and `always_ask`. Under `auto`, Anthropic's server evaluates every server-executed tool call against the tool, the call's input, and the session's content up to that point, then allows it, pauses it for approval, or denies it outright \u2014 and \"your client cannot override the denial\" (a `user.tool_confirmation` against a denied call returns 400). Each decision lands on the session event stream as an `evaluated_permission` with a machine-readable `reason_code` (`high_risk`, `indeterminate`), which Anthropic explicitly describes as \"a value for your client to branch on and keep in audit records.\" That is a new, high-fidelity detection surface AIDR should ingest as an activity type: server-side risk verdicts on individual agent tool calls, including denials the customer never saw requested. The inventory half matters too \u2014 **the agent toolset still defaults to `always_allow`** while MCP toolsets default to `always_ask`, so any agent left on defaults runs its built-in tools, including `bash`, with no evaluation at all",
+        "source": "https://platform.claude.com/docs/en/managed-agents/permission-policies",
+        "module": "AIDR",
+        "action": "New Coverage Required"
+      }
+    ]
+  },
+  {
     "date": "2026-10-08",
     "scan_time": "2026-10-08 13:04",
     "file": "report-2026-10-08.md",
@@ -332,76 +394,6 @@
         "title": "Perplexity Decisions API and Agent API document/image tooling",
         "description": "Perplexity shipped a **Decisions API** at `POST https://api.perplexity.ai/v1/decisions`, powered by a dedicated model (`pplx-decider-v1-27b`) that returns a **probability distribution over a fixed answer set** instead of generated text \u2014 supporting yes/no, pick-one-of-N, and rubric-score question types over text, JSON or images. This is the second vendor in two scans to ship a constrained-decision endpoint (OpenAI's Decisions API was reported 2026-10-01), confirming a **cross-vendor pattern: model-driven control flow that routes an agent's next action and produces no inspectable text output to monitor**. Alongside it, the Agent API gained **native document ingestion** (`input_file` accepting PDF/DOC/DOCX/TXT/RTF, inline or by public HTTPS URL \u2014 note that a public URL means Perplexity fetches the document server-side) and a new **`image_search`** tool. AISPM should add the decisions endpoint and the new Agent API tools to the Perplexity inventory and treat decision calls as unmonitored control-flow points; AIDR needs the document-ingestion path as a data-egress activity type",
         "source": "https://docs.perplexity.ai/docs/decisions/quickstart",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      }
-    ]
-  },
-  {
-    "date": "2026-10-01",
-    "scan_time": "2026-10-01 08:27",
-    "file": "report-2026-10-01.md",
-    "platforms": [
-      {
-        "name": "ChatGPT Enterprise (OpenAI) \u2014 primary",
-        "status": "changed",
-        "details": [
-          "**Agents API** \u2014 a managed agent runtime distinct from the Responses API. Object model is **Agent** (model, instructions, tools, MCP servers), **Environment** (sandbox), **Session** (durable, server-retained state across turns) and **Events/items**. Sessions are created at `POST https://api.openai.com/v1/agents/sessions` behind the `OpenAI-Beta: agents=v1` header. Supports **subagent delegation** (up to 4 concurrent in documented examples), MCP servers over HTTP transport, web search, code execution, file editing and command execution. OpenAI manages orchestration, context compaction and recovery. US-only data residency; **Zero Data Retention is not supported, even with self-hosted sandboxes**. Entered public beta 2026-09-10 and was not caught by prior scans. Source: https://developers.openai.com/api/docs/guides/agents-api/overview",
-          "**Computer use in the Agents API** (2026-09-29) \u2014 agents drive a browser in an **OpenAI-hosted environment**, with per-origin approval and in-band credential collection. Source: https://developers.openai.com/api/docs/changelog",
-          "**Dots** (2026-09-29) \u2014 always-on autonomous agents in ChatGPT, powered by GPT-6 Astra. Each dot has **its own cloud computer and browser**, runs while the user is offline, reaches 4,000+ apps through plugins, and delegates to background subagents. Off by default; enabled per workspace by an administrator. Source: https://learn.chatgpt.com/docs/dots",
-          "**Local computer access for dots and Work Cloud** \u2014 a cloud-orchestrated agent executing on the user's own machine, gated by a new **Agent Security** admin surface. Source: https://learn.chatgpt.com/docs/enterprise/cloud-local-access",
-          "**ChatGPT Space** (2026-09-29) \u2014 collaborative pages where agents are invoked inline, in comments and via slash commands. New entity set: Spaces, Members, Agents, Connectors, Files. Source: https://learn.chatgpt.com/docs/space/agents",
-          "**Decisions API** (2026-09-29) \u2014 a new constrained-output decision endpoint backed by GPT-6 Luna; limited preview, GA announced on the OpenAI API and Microsoft Foundry. Source: https://openai.com/index/devday-2026-recap/"
-        ],
-        "tier": "primary"
-      }
-    ],
-    "findings": [
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Agents API \u2014 a managed agent runtime with server-held sessions, sandbox environments and subagents",
-        "description": "OpenAI now runs the agent loop itself rather than leaving orchestration to the customer's code. Four new entity types enter the inventory \u2014 **Agent** (model + instructions + tools + attached MCP servers), **Environment** (an execution sandbox, OpenAI-hosted or self-hosted), **Session** (a *durable* agent instance whose conversation state, compaction and recovery are retained server-side by OpenAI), and **Events/items**. Agents may attach arbitrary **remote MCP servers over HTTP**, run **code execution, file editing and shell commands** inside the environment, and **delegate to subagents**, so one inventoried agent can fan out into a tree of executions the customer never registered. Two properties make this materially riskier than the Responses API surface Zenity already maps: session state is a **new OpenAI-side data store** that holds full conversation history, and **Zero Data Retention is not supported at all \u2014 even when the customer supplies their own sandbox**, so ZDR-contracted enterprises silently lose that guarantee the moment a team adopts the Agents API. Data residency is US-only. This went to public beta on 2026-09-10 and was missed for three weeks. AISPM must discover Agents, Environments and Sessions as first-class resources, enumerate each agent's MCP server attachments and tool grants, and flag ZDR-contracted tenants with Agents API usage",
-        "source": "https://developers.openai.com/api/docs/guides/agents-api/overview",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Computer use in the Agents API \u2014 end-user passwords and verification codes are submitted into an OpenAI-hosted browser, and approval is per-origin, not per-action",
-        "description": "The Agents API now runs a full browser inside an OpenAI-controlled environment. Two documented properties are direct attack surface. First, **approval granularity is the origin, not the action**: a `computer_use_approval_request` of type `browser_origin_access` is raised once per new origin, and OpenAI's own documentation states that origin approval \"does not enforce confirmation before individual actions\" \u2014 so a single approval of a trusted domain authorises every subsequent purchase, deletion or data export the agent performs there, which is precisely the payoff an indirect prompt injection on that page is reaching for. Second, **the credential path is in-band**: for authenticated tasks the hosted browser raises a `browser_authentication` request and the application collects the user's email, password and verification codes and submits them through the **session events endpoint** \u2014 live human credentials and OTPs flowing into an OpenAI-hosted browser session. Passkeys and QR sign-in are not supported, which pushes tenants toward the weaker shared-secret path. Screenshots of authenticated pages are returned to the application and OpenAI warns they must be kept out of logs. AIRT should build injection and over-approval scenarios against origin-scoped consent; AISPM should inventory which agents carry the `computer_use` tool with the `openai_hosted` environment and treat them as credential-handling systems",
-        "source": "https://developers.openai.com/api/docs/guides/agents-api/tools/computer-use",
-        "module": "AIRT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "OpenAI Dots \u2014 always-on autonomous agents with their own cloud computer, 4,000+ app reach and background subagents",
-        "description": "Dots, announced at DevDay on 2026-09-29, are persistent agents that **keep working after the user logs off**. Each dot is powered by GPT-6 Astra and is provisioned with **its own cloud computer and browser**, can act across **4,000+ apps via plugins already connected to the account**, and spawns **background subagents** to run tasks in parallel. Governance is a layered custom-rules model \u2014 read-only background research, four levels of Custom Rules, mandatory human takeover for passwords and money transfers, and an automatic pre-action auto-review \u2014 all of which are **per-dot configuration that an enterprise has no inventory of today**. Dots are off by default and enabled by a workspace administrator, which makes enablement state itself a posture signal. This is a new non-human identity class on the OpenAI surface: long-lived, self-directed, inheriting the user's full connector grants, and executing with no human in the session. AISPM must inventory dots per workspace, their Custom Rules level, their enabled plugin/connector reach, and flag dots whose inherited connector scope exceeds their owner's need; AIDR needs dot activity as a distinct, user-absent activity type",
-        "source": "https://learn.chatgpt.com/docs/dots",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "HIGH",
-        "title": "Local computer access for dots and Work Cloud \u2014 OpenAI-orchestrated agents executing on employee machines, with audit split across two incompatible pipelines",
-        "description": "A new **\"Allow local computer access\"** permission lets a cloud-orchestrated dot or Work task execute on the user's own machine: running local repositories and developer tools, driving **desktop applications and the local browser**, and implementing changes and builds against local files. This is a managed-endpoint agent, governed through a new **Agent Security** admin surface with a Global baseline and per-environment overrides (approval policies and web search mode are Global-only and cannot be overridden). It requires ChatGPT desktop 26.929+. The audit story has documented holes Zenity should treat as coverage requirements rather than assurances: **local execution telemetry only leaves via OpenTelemetry export to the customer's own collector**, while **cloud orchestration records go to the Compliance API** \u2014 the two never meet, and **cloud OTel events do not reach legacy collectors**. OpenAI further documents that **MCP hooks do not provide complete audit trails** and that callback failures (timeouts, malformed responses) **can occur without blocking the action**, i.e. the agent proceeds while the control plane is blind. A `enforce_residency` cloud policy disables the feature, and it is unavailable for FedRAMP, EKM and UAE-residency workspaces. ENDPOINT must detect the desktop local executor and its permission state; AIDR must correlate the OTel local stream against Compliance API cloud records to find actions that executed with no corresponding audit record",
-        "source": "https://learn.chatgpt.com/docs/enterprise/cloud-local-access",
-        "module": "ENDPOINT",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "ChatGPT Space \u2014 a collaborative document surface with embedded agents and connector reach",
-        "description": "Space introduces shared pages where agents are invoked inline (`@ChatGPT`, `@dot`), from comments, from a conversation sidebar and through slash commands. It brings a new entity set \u2014 **Spaces, Members (with differing permission levels), Agents including custom dots, Connectors, and Files** \u2014 and the agents available inside a Space inherit whatever tools the workspace has enabled. The security-relevant shape is a **multi-tenant collaborative container where an agent reads shared member content and reaches enterprise connectors**: content pasted into a Space by one member becomes agent-readable context for every agent invoked there, which is both a data-boundary question and an indirect prompt injection path. AISPM should inventory Spaces, their membership and permission levels, which agents and connectors are reachable from each, and flag Spaces whose connector reach crosses data-classification boundaries",
-        "source": "https://learn.chatgpt.com/docs/space/agents",
-        "module": "AISPM",
-        "action": "New Coverage Required"
-      },
-      {
-        "severity": "MEDIUM",
-        "title": "OpenAI Decisions API \u2014 a new constrained-choice endpoint that routes agent control flow",
-        "description": "The Decisions API, introduced at DevDay on 2026-09-29, lets an application hand a narrow repetitive choice to GPT-6 Luna: the caller supplies context as text or images plus a **fixed set of predefined answers**, and the model selects among them. It is explicitly positioned for classifying content, routing requests, and **choosing an agent's next action** \u2014 which makes it a control-flow component, not a content-generation one, and therefore an unmonitored decision point inside agent pipelines Zenity otherwise maps. It is distinct from Structured Outputs (which constrains response *shape*, not the answer set). Announced GA on the OpenAI API and **Microsoft Foundry**, currently limited preview with no public endpoint schema yet; AISPM should add it to the OpenAI API inventory now and revisit when the reference publishes, since a Foundry-side surface means it will also appear on a Microsoft primary-tier platform",
-        "source": "https://openai.com/index/devday-2026-recap/",
         "module": "AISPM",
         "action": "New Coverage Required"
       }
